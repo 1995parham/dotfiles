@@ -9,6 +9,9 @@ set number
 set ffs=unix,dos,unix
 set background=dark
 
+set modeline
+set modelines=5
+
 filetype plugin on
 filetype indent on
 
