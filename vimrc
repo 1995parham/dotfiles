@@ -1,6 +1,7 @@
 syntax on
 set t_Co=256
 colorscheme molokai
+#colorscheme cascadia
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
