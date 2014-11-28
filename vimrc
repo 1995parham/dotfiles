@@ -37,6 +37,13 @@ autocmd Bufwritepre,filewritepre *.h execute "normal ma"
 autocmd Bufwritepre,filewritepre *.h exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.h execute "normal `a"
 
+autocmd bufnewfile *.asm so /home/parham/.vim/header/c-header.txt
+autocmd bufnewfile *.asm exe "1, 10 " . "g/File Name :.*/s//File Name : " .expand("%")
+autocmd bufnewfile *.asm exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " .strftime("%d-%m-%Y")
+autocmd Bufwritepre,filewritepre *.asm execute "normal ma"
+autocmd Bufwritepre,filewritepre *.asm exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
+autocmd bufwritepost,filewritepost *.asm execute "normal `a"
+
 filetype plugin on
 filetype indent on
 
