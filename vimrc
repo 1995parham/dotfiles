@@ -1,21 +1,40 @@
 syntax on
 set t_Co=256
 
-colorscheme molokai
-colorscheme cascadia
+"colorscheme molokai
+"colorscheme cascadia
 colorscheme zenzike
 
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
+set ai " Auto indent
+set si " Smart indent
+set wrap " Wrap lines
 set smarttab
 set number
 set ffs=unix,dos,unix
 set background=dark
 
+" Use vim, not vi api
+set nocompatible
+
+" No backup files
+" set nobackup
+" No write backup
+" set nowritebackup
+" No swap file
+" set noswapfile
+" Always show cursor
+set ruler
+" Make sure any searches /searchPhrase doesn't need the \c escape character 
+set ignorecase
+" Ignore case in search
+set smartcase
+" Autoload files that have changed outside of vim
+set autoread
+
 set modeline
 set modelines=5
 
+" Command for automating file header creation.
 autocmd bufnewfile *.c so /home/parham/.vim/header/c-header.txt
 autocmd bufnewfile *.c exe "1, 10 " . "g/File Name :.*/s//File Name : " .expand("%")
 autocmd bufnewfile *.c exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " .strftime("%d-%m-%Y")
