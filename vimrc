@@ -61,6 +61,13 @@ colorscheme Tomorrow-Night
 " Airline (status line)
 let g:airline_powerline_fonts = 1
 
+" Git gutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_eager = 0
+let g:gitgutter_sign_column_always = 1
+highlight clear SignColumn
+"
+
 " }}}
 
 set modeline
