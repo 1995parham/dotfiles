@@ -3,7 +3,7 @@ set t_Co=256
 
 "colorscheme molokai
 "colorscheme cascadia
-colorscheme zenzike
+"colorscheme zenzike
 
 set ai " Auto indent
 set si " Smart indent
@@ -16,25 +16,57 @@ set background=dark
 " Use vim, not vi api
 set nocompatible
 
+" Get rid of the delay when pressing O (for example)
+" http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Always show status bar
+set laststatus=2
+
+" Set the status line to something useful
+set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
+
+" Hide the toolbar
+set guioptions-=T
+
 " No backup files
 " set nobackup
+
 " No write backup
 " set nowritebackup
+
 " No swap file
 " set noswapfile
+
 " Always show cursor
 set ruler
+
 " Make sure any searches /searchPhrase doesn't need the \c escape character 
 set ignorecase
+
 " Ignore case in search
 set smartcase
+
 " Autoload files that have changed outside of vim
 set autoread
+
+" Plugins {{{
+execute pathogen#infect()
+filetype plugin indent on " Required by Pathogen Plugin Manager
+
+" Theme
+set background=light
+colorscheme Tomorrow-Night
+
+" Airline (status line)
+let g:airline_powerline_fonts = 1
+
+" }}}
 
 set modeline
 set modelines=5
 
-" Command for automating file header creation.
+" Command for automating file header creation. {{{
 autocmd bufnewfile *.c so /home/parham/.vim/header/c-header.txt
 autocmd bufnewfile *.c exe "1, 10 " . "g/File Name :.*/s//File Name : " .expand("%")
 autocmd bufnewfile *.c exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " .strftime("%d-%m-%Y")
@@ -62,9 +94,7 @@ autocmd bufnewfile *.asm exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : 
 autocmd Bufwritepre,filewritepre *.asm execute "normal ma"
 autocmd Bufwritepre,filewritepre *.asm exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.asm execute "normal `a"
-
-filetype plugin on
-filetype indent on
+" }}}
 
 if has('gui_running')
   set guifont=Courier
