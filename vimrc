@@ -70,6 +70,12 @@ highlight clear SignColumn
 
 " }}}
 
+" Commands {{{
+" File formats
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" }}}
+
 set modeline
 set modelines=5
 
