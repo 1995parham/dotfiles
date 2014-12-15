@@ -2,6 +2,7 @@
 " http://chriskempson.com
 "
 " Hex colour conversion functions borrowed from the theme "Desert256""
+" Some change in color hex code done by Parham Alvani(parham.alvani@gmail.com)
 
 " Default GUI Colours
 let s:foreground = "c5c8c6"
@@ -10,11 +11,16 @@ let s:selection = "373b41"
 let s:line = "282a2e"
 let s:comment = "969896"
 let s:red = "cc6666"
-let s:orange = "de935f"
-let s:yellow = "f0c674"
-let s:green = "b5bd68"
-let s:aqua = "8abeb7"
-let s:blue = "81a2be"
+let s:orange = "f7a22e"
+"let s:orange = de935f
+let s:yellow = "e5e500"
+"let s:yellow = "f0c674"
+let s:green = "7cfc00"
+"let s:green = "b5bd68"
+let s:aqua = "00ffff"
+"let s:aqua = "8abeb7"
+let s:blue = "198cff"
+"let s:blue = "81a2be"
 let s:purple = "b294bb"
 let s:window = "4d5057"
 
