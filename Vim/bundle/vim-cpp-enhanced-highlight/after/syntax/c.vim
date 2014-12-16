@@ -1,19 +1,30 @@
 " Vim syntax file
-" Language:	C Additions
-" Maintainer:	Mikhail Wolfson <mywolfson@gmail.com>
-" URL: http://web.mit.edu/wolfsonm
-" Last Change:	2010 Dec. 3
-" Version: 0.4
-"
+" Language: C Additions
+" Maintainer: Jon Haggblad <jon@haeggblad.com>
+" Contributor: Mikhail Wolfson <mywolfson@gmail.com>
+" URL: http://www.haeggblad.com
+" Last Change: 6 Sep 2014
+" Version: 0.3
 " Changelog:
-"   0.4 - updates and fixes to cDelimiter to fix break with foldmethod=syntax,
-"         entirely suggested and solved by Ivan Freitas
-"         <ivansichfreitas@gmail.com>
-"   0.3 - updates and fixes to cUserFunctionPointer, thanks to 
-"         Alexei <lxmzhv@gmail.com>
-"   0.2 - change [] to operator
-"   0.1 - initial upload, modification from vimscript#1201, Extended c.vim
+"   0.3 - integration of aftersyntaxc.vim
+"   0.2 - Cleanup
+"   0.1 - initial version.
+"
+" Syntax highlighting for functions in C.
+"
+" Based on:
+"   http://stackoverflow.com/questions/736701/class-function-names-highlighting-in-vim
 
+" -----------------------------------------------------------------------------
+"  Highlight function names.
+" -----------------------------------------------------------------------------
+syn match    cCustomParen    "(" contains=cParen contains=cCppParen
+syn match    cCustomFunc     "\w\+\s*(\@=" contains=cCustomParen
+hi def link cCustomFunc  Function
+
+" -----------------------------------------------------------------------------
+"  Source: aftersyntaxc.vim
+" -----------------------------------------------------------------------------
 
 " Common ANSI-standard functions
 syn keyword cAnsiFunction	MULU_ DIVU_ MODU_ MUL_ DIV_ MOD_
@@ -238,42 +249,43 @@ syn keyword	cAnsiName	bitand not or_eq
 
 hi def link cAnsiFunction cFunction
 hi def link cAnsiName cIdentifier
-
-" Operators
-syn match cOperator	"\(<<\|>>\|[-+*/%&^|<>!=]\)="
-syn match cOperator	"<<\|>>\|&&\|||\|++\|--\|->"
-syn match cOperator	"[.!~*&%<>^|=,+-]"
-syn match cOperator	"/[^/*=]"me=e-1
-syn match cOperator	"/$"
-syn match cOperator "&&\|||"
-syn match cOperator	"[][]"
-
-" Preprocs
-syn keyword cDefined defined contained containedin=cDefine
-hi def link cDefined cDefine
-
-" Functions
-syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
-syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
-
-hi def link cUserFunction cFunction
-hi def link cUserFunctionPointer cFunction
-
-" Delimiters
-syn match cDelimiter    "[();\\]"
-" foldmethod=syntax fix, courtesy of Ivan Freitas
-syn match cBraces display "[{}]"
-
+hi def link cFunction Function
+hi def link cIdentifier Identifier
 
 " Booleans
 syn keyword cBoolean true false TRUE FALSE
-
-
-" Links
-hi def link cFunction Function
-hi def link cIdentifier Identifier
-hi def link cDelimiter Delimiter
-" foldmethod=syntax fix, courtesy of Ivan Freitas
-hi def link cBraces Delimiter
 hi def link cBoolean Boolean
 
+" -----------------------------------------------------------------------------
+"  Additional optional highlighting
+" -----------------------------------------------------------------------------
+
+" Operators
+"syn match cOperator	"\(<<\|>>\|[-+*/%&^|<>!=]\)="
+"syn match cOperator	"<<\|>>\|&&\|||\|++\|--\|->"
+"syn match cOperator	"[.!~*&%<>^|=,+-]"
+"syn match cOperator	"/[^/*=]"me=e-1
+"syn match cOperator	"/$"
+"syn match cOperator "&&\|||"
+"syn match cOperator	"[][]"
+"
+"" Preprocs
+"syn keyword cDefined defined contained containedin=cDefine
+"hi def link cDefined cDefine
+
+"" Functions
+"syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cType,cDelimiter,cDefine
+"syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
+"
+"hi def link cUserFunction cFunction
+"hi def link cUserFunctionPointer cFunction
+"
+"" Delimiters
+"syn match cDelimiter    "[();\\]"
+"" foldmethod=syntax fix, courtesy of Ivan Freitas
+"syn match cBraces display "[{}]"
+
+" Links
+"hi def link cDelimiter Delimiter
+" foldmethod=syntax fix, courtesy of Ivan Freitas
+"hi def link cBraces Delimiter
