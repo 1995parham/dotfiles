@@ -1,0 +1,14 @@
+g:localrc_filename	localrc.txt	/*g:localrc_filename*
+g:localrc_filetype	localrc.txt	/*g:localrc_filetype*
+localrc	localrc.txt	/*localrc*
+localrc#load()	localrc.txt	/*localrc#load()*
+localrc#search()	localrc.txt	/*localrc#search()*
+localrc-changelog	localrc.txt	/*localrc-changelog*
+localrc-contents	localrc.txt	/*localrc-contents*
+localrc-customizing	localrc.txt	/*localrc-customizing*
+localrc-examples	localrc.txt	/*localrc-examples*
+localrc-functions	localrc.txt	/*localrc-functions*
+localrc-interface	localrc.txt	/*localrc-interface*
+localrc-introduction	localrc.txt	/*localrc-introduction*
+localrc-usage	localrc.txt	/*localrc-usage*
+localrc.txt	localrc.txt	/*localrc.txt*
