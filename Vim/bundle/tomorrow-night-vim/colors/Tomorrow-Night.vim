@@ -21,7 +21,8 @@ let s:aqua = "00ffff"
 "let s:aqua = "8abeb7"
 let s:blue = "198cff"
 "let s:blue = "81a2be"
-let s:purple = "b294bb"
+let s:purple = "ee82ee"
+"let s:purple = "b294bb"
 let s:window = "4d5057"
 
 " Console 256 Colours
@@ -278,22 +279,23 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Standard Highlighting
 	call <SID>X("Comment", s:comment, "", "")
-	call <SID>X("Todo", s:comment, s:background, "")
+	call <SID>X("Todo", s:comment, s:selection, "")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
-	call <SID>X("Statement", s:foreground, "", "")
+	call <SID>X("Statement",  "ff7f24", "", "")
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
 	call <SID>X("Structure", s:purple, "", "")
 	call <SID>X("Function", s:blue, "", "")
 	call <SID>X("Constant", s:orange, "", "")
-	call <SID>X("String", s:green, "", "")
-	call <SID>X("Special", s:foreground, "", "")
+	call <SID>X("String", "7fff00", "", "")
+	call <SID>X("Special", "ff7f24", "", "")
 	call <SID>X("PreProc", s:purple, "", "")
 	call <SID>X("Operator", s:aqua, "", "none")
 	call <SID>X("Type", s:blue, "", "none")
 	call <SID>X("Define", s:purple, "", "none")
-	call <SID>X("Include", s:blue, "", "")
+	call <SID>X("Include", s:purple, "", "")
+	call <SID>X("Exception", "ffd700", "", "")
 	"call <SID>X("Ignore", "666666", "", "")
 
 	" Vim Highlighting
@@ -304,6 +306,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cStorageClass", s:purple, "", "")
 	call <SID>X("cConditional", s:purple, "", "")
 	call <SID>X("cRepeat", s:purple, "", "")
+
+	" NASM Highlighting
+	call <SID>X("nasmGen08Register", "98f5ff", "", "")
+	call <SID>X("nasmGen16Register", "98f5ff", "", "")
+	call <SID>X("nasmGen32Register", "98f5ff", "", "")
+	call <SID>X("nasmGen64Register", "98f5ff", "", "")
+	call <SID>X("nasmSegRegister", "53868b", "", "")
 
 	" PHP Highlighting
 	call <SID>X("phpVarSelector", s:red, "", "")
