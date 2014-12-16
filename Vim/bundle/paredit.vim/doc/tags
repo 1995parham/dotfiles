@@ -1,0 +1,15 @@
+g:paredit_disable_clojure	paredit.txt	/*g:paredit_disable_clojure*
+g:paredit_disable_lisp	paredit.txt	/*g:paredit_disable_lisp*
+g:paredit_disable_scheme	paredit.txt	/*g:paredit_disable_scheme*
+g:paredit_electric_return	paredit.txt	/*g:paredit_electric_return*
+g:paredit_leader	paredit.txt	/*g:paredit_leader*
+g:paredit_matchlines	paredit.txt	/*g:paredit_matchlines*
+g:paredit_mode	paredit.txt	/*g:paredit_mode*
+g:paredit_shortmaps	paredit.txt	/*g:paredit_shortmaps*
+g:paredit_smartjump	paredit.txt	/*g:paredit_smartjump*
+paredit	paredit.txt	/*paredit*
+paredit-keys	paredit.txt	/*paredit-keys*
+paredit-mode	paredit.txt	/*paredit-mode*
+paredit-options	paredit.txt	/*paredit-options*
+paredit.txt	paredit.txt	/*paredit.txt*
+slimv-paredit	paredit.txt	/*slimv-paredit*
