@@ -1,0 +1,12 @@
+b:dispatch	dispatch.txt	/*b:dispatch*
+b:start	dispatch.txt	/*b:start*
+dispatch	dispatch.txt	/*dispatch*
+dispatch-:Copen	dispatch.txt	/*dispatch-:Copen*
+dispatch-:Dispatch	dispatch.txt	/*dispatch-:Dispatch*
+dispatch-:FocusDispatch	dispatch.txt	/*dispatch-:FocusDispatch*
+dispatch-:Make	dispatch.txt	/*dispatch-:Make*
+dispatch-:Start	dispatch.txt	/*dispatch-:Start*
+dispatch-commands	dispatch.txt	/*dispatch-commands*
+dispatch-strategies	dispatch.txt	/*dispatch-strategies*
+dispatch.txt	dispatch.txt	/*dispatch.txt*
+g:dispatch_compilers	dispatch.txt	/*g:dispatch_compilers*

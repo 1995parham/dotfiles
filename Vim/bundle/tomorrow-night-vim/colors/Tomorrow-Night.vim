@@ -12,17 +12,11 @@ let s:line = "282a2e"
 let s:comment = "969896"
 let s:red = "cc6666"
 let s:orange = "f7a22e"
-"let s:orange = de935f
 let s:yellow = "e5e500"
-"let s:yellow = "f0c674"
 let s:green = "7cfc00"
-"let s:green = "b5bd68"
 let s:aqua = "00ffff"
-"let s:aqua = "8abeb7"
 let s:blue = "198cff"
-"let s:blue = "81a2be"
 let s:purple = "ee82ee"
-"let s:purple = "b294bb"
 let s:window = "4d5057"
 
 " Console 256 Colours
@@ -248,7 +242,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, s:background, "")
-	call <SID>X("LineNr", s:selection, "", "")
+	call <SID>X("LineNr", "00ff7f", "", "")
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:background, s:yellow, "")
@@ -292,7 +286,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Special", "ff7f24", "", "")
 	call <SID>X("PreProc", s:purple, "", "")
 	call <SID>X("Operator", s:aqua, "", "none")
-	call <SID>X("Type", s:blue, "", "none")
+	call <SID>X("Type", s:yellow, "", "none")
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:purple, "", "")
 	call <SID>X("Exception", "ffd700", "", "")
