@@ -51,6 +51,9 @@ set smartcase
 " Autoload files that have changed outside of vim
 set autoread
 
+" Highlight tailing whitespace
+set list listchars=tab:\ \ ,trail:·
+
 " Plugins {{{
 execute pathogen#infect()
 filetype plugin indent on " Required by Pathogen Plugin Manager
@@ -68,6 +71,9 @@ let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
 highlight clear SignColumn
 "
+
+" Super tab
+let g:SuperTabMappingForward = "<C-h>"
 
 " }}}
 
