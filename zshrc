@@ -48,6 +48,7 @@ alias tmuxsrc="tmux source-file ~/.tmux.conf"
 alias tmuxkillall="tmux ls | cut -d : -f 1 | xargs -I {} tmux kill-session -t {}" # tmux kill all sessions
 alias ct="ctags -R --exclude=.git --exclude=node_modules"
 alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
+alias grep="grep --color=auto"
 # }}}
 
 # Auto Completion {{{
