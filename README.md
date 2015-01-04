@@ -1,3 +1,4 @@
-Vim
-============
-Vim syntax and highlight files.
+dotfiles
+========
+
+My Personal Linux configurations files
