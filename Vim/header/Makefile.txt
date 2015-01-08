@@ -1,0 +1,27 @@
+:insert
+# In The Name Of God
+# ========================================
+# [] File Name : Makefile
+#
+# [] Creation Date :
+#
+# [] Created By : Parham Alvani (parham.alvani@gmail.com)
+# =======================================
+
+P=
+OBJ=
+LIB=
+ifdef LIB
+CFLAGS=-Wall -O0 -g -std=gnu11 \
+       $(shell pkg-config --cflags $(LIB))
+LDLIBS=$(shell pkg-config --libs $(LIB))
+else
+CFLAGS=-Wall -O0 -g -std=gnu11
+LDLIBS=
+endif
+
+$(P): $(OBJ)
+
+.PHONY: clean
+clean:
+	rm $(OBJ) $(P)
