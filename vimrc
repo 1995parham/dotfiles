@@ -107,6 +107,9 @@ autocmd Bufwritepre,filewritepre *.h execute "normal mb"
 autocmd Bufwritepre,filewritepre *.h exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.h execute "normal `b"
 
+autocmd bufnewfile Makefile so /home/parham/.vim/header/Makefile.txt
+autocmd bufnewfile Makefile exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
+
 autocmd bufnewfile *.asm so /home/parham/.vim/header/asm-header.txt
 autocmd bufnewfile *.asm exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
 autocmd bufnewfile *.asm exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
