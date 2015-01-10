@@ -85,6 +85,10 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 set modeline
 set modelines=5
 
+" C syntax {{{
+let c_gnu = 1
+" }}}
+
 " Command for automating file header creation. {{{
 autocmd bufnewfile *.c so /home/parham/.vim/header/c-header.txt
 autocmd bufnewfile *.c exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
