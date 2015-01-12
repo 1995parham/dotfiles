@@ -90,26 +90,12 @@ let c_gnu = 1
 " }}}
 
 " Command for automating file header creation. {{{
-autocmd bufnewfile *.c so /home/parham/.vim/header/c-header.txt
-autocmd bufnewfile *.c exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.c exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.c execute "normal mb"
-autocmd Bufwritepre,filewritepre *.c exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
-autocmd bufwritepost,filewritepost *.c execute "normal `b"
-
-autocmd bufnewfile *.cpp so /home/parham/.vim/header/c-header.txt
-autocmd bufnewfile *.cpp exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.cpp exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.cpp execute "normal mb"
-autocmd Bufwritepre,filewritepre *.cpp exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
-autocmd bufwritepost,filewritepost *.cpp execute "normal `b"
-
-autocmd bufnewfile *.h so /home/parham/.vim/header/c-header.txt
-autocmd bufnewfile *.h exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.h exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.h execute "normal mb"
-autocmd Bufwritepre,filewritepre *.h exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
-autocmd bufwritepost,filewritepost *.h execute "normal `b"
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so /home/parham/.vim/header/c-header.txt
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
+autocmd Bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S execute "normal mb"
+autocmd Bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufwritepost,filewritepost *.c,*.cpp,*.h,*.s,*.S execute "normal `b"
 
 autocmd bufnewfile Makefile so /home/parham/.vim/header/Makefile.txt
 autocmd bufnewfile Makefile exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
