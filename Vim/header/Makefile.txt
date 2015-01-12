@@ -11,6 +11,7 @@
 P=
 OBJ=
 LIB=
+
 ifdef LIB
 CFLAGS=-Wall -O0 -g -std=gnu11 \
        $(shell pkg-config --cflags $(LIB))
@@ -19,6 +20,7 @@ else
 CFLAGS=-Wall -O0 -g -std=gnu11
 LDLIBS=
 endif
+ASFLAGS=-Wall -O0 -g
 
 $(P): $(OBJ)
 
