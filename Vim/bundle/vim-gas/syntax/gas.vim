@@ -29,16 +29,16 @@ syn keyword gasDirective	.cfi_val_encoded_addr .data .def .desc .dim .eject
 syn keyword gasDirective	.else .elseif .endef .endif .equ .equiv .eqv .err
 syn keyword gasDirective	.error .exitm .extern .fail .file .fill .global .globl
 syn keyword gasDirective	.gnu_attribute .hidden .ident .if .incbin .include .internal
-syn keyword gasDirective	.irp .irpc .lcomm .lflags .line .linkonce .list .ln .loc .loc_mark_labels
-syn keyword gasDirective	.local .mri .nolist .octa .org .p2alignw .p2alignl
-syn keyword gasDirective	.popsection .previous .print .protected .psize .purgem .pushsection .quad
+syn keyword gasDirective	.irp .irpc .lflags .line .linkonce .list .ln .loc .loc_mark_labels
+syn keyword gasDirective	.local .mri .nolist .org .p2alignw .p2alignl .bss
+syn keyword gasDirective	.popsection .previous .print .protected .psize .purgem .pushsection
 syn keyword gasDirective	.reloc .rept .sbttl .scl .section .set .single .size .skip .sleb128
 syn keyword gasDirective	.space .stabd .stabn .stabs .struct .subsection
 syn keyword gasDirective	.symver .tag .text .title .type .uleb128 .val .version
 syn keyword gasDirective	.vtable_entry .vtable_inherit .warning .weak .weakref
 
-syn keyword gasDirectiveStore	.byte .hword .word .int .long .double .short .float
-syn keyword gasDirectiveStore	.string .string8 .string16 .ascii .asciz .comm
+syn keyword gasDirectiveStore	.byte .hword .word .int .long .double .short .float .quad
+syn keyword gasDirectiveStore	.string .string8 .string16 .ascii .asciz .comm .lcomm .octa
 
 syn keyword gasDirectiveMacro	.altmacro .macro .noaltmacro .endm .func .endfunc
 
@@ -808,16 +808,17 @@ syn keyword gasOpcode_P6_Base		rdshr
 syn keyword gasOpcode_PENT_Base		rdmsr
 syn keyword gasOpcode_P6_Base		rdpmc
 syn keyword gasOpcode_PENT_Base		rdtsc
-syn keyword gasOpcode_X86_64_Base		rdtscp
+syn keyword gasOpcode_X86_64_Base	rdtscp
 syn keyword gasOpcode_8086_Base		ret retb retw retl retq
 syn keyword gasOpcode_8086_Base		retf retfb retfw retfl retfq
 syn keyword gasOpcode_8086_Base		retn retnb retnw retnl retnq
+syn keyword gasOpcode_8086_Base		rep repne repe
 syn keyword gasOpcode_X64_Base		rol rolb rolw roll rolq
 syn keyword gasOpcode_X64_Base		ror rorb rorw rorl rorq
 syn keyword gasOpcode_P6_Base		rdm
 syn keyword gasOpcode_486_Base		rsdc rsdcb rsdcw rsdcl rsdcq
 syn keyword gasOpcode_486_Base		rsldt rsldtb rsldtw rsldtl rsldtq
-syn keyword gasOpcode_PENTM_Base		rsm
+syn keyword gasOpcode_PENTM_Base	rsm
 syn keyword gasOpcode_486_Base		rsts rstsb rstsw rstsl rstsq
 syn keyword gasOpcode_8086_Base		sahf
 syn keyword gasOpcode_X64_Base		sal salb salw sall salq
