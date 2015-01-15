@@ -11,7 +11,7 @@ let s:selection = "373b41"
 let s:line = "282a2e"
 let s:comment = "969896"
 let s:red = "cc6666"
-let s:orange = "f7a22e"
+let s:orange = "ff8100"
 let s:yellow = "e5e500"
 let s:green = "7cfc00"
 let s:aqua = "00ffff"
@@ -277,8 +277,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
 	call <SID>X("Statement",  "ff7f24", "", "")
-	call <SID>X("Conditional", s:foreground, "", "")
-	call <SID>X("Repeat", s:foreground, "", "")
+	call <SID>X("Conditional", "f9008d", "", "")
+	call <SID>X("Repeat", "f9008d", "", "")
 	call <SID>X("Structure", s:purple, "", "")
 	call <SID>X("Function", s:blue, "", "")
 	call <SID>X("Constant", s:orange, "", "")
