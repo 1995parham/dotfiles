@@ -90,24 +90,24 @@ let c_gnu = 1
 " }}}
 
 " Command for automating file header creation. {{{
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so /home/parham/.vim/header/c-header.txt
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so $HOME/.vim/header/c-header.txt
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
 autocmd Bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S execute "normal mb"
 autocmd Bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.c,*.cpp,*.h,*.s,*.S execute "normal `b"
 
-autocmd bufnewfile Makefile so /home/parham/.vim/header/Makefile.txt
+autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
 autocmd bufnewfile Makefile exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
 
-autocmd bufnewfile *.asm so /home/parham/.vim/header/asm-header.txt
+autocmd bufnewfile *.asm so $HOME/.vim/header/asm-header.txt
 autocmd bufnewfile *.asm exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
 autocmd bufnewfile *.asm exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
 autocmd Bufwritepre,filewritepre *.asm execute "normal mb"
 autocmd Bufwritepre,filewritepre *.asm exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.asm execute "normal `b"
 
-autocmd bufnewfile *.bash so /home/parham/.vim/header/bash-header.txt
+autocmd bufnewfile *.bash so $HOME/.vim/header/bash-header.txt
 autocmd bufnewfile *.bash exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
 autocmd bufnewfile *.bash exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
 autocmd Bufwritepre,filewritepre *.bash execute "normal mb"
