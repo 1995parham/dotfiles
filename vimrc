@@ -106,6 +106,13 @@ autocmd bufnewfile *.asm exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : 
 autocmd Bufwritepre,filewritepre *.asm execute "normal mb"
 autocmd Bufwritepre,filewritepre *.asm exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.asm execute "normal `b"
+
+autocmd bufnewfile *.bash so /home/parham/.vim/header/bash-header.txt
+autocmd bufnewfile *.bash exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
+autocmd bufnewfile *.bash exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
+autocmd Bufwritepre,filewritepre *.bash execute "normal mb"
+autocmd Bufwritepre,filewritepre *.bash exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufwritepost,filewritepost *.bash execute "normal `b"
 " }}}
 
 if has('gui_running')
