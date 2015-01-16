@@ -2,9 +2,8 @@ syntax on
 set t_Co=256
 
 
-"colorscheme molokai
-"colorscheme cascadia
-"colorscheme zenzike
+" Correct delete key in OSX
+set backspace=eol,start,indent
 
 set ai " Auto indent
 set si " Smart indent
