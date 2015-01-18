@@ -1,6 +1,8 @@
 syntax on
 set t_Co=256
 
+" Stick unamed register into system clipboard
+set clipboard+=unnamed
 
 " Correct delete key in OSX
 set backspace=eol,start,indent
