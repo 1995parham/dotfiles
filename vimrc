@@ -1,5 +1,5 @@
+" Settings {{{
 syntax on
-set t_Co=256
 
 " Stick unamed register into system clipboard
 set clipboard+=unnamed
@@ -55,6 +55,15 @@ set autoread
 " Highlight tailing whitespace
 set list listchars=tab:\ \ ,trail:·
 
+" Mod line supporting
+set modeline
+set modelines=5
+
+" Set folding type in marker
+set foldmethod=marker
+
+" }}}
+
 " Plugins {{{
 execute pathogen#infect()
 filetype plugin indent on " Required by Pathogen Plugin Manager
@@ -82,9 +91,6 @@ let g:SuperTabMappingForward = "<C-h>"
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " }}}
-
-set modeline
-set modelines=5
 
 " C syntax {{{
 let c_gnu = 1
@@ -115,7 +121,3 @@ autocmd Bufwritepre,filewritepre *.bash execute "normal mb"
 autocmd Bufwritepre,filewritepre *.bash exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.bash execute "normal `b"
 " }}}
-
-if has('gui_running')
-  set guifont=Courier
-endif
