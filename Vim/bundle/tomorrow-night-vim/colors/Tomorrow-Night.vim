@@ -3,6 +3,8 @@
 "
 " Hex colour conversion functions borrowed from the theme "Desert256""
 " Some change in color hex code done by Parham Alvani(parham.alvani@gmail.com)
+" Adding some features in c highlighting by Parham
+" Alvani(parham.alvani@gmail.com)
 
 " Default GUI Colours
 let s:foreground = "c5c8c6"
@@ -297,9 +299,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" C Highlighting
 	call <SID>X("cType", s:yellow, "", "")
-	call <SID>X("cStorageClass", s:purple, "", "")
-	call <SID>X("cConditional", s:purple, "", "")
-	call <SID>X("cRepeat", s:purple, "", "")
+	call <SID>X("cStorageClass", "ff4444", "", "")
+	call <SID>X("cConditional", "ff4444", "", "")
+	call <SID>X("cRepeat", "ff4444", "", "")
 
 	" NASM Highlighting
 	call <SID>X("nasmGen08Register", "98f5ff", "", "")
