@@ -96,6 +96,10 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 let c_gnu = 1
 " }}}
 
+" Python syntax {{{
+let python_highlight_all = 1
+" }}}
+
 " Command for automating file header creation. {{{
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so $HOME/.vim/header/c-header.txt
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
