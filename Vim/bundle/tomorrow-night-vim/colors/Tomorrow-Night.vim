@@ -278,7 +278,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Todo", s:comment, s:selection, "")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
-	call <SID>X("Statement",  "ff7f24", "", "")
+	call <SID>X("Statement",  "faa500", "", "")
 	call <SID>X("Conditional", "f9008d", "", "")
 	call <SID>X("Repeat", "f9008d", "", "")
 	call <SID>X("Structure", s:purple, "", "")
@@ -292,6 +292,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:purple, "", "")
 	call <SID>X("Exception", "ffd700", "", "")
+	call <SID>X("Keyword", "00ff00", "", "")
 	"call <SID>X("Ignore", "666666", "", "")
 
 	" Vim Highlighting
@@ -299,9 +300,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" C Highlighting
 	call <SID>X("cType", s:yellow, "", "")
-	call <SID>X("cStorageClass", "ff4444", "", "")
-	call <SID>X("cConditional", "ff4444", "", "")
-	call <SID>X("cRepeat", "ff4444", "", "")
+	call <SID>X("cStorageClass", "ff7373", "", "")
+	call <SID>X("cConditional", "00ff00", "", "")
+	call <SID>X("cRepeat", "00ff00", "", "")
 
 	" NASM Highlighting
 	call <SID>X("nasmGen08Register", "98f5ff", "", "")

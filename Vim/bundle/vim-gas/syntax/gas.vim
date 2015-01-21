@@ -13,8 +13,7 @@ elseif exists("b:current_syntax")
 	finish
 endif
 
-setlocal iskeyword +=%,.,-,_
-setlocal isident   +=%,.,-,_
+setlocal iskeyword +=%,.,-,_,:,$
 
 syn case ignore
 
@@ -46,11 +45,22 @@ syn keyword gasDirectiveMacro	.altmacro .macro .noaltmacro .endm .func .endfunc
 syn keyword gasDirectiveX86	.att_syntax .intel_syntax .att_mnemonic .intel_mnemonic .lcomm
 
 " i*86 register set
-syn keyword gasRegisterX86	%rax %rbx %rcx %rdx %rdi %rsi %rsp %rbp
-syn keyword gasRegisterX86	%eax %ebx %ecx %edx %ax %bx %cx %dx %ah %al %bh %bl %ch %cl %dh %dl
-syn keyword gasRegisterX86	%edi %esi %esp %ebp %di %si %sp %bp %sph %spl %bph %bpl
-syn keyword gasRegisterX86	%cs %ds %es %fs %gs %ss %ip %eip %rip %eflags
-syn match   gasRegisterX86	/\<%r\([8-9]\|1[0-5]\)[lwd]\?\>/
+syn keyword gasRegisterX86	%rax %eax %ax %ah %al
+syn keyword gasRegisterX86	%rbx %ebx %bx %bh %bl
+syn keyword gasRegisterX86	%rcx %ecx %cx %ch %cl
+syn keyword gasRegisterX86	%rdx %edx %dx %dh %dl
+syn keyword gasRegisterX86	%rsi %esi %si %sil
+syn keyword gasRegisterX86	%rdi %edi %di %dil
+syn keyword gasRegisterX86	%rsp %esp %sp %spl
+syn keyword gasRegisterX86	%rbp %ebp %bp %bpl
+syn keyword gasRegisterX86	%r8 %r8d %r8w %r8b
+syn keyword gasRegisterX86	%r9 %r9d %r9w %r9b
+syn keyword gasRegisterX86	%r10 %r10d %r10w %r10b
+syn keyword gasRegisterX86	%r11 %r11d %r11w %r11b
+syn keyword gasRegisterX86	%r12 %r12d %r12w %r12b
+syn keyword gasRegisterX86	%r13 %r13d %r13w %r13b
+syn keyword gasRegisterX86	%r14 %r14d %r14w %r14b
+syn keyword gasRegisterX86	%r15 %r15d %r15w %r15b
 
 " i*86 special registers
 syn match gasRegisterX86Cr	/\<%cr[0-8]\>/
@@ -60,11 +70,10 @@ syn match gasRegisterX86Fp	/\<%sp\(([0-7])\)\?\>/
 syn match gasRegisterX86MMX	/\<%x\?mm[0-7]\>/
 
 " symbols and labels
-
-syn match   gasLabel		/[-_$.A-Za-z0-9]\+\s*:/
-syn match   gasSymbol		/\<[^; \t()]\+\>/
-syn match   gasSymbolRef	/\$[-_$.A-Za-z][-_$.A-Za-z0-9]*\>/
-syn match   gasSpecial		/\<[$.]\>/
+syn match   gasLabel		/\<[-_$.A-Za-z0-9]\+\s*:\>/
+syn match   gasSymbol		/\<[^%:;()\t \n]\+\>/
+syn match   gasSymbolRef	/\$[-_$.A-Za-z][-_.A-Za-z0-9]*\>/
+syn keyword gasSpecial		$ .
 
 " constants
 syn region  gasString		start=/"/  end=/"/ skip=/\\"/
@@ -879,7 +888,7 @@ syn keyword gasOpcode_X64_Base		xchg
 syn keyword gasOpcode_8086_Base		xlatb
 syn keyword gasOpcode_8086_Base		xlat
 syn keyword gasOpcode_386_Base		xor xorb xorw xorl xorq
-syn keyword gasOpcode_X64_Base		cmovcc
+syn match   gasOpcode_X64_Base		/\<cmov\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)\>/
 syn match   gasOpcode_8086_Base		/\<j\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)[bwlq]\?\>/
 syn match   gasOpcode_386_Base		/\<set\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)[bwlq]\?\>/
 
@@ -1811,8 +1820,8 @@ hi def link gasBinaryNumber	Constant
 hi def link gasOctalNumber	Constant
 hi def link gasHexNumber	Constant
 hi def link gasDecimalNumber	Constant
-hi def link gasSymbol		Function
-hi def link gasSymbolRef	Special
+hi def link gasSymbol		Statement
+hi def link gasSymbolRef	Function
 hi def link gasSpecial		Special
 hi def link gasLabel		Function
 hi def link gasLocalLabel	Label
