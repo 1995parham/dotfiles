@@ -124,4 +124,12 @@ autocmd bufnewfile *.bash exe "1, 10 " . "g/Creation Date :.*/s//Creation Date :
 autocmd Bufwritepre,filewritepre *.bash execute "normal mb"
 autocmd Bufwritepre,filewritepre *.bash exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.bash execute "normal `b"
+
+autocmd bufnewfile *.py so $HOME/.vim/header/python-header.txt
+autocmd bufnewfile *.py exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
+autocmd bufnewfile *.py exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
+autocmd Bufwritepre,filewritepre *.py execute "normal mb"
+autocmd Bufwritepre,filewritepre *.py exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufwritepost,filewritepost *.py execute "normal `b"
+"
 " }}}
