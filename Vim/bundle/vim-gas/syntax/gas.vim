@@ -587,7 +587,7 @@ syn keyword gasOpcode_8086_Base		fistp fistpb fistpw fistpl fistpq
 syn keyword gasOpcode_PRESCOTT_Base	fisttp fisttpb fisttpw fisttpl fisttpq
 syn keyword gasOpcode_8086_Base		fisub fisubb fisubw fisubl fisubq
 syn keyword gasOpcode_8086_Base		fisubr fisubrb fisubrw fisubrl fisubrq
-syn keyword gasOpcode_8086_Base		fld
+syn keyword gasOpcode_8086_Base		flds
 syn keyword gasOpcode_8086_Base		fld1
 syn keyword gasOpcode_8086_Base		fldcw fldcwb fldcww fldcwl fldcwq
 syn keyword gasOpcode_8086_Base		fldenv fldenvb fldenvw fldenvl fldenvq
