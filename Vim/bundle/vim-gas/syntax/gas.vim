@@ -620,7 +620,7 @@ syn keyword gasOpcode_286_Base		fsetpm
 syn keyword gasOpcode_386_Base		fsin
 syn keyword gasOpcode_386_Base		fsincos
 syn keyword gasOpcode_8086_Base		fsqrt
-syn keyword gasOpcode_8086_Base		fst
+syn keyword gasOpcode_8086_Base		fstl fsts
 syn keyword gasOpcode_8086_Base		fstcw fstcwb fstcww fstcwl fstcwq
 syn keyword gasOpcode_8086_Base		fstenv fstenvb fstenvw fstenvl fstenvq
 syn keyword gasOpcode_8086_Base		fstp
