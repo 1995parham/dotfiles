@@ -62,6 +62,7 @@ syn keyword gasRegisterX86	%r12 %r12d %r12w %r12b
 syn keyword gasRegisterX86	%r13 %r13d %r13w %r13b
 syn keyword gasRegisterX86	%r14 %r14d %r14w %r14b
 syn keyword gasRegisterX86	%r15 %r15d %r15w %r15b
+syn keyword gasRegisterX86	%rip %eip %ip
 
 " i*86 special registers
 syn match gasRegisterX86Cr	/\<%cr[0-8]\>/
