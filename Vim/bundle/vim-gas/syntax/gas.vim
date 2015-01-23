@@ -489,410 +489,412 @@ syn keyword gasOpcode_NEHALEM_Base	xsetbv
 syn keyword gasOpcode_NEHALEM_Base	xsave xsaveb xsavew xsavel xsaveq
 syn keyword gasOpcode_NEHALEM_Base	xrstor xrstorb xrstorw xrstorl xrstorq
 
-"-- Section: Conventional instructions
-syn keyword gasOpcode_8086_Base		aaa
-syn keyword gasOpcode_8086_Base		aad aadb aadw aadl aadq
-syn keyword gasOpcode_8086_Base		aam aamb aamw aaml aamq
-syn keyword gasOpcode_8086_Base		aas
-syn keyword gasOpcode_386_Base		adc adcb adcw adcl adcq
-syn keyword gasOpcode_386_Base		add addb addw addl addq
-syn keyword gasOpcode_386_Base		and andb andw andl andq
-syn keyword gasOpcode_286_Base		arpl
-syn keyword gasOpcode_PENT_Base		bb0_reset
-syn keyword gasOpcode_PENT_Base		bb1_reset
-syn keyword gasOpcode_386_Base		bound boundb boundw boundl boundq
-syn keyword gasOpcode_X64_Base		bsf
-syn keyword gasOpcode_X64_Base		bsr
-syn keyword gasOpcode_X64_Base		bswap
-syn keyword gasOpcode_X64_Base		bt btb btw btl btq
-syn keyword gasOpcode_X64_Base		btc btcb btcw btcl btcq
-syn keyword gasOpcode_X64_Base		btr btrb btrw btrl btrq
-syn keyword gasOpcode_X64_Base		bts btsb btsw btsl btsq
-syn keyword gasOpcode_X64_Base		call callb callw calll callq
-syn keyword gasOpcode_8086_Base		cbw
-syn keyword gasOpcode_386_Base		cdq
-syn keyword gasOpcode_X64_Base		cdqe
-syn keyword gasOpcode_8086_Base		clc
-syn keyword gasOpcode_8086_Base		cld
-syn keyword gasOpcode_X64_Base		clgi
-syn keyword gasOpcode_8086_Base		cli
-syn keyword gasOpcode_286_Base		clts
-syn keyword gasOpcode_8086_Base		cmc
-syn keyword gasOpcode_386_Base		cmp cmpb cmpw cmpl cmpq
-syn keyword gasOpcode_8086_Base		cmpsb
-syn keyword gasOpcode_386_Base		cmpsd
-syn keyword gasOpcode_X64_Base		cmpsq
-syn keyword gasOpcode_8086_Base		cmpsw
-syn keyword gasOpcode_X64_Base		cmpxchg
-syn keyword gasOpcode_486_Base		cmpxchg486
-syn keyword gasOpcode_PENT_Base		cmpxchg8b cmpxchg8bb cmpxchg8bw cmpxchg8bl cmpxchg8bq
-syn keyword gasOpcode_X64_Base		cmpxchg16b cmpxchg16bb cmpxchg16bw cmpxchg16bl cmpxchg16bq
-syn keyword gasOpcode_PENT_Base		cpuid
-syn keyword gasOpcode_PENT_Base		cpu_read
-syn keyword gasOpcode_PENT_Base		cpu_write
-syn keyword gasOpcode_X64_Base		cqo
-syn keyword gasOpcode_8086_Base		cwd
-syn keyword gasOpcode_386_Base		cwde
-syn keyword gasOpcode_8086_Base		daa
-syn keyword gasOpcode_8086_Base		das
-syn keyword gasOpcode_X64_Base		dec
-syn keyword gasOpcode_X64_Base		div
-syn keyword gasOpcode_P6_Base		dmint
-syn keyword gasOpcode_PENT_MMX		emms
-syn keyword gasOpcode_186_Base		enter enterb enterw enterl enterq
-syn keyword gasOpcode_8086_Base		equ
-syn keyword gasOpcode_8086_Base		f2xm1
-syn keyword gasOpcode_8086_Base		fabs
-syn keyword gasOpcode_8086_Base		fadd
-syn keyword gasOpcode_8086_Base		faddp
-syn keyword gasOpcode_8086_Base		fbld fbldb fbldw fbldl fbldq
-syn keyword gasOpcode_8086_Base		fbstp fbstpb fbstpw fbstpl fbstpq
-syn keyword gasOpcode_8086_Base		fchs
-syn keyword gasOpcode_8086_Base		fclex
-syn keyword gasOpcode_P6_Base		fcmovb
-syn keyword gasOpcode_P6_Base		fcmovbe
-syn keyword gasOpcode_P6_Base		fcmove
-syn keyword gasOpcode_P6_Base		fcmovnb
-syn keyword gasOpcode_P6_Base		fcmovnbe
-syn keyword gasOpcode_P6_Base		fcmovne
-syn keyword gasOpcode_P6_Base		fcmovnu
-syn keyword gasOpcode_P6_Base		fcmovu
-syn keyword gasOpcode_8086_Base		fcom
-syn keyword gasOpcode_P6_Base		fcomi
-syn keyword gasOpcode_P6_Base		fcomip
-syn keyword gasOpcode_8086_Base		fcomp
-syn keyword gasOpcode_8086_Base		fcompp
-syn keyword gasOpcode_386_Base		fcos
-syn keyword gasOpcode_8086_Base		fdecstp
-syn keyword gasOpcode_8086_Base		fdisi
-syn keyword gasOpcode_8086_Base		fdiv
-syn keyword gasOpcode_8086_Base		fdivp
-syn keyword gasOpcode_8086_Base		fdivr
-syn keyword gasOpcode_8086_Base		fdivrp
-syn keyword gasOpcode_PENT_3DNOW	femms
-syn keyword gasOpcode_8086_Base		feni
-syn keyword gasOpcode_8086_Base		ffree
-syn keyword gasOpcode_286_Base		ffreep
-syn keyword gasOpcode_8086_Base		fiadd fiaddb fiaddw fiaddl fiaddq
-syn keyword gasOpcode_8086_Base		ficom ficomb ficomw ficoml ficomq
-syn keyword gasOpcode_8086_Base		ficomp ficompb ficompw ficompl ficompq
-syn keyword gasOpcode_8086_Base		fidiv fidivb fidivw fidivl fidivq
-syn keyword gasOpcode_8086_Base		fidivr fidivrb fidivrw fidivrl fidivrq
-syn keyword gasOpcode_8086_Base		fild fildb fildw fildl fildq
-syn keyword gasOpcode_8086_Base		fimul fimulb fimulw fimull fimulq
-syn keyword gasOpcode_8086_Base		fincstp
-syn keyword gasOpcode_8086_Base		finit
-syn keyword gasOpcode_8086_Base		fist fistb fistw fistl fistq
-syn keyword gasOpcode_8086_Base		fistp fistpb fistpw fistpl fistpq
-syn keyword gasOpcode_PRESCOTT_Base	fisttp fisttpb fisttpw fisttpl fisttpq
-syn keyword gasOpcode_8086_Base		fisub fisubb fisubw fisubl fisubq
-syn keyword gasOpcode_8086_Base		fisubr fisubrb fisubrw fisubrl fisubrq
-syn keyword gasOpcode_8086_Base		flds fldl
-syn keyword gasOpcode_8086_Base		fldcw fldcwb fldcww fldcwl fldcwq
-syn keyword gasOpcode_8086_Base		fldenv fldenvb fldenvw fldenvl fldenvq
-syn keyword gasOpcode_8086_Base		fld1
-syn keyword gasOpcode_8086_Base		fldl2e
-syn keyword gasOpcode_8086_Base		fldl2t
-syn keyword gasOpcode_8086_Base		fldlg2
-syn keyword gasOpcode_8086_Base		fldln2
-syn keyword gasOpcode_8086_Base		fldpi
-syn keyword gasOpcode_8086_Base		fldz
-syn keyword gasOpcode_8086_Base		fmul
-syn keyword gasOpcode_8086_Base		fmulp
-syn keyword gasOpcode_8086_Base		fnclex
-syn keyword gasOpcode_8086_Base		fndisi
-syn keyword gasOpcode_8086_Base		fneni
-syn keyword gasOpcode_8086_Base		fninit
-syn keyword gasOpcode_8086_Base		fnop
-syn keyword gasOpcode_8086_Base		fnsave fnsaveb fnsavew fnsavel fnsaveq
-syn keyword gasOpcode_8086_Base		fnstcw fnstcwb fnstcww fnstcwl fnstcwq
-syn keyword gasOpcode_8086_Base		fnstenv fnstenvb fnstenvw fnstenvl fnstenvq
-syn keyword gasOpcode_286_Base		fnstsw
-syn keyword gasOpcode_8086_Base		fpatan
-syn keyword gasOpcode_8086_Base		fprem
-syn keyword gasOpcode_386_Base		fprem1
-syn keyword gasOpcode_8086_Base		fptan
-syn keyword gasOpcode_8086_Base		frndint
-syn keyword gasOpcode_8086_Base		frstor frstorb frstorw frstorl frstorq
-syn keyword gasOpcode_8086_Base		fsave fsaveb fsavew fsavel fsaveq
-syn keyword gasOpcode_8086_Base		fscale
-syn keyword gasOpcode_286_Base		fsetpm
-syn keyword gasOpcode_386_Base		fsin
-syn keyword gasOpcode_386_Base		fsincos
-syn keyword gasOpcode_8086_Base		fsqrt
-syn keyword gasOpcode_8086_Base		fstl fsts
-syn keyword gasOpcode_8086_Base		fstcw fstcwb fstcww fstcwl fstcwq
-syn keyword gasOpcode_8086_Base		fstenv fstenvb fstenvw fstenvl fstenvq
-syn keyword gasOpcode_8086_Base		fstp
-syn keyword gasOpcode_286_Base		fstsw
-syn keyword gasOpcode_8086_Base		fsub
-syn keyword gasOpcode_8086_Base		fsubp
-syn keyword gasOpcode_8086_Base		fsubr
-syn keyword gasOpcode_8086_Base		fsubrp
-syn keyword gasOpcode_8086_Base		ftst
-syn keyword gasOpcode_386_Base		fucom
-syn keyword gasOpcode_P6_Base		fucomi
-syn keyword gasOpcode_P6_Base		fucomip
-syn keyword gasOpcode_386_Base		fucomp
-syn keyword gasOpcode_386_Base		fucompp
-syn keyword gasOpcode_8086_Base		fxam
-syn keyword gasOpcode_8086_Base		fxch
-syn keyword gasOpcode_8086_Base		fxtract
-syn keyword gasOpcode_8086_Base		fyl2x
-syn keyword gasOpcode_8086_Base		fyl2xp1
-syn keyword gasOpcode_8086_Base		hlt
-syn keyword gasOpcode_386_Base		ibts
-syn keyword gasOpcode_386_Base		icebp
-syn keyword gasOpcode_X64_Base		idiv
-syn keyword gasOpcode_X64_Base		imul imulb imulw imull imulq
-syn keyword gasOpcode_386_Base		in
-syn keyword gasOpcode_X64_Base		inc incb incw incl incq
-syn keyword gasOpcode_Base		incbin
-syn keyword gasOpcode_186_Base		insb
-syn keyword gasOpcode_386_Base		insd
-syn keyword gasOpcode_186_Base		insw
-syn keyword gasOpcode_8086_Base		int intb intw intl intq
-syn keyword gasOpcode_386_Base		int01
-syn keyword gasOpcode_386_Base		int1
-syn keyword gasOpcode_8086_Base		int03
-syn keyword gasOpcode_8086_Base		int3
-syn keyword gasOpcode_8086_Base		into
-syn keyword gasOpcode_486_Base		invd
-syn keyword gasOpcode_486_Base		invlpg invlpgb invlpgw invlpgl invlpgq
-syn keyword gasOpcode_X86_64_Base	invlpga
-syn keyword gasOpcode_8086_Base		iret
-syn keyword gasOpcode_386_Base		iretd
-syn keyword gasOpcode_X64_Base		iretq
-syn keyword gasOpcode_8086_Base		iretw
-syn keyword gasOpcode_8086_Base		jcxz jcxzb jcxzw jcxzl jcxzq
-syn keyword gasOpcode_386_Base		jecxz jecxzb jecxzw jecxzl jecxzq
-syn keyword gasOpcode_X64_Base		jrcxz jrcxzb jrcxzw jrcxzl jrcxzq
-syn keyword gasOpcode_X64_Base		jmp jmpb jmpw jmpl jmpq
-syn keyword gasOpcode_IA64_Base		jmpe
-syn keyword gasOpcode_8086_Base		lahf
-syn keyword gasOpcode_X64_Base		lar
-syn keyword gasOpcode_386_Base		lds ldsb ldsw ldsl ldsq
-syn keyword gasOpcode_X64_Base		lea leab leaw leal leaq
-syn keyword gasOpcode_186_Base		leave
-syn keyword gasOpcode_386_Base		les lesb lesw lesl lesq
-syn keyword gasOpcode_X64_Base		lfence
-syn keyword gasOpcode_386_Base		lfs lfsb lfsw lfsl lfsq
-syn keyword gasOpcode_286_Base		lgdt lgdtb lgdtw lgdtl lgdtq
-syn keyword gasOpcode_386_Base		lgs lgsb lgsw lgsl lgsq
-syn keyword gasOpcode_286_Base		lidt lidtb lidtw lidtl lidtq
-syn keyword gasOpcode_286_Base		lldt
-syn keyword gasOpcode_286_Base		lmsw
-syn keyword gasOpcode_386_Base		loadall
-syn keyword gasOpcode_286_Base		loadall286
-syn keyword gasOpcode_8086_Base		lodsb
-syn keyword gasOpcode_386_Base		lodsd
-syn keyword gasOpcode_X64_Base		lodsq
-syn keyword gasOpcode_8086_Base		lodsw
-syn keyword gasOpcode_X64_Base		loop loopb loopw loopl loopq
-syn keyword gasOpcode_X64_Base		loope loopeb loopew loopel loopeq
-syn keyword gasOpcode_X64_Base		loopne loopneb loopnew loopnel loopneq
-syn keyword gasOpcode_X64_Base		loopnz loopnzb loopnzw loopnzl loopnzq
-syn keyword gasOpcode_X64_Base		loopz loopzb loopzw loopzl loopzq
-syn keyword gasOpcode_X64_Base		lsl
-syn keyword gasOpcode_386_Base		lss lssb lssw lssl lssq
-syn keyword gasOpcode_286_Base		ltr
-syn keyword gasOpcode_X64_Base		mfence
-syn keyword gasOpcode_PRESCOTT_Base	monitor
-syn keyword gasOpcode_386_Base		mov movb movw movl movq
-syn keyword gasOpcode_X64_SSE		movd
-syn keyword gasOpcode_X64_MMX		movq
-syn keyword gasOpcode_8086_Base		movsb
-syn keyword gasOpcode_386_Base		movsd
-syn keyword gasOpcode_X64_Base		movsq
-syn keyword gasOpcode_8086_Base		movsw
-syn keyword gasOpcode_X64_Base		movsx
-syn keyword gasOpcode_X64_Base		movsxd
-syn keyword gasOpcode_X64_Base		movsx
-syn keyword gasOpcode_X64_Base		movzx
-syn keyword gasOpcode_X64_Base		mul
-syn keyword gasOpcode_PRESCOTT_Base	mwait
-syn keyword gasOpcode_X64_Base		neg
-syn keyword gasOpcode_X64_Base		nop
-syn keyword gasOpcode_X64_Base		not
-syn keyword gasOpcode_386_Base		or orb orw orl orq
-syn keyword gasOpcode_386_Base		out
-syn keyword gasOpcode_186_Base		outsb
-syn keyword gasOpcode_386_Base		outsd
-syn keyword gasOpcode_186_Base		outsw
-syn keyword gasOpcode_PENT_MMX		packssdw packssdwb packssdww packssdwl packssdwq
-syn keyword gasOpcode_PENT_MMX		packsswb packsswbb packsswbw packsswbl packsswbq
-syn keyword gasOpcode_PENT_MMX		packuswb packuswbb packuswbw packuswbl packuswbq
-syn keyword gasOpcode_PENT_MMX		paddb paddbb paddbw paddbl paddbq
-syn keyword gasOpcode_PENT_MMX		paddd padddb padddw padddl padddq
-syn keyword gasOpcode_PENT_MMX		paddsb paddsbb paddsbw paddsbl paddsbq
-syn keyword gasOpcode_PENT_MMX		paddsiw paddsiwb paddsiww paddsiwl paddsiwq
-syn keyword gasOpcode_PENT_MMX		paddsw paddswb paddsww paddswl paddswq
-syn keyword gasOpcode_PENT_MMX		paddusb paddusbb paddusbw paddusbl paddusbq
-syn keyword gasOpcode_PENT_MMX		paddusw padduswb paddusww padduswl padduswq
-syn keyword gasOpcode_PENT_MMX		paddw paddwb paddww paddwl paddwq
-syn keyword gasOpcode_PENT_MMX		pand pandb pandw pandl pandq
-syn keyword gasOpcode_PENT_MMX		pandn pandnb pandnw pandnl pandnq
-syn keyword gasOpcode_8086_Base		pause
-syn keyword gasOpcode_PENT_MMX		paveb pavebb pavebw pavebl pavebq
-syn keyword gasOpcode_PENT_3DNOW	pavgusb pavgusbb pavgusbw pavgusbl pavgusbq
-syn keyword gasOpcode_PENT_MMX		pcmpeqb pcmpeqbb pcmpeqbw pcmpeqbl pcmpeqbq
-syn keyword gasOpcode_PENT_MMX		pcmpeqd pcmpeqdb pcmpeqdw pcmpeqdl pcmpeqdq
-syn keyword gasOpcode_PENT_MMX		pcmpeqw pcmpeqwb pcmpeqww pcmpeqwl pcmpeqwq
-syn keyword gasOpcode_PENT_MMX		pcmpgtb pcmpgtbb pcmpgtbw pcmpgtbl pcmpgtbq
-syn keyword gasOpcode_PENT_MMX		pcmpgtd pcmpgtdb pcmpgtdw pcmpgtdl pcmpgtdq
-syn keyword gasOpcode_PENT_MMX		pcmpgtw pcmpgtwb pcmpgtww pcmpgtwl pcmpgtwq
-syn keyword gasOpcode_PENT_MMX		pdistib pdistibb pdistibw pdistibl pdistibq
-syn keyword gasOpcode_PENT_3DNOW	pf2id pf2idb pf2idw pf2idl pf2idq
-syn keyword gasOpcode_PENT_3DNOW	pfacc pfaccb pfaccw pfaccl pfaccq
-syn keyword gasOpcode_PENT_3DNOW	pfadd pfaddb pfaddw pfaddl pfaddq
-syn keyword gasOpcode_PENT_3DNOW	pfcmpeq pfcmpeqb pfcmpeqw pfcmpeql pfcmpeqq
-syn keyword gasOpcode_PENT_3DNOW	pfcmpge pfcmpgeb pfcmpgew pfcmpgel pfcmpgeq
-syn keyword gasOpcode_PENT_3DNOW	pfcmpgt pfcmpgtb pfcmpgtw pfcmpgtl pfcmpgtq
-syn keyword gasOpcode_PENT_3DNOW	pfmax pfmaxb pfmaxw pfmaxl pfmaxq
-syn keyword gasOpcode_PENT_3DNOW	pfmin pfminb pfminw pfminl pfminq
-syn keyword gasOpcode_PENT_3DNOW	pfmul pfmulb pfmulw pfmull pfmulq
-syn keyword gasOpcode_PENT_3DNOW	pfrcp pfrcpb pfrcpw pfrcpl pfrcpq
-syn keyword gasOpcode_PENT_3DNOW	pfrcpit1 pfrcpit1b pfrcpit1w pfrcpit1l pfrcpit1q
-syn keyword gasOpcode_PENT_3DNOW	pfrcpit2 pfrcpit2b pfrcpit2w pfrcpit2l pfrcpit2q
-syn keyword gasOpcode_PENT_3DNOW	pfrsqit1 pfrsqit1b pfrsqit1w pfrsqit1l pfrsqit1q
-syn keyword gasOpcode_PENT_3DNOW	pfrsqrt pfrsqrtb pfrsqrtw pfrsqrtl pfrsqrtq
-syn keyword gasOpcode_PENT_3DNOW	pfsub pfsubb pfsubw pfsubl pfsubq
-syn keyword gasOpcode_PENT_3DNOW	pfsubr pfsubrb pfsubrw pfsubrl pfsubrq
-syn keyword gasOpcode_PENT_3DNOW	pi2fd pi2fdb pi2fdw pi2fdl pi2fdq
-syn keyword gasOpcode_PENT_MMX		pmachriw pmachriwb pmachriww pmachriwl pmachriwq
-syn keyword gasOpcode_PENT_MMX		pmaddwd pmaddwdb pmaddwdw pmaddwdl pmaddwdq
-syn keyword gasOpcode_PENT_MMX		pmagw pmagwb pmagww pmagwl pmagwq
-syn keyword gasOpcode_PENT_MMX		pmulhriw pmulhriwb pmulhriww pmulhriwl pmulhriwq
-syn keyword gasOpcode_PENT_3DNOW	pmulhrwa pmulhrwab pmulhrwaw pmulhrwal pmulhrwaq
-syn keyword gasOpcode_PENT_MMX		pmulhrwc pmulhrwcb pmulhrwcw pmulhrwcl pmulhrwcq
-syn keyword gasOpcode_PENT_MMX		pmulhw pmulhwb pmulhww pmulhwl pmulhwq
-syn keyword gasOpcode_PENT_MMX		pmullw pmullwb pmullww pmullwl pmullwq
-syn keyword gasOpcode_PENT_MMX		pmvgezb pmvgezbb pmvgezbw pmvgezbl pmvgezbq
-syn keyword gasOpcode_PENT_MMX		pmvlzb pmvlzbb pmvlzbw pmvlzbl pmvlzbq
-syn keyword gasOpcode_PENT_MMX		pmvnzb pmvnzbb pmvnzbw pmvnzbl pmvnzbq
-syn keyword gasOpcode_PENT_MMX		pmvzb pmvzbb pmvzbw pmvzbl pmvzbq
-syn keyword gasOpcode_386_Base		pop popb popw popl popq
-syn keyword gasOpcode_186_Base		popa
-syn keyword gasOpcode_386_Base		popal
-syn keyword gasOpcode_186_Base		popaw
-syn keyword gasOpcode_8086_Base		popf
-syn keyword gasOpcode_386_Base		popfd popfl
-syn keyword gasOpcode_X64_Base		popfq
-syn keyword gasOpcode_8086_Base		popfw
-syn keyword gasOpcode_PENT_MMX		por porb porw porl porq
-syn keyword gasOpcode_PENT_3DNOW	prefetch prefetchb prefetchw prefetchl prefetchq
-syn keyword gasOpcode_PENT_3DNOW	prefetchw prefetchwb prefetchww prefetchwl prefetchwq
-syn keyword gasOpcode_PENT_MMX		pslld pslldb pslldw pslldl pslldq
-syn keyword gasOpcode_PENT_MMX		psllq psllqb psllqw psllql psllqq
-syn keyword gasOpcode_PENT_MMX		psllw psllwb psllww psllwl psllwq
-syn keyword gasOpcode_PENT_MMX		psrad psradb psradw psradl psradq
-syn keyword gasOpcode_PENT_MMX		psraw psrawb psraww psrawl psrawq
-syn keyword gasOpcode_PENT_MMX		psrld psrldb psrldw psrldl psrldq
-syn keyword gasOpcode_PENT_MMX		psrlq psrlqb psrlqw psrlql psrlqq
-syn keyword gasOpcode_PENT_MMX		psrlw psrlwb psrlww psrlwl psrlwq
-syn keyword gasOpcode_PENT_MMX		psubb psubbb psubbw psubbl psubbq
-syn keyword gasOpcode_PENT_MMX		psubd psubdb psubdw psubdl psubdq
-syn keyword gasOpcode_PENT_MMX		psubsb psubsbb psubsbw psubsbl psubsbq
-syn keyword gasOpcode_PENT_MMX		psubsiw psubsiwb psubsiww psubsiwl psubsiwq
-syn keyword gasOpcode_PENT_MMX		psubsw psubswb psubsww psubswl psubswq
-syn keyword gasOpcode_PENT_MMX		psubusb psubusbb psubusbw psubusbl psubusbq
-syn keyword gasOpcode_PENT_MMX		psubusw psubuswb psubusww psubuswl psubuswq
-syn keyword gasOpcode_PENT_MMX		psubw psubwb psubww psubwl psubwq
-syn keyword gasOpcode_PENT_MMX		punpckhbw punpckhbwb punpckhbww punpckhbwl punpckhbwq
-syn keyword gasOpcode_PENT_MMX		punpckhdq punpckhdqb punpckhdqw punpckhdql punpckhdqq
-syn keyword gasOpcode_PENT_MMX		punpckhwd punpckhwdb punpckhwdw punpckhwdl punpckhwdq
-syn keyword gasOpcode_PENT_MMX		punpcklbw punpcklbwb punpcklbww punpcklbwl punpcklbwq
-syn keyword gasOpcode_PENT_MMX		punpckldq punpckldqb punpckldqw punpckldql punpckldqq
-syn keyword gasOpcode_PENT_MMX		punpcklwd punpcklwdb punpcklwdw punpcklwdl punpcklwdq
-syn keyword gasOpcode_X64_Base		push pushb pushw pushl pushq
-syn keyword gasOpcode_186_Base		pusha
-syn keyword gasOpcode_386_Base		pushal
-syn keyword gasOpcode_186_Base		pushaw
-syn keyword gasOpcode_8086_Base		pushf
-syn keyword gasOpcode_386_Base		pushfd
-syn keyword gasOpcode_X64_Base		pushfq
-syn keyword gasOpcode_8086_Base		pushfw
-syn keyword gasOpcode_PENT_MMX		pxor pxorb pxorw pxorl pxorq
-syn keyword gasOpcode_X64_Base		rcl rclb rclw rcll rclq
-syn keyword gasOpcode_X64_Base		rcr rcrb rcrw rcrl rcrq
-syn keyword gasOpcode_P6_Base		rdshr
-syn keyword gasOpcode_PENT_Base		rdmsr
-syn keyword gasOpcode_P6_Base		rdpmc
-syn keyword gasOpcode_PENT_Base		rdtsc
-syn keyword gasOpcode_X86_64_Base	rdtscp
-syn keyword gasOpcode_8086_Base		ret retb retw retl retq
-syn keyword gasOpcode_8086_Base		retf retfb retfw retfl retfq
-syn keyword gasOpcode_8086_Base		retn retnb retnw retnl retnq
-syn keyword gasOpcode_8086_Base		rep repne repe
-syn keyword gasOpcode_X64_Base		rol rolb rolw roll rolq
-syn keyword gasOpcode_X64_Base		ror rorb rorw rorl rorq
-syn keyword gasOpcode_P6_Base		rdm
-syn keyword gasOpcode_486_Base		rsdc rsdcb rsdcw rsdcl rsdcq
-syn keyword gasOpcode_486_Base		rsldt rsldtb rsldtw rsldtl rsldtq
-syn keyword gasOpcode_PENTM_Base	rsm
-syn keyword gasOpcode_486_Base		rsts rstsb rstsw rstsl rstsq
-syn keyword gasOpcode_8086_Base		sahf
-syn keyword gasOpcode_X64_Base		sal salb salw sall salq
-syn keyword gasOpcode_8086_Base		salc
-syn keyword gasOpcode_X64_Base		sar sarb sarw sarl sarq
-syn keyword gasOpcode_386_Base		sbb sbbb sbbw sbbl sbbq
-syn keyword gasOpcode_8086_Base		scasb
-syn keyword gasOpcode_386_Base		scasd
-syn keyword gasOpcode_X64_Base		scasq
-syn keyword gasOpcode_8086_Base		scasw
-syn keyword gasOpcode_X64_Base		sfence
-syn keyword gasOpcode_286_Base		sgdt sgdtb sgdtw sgdtl sgdtq
-syn keyword gasOpcode_X64_Base		shl shlb shlw shll shlq
-syn keyword gasOpcode_X64_Base		shld
-syn keyword gasOpcode_X64_Base		shr shrb shrw shrl shrq
-syn keyword gasOpcode_X64_Base		shrd
-syn keyword gasOpcode_286_Base		sidt sidtb sidtw sidtl sidtq
-syn keyword gasOpcode_X64_Base		sldt
-syn keyword gasOpcode_X64_Base		skinit
-syn keyword gasOpcode_386_Base		smi
-syn keyword gasOpcode_P6_Base		smint
-syn keyword gasOpcode_486_Base		smintold
-syn keyword gasOpcode_386_Base		smsw
-syn keyword gasOpcode_8086_Base		stc
-syn keyword gasOpcode_8086_Base		std
-syn keyword gasOpcode_X64_Base		stgi
-syn keyword gasOpcode_8086_Base		sti
-syn keyword gasOpcode_8086_Base		stosb
-syn keyword gasOpcode_386_Base		stosd stosl
-syn keyword gasOpcode_X64_Base		stosq
-syn keyword gasOpcode_8086_Base		stosw
-syn keyword gasOpcode_X64_Base		str
-syn keyword gasOpcode_386_Base		sub subb subw subl subq
-syn keyword gasOpcode_486_Base		svdc svdcb svdcw svdcl svdcq
-syn keyword gasOpcode_486_Base		svldt svldtb svldtw svldtl svldtq
-syn keyword gasOpcode_486_Base		svts svtsb svtsw svtsl svtsq
-syn keyword gasOpcode_X64_Base		swapgs
-syn keyword gasOpcode_P6_Base		syscall
-syn keyword gasOpcode_P6_Base		sysenter
-syn keyword gasOpcode_P6_Base		sysexit
-syn keyword gasOpcode_P6_Base		sysret
-syn keyword gasOpcode_386_Base		test testb testw testl testq
-syn keyword gasOpcode_186_Base		ud0
-syn keyword gasOpcode_186_Base		ud1
-syn keyword gasOpcode_186_Base		ud2b
-syn keyword gasOpcode_186_Base		ud2
-syn keyword gasOpcode_186_Base		ud2a
-syn keyword gasOpcode_386_Base		umov
-syn keyword gasOpcode_286_Base		verr
-syn keyword gasOpcode_286_Base		verw
-syn keyword gasOpcode_8086_Base		fwait
-syn keyword gasOpcode_486_Base		wbinvd
-syn keyword gasOpcode_P6_Base		wrshr
-syn keyword gasOpcode_PENT_Base		wrmsr
-syn keyword gasOpcode_X64_Base		xadd
-syn keyword gasOpcode_386_Base		xbts
-syn keyword gasOpcode_X64_Base		xchg
-syn keyword gasOpcode_8086_Base		xlatb
-syn keyword gasOpcode_8086_Base		xlat
-syn keyword gasOpcode_386_Base		xor xorb xorw xorl xorq
-syn match   gasOpcode_X64_Base		/\<cmov\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)\>/
-syn match   gasOpcode_8086_Base		/\<j\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)[bwlq]\?\>/
-syn match   gasOpcode_386_Base		/\<set\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)[bwlq]\?\>/
+"-- section: conventional instructions
+syn keyword gasopcode_8086_base		aaa
+syn keyword gasopcode_8086_base		aad aadb aadw aadl aadq
+syn keyword gasopcode_8086_base		aam aamb aamw aaml aamq
+syn keyword gasopcode_8086_base		aas
+syn keyword gasopcode_386_base		adc adcb adcw adcl adcq
+syn keyword gasopcode_386_base		add addb addw addl addq
+syn keyword gasopcode_386_base		and andb andw andl andq
+syn keyword gasopcode_286_base		arpl
+syn keyword gasopcode_pent_base		bb0_reset
+syn keyword gasopcode_pent_base		bb1_reset
+syn keyword gasopcode_386_base		bound boundb boundw boundl boundq
+syn keyword gasopcode_x64_base		bsf
+syn keyword gasopcode_x64_base		bsr
+syn keyword gasopcode_x64_base		bswap
+syn keyword gasopcode_x64_base		bt btb btw btl btq
+syn keyword gasopcode_x64_base		btc btcb btcw btcl btcq
+syn keyword gasopcode_x64_base		btr btrb btrw btrl btrq
+syn keyword gasopcode_x64_base		bts btsb btsw btsl btsq
+syn keyword gasopcode_x64_base		call callb callw calll callq
+syn keyword gasopcode_8086_base		cbw
+syn keyword gasopcode_386_base		cdq
+syn keyword gasopcode_x64_base		cdqe
+syn keyword gasopcode_8086_base		clc
+syn keyword gasopcode_8086_base		cld
+syn keyword gasopcode_x64_base		clgi
+syn keyword gasopcode_8086_base		cli
+syn keyword gasopcode_286_base		clts
+syn keyword gasopcode_8086_base		cmc
+syn keyword gasopcode_386_base		cmp cmpb cmpw cmpl cmpq
+syn keyword gasopcode_8086_base		cmpsb
+syn keyword gasopcode_386_base		cmpsl
+syn keyword gasopcode_x64_base		cmpsq
+syn keyword gasopcode_8086_base		cmpsw
+syn keyword gasopcode_x64_base		cmpxchg
+syn keyword gasopcode_486_base		cmpxchg486
+syn keyword gasopcode_pent_base		cmpxchg8b cmpxchg8bb cmpxchg8bw cmpxchg8bl cmpxchg8bq
+syn keyword gasopcode_x64_base		cmpxchg16b cmpxchg16bb cmpxchg16bw cmpxchg16bl cmpxchg16bq
+syn keyword gasopcode_pent_base		cpuid
+syn keyword gasopcode_pent_base		cpu_read
+syn keyword gasopcode_pent_base		cpu_write
+syn keyword gasopcode_x64_base		cqo
+syn keyword gasopcode_8086_base		cwd
+syn keyword gasopcode_386_base		cwde
+syn keyword gasopcode_8086_base		daa
+syn keyword gasopcode_8086_base		das
+syn keyword gasopcode_x64_base		dec
+syn keyword gasopcode_x64_base		div
+syn keyword gasopcode_p6_base		dmint
+syn keyword gasopcode_pent_mmx		emms
+syn keyword gasopcode_186_base		enter enterb enterw enterl enterq
+syn keyword gasopcode_8086_base		equ
+syn keyword gasopcode_8086_base		f2xm1
+syn keyword gasopcode_8086_base		fabs
+syn keyword gasopcode_8086_base		fadd
+syn keyword gasopcode_8086_base		faddp
+syn keyword gasopcode_8086_base		fbld fbldb fbldw fbldl fbldq
+syn keyword gasopcode_8086_base		fbstp fbstpb fbstpw fbstpl fbstpq
+syn keyword gasopcode_8086_base		fchs
+syn keyword gasopcode_8086_base		fclex
+syn keyword gasopcode_p6_base		fcmovb
+syn keyword gasopcode_p6_base		fcmovbe
+syn keyword gasopcode_p6_base		fcmove
+syn keyword gasopcode_p6_base		fcmovnb
+syn keyword gasopcode_p6_base		fcmovnbe
+syn keyword gasopcode_p6_base		fcmovne
+syn keyword gasopcode_p6_base		fcmovnu
+syn keyword gasopcode_p6_base		fcmovu
+syn keyword gasopcode_8086_base		fcom
+syn keyword gasopcode_p6_base		fcomi
+syn keyword gasopcode_p6_base		fcomip
+syn keyword gasopcode_8086_base		fcomp
+syn keyword gasopcode_8086_base		fcompp
+syn keyword gasopcode_386_base		fcos
+syn keyword gasopcode_8086_base		fdecstp
+syn keyword gasopcode_8086_base		fdisi
+syn keyword gasopcode_8086_base		fdiv
+syn keyword gasopcode_8086_base		fdivp
+syn keyword gasopcode_8086_base		fdivr
+syn keyword gasopcode_8086_base		fdivrp
+syn keyword gasopcode_pent_3dnow	femms
+syn keyword gasopcode_8086_base		feni
+syn keyword gasopcode_8086_base		ffree
+syn keyword gasopcode_286_base		ffreep
+syn keyword gasopcode_8086_base		fiadd fiaddb fiaddw fiaddl fiaddq
+syn keyword gasopcode_8086_base		ficom ficomb ficomw ficoml ficomq
+syn keyword gasopcode_8086_base		ficomp ficompb ficompw ficompl ficompq
+syn keyword gasopcode_8086_base		fidiv fidivb fidivw fidivl fidivq
+syn keyword gasopcode_8086_base		fidivr fidivrb fidivrw fidivrl fidivrq
+syn keyword gasopcode_8086_base		fild fildb fildw fildl fildq
+syn keyword gasopcode_8086_base		fimul fimulb fimulw fimull fimulq
+syn keyword gasopcode_8086_base		fincstp
+syn keyword gasopcode_8086_base		finit
+syn keyword gasopcode_8086_base		fist fistb fistw fistl fistq
+syn keyword gasopcode_8086_base		fistp fistpb fistpw fistpl fistpq
+syn keyword gasopcode_prescott_base	fisttp fisttpb fisttpw fisttpl fisttpq
+syn keyword gasopcode_8086_base		fisub fisubb fisubw fisubl fisubq
+syn keyword gasopcode_8086_base		fisubr fisubrb fisubrw fisubrl fisubrq
+syn keyword gasopcode_8086_base		flds fldl
+syn keyword gasopcode_8086_base		fldcw fldcwb fldcww fldcwl fldcwq
+syn keyword gasopcode_8086_base		fldenv fldenvb fldenvw fldenvl fldenvq
+syn keyword gasopcode_8086_base		fld1
+syn keyword gasopcode_8086_base		fldl2e
+syn keyword gasopcode_8086_base		fldl2t
+syn keyword gasopcode_8086_base		fldlg2
+syn keyword gasopcode_8086_base		fldln2
+syn keyword gasopcode_8086_base		fldpi
+syn keyword gasopcode_8086_base		fldz
+syn keyword gasopcode_8086_base		fmul
+syn keyword gasopcode_8086_base		fmulp
+syn keyword gasopcode_8086_base		fnclex
+syn keyword gasopcode_8086_base		fndisi
+syn keyword gasopcode_8086_base		fneni
+syn keyword gasopcode_8086_base		fninit
+syn keyword gasopcode_8086_base		fnop
+syn keyword gasopcode_8086_base		fnsave fnsaveb fnsavew fnsavel fnsaveq
+syn keyword gasopcode_8086_base		fnstcw fnstcwb fnstcww fnstcwl fnstcwq
+syn keyword gasopcode_8086_base		fnstenv fnstenvb fnstenvw fnstenvl fnstenvq
+syn keyword gasopcode_286_base		fnstsw
+syn keyword gasopcode_8086_base		fpatan
+syn keyword gasopcode_8086_base		fprem
+syn keyword gasopcode_386_base		fprem1
+syn keyword gasopcode_8086_base		fptan
+syn keyword gasopcode_8086_base		frndint
+syn keyword gasopcode_8086_base		frstor frstorb frstorw frstorl frstorq
+syn keyword gasopcode_8086_base		fsave fsaveb fsavew fsavel fsaveq
+syn keyword gasopcode_8086_base		fscale
+syn keyword gasopcode_286_base		fsetpm
+syn keyword gasopcode_386_base		fsin
+syn keyword gasopcode_386_base		fsincos
+syn keyword gasopcode_8086_base		fsqrt
+syn keyword gasopcode_8086_base		fstl fsts
+syn keyword gasopcode_8086_base		fstcw fstcwb fstcww fstcwl fstcwq
+syn keyword gasopcode_8086_base		fstenv fstenvb fstenvw fstenvl fstenvq
+syn keyword gasopcode_8086_base		fstp
+syn keyword gasopcode_286_base		fstsw
+syn keyword gasopcode_8086_base		fsub
+syn keyword gasopcode_8086_base		fsubp
+syn keyword gasopcode_8086_base		fsubr
+syn keyword gasopcode_8086_base		fsubrp
+syn keyword gasopcode_8086_base		ftst
+syn keyword gasopcode_386_base		fucom
+syn keyword gasopcode_p6_base		fucomi
+syn keyword gasopcode_p6_base		fucomip
+syn keyword gasopcode_386_base		fucomp
+syn keyword gasopcode_386_base		fucompp
+syn keyword gasopcode_8086_base		fxam
+syn keyword gasopcode_8086_base		fxch
+syn keyword gasopcode_8086_base		fxtract
+syn keyword gasopcode_8086_base		fyl2x
+syn keyword gasopcode_8086_base		fyl2xp1
+syn keyword gasopcode_8086_base		hlt
+syn keyword gasopcode_386_base		ibts
+syn keyword gasopcode_386_base		icebp
+syn keyword gasopcode_x64_base		idiv
+syn keyword gasopcode_x64_base		imul imulb imulw imull imulq
+syn keyword gasopcode_386_base		in
+syn keyword gasopcode_x64_base		inc incb incw incl incq
+syn keyword gasopcode_base		incbin
+syn keyword gasopcode_186_base		insb
+syn keyword gasopcode_386_base		insl
+syn keyword gasopcode_186_base		insw
+syn keyword gasopcode_8086_base		int intb intw intl intq
+syn keyword gasopcode_386_base		int01
+syn keyword gasopcode_386_base		int1
+syn keyword gasopcode_8086_base		int03
+syn keyword gasopcode_8086_base		int3
+syn keyword gasopcode_8086_base		into
+syn keyword gasopcode_486_base		invd
+syn keyword gasopcode_486_base		invlpg invlpgb invlpgw invlpgl invlpgq
+syn keyword gasopcode_x86_64_base	invlpga
+syn keyword gasopcode_8086_base		iret
+syn keyword gasopcode_386_base		iretd
+syn keyword gasopcode_x64_base		iretq
+syn keyword gasopcode_8086_base		iretw
+syn keyword gasopcode_8086_base		jcxz jcxzb jcxzw jcxzl jcxzq
+syn keyword gasopcode_386_base		jecxz jecxzb jecxzw jecxzl jecxzq
+syn keyword gasopcode_x64_base		jrcxz jrcxzb jrcxzw jrcxzl jrcxzq
+syn keyword gasopcode_x64_base		jmp jmpb jmpw jmpl jmpq
+syn keyword gasopcode_ia64_base		jmpe
+syn keyword gasopcode_8086_base		lahf
+syn keyword gasopcode_x64_base		lar
+syn keyword gasopcode_386_base		lds ldsb ldsw ldsl ldsq
+syn keyword gasopcode_x64_base		lea leab leaw leal leaq
+syn keyword gasopcode_186_base		leave
+syn keyword gasopcode_386_base		les lesb lesw lesl lesq
+syn keyword gasopcode_x64_base		lfence
+syn keyword gasopcode_386_base		lfs lfsb lfsw lfsl lfsq
+syn keyword gasopcode_286_base		lgdt lgdtb lgdtw lgdtl lgdtq
+syn keyword gasopcode_386_base		lgs lgsb lgsw lgsl lgsq
+syn keyword gasopcode_286_base		lidt lidtb lidtw lidtl lidtq
+syn keyword gasopcode_286_base		lldt
+syn keyword gasopcode_286_base		lmsw
+syn keyword gasopcode_386_base		loadall
+syn keyword gasopcode_286_base		loadall286
+syn keyword gasopcode_8086_base		lodsb
+syn keyword gasopcode_386_base		lodsl
+syn keyword gasopcode_x64_base		lodsq
+syn keyword gasopcode_8086_base		lodsw
+syn keyword gasopcode_x64_base		loop loopb loopw loopl loopq
+syn keyword gasopcode_x64_base		loope loopeb loopew loopel loopeq
+syn keyword gasopcode_x64_base		loopne loopneb loopnew loopnel loopneq
+syn keyword gasopcode_x64_base		loopnz loopnzb loopnzw loopnzl loopnzq
+syn keyword gasopcode_x64_base		loopz loopzb loopzw loopzl loopzq
+syn keyword gasopcode_x64_base		lsl
+syn keyword gasopcode_386_base		lss lssb lssw lssl lssq
+syn keyword gasopcode_286_base		ltr
+syn keyword gasopcode_x64_base		mfence
+syn keyword gasopcode_prescott_base	monitor
+syn keyword gasopcode_386_base		mov movb movw movl movq
+syn keyword gasopcode_x64_sse		movd
+syn keyword gasopcode_x64_mmx		movq
+syn keyword gasopcode_8086_base		movsb
+syn keyword gasopcode_386_base		movsl
+syn keyword gasopcode_x64_base		movsq
+syn keyword gasopcode_8086_base		movsw
+syn keyword gasopcode_8086_base		movsbw
+syn keyword gasopcode_386_base          movsbl movswl
+syn keyword gasopcode_x64_base          movsbq movswq movslq
+syn keyword gasOpcode_8086_Base		movzbw
+syn keyword gasOpcode_386_Base          movzbl movzwl
+syn keyword gasOpcode_X64_Base          movzbq movzwq movzlq
+syn keyword gasopcode_x64_base		mul
+syn keyword gasopcode_prescott_base	mwait
+syn keyword gasopcode_x64_base		neg
+syn keyword gasopcode_x64_base		nop
+syn keyword gasopcode_x64_base		not
+syn keyword gasopcode_386_base		or orb orw orl orq
+syn keyword gasopcode_386_base		out
+syn keyword gasopcode_186_base		outsb
+syn keyword gasopcode_386_base		outsl
+syn keyword gasopcode_186_base		outsw
+syn keyword gasopcode_pent_mmx		packssdw packssdwb packssdww packssdwl packssdwq
+syn keyword gasopcode_pent_mmx		packsswb packsswbb packsswbw packsswbl packsswbq
+syn keyword gasopcode_pent_mmx		packuswb packuswbb packuswbw packuswbl packuswbq
+syn keyword gasopcode_pent_mmx		paddb paddbb paddbw paddbl paddbq
+syn keyword gasopcode_pent_mmx		paddd padddb padddw padddl padddq
+syn keyword gasopcode_pent_mmx		paddsb paddsbb paddsbw paddsbl paddsbq
+syn keyword gasopcode_pent_mmx		paddsiw paddsiwb paddsiww paddsiwl paddsiwq
+syn keyword gasopcode_pent_mmx		paddsw paddswb paddsww paddswl paddswq
+syn keyword gasopcode_pent_mmx		paddusb paddusbb paddusbw paddusbl paddusbq
+syn keyword gasopcode_pent_mmx		paddusw padduswb paddusww padduswl padduswq
+syn keyword gasopcode_pent_mmx		paddw paddwb paddww paddwl paddwq
+syn keyword gasopcode_pent_mmx		pand pandb pandw pandl pandq
+syn keyword gasopcode_pent_mmx		pandn pandnb pandnw pandnl pandnq
+syn keyword gasopcode_8086_base		pause
+syn keyword gasopcode_pent_mmx		paveb pavebb pavebw pavebl pavebq
+syn keyword gasopcode_pent_3dnow	pavgusb pavgusbb pavgusbw pavgusbl pavgusbq
+syn keyword gasopcode_pent_mmx		pcmpeqb pcmpeqbb pcmpeqbw pcmpeqbl pcmpeqbq
+syn keyword gasopcode_pent_mmx		pcmpeqd pcmpeqdb pcmpeqdw pcmpeqdl pcmpeqdq
+syn keyword gasopcode_pent_mmx		pcmpeqw pcmpeqwb pcmpeqww pcmpeqwl pcmpeqwq
+syn keyword gasopcode_pent_mmx		pcmpgtb pcmpgtbb pcmpgtbw pcmpgtbl pcmpgtbq
+syn keyword gasopcode_pent_mmx		pcmpgtd pcmpgtdb pcmpgtdw pcmpgtdl pcmpgtdq
+syn keyword gasopcode_pent_mmx		pcmpgtw pcmpgtwb pcmpgtww pcmpgtwl pcmpgtwq
+syn keyword gasopcode_pent_mmx		pdistib pdistibb pdistibw pdistibl pdistibq
+syn keyword gasopcode_pent_3dnow	pf2id pf2idb pf2idw pf2idl pf2idq
+syn keyword gasopcode_pent_3dnow	pfacc pfaccb pfaccw pfaccl pfaccq
+syn keyword gasopcode_pent_3dnow	pfadd pfaddb pfaddw pfaddl pfaddq
+syn keyword gasopcode_pent_3dnow	pfcmpeq pfcmpeqb pfcmpeqw pfcmpeql pfcmpeqq
+syn keyword gasopcode_pent_3dnow	pfcmpge pfcmpgeb pfcmpgew pfcmpgel pfcmpgeq
+syn keyword gasopcode_pent_3dnow	pfcmpgt pfcmpgtb pfcmpgtw pfcmpgtl pfcmpgtq
+syn keyword gasopcode_pent_3dnow	pfmax pfmaxb pfmaxw pfmaxl pfmaxq
+syn keyword gasopcode_pent_3dnow	pfmin pfminb pfminw pfminl pfminq
+syn keyword gasopcode_pent_3dnow	pfmul pfmulb pfmulw pfmull pfmulq
+syn keyword gasopcode_pent_3dnow	pfrcp pfrcpb pfrcpw pfrcpl pfrcpq
+syn keyword gasopcode_pent_3dnow	pfrcpit1 pfrcpit1b pfrcpit1w pfrcpit1l pfrcpit1q
+syn keyword gasopcode_pent_3dnow	pfrcpit2 pfrcpit2b pfrcpit2w pfrcpit2l pfrcpit2q
+syn keyword gasopcode_pent_3dnow	pfrsqit1 pfrsqit1b pfrsqit1w pfrsqit1l pfrsqit1q
+syn keyword gasopcode_pent_3dnow	pfrsqrt pfrsqrtb pfrsqrtw pfrsqrtl pfrsqrtq
+syn keyword gasopcode_pent_3dnow	pfsub pfsubb pfsubw pfsubl pfsubq
+syn keyword gasopcode_pent_3dnow	pfsubr pfsubrb pfsubrw pfsubrl pfsubrq
+syn keyword gasopcode_pent_3dnow	pi2fd pi2fdb pi2fdw pi2fdl pi2fdq
+syn keyword gasopcode_pent_mmx		pmachriw pmachriwb pmachriww pmachriwl pmachriwq
+syn keyword gasopcode_pent_mmx		pmaddwd pmaddwdb pmaddwdw pmaddwdl pmaddwdq
+syn keyword gasopcode_pent_mmx		pmagw pmagwb pmagww pmagwl pmagwq
+syn keyword gasopcode_pent_mmx		pmulhriw pmulhriwb pmulhriww pmulhriwl pmulhriwq
+syn keyword gasopcode_pent_3dnow	pmulhrwa pmulhrwab pmulhrwaw pmulhrwal pmulhrwaq
+syn keyword gasopcode_pent_mmx		pmulhrwc pmulhrwcb pmulhrwcw pmulhrwcl pmulhrwcq
+syn keyword gasopcode_pent_mmx		pmulhw pmulhwb pmulhww pmulhwl pmulhwq
+syn keyword gasopcode_pent_mmx		pmullw pmullwb pmullww pmullwl pmullwq
+syn keyword gasopcode_pent_mmx		pmvgezb pmvgezbb pmvgezbw pmvgezbl pmvgezbq
+syn keyword gasopcode_pent_mmx		pmvlzb pmvlzbb pmvlzbw pmvlzbl pmvlzbq
+syn keyword gasopcode_pent_mmx		pmvnzb pmvnzbb pmvnzbw pmvnzbl pmvnzbq
+syn keyword gasopcode_pent_mmx		pmvzb pmvzbb pmvzbw pmvzbl pmvzbq
+syn keyword gasopcode_386_base		pop popb popw popl popq
+syn keyword gasopcode_186_base		popa
+syn keyword gasopcode_386_base		popal
+syn keyword gasopcode_186_base		popaw
+syn keyword gasopcode_8086_base		popf
+syn keyword gasopcode_386_base		popfd popfl
+syn keyword gasopcode_x64_base		popfq
+syn keyword gasopcode_8086_base		popfw
+syn keyword gasopcode_pent_mmx		por porb porw porl porq
+syn keyword gasopcode_pent_3dnow	prefetch prefetchb prefetchw prefetchl prefetchq
+syn keyword gasopcode_pent_3dnow	prefetchw prefetchwb prefetchww prefetchwl prefetchwq
+syn keyword gasopcode_pent_mmx		pslld pslldb pslldw pslldl pslldq
+syn keyword gasopcode_pent_mmx		psllq psllqb psllqw psllql psllqq
+syn keyword gasopcode_pent_mmx		psllw psllwb psllww psllwl psllwq
+syn keyword gasopcode_pent_mmx		psrad psradb psradw psradl psradq
+syn keyword gasopcode_pent_mmx		psraw psrawb psraww psrawl psrawq
+syn keyword gasopcode_pent_mmx		psrld psrldb psrldw psrldl psrldq
+syn keyword gasopcode_pent_mmx		psrlq psrlqb psrlqw psrlql psrlqq
+syn keyword gasopcode_pent_mmx		psrlw psrlwb psrlww psrlwl psrlwq
+syn keyword gasopcode_pent_mmx		psubb psubbb psubbw psubbl psubbq
+syn keyword gasopcode_pent_mmx		psubd psubdb psubdw psubdl psubdq
+syn keyword gasopcode_pent_mmx		psubsb psubsbb psubsbw psubsbl psubsbq
+syn keyword gasopcode_pent_mmx		psubsiw psubsiwb psubsiww psubsiwl psubsiwq
+syn keyword gasopcode_pent_mmx		psubsw psubswb psubsww psubswl psubswq
+syn keyword gasopcode_pent_mmx		psubusb psubusbb psubusbw psubusbl psubusbq
+syn keyword gasopcode_pent_mmx		psubusw psubuswb psubusww psubuswl psubuswq
+syn keyword gasopcode_pent_mmx		psubw psubwb psubww psubwl psubwq
+syn keyword gasopcode_pent_mmx		punpckhbw punpckhbwb punpckhbww punpckhbwl punpckhbwq
+syn keyword gasopcode_pent_mmx		punpckhdq punpckhdqb punpckhdqw punpckhdql punpckhdqq
+syn keyword gasopcode_pent_mmx		punpckhwd punpckhwdb punpckhwdw punpckhwdl punpckhwdq
+syn keyword gasopcode_pent_mmx		punpcklbw punpcklbwb punpcklbww punpcklbwl punpcklbwq
+syn keyword gasopcode_pent_mmx		punpckldq punpckldqb punpckldqw punpckldql punpckldqq
+syn keyword gasopcode_pent_mmx		punpcklwd punpcklwdb punpcklwdw punpcklwdl punpcklwdq
+syn keyword gasopcode_x64_base		push pushb pushw pushl pushq
+syn keyword gasopcode_186_base		pusha
+syn keyword gasopcode_386_base		pushal
+syn keyword gasopcode_186_base		pushaw
+syn keyword gasopcode_8086_base		pushf
+syn keyword gasopcode_386_base		pushfd
+syn keyword gasopcode_x64_base		pushfq
+syn keyword gasopcode_8086_base		pushfw
+syn keyword gasopcode_pent_mmx		pxor pxorb pxorw pxorl pxorq
+syn keyword gasopcode_x64_base		rcl rclb rclw rcll rclq
+syn keyword gasopcode_x64_base		rcr rcrb rcrw rcrl rcrq
+syn keyword gasopcode_p6_base		rdshr
+syn keyword gasopcode_pent_base		rdmsr
+syn keyword gasopcode_p6_base		rdpmc
+syn keyword gasopcode_pent_base		rdtsc
+syn keyword gasopcode_x86_64_base	rdtscp
+syn keyword gasopcode_8086_base		ret retb retw retl retq
+syn keyword gasopcode_8086_base		retf retfb retfw retfl retfq
+syn keyword gasopcode_8086_base		retn retnb retnw retnl retnq
+syn keyword gasopcode_8086_base		rep repne repe
+syn keyword gasopcode_x64_base		rol rolb rolw roll rolq
+syn keyword gasopcode_x64_base		ror rorb rorw rorl rorq
+syn keyword gasopcode_p6_base		rdm
+syn keyword gasopcode_486_base		rsdc rsdcb rsdcw rsdcl rsdcq
+syn keyword gasopcode_486_base		rsldt rsldtb rsldtw rsldtl rsldtq
+syn keyword gasopcode_pentm_base	rsm
+syn keyword gasopcode_486_base		rsts rstsb rstsw rstsl rstsq
+syn keyword gasopcode_8086_base		sahf
+syn keyword gasopcode_x64_base		sal salb salw sall salq
+syn keyword gasopcode_8086_base		salc
+syn keyword gasopcode_x64_base		sar sarb sarw sarl sarq
+syn keyword gasopcode_386_base		sbb sbbb sbbw sbbl sbbq
+syn keyword gasopcode_8086_base		scasb
+syn keyword gasopcode_386_base		scasl
+syn keyword gasopcode_x64_base		scasq
+syn keyword gasopcode_8086_base		scasw
+syn keyword gasopcode_x64_base		sfence
+syn keyword gasopcode_286_base		sgdt sgdtb sgdtw sgdtl sgdtq
+syn keyword gasopcode_x64_base		shl shlb shlw shll shlq
+syn keyword gasopcode_x64_base		shld
+syn keyword gasopcode_x64_base		shr shrb shrw shrl shrq
+syn keyword gasopcode_x64_base		shrd
+syn keyword gasopcode_286_base		sidt sidtb sidtw sidtl sidtq
+syn keyword gasopcode_x64_base		sldt
+syn keyword gasopcode_x64_base		skinit
+syn keyword gasopcode_386_base		smi
+syn keyword gasopcode_p6_base		smint
+syn keyword gasopcode_486_base		smintold
+syn keyword gasopcode_386_base		smsw
+syn keyword gasopcode_8086_base		stc
+syn keyword gasopcode_8086_base		std
+syn keyword gasopcode_x64_base		stgi
+syn keyword gasopcode_8086_base		sti
+syn keyword gasopcode_8086_base		stosb
+syn keyword gasopcode_386_base		stosl
+syn keyword gasopcode_x64_base		stosq
+syn keyword gasopcode_8086_base		stosw
+syn keyword gasopcode_x64_base		str
+syn keyword gasopcode_386_base		sub subb subw subl subq
+syn keyword gasopcode_486_base		svdc svdcb svdcw svdcl svdcq
+syn keyword gasopcode_486_base		svldt svldtb svldtw svldtl svldtq
+syn keyword gasopcode_486_base		svts svtsb svtsw svtsl svtsq
+syn keyword gasopcode_x64_base		swapgs
+syn keyword gasopcode_p6_base		syscall
+syn keyword gasopcode_p6_base		sysenter
+syn keyword gasopcode_p6_base		sysexit
+syn keyword gasopcode_p6_base		sysret
+syn keyword gasopcode_386_base		test testb testw testl testq
+syn keyword gasopcode_186_base		ud0
+syn keyword gasopcode_186_base		ud1
+syn keyword gasopcode_186_base		ud2b
+syn keyword gasopcode_186_base		ud2
+syn keyword gasopcode_186_base		ud2a
+syn keyword gasopcode_386_base		umov
+syn keyword gasopcode_286_base		verr
+syn keyword gasopcode_286_base		verw
+syn keyword gasopcode_8086_base		fwait
+syn keyword gasopcode_486_base		wbinvd
+syn keyword gasopcode_p6_base		wrshr
+syn keyword gasopcode_pent_base		wrmsr
+syn keyword gasopcode_x64_base		xadd
+syn keyword gasopcode_386_base		xbts
+syn keyword gasopcode_x64_base		xchg
+syn keyword gasopcode_8086_base		xlatb
+syn keyword gasopcode_8086_base		xlat
+syn keyword gasopcode_386_base		xor xorb xorw xorl xorq
+syn match   gasopcode_x64_base		/\<cmov\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)\>/
+syn match   gasopcode_8086_base		/\<j\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)[bwlq]\?\>/
+syn match   gasopcode_386_base		/\<set\(e\|ne\|a\|ae\|b\|be\|nbe\|g\|ge\|ng\|nge\|l\|le\|\|z\|nz\|c\|nc\|d\|nd\|o\|no\|p\|np\|s\|ns\)[bwlq]\?\>/
 
 "-- Section: VIA (Centaur) security instructions
 syn keyword gasOpcode_PENT_Base		xstore
