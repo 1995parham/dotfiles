@@ -1,0 +1,7 @@
+BoldAsFont=no
+ForegroundColour=255,128,0
+Transparency=low
+Font=Courier New
+Columns=192
+Rows=46
+Term=xterm-256color
