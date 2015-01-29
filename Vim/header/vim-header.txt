@@ -1,0 +1,7 @@
+:insert
+" In The Name Of God
+" Vim []
+" Last Change:
+" Maintainer:	Parham Alvani <parham.alvani@gmail.com>
+" Language:
+"
