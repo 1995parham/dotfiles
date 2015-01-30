@@ -62,6 +62,9 @@ set modelines=5
 " Set folding type in marker
 set foldmethod=marker
 
+" Set search results highlighting
+set hlsearch
+
 " }}}
 
 " Plugins {{{
