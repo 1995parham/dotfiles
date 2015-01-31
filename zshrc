@@ -54,7 +54,7 @@ function tmuxkill() {
 # ls command.
 if ls --color=auto &> /dev/null; then
 	alias ls="ls --color=auto"
-elif ls -G &> dev/null; then
+elif ls -G &> /dev/null; then
 	alias ls="ls -G"
 fi
 
