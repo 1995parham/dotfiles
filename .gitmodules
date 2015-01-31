@@ -1,3 +1,6 @@
 [submodule "Vim/bundle/vim-zimpl"]
 	path = Vim/bundle/vim-zimpl
 	url = https://github.com/1995parham/vim-zimpl
+[submodule "Vim/bundle/vim-gas"]
+	path = Vim/bundle/vim-gas
+	url = https://github.com/1995parham/vim-gas
