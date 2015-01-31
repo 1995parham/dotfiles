@@ -49,8 +49,16 @@ function tmuxkill() {
 # }}}
 
 # Alias' {{{
+
+# set flags automatically for BSD and GNU
+# ls command.
+if ls -G &> /dev/null; then
+	alias ls="ls -G"
+elif ls --color=auto &> dev/null; then
+	alias ls="ls --color=auto"
+fi
+
 alias vi="vim"
-alias ls='ls --color=auto'
 alias r="source ~/.zshrc"
 alias tat='tmux new-session -As $(basename "$PWD" | tr . -)' # will attach if session exists, or create a new session
 alias tmuxsrc="tmux source-file ~/.tmux.conf"
