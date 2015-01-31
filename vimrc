@@ -105,39 +105,39 @@ let python_highlight_all = 1
 
 " Command for automating file header creation. {{{
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so $HOME/.vim/header/c-header.txt
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "normal mb"
-autocmd Bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "normal mb"
+autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.c,*.cpp,*.h,*.s,*.S exe "normal `b"
 
 autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
-autocmd bufnewfile Makefile exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufnewfile Makefile exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 
 autocmd bufnewfile *.asm so $HOME/.vim/header/asm-header.txt
-autocmd bufnewfile *.asm exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.asm exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.asm exe "normal mb"
-autocmd Bufwritepre,filewritepre *.asm exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufnewfile *.asm exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.asm exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufwritepre,filewritepre *.asm exe "normal mb"
+autocmd bufwritepre,filewritepre *.asm exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.asm exe "normal `b"
 
 autocmd bufnewfile *.bash so $HOME/.vim/header/bash-header.txt
-autocmd bufnewfile *.bash exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.bash exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.bash exe "normal mb"
-autocmd Bufwritepre,filewritepre *.bash exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufnewfile *.bash exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.bash exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufwritepre,filewritepre *.bash exe "normal mb"
+autocmd bufwritepre,filewritepre *.bash exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.bash exe "normal `b"
 
 autocmd bufnewfile *.py so $HOME/.vim/header/python-header.txt
-autocmd bufnewfile *.py exe "1, 10 " . "g/File Name :.*/s//File Name : " . expand("%")
-autocmd bufnewfile *.py exe "1, 10 " . "g/Creation Date :.*/s//Creation Date : " . strftime("%d-%m-%Y")
-autocmd Bufwritepre,filewritepre *.py exe "normal mb"
-autocmd Bufwritepre,filewritepre *.py exe "1, 10 " . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufnewfile *.py exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.py exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufwritepre,filewritepre *.py exe "normal mb"
+autocmd bufwritepre,filewritepre *.py exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.py exe "normal `b"
 
 autocmd bufnewfile *.vim so $HOME/.vim/header/vim-header.txt
-autocmd Bufwritepre,filewritepre *.vim exe "normal mb"
-autocmd Bufwritepre,filewritepre *.vim exe "1, 5 " . "g/Last Change:.*/s/Last Change:.*/Last Change:	" . strftime("%Y %b %d")
+autocmd bufwritepre,filewritepre *.vim exe "normal mb"
+autocmd bufwritepre,filewritepre *.vim exe "1, 5 " . "s/Last Change:.*/Last Change:	" . strftime("%Y %b %d")
 autocmd bufwritepost,filewritepost *.vim exe "normal `b"
 
 "
