@@ -13,7 +13,7 @@ endif
 syn case ignore
 
 " strings
-syn region zplString	start=/"/ end=/"/
+syn region zplString	start=/"/ end=/"/ contains=@spell
 
 " comment
 syn region zplComment	start=/#/ end=/$/
@@ -31,6 +31,15 @@ syn match zplPrmsInd	/[][]/
 " variables
 syn keyword zplVars	var
 
+" constraints
+syn keyword zplConstrain	subto
+syn keyword zplConstrainAttr	scale separate checkonly indicator
+
+" user defiend function
+syn region zplParen		transparent start="(" end=")" contains=ALLBUT
+syn keyword zplUserFuncID	defset defnumb defstrg defbool	
+syn match zplUserFunc		/\w\+\s*(\@=/ contains=zplParen
+
 " initializing from file
 syn keyword zplFileFunc		read
 syn keyword zplFileKeyword	as skip use match comment
@@ -40,9 +49,9 @@ syn keyword zplKeyword	in forall minimize maximize do defualt
 syn keyword zplFunc	min max sum prod card random ord length round ceil floor sgn abs
 syn keyword zplFunc	sqrt log ln exp
 syn keyword zplFunc	print check
-syn keyword zplOp1	mod
+syn keyword zplOp1	mod and or xor not
 syn match zplOp2	/[\^*+-/]\|==\|<\|<=\|!=\|>=\|>/
-syn keyword zplCond	if then else end with without
+syn keyword zplCond	if then else end with without vif
 syn match zplNumber	/-\?\d\+/
 
 " links to default
@@ -62,6 +71,12 @@ hi def link zplVars	Type
 
 hi def link zplFileFunc		Function
 hi def link zplFileKeyword	Keyword
+
+hi def link zplConstrain	Statement
+hi def link zplConstrainAttr	Special
+
+hi def link zplUserFuncID	Identifier
+hi def link zplUserFunc		Function
 
 hi def link zplKeyword	Keyword
 hi def link zplOp1	Operator
