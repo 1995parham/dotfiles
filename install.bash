@@ -6,7 +6,7 @@
 #
 # [] Creation Date : 01-02-2015
 #
-# [] Last Modified : Sun Feb  1 01:16:43 2015
+# [] Last Modified : Sun Feb  1 01:46:10 2015
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
@@ -37,6 +37,8 @@ fi
 
 # install vim folder
 if [ -d $HOME/.vim ]; then
-	echo "cp -Ru Vim $HOME/.vim"
-	cp -Ru Vim $HOME/.vim
+	echo "rm -Rf $HOME/.vim"
+	rm -Rf $HOME/.vim
+	echo "cp -R Vim $HOME/.vim"
+	cp -R Vim $HOME/.vim
 fi
