@@ -52,10 +52,10 @@ function tmuxkill() {
 
 # set flags automatically for BSD and GNU
 # ls command.
-if ls -G &> /dev/null; then
-	alias ls="ls -G"
-elif ls --color=auto &> dev/null; then
+if ls --color=auto &> /dev/null; then
 	alias ls="ls --color=auto"
+elif ls -G &> dev/null; then
+	alias ls="ls -G"
 fi
 
 alias vi="vim"
