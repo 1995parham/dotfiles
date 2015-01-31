@@ -28,7 +28,10 @@ syn keyword zplSetsFunc	powerset subsets indexset
 syn keyword zplPrms	param
 syn match zplPrmsInd	/[][]/	
 
-" Initializing from file
+" variables
+syn keyword zplVars	var
+
+" initializing from file
 syn keyword zplFileFunc		read
 syn keyword zplFileKeyword	as skip use match comment
 
@@ -54,6 +57,8 @@ hi def link zplComment	Comment
 
 hi def link zplPrms	Type
 hi def link zplPrmsInd	Operator
+
+hi def link zplVars	Type
 
 hi def link zplFileFunc		Function
 hi def link zplFileKeyword	Keyword
