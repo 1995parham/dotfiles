@@ -6,7 +6,7 @@
 #
 # [] Creation Date : 01-02-2015
 #
-# [] Last Modified : Sun Feb  1 01:35:59 2015
+# [] Last Modified : Tue Feb  3 08:17:16 2015
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
@@ -17,4 +17,4 @@ git pull origin master
 
 # pulling sub projects
 echo "start pulling sub projects..."
-git submodule foreach git pull
+git submodule foreach git pull origin master
