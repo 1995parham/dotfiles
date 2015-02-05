@@ -104,8 +104,10 @@ let python_highlight_all = 1
 " }}}
 
 " Command for automating file header creation. {{{
+let path = system("basename " . @% . " | tr -d '\n' ")
+
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so $HOME/.vim/header/c-header.txt
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/File Name :.*/File Name : " . path
 autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "normal mb"
 autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
@@ -115,21 +117,21 @@ autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
 autocmd bufnewfile Makefile exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 
 autocmd bufnewfile *.asm so $HOME/.vim/header/asm-header.txt
-autocmd bufnewfile *.asm exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.asm exe "1, 10 " . "s/File Name :.*/File Name : " . path
 autocmd bufnewfile *.asm exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 autocmd bufwritepre,filewritepre *.asm exe "normal mb"
 autocmd bufwritepre,filewritepre *.asm exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.asm exe "normal `b"
 
 autocmd bufnewfile *.bash so $HOME/.vim/header/bash-header.txt
-autocmd bufnewfile *.bash exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.bash exe "1, 10 " . "s/File Name :.*/File Name : " . path
 autocmd bufnewfile *.bash exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 autocmd bufwritepre,filewritepre *.bash exe "normal mb"
 autocmd bufwritepre,filewritepre *.bash exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
 autocmd bufwritepost,filewritepost *.bash exe "normal `b"
 
 autocmd bufnewfile *.py so $HOME/.vim/header/python-header.txt
-autocmd bufnewfile *.py exe "1, 10 " . "s/File Name :.*/File Name : " . expand("%")
+autocmd bufnewfile *.py exe "1, 10 " . "s/File Name :.*/File Name : " . path
 autocmd bufnewfile *.py exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 autocmd bufwritepre,filewritepre *.py exe "normal mb"
 autocmd bufwritepre,filewritepre *.py exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
