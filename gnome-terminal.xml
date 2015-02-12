@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="title" mtime="1423773176" type="string">
+		<stringvalue>Zsh Terminal</stringvalue>
+	</entry>
+	<entry name="default_show_menubar" mtime="1408132277" type="bool" value="true"/>
+	<entry name="silent_bell" mtime="1423551077" type="bool" value="true"/>
+	<entry name="font" mtime="1423773161" type="string">
+		<stringvalue>Courier 10 Pitch Italic 9</stringvalue>
+	</entry>
+	<entry name="use_system_font" mtime="1423551077" type="bool" value="false"/>
+	<entry name="cursor_shape" mtime="1423551077" type="string">
+		<stringvalue>ibeam</stringvalue>
+	</entry>
+	<entry name="background_darkness" mtime="1423551077" type="float" value="0.85957401990890503"/>
+	<entry name="background_type" mtime="1423551077" type="string">
+		<stringvalue>transparent</stringvalue>
+	</entry>
+	<entry name="use_theme_colors" mtime="1423551077" type="bool" value="false"/>
+	<entry name="palette" mtime="1423551077" type="string">
+		<stringvalue>#000000000000:#CDCB00000000:#3E18F776076C:#CDCBCDCB0000:#34346565A4A4:#CDCB0000CDCB:#33F7DEB7DCE4:#E5E2E5E2E5E2:#4CCC4CCC4CCC:#F5C104180418:#3E18F776076C:#FFFFFFFF0000:#0A6D648BF0A2:#FFFF0000FFFF:#0000FFFFFFFF:#FFFFFFFFFFFF</stringvalue>
+	</entry>
+	<entry name="alternate_screen_scroll" mtime="1423551077" type="bool" value="true"/>
+	<entry name="background_color" mtime="1423551077" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+	<entry name="visible_name" mtime="1423551077" type="string">
+		<stringvalue>Parham</stringvalue>
+	</entry>
+	<entry name="bold_color" mtime="1423551077" type="string">
+		<stringvalue>#000000000000</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1423551077" type="string">
+		<stringvalue>#FFFF65040444</stringvalue>
+	</entry>
+</gconf>
