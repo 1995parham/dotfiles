@@ -6,7 +6,7 @@
 	<entry name="default_show_menubar" mtime="1408132277" type="bool" value="true"/>
 	<entry name="silent_bell" mtime="1423551077" type="bool" value="true"/>
 	<entry name="font" mtime="1423773161" type="string">
-		<stringvalue>Courier 10 Pitch Italic 9</stringvalue>
+		<stringvalue>Courier 10 Pitch Italic 8</stringvalue>
 	</entry>
 	<entry name="use_system_font" mtime="1423551077" type="bool" value="false"/>
 	<entry name="cursor_shape" mtime="1423551077" type="string">
