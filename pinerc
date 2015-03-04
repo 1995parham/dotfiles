@@ -370,10 +370,10 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=115.1
+last-time-prune-questioned=115.3
 
 # Set by Alpine; controls display of "new version" message.
-last-version-used=6.10
+last-version-used=6.11
 
 # This names the path to an alternative program, and any necessary arguments,
 # to be used in posting mail messages.  Example:
@@ -634,3 +634,12 @@ wp-state=
 
 # Web Alpine preferred width for message display in characters
 wp-columns=
+folder-foreground-color=
+folder-background-color=
+directory-foreground-color=
+directory-background-color=
+folder-list-text-foreground-color=
+folder-list-text-background-color=
+
+# Colors in which tokens will be displayed in the index screen
+index-token-colors=
