@@ -106,12 +106,12 @@ let python_highlight_all = 1
 " Command for automating file header creation. {{{
 let path = system("basename " . @% . " | tr -d '\n' ")
 
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S so $HOME/.vim/header/c-header.txt
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/File Name :.*/File Name : " . path
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "normal mb"
-autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
-autocmd bufwritepost,filewritepost *.c,*.cpp,*.h,*.s,*.S exe "normal `b"
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v so $HOME/.vim/header/c-header.txt
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v exe "1, 10 " . "s/File Name :.*/File Name : " . path
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S,*.v exe "normal mb"
+autocmd bufwritepre,filewritepre *.c,*.cpp,*.h,*.s,*.S,*.v exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
+autocmd bufwritepost,filewritepost *.c,*.cpp,*.h,*.s,*.S,*.v exe "normal `b"
 
 autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
 autocmd bufnewfile Makefile exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
