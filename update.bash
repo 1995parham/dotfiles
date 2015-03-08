@@ -6,7 +6,7 @@
 #
 # [] Creation Date : 01-02-2015
 #
-# [] Last Modified : Sun Feb  1 01:48:37 2015
+# [] Last Modified : Mon 09 Mar 2015 01:39:55 AM IRST
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
@@ -34,6 +34,13 @@ if [ -e $HOME/.pinerc ]; then
 	echo "cp $HOME/.pinerc pinerc"
 	cp $HOME/.pinerc pinerc
 fi
+
+# update sqlite file
+if [ -e $HOME/.sqliterc ]; then
+	echo "cp $HOME/.sqliterc sqliterc"
+	cp $HOME/.sqliterc sqliterc
+fi
+
 
 # update vim folder
 if [ -d $HOME/.vim ]; then
