@@ -6,6 +6,7 @@ export GREP_COLOR='1;32'
 export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
 export EDITOR="vim"
 export TERM="screen-256color"
+export LD_LIBRARY_PATH=/usr/local/lib:
 export CLICOLOR=1
 # Set LSCOLORS
 # Group1: global rules
