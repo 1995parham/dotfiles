@@ -1,7 +1,9 @@
 BoldAsFont=no
 ForegroundColour=255,128,0
-Transparency=low
+Transparency=medium
 Font=Courier New
 Columns=192
 Rows=46
 Term=xterm-256color
+FontHeight=8
+FontSmoothing=none
