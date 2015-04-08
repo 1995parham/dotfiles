@@ -116,6 +116,9 @@ autocmd bufwritepost,filewritepost *.c,*.cpp,*.h,*.s,*.S,*.v exe "normal `b"
 autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
 autocmd bufnewfile Makefile exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 
+autocmd bufnewfile CMakeLists.txt so $HOME/.vim/header/CMakeLists.txt
+autocmd bufnewfile CMakeLists.txt exe "1, 8 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+
 autocmd bufnewfile *.asm so $HOME/.vim/header/asm-header.txt
 autocmd bufnewfile *.asm exe "1, 10 " . "s/File Name :.*/File Name : " . path
 autocmd bufnewfile *.asm exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
