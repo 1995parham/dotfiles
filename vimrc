@@ -136,9 +136,6 @@ autocmd bufwritepost,filewritepost *.bash exe "normal `b"
 autocmd bufnewfile *.py so $HOME/.vim/header/python-header.txt
 autocmd bufnewfile *.py exe "1, 10 " . "s/File Name :.*/File Name : " . path
 autocmd bufnewfile *.py exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-autocmd bufwritepre,filewritepre *.py exe "normal mb"
-autocmd bufwritepre,filewritepre *.py exe "1, 10 " . "s/Last Modified :.*/Last Modified : " . strftime("%c")
-autocmd bufwritepost,filewritepost *.py exe "normal `b"
 
 autocmd bufnewfile *.vim so $HOME/.vim/header/vim-header.txt
 autocmd bufwritepre,filewritepre *.vim exe "normal mb"
