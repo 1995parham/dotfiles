@@ -7,3 +7,6 @@
 [submodule "Vim/bundle/vim-tcpdump"]
 	path = Vim/bundle/vim-tcpdump
 	url = https://github.com/1995parham/vim-tcpdump
+[submodule "Vim/bundle/python-syntax"]
+	path = Vim/bundle/python-syntax
+	url = git@github.com:hdima/python-syntax.git
