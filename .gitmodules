@@ -1,12 +1,12 @@
-[submodule "Vim/bundle/vim-zimpl"]
-	path = Vim/bundle/vim-zimpl
-	url = https://github.com/1995parham/vim-zimpl
-[submodule "Vim/bundle/vim-gas"]
-	path = Vim/bundle/vim-gas
-	url = https://github.com/1995parham/vim-gas
-[submodule "Vim/bundle/vim-tcpdump"]
-	path = Vim/bundle/vim-tcpdump
-	url = https://github.com/1995parham/vim-tcpdump
-[submodule "Vim/bundle/python-syntax"]
-	path = Vim/bundle/python-syntax
+[submodule "vim/vim/bundle/vim-zimpl"]
+	path = vim/vim/bundle/vim-zimpl
+	url = git@github.com:1995parham/vim-zimpl.git
+[submodule "vim/vim/bundle/vim-gas"]
+	path = vim/vim/bundle/vim-gas
+	url = git@github.com:1995parham/vim-gas.git
+[submodule "vim/vim/bundle/vim-tcpdump"]
+	path = vim/vim/bundle/vim-tcpdump
+	url = git@github.com:1995parham/vim-tcpdump.git
+[submodule "vim/vim/bundle/python-syntax"]
+	path = vim/vim/bundle/python-syntax
 	url = git@github.com:hdima/python-syntax.git
