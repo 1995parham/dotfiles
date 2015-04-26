@@ -1,11 +1,9 @@
 :insert
 ; In The Name Of God
 ; ========================================
-; [] File Name : 
-; 
-; [] Creation Date :
+; [] File Name :
 ;
-; [] Last Modified :
+; [] Creation Date :
 ;
 ; [] Created By : Parham Alvani (parham.alvani@gmail.com)
 ; =======================================
