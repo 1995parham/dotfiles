@@ -2,12 +2,13 @@
 /*
  * In The Name Of God
  * ========================================
- * [] File Name : 
+ * [] File Name :
  *
  * [] Creation Date :
  *
- * [] Last Modified :
- *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
+*/
+/*
+ * Copyright (c) 2015 Parham Alvani.
 */
