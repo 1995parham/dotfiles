@@ -11,9 +11,9 @@ __author__ = 'Parham Alvani'
 
 # updates the copyright information for input files
 
-import sys
 import time
 import os
+import argparse
 
 c_header = """/*
  * In The Name Of God
@@ -52,50 +52,19 @@ php_header = """<?php
 """
 
 
-def update_source_c(srcfile):
+def header_parser(header: str, filename: str) -> str:
     """
 
-    :param srcfile: name of target C source file
-    :return: nothing
+    :param header: header for parsing
+    :param filename : filename for replacing ${filename} and ${path}
+    :return: parsed version of input header
     """
-    print("Updating %s\n" % srcfile)
-    file_header = c_header.replace("${filename}", os.path.split(srcfile)[1])
-    file_date_header = file_header.replace("${date}", time.strftime("%d-%m-%Y"))
-    file_data = open(srcfile, "r").read()
-    file = open(srcfile, "w")
-    file.write(file_date_header + file_data)
-    return
-
-
-def update_source_py(srcfile):
-    """
-
-    :param srcfile: name of target python source file
-    :return: nothing
-    """
-    print("Updating %s\n" % srcfile)
-    file_header = py_header.replace("${filename}", os.path.split(srcfile)[1])
-    file_date_header = file_header.replace("${date}", time.strftime("%d-%m-%Y"))
-    file_data = open(srcfile, "r").read()
-    file = open(srcfile, "w")
-    file.write(file_date_header + file_data)
-    return
-
-
-def update_source_php(srcfile):
-    """
-
-    :param srcfile: name of target PHP source file
-    :return: nothing
-    """
-    print("Updating %s\n" % srcfile)
-    file_header = php_header.replace("${filename}", os.path.split(srcfile)[1])
-    time_file_header = file_header.replace("${time}", time.strftime("%H:%M"))
-    time_file_date_header = time_file_header.replace("${date}", time.strftime("%d-%m-%Y"))
-    file_data = open(srcfile, "r").read()
-    file = open(srcfile, "w")
-    file.write(time_file_date_header + file_data)
-    return
+    new_header = str(header)
+    new_header = new_header.replace("${filename}", os.path.split(filename)[1])
+    new_header = new_header.replace("${path}", filename)
+    new_header = new_header.replace("${time}", time.strftime("%H:%M"))
+    new_header = new_header.replace("${date}", time.strftime("%d-%m-%Y"))
+    return new_header
 
 
 def update_source(srcfile):
@@ -105,19 +74,43 @@ def update_source(srcfile):
     :return: nothing
     """
     options = {
-        '.c': update_source_c,
-        '.h': update_source_c,
-        '.S': update_source_c,
-        '.s': update_source_c,
-        '.v': update_source_c,
-        '.py': update_source_py,
-        '.php': update_source_php
+        '.c': c_header,
+        '.h': c_header,
+        '.S': c_header,
+        '.s': c_header,
+        '.v': c_header,
+        '.py': py_header,
+        '.php': php_header
     }
     if os.path.splitext(srcfile)[-1] in options:
-        options[os.path.splitext(srcfile)[-1]](srcfile)
+        header = options[os.path.splitext(srcfile)[-1]]
+        print("Updating %s" % srcfile)
+        header = header_parser(header, srcfile)
+        file_data = open(srcfile, "r").read()
+        file = open(srcfile, "w")
+        file.write(header + file_data)
+        return
 
 
-while len(sys.argv) > 1:
-    filename = sys.argv.pop()
-    update_source(filename)
+parser = argparse.ArgumentParser(description="Header adder program")
+parser.add_argument('files', metavar='F', type=str, nargs='+', help='target files')
+parser.add_argument('--type', dest='type', choices=['default', 'file', 'manual'], default="default",
+                    help='select type of headers sources')
+parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C header files source')
+parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python header files source')
+parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP header files source')
+
+args = parser.parse_args()
+
+if args.type == 'file':
+    if args.c_file is not None:
+        c_header = args.c_file.read()
+    if args.php_file is not None:
+        php_header = args.php_file.read()
+    if args.py_file is not None:
+        py_header = args.py_file.read()
+
+while len(args.files) > 0:
+    filepath = args.files.pop()
+    update_source(filepath)
 exit()
