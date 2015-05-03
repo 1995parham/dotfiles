@@ -18,23 +18,23 @@ import argparse
 c_header = """/*
  * In The Name Of God
  * ========================================
- * [] File Name : ${filename}
+ * [] File Name : ${FILE}
  *
- * [] Creation Date : ${date}
+ * [] Creation Date : ${DATE}
  *
  * [] Created By : Parham Alvani (parham.alvani@gmail.com)
  * =======================================
 */
 /*
- * Copyright (c) 2015 Parham Alvani.
+ * Copyright (c) ${YEAR} Parham Alvani.
 */
 """
 
 py_header = """# In The Name Of God
 # ========================================
-# [] File Name : ${filename}
+# [] File Name : ${FILE}
 #
-# [] Creation Date : ${date}
+# [] Creation Date : ${DATE}
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
@@ -44,10 +44,10 @@ __author__ = 'Parham Alvani'
 php_header = """<?php
 /**
  * In The Name Of God
- * File: ${filename}
+ * File: ${FILE}
  * User: Parham Alvani (parham.alvani@gmail.com)
- * Date: ${date}
- * Time: ${time}
+ * Date: ${DATE}
+ * Time: ${TIME}
  */
 """
 
@@ -60,10 +60,11 @@ def header_parser(header: str, filename: str) -> str:
     :return: parsed version of input header
     """
     new_header = str(header)
-    new_header = new_header.replace("${filename}", os.path.split(filename)[1])
-    new_header = new_header.replace("${path}", filename)
-    new_header = new_header.replace("${time}", time.strftime("%H:%M"))
-    new_header = new_header.replace("${date}", time.strftime("%d-%m-%Y"))
+    new_header = new_header.replace("${FILE}", os.path.split(filename)[1])
+    new_header = new_header.replace("${PATH}", filename)
+    new_header = new_header.replace("${TIME}", time.strftime("%H:%M"))
+    new_header = new_header.replace("${DATE}", time.strftime("%d-%m-%Y"))
+    new_header = new_header.replace("${YEAR}", time.strftime("%Y"))
     return new_header
 
 
