@@ -106,9 +106,9 @@ let python_highlight_all = 1
 " Command for automating file header creation. {{{
 let path = system("basename " . @% . " | tr -d '\n' ")
 
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v so $HOME/.vim/header/c-header.txt
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v exe "1, 10 " . "s/File Name :.*/File Name : " . path
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go so $HOME/.vim/header/c-header.txt
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go exe "1, 10 " . "s/File Name :.*/File Name : " . path
+autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
 
 autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
 autocmd bufnewfile Makefile exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
