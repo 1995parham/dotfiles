@@ -68,7 +68,7 @@ def header_parser(header: str, filename: str) -> str:
     return new_header
 
 
-def update_source(srcfile):
+def update_source(srcfile: str):
     """
 
     :param srcfile: name of target source file
@@ -80,6 +80,7 @@ def update_source(srcfile):
         '.S': c_header,
         '.s': c_header,
         '.v': c_header,
+        '.go': c_header,
         '.py': py_header,
         '.php': php_header
     }
