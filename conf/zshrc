@@ -8,6 +8,7 @@ export EDITOR="vim"
 export TERM="screen-256color"
 export LD_LIBRARY_PATH=/usr/local/lib:
 export CLICOLOR=1
+export GOPATH=$HOME/Documents/Go
 eval `dircolors $HOME/.dircolors`
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
@@ -317,4 +318,8 @@ function preexec {
 function postexec {
   set_running_app
 }
+# }}}
+
+# Go Lang {{{
+[[ -s "/home/parham/.gvm/scripts/gvm" ]] && source "/home/parham/.gvm/scripts/gvm"
 # }}}
