@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # In The Name Of God
 # ========================================
-# [] File Name : renamer
+# [] File Name : renamer.py
 #
 # [] Creation Date : 18-04-2015
 #
@@ -19,10 +19,12 @@ else:
     path = "."
 
 index = 1
+print("{0:=^80}".format("Renaming start"))
 for file in sorted(os.listdir(path)):
     extension = os.path.splitext(file)[1]
     if extension.lower() == ".jpg":
-        name = "%d.jpg" % index
+        name = "{0}.jpg".format(index)
         index += 1
         shutil.move(file, name)
-        print("mv %s %s" % (file, name))
+        print("mv {0} {1}".format(file, name))
+print("{0:=^80}".format("Renaming end"))
