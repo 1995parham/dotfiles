@@ -15,7 +15,12 @@ import time
 import os
 import argparse
 
-c_header = """/*
+
+class Config:
+    def __init__(self):
+        self.user = ""
+        self.email = ""
+        self.c_header = """/*
  * In The Name Of God
  * ========================================
  * [] File Name : ${FILE}
@@ -30,7 +35,7 @@ c_header = """/*
 */
 """
 
-py_header = """# In The Name Of God
+        self.py_header = """# In The Name Of God
 # ========================================
 # [] File Name : ${FILE}
 #
@@ -41,7 +46,7 @@ py_header = """# In The Name Of God
 __author__ = '$[USER}'
 """
 
-php_header = """<?php
+        self.php_header = """<?php
 /**
  * In The Name Of God
  * File: ${FILE}
@@ -51,7 +56,7 @@ php_header = """<?php
  */
 """
 
-java_header = """/*
+        self.java_header = """/*
  * In The Name Of God
  * ========================================
  * [] File Name : ${FILE}
@@ -66,11 +71,20 @@ java_header = """/*
  */
 """
 
+        self.vhdl_header = """--------------------------------------------------------------------------------
+-- Author:        ${USER} (${EMAIL})
+--
+-- Create Date:   ${DATE}
+-- Module Name:   ${FILE}
+--------------------------------------------------------------------------------
+"""
 
-class Config:
-    def __init__(self):
-        self.user = ""
-        self.email = ""
+        self.spice_header = """**
+* Author: ${USER} (${EMAIL})
+* Create Date: ${DATE}
+* File Name: ${FILE}
+**
+"""
 
 
 config = Config()
@@ -101,15 +115,17 @@ def update_source(srcfile: str) -> None:
     :return: nothing
     """
     options = {
-        '.c': c_header,
-        '.h': c_header,
-        '.S': c_header,
-        '.s': c_header,
-        '.v': c_header,
-        '.go': c_header,
-        '.py': py_header,
-        '.php': php_header,
-        '.java': java_header,
+        '.c': config.c_header,
+        '.h': config.c_header,
+        '.S': config.c_header,
+        '.s': config.c_header,
+        '.v': config.c_header,
+        '.go': config.c_header,
+        '.py': config.py_header,
+        '.php': config.php_header,
+        '.java': config.java_header,
+        '.vhd': config.vhdl_header,
+        '.sp': config.spice_header,
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
@@ -130,6 +146,8 @@ parser.add_argument('--email', dest='email', type=str, default='parham.alvani@gm
 parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C-header source file')
 parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python-header source file')
 parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP-header source file')
+parser.add_argument('--java-header', dest='java_file', type=argparse.FileType('r'), help='Java-header source file')
+parser.add_argument('--vhdl-header', dest='vhdl_file', type=argparse.FileType('r'), help='VHDL-header source file')
 
 args = parser.parse_args()
 
@@ -138,11 +156,15 @@ config.user = args.user
 
 if args.type == 'file':
     if args.c_file is not None:
-        c_header = args.c_file.read()
+        config.c_header = args.c_file.read()
     if args.php_file is not None:
-        php_header = args.php_file.read()
+        config.php_header = args.php_file.read()
     if args.py_file is not None:
-        py_header = args.py_file.read()
+        config.py_header = args.py_file.read()
+    if args.java_file is not None:
+        config.java_header = args.java_file.read()
+    if args.vhdl_header is not None:
+        config.vhdl_header = args.vhdl_header.read()
 
 while len(args.files) > 0:
     filepath = args.files.pop()
