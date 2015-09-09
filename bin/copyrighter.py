@@ -43,7 +43,7 @@ class Config:
 #
 # [] Created By : ${USER} (${EMAIL})
 # =======================================
-__author__ = '$[USER}'
+__author__ = '${USER}'
 """
 
         self.php_header = """<?php
