@@ -149,34 +149,6 @@ let python_highlight_all = 1
 " }}}
 
 " Command for automating file header creation. {{{
-let path = system("basename " . @% . " | tr -d '\n' ")
-
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go so $HOME/.vim/header/c-header.txt
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go exe "1, 10 " . "s/File Name :.*/File Name : " . path
-autocmd bufnewfile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-
-autocmd bufnewfile Makefile so $HOME/.vim/header/Makefile.txt
-autocmd bufnewfile Makefile exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-
-autocmd bufnewfile CMakeLists.txt so $HOME/.vim/header/CMakeLists.txt
-autocmd bufnewfile CMakeLists.txt exe "1, 8 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-
-autocmd bufnewfile *.asm so $HOME/.vim/header/asm-header.txt
-autocmd bufnewfile *.asm exe "1, 10 " . "s/File Name :.*/File Name : " . path
-autocmd bufnewfile *.asm exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-
-autocmd bufnewfile *.bash so $HOME/.vim/header/bash-header.txt
-autocmd bufnewfile *.bash exe "1, 10 " . "s/File Name :.*/File Name : " . path
-autocmd bufnewfile *.bash exe "1, 10 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-
-autocmd bufnewfile *.py so $HOME/.vim/header/python-header.txt
-autocmd bufnewfile *.py exe "1, 9 " . "s/File Name :.*/File Name : " . path
-autocmd bufnewfile *.py exe "1, 9 " . "s/Creation Date :.*/Creation Date : " . strftime("%d-%m-%Y")
-
-autocmd bufnewfile *.vim so $HOME/.vim/header/vim-header.txt
-autocmd bufwritepre,filewritepre *.vim exe "normal mb"
-autocmd bufwritepre,filewritepre *.vim exe "1, 5 " . "s/Last Change:.*/Last Change:	" . strftime("%Y %b %d")
-autocmd bufwritepost,filewritepost *.vim exe "normal `b"
-
+autocmd bufnewFile *.c,*.cpp,*.h,*.s,*.S,*.v,*.go,*.py,*.java,*.asm,*.bash,*.vim exe "read !copyrighter.py --string=true ".@%
 "
 " }}}
