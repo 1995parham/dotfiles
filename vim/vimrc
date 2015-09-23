@@ -92,6 +92,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 " Using git URL
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
