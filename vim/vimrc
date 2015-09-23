@@ -78,6 +78,13 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
+Plug 'moll/vim-node'
+Plug 'digitaltoad/vim-jade'
+Plug 'wakatime/vim-wakatime'
+Plug '1995parham/vim-zimpl'
+Plug '1995parham/vim-gas'
+Plug 'xuhdev/SingleCompile'
+Plug 'klen/python-mode'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -113,6 +120,17 @@ highlight clear SignColumn
 
 " Super tab
 let g:SuperTabMappingForward = "<C-h>"
+
+" Pymode
+let g:pymode = 1
+let g:pymode_trim_whitespaces = 1
+let g:pymode_options = 1
+let g:pymode_python = 'python3'
+let g:pymode_folding = 0
+let g:pymode_lint = 1
+let g:pymode_lint_message = 1
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_unmodified = 1
 
 " }}}
 
