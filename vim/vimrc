@@ -86,7 +86,11 @@ Plug '1995parham/vim-gas'
 Plug '1995parham/vim-header'
 Plug 'xuhdev/SingleCompile'
 Plug 'klen/python-mode'
-Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/syntastic'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -138,6 +142,16 @@ let g:pymode_lint_unmodified = 1
 let g:header_user = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
 
+" Syntastic
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_checkers = ['pylint']
+
+" Airline
+function! AirlineInit()
+	  let g:airline_section_y = airline#section#create(['ffenc', '%{strftime("%H:%M")}'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
 " }}}
 
 " Commands {{{
@@ -148,8 +162,4 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " C syntax {{{
 let c_gnu = 1
-" }}}
-
-" Python syntax {{{
-let python_highlight_all = 1
 " }}}
