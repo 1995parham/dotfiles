@@ -17,6 +17,7 @@ import argparse
 
 
 class Config:
+
     def __init__(self):
         self.user = ""
         self.email = ""
@@ -108,7 +109,7 @@ def header_parser(header: str, filename: str) -> str:
     return new_header
 
 
-def update_source(srcfile: str) -> None:
+def update_source(srcfile: str, str_based: bool) -> None:
     """
 
     :param srcfile: name of target source file
@@ -126,28 +127,73 @@ def update_source(srcfile: str) -> None:
         '.java': config.java_header,
         '.vhd': config.vhdl_header,
         '.sp': config.spice_header,
+        '.js': config.c_header,
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
-        print("Updating %s" % srcfile)
         header = header_parser(header, srcfile)
-        file_data = open(srcfile, "r").read()
-        file = open(srcfile, "w")
-        file.write(header + file_data)
+        if not str_based:
+            print("Updating %s" % srcfile)
+            file_data = open(srcfile, "r").read()
+            file = open(srcfile, "w")
+            file.write(header + file_data)
+        else:
+            print(header)
         return
 
 
 parser = argparse.ArgumentParser(description="Copyright header adder script")
-parser.add_argument('files', metavar='F', type=str, nargs='+', help='Target files')
-parser.add_argument('--type', dest='type', choices=['default', 'file', 'manual'], default="default",
-                    help='Select type of headers sources')
+parser.add_argument(
+    'files',
+    metavar='F',
+    type=str,
+    nargs='+',
+    help='Target files')
+parser.add_argument(
+    '--type',
+    dest='type',
+    choices=[
+        'default',
+        'file',
+        'manual'],
+    default="default",
+    help='Select type of headers sources')
 parser.add_argument('--user', dest='user', type=str, default='Parham Alvani')
-parser.add_argument('--email', dest='email', type=str, default='parham.alvani@gmail.com')
-parser.add_argument('--c-header', dest='c_file', type=argparse.FileType('r'), help='C-header source file')
-parser.add_argument('--py-header', dest='py_file', type=argparse.FileType('r'), help='Python-header source file')
-parser.add_argument('--php-header', dest='php_file', type=argparse.FileType('r'), help='PHP-header source file')
-parser.add_argument('--java-header', dest='java_file', type=argparse.FileType('r'), help='Java-header source file')
-parser.add_argument('--vhdl-header', dest='vhdl_file', type=argparse.FileType('r'), help='VHDL-header source file')
+parser.add_argument(
+    '--email',
+    dest='email',
+    type=str,
+    default='parham.alvani@gmail.com')
+parser.add_argument(
+    '--string',
+    dest='str_based',
+    action='store_true',
+    default=False)
+parser.add_argument(
+    '--c-header',
+    dest='c_file',
+    type=argparse.FileType('r'),
+    help='C-header source file')
+parser.add_argument(
+    '--py-header',
+    dest='py_file',
+    type=argparse.FileType('r'),
+    help='Python-header source file')
+parser.add_argument(
+    '--php-header',
+    dest='php_file',
+    type=argparse.FileType('r'),
+    help='PHP-header source file')
+parser.add_argument(
+    '--java-header',
+    dest='java_file',
+    type=argparse.FileType('r'),
+    help='Java-header source file')
+parser.add_argument(
+    '--vhdl-header',
+    dest='vhdl_file',
+    type=argparse.FileType('r'),
+    help='VHDL-header source file')
 
 args = parser.parse_args()
 
@@ -168,5 +214,5 @@ if args.type == 'file':
 
 while len(args.files) > 0:
     filepath = args.files.pop()
-    update_source(filepath)
+    update_source(filepath, args.str_based)
 exit()
