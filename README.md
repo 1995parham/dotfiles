@@ -16,3 +16,16 @@ install it with
 ```shell
 ./fonts/install.sh
 ```
+### Airspeed
+For installing *airspeed* on OSx use pip3 command as follows
+```shell
+pip3 install airspeed
+```
+For installing it on Ubuntu you must compile it from source code:
+```shell
+git clone https://github.com/purcell/airspeed.git
+cd airspeed
+sudo python3 setup.py install
+cd ..
+sudo rm -Rf airspeed
+```
