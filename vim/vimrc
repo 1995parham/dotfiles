@@ -91,6 +91,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'dag/vim2hs'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
