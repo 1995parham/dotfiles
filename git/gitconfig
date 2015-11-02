@@ -1,0 +1,5 @@
+[user]
+	name = Parham Alvani
+	email = parham.alvani@gmail.com
+[core]
+	excludesfile = ~/.gitignore
