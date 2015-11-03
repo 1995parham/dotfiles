@@ -21,10 +21,12 @@ def file_linker(module, file):
         else:
             os.remove(os.path.join(home_dir, '.' + file))
     if create_link:
-        os.symlink(os.path.join(os.path.join(current_dir, module), file), os.path.join(home_dir, '.' + file))
+        os.symlink(os.path.join(os.path.join(current_dir, module),
+                                file), os.path.join(home_dir, '.' + file))
         print("[{0}] Symbolic link created successfully form {1} in {2}".format(module,
                                                                                 os.path.join(
-                                                                                    os.path.join(current_dir, module),
+                                                                                    os.path.join(
+                                                                                        current_dir, module),
                                                                                     file),
                                                                                 os.path.join(home_dir, '.' + file)))
 
@@ -42,10 +44,12 @@ def directory_linker(module, directory):
         elif os.path.isdir(os.path.join(home_dir, '.' + directory)):
             shutil.rmtree(os.path.join(home_dir, '.' + directory))
     if create_link:
-        os.symlink(os.path.join(os.path.join(current_dir, module), directory), os.path.join(home_dir, '.' + directory))
+        os.symlink(os.path.join(os.path.join(current_dir, module),
+                                directory), os.path.join(home_dir, '.' + directory))
         print("[{0}] Symbolic link created successfully form {1} in {2}".format(module,
                                                                                 os.path.join(
-                                                                                    os.path.join(current_dir, module),
+                                                                                    os.path.join(
+                                                                                        current_dir, module),
                                                                                     directory),
                                                                                 os.path.join(home_dir,
                                                                                              '.' + directory)))
