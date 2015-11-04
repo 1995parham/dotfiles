@@ -12,47 +12,60 @@ import os
 import shutil
 
 
-def file_linker(module, file):
+def file_linker(module, file, is_hidden=True):
+    dst_file = ('.' if is_hidden else '') + file
+    src_file = file
+
     create_link = True
-    if os.path.isfile(os.path.join(home_dir, '.' + file)) or os.path.islink(os.path.join(home_dir, '.' + file)):
-        print('[{0}] {1} already existed'.format(module, file))
-        if input('do you want to remove {} ?[Y/n] '.format(file)) != "Y":
+
+    if os.path.isfile(os.path.join(home_dir, dst_file)) or \
+            os.path.islink(os.path.join(home_dir, dst_file)):
+        print('[{0}] {1} already existed'.format(module, src_file))
+
+        if input('do you want to remove {} ?[Y/n] '.format(src_file)) != "Y":
             create_link = False
         else:
-            os.remove(os.path.join(home_dir, '.' + file))
+            os.remove(os.path.join(home_dir, dst_file))
+
     if create_link:
         os.symlink(os.path.join(os.path.join(current_dir, module),
-                                file), os.path.join(home_dir, '.' + file))
+                                src_file), os.path.join(home_dir, dst_file))
         print("[{0}] Symbolic link created successfully form {1} in {2}".format(module,
                                                                                 os.path.join(
                                                                                     os.path.join(
                                                                                         current_dir, module),
-                                                                                    file),
-                                                                                os.path.join(home_dir, '.' + file)))
+                                                                                    src_file),
+                                                                                os.path.join(home_dir, dst_file)))
 
 
-def directory_linker(module, directory):
+def directory_linker(module, directory, is_hidden=True):
+    dst_directory = ('.' if is_hidden else '') + directory
+    src_directory = directory
+
     create_link = True
-    if os.path.isdir(os.path.join(home_dir, '.' + directory)) or os.path.islink(
-            os.path.join(home_dir, '.' + directory)):
+
+    if os.path.isdir(os.path.join(home_dir, dst_directory)) or \
+            os.path.islink(os.path.join(home_dir, dst_directory)):
         print('[{0}] {1} already existed'.format(module, directory))
-    if input('do you want to remove {} ?[Y/n] '.format(directory)) != "Y":
-        create_link = False
-    else:
-        if os.path.islink(os.path.join(home_dir, '.' + directory)):
-            os.remove(os.path.join(home_dir, '.' + directory))
-        elif os.path.isdir(os.path.join(home_dir, '.' + directory)):
-            shutil.rmtree(os.path.join(home_dir, '.' + directory))
+
+        if input('do you want to remove {} ?[Y/n] '.format(src_directory)) != "Y":
+            create_link = False
+        else:
+            if os.path.islink(os.path.join(home_dir, dst_directory)):
+                os.remove(os.path.join(home_dir, dst_directory))
+            elif os.path.isdir(os.path.join(home_dir, dst_directory)):
+                shutil.rmtree(os.path.join(home_dir, dst_directory))
+
     if create_link:
-        os.symlink(os.path.join(os.path.join(current_dir, module),
-                                directory), os.path.join(home_dir, '.' + directory))
+        os.symlink(os.path.join(os.path.join(current_dir, module), src_directory),
+                   os.path.join(home_dir, dst_directory))
         print("[{0}] Symbolic link created successfully form {1} in {2}".format(module,
                                                                                 os.path.join(
                                                                                     os.path.join(
                                                                                         current_dir, module),
-                                                                                    directory),
+                                                                                    src_directory),
                                                                                 os.path.join(home_dir,
-                                                                                             '.' + directory)))
+                                                                                             dst_directory)))
 
 
 ###########################
@@ -104,3 +117,10 @@ file_linker(module, 'gitconfig')
 file_linker(module, 'gitignore')
 
 print("{:*^80}".format(''))
+
+###########################
+module = 'bin'
+print("[{0}] install {0} configuration".format(module))
+
+# bin
+directory_linker(module, 'bin', False)
