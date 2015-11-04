@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # In The Name Of God
 # ========================================
 # [] File Name : copyrighter.py
@@ -128,6 +128,7 @@ def update_source(srcfile: str, str_based: bool) -> None:
         '.vhd': config.vhdl_header,
         '.sp': config.spice_header,
         '.js': config.c_header,
+        '.sh': config.py_header
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
