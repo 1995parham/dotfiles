@@ -46,6 +46,16 @@ class Config:
 # =======================================
 __author__ = '${USER}'
 """
+        self.sh_header = """!#/bin/
+# In The Name Of God
+# ========================================
+# [] File Name : ${FILE}
+#
+# [] Creation Date : ${DATE}
+#
+# [] Created By : ${USER} (${EMAIL})
+# =======================================
+"""
 
         self.php_header = """<?php
 /**
@@ -128,7 +138,7 @@ def update_source(srcfile: str, str_based: bool) -> None:
         '.vhd': config.vhdl_header,
         '.sp': config.spice_header,
         '.js': config.c_header,
-        '.sh': config.py_header
+        '.sh': config.sh_header
     }
     if os.path.splitext(srcfile)[-1] in options:
         header = options[os.path.splitext(srcfile)[-1]]
