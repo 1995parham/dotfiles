@@ -323,3 +323,5 @@ function postexec {
 # Go Lang {{{
 [[ -s "/home/parham/.gvm/scripts/gvm" ]] && source "/home/parham/.gvm/scripts/gvm"
 # }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
