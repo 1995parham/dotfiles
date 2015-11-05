@@ -320,8 +320,10 @@ function postexec {
 }
 # }}}
 
-# Go Lang {{{
-[[ -s "/home/parham/.gvm/scripts/gvm" ]] && source "/home/parham/.gvm/scripts/gvm"
+# FZF {{{
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # }}}
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# {{ local configuration
+source "$HOME/.zshrc.local"
+# }}
