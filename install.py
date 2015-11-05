@@ -102,6 +102,12 @@ file_linker(module, 'zshrc')
 # .dircolors
 file_linker(module, 'dircolors')
 
+# .aria2.conf
+directory_linker(module, 'aria2')
+
+# .wakatime.cfg
+file_linker(module, 'wakatime.cfg')
+
 print("{:*^80}".format(''))
 
 ###########################
