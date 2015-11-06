@@ -46,7 +46,7 @@ class Config:
 # =======================================
 __author__ = '${USER}'
 """
-        self.sh_header = """!#/bin/
+        self.sh_header = """#!/bin/
 # In The Name Of God
 # ========================================
 # [] File Name : ${FILE}
