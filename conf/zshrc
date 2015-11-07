@@ -1,8 +1,6 @@
 # Exports {{{
 export GITHUB_USER="1995parham"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
 export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
 export EDITOR="vim"
 export TERM="screen-256color"
@@ -54,6 +52,8 @@ elif ls -G &> /dev/null; then
 	alias ls="ls -G"
 fi
 
+# use 'ag' instead of 'grep' :)
+alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source ~/.zshrc"
 alias tat='tmux new-session -As $(basename "$PWD" | tr . -)' # will attach if session exists, or create a new session
