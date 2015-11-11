@@ -111,6 +111,9 @@ file_linker(module, 'wakatime.cfg')
 #.tmux.conf
 file_linker(module, 'tmux.conf')
 
+#.tmux
+directory_linker(module, 'tmux')
+
 print("{:*^80}".format(''))
 
 ###########################
