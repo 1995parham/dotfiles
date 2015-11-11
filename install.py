@@ -108,6 +108,9 @@ directory_linker(module, 'aria2')
 # .wakatime.cfg
 file_linker(module, 'wakatime.cfg')
 
+#.tmux.conf
+file_linker(module, 'tmux.conf')
+
 print("{:*^80}".format(''))
 
 ###########################
