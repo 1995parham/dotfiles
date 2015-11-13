@@ -92,6 +92,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'dag/vim2hs'
+Plug 'fatih/vim-go'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -146,6 +147,13 @@ let g:header_email = 'parham.alvani@gmail.com'
 " Syntastic
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ['pylint']
+
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " Airline
 function! AirlineInit()
