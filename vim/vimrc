@@ -40,6 +40,9 @@ set guioptions-=T
 " No swap file
 " set noswapfile
 
+" Set leader key
+let mapleader = ','
+
 " Always show cursor
 set ruler
 
@@ -154,6 +157,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 " Airline
 function! AirlineInit()
