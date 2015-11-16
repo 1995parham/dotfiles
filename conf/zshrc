@@ -11,6 +11,9 @@ eval `dircolors $HOME/.dircolors`
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
+if [ -d $HOME/Documents/Go/bin ]; then
+	PATH="$PATH:$HOME/Documents/Go/bin"
+fi
 # }}}
 
 # Ruby {{{
