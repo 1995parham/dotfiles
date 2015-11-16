@@ -15,6 +15,9 @@ set number
 set ffs=unix,dos,unix
 set background=dark
 
+" Filetype plugin enable
+filetype plugin on
+
 " Use vim, not vi api
 set nocompatible
 
@@ -108,7 +111,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
