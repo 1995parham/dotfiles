@@ -1,5 +1,6 @@
 ### Misc
 .ropeproject/
+*.bak
 
 ### OSX template
 .DS_Store
