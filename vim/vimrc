@@ -97,6 +97,7 @@ Plug 'bling/vim-airline'
 Plug 'dag/vim2hs'
 Plug 'fatih/vim-go'
 Plug 'majutsushi/tagbar'
+Plug 'bps/vim-tshark'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
