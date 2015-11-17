@@ -99,9 +99,6 @@ Plug 'fatih/vim-go'
 Plug 'majutsushi/tagbar'
 Plug 'bps/vim-tshark'
 
-" Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -135,22 +132,35 @@ highlight clear SignColumn
 let g:SuperTabMappingForward = "<C-h>"
 
 " Pymode
-let g:pymode = 1
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options = 1
-let g:pymode_python = 'python3'
-let g:pymode_folding = 0
-let g:pymode_lint = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_unmodified = 1
+if has('python') || has('python3')
+	let g:pymode = 1
+	let g:pymode_trim_whitespaces = 1
+	let g:pymode_options = 1
+	let g:pymode_folding = 0
+	let g:pymode_lint = 1
+	let g:pymode_lint_message = 1
+	let g:pymode_lint_on_write = 1
+	let g:pymode_lint_unmodified = 1
+else
+	let g:pymode = 0
+endif
+
+if has('python3')
+	let g:pymode_python = 'python3'
+elseif has('python')
+	let g:pymode_python = 'python'
+endif
 
 " Header
 let g:header_user = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
 
 " Syntastic
-let g:syntastic_python_python_exec = '/usr/bin/python3'
+if has('python3')
+	let g:syntastic_python_python_exec = system('which python3')
+elseif has('python')
+	let g:syntastic_python_python_exec = system('which python')
+endif
 let g:syntastic_python_checkers = ['pylint']
 
 " vim-go
