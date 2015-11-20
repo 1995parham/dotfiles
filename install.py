@@ -108,10 +108,10 @@ directory_linker(module, 'aria2')
 # .wakatime.cfg
 file_linker(module, 'wakatime.cfg')
 
-#.tmux.conf
+# .tmux.conf
 file_linker(module, 'tmux.conf')
 
-#.tmux
+# .tmux
 directory_linker(module, 'tmux')
 
 print("{:*^80}".format(''))
@@ -131,6 +131,8 @@ file_linker(module, 'gitignore')
 print("{:*^80}".format(''))
 
 ###########################
+
+# Executables
 module = 'bin'
 print("[{0}] install {0} configuration".format(module))
 
