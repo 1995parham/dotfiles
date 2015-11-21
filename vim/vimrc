@@ -87,6 +87,8 @@ Plug 'wakatime/vim-wakatime'
 Plug '1995parham/vim-zimpl'
 Plug '1995parham/vim-gas'
 Plug '1995parham/vim-header'
+Plug '1995parham/vim-tcpdump'
+Plug '1995parham/tomorrow-night-vim'
 Plug 'xuhdev/SingleCompile'
 Plug 'klen/python-mode'
 Plug 'scrooloose/syntastic'
@@ -98,6 +100,8 @@ Plug 'dag/vim2hs'
 Plug 'fatih/vim-go'
 Plug 'majutsushi/tagbar'
 Plug 'bps/vim-tshark'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -170,6 +174,9 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+" vim-markdown
+let g:vim_markdown_math = 1
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
