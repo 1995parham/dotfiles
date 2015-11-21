@@ -1,1 +1,1 @@
-/home/parham/.vim/plugged/gocode/vim/autoload/gocomplete.vim
+/Users/parham/Documents/Git/parham/dotfiles/vim/vim/plugged/gocode/vim/autoload/gocomplete.vim

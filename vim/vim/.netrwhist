@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/parham/Documents/Git/parham/dotfiles/vim/vim/bundle/vim-markdown'
 let g:netrw_dirhist_2='/Users/parham/Documents/Git/parham/dotfiles/vim/vim/bundle/textutil.vim'
 let g:netrw_dirhist_3='/Users/parham/Documents/Git/parham/Learning/GO/go-c'
+let g:netrw_dirhist_4='/Users/parham/Documents/Git/parham/dotfiles/vim/vim'
