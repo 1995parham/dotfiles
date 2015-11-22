@@ -233,15 +233,18 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" C
+let c_gnu = 1
 
 "}}}
 
 " Commands {{{
+
+" Command Mappings
+command Spellcheck setlocal spell spelllang=en_us
+
 " File formats
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " }}}
 
-" C syntax {{{
-let c_gnu = 1
-" }}}
