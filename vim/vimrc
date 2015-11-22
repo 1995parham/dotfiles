@@ -102,6 +102,7 @@ Plug 'majutsushi/tagbar'
 Plug 'bps/vim-tshark'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'MattesGroeger/vim-bookmarks'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
