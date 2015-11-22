@@ -132,9 +132,11 @@ print("{:*^80}".format(''))
 
 ###########################
 
-# Executables
+# Executable
 module = 'bin'
 print("[{0}] install {0} configuration".format(module))
 
 # bin
 directory_linker(module, 'bin', False)
+
+print("{:*^80}".format(''))
