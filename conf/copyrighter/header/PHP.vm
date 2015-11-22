@@ -1,0 +1,8 @@
+<?php
+/**
+ * In The Name Of God
+ * File: $file.name
+ * User: $user.name ($user.email)
+ * Date: $time.strftime("%d-%m-%Y")
+ * Time: $time.strftime("%H:%M")
+*/

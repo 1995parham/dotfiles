@@ -105,6 +105,9 @@ file_linker(module, 'dircolors')
 # .aria2.conf
 directory_linker(module, 'aria2')
 
+# .copyrighter
+directory_linker(module, 'copyrighter')
+
 # .wakatime.cfg
 file_linker(module, 'wakatime.cfg')
 
