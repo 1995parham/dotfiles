@@ -86,7 +86,6 @@ Plug 'digitaltoad/vim-jade'
 Plug 'wakatime/vim-wakatime'
 Plug '1995parham/vim-zimpl'
 Plug '1995parham/vim-gas'
-Plug '1995parham/vim-header'
 Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug 'xuhdev/SingleCompile'
@@ -113,6 +112,7 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug '1995parham/vim-header', {'do': '~/.vim/plugged/vim-header/init.sh'}
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
