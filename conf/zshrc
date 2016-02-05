@@ -45,7 +45,7 @@ function tmuxkill() {
 }
 # }}}
 
-# Alias' {{{
+# Alias {{{
 
 # set flags automatically for BSD and GNU
 # ls command.
