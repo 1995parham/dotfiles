@@ -10,6 +10,7 @@ python3 install.py
 ### Dircolors on OSx
 Try installing the GNU coreutils from this if you really want dircolors to work.
 I also had to set an alias for dircolors to gdircolors as this is the command that FreeBSD ports installed the fun as.
+
 ### Font
 Personally I used *Meslo LG S Powerline* as my default font and you can
 install it with
@@ -28,4 +29,10 @@ cd airspeed
 sudo python3 setup.py install
 cd ..
 sudo rm -Rf airspeed
+```
+### Ubuntu Bug
+https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793
+```shell
+sudo -s
+echo "disable" > /sys/firmware/acpi/interrupts/gpe13
 ```
