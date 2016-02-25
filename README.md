@@ -17,7 +17,7 @@ install it with
 ```shell
 ./fonts/install.sh
 ```
-### Airspeed
+### Airspeed [Automated ...]
 For installing *airspeed* on OSx use pip3 command as follows
 ```shell
 pip3 install airspeed
