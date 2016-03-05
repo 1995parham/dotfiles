@@ -36,3 +36,20 @@ https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793
 sudo -s
 echo "disable" > /sys/firmware/acpi/interrupts/gpe13
 ```
+
+### ONOS Configuration
+For using ONOS SDN platform based on this dotfiles
+set following configuration in `zshrc.local`:
+
+```shell
+export ONOS_ROOT="$HOME/Documents/Git/others/onos"
+autoload bashcompinit
+bashcompinit
+source $ONOS_ROOT/tools/dev/bash_profile
+```
+
+and comment out following line in `$ONOS_ROOT/tools/dev/bash_profile`:
+
+```shell
+export ONOS_CELL=${ONOS_CELL:-local}
+```
