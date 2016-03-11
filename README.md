@@ -55,4 +55,4 @@ export ONOS_CELL=${ONOS_CELL:-local}
 ```
 ### GTK Theme Settings
 Inorder to use gtk configuration
-copy the settings files from `gtk` into `~/.config/gtk-3.0/`.
+copy the settings files from `gtk` into `~/.config/gtk-3.0/gtk.css`.
