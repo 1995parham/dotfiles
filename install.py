@@ -117,6 +117,12 @@ file_linker(module, 'tmux.conf')
 # .tmux
 directory_linker(module, 'tmux')
 
+# .pinerc
+file_linker(module, 'pinerc')
+
+# signature
+file_linker(module, 'signature')
+
 print("{:*^80}".format(''))
 
 ###########################
