@@ -38,7 +38,7 @@ echo "disable" > /sys/firmware/acpi/interrupts/gpe13
 ```
 
 ### ONOS Configuration
-For using ONOS SDN platform based on this dotfiles
+For using [ONOS SDN platform](http://onosproject.org/) based on this dotfiles
 set following configuration in `zshrc.local`:
 
 ```shell
