@@ -26,7 +26,7 @@ nntp-server=
 
 # Path of (local or remote) INBOX, e.g. ={mail.somewhere.edu}inbox
 # Normal Unix default is the local INBOX (usually /usr/spool/mail/$USER).
-inbox-path={imap.gmail.com/ssl/imap/user=parham.alvani}Inbox
+inbox-path={imap.gmail.com/ssl/imap/user=parham.alvani}inbox
 
 # List of folder pairs; the first indicates a folder to archive, and the
 # second indicates the folder read messages in the first should
@@ -63,7 +63,7 @@ trash-folder=
 
 # Contains the actual signature contents as opposed to the signature filename.
 # If defined, this overrides the signature-file. Default is undefined.
-literal-signature=--\nParham Alvani\n
+literal-signature=
 
 # Over-rides default path for signature file. Default is ~/.signature
 signature-file=
