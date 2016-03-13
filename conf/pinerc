@@ -373,7 +373,7 @@ global-address-book=
 last-time-prune-questioned=115.3
 
 # Set by Alpine; controls display of "new version" message.
-last-version-used=6.11
+last-version-used=6.20
 
 # This names the path to an alternative program, and any necessary arguments,
 # to be used in posting mail messages.  Example:
@@ -643,3 +643,8 @@ folder-list-text-background-color=
 
 # Colors in which tokens will be displayed in the index screen
 index-token-colors=
+
+# UNIX ONLY (except MAC OSX): When an attachment is opened, this variable controls the number
+#of seconds to wait between checks if the user has ended viewing the attachment.
+#minimun value: 60 seconds, maximum value: 600 seconds (10 minutes). Default: 60 seconds
+mailcap-check-interval=
