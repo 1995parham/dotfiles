@@ -16,7 +16,7 @@ else
 		sudo apt-get install -y python-software-properties software-properties-common
 		sudo add-apt-repository -y ppa:pi-rho/dev
 		sudo apt-get update
-		sudo apt-get install -y tmux=2.0-1~ppa1
+		sudo apt-get install -y tmux
 	else
 		echo "Installing tmux on new ubuntu [15.05 and after]"
 		sudo apt-get install tmux
