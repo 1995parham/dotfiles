@@ -11,7 +11,6 @@ __author__ = 'Parham Alvani'
 import os
 import shutil
 
-
 def file_linker(module, file, is_hidden=True):
     dst_file = ('.' if is_hidden else '') + file
     src_file = file
