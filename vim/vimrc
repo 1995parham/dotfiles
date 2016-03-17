@@ -79,6 +79,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-github-dashboard'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
 Plug 'moll/vim-node'
@@ -104,20 +105,19 @@ Plug 'bps/vim-tshark'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'othree/html5.vim'
+Plug 'docker/docker'
+Plug 'ap/vim-css-color'
+Plug 'mattn/webapi-vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Using git URL
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug '1995parham/vim-header', {'do': '~/.vim/plugged/vim-header/init.sh'}
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug '1995parham/vim-header', { 'do': '~/.vim/plugged/vim-header/init.sh' }
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
 " Add plugins to &runtimepath
 call plug#end()
