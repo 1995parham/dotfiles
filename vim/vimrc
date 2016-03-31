@@ -109,6 +109,7 @@ Plug 'othree/html5.vim'
 Plug 'docker/docker'
 Plug 'ap/vim-css-color'
 Plug 'mattn/webapi-vim'
+Plug 'tmux-plugins/vim-tmux'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
