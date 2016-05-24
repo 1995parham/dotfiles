@@ -1,2 +1,4 @@
 vim/plugged
 vim/.netrwhist
+vim/ftplugin/go/gocomplete.vim
+vim/autoload/gocomplete.vim
