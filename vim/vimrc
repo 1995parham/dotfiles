@@ -184,7 +184,7 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 let g:vim_markdown_math = 1
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <F5> :TagbarToggle<CR>
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
