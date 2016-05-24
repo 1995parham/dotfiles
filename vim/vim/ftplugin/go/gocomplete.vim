@@ -1,1 +1,0 @@
-/Users/parham/Documents/Git/parham/dotfiles/vim/vim/plugged/gocode/vim/ftplugin/go/gocomplete.vim
