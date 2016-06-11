@@ -6,6 +6,18 @@ For using this configuration files you can install them with
 ```shell
 python3 install.py
 ```
+## VIM is your IDE
+If you are using this dotfiles vim configuration
+you can use following scripts to have better vim :D
+### C
+CTags: ctrl + , F5
+```sh
+sudo apt install ctags
+```
+### JavaScript
+```sh
+sudo npm install -g jshint
+```
 ## How to ....
 ### Dircolors on OSx
 Try installing the GNU coreutils from this if you really want dircolors to work.
