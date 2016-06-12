@@ -13,7 +13,6 @@ set wrap " Wrap lines
 set smarttab
 set number
 set ffs=unix,dos,unix
-set background=dark
 
 " Use vim, not vi api
 set nocompatible
@@ -76,12 +75,13 @@ filetype plugin indent on " Required by Pathogen Plugin Manager
 
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
+" Static plugins all from the github :)
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
+Plug 'vim-scripts/textutil.vim'
 Plug 'moll/vim-node'
 Plug 'digitaltoad/vim-jade'
 Plug 'wakatime/vim-wakatime'
@@ -111,20 +111,28 @@ Plug 'docker/docker'
 Plug 'ap/vim-css-color'
 Plug 'mattn/webapi-vim'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'mattn/emmet-vim'
+Plug 'ervandew/supertab'
+Plug 'wellle/targets.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-tbone'
+Plug 'gcmt/wildfire.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug '1995parham/vim-header', { 'do': '~/.vim/plugged/vim-header/init.sh' }
-Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
 " Add plugins to &runtimepath
 call plug#end()
 
-" Theme
+" Tomorrow-Night
 set background=light
 colorscheme Tomorrow-Night
 
@@ -139,6 +147,11 @@ highlight clear SignColumn
 
 " Super tab
 let g:SuperTabMappingForward = "<C-h>"
+
+" Emmmet
+" only enable normal mode functions.
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key='<C-E>'
 
 " Pymode
 if has('python') || has('python3')
