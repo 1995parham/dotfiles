@@ -122,6 +122,9 @@ file_linker(module, 'pinerc')
 # signature
 file_linker(module, 'signature')
 
+# .eslintrc
+file_linker(module, 'eslintrc')
+
 print("{:*^80}".format(''))
 
 ###########################
