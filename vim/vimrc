@@ -70,9 +70,6 @@ set hlsearch
 " }}}
 
 " Plugins {{{
-execute pathogen#infect()
-filetype plugin indent on " Required by Pathogen Plugin Manager
-
 call plug#begin('~/.vim/plugged')
 
 " Static plugins all from the github :)
