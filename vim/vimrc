@@ -94,6 +94,7 @@ Plug 'aolab/vim-avro'
 Plug 'klen/python-mode'
 Plug 'scrooloose/syntastic'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'gavocanov/vim-js-indent'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
@@ -250,6 +251,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " C
 let c_gnu = 1
+
+" JavaScript
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 " Octave
 augroup filetypedetect
