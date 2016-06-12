@@ -10,13 +10,23 @@ python3 install.py
 If you are using this dotfiles vim configuration
 you can use following scripts to have better vim :D
 ### C
+If your c file is big and you want a function in it
+do not install jetbrains stuff :D just use CLint in
+your vim with following command:
 CTags: ctrl + , F5
 ```sh
 sudo apt install ctags
 ```
 ### JavaScript
+Personally I use ESLint as linter for my JS projects
+and you can setup it with following command and use it
+simply in all of your project.
 ```sh
-sudo npm install -g jshint
+# setup eslint globally
+sudo npm install -g eslint
+# setup project folder
+npm init
+eslint init
 ```
 ## How to ....
 ### Dircolors on OSx
