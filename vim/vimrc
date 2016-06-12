@@ -46,7 +46,7 @@ let mapleader = ','
 " Always show cursor
 set ruler
 
-" Make sure any searches /searchPhrase doesn't need the \c escape character 
+" Make sure any searches /searchPhrase doesn't need the \c escape character
 set ignorecase
 
 " Ignore case in search
@@ -171,6 +171,17 @@ elseif has('python')
 	let g:syntastic_python_python_exec = system('which python')
 endif
 let g:syntastic_python_checkers = ['pylint']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 " vim-go
 let g:go_highlight_functions = 1
