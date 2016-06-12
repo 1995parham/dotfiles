@@ -123,7 +123,7 @@ file_linker(module, 'pinerc')
 file_linker(module, 'signature')
 
 # .eslintrc
-file_linker(module, 'eslintrc')
+file_linker(module, 'eslintrc.json')
 
 print("{:*^80}".format(''))
 
