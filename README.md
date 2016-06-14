@@ -28,6 +28,12 @@ sudo npm install -g eslint
 npm init
 eslint init
 ```
+### PHP
+Personally I use PHPLint as linter for my PHP files.
+```sh
+# setup php lint globally
+sudo npm install -g phplint
+```
 ## How to ....
 ### Dircolors on OSx
 Try installing the GNU coreutils from this if you really want dircolors to work.
