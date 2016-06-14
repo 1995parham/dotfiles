@@ -118,6 +118,7 @@ Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-tbone'
 Plug 'gcmt/wildfire.vim'
+Plug 'StanAngeloff/php.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -192,6 +193,18 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
+
+" PHP
+let g:php_syntax_extensions_enabled = 1
+function! PhpSyntaxOverride()
+	hi! def link phpDocTags  phpDefine
+	hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+	autocmd!
+	autocmd FileType php call PhpSyntaxOverride()
+augroup END
 
 " vim-go
 let g:go_highlight_functions = 1
