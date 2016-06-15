@@ -11,15 +11,18 @@ eval `dircolors $HOME/.dircolors`
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
+# }}}
+
+# Go {{{
 if [ -d $HOME/Documents/Go/bin ]; then
 	PATH="$PATH:$HOME/Documents/Go/bin"
 fi
 # }}}
 
-# Ruby {{{
-function get_ruby_version() {
-  ruby -v | awk '{print $1 " " $2}'
-}
+# PHP {{{
+if [ -d $HOME/.config/composer/vendor/bin ]; then
+	PATH="$PATH:$HOME/.config/composer/vendor/bin"
+fi
 # }}}
 
 # Kernel {{{
