@@ -29,10 +29,14 @@ npm init
 eslint init
 ```
 ### PHP
-Personally I use PHPLint as linter for my PHP files.
+Personally I use PHPLint as linter for my PHP files,
+and for code style fixing I use PHP-CS-Fixer.
 ```sh
 # setup php lint globally
 sudo npm install -g phplint
+
+# setup php-cs-fixer globally
+composer global require fabpot/php-cs-fixer
 ```
 ## How to ....
 ### Dircolors on OSx
