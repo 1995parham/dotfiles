@@ -1,8 +1,14 @@
 <?php
 /**
  * In The Name Of God
- * File: $file.name
- * User: $user.name ($user.email)
- * Date: $time.strftime("%d-%m-%Y")
- * Time: $time.strftime("%H:%M")
-*/
+ *
+ * PHP Version 5
+ *
+ * Short description for file
+ *
+ * @category CategoryName
+ * @package  PackageName
+ * @author   $user.name <$user.email>
+ * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @link     Link
+ */
