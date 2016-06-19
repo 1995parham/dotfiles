@@ -35,6 +35,14 @@ for my php files.
 # setup phpcs globally
 composer global require "squizlabs/php_codesniffer=*"
 ```
+## Correct the style :)
+* C, C++, Objective C: `clang-format`
+* PHP: `phpcbf` --> `composer global require "squizlabs/php_codesniffer=*"`
+* JavaScript: `js-beautify` --> `npm install -g js-beautify`
+* HTML: `html-beautify` --> `npm install -g js-beautify`
+* Python: `yapf` --> `pip install yapf`
+* Go: `gofmt`
+
 ## How to ....
 ### Dircolors on OSx
 Try installing the GNU coreutils from this if you really want dircolors to work.
