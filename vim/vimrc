@@ -290,6 +290,8 @@ augroup phpSyntaxOverride
 	autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
+
 "}}}
 
 " Commands {{{
