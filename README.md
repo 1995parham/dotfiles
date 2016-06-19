@@ -24,6 +24,8 @@ simply in all of your project.
 ```sh
 # setup eslint globally
 sudo npm install -g eslint
+sudo npm install -g eslint-plugin-standard
+sudo npm install -g eslint-config-standard
 # setup project folder
 npm init
 eslint init
