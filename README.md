@@ -36,6 +36,7 @@ for my php files.
 ```sh
 # setup phpcs globally
 composer global require "squizlabs/php_codesniffer=*"
+phpcs config-set default_standard PSR2
 ```
 ## Correct the style :)
 * C, C++, Objective C: `clang-format`
