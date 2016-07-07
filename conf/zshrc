@@ -7,7 +7,9 @@ export TERM="screen-256color"
 export LD_LIBRARY_PATH=/usr/local/lib:
 export CLICOLOR=1
 export GOPATH=$HOME/Documents/Go
-eval `dircolors $HOME/.dircolors`
+if [ -f $HOME/.dircolors ]; then
+	eval `dircolors $HOME/.dircolors`
+fi
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
