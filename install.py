@@ -57,11 +57,18 @@ def directory_linker(module_name, directory, is_hidden=True):
 
 ###########################
 
+do_customization = False
+
 home_dir = os.environ['HOME']
 print("[pre] Home directory found at {}".format(home_dir))
 
 current_dir = os.getcwd()
 print("[pre] Current directory found at {}".format(current_dir))
+
+###########################
+
+if input('do you want to customize installation ? [Y/n]') == "Y":
+    do_customization = True
 
 ###########################
 
