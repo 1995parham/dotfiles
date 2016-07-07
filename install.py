@@ -12,8 +12,10 @@ class DotFile:
     """
 
     def __init__(self, name: str, files: [str], directories: [str],
-                 is_customize: bool = False, is_hidden: bool = True):
+                 is_customize: bool = False, is_hidden: bool = True,
+                 catalog: str = ''):
         self.name = name
+        self.catalog = catalog
 
         print("[{0}] install {0} configuration".format(self.name))
         for file in files:
@@ -33,7 +35,8 @@ class DotFile:
 
     def file_linker(self, file: str, is_hidden: bool = True):
         dst_file = ('.' if is_hidden else '') + file
-        src_file = file
+        src_file = file + ('-{}'.format(self.catalog)
+                           if self.catalog != '' else '')
 
         dst_path = os.path.join(home_dir, dst_file)
         src_path = os.path.join(os.path.join(current_dir, self.name),
@@ -42,7 +45,7 @@ class DotFile:
         create_link = True
 
         if os.path.isfile(dst_path) or os.path.islink(dst_path):
-            print('[{0}] {1} already existed'.format(self.name, file))
+            print('[{0}] {1} already existed'.format(self.name, src_file))
 
             if input('do you want to remove {} ?[Y/n] '.format(
                     dst_path)) != "Y":
@@ -57,7 +60,8 @@ class DotFile:
 
     def directory_linker(self, directory: str, is_hidden: bool = True):
         dst_directory = ('.' if is_hidden else '') + directory
-        src_directory = directory
+        src_directory = directory + ('-{}'.format(self.catalog)
+                                     if self.catalog != '' else '')
 
         dst_path = os.path.join(home_dir, dst_directory)
         src_path = os.path.join(os.path.join(current_dir, self.name),
@@ -66,7 +70,7 @@ class DotFile:
         create_link = True
 
         if os.path.isdir(dst_path) or os.path.islink(dst_path):
-            print('[{0}] {1} already existed'.format(self.name, directory))
+            print('[{0}] {1} already existed'.format(self.name, src_directory))
 
             if input('do you want to remove {} ?[Y/n] '.format(
                     dst_path)) != "Y":
