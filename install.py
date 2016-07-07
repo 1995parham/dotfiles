@@ -9,12 +9,9 @@ class DotFile:
     :param name: module name
     :param files: module files
     :param directories:  module directories
-    :type name: str
-    :type files: list[str]
-    :type directories: list[str]
     """
 
-    def __init__(self, name, files, directories,
+    def __init__(self, name: str, files: [str], directories: [str],
                  is_customize: bool = False, is_hidden: bool = False):
         self.name = name
 
