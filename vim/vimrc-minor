@@ -1,0 +1,144 @@
+" Settings {{{
+syntax on
+
+" Stick unamed register into system clipboard
+set clipboard+=unnamed
+
+" Correct delete key in OSX
+set backspace=eol,start,indent
+
+set ai " Auto indent
+set si " Smart indent
+set wrap " Wrap lines
+set smarttab
+set number
+set ffs=unix,dos,unix
+
+" Use vim, not vi api
+set nocompatible
+
+" Get rid of the delay when pressing O (for example)
+" http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Always show status bar
+set laststatus=2
+
+" Set the status line to something useful
+set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
+
+" Hide the toolbar
+set guioptions-=T
+
+" No backup files
+" set nobackup
+
+" No write backup
+" set nowritebackup
+
+" No swap file
+" set noswapfile
+
+" Set leader key
+let mapleader = ','
+
+" Always show cursor
+set ruler
+
+" Make sure any searches /searchPhrase doesn't need the \c escape character
+set ignorecase
+
+" Ignore case in search
+set smartcase
+
+" Autoload files that have changed outside of vim
+set autoread
+
+" Highlight tailing whitespace
+set list listchars=tab:\ \ ,trail:·
+
+" Mod line supporting
+set modeline
+set modelines=5
+
+" Set folding type in marker
+set foldmethod=marker
+
+" Set search results highlighting
+set hlsearch
+
+" }}}
+
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+
+" Static plugins all from the github :)
+Plug 'digitaltoad/vim-jade'
+Plug '1995parham/tomorrow-night-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bps/vim-tshark'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'tmux-plugins/vim-tmux'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Plugin options
+
+" Add plugins to &runtimepath
+call plug#end()
+
+" Tomorrow-Night
+set background=light
+colorscheme Tomorrow-Night
+
+" Git gutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_eager = 0
+let g:gitgutter_sign_column_always = 1
+highlight clear SignColumn
+
+" Airline (status line)
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '|'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_powerline_fonts = 1
+
+let g:airline_left_sep = ''
+let g:airline_left_sep = '|'
+let g:airline_right_sep = '|'
+let g:airline_right_sep = '|'
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.readonly = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" C
+let c_gnu = 1
+
+"}}}
+
+" Commands {{{
+
+" Command Mappings
+command Spellcheck setlocal spell spelllang=en_us
+
+" File formats
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" }}}
+
