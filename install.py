@@ -12,7 +12,7 @@ class DotFile:
     """
 
     def __init__(self, name: str, files: [str], directories: [str],
-                 is_customize: bool = False, is_hidden: bool = False):
+                 is_customize: bool = False, is_hidden: bool = True):
         self.name = name
 
         print("[{0}] install {0} configuration".format(self.name))
@@ -110,7 +110,7 @@ DotFile('vim', files=['vimrc'], directories=['vim'],
 DotFile('conf',
         files=['zshrc', 'dircolors', 'wakatime.cfg', 'tmux.conf',
                'pinerc', 'signature', 'eslintrc.json'],
-        directories=['copyrighter, aria2', 'tmux'],
+        directories=['copyrighter', 'aria2', 'tmux'],
         is_customize=do_customization)
 
 ###########################
