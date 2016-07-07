@@ -2,57 +2,85 @@ import os
 import shutil
 
 
-def file_linker(module_name, file, is_hidden=True):
-    dst_file = ('.' if is_hidden else '') + file
-    src_file = file
+class DotFile:
+    """
+    This class represent dotfile module :)
+    :param name: module name
+    :param files: module files
+    :param directories:  module directories
+    :type name: str
+    """
 
-    dst_path = os.path.join(home_dir, dst_file)
-    src_path = os.path.join(os.path.join(current_dir, module_name),
-                            src_file)
+    def __init__(self, name: str, files: list[str], directories: list[str],
+                 is_customize: bool = False):
+        self.name = name
 
-    create_link = True
+        print("[{0}] install {0} configuration".format(self.name))
+        for file in files:
+            if is_customize:
+                if input("[{0}] do want to install {1} ?[Y/n]".format(
+                        self.name, file)) != "Y":
+                    continue
+            self.file_linker(file)
 
-    if os.path.isfile(dst_path) or os.path.islink(dst_path):
-        print('[{0}] {1} already existed'.format(module_name, file))
+        for directory in directories:
+            if is_customize:
+                if input("[{0}] do want to install {1} ?[Y/n]".format(
+                        self.name, directory)) != "Y":
+                    continue
+            self.directory_linker(directory)
+        print("{:*^80}".format(''))
 
-        if input('do you want to remove {} ?[Y/n] '.format(dst_path)) != "Y":
-            create_link = False
-        else:
-            os.remove(dst_path)
+    def file_linker(self, file, is_hidden=True):
+        dst_file = ('.' if is_hidden else '') + file
+        src_file = file
 
-    if create_link:
-        os.symlink(src_path, dst_path)
-        print(
-            "[{0}] Symbolic link created successfully form {1} in {2}".format(
-                module_name, src_path, dst_path))
+        dst_path = os.path.join(home_dir, dst_file)
+        src_path = os.path.join(os.path.join(current_dir, self.name),
+                                src_file)
 
+        create_link = True
 
-def directory_linker(module_name, directory, is_hidden=True):
-    dst_directory = ('.' if is_hidden else '') + directory
-    src_directory = directory
+        if os.path.isfile(dst_path) or os.path.islink(dst_path):
+            print('[{0}] {1} already existed'.format(self.name, file))
 
-    dst_path = os.path.join(home_dir, dst_directory)
-    src_path = os.path.join(os.path.join(current_dir, module_name),
-                            src_directory)
-
-    create_link = True
-
-    if os.path.isdir(dst_path) or os.path.islink(dst_path):
-        print('[{0}] {1} already existed'.format(module_name, directory))
-
-        if input('do you want to remove {} ?[Y/n] '.format(dst_path)) != "Y":
-            create_link = False
-        else:
-            if os.path.islink(dst_path):
+            if input('do you want to remove {} ?[Y/n] '.format(
+                    dst_path)) != "Y":
+                create_link = False
+            else:
                 os.remove(dst_path)
-            elif os.path.isdir(dst_path):
-                shutil.rmtree(dst_path)
 
-    if create_link:
-        os.symlink(src_path, dst_path)
-        print(
-            "[{0}] Symbolic link created successfully form {1} in {2}".format(
-                module_name, src_path, dst_path))
+        if create_link:
+            os.symlink(src_path, dst_path)
+            print("[{0}] Symbolic link created successfully form {1} in {2}"
+                  .format(self.name, src_path, dst_path))
+
+    def directory_linker(self, directory, is_hidden=True):
+        dst_directory = ('.' if is_hidden else '') + directory
+        src_directory = directory
+
+        dst_path = os.path.join(home_dir, dst_directory)
+        src_path = os.path.join(os.path.join(current_dir, self.name),
+                                src_directory)
+
+        create_link = True
+
+        if os.path.isdir(dst_path) or os.path.islink(dst_path):
+            print('[{0}] {1} already existed'.format(self.name, directory))
+
+            if input('do you want to remove {} ?[Y/n] '.format(
+                    dst_path)) != "Y":
+                create_link = False
+            else:
+                if os.path.islink(dst_path):
+                    os.remove(dst_path)
+                elif os.path.isdir(dst_path):
+                    shutil.rmtree(dst_path)
+
+        if create_link:
+            os.symlink(src_path, dst_path)
+            print("[{0}] Symbolic link created successfully form {1} in {2}"
+                  .format(self.name, src_path, dst_path))
 
 
 ###########################
@@ -67,22 +95,13 @@ print("[pre] Current directory found at {}".format(current_dir))
 
 ###########################
 
-if input('do you want to customize installation ? [Y/n]') == "Y":
+if input('[pre] do you want to customize installation ? [Y/n]') == "Y":
     do_customization = True
 
 ###########################
 
 # VIM
-module = 'vim'
-print("[{0}] install {0} configuration".format(module))
-
-# .vimrc
-file_linker(module, 'vimrc')
-
-# .vim
-directory_linker(module, 'vim')
-
-print("{:*^80}".format(''))
+DotFile('vim', files=['vimrc'], directories=['vim'])
 
 ###########################
 
