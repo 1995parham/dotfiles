@@ -99,23 +99,37 @@ print("[pre] Current directory found at {}".format(current_dir))
 
 ###########################
 
+catalog_number = input('[pre] which catalog do you want ?\n'
+                       '1. minor\n'
+                       'else. default\n')
+
 if input('[pre] do you want to customize installation ? [Y/n]') == "Y":
     do_customization = True
 
 ###########################
 
 # VIM
-DotFile('vim', files=['vimrc'], directories=['vim'],
-        is_customize=do_customization)
+if catalog_number == '1':
+    DotFile('vim', files=['vimrc'], directories=[],
+            is_customize=do_customization, catalog='minor')
+    DotFile('vim', files=[], directories=['vim'],
+            is_customize=do_customization)
+else:
+    DotFile('vim', files=['vimrc'], directories=['vim'],
+            is_customize=do_customization)
 
 ###########################
 
 # Conf
-DotFile('conf',
-        files=['zshrc', 'dircolors', 'wakatime.cfg', 'tmux.conf',
-               'pinerc', 'signature', 'eslintrc.json'],
-        directories=['copyrighter', 'aria2', 'tmux'],
-        is_customize=do_customization)
+if catalog_number == '1':
+    DotFile('conf', files=['bashrc', 'dircolors', 'tmux.conf'],
+            directories=['tmux'], is_customize=do_customization)
+else:
+    DotFile('conf',
+            files=['zshrc', 'dircolors', 'wakatime.cfg', 'tmux.conf',
+                   'pinerc', 'signature', 'eslintrc.json'],
+            directories=['copyrighter', 'aria2', 'tmux'],
+            is_customize=do_customization)
 
 ###########################
 
