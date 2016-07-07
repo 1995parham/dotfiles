@@ -1,70 +1,58 @@
-# In The Name Of God
-# ========================================
-# [] File Name : install.py
-#
-# [] Creation Date : 11/3/15
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
-__author__ = 'Parham Alvani'
-
 import os
 import shutil
 
-def file_linker(module, file, is_hidden=True):
+
+def file_linker(module_name, file, is_hidden=True):
     dst_file = ('.' if is_hidden else '') + file
     src_file = file
 
+    dst_path = os.path.join(home_dir, dst_file)
+    src_path = os.path.join(os.path.join(current_dir, module_name),
+                            src_file)
+
     create_link = True
 
-    if os.path.isfile(os.path.join(home_dir, dst_file)) or \
-            os.path.islink(os.path.join(home_dir, dst_file)):
-        print('[{0}] {1} already existed'.format(module, src_file))
+    if os.path.isfile(dst_path) or os.path.islink(dst_path):
+        print('[{0}] {1} already existed'.format(module_name, file))
 
-        if input('do you want to remove {} ?[Y/n] '.format(src_file)) != "Y":
+        if input('do you want to remove {} ?[Y/n] '.format(dst_path)) != "Y":
             create_link = False
         else:
-            os.remove(os.path.join(home_dir, dst_file))
+            os.remove(dst_path)
 
     if create_link:
-        os.symlink(os.path.join(os.path.join(current_dir, module),
-                                src_file), os.path.join(home_dir, dst_file))
-        print("[{0}] Symbolic link created successfully form {1} in {2}".format(module,
-                                                                                os.path.join(
-                                                                                    os.path.join(
-                                                                                        current_dir, module),
-                                                                                    src_file),
-                                                                                os.path.join(home_dir, dst_file)))
+        os.symlink(src_path, dst_path)
+        print(
+            "[{0}] Symbolic link created successfully form {1} in {2}".format(
+                module_name, src_path, dst_path))
 
 
-def directory_linker(module, directory, is_hidden=True):
+def directory_linker(module_name, directory, is_hidden=True):
     dst_directory = ('.' if is_hidden else '') + directory
     src_directory = directory
 
+    dst_path = os.path.join(home_dir, dst_directory)
+    src_path = os.path.join(os.path.join(current_dir, module_name),
+                            src_directory)
+
     create_link = True
 
-    if os.path.isdir(os.path.join(home_dir, dst_directory)) or \
-            os.path.islink(os.path.join(home_dir, dst_directory)):
-        print('[{0}] {1} already existed'.format(module, directory))
+    if os.path.isdir(dst_path) or os.path.islink(dst_path):
+        print('[{0}] {1} already existed'.format(module_name, directory))
 
-        if input('do you want to remove {} ?[Y/n] '.format(src_directory)) != "Y":
+        if input('do you want to remove {} ?[Y/n] '.format(dst_path)) != "Y":
             create_link = False
         else:
-            if os.path.islink(os.path.join(home_dir, dst_directory)):
-                os.remove(os.path.join(home_dir, dst_directory))
-            elif os.path.isdir(os.path.join(home_dir, dst_directory)):
-                shutil.rmtree(os.path.join(home_dir, dst_directory))
+            if os.path.islink(dst_path):
+                os.remove(dst_path)
+            elif os.path.isdir(dst_path):
+                shutil.rmtree(dst_path)
 
     if create_link:
-        os.symlink(os.path.join(os.path.join(current_dir, module), src_directory),
-                   os.path.join(home_dir, dst_directory))
-        print("[{0}] Symbolic link created successfully form {1} in {2}".format(module,
-                                                                                os.path.join(
-                                                                                    os.path.join(
-                                                                                        current_dir, module),
-                                                                                    src_directory),
-                                                                                os.path.join(home_dir,
-                                                                                             dst_directory)))
+        os.symlink(src_path, dst_path)
+        print(
+            "[{0}] Symbolic link created successfully form {1} in {2}".format(
+                module_name, src_path, dst_path))
 
 
 ###########################
