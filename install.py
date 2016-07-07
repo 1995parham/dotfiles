@@ -5,13 +5,16 @@ import shutil
 class DotFile:
     """
     This class represent dotfile module :)
+
     :param name: module name
     :param files: module files
     :param directories:  module directories
     :type name: str
+    :type files: list[str]
+    :type directories: list[str]
     """
 
-    def __init__(self, name: str, files: list[str], directories: list[str],
+    def __init__(self, name, files, directories,
                  is_customize: bool = False, is_hidden: bool = False):
         self.name = name
 
