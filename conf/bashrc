@@ -96,3 +96,8 @@ fi
 if [ -f "$HOME/.dircolors" ]; then
 	eval $(dircolors "$HOME/.dircolors")
 fi
+
+### Local Configuration
+if [ -f $HOME/.bashrc.local ]; then
+	source "$HOME/.bashrc.local"
+fi
