@@ -43,14 +43,14 @@ composer global require "squizlabs/php_codesniffer=*"
 phpcs config-set default_standard PSR2
 ```
 ## Correct the style :)
-| Languages | Tool | Installation |
-|:----------|:----:|-------------:|
-| C, C++, Objective C | `clang-format` |
-| PHP | `phpcbf` |`composer global require "squizlabs/php_codesniffer=*"` |
-| JavaScript | `js-beautify` | `npm install -g js-beautify` |
-| HTML| `html-beautify` | `npm install -g js-beautify` |
-| Python | `yapf` | `pip install yapf` |
-| Go | `gofmt` | |
+| Languages           |       Tool      | Installation                                            |
+|:--------------------|:----------------:|:-------------------------------------------------------|
+| C, C++, Objective C | `clang-format`  |                                                         |
+| PHP                 |    `phpcbf`     | `composer global require "squizlabs/php_codesniffer=*"` |
+| JavaScript          |  `js-beautify`  | `npm install -g js-beautify`                            |
+| HTML                | `html-beautify` | `npm install -g js-beautify`                            |
+| Python              |     `yapf`      | `pip install yapf`                                      |
+| Go                  |    `gofmt`      |                                                         |
 
 ## How to ....
 ### Dircolors on OSx
