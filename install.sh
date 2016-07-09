@@ -51,20 +51,26 @@ dotfile() {
 # parameter 1: module name - string
 # parameter 2: file name - string
 # parameter 3 [default = true]: is hidden file - bool
+# parameter 4 [default = ""]: file name extention - string
 linker() {
 	module=$1
 	file=$2
 	is_hidden=${3:-true}
+	extention=${4:-""}
 
 	if [ $is_hidden ]; then
 		dst_file=".$file"
 	else
 		dst_file="$file"
 	fi
-	src_file=file
+	if [ ! -z $extention ]; then
+		src_file="$file-$extention"
+	else
+		src_file="$file"
+	fi
 
 	dst_path="$HOME/$dst_file"
-	src_path="$current_dir/$module/$file"
+	src_path="$current_dir/$module/$src_file"
 
 	create_link=true
 
