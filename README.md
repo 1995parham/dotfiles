@@ -50,40 +50,23 @@ phpcs config-set default_standard PSR2
 | 5  | [node](http://github.com/moll/vim-node)       | 6  | [jade](http://github.com/digitaltoad/vim-jade)                   |
 | 7  | [wakatime](http://github.com/wakatime/vim-wakatime)   | 8  | [zimpl](http://github.com/1995parham/vim-zimpl)                  |
 | 9  | [gas](http://github.com/1995parham/vim-gas)        | 10 | [tcpdump](http://github.com/1995parham/vim-tcpdump)                |
-Plug '1995parham/tomorrow-night-vim'
-Plug '1995parham/vim-spice'
-Plug 'aolab/vim-avro'
-Plug 'klen/python-mode'
-Plug 'scrooloose/syntastic'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'gavocanov/vim-js-indent'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'dag/vim2hs'
-Plug 'fatih/vim-go'
-Plug 'majutsushi/tagbar'
-Plug 'bps/vim-tshark'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'othree/html5.vim'
-Plug 'docker/docker'
-Plug 'ap/vim-css-color'
-Plug 'mattn/webapi-vim'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'mattn/emmet-vim'
-Plug 'ervandew/supertab'
-Plug 'wellle/targets.vim'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-tbone'
-Plug 'gcmt/wildfire.vim'
-Plug 'scrooloose/nerdtree'
+| 11 | [spice](http://github.com/1995parham/vim-spice)      | 12 | [tomorrow-night](http://github.com/1995parham/tomorrow-night-vim)         |
+| 13 | [avro](http://github.com/aolab/vim-avro)       | 14 | [python-mode](http://github.com/klen/python-mode)            |
+| 15 | [syntastic](http://github.com/scrooloose/syntastic)  | 16 | [javascript-syntax](http://github.com/jelera/vim-javascript-syntax)      |
+| 17 | [js-indent](http://github.com/gavocanov/vim-js-indent)  | 18 | [gitgutter](http://github.com/airblade/vim-gitgutter)              |
+| 19 | [airline](http://github.com/vim-airline/vim-airline)    | 20 | [airline-themes](http://github.com/vim-airline/vim-airline-themes)         |
+| 21 | [vim2hs](http://github.com/dag/vim2hs)     | 22 | [go](http://github.com/fatih/vim-go)                     |
+| 23 | [tagbar](http://github.com/majutsushi/tagbar)     | 24 | [tshark](http://github.com/bps/vim-tshark)                 |
+| 25 | [tabular](http://github.com/godlygeek/tabular)    | 26 | [markdown](http://github.com/plasticboy/vim-markdown)               |
+| 27 | [bookmarks](http://github.com/MattesGroeger/vim-bookmarks)  | 28 | [html5](http://github.com/othree/html5.vim)                  |
+| 29 | [docker](http://github.com/docker/docker)     | 30 | [css-color](http://github.com/ap/vim-css-color)              |
+| 31 | [webapi](http://github.com/mattn/webapi-vim)     | 32 | [tmux](http://github.com/tmux-plugins/vim-tmux)                   |
+| 33 | [emmet](http://github.com/mattn/emmet-vim)      | 34 | [supertab](http://github.com/ervandew/supertab)               |
+| 35 | [targets](http://github.com/wellle/targets.vim)    | 36 | [rainbow_parentheses](http://github.com/kien/rainbow_parentheses.vim)    |
+| 37 | [endwise](http://github.com/tpope/vim-endwise)    | 38 | [fugitive](http://github.com/tpope/vim-fugitive)               |
+| 39 | [surround](http://github.com/tpope/vim-surround)   | 40 | [polyglot](http://github.com/sheerun/vim-polyglot)               |
+| 41 | [tbone](http://github.com/tpope/vim-tbone)      | 42 | [wildfire](http://github.com/gcmt/wildfire.vim)               |
+| 43 | [nerdtree](http://github.com/scrooloose/nerdtree)   | 44 | [js-libraries-syntax](http://github.com/othree/javascript-libraries-syntax.vim)    |
 
 ## Correct the style :)
 | Languages           |       Tool      | Installation                                            |
