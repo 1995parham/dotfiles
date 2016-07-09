@@ -14,9 +14,31 @@ echo "[pre] Home directory found at $HOME"
 
 echo "[pre] Current directory found at $current_dir"
 
+osPS3=$PS3
+PS3="[pre] Please choose a type [ENTER to list options]:"
+install_type=0
+select t in "Default" "Minor"; do
+	if [ ! -z "$t" ]; then
+		case $REPLY in
+			1)
+				install_type=0
+				break
+				;;
+			2)
+				install_type=1
+				break
+				;;
+		esac
+	else
+		echo "$REPLY in not a valid option"
+	fi
+done
+PS3=$oPS3
+
 # Dotfile
 # parameter 1: module name - string
 # parameter 2: file names - array of string
+# parameter 3 [default = true]: is hidden file - bool
 dotfile() {
 	module=$1
 
@@ -28,7 +50,7 @@ dotfile() {
 # linker
 # parameter 1: module name - string
 # parameter 2: file name - string
-# parameter 3 [default = false]: is hidden file - bool
+# parameter 3 [default = true]: is hidden file - bool
 linker() {
 	module=$1
 	file=$2
@@ -45,7 +67,6 @@ linker() {
 	if [ -e $dst_path ] || [ -h $dst_path ]; then
 		echo "[$module] $src_file already existed"
 		read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
-		echo $delete_confirm
 		if [[ $delete_confirm == "Y" ]]; then
 			rm -R $dst_path
 			"[$module] $dst_path was removed successfully"
