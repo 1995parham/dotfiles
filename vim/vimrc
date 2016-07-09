@@ -73,9 +73,7 @@ set hlsearch
 call plug#begin('~/.vim/plugged')
 
 " Static plugins all from the github :)
-Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-github-dashboard'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
 Plug 'vim-scripts/textutil.vim'
