@@ -6,6 +6,10 @@ For using this configuration files you can install them with
 ```shell
 python3 install.py
 ```
+or you can do it with our newer bash version
+```shell
+./install.sh
+```
 ## VIM is your IDE
 If you are using this dotfiles vim configuration
 you can use following scripts to have better vim :D
@@ -39,12 +43,14 @@ composer global require "squizlabs/php_codesniffer=*"
 phpcs config-set default_standard PSR2
 ```
 ## Correct the style :)
-* C, C++, Objective C: `clang-format`
-* PHP: `phpcbf` --> `composer global require "squizlabs/php_codesniffer=*"`
-* JavaScript: `js-beautify` --> `npm install -g js-beautify`
-* HTML: `html-beautify` --> `npm install -g js-beautify`
-* Python: `yapf` --> `pip install yapf`
-* Go: `gofmt`
+| Languages | Tool | Installation |
+|:----------|:----:|-------------:|
+| C, C++, Objective C | `clang-format` |
+| PHP | `phpcbf` |`composer global require "squizlabs/php_codesniffer=*"` |
+| JavaScript | `js-beautify` | `npm install -g js-beautify` |
+| HTML| `html-beautify` | `npm install -g js-beautify` |
+| Python | `yapf` | `pip install yapf` |
+| Go | `gofmt` | |
 
 ## How to ....
 ### Dircolors on OSx
