@@ -54,9 +54,13 @@ dotfile() {
 linker() {
 	module=$1
 	file=$2
-	is_hidden=true
+	is_hidden=${3:-true}
 
-	dst_file=".$file"
+	if [ $is_hidden ]; then
+		dst_file=".$file"
+	else
+		dst_file="$file"
+	fi
 	src_file=file
 
 	dst_path="$HOME/$dst_file"
