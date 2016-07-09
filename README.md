@@ -42,6 +42,49 @@ for my php files.
 composer global require "squizlabs/php_codesniffer=*"
 phpcs config-set default_standard PSR2
 ```
+## VIM Plugins
+| #  | Plugin     | #  | Plugin                 |
+|:--:|:-----------|:--:|:-----------------------|
+| 1  | [easy-align](http://github.com/junegunn/vim-easy-align) | 2  | [cpp-enhanced-highlight](http://github.com/octol/vim-cpp-enhanced-highlight) |
+| 3  | [vimtex](http://github.com/lervag/vimtex)     | 4  | [textutil](http://github.com/vim-scripts/textutil.vim)               |
+| 5  | [node](http://github.com/moll/vim-node)       | 6  | [jade](http://github.com/digitaltoad/vim-jade)                   |
+| 7  | [wakatime](http://github.com/wakatime/vim-wakatime)   | 8  | [zimpl](http://github.com/1995parham/vim-zimpl)                  |
+| 9  | [gas](http://github.com/1995parham/vim-gas)        | 10 | [tcpdump](http://github.com/1995parham/vim-tcpdump)                |
+Plug '1995parham/tomorrow-night-vim'
+Plug '1995parham/vim-spice'
+Plug 'aolab/vim-avro'
+Plug 'klen/python-mode'
+Plug 'scrooloose/syntastic'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'gavocanov/vim-js-indent'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dag/vim2hs'
+Plug 'fatih/vim-go'
+Plug 'majutsushi/tagbar'
+Plug 'bps/vim-tshark'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'othree/html5.vim'
+Plug 'docker/docker'
+Plug 'ap/vim-css-color'
+Plug 'mattn/webapi-vim'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'mattn/emmet-vim'
+Plug 'ervandew/supertab'
+Plug 'wellle/targets.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-tbone'
+Plug 'gcmt/wildfire.vim'
+Plug 'scrooloose/nerdtree'
+
 ## Correct the style :)
 | Languages           |       Tool      | Installation                                            |
 |:--------------------|:----------------:|:-------------------------------------------------------|
