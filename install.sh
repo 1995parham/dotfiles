@@ -80,7 +80,7 @@ linker() {
 		read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
 		if [[ $delete_confirm == "Y" ]]; then
 			rm -R $dst_path
-			"[$module] $dst_path was removed successfully"
+			echo "[$module] $dst_path was removed successfully"
 		else
 			create_link=false
 		fi
