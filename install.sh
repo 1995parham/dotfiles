@@ -39,11 +39,12 @@ PS3=$oPS3
 # parameter 1: module name - string
 # parameter 2: file names - array of string
 # parameter 3 [default = true]: is hidden file - bool
+# parameter 4 [default = ""]: file name extention - string
 dotfile() {
 	module=$1
 
 	for file in "${!2}"; do
-		linker $module $file
+		linker $module $file $3 $4
 	done
 }
 
@@ -58,7 +59,7 @@ linker() {
 	is_hidden=${3:-true}
 	extention=${4:-""}
 
-	if [ $is_hidden ]; then
+	if $is_hidden; then
 		dst_file=".$file"
 	else
 		dst_file="$file"
@@ -92,5 +93,44 @@ linker() {
 }
 
 #### VIM ####
-files=("vimrc" "vim")
-dotfile "vim" files[@]
+echo "[vim] Installation begin"; echo
+case $install_type in
+	0)
+		files=("vimrc" "vim")
+		dotfile "vim" files[@]
+		;;
+	1)
+		files=("vimrc")
+		dotfile "vim" files[@] true "minor"
+		files=("vim")
+		dotfile "vim" files[@]
+		;;
+esac
+echo "[vim] Installation end"; echo
+
+#### Conf ####
+echo "[conf] Installation begin"; echo
+case $install_type in
+	0)
+		files=("zshrc" "dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
+			"signature" "eslintrc.json" "copyrighter" "aria2" "tmux")
+		dotfile "conf" files[@]
+		;;
+	1)
+		files=("bashrc" "dircolors" "tmux.conf" "tmux")
+		dotfile "conf" files[@]
+		;;
+esac
+echo "[conf] Installation end"; echo
+
+#### Git ####
+echo "[vim] Installation begin"; echo
+files=("gitconfig" "gitignore")
+dotfile "git" files[@]
+echo "[vim] Installation end"; echo
+
+#### Bin ####
+echo "[vim] Installation begin"; echo
+files=("bin")
+dotfile "bin" files[@] false
+echo "[vim] Installation end"; echo
