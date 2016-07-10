@@ -80,7 +80,7 @@ case $(uname) in
 		alias p_cpu='ps -eo pid,pcpu,rss,vsize,stat,wchan,user,cmd --sort -pcpu'
 		if [ -x /usr/bin/dircolors ]; then
 			eval $(dircolors -b)
-			alias ls='ls --classify --color=auto'
+			alias ls='ls --color=auto'
 			alias grep='grep --color=auto'
 		fi
 		;;
