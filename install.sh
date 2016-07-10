@@ -106,7 +106,7 @@ case $install_type in
 		dotfile "vim" files[@]
 		;;
 esac
-echo "[vim] Installation end"; echo
+echo; echo "[vim] Installation end"; echo
 
 #### Conf ####
 echo "[conf] Installation begin"; echo
@@ -121,16 +121,16 @@ case $install_type in
 		dotfile "conf" files[@]
 		;;
 esac
-echo "[conf] Installation end"; echo
+echo; echo "[conf] Installation end"; echo
 
 #### Git ####
 echo "[vim] Installation begin"; echo
 files=("gitconfig" "gitignore")
 dotfile "git" files[@]
-echo "[vim] Installation end"; echo
+echo; echo "[vim] Installation end"; echo
 
 #### Bin ####
 echo "[vim] Installation begin"; echo
 files=("bin")
 dotfile "bin" files[@] false
-echo "[vim] Installation end"; echo
+echo; echo "[vim] Installation end"; echo
