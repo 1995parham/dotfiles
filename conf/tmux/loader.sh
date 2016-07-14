@@ -10,5 +10,5 @@
 tmux_version=`tmux -V | cut -d' ' -f2`
 
 if [[ `echo "$tmux_version > 1.9 " | bc -l` -eq 1 ]]; then
-	tmux source-file ./tmux.config.plugin
+	tmux source-file ~/.tmux/tmux.conf.plugin
 fi
