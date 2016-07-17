@@ -81,6 +81,7 @@ phpcs config-set default_standard PSR2
 ## How to ....
 ### Build Router and NAT with your ubuntu
 1. First edit `/etc/sysctl.conf` and uncomment:
+
 ```
 # net.ipv4.ip_forward=1
 ```
@@ -88,6 +89,7 @@ so that it reads:
 ```
 net.ipv4.ip_forward=1
 ```
+
 2. To enable IP masquerading, enter following set of commands in terminal:
 ```sh
 # eth1: LAN - private
@@ -100,8 +102,6 @@ sudo iptables -A FORWARD -i eth1 -o eth0 -m state -–state RELATED,ESTABLISHED 
 sudo iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
 ```
 > IP Masquerade is a form of Network Address Translation or NAT which NAT allows internally connected computers that do not have one or more registered Internet IP addresses to communicate to the Internet via the Linux server's Internet IP address.
-
-
 
 ### Better bash on CentOS
 For having better bash completion use following package:
