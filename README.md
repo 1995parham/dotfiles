@@ -80,8 +80,7 @@ phpcs config-set default_standard PSR2
 
 ## How to ....
 ### Build Router and NAT with your ubuntu
-1. First edit `/etc/sysctl.conf` and uncomment:
-
+First edit `/etc/sysctl.conf` and uncomment:
 ```
 # net.ipv4.ip_forward=1
 ```
@@ -89,8 +88,7 @@ so that it reads:
 ```
 net.ipv4.ip_forward=1
 ```
-
-2. To enable IP masquerading, enter following set of commands in terminal:
+To enable IP masquerading, enter following set of commands in terminal:
 ```sh
 # eth1: LAN - private
 # eth0: WAN - public
