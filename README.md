@@ -90,8 +90,8 @@ net.ipv4.ip_forward=1
 ```
 To enable IP masquerading, enter following set of commands in terminal:
 ```sh
-# eth1: LAN - private
-# eth0: WAN - public
+# eth0: LAN - private
+# eth1: WAN - public
 
 sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 
