@@ -106,6 +106,9 @@ case $install_type in
 		dotfile "vim" files[@]
 		;;
 esac
+vim -c 'PlugInstall' -c 'w log' -c 'q' -c 'q'
+less log
+rm log
 echo; echo "[vim] Installation end"; echo
 
 #### Conf ####
