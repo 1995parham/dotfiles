@@ -11,7 +11,7 @@ tmux_version=`tmux -V | cut -d' ' -f2`
 which python3 > /dev/null && python=`which python3`
 which python > /dev/null && python=`which python`
 
-if [[ `$python -c "print($tmux_version > 1.9)"` == "True" ]]; then
+if [[ `$python -c "print($tmux_version >= 1.9)"` == "True" ]]; then
 	tmux source-file ~/.tmux/tmux.conf.plugin
 	tmux source-file ~/.tmux/tmux.conf.settings
 fi
