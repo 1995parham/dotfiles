@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name Of God
 # ========================================
-# [] File Name : install.node.sh
+# [] File Name : node.sh
 #
 # [] Creation Date : 11-06-2016
 #
