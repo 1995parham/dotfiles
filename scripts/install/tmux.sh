@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name Of God
 # ========================================
-# [] File Name : install-tmux.sh
+# [] File Name : tmux.sh
 #
 # [] Creation Date : 17-03-2016
 #
