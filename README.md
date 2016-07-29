@@ -32,7 +32,7 @@ sudo npm install -g eslint-plugin-standard
 sudo npm install -g eslint-config-standard
 # setup project folder
 npm init
-eslint init
+eslint --init
 ```
 ### PHP
 Personally I use PHP_CodeSniffer as code style checker
@@ -40,7 +40,7 @@ for my php files.
 ```sh
 # setup phpcs globally
 composer global require "squizlabs/php_codesniffer=*"
-phpcs config-set default_standard PSR2
+phpcs --config-set default_standard PSR2
 ```
 ## VIM Plugins
 | #  | Plugin     | #  | Plugin                 |
