@@ -42,6 +42,13 @@ for my php files.
 composer global require "squizlabs/php_codesniffer=*"
 phpcs --config-set default_standard PSR2
 ```
+### Python
+It's very good idea to use `pyvenv` in order to creating
+python project environment. Build your environment with:
+```sh
+pyvenv $PROJECT_ROOT
+. $PROJECT_ROOT/bin/activate
+```
 ## VIM Plugins
 | #  | Plugin     | #  | Plugin                 |
 |:--:|:-----------|:--:|:-----------------------|
