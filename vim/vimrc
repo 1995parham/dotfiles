@@ -86,7 +86,6 @@ Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
-Plug 'klen/python-mode'
 Plug 'scrooloose/syntastic'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'gavocanov/vim-js-indent'
@@ -145,26 +144,6 @@ let g:SuperTabMappingForward = "<C-h>"
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key='<C-E>'
 
-" Pymode
-if has('python') || has('python3')
-	let g:pymode = 1
-	let g:pymode_trim_whitespaces = 1
-	let g:pymode_options = 1
-	let g:pymode_folding = 0
-	let g:pymode_lint = 1
-	let g:pymode_lint_message = 1
-	let g:pymode_lint_on_write = 1
-	let g:pymode_lint_unmodified = 1
-else
-	let g:pymode = 0
-endif
-
-if has('python3')
-	let g:pymode_python = 'python3'
-elseif has('python')
-	let g:pymode_python = 'python'
-endif
-
 " Header
 let g:header_user = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
@@ -175,7 +154,7 @@ if has('python3')
 elseif has('python')
 	let g:syntastic_python_python_exec = system('which python')
 endif
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['flake8']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
