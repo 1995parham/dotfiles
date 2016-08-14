@@ -49,6 +49,11 @@ python project environment. Build your environment with:
 pyvenv $PROJECT_ROOT
 . $PROJECT_ROOT/bin/activate
 ```
+after you do your works you can deactivate your virtual
+environment with
+```sh
+deactivate
+```
 ## VIM Plugins
 | #  | Plugin     | #  | Plugin                 |
 |:--:|:-----------|:--:|:-----------------------|
