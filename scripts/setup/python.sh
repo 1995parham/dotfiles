@@ -8,8 +8,8 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 if hash pip3 2>/dev/null; then
-	sudo pip3 install flake8
-	sudo pip3 install pep8-naming
+	sudo easy_install3 flake8
+	sudo easy_install3 pep8-naming
 else
 	echo "Please install Python-PIP first."
 fi
