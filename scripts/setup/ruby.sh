@@ -7,4 +7,4 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-sudo gem install ruby-lint
+sudo gem install rubocop
