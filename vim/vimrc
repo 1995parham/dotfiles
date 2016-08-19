@@ -115,6 +115,7 @@ Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-tbone'
 Plug 'gcmt/wildfire.vim'
+Plug 'vim-ruby/vim-ruby'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
