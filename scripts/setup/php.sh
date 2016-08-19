@@ -9,8 +9,13 @@
 # =======================================
 sudo apt install php-cli php-xml
 # setup composer
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-sudo chown -R $USER:$USER $HOME/.composer
+if [ ! -e /usr/local/bin/composer ]; then
+	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+	sudo chown -R $USER:$USER $HOME/.composer
+fi
 # setup phpcs globally
 composer global require "squizlabs/php_codesniffer=*"
 phpcs --config-set default_standard PSR2
+# setup phpdoc globally
+sudo apt install php-intl php-xsl
+composer global require "phpdocumentor/phpdocumentor"
