@@ -272,6 +272,9 @@ autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
 " Ruby
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 
+" Json
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+
 "}}}
 
 " Commands {{{
