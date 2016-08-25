@@ -116,6 +116,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-tbone'
 Plug 'gcmt/wildfire.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'hdima/python-syntax'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -274,6 +275,9 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 
 " Json
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+
+" Python
+let python_highlight_all = 1
 
 "}}}
 
