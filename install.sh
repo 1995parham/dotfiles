@@ -117,7 +117,7 @@ echo "[conf] Installation begin"; echo
 case $install_type in
 	0)
 		files=("zshrc" "dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
-			"signature" "eslintrc.json" "copyrighter" "aria2" "tmux")
+			"signature" "eslintrc.json" "copyrighter" "aria2" "tmux" "gdbinit")
 		dotfile "conf" files[@]
 		;;
 	1)
