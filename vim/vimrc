@@ -1,6 +1,10 @@
 " Settings {{{
 syntax on
 
+" UFT-8 Encoding
+scriptencoding utf-8
+set encoding=utf-8
+
 " Stick unamed register into system clipboard
 set clipboard+=unnamed
 
