@@ -205,17 +205,20 @@ setopt multios # perform implicit tees or cats when multiple redirections are at
 # }}}
 
 # Prompt {{{
-function virtualenv_info {
-  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+
+# Setup python virtual environment prompt settings
+VIRTUAL_ENV_DISABLE_PROMPT=true
+function virtualenv_info() {
+  [ $VIRTUAL_ENV ] && echo '['`python3 --version` `basename $VIRTUAL_ENV`'] '
 }
 
-function prompt_char {
+function prompt_char() {
   git branch >/dev/null 2>/dev/null && echo '±' && return
   hg root >/dev/null 2>/dev/null && echo '☿' && return
   echo '○'
 }
 
-function box_name {
+function box_name() {
   [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
 }
 
@@ -291,6 +294,7 @@ function current_pwd {
 
 # Original prompt with User name and Computer name included...
 PROMPT='
+%{$FG[239]%}::%{$reset_color%} %{$FG[239]%}$(virtualenv_info)%{$reset_color%}
 ${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string)
 $(prompt_char) '
 
