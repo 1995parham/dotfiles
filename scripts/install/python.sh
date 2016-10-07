@@ -12,5 +12,5 @@ if [ "$OSTYPE" == "darwin"* ]; then
 	echo 'PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin/"' >> ~/.zshrc.local
 
 else
-	sudo apt install python3 python3-venv
+	sudo apt install python3 python3-venv python3-pip
 fi
