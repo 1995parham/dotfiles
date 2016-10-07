@@ -8,6 +8,9 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 sudo apt-get install ruby
+
 sudo apt-add-repository -y ppa:rael-gc/rvm
 sudo apt-get update
 sudo apt-get install rvm
+
+source /etc/profile.d/rvm.sh
