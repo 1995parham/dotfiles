@@ -11,5 +11,5 @@ if hash pip3 2>/dev/null; then
 	sudo easy_install3 flake8
 	sudo easy_install3 pep8-naming
 else
-	echo "Please install Python-PIP first."
+	echo "Please install python-pip first."
 fi
