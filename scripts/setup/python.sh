@@ -7,9 +7,10 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-if hash pip3 2>/dev/null; then
+if hash easy_install3 2>/dev/null; then
 	sudo easy_install3 flake8
 	sudo easy_install3 pep8-naming
+	sudo easy_install3 sphinx
 else
 	echo "Please install python-pip first."
 fi
