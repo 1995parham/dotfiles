@@ -31,12 +31,6 @@ fi
 
 # }}}
 
-# Kernel {{{
-function get_kernel_version() {
-  uname -rs
-}
-# }}}
-
 # Tmux {{{
 # Makes creating a new tmux session (with a specific name) easier
 function tmuxopen() {
@@ -220,6 +214,10 @@ function prompt_char() {
 
 function box_name() {
   [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
+}
+
+function get_kernel_version() {
+  uname -rs
 }
 
 # Modify the colors and symbols in these variables as desired.
