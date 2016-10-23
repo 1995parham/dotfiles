@@ -10,6 +10,7 @@
 if [ "$OSTYPE" == "darwin"* ]; then
 	brew install node
 else
-	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	sudo apt install -y nodejs
+	sudo ln -s /usr/bin/nodejs /usr/bin/node
 fi
