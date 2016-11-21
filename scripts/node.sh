@@ -7,12 +7,12 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-echo "[node] Installing Node 6.x"
-
 if [[ $EUID -ne 0 ]]; then
 	echo "[node] This script must be run as root"
 	exit 1
 fi
+
+echo "[node] Installing Node 6.x"
 
 if [ "$OSTYPE" == "darwin"* ]; then
 	brew install node
@@ -22,7 +22,7 @@ else
 	ln -s /usr/bin/nodejs /usr/bin/node
 fi
 
-echo "[node] Installing Node Linter"
+echo "[node] Installing eslint and it's plugins"
 
 npm install -g eslint
 npm install -g eslint-plugin-standard
