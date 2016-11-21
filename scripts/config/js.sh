@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name Of God
 # ========================================
-# [] File Name : setup-js.sh
+# [] File Name : js.sh
 #
 # [] Creation Date : 19-06-2016
 #
