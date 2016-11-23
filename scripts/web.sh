@@ -19,3 +19,6 @@ npm install -g bower
 
 echo "[web] Installing grunt - task runner"
 npm install -g grunt
+
+echo "[web] Installing yeoman - yeoman helps you to kickstart new projects,"
+npm install -g yo
