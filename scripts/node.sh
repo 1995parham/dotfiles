@@ -22,8 +22,5 @@ else
 	ln -s /usr/bin/nodejs /usr/bin/node
 fi
 
-echo "[node] Installing eslint and it's plugins"
-
-npm install -g eslint
-npm install -g eslint-plugin-standard
-npm install -g eslint-config-standard
+echo "[node] Installing jshint"
+npm install -g jshint
