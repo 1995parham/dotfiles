@@ -1,21 +1,34 @@
-#!/bin/sh
+#!/bin/
 # In The Name Of God
 # ========================================
 # [] File Name : php.sh
 #
-# [] Creation Date : 29-07-2016
+# [] Creation Date : 22-11-2016
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-sudo apt install php-cli php-xml
-# setup composer
+if [[ $EUID -ne 0 ]]; then
+	echo "[php] This script must be run as root"
+	exit 1
+fi
+
+echo "[php] Installing PHP"
+
+apt-get install php php-cli php-xml
+
+echo "[php] Installing composer"
+
 if [ ! -e /usr/local/bin/composer ]; then
 	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 	sudo chown -R $USER:$USER $HOME/.composer
 fi
-# setup phpcs globally
+
+echo "[php] Installing PHPCS"
+
 composer global require "squizlabs/php_codesniffer=*"
 phpcs --config-set default_standard PSR2
-# setup phpdoc globally
-sudo apt install php-intl php-xsl
+
+echo "[php] Installing PHPDoc"
+
+apt-get install php-intl php-xsl
 composer global require "phpdocumentor/phpdocumentor"
