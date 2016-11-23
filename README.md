@@ -91,6 +91,13 @@ deactivate
 | Go                  |    `gofmt`      |                                                         |
 
 ## How to ....
+### Zabbix based Monitoring
+Zabbix is an open source software for networks and application monitoring.
+Zabbix provides agents to monitor remote hosts as well as Zabbix includes
+support for monitoring via SNMP, TCP and ICMP checks.
+
+[How to Install Zabbix Server 3.0 on Ubuntu 16.04/14.04 LTS and Debian 8/7](http://tecadmin.net/install-zabbix-on-ubuntu/)
+
 ### Build Router and NAT with your ubuntu
 First edit `/etc/sysctl.conf` and uncomment:
 ```
