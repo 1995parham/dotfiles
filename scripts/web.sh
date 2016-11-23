@@ -22,5 +22,4 @@ npm install -g grunt
 
 echo "[web] Installing yeoman - yeoman helps you to kickstart new projects,"
 npm install -g yo
-npm install -g generator-angular
-npm install -g generator-karma
+npm install -g generator-karma generator-angular
