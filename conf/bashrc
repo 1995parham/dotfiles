@@ -1,10 +1,11 @@
+# PROMPT {{{
 [ -z "$PS1" ] && return
 
-### PROMPT
 case $TERM in
 	linux|rxvt)
 		col_user=3
 		col_host=3
+		col_attr=3
 		col_base=0
 		col_tags=(1 5 2)
 		seg_sep=""
@@ -22,6 +23,7 @@ case $TERM in
 
 		col_user=178
 		col_host=136
+		col_attr=202
 		col_base=235
 		col_tags=(131 61 29)
 		seg_sep=$(printf "\xee\x82\xb0")
@@ -45,30 +47,44 @@ else
 			;;
 	esac
 fi
-segs=("$(seg $col_user $col_base ' \u')"
-"$(seg $col_host $col_base '@\h ')"
-"$(seg $col_base $col_tag $seg_sep)"
-"$(seg $col_base $col_tag ' \w ')"
-"$(seg $col_tag '' $seg_sep' ')")
-unset -f seg
-unset col_user col_host col_base col_tag col_tags seg_sep
-PS1=""
-for seg in "${segs[@]}"; do
-	PS1="${PS1}${seg}"
-done
-unset seg segs
+VIRTUAL_ENV_DISABLE_PROMPT=true
+virtualenv_info(){
+	[ $VIRTUAL_ENV ] && echo '['`python3 --version` `basename $VIRTUAL_ENV`']'
+}
+set_bash_prompt(){
+	segs=("$(seg $col_user $col_base ' \u')"
+	"$(seg $col_host $col_base '@\h ')"
+	"$(seg $col_attr $col_base '|')"
+	"$(seg $col_attr $col_base "$(virtualenv_info)")"
+	"$(seg $col_attr $col_base '|')"
+	"$(seg $col_base $col_tag $seg_sep)"
+	"$(seg $col_base $col_tag ' \w ')"
+	"$(seg $col_tag '' $seg_sep' ')")
+	
+	PS1=""
+	for seg in "${segs[@]}"; do
+		PS1="${PS1}${seg}"
+	done
+}
+PROMPT_COMMAND=set_bash_prompt
 
-### PATH
+# }}}
+
+# PATH {{{
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
+# }}}
 
-### VARIABLES
+# VARIABLES {{{
 export EDITOR="vim"
 export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+# }}}
 
-### ALIASES
+# ALIASES {{{
 case $(uname) in
 	Darwin|FreeBSD)
 		alias l='locate -i'
@@ -85,19 +101,22 @@ case $(uname) in
 		fi
 		;;
 esac
+# }}}
 
-### SETTINGS
+# SETTINGS {{{
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
 fi
+# }}}
 
-
-### LS_COLORS
+# LS_COLORS {{{
 if [ -f "$HOME/.dircolors" ]; then
 	eval $(dircolors "$HOME/.dircolors")
 fi
+# }}}
 
-### Local Configuration
+# Local Configuration {{{
 if [ -f $HOME/.bashrc.local ]; then
 	source "$HOME/.bashrc.local"
 fi
+# }}}
