@@ -91,6 +91,15 @@ deactivate
 | Go                  |    `gofmt`      |                                                         |
 
 ## How to ....
+### Fix Perl warning setting locale failed on Raspbian
+You can fix the issue by setting the locale to en_US.UTF-8 for example:
+```sh
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+sudo locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+```
 ### Zabbix based Monitoring
 Zabbix is an open source software for networks and application monitoring.
 Zabbix provides agents to monitor remote hosts as well as Zabbix includes
