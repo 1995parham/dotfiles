@@ -61,7 +61,7 @@ set_bash_prompt(){
 	"$(seg $col_attr $col_base '|')"
 	"$(seg $col_attr $col_base "$(virtualenv_info)")"
 	"$(seg $col_attr $col_base " ")"
-	"$(seg $col_attr $col_base "${git_where#refs/heads/}")"
+	"$(seg $col_attr $col_base "${git_where/#refs/heads/}")"
 	"$(seg $col_attr $col_base '|')"
 	"$(seg $col_base $col_tag $seg_sep)"
 	"$(seg $col_base $col_tag ' \w ')"
