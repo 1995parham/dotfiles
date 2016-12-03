@@ -1,4 +1,4 @@
-# PROMPT {{{
+# Prompt {{{
 [ -z "$PS1" ] && return
 
 case $TERM in
@@ -76,21 +76,21 @@ PROMPT_COMMAND=set_bash_prompt
 
 # }}}
 
-# PATH {{{
+# Path {{{
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
 # }}}
 
-# VARIABLES {{{
+# Exports {{{
 export EDITOR="vim"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 # }}}
 
-# ALIASES {{{
+# Aliases {{{
 case $(uname) in
 	Darwin|FreeBSD)
 		alias l='locate -i'
@@ -109,7 +109,7 @@ case $(uname) in
 esac
 # }}}
 
-# SETTINGS {{{
+# Settings {{{
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
 fi
