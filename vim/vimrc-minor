@@ -83,6 +83,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'hdima/python-syntax'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
