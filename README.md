@@ -93,7 +93,7 @@ deactivate
 | `<C-w> <Right>` | Move to right window |
 | `<C-w> <Up>`    | Move to up window    |
 | `<C-w> <Down>`  | Move to down window  |
-| `<C-,>`         | Leader Key           |
+| `-`             | Leader Key           |
 | `<Leader>n`     | Move to next tab     |
 | `<Leader>p`     | Move to previous tab |
 

@@ -44,7 +44,7 @@ set guioptions-=T
 " set noswapfile
 
 " Set leader key
-let mapleader = ','
+let mapleader = '-'
 
 " Always show cursor
 set ruler
