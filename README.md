@@ -13,11 +13,12 @@ or you can do it with our newer bash version
 ## VIM is your IDE
 If you are using this dotfiles vim configuration
 you can use following scripts to have better vim :D
+
 ### C
 If your c file is big and you want a function in it
 do not install jetbrains stuff :D just use CLint in
 your vim with following command:
-CTags: ctrl + , F5
+
 ```sh
 sudo apt install ctags
 ```
@@ -80,6 +81,25 @@ deactivate
 | 41 | [tbone](http://github.com/tpope/vim-tbone)      | 42 | [wildfire](http://github.com/gcmt/wildfire.vim)               |
 | 43 | [nerdtree](http://github.com/scrooloose/nerdtree)   | 44 | [js-libraries-syntax](http://github.com/othree/javascript-libraries-syntax.vim)    |
 | 45 | [vim-ruby](http://github.com/vim-ruby/vim-ruby)   | 46 | [gocode](http://github.com/nsf/gocode)                 |
+| 47 |            | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
+
+## VIM Shortcuts
+
+| Shortcut        | Description          |
+|:---------------:|:---------------------|
+| `<C-n>`         | Toggles [NerdTree](https://github.com/scrooloose/nerdtree)     |
+| `<F5>`          | Toggles [Tagbar](https://github.com/majutsushi/tagbar)       |
+| `<C-w> <Left>`  | Move to left window  |
+| `<C-w> <Right>` | Move to right window |
+| `<C-w> <Up>`    | Move to up window    |
+| `<C-w> <Down>`  | Move to down window  |
+| `<C-,>`         | Leader Key           |
+| `<Leader>n`     | Move to next tab     |
+| `<Leader>p`     | Move to previous tab |
+
+## VIM Tips
+* I prefer to open files in tabs and the default shortcut for that in nerdtree is `t`.
+
 
 ## Correct the style :)
 | Languages           |       Tool      | Installation                                            |
@@ -88,7 +108,7 @@ deactivate
 | PHP                 |    `phpcbf`     | `composer global require "squizlabs/php_codesniffer=*"` |
 | JavaScript          |  `js-beautify`  | `npm install -g js-beautify`                            |
 | HTML                | `html-beautify` | `npm install -g js-beautify`                            |
-| Python              |     `yapf`      | `pip install yapf`                                      |
+| Python              |     `flake8`    | `pip3 install flake8`                                   |
 | Go                  |    `gofmt`      |                                                         |
 
 ## How to ....
