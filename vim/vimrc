@@ -71,6 +71,10 @@ set foldmethod=marker
 " Set search results highlighting
 set hlsearch
 
+" Let's move between tabs !
+nmap <Leader>n :<C-U>tabnext<CR>
+nmap <Leader>p :<C-U>tabprevious<CR>
+
 " }}}
 
 " Plugins {{{
@@ -121,9 +125,8 @@ Plug 'tpope/vim-tbone'
 Plug 'gcmt/wildfire.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'hdima/python-syntax'
-
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -131,6 +134,10 @@ Plug '1995parham/vim-header', { 'do': '~/.vim/plugged/vim-header/init.sh' }
 
 " Add plugins to &runtimepath
 call plug#end()
+
+"}}}
+
+" Plugins Configurations {{{
 
 " Tomorrow-Night
 set background=light
@@ -212,6 +219,19 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
+
+
+" NerdTree
+map <C-n> <plug>NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=2
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
