@@ -14,6 +14,9 @@ fi
 
 hash npm 2> /dev/null || { echo "[web] This scripts requires npm"; exit 1; }
 
+echo "[web] Installing html hint - html hint is a static code analysis tool for html"
+npm install -g htmlhint
+
 echo "[web] Installing bower - package manager for the web"
 npm install -g bower
 
