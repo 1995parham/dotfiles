@@ -41,7 +41,7 @@ PS3=$oPS3
 # parameter 3 [default = true]: is hidden file - bool
 # parameter 4 [default = ""]: file name extention - string
 dotfile() {
-	module=$1
+	local module=$1
 
 	for file in "${!2}"; do
 		linker $module $file $3 $4
@@ -54,26 +54,26 @@ dotfile() {
 # parameter 3 [default = true]: is hidden file - bool
 # parameter 4 [default = ""]: file name extention - string
 linker() {
-	module=$1
-	file=$2
-	is_hidden=${3:-true}
-	extention=${4:-""}
+	local module=$1
+	local file=$2
+	local is_hidden=${3:-true}
+	local extention=${4:-""}
 
 	if $is_hidden; then
-		dst_file=".$file"
+		local dst_file=".$file"
 	else
-		dst_file="$file"
+		local dst_file="$file"
 	fi
 	if [ ! -z $extention ]; then
-		src_file="$file-$extention"
+		local src_file="$file-$extention"
 	else
-		src_file="$file"
+		local src_file="$file"
 	fi
 
-	dst_path="$HOME/$dst_file"
-	src_path="$current_dir/$module/$src_file"
+	local dst_path="$HOME/$dst_file"
+	local src_path="$current_dir/$module/$src_file"
 
-	create_link=true
+	local create_link=true
 
 	if [ -e $dst_path ] || [ -h $dst_path ]; then
 		echo "[$module] $src_file already existed"
