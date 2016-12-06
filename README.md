@@ -96,6 +96,8 @@ deactivate
 | `-`             | Leader Key           |
 | `<Leader>n`     | Move to next tab     |
 | `<Leader>p`     | Move to previous tab |
+| `:b name`       | Open buffer          |
+| `:bd name`      | Delete buffer        |
 
 ## VIM Tips
 * I prefer to open files in tabs and the default shortcut for that in nerdtree is `t`.
