@@ -84,6 +84,7 @@ deactivate
 | 47 |            | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
 
 ## VIM Shortcuts
+### Core
 
 | Shortcut        | Description          |
 |:---------------:|:---------------------|
@@ -99,8 +100,15 @@ deactivate
 | `:b name`       | Open buffer          |
 | `:bd name`      | Delete buffer        |
 
-## VIM Tips
-* I prefer to open files in tabs and the default shortcut for that in nerdtree is `t`.
+### NerdTree
+
+| Shortcut | Description            |
+|:--------:|:-----------------------|
+| `s`      | open file vsplit       |
+| `i`      | open file split        |
+| `t`      | open file in new tab   |
+| `o`      | open & close directory |
+| `m`      | show menu              |
 
 
 ## Correct the style :)
