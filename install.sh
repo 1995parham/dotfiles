@@ -141,3 +141,4 @@ echo; echo "[vim] Installation end"; echo
 
 echo "[post] Thank you for using Parham Alvani dotfiles ! :)"
 echo -e "[post] Please check following directories:\n1. fonts/\n2. scripts/"
+echo "[post] Use *r* for reload your zshrc in place"
