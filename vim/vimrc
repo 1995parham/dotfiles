@@ -128,6 +128,7 @@ Plug 'hdima/python-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'gcmt/taboo.vim'
+Plug 'cohama/agit.vim'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
