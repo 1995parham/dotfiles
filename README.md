@@ -82,6 +82,7 @@ deactivate
 | 43 | [nerdtree](http://github.com/scrooloose/nerdtree)   | 44 | [js-libraries-syntax](http://github.com/othree/javascript-libraries-syntax.vim)    |
 | 45 | [vim-ruby](http://github.com/vim-ruby/vim-ruby)   | 46 | [gocode](http://github.com/nsf/gocode)                 |
 | 47 | [taboo](http://github.com/gcmt/taboo.vim)      | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
+| 49 | [Agit](http://github.com/cohama/agit.vim)       |
 
 ## VIM Shortcuts
 ### Core
@@ -100,6 +101,7 @@ deactivate
 | `<Leader>p`      | Move to previous tab      |
 | `:b name`        | Open buffer               |
 | `:bd name`       | Delete buffer             |
+| `:Agit`          | Agit log manager          |
 
 ### NerdTree
 
