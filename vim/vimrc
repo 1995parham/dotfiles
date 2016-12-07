@@ -127,6 +127,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'hdima/python-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'gcmt/taboo.vim'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -243,6 +244,8 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'distinguished'
 
+" Taboo
+let g:taboo_tab_format = ' [%n] %f%m'
 
 " C
 let c_gnu = 1
