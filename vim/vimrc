@@ -250,7 +250,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%{strftime("%c")}'
 
 " Taboo
-let g:taboo_tab_format = ' [%n] %f%m'
+let g:taboo_tab_format = ' [%N] %f%m'
 let g:taboo_tabline = 0
 
 " vim-buffergator
