@@ -130,7 +130,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'gcmt/taboo.vim'
 Plug 'cohama/agit.vim'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'jmcantrell/vim-virtualenv'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
