@@ -129,6 +129,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'gcmt/taboo.vim'
 Plug 'cohama/agit.vim'
+Plug 'jeetsukumaran/vim-buffergator'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -242,11 +243,18 @@ let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#taboo#enabled = 1
+
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'distinguished'
+
+let g:airline_section_c = '%{strftime("%c")}'
 
 " Taboo
 let g:taboo_tab_format = ' [%n] %f%m'
+let g:taboo_tabline = 0
+
+" vim-buffergator
+map <C-b> :BuffergatorToggle<CR>
 
 " C
 let c_gnu = 1
