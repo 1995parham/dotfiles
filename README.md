@@ -82,7 +82,7 @@ deactivate
 | 43 | [nerdtree](http://github.com/scrooloose/nerdtree)   | 44 | [js-libraries-syntax](http://github.com/othree/javascript-libraries-syntax.vim)    |
 | 45 | [vim-ruby](http://github.com/vim-ruby/vim-ruby)   | 46 | [gocode](http://github.com/nsf/gocode)                 |
 | 47 | [taboo](http://github.com/gcmt/taboo.vim)      | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
-| 49 | [Agit](http://github.com/cohama/agit.vim)       |
+| 49 | [Agit](http://github.com/cohama/agit.vim)       | 50 | [vim-buffergator](http://github.com/jeetsukumaran/vim-buffergator)        |
 
 ## VIM Shortcuts
 ### Core
@@ -90,7 +90,8 @@ deactivate
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
 | `<C-n>`          | Toggles [NerdTree](https://github.com/scrooloose/nerdtree)          |
-| `<C-h>`          | Toggles SuperTab          |
+| `<C-h>`          | Toggles [SuperTab](https://github.com/ervandew/supertab)          |
+| `<C-b>`          | Toogles [Buffergator](https://github.com/jeetsukumaran/vim-buffergator)       |
 | `<F5>`           | Toggles [Tagbar](https://github.com/majutsushi/tagbar)            |
 | `<C-w> <Left>`   | Move to left window       |
 | `<C-w> <Right>`  | Move to right window      |
@@ -99,6 +100,7 @@ deactivate
 | `-`              | Leader Key                |
 | `<Leader>n`      | Move to next tab          |
 | `<Leader>p`      | Move to previous tab      |
+| `<Leader>gv`     | GoDoc in vertical pane    |
 | `:b name`        | Open buffer               |
 | `:bd name`       | Delete buffer             |
 | `:Agit`          | Agit log manager          |
