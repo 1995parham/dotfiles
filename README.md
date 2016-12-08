@@ -1,6 +1,7 @@
-# dotfiles
+# .Files !
 ## Introduction
-My Personal Linux, OSx configurations files since 2013 :)
+My Personal Linux, OSx configurations files since 2013.
+it shows my loneliness and biYarism !
 ## Installation
 For using this configuration files you can install them with
 ```shell
@@ -105,7 +106,7 @@ deactivate
 | `:bd name`       | Delete buffer             |
 | `:Agit`          | Agit log manager          |
 
-### NerdTree
+### NerdTree and Buffergator
 
 | Shortcut | Description            |
 |:--------:|:-----------------------|
