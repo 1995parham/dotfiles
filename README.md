@@ -105,7 +105,9 @@ deactivate
 | `<Leader>gv`     | GoDoc in vertical pane    |
 | `:b name`        | Open buffer               |
 | `:bd name`       | Delete buffer             |
-| `:Agit`          | Agit log manager          |
+| `:Agit`          | Git log manager           |
+| `:edit`          | reload current file       |
+| `:edit!`         | reload current file force |
 
 ### NerdTree and Buffergator
 
