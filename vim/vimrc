@@ -6,7 +6,9 @@ scriptencoding utf-8
 set encoding=utf-8
 
 " Stick unamed register into system clipboard
-set clipboard+=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 
 " Correct delete key in OSX
 set backspace=eol,start,indent
