@@ -104,22 +104,34 @@ deactivate
 | `<Leader>n`      | Move to next tab          |
 | `<Leader>p`      | Move to previous tab      |
 | `<Leader>gv`     | GoDoc in vertical pane    |
+| `J`              | Join lines                |
+| `u`              | Undo                      |
+| `.`              | Redo                      |
 
 #### Movement Commands
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `0` `$`          | Begin/End of line                   |
+| `G` `gg`         | Begin/End of file                   |
+| `w` `b`          | Next/Prev word                      |
+| `<C-U>` `<C-D>`  | Next/Prev page                      |
+| `H` `M` `L`      | Top/Mid/Btm of win                  |
+| `zt` `zz` `zb`   | Scroll to top/mid/btm               |
+| `%`              | Matching parenthesis                |
+
+#### Search Commands
+| Shortcut         | Description                         |
+|:----------------:|:------------------------------------|
+| `*` `#`          | Find current word backward/forward  |
+| `n` `N`          | Next/Prev search result             |
 
 #### EX Commands
 
-| Shortcut         | Description               |
-|:----------------:|:--------------------------|
-| `:b name`        | Open buffer               |
-| `:bd name`       | Delete buffer             |
-| `:Agit`          | Git log manager           |
-| `:edit`          | Reload current file       |
-| `:edit!`         | Reload current file force |
-| `:edit x`        | Edit file x               |
+| Shortcut         | Description               | Shortcut         | Description               |
+|:----------------:|:--------------------------|:----------------:|:--------------------------|
+| `:b name`        | Open buffer               | `:bd name`       | Delete buffer             |
+| `:Agit`          | Git log manager           | `:edit`          | Reload current file       |
+| `:edit!`         | Reload current file force | `:edit x`        | Edit file x               |
 
 #### Mode Commands
 
