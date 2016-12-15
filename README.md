@@ -88,6 +88,7 @@ deactivate
 
 ## VIM Shortcuts
 ### Core
+#### General Commands
 
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
@@ -103,11 +104,35 @@ deactivate
 | `<Leader>n`      | Move to next tab          |
 | `<Leader>p`      | Move to previous tab      |
 | `<Leader>gv`     | GoDoc in vertical pane    |
+
+#### Movement Commands
+| Shortcut         | Description                         |
+|:----------------:|:------------------------------------|
+| `0` `$`          | Begin/End of line                   |
+
+#### EX Commands
+
+| Shortcut         | Description               |
+|:----------------:|:--------------------------|
 | `:b name`        | Open buffer               |
 | `:bd name`       | Delete buffer             |
 | `:Agit`          | Git log manager           |
-| `:edit`          | reload current file       |
-| `:edit!`         | reload current file force |
+| `:edit`          | Reload current file       |
+| `:edit!`         | Reload current file force |
+| `:edit x`        | Edit file x               |
+
+#### Mode Commands
+
+| Shortcut         | Description                         |
+|:----------------:|:------------------------------------|
+| `<ESC>`          | Enter *Normal* mode                 |
+| `v`              | Enter *Visual* mode                 |
+| `V`              | Enter *Visual Line* mode            |
+| `i`              | Enter *Insert* mode                 |
+| `I`              | Enter *Insert* mode [head of line]  |
+| `a`              | Enter *Insert* mode [next position] |
+| `A`              | Enter *Insert* mode [end of line]   |
+| `R`              | Enter *Replace* mode                |
 
 ### NerdTree and Buffergator
 
