@@ -30,13 +30,10 @@ Put this at the bottom of `.tmux.conf`:
 
 Reload TMUX environment so TPM is sourced:
 
-    # type this in terminal
+    # type this in terminal if tmux is already running
     $ tmux source ~/.tmux.conf
 
 That's it!
-
-(**Note:** using `set -g @tpm_plugins` is deprecated, but still works alongside
-new syntax.)
 
 ### Installing plugins
 
