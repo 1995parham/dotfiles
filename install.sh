@@ -140,6 +140,17 @@ files=("bin")
 dotfile "bin" files[@] false
 echo; echo "[vim] Installation end"; echo
 
+#### General configuration ####
+echo "[general configuration] Let's configure the things !"; echo
+case $install_type in
+	0)
+		chsh $USER -s /bin/zsh
+		;;
+	1)
+		;;
+esac
+echo "[general configuration] We are done here !"; echo
+
 echo "[post] Thank you for using Parham Alvani dotfiles ! :)"
 echo -e "[post] Please check following directories:\n1. fonts/\n2. scripts/"
 echo "[post] Use *r* for reload your zshrc in place"
