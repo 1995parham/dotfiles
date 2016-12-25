@@ -100,9 +100,12 @@ deactivate
 | `<C-w> <Right>`  | Move to right window      |
 | `<C-w> <Up>`     | Move to up window         |
 | `<C-w> <Down>`   | Move to down window       |
+| `<C-w> s`        | New horizontal window     |
+| `<C-w> v`        | New vertical window       |
+| `<C-w> n`        | Move to next tab          |
+| `<C-w> p`        | Move to previous tab      |
+| `<C-w> c`        | New empty tab             |
 | `-`              | Leader Key                |
-| `<Leader>n`      | Move to next tab          |
-| `<Leader>p`      | Move to previous tab      |
 | `<Leader>gv`     | GoDoc in vertical pane    |
 | `J`              | Join lines                |
 | `u`              | Undo                      |
