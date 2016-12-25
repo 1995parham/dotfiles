@@ -105,6 +105,7 @@ deactivate
 | `<C-w> n`        | Move to next tab          |
 | `<C-w> p`        | Move to previous tab      |
 | `<C-w> c`        | New empty tab             |
+| `<C-w> nn`       | Move to tab number nn     |
 | `-`              | Leader Key                |
 | `<Leader>gv`     | GoDoc in vertical pane    |
 | `J`              | Join lines                |
