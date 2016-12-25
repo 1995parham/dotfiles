@@ -73,9 +73,10 @@ set foldmethod=marker
 " Set search results highlighting
 set hlsearch
 
-" Let's move between tabs !
-nmap <Leader>n :<C-U>tabnext<CR>
-nmap <Leader>p :<C-U>tabprevious<CR>
+" Let's move between tabs and create them !
+nmap <C-w>n :<C-U>tabnext<CR>
+nmap <C-w>p :<C-U>tabprevious<CR>
+nmap <C-w>c :<C-U>tabnew<CR>
 
 " }}}
 
