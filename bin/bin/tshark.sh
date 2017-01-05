@@ -8,20 +8,18 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-i=-1
+i=1
+echo " ** Welcome to @1995parham tshark ** "
 while read name details
 do
-	if [ $i -gt 0 ]; then
+	ifconfig $name > /dev/null 2>&1
+	if [ $? -eq 0 ]; then
 		echo "[$i]: $name:"; echo
-		ifconfig $name 2> /dev/null
+		ifconfig $name
 		echo; echo
 		capture_interfaces="$capture_interfaces $name"
-	elif [ $i -eq 0 ]; then
-		echo "[ index ] interface"
-	else
-		echo " ** Welcome to @1995parham tshark ** "
+		let i=$i+1
 	fi
-	let i=$i+1
 done < <(netstat -in)
 
 oPS3=$PS3
