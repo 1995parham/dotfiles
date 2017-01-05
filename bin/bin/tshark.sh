@@ -8,16 +8,18 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
-i=0
+i=-1
 while read name details
 do
 	if [ $i -gt 0 ]; then
 		echo "[$i]: $name:"; echo
-		ifconfig $name
+		ifconfig $name 2> /dev/null
 		echo; echo
 		capture_interfaces="$capture_interfaces $name"
+	elif [ $i -eq 0 ]; then
+		echo "[ index ] interface"
 	else
-		echo "[ ]: $name"
+		echo " ** Welcome to @1995parham tshark ** "
 	fi
 	let i=$i+1
 done < <(netstat -in)
