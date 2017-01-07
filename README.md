@@ -56,6 +56,9 @@ environment with
 ```sh
 deactivate
 ```
+### Go
+It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
+
 ## VIM Plugins
 | #  | Plugin     | #  | Plugin                 |
 |:--:|:-----------|:--:|:-----------------------|
