@@ -28,5 +28,7 @@ apt-get install docker-engine
 service docker start
 
 echo "[docker] Installing docker-compose"
-curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+if [ ! -e /usr/local/bin/docker-compose ]; then
+	curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+fi
