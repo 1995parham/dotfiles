@@ -139,6 +139,8 @@ Plug 'gcmt/taboo.vim'
 Plug 'cohama/agit.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'vim-utils/vim-man'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
