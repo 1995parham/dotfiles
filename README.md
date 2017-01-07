@@ -87,7 +87,8 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | 45 | [vim-ruby](http://github.com/vim-ruby/vim-ruby)   | 46 | [gocode](http://github.com/nsf/gocode)                 |
 | 47 | [taboo](http://github.com/gcmt/taboo.vim)      | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
 | 49 | [Agit](http://github.com/cohama/agit.vim)       | 50 | [vim-buffergator](http://github.com/jeetsukumaran/vim-buffergator)        |
-| 51 | [vim-man](http://github.com/vim-utils/vim-man)    |
+| 51 | [vim-man](http://github.com/vim-utils/vim-man)    | 52 | [go-explorer](http://github.com/garyburd/go-explorer)            |
+
 
 ## VIM Shortcuts
 ### Core
@@ -139,6 +140,7 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | `:b name`        | Open buffer               | `:bd name`       | Delete buffer             |
 | `:Agit`          | Git log manager           | `:edit`          | Reload current file       |
 | `:edit!`         | Reload current file force | `:edit x`        | Edit file x               |
+| `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)     |
 
 #### Mode Commands
 
