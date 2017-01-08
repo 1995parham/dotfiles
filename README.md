@@ -135,12 +135,12 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 
 #### EX Commands
 
-| Shortcut         | Description               | Shortcut         | Description               |
-|:----------------:|:--------------------------|:----------------:|:--------------------------|
-| `:b name`        | Open buffer               | `:bd name`       | Delete buffer             |
-| `:Agit`          | Git log manager           | `:edit`          | Reload current file       |
-| `:edit!`         | Reload current file force | `:edit x`        | Edit file x               |
-| `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)     |
+| Shortcut         | Description               | Shortcut         | Description                         |
+|:----------------:|:--------------------------|:----------------:|:------------------------------------|
+| `:b name`        | Open buffer               | `:bd name`       | Delete buffer                       |
+| `:Agit`          | Git log manager           | `:edit`          | Reload current file                 |
+| `:edit!`         | Reload current file force | `:edit x`        | Edit file x                         |
+| `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)     | `:GoDoc`         | GoDoc == GeDoc if vim-go is plugged |
 
 #### Mode Commands
 
