@@ -10,6 +10,8 @@
 
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+cat "$current_dir/logo.txt"
+
 echo "[pre] Home directory found at $HOME"
 
 echo "[pre] Current directory found at $current_dir"
