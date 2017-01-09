@@ -177,6 +177,9 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | Go                  |    `gofmt`      |                                                         |
 
 ## How to ....
+### Colorful Terminal is here ...
+For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
+
 ### Fix Perl warning setting locale failed on Raspbian
 You can fix the issue by setting the locale to en_US.UTF-8 for example:
 ```sh
