@@ -219,8 +219,12 @@ function box_name() {
   [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
 }
 
-function get_kernel_version() {
+function kernel_version() {
   uname -rs
+}
+
+function seperator_char() {
+  printf "\xee\x82\xb0"
 }
 
 # Modify the colors and symbols in these variables as desired.
@@ -279,22 +283,22 @@ function parse_git_state() {
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "on %F{91}${git_where#(refs/heads/|tags/)}$(parse_git_state)%f"
+  [ -n "$git_where" ] && echo "%F{135}${git_where#(refs/heads/|tags/)}$(parse_git_state)%f"
 }
 
-function current_pwd {
+function current_pwd() {
   echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
 # Original prompt with User name and Computer name included...
 PROMPT='
 %F{159}::%f %F{239}$(virtualenv_info)%f
-%F{green}%n%f at %B%F{blue}$(box_name)%f%b in %B%F{yellow}$(current_pwd)%f%b $(git_prompt_string)
+%K{235} %F{83}%n%f %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(seperator_char)%f %F{234}$(current_pwd)%f%k%F{214}$(seperator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
 export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
 
-RPROMPT='%F{118}%@%f %F{161}$(get_kernel_version)%f'
+RPROMPT='%F{118}%@%f %F{161}$(kernel_version)%f'
 # }}}
 
 # History {{{
