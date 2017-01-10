@@ -3,6 +3,7 @@ theme: jekyll-theme-cayman
 # Setup
 title:       	.Files
 tagline:      My Personal Linux & OSX configurations files
+description:      My Personal Linux & OSX configurations files
 baseurl:      ""
 paginate:     1
 
