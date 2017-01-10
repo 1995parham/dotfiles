@@ -11,6 +11,7 @@ For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/
 ## Fix Perl warning setting locale failed on Raspbian
 
 You can fix the issue by setting the locale to en_US.UTF-8 for example:
+
 ```shell
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -25,11 +26,13 @@ Portainer is a simple management solution for docker.
 it consists of a webUI that allows you to easily manage your docker containers, images, networks and volumes.
 
 > remote docker engine
+
 ```shell
 docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PORT>
 ```
 
 > local docker engine
+
 ```shell
 docker run -d -p 9000:9000 portainer/portainer -V /var/run/docker.sock:/var/run/docker.sock
 ```
@@ -46,14 +49,19 @@ support for monitoring via SNMP, TCP and ICMP checks.
 ## Build Router and NAT with your ubuntu
 
 First edit `/etc/sysctl.conf` and uncomment:
+
 ```
 # net.ipv4.ip_forward=1
 ```
+
 so that it reads:
+
 ```
 net.ipv4.ip_forward=1
 ```
+
 To enable IP masquerading, enter following set of commands in terminal:
+
 ```shell
 # eth0: LAN - private
 # eth1: WAN - public
@@ -64,11 +72,13 @@ sudo iptables -A FORWARD -i eth1 -o eth0 -m state -–state RELATED,ESTABLISHED 
 
 sudo iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
 ```
+
 > IP Masquerade is a form of Network Address Translation or NAT which NAT allows internally connected computers that do not have one or more registered Internet IP addresses to communicate to the Internet via the Linux server's Internet IP address.
 
 ## Better bash on CentOS
 
 For having better bash completion use following package:
+
 ```shell
 yum install bash-completion
 ```
@@ -82,6 +92,7 @@ I also had to set an alias for dircolors to gdircolors as this is the command th
 
 Personally I used *Meslo LG S Powerline* as my default font and you can
 install it with
+
 ```shell
 ./fonts/install.sh
 ```
@@ -89,10 +100,13 @@ install it with
 ## Airspeed [Automated ...]
 
 For installing *airspeed* on OSx use pip3 command as follows
+
 ```shell
 pip3 install airspeed
 ```
+
 For installing it on Ubuntu you must compile it from source code:
+
 ```shell
 git clone https://github.com/purcell/airspeed.git
 cd airspeed
@@ -104,6 +118,7 @@ sudo rm -Rf airspeed
 ## Ubuntu Bug
 
 https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793
+
 ```shell
 sudo -s
 echo "disable" > /sys/firmware/acpi/interrupts/gpe13
