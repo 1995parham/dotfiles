@@ -10,9 +10,9 @@ title: {{ site.title }}
   it shows my loneliness and biYarism !
   </p>
   <ul>
-    {% for page in site.pages %}
-      {% if page.title and page.url %}
-        <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
+    {% for ipage in site.pages %}
+      {% if ipage.title and ipage.url != page.url %}
+        <li><a href="{{ site.baseurl }}{{ ipage.url }}">{{ ipage.title }}</a></li>
       {% endif %}
     {% endfor %}
   </ul>
