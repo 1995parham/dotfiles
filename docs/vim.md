@@ -1,9 +1,16 @@
+--
+title: VIM for dummy
+--
+
 # VIM for dummy
+
 ## VIM is your IDE
+
 If you are using this dotfiles vim configuration
 you can use following scripts to have better vim :D
 
 ### C
+
 If your c file is big and you want a function in it
 do not install jetbrains stuff :D just use CLint in
 your vim with following command:
@@ -11,7 +18,9 @@ your vim with following command:
 ```sh
 sudo apt install ctags
 ```
+
 ### JavaScript
+
 Personally I use ESLint as linter for my JS projects
 and you can setup it with following command and use it
 simply in all of your project.
@@ -24,7 +33,9 @@ sudo npm install -g eslint-config-standard
 npm init
 eslint --init
 ```
+
 ### PHP
+
 Personally I use PHP_CodeSniffer as code style checker
 for my php files.
 ```sh
@@ -32,7 +43,9 @@ for my php files.
 composer global require "squizlabs/php_codesniffer=*"
 phpcs --config-set default_standard PSR2
 ```
+
 ### Python
+
 It's very good idea to use `pyvenv` in order to creating
 python project environment. Build your environment with:
 ```sh
@@ -44,10 +57,14 @@ environment with
 ```sh
 deactivate
 ```
+
 ### Go
+
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 
+
 ## VIM Plugins
+
 | #  | Plugin     | #  | Plugin                 |
 |:--:|:-----------|:--:|:-----------------------|
 | 1  | [easy-align](http://github.com/junegunn/vim-easy-align) | 2  | [cpp-enhanced-highlight](http://github.com/octol/vim-cpp-enhanced-highlight) |
@@ -79,7 +96,9 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 
 
 ## VIM Shortcuts
+
 ### Core
+
 #### General Commands
 
 | Shortcut         | Description               |
@@ -105,6 +124,7 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | `.`              | Redo                      |
 
 #### Movement Commands
+
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `0` `$`          | Begin/End of line                   |
@@ -116,6 +136,7 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | `%`              | Matching parenthesis                |
 
 #### Search Commands
+
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `*` `#`          | Find current word backward/forward  |
