@@ -131,16 +131,16 @@ esac
 echo; echo "[conf] Installation end"; echo
 
 #### Git ####
-echo "[vim] Installation begin"; echo
+echo "[git] Installation begin"; echo
 files=("gitconfig" "gitignore")
 dotfile "git" files[@]
-echo; echo "[vim] Installation end"; echo
+echo; echo "[git] Installation end"; echo
 
 #### Bin ####
-echo "[vim] Installation begin"; echo
+echo "[bin] Installation begin"; echo
 files=("bin")
 dotfile "bin" files[@] false
-echo; echo "[vim] Installation end"; echo
+echo; echo "[bin] Installation end"; echo
 
 #### General configuration ####
 echo "[general configuration] Let's configure the things !"; echo
