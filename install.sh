@@ -108,6 +108,7 @@ case $install_type in
 		dotfile "vim" files[@]
 		;;
 esac
+echo "[vim] Installing vim plugins"
 vim_log=$(mktemp)
 vim -c 'PlugInstall' -c "w $vim_log" -c 'q' -c 'q'
 less $vim_log
@@ -126,6 +127,12 @@ case $install_type in
 	1)
 		files=("bashrc" "dircolors" "tmux.conf" "tmux")
 		dotfile "conf" files[@]
+		;;
+esac
+case $install_type in
+	0)
+		echo "[conf] Installing tmux plugins"
+		~/.tmux/plugins/tpm/bin/install_plugins
 		;;
 esac
 echo; echo "[conf] Installation end"; echo
