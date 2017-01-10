@@ -1,13 +1,8 @@
 theme: jekyll-theme-cayman
 
 # Setup
-title:       	.Files
-tagline:      My Personal Linux & OSX configurations files
-description:  My Personal Linux & OSX configurations files
-baseurl:      ""
-paginate:     1
-
-# About/contact
-author:
-  name:       Parham Alvani
-  url:        http://1995parham.me
+title:       	  .Files
+description:    My Personal Linux & OSX configurations files
+baseurl:        ""
+paginate:       1
+show_downloads: true
