@@ -1,0 +1,13 @@
+---
+layout: default
+title: {{ site.name }}
+---
+
+<div>
+  <h1>Hello welcome to dotfiles by @1995parham</h1>
+  <ul>
+    {% for page in site.pages %}
+      <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
