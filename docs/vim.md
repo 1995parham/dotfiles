@@ -1,6 +1,6 @@
---
+---
 title: VIM for dummy
---
+---
 
 # VIM for dummy
 
