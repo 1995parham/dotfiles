@@ -24,6 +24,7 @@ sudo apt install ctags
 Personally I use ESLint as linter for my JS projects
 and you can setup it with following command and use it
 simply in all of your project.
+
 ```sh
 # setup eslint globally
 sudo npm install -g eslint
@@ -38,6 +39,7 @@ eslint --init
 
 Personally I use PHP_CodeSniffer as code style checker
 for my php files.
+
 ```sh
 # setup phpcs globally
 composer global require "squizlabs/php_codesniffer=*"
@@ -48,12 +50,15 @@ phpcs --config-set default_standard PSR2
 
 It's very good idea to use `pyvenv` in order to creating
 python project environment. Build your environment with:
+
 ```sh
 pyvenv $PROJECT_ROOT
 . $PROJECT_ROOT/bin/activate
 ```
+
 after you do your works you can deactivate your virtual
 environment with
+
 ```sh
 deactivate
 ```
