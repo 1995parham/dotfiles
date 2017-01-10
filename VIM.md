@@ -1,4 +1,4 @@
-# VIM
+# VIM in .Files
 ## VIM is your IDE
 If you are using this dotfiles vim configuration
 you can use following scripts to have better vim :D
