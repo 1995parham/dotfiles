@@ -4,10 +4,16 @@ title: {{ site.name }}
 ---
 
 <div>
-  <h1>Hello welcome to dotfiles by @1995parham</h1>
+  <h2>Hello welcome to dotfiles by @1995parham</h1>
+  <p>
+  Parham Alvani Linux, OSx configurations files since 2013.
+  it shows my loneliness and biYarism !
+  </p>
   <ul>
     {% for page in site.pages %}
-      <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+      {% if page.title %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
