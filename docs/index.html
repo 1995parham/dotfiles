@@ -1,6 +1,6 @@
 ---
 layout: default
-title: {{ site.name }}
+title: {{ site.title }}
 ---
 
 <div>
@@ -12,7 +12,7 @@ title: {{ site.name }}
   <ul>
     {% for page in site.pages %}
       {% if page.title %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
       {% endif %}
     {% endfor %}
   </ul>
