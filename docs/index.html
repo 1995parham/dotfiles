@@ -11,7 +11,7 @@ title: {{ site.title }}
   </p>
   <ul>
     {% for page in site.pages %}
-      {% if page.title %}
+      {% if page.title and page.url %}
         <li><a href="{{site.baseurl}}{{ page.url }}">{{ page.title }}</a></li>
       {% endif %}
     {% endfor %}
