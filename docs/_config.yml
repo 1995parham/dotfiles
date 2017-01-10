@@ -3,6 +3,5 @@ theme: jekyll-theme-cayman
 # Setup
 title:       	  .Files
 description:    My Personal Linux & OSX configurations files
-baseurl:        "dotfiles/"
 paginate:       1
 show_downloads: true
