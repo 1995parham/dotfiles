@@ -1,17 +1,22 @@
 # .Files !
+
 ## Introduction
+
 My Personal Linux, OSx configurations files since 2013.
 it shows my loneliness and biYarism !
 
+**Please see our website for more information**
+
 ## Installation
+
 For using this configuration files you can install them with
-```shell
+
+```sh
 ./install.sh
 ```
-## More things ...
-see our [wiki](https://github.com/1995parham/dotfiles/wiki)
 
 ## Correct the style :)
+
 | Languages           |       Tool      | Installation                                            |
 |:--------------------|:----------------:|:-------------------------------------------------------|
 | C, C++, Objective C | `clang-format`  |                                                         |
