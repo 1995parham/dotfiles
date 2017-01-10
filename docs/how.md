@@ -12,7 +12,7 @@ For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/
 
 You can fix the issue by setting the locale to en_US.UTF-8 for example:
 
-```shell
+```sh
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -27,13 +27,13 @@ it consists of a webUI that allows you to easily manage your docker containers, 
 
 > remote docker engine
 
-```shell
+```sh
 docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PORT>
 ```
 
 > local docker engine
 
-```shell
+```sh
 docker run -d -p 9000:9000 portainer/portainer -V /var/run/docker.sock:/var/run/docker.sock
 ```
 
@@ -62,7 +62,7 @@ net.ipv4.ip_forward=1
 
 To enable IP masquerading, enter following set of commands in terminal:
 
-```shell
+```sh
 # eth0: LAN - private
 # eth1: WAN - public
 
@@ -79,7 +79,7 @@ sudo iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
 
 For having better bash completion use following package:
 
-```shell
+```sh
 yum install bash-completion
 ```
 
@@ -93,7 +93,7 @@ I also had to set an alias for dircolors to gdircolors as this is the command th
 Personally I used *Meslo LG S Powerline* as my default font and you can
 install it with
 
-```shell
+```sh
 ./fonts/install.sh
 ```
 
@@ -101,13 +101,13 @@ install it with
 
 For installing *airspeed* on OSx use pip3 command as follows
 
-```shell
+```sh
 pip3 install airspeed
 ```
 
 For installing it on Ubuntu you must compile it from source code:
 
-```shell
+```sh
 git clone https://github.com/purcell/airspeed.git
 cd airspeed
 sudo python3 setup.py install
@@ -119,7 +119,7 @@ sudo rm -Rf airspeed
 
 https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793
 
-```shell
+```sh
 sudo -s
 echo "disable" > /sys/firmware/acpi/interrupts/gpe13
 ```
@@ -129,7 +129,7 @@ echo "disable" > /sys/firmware/acpi/interrupts/gpe13
 For using [ONOS SDN platform](http://onosproject.org/) based on this dotfiles
 set following configuration in `zshrc.local`:
 
-```shell
+```sh
 export ONOS_ROOT="$HOME/Documents/Git/others/onos"
 autoload bashcompinit
 bashcompinit
@@ -138,7 +138,7 @@ source $ONOS_ROOT/tools/dev/bash_profile
 
 and comment out following line in `$ONOS_ROOT/tools/dev/bash_profile`:
 
-```shell
+```sh
 export ONOS_CELL=${ONOS_CELL:-local}
 ```
 
