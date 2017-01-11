@@ -185,6 +185,7 @@ endif
 
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['htmlhint']
+let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
@@ -250,7 +251,7 @@ let g:tagbar_type_markdown = {
 
 " NerdTree
 map <C-n> <plug>NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=2
+let g:nerdtree_tabs_open_on_console_startup = 2
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
@@ -270,6 +271,9 @@ let g:taboo_tabline = 0
 
 " vim-buffergator
 map <C-b> :BuffergatorToggle<CR>
+
+" vimtex
+let g:vimtex_disable_version_warning = 1
 
 " C
 let c_gnu = 1
