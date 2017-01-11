@@ -223,7 +223,7 @@ function kernel_version() {
   uname -rs
 }
 
-function seperator_char() {
+function separator_char() {
   printf "\xee\x82\xb0"
 }
 
@@ -293,7 +293,7 @@ function current_pwd() {
 # Original prompt with User name and Computer name included...
 PROMPT='
 %F{159}::%f %F{239}$(virtualenv_info)%f
-%K{235} %F{83}%n%f %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(seperator_char)%f %F{234}$(current_pwd)%f %k%F{214}$(seperator_char)%f $(git_prompt_string)
+%K{235} %F{83}%n%f %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f %F{234}$(current_pwd)%f %k%F{214}$(separator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
 export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
