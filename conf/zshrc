@@ -287,7 +287,10 @@ function git_prompt_string() {
 }
 
 function current_pwd() {
-  echo $(pwd | sed -e "s,^$HOME,~,")
+  home_replaced="$(pwd | sed -e "s,^$HOME,~,")"
+  parham_git_replaced="$(echo $home_replaced | sed -e "s,^~/Documents/Git/parham,\xe2\x97\x87,")"
+  others_git_replaced="$(echo $parham_git_replaced | sed -e "s,^~/Documents/Git/others,\xe2\x97\x86,")"
+  echo $others_git_replaced
 }
 
 # Original prompt with User name and Computer name included...
