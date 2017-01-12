@@ -125,6 +125,9 @@ zstyle '*' single-ignored show
 # }}}
 
 # Key Bindings {{{
+# VIM Mode
+bindkey -v
+
 # Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
 bindkey '^?' backward-delete-char
 bindkey "^[[3~" delete-char
@@ -301,7 +304,19 @@ PROMPT='
 
 export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
 
-RPROMPT='%F{118}%@%f %F{161}$(kernel_version)%f'
+EPROMPT='%F{118}%@%f %F{161}$(kernel_version)%f'
+RPROMPT=$EPROMPT
+
+function zle-line-init zle-keymap-select {
+  # Basically, it's just ${VARIABLE/PATTERN/REPLACEMENT}.
+  # If the VARIABLE matches the PATTERN, replace it with REPLACEMENT.
+  RPROMPT="%F{227}${${KEYMAP/vicmd/NORMAL}/(main|viins)/}%f $EPROMPT"
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # }}}
 
 # History {{{
