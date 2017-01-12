@@ -68,7 +68,7 @@ deactivate
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 
 
-## VIM Plugins
+## Plugins
 
 | #  | Plugin     | #  | Plugin                 |
 |:--:|:-----------|:--:|:-----------------------|
@@ -100,7 +100,7 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | 51 | [vim-man](http://github.com/vim-utils/vim-man)    | 52 | [go-explorer](http://github.com/garyburd/go-explorer)            |
 
 
-## VIM Shortcuts
+## Shortcuts
 
 ### Core
 
