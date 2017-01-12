@@ -8,8 +8,14 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
+echo "[go] Installing go"
+if [ $OSTYPE == "linux"* ]; then
+	sudo apt-get install golang
+fi
+
 echo "[go] Create go directory structure"
 if [ ! -d $HOME/Documents/Go ]; then
+	mkdir $HOME/Documents/Go
 	mkdir $HOME/Documents/Go/bin
 	mkdir $HOME/Documents/Go/src
 	mkdir $HOME/Documents/Go/lib
