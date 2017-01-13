@@ -189,6 +189,8 @@ let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
+let g:syntastic_c_compiler_options = ' -std=gnu11'
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
