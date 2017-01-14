@@ -66,6 +66,15 @@ deactivate
 ### Go
 
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
+After that you have compelete IDE for go in vim.
+
+
+| Shortcut         | Description                         |
+|:----------------:|:------------------------------------|
+| `:GoMetaLinter`  | Statically checking Go source       |
+| `<Leader>gv`     | GoDoc in vertical pane              |
+| `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)               |
+|`:GoDoc`          | GoDoc == GeDoc if vim-go is plugged |
 
 
 ## Plugins
@@ -123,7 +132,6 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | `<C-w> c`        | New empty tab             |
 | `<C-w> nn`       | Move to tab number nn     |
 | `-`              | Leader Key                |
-| `<Leader>gv`     | GoDoc in vertical pane    |
 | `J`              | Join lines                |
 | `u`              | Undo                      |
 | `.`              | Redo                      |
@@ -154,7 +162,6 @@ It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 | `:b name`        | Open buffer               | `:bd name`       | Delete buffer                       |
 | `:Agit`          | Git log manager           | `:edit`          | Reload current file                 |
 | `:edit!`         | Reload current file force | `:edit x`        | Edit file x                         |
-| `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)     | `:GoDoc`         | GoDoc == GeDoc if vim-go is plugged |
 
 #### Mode Commands
 
