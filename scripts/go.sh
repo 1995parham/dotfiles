@@ -21,7 +21,11 @@ if [ ! -d $HOME/Documents/Go ]; then
 	mkdir $HOME/Documents/Go/lib
 fi
 
-go get -u github.com/jstemmer/gotags
-go get -u github.com/nsf/gocode
-go get -u github.com/garyburd/go-explorer/src/getool
-go get -u golang.org/x/tools/cmd/goimports
+echo "[go] Fetch some good and useful go packages"
+go get -u -v github.com/jstemmer/gotags
+go get -u -v github.com/nsf/gocode
+go get -u -v github.com/garyburd/go-explorer/src/getool
+go get -u -v golang.org/x/tools/cmd/goimports
+
+echo "[go] Install binary requirements of vim-go"
+vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
