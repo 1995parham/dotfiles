@@ -23,6 +23,7 @@ fi
 
 echo "[go] Fetch some good and useful go packages"
 go get -u -v github.com/jstemmer/gotags
+go get -u -v github.com/golang/lint/golint
 go get -u -v github.com/nsf/gocode
 go get -u -v github.com/garyburd/go-explorer/src/getool
 go get -u -v golang.org/x/tools/cmd/goimports
