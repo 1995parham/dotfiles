@@ -66,7 +66,7 @@ deactivate
 ### Go
 
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
-After that you have compelete IDE for go in vim.
+After that you have complete IDE for go in vim.
 
 
 | Shortcut         | Description                         |
