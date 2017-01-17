@@ -121,7 +121,7 @@ case $install_type in
 	0)
 		files=("zshrc" "dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
 			"signature" "jshintrc" "copyrighter" "aria2" "tmux" "gdbinit"
-			"ctags")
+			"ctags" "octaverc")
 		dotfile "conf" files[@]
 		;;
 	1)
