@@ -141,7 +141,7 @@ echo; echo "[conf] Installation end"; echo
 echo "[zsh] Installation begin"; echo
 case $install_type in
 	0)
-		files=("zshrc")
+		files=("zshrc" "zsh.plug")
 		dotfile "zsh" files[@]
 		;;
 esac
