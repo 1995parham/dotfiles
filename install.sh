@@ -163,7 +163,9 @@ echo; echo "[bin] Installation end"; echo
 echo "[general configuration] Let's configure the things !"; echo
 case $install_type in
 	0)
-		chsh $USER -s /bin/zsh
+		if [ $SHELL != '/bin/zsh' ]; then
+			chsh $USER -s /bin/zsh
+		fi
 		;;
 	1)
 		;;
