@@ -146,3 +146,16 @@ export ONOS_CELL=${ONOS_CELL:-local}
 
 Inorder to use gtk configuration
 copy the settings files from `gtk` into `~/.config/gtk-3.0/gtk.css`.
+
+## Oracle Java Installation
+
+For installing oracle distribution of JDK use following commands:
+
+```sh
+sudo apt-add-repository ppa:webupd8team/java
+sudo apt-get update
+
+# Trun on your not Iran IP !
+
+sudo apt-get install oracle-java8-installer
+```
