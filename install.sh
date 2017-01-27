@@ -119,7 +119,7 @@ echo; echo "[vim] Installation end"; echo
 echo "[conf] Installation begin"; echo
 case $install_type in
 	0)
-		files=("zshrc" "dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
+		files=("dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
 			"signature" "jshintrc" "copyrighter" "aria2" "tmux" "gdbinit"
 			"ctags" "octaverc")
 		dotfile "conf" files[@]
@@ -136,6 +136,16 @@ case $install_type in
 		;;
 esac
 echo; echo "[conf] Installation end"; echo
+
+### ZSH ###
+echo "[zsh] Installation begin"; echo
+case $install_type in
+	0)
+		files=("zshrc")
+		dotfile "zsh" files[@]
+		;;
+esac
+echo; echo "[zsh] Installation end"; echo
 
 #### Git ####
 echo "[git] Installation begin"; echo
