@@ -88,6 +88,11 @@ yum install bash-completion
 Try installing the GNU coreutils from this if you really want dircolors to work.
 I also had to set an alias for dircolors to gdircolors as this is the command that FreeBSD ports installed the fun as.
 
+```sh
+brew install coreutils
+ln -s /usr/local/bin/gdircolors /usr/local/bin/dircolors
+```
+
 ## Font
 
 Personally I used *Meslo LG S Powerline* as my default font and you can
