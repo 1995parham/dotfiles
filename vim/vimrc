@@ -254,6 +254,7 @@ let g:tagbar_type_markdown = {
 " NerdTree
 map <C-n> <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 2
+let g:nerdtree_tabs_synchronize_view = 0
 
 " Airline (status line)
 let g:airline_powerline_fonts = 1
