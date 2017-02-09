@@ -129,12 +129,9 @@ case $install_type in
 		dotfile "conf" files[@]
 		;;
 esac
-case $install_type in
-	0)
-		echo "[conf] Installing tmux plugins"
-		~/.tmux/plugins/tpm/bin/install_plugins
-		;;
-esac
+echo "[conf] Installing tmux plugins"
+~/.tmux/plugins/tpm/bin/install_plugins
+
 echo; echo "[conf] Installation end"; echo
 
 ### ZSH ###
