@@ -309,6 +309,11 @@ augroup phpSyntaxOverride
 	autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+"}}}
+
+" FileType Configurations {{{
+
+" PHP
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
 
 " Ruby
