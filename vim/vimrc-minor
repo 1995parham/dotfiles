@@ -1,8 +1,14 @@
 " Settings {{{
 syntax on
 
+" UFT-8 Encoding
+scriptencoding utf-8
+set encoding=utf-8
+
 " Stick unamed register into system clipboard
-set clipboard+=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 
 " Correct delete key in OSX
 set backspace=eol,start,indent
@@ -88,7 +94,9 @@ Plug 'hdima/python-syntax'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" Plugin options
+"}}}
+
+" Plugins Configurations {{{
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -130,6 +138,25 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " C
 let c_gnu = 1
+
+"}}}
+
+" FileType Configurations {{{
+
+" PHP
+autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
+
+" Ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+
+" Json
+autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+
+" Python
+let python_highlight_all = 1
+
+" HTML
+autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 
 "}}}
 
