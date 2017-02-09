@@ -139,7 +139,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 " C
 let c_gnu = 1
 
-"}}}
+" }}}
 
 " FileType Configurations {{{
 
@@ -158,7 +158,7 @@ let python_highlight_all = 1
 " HTML
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 
-"}}}
+" }}}
 
 " Commands {{{
 
