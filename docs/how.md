@@ -91,6 +91,7 @@ I also had to set an alias for dircolors to gdircolors as this is the command th
 ```sh
 brew install coreutils
 ln -s /usr/local/bin/gdircolors /usr/local/bin/dircolors
+ln -s /usr/local/bin/gls /usr/local/bin/ls
 ```
 
 ## Font
