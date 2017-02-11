@@ -9,7 +9,7 @@
 # =======================================
 
 echo "[go] Installing go"
-if [ $OSTYPE == "linux"* ]; then
+if [ $OSTYPE == "linux-gnu" ]; then
 	sudo apt-get install golang
 fi
 
