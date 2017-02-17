@@ -121,9 +121,9 @@ cd ..
 sudo rm -Rf airspeed
 ```
 
-## Ubuntu Bug
+## Ubuntu Bug on Vaio Laptops
 
-https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793
+[Bug Description](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793)
 
 ```sh
 sudo -s
