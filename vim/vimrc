@@ -328,15 +328,15 @@ let python_highlight_all = 1
 " HTML
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 
+" Git commit
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " }}}
 
 " Commands {{{
 
 " Command Mappings
 command Spellcheck setlocal spell spelllang=en_us
-
-" File formats
-autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " }}}
 
