@@ -9,8 +9,14 @@
 # =======================================
 
 echo "[go] Installing go"
-if [ $OSTYPE == "linux-gnu" ]; then
+if [[ $OSTYPE == "linux-gnu" ]]; then
+	echo "[go] Linux"
+	
 	sudo apt-get install golang
+else
+	echo "[go] Darwin"
+
+	brew install go
 fi
 
 echo "[go] Create go directory structure"
