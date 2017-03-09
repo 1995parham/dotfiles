@@ -1,5 +1,5 @@
 # Exports {{{
-export GITHUB_USER="1995parham"
+
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 export MANPAGER="less -X" # Don’t clear the screen after quitting a manual page
 export EDITOR="vim"
@@ -9,22 +9,33 @@ export LC_ALL="en_US.UTF-8"
 export TERM="screen-256color"
 export LD_LIBRARY_PATH=/usr/local/lib:
 export CLICOLOR=1
-export GOPATH=$HOME/Documents/Go
 if [ -f $HOME/.dircolors ]; then
 	eval `dircolors $HOME/.dircolors`
 fi
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
+
+# }}}
+
+# Github {{{
+
+export GITHUB_USER="1995parham"
+export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
+
 # }}}
 
 # Go {{{
+
+export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
 	PATH="$PATH:$HOME/Documents/Go/bin"
 fi
+
 # }}}
 
 # PHP {{{
+
 if [ -d $HOME/.config/composer/vendor/bin ]; then
 	PATH="$PATH:$HOME/.config/composer/vendor/bin"
 fi
@@ -35,6 +46,7 @@ fi
 # }}}
 
 # Tmux {{{
+
 # Makes creating a new tmux session (with a specific name) easier
 function tmuxopen() {
   tmux attach -t $1
@@ -49,6 +61,7 @@ function tmuxnew() {
 function tmuxkill() {
   tmux kill-session -t $1
 }
+
 # }}}
 
 # Alias {{{
@@ -70,9 +83,11 @@ alias tmuxsrc="tmux source-file ~/.tmux.conf"
 alias tmuxkillall="tmux ls | cut -d : -f 1 | xargs -I {} tmux kill-session -t {}" # tmux kill all sessions
 alias ct="ctags -R --exclude=.git --exclude=node_modules"
 alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
+
 # }}}
 
 # Auto Completion {{{
+
 autoload -U compinit && compinit
 zmodload -i zsh/complist
 
@@ -122,9 +137,11 @@ zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain host
 zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
+
 # }}}
 
 # Key Bindings {{{
+
 # VIM Mode
 bindkey -v
 
@@ -157,9 +174,11 @@ export PR_BOLD_WHITE PR_BOLD_BLACK
 
 # Clear LSCOLORS
 unset LSCOLORS
+
 # }}}
 
 # Set Options {{{
+
 # ===== Basics
 setopt no_beep # don't beep on error
 setopt interactive_comments # Allow comments even in interactive shells (especially for Muness)
@@ -202,21 +221,28 @@ setopt transient_rprompt # only show the rprompt on the current prompt
 
 # ===== Scripts and Functions
 setopt multios # perform implicit tees or cats when multiple redirections are attempted
+
 # }}}
 
 # History {{{
+
 HISTSIZE=10000
 SAVEHIST=9000
 HISTFILE=~/.zsh_history
+
 # }}}
 
 # Local configuration {{{
+
 if [ -f $HOME/.zshrc.local ]; then
 	source "$HOME/.zshrc.local"
 fi
+
 # }}}
 
 # Plugin {{{
+
 source $HOME/.zsh.plug/mosh.zsh
 source $HOME/.zsh.plug/prompt.zsh
+
 # }}}
