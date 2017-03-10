@@ -90,9 +90,11 @@ function current_pwd() {
 }
 
 # Original prompt with User name and Computer name included...
+# %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
+# '!' is true if the shell is privileged.
 PROMPT='
 %F{159}::%f %F{239}$(virtualenv_info)%f
-%K{235} %F{83}%n%f %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f %F{234}$(current_pwd)%f %k%F{214}$(separator_char)%f $(git_prompt_string)
+%K{235} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f %F{234}$(current_pwd)%f %k%F{214}$(separator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
 export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
