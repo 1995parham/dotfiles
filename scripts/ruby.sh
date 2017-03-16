@@ -25,3 +25,6 @@ source /etc/profile.d/rvm.sh
 
 echo "[ruby] Installing rubocop"
 gem install rubocop
+
+echo "[ruby] Installing bundler: use bundle install for installing Gemfile"
+gem install bundler
