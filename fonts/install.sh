@@ -24,4 +24,4 @@ if command -v fc-cache @>/dev/null ; then
     fc-cache -f $font_dir
 fi
 
-echo "All Powerline fonts installed to $font_dir"
+echo "Melso AdobeArabic fonts installed to $font_dir"
