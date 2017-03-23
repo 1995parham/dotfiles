@@ -23,6 +23,7 @@ Parham Master (73):
 | 192.168.73.5     | Parham USVM 2       | Ubuntu Server   |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
 | 192.168.73.7     | Parham SVE14A27CXH  | TV              |
+| 192.168.73.8     | Parham USVM 4       | Ubuntu Server   |
 | 192.168.73.10    | NAS                 | -               |
 | 192.168.73.13    | Renge Extender      | -               |
 | 192.168.73.254   | DNS - Gateway       | -               |
