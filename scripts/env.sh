@@ -7,15 +7,18 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-if [[ $EUID -ne 0 ]]; then
-	echo "[env] This script must be run as root"
-	exit 1
-fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	echo "[env] Darwin"
 
-
-if [ "$OSTYPE" == "darwin"* ]; then
-	brew install zsh ctags vim tmux
+	brew install zsh ctags vim tmux mosh
 else
-	apt-get install zsh ctags vim tmux
+	echo "[env] Linux"
+
+	if [[ $EUID -ne 0 ]]; then
+		echo "[env] This script must be run as root"
+		exit 1
+	fi
+
+	apt-get install zsh ctags vim tmux mosh
 fi
 
