@@ -14,7 +14,7 @@ highlighter: rouge
 navigation:
 - text: Home
   url: /dotfiles
-- text: Home Servers
+- text: Home Sweet Home
   url: /dotfiles/home
 - text: How to ...
   url: /dotfiles/how
