@@ -7,7 +7,9 @@ show_downloads: true
 # Configurations
 markdown: kramdown
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 
 # Navigation
