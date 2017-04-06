@@ -1,0 +1,22 @@
+<aside>
+  <div class="row">
+    <div class="col-md-12 text-center">
+        {% if page.path contains '_posts' %}
+        <h1 class="text-center" style="margin-top:0px">&nbsp;<a href="/blog" class="icon icon-back"></a></h1>
+        {% else %}
+        <h1 class="text-center" style="margin-top:0px">&nbsp;<a href="/" class="icon icon-back"></a></h1>
+        {% endif %}
+  	</div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+        <ul class="left-nav">
+        {% for link in site.navigation %}
+          <li class="left-nav-item">
+            <a href="{{link.url}}">{{link.text}}</a>
+          </li>
+        {% endfor %}
+        </ul>
+  	</div>
+  </div>	
+</aside>

@@ -1,0 +1,167 @@
+body {
+	background: url('/assets/images/bcg_wall.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color:#fff;
+  	background-color:#333;
+}
+
+.bord {
+	border: 1px solid #fff;
+}
+
+.mtile {
+	box-sizing: border-box;
+	display: inline-block;
+	height: 74px;
+	margin-bottom: 25px;
+	padding: 10px;
+	width: 100%;
+}
+
+.rside {
+	float: right;
+}
+
+#pin {
+	color: #fff;
+}
+
+.tile > h3 {
+	font-size: 24px;
+}
+
+.font-fix {
+	font-size: 18px;
+}
+
+.fk-ico {
+	background-image: url('/assets/images/fk_ico.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.fk-ico-sm {
+	background-image: url('/assets/images/fk_ico_sm.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gl-ico {
+	background-image: url('/assets/images/gl_ico.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gl-ico-sm {
+	background-image: url('/assets/images/gl_ico_sm.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Java icon .. ha ha ha */
+.java-ico {
+	background-image: url('/assets/images/java_ico.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* */
+.gh-ico {
+	background-image: url('/assets/images/gh_ico.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.gh-ico-sm {
+	background-image: url('/assets/images/gh_ico_sm.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.sto-ico {
+	background-image: url('/assets/images/sto_ico.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.in-ico {
+	background-image: url('/assets/images/in_ico.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.sto-ico-sm {
+	background-image: url('/assets/images/sto_ico_sm.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+.icon-resume {
+	background-image: url('/assets/images/icon-resume.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.icon-resume-small {
+	background-image: url('/assets/images/icon-resume-small.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.icon-blog {
+	background-image: url('/assets/images/icon-blog.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.icon-blog-small {
+	background-image: url('/assets/images/icon-blog-small.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.rep-1 {
+    margin-top: -9%;
+    padding-left: 0;
+}
+
+.rep-2 {
+    margin-top: -9%;
+    padding-left: 0;
+}
+
+/* Media queries for animated tiles (narmal size) */
+
+@media only screen 
+and (min-width : 1224px) {
+.fix-3 {
+	width: 16.6% !important;
+}
+}
+
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 768px) {
+.fix-3 {
+	width: 50% !important;
+}
+}
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1224px) {
+.fix-3 {
+	width: 25% !important;
+}
+}
+
+@media only screen 
+and (max-width : 320px) {
+.fix-3{
+	width: 50% !important;
+}
+}

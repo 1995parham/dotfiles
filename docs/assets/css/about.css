@@ -1,0 +1,22 @@
+#headshot {
+	border-radius: 0 120px 120px 120px;
+	margin-top: 10px;
+	margin-bottom: 35px;
+	margin-right: 50px;
+	width: 300px;
+	transition: width 2s, height 4s, border-radius 2s;
+}
+
+#headshot:hover {
+	width: 350px;
+	border-radius: 0 60px 60px 60px;
+}
+
+#logoshot {
+	width: 300px;
+	margin-right: 50px;
+}
+
+p {
+	width: 75%;
+}
