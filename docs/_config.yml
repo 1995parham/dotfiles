@@ -3,3 +3,16 @@ title:       	  .Files
 description:    My Personal Linux & OSX configurations files
 paginate:       1
 show_downloads: true
+
+# Navigation
+navigation:
+- text: Home
+  url: /
+- text: Home Servers
+  url: /home.md
+- text: How to ...
+  url: /how.md
+- text: VIM
+  url: /vim.md
+- text: ZSH
+  url : /zsh.md
