@@ -4,8 +4,6 @@ layout: page
 theme: orange
 ---
 
-# How to .... [Few things that I need frequently]
-
 ## Colorful Terminal is here ...
 
 For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
