@@ -1,5 +1,7 @@
 ---
 title: VIM for dummy
+layout: page
+theme: green
 ---
 
 # VIM for dummy
