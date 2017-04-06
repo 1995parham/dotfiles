@@ -4,8 +4,6 @@ layout: page
 theme: yellow
 ---
 
-# ZSH for dummy
-
 ## Shortcuts
 
 ### General Commands
