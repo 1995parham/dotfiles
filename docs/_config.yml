@@ -9,10 +9,10 @@ navigation:
 - text: Home
   url: /dotfiles
 - text: Home Servers
-  url: /dotfiles/home.md
+  url: /dotfiles/home
 - text: How to ...
-  url: /dotfiles/how.md
+  url: /dotfiles/how
 - text: VIM
-  url: /dotfiles/vim.md
+  url: /dotfiles/vim
 - text: ZSH
-  url : /dotfiles/zsh.md
+  url : /dotfiles/zsh
