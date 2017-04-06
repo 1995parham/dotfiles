@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body>
+		{% include mobilemenu.html %}
+		{{ content }}
+
+
+		{% if page.title == "Home" %}
+		<script src="/assets/js/MetroJs.min.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".live-tile").liveTile();
+				$('[data-toggle="popover"]').popover()
+			});
+		</script>
+		{% else %}
+		<script>
+			$(document).ready(function(){
+				$('[data-toggle="popover"]').popover()
+			});
+		</script>
+		{% endif %}
+
+		<script>
+			var sc_project=10803419;
+			var sc_invisible=1;
+			var sc_security="65b1ca34";
+			var scJsHost = (("https:" == document.location.protocol) ?
+					"https://secure." : "http://www.");
+			document.write("<sc"+"ript type='text/javascript' src='" +
+				       scJsHost+
+				       "statcounter.com/counter/counter.js'></"+"script>");
+		</script>
+		<noscript>
+			<div class="statcounter">
+				<a title="shopify analytics ecommerce tracking"
+					href="http://statcounter.com/shopify/" target="_blank"><img
+					class="statcounter"
+					src="http://c.statcounter.com/10803419/0/65b1ca34/1/"
+					alt="shopify analytics ecommerce tracking"></a>
+			</div>
+		</noscript>
+	</body>
+</html>
