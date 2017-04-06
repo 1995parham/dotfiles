@@ -1,5 +1,7 @@
 ---
 title: Parham Home
+layout: page
+theme: red
 ---
 
 # Home Sweet Home

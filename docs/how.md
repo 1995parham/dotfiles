@@ -1,5 +1,7 @@
 ---
 title: How to ...
+layout: page
+theme: orange
 ---
 
 # How to .... [Few things that I need frequently]
