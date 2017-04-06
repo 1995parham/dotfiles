@@ -1,6 +1,5 @@
 # Setup
 title:       	  .Files
-url:            'http://1995parham.github.io/dotfiles'
 description:    My Personal Linux & OSX configurations files
 paginate:       1
 show_downloads: true
@@ -8,12 +7,12 @@ show_downloads: true
 # Navigation
 navigation:
 - text: Home
-  url: /
+  url: /dotfiles
 - text: Home Servers
-  url: /home.md
+  url: /dotfiles/home.md
 - text: How to ...
-  url: /how.md
+  url: /dotfiles/how.md
 - text: VIM
-  url: /vim.md
+  url: /dotfiles/vim.md
 - text: ZSH
-  url : /zsh.md
+  url : /dotfiles/zsh.md
