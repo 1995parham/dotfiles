@@ -8,6 +8,7 @@ theme: yellow
 
 ### General Commands
 
+{:.table .table-striped}
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
 | `<C-R>`          | Enter to history mode     |
@@ -19,6 +20,7 @@ Use `escape` in order to enter vim mode for zsh.
 
 ### General Commands
 
+{:.table .table-striped}
 | Shortcut   | Description               |
 |:----------:|:--------------------------|
 | `dd`       | Delete current line       |
@@ -28,6 +30,7 @@ Use `escape` in order to enter vim mode for zsh.
 
 These commands use for history searching.
 
+{:.table .table-striped}
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `*` `#`          | Find current word backward/forward  |
