@@ -4,6 +4,12 @@ description:    My Personal Linux & OSX configurations files
 paginate:       1
 show_downloads: true
 
+# Configurations
+markdown: kramdown
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+highlighter: rouge
+
+
 # Navigation
 navigation:
 - text: Home
