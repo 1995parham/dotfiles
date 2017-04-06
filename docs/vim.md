@@ -68,7 +68,7 @@ deactivate
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
 After that you have complete IDE for go in vim.
 
-
+{:.table .table-striped}
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `:GoMetaLinter`  | Statically checking Go source       |
@@ -79,6 +79,7 @@ After that you have complete IDE for go in vim.
 
 ## Plugins
 
+{:.table .table-striped}
 | #  | Plugin     | #  | Plugin                 |
 |:--:|:-----------|:--:|:-----------------------|
 | 1  | [easy-align](http://github.com/junegunn/vim-easy-align) | 2  | [cpp-enhanced-highlight](http://github.com/octol/vim-cpp-enhanced-highlight) |
@@ -115,6 +116,7 @@ After that you have complete IDE for go in vim.
 
 #### General Commands
 
+{:.table .table-striped}
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
 | `<C-n>`          | Toggles [NerdTree](https://github.com/scrooloose/nerdtree)          |
@@ -138,6 +140,7 @@ After that you have complete IDE for go in vim.
 
 #### Movement Commands
 
+{:.table .table-striped}
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `0` `$`          | Begin/End of line                   |
@@ -150,6 +153,7 @@ After that you have complete IDE for go in vim.
 
 #### Search Commands
 
+{:.table .table-striped}
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `*` `#`          | Find current word backward/forward  |
@@ -157,6 +161,7 @@ After that you have complete IDE for go in vim.
 
 #### EX Commands
 
+{:.table .table-striped}
 | Shortcut         | Description               | Shortcut         | Description                         |
 |:----------------:|:--------------------------|:----------------:|:------------------------------------|
 | `:b name`        | Open buffer               | `:bd name`       | Delete buffer                       |
@@ -165,6 +170,7 @@ After that you have complete IDE for go in vim.
 
 #### Mode Commands
 
+{:.table .table-striped}
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `<ESC>`          | Enter *Normal* mode                 |
@@ -178,6 +184,7 @@ After that you have complete IDE for go in vim.
 
 ### NerdTree and Buffergator
 
+{:.table .table-striped}
 | Shortcut | Description            |
 |:--------:|:-----------------------|
 | `s`      | open file vsplit       |
