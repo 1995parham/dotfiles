@@ -4,8 +4,6 @@ layout: page
 theme: green
 ---
 
-# VIM for dummy
-
 ## VIM is your IDE
 
 If you are using this dotfiles vim configuration
