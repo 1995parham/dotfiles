@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: Page
 title: {{ site.title }}
 ---
 
@@ -9,12 +9,4 @@ title: {{ site.title }}
   Parham Alvani Linux, OSx configurations files since 2013.
   it shows my loneliness and biYarism !
   </p>
-  <h2>Table of Contents</h2>
-  <ul>
-    {% for ipage in site.pages %}
-      {% if ipage.title and ipage.url != page.url %}
-        <li><a href="{{ site.baseurl }}{{ ipage.url }}">{{ ipage.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-  </ul>
 </div>
