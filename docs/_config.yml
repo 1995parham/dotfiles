@@ -1,5 +1,6 @@
 # Setup
 title:       	  .Files
+url:            'http://1995parham.github.io/dotfiles'
 description:    My Personal Linux & OSX configurations files
 paginate:       1
 show_downloads: true
