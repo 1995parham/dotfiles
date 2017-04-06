@@ -8,14 +8,14 @@ theme: red
 
 Parham Edge (1):
 
-{:.table}
+{:.table .table-striped}
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
 | 192.168.1.1      | Provider Access Dev | Irancell TD-LTE |
 
 Parham Master (73):
 
-{:.table}
+{:.table .table-striped}
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
 | 192.168.73.1     | Parham MacBookPro   | ESXi            |
