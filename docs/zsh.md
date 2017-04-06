@@ -1,5 +1,7 @@
 ---
 title: ZSH for dummy
+layout: page
+theme: yellow
 ---
 
 # ZSH for dummy
