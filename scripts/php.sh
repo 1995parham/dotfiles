@@ -14,7 +14,7 @@ fi
 
 echo "[php] Installing PHP"
 
-apt-get install php php-cli php-xml
+apt-get install php php-cli php-xml curl
 
 echo "[php] Installing composer"
 
