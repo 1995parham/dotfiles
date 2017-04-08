@@ -1,4 +1,4 @@
-#!/bin/
+#!/bin/bash
 # In The Name Of God
 # ========================================
 # [] File Name : php.sh
