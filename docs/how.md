@@ -169,14 +169,11 @@ sudo apt-get install oracle-java8-installer
 ## Tell ubuntu do nothing when laptop lid is closed
 
 1. Open the `/etc/systemd/logind.conf` file in a text editor as root, for example,
-
 ```sh
 sudo -H gedit /etc/systemd/logind.conf
 ```
-
 2. Add a line `HandleLidSwitch=ignore` (make sure it's not commented out!)
 3. Restart the systemd daemon with this command:
-
 ```sh
 sudo service systemd-logind restart
 ```
