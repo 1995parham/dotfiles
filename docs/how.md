@@ -20,6 +20,20 @@ sudo locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
 ```
 
+## Docker in our fatherland
+
+Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docker/daemon.json`:
+
+```json
+{
+  "experimental": true,
+  "registry-mirrors": [
+    "http://repo.docker.ir:5000"
+  ],
+  "userland-proxy": false
+}
+```
+
 ## Docker Monitoring based on [Portainer](https://github.com/portainer/portainer)
 
 Portainer is a simple management solution for docker.
