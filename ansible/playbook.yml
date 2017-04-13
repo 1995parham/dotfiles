@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: Install required packages
+      become: true
+      apt: name={{item}} state=latest update_cache=yes
+      with_items:
+        - zsh
+        - tmux
