@@ -15,6 +15,12 @@ For using this configuration files you can install them with
 ./install.sh
 ```
 
+and you can use anisble with
+
+```sh
+ansible-playbook ansible/playbook.yml -K -i ansible/hosts.ini
+```
+
 ## Correct the style :)
 
 | Languages           |       Tool      | Installation                                            |
