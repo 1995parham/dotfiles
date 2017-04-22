@@ -26,7 +26,6 @@ Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docke
 
 ```json
 {
-  "experimental": true,
   "registry-mirrors": [
     "http://repo.docker.ir:5000"
   ],
