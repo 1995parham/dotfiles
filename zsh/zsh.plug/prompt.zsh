@@ -4,12 +4,6 @@ function virtualenv_info() {
   [ $VIRTUAL_ENV ] && echo '['`python3 --version` `basename $VIRTUAL_ENV`'] '
 }
 
-# Setup npm package environment prompt setttings
-NODE_VIRTUAL_ENV_DISABLE_PROMPT=true
-function npm_info() {
-  [ $NODE_VIRTUAL_ENV ] && echo '[Node' `node --version` `basename $NODE_VIRTUAL_ENV`'] '
-}
-
 function prompt_char() {
   git branch >/dev/null 2>/dev/null && echo '±' && return
   hg root >/dev/null 2>/dev/null && echo '☿' && return
@@ -99,7 +93,7 @@ function current_pwd() {
 # %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
 # '!' is true if the shell is privileged.
 PROMPT='
-%F{159}::%f %F{239}$(virtualenv_info)$(npm_info)%f
+%F{159}::%f %F{239}$(virtualenv_info)%f
 %K{235} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f %F{234}$(current_pwd)%f %k%F{214}$(separator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
