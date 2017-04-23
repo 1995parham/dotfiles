@@ -25,6 +25,3 @@ else
 	apt-get install -y nodejs
 	ln -s /usr/bin/nodejs /usr/bin/node
 fi
-
-echo "[node] Installing jshint"
-npm install -g jshint
