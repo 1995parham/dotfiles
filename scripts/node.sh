@@ -13,6 +13,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	echo "[node] Darwin"
 
 	brew install node
+	brew install yarn
 else
 	echo "[node] Linux"
 
@@ -24,7 +25,12 @@ else
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	apt-get install -y nodejs
 	ln -s /usr/bin/nodejs /usr/bin/node
+
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	
+	apt-get update && apt-get install yarn
 fi
 
-echo "[node] Installing nodeenv"
-pip3 install nodeenv
+echo "[node] Installing jslint"
+npm install -g jshint
