@@ -25,3 +25,6 @@ else
 	apt-get install -y nodejs
 	ln -s /usr/bin/nodejs /usr/bin/node
 fi
+
+echo "[node] Installing nodeenv"
+pip3 install nodeenv
