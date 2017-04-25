@@ -32,5 +32,8 @@ else
 	apt-get update && apt-get install yarn
 fi
 
-echo "[node] Installing jslint"
+echo "[node] Installing jshint"
 npm install -g jshint
+
+echo "[node] Installing PM2 - the industry-standard task runner"
+npm install -g pm2
