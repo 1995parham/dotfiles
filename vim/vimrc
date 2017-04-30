@@ -323,6 +323,9 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 " Json
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 
+" Docker-compose
+autocmd Filetype docker-compose setlocal ts=2 sts=2 sw=2 expandtab
+
 " Python
 let python_highlight_all = 1
 
