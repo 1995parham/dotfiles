@@ -142,7 +142,6 @@ Plug 'vim-utils/vim-man'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'garyburd/go-explorer'
-Plug 'isRuslan/vim-es6'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
