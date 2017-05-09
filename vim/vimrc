@@ -143,6 +143,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'garyburd/go-explorer'
 Plug 'posva/vim-vue'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -202,14 +203,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_vue_checkers = ['eslint']
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-	let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-	let g:syntastic_javascript_eslint_exec = local_eslint
-	let g:syntastic_vue_eslint_exec = local_eslint
-endif
 
 " vim-go
 let g:go_highlight_functions = 1
