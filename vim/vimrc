@@ -144,6 +144,7 @@ Plug 'honza/vim-snippets'
 Plug 'garyburd/go-explorer'
 Plug 'posva/vim-vue'
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'sekel/vim-vue-syntastic'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -332,6 +333,9 @@ autocmd Filetype docker-compose setlocal ts=2 sts=2 sw=2 expandtab
 
 " Python
 let python_highlight_all = 1
+
+" Vue
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 
 " HTML
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
