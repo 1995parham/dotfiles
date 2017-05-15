@@ -22,17 +22,15 @@ sudo apt install ctags
 ### JavaScript
 
 Personally I use ESLint as linter for my JS projects
-and you can setup it with following command and use it
-simply in all of your project.
+and you can install it with locally in your project
+with following commands:
 
 ```sh
-# setup eslint globally
-sudo npm install -g eslint
-sudo npm install -g eslint-plugin-standard
-sudo npm install -g eslint-config-standard
+# setup eslint locally
+sudo npm install eslint
 # setup project folder
 npm init
-eslint --init
+touch .eslintrc.yml
 ```
 
 ### PHP
