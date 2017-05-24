@@ -37,13 +37,13 @@ set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
 set guioptions-=T
 
 " No backup files
-" set nobackup
+set nobackup
 
 " No write backup
-" set nowritebackup
+set nowritebackup
 
 " No swap file
-" set noswapfile
+set noswapfile
 
 " Set leader key
 let mapleader = ','
