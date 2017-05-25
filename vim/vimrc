@@ -159,7 +159,9 @@ call plug#end()
 
 " Tomorrow-Night
 set background=light
+set t_Co=256
 colorscheme Tomorrow-Night
+
 
 " Git gutter
 let g:gitgutter_enabled = 1
@@ -272,6 +274,8 @@ let g:airline#extensions#tabline#show_buffers = 0
 
 let g:airline_powerline_fonts = 1
 
+let g:airline_theme = 'jellybeans'
+
 let g:airline_section_c = '%{strftime("%c")}'
 
 " Taboo
@@ -352,4 +356,3 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 command Spellcheck setlocal spell spelllang=en_us
 
 " }}}
-
