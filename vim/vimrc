@@ -162,7 +162,6 @@ set background=light
 set t_Co=256
 colorscheme Tomorrow-Night
 
-
 " Git gutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_eager = 0
@@ -291,8 +290,8 @@ let g:vimtex_disable_version_warning = 1
 " C
 let c_gnu = 1
 
-" JavaScript
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+" Python
+let g:python_highlight_all = 1
 
 " Octave
 augroup filetypedetect
@@ -335,15 +334,16 @@ autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 " Docker-compose
 autocmd Filetype docker-compose setlocal ts=2 sts=2 sw=2 expandtab
 
-" Python
-let python_highlight_all = 1
-
 " Vue
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
 autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 " HTML
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+
+" JavaScript
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+
 
 " Git commit
 autocmd Filetype gitcommit setlocal spell textwidth=72
