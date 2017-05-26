@@ -186,11 +186,12 @@ After that you have complete IDE for go in vim.
 ### NerdTree and Buffergator
 
 {:.table .table-striped}
-| Shortcut | Description            |
-|:--------:|:-----------------------|
-| `s`      | open file vsplit       |
-| `i`      | open file split        |
-| `t`      | open file in new tab   |
-| `o`      | open & close directory |
-| `m`      | show menu              |
+| Shortcut | Description              |
+|:--------:|:-------------------------|
+| `s`      | open file vsplit         |
+| `i`      | open file split          |
+| `t`      | open file in new tab     |
+| `o`      | open & close directory   |
+| `m`      | show menu                |
+| `I`      | toggle show hidden files |
 
