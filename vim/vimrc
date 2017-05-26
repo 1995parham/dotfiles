@@ -272,7 +272,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 
 let g:airline_powerline_fonts = 1
 
-let g:airline_theme = 'jellybeans'
+let g:airline_theme = 'murmur'
 
 let g:airline_section_c = '%{strftime("%c")}'
 
