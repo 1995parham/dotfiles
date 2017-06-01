@@ -273,7 +273,7 @@ let g:airline#extensions#tagbar#enabled = 1
 
 let g:airline_powerline_fonts = 1
 
-let g:airline_theme = 'murmur'
+let g:airline_theme = 'tomorrow'
 
 let g:airline_section_c = '%{strftime("%c")}'
 
