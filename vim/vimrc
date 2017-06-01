@@ -296,6 +296,9 @@ let c_gnu = 1
 " Python
 let g:python_highlight_all = 1
 
+" javascript
+let g:javascript_plugin_jsdoc = 1
+
 " Octave
 augroup filetypedetect
 	au! BufRead,BufNewFile *.m,*.oct set filetype=octave
