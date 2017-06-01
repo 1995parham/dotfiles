@@ -131,7 +131,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-tbone'
 Plug 'gcmt/wildfire.vim'
 Plug 'vim-ruby/vim-ruby'
-Plug 'hdima/python-syntax'
+Plug 'vim-python/python-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'gcmt/taboo.vim'
@@ -175,9 +175,12 @@ let g:SuperTabMappingForward = "<C-h>"
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key='<C-E>'
 
-" Header
+" vim-header
 let g:header_user = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
+
+" vim-polygot
+let g:polyglot_disabled = ['python', 'javascript']
 
 " Syntastic
 if has('python3')
