@@ -3,7 +3,7 @@ $Host.UI.RawUI.ForegroundColor = "DarkYellow"
 $Host.UI.RawUI.BufferSize.Height = 3000
 $Host.UI.RawUI.BufferSize.Width = 180
 $Host.UI.RawUI.WindowSize.Width = 180
-$Host.UI.RawUI.WindowSize.Height = 62 
+$Host.UI.RawUI.WindowSize.Height = 62
 
 #ErrorForegroundColor    : Red
 #ErrorBackgroundColor    : Black
