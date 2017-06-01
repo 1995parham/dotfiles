@@ -10,7 +10,7 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	echo "[env] Darwin"
 
-	brew install zsh ctags vim tmux mosh
+	brew install zsh ctags vim tmux mosh aria2
 else
 	echo "[env] Linux"
 
@@ -19,6 +19,6 @@ else
 		exit 1
 	fi
 
-	apt-get install zsh ctags vim tmux mosh
+	apt-get install zsh ctags vim tmux mosh aria2
 fi
 
