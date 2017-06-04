@@ -50,6 +50,10 @@ docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PO
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --name portainer portainer/portainer
 ```
 
+## Let's clean up the docker junks
+`docker system prune` will delete ALL unused data
+(i.e. In order: containers stopped, volumes without containers and images with no containers).
+
 ## Zabbix based Monitoring
 
 Zabbix is an open source software for networks and application monitoring.
