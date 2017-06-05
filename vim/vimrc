@@ -293,6 +293,10 @@ let g:vimtex_disable_version_warning = 1
 " C
 let c_gnu = 1
 
+" CPP
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+
 " Python
 let g:python_highlight_all = 1
 
