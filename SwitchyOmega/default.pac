@@ -17,6 +17,7 @@
         if (/(?:^|\.)firebase\.google\.com$/.test(host)) return "+iran";
         if (/(?:^|\.)googleusercontent\.com$/.test(host)) return "+iran";
         if (/(?:^|\.)godoc\.org$/.test(host)) return "+iran";
+        if (/(?:^|\.)mbed\.com$/.test(host)) return "+iran";
         return "DIRECT";
     },
     "+foreign": function(url, host, scheme) {
