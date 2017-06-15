@@ -12,6 +12,7 @@
     "+auto switch": function(url, host, scheme) {
         "use strict";
         if (/(?:^|\.)kubernetes\.io$/.test(host)) return "+iran";
+        if (/(?:^|\.)vmware\.com$/.test(host)) return "+iran";
         if (/(?:^|\.)twitter\.com$/.test(host)) return "+foreign";
         if (/(?:^|\.)docker\.com$/.test(host)) return "+iran";
         if (/(?:^|\.)developers\.google\.com$/.test(host)) return "+iran";
