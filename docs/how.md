@@ -20,36 +20,6 @@ sudo locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
 ```
 
-## Docker in our fatherland
-
-Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docker/daemon.json`:
-
-```json
-{
-  "registry-mirrors": [
-    "http://repo.docker.ir:5000"
-  ],
-  "userland-proxy": false
-}
-```
-
-## Docker Monitoring based on [Portainer](https://github.com/portainer/portainer)
-
-Portainer is a simple management solution for docker.
-it consists of a webUI that allows you to easily manage your docker containers, images, networks and volumes.
-
-> remote docker engine
-
-```sh
-docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PORT>
-```
-
-> local docker engine
-
-```sh
-docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --name portainer portainer/portainer
-```
-
 ## Let's clean up the docker junks
 `docker system prune` will delete ALL unused data
 (i.e. In order: containers stopped, volumes without containers and images with no containers).
