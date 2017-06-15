@@ -245,5 +245,6 @@ fi
 source $HOME/.zsh.plug/mosh.zsh
 source $HOME/.zsh.plug/prompt.zsh
 source $HOME/.zsh.plug/docker.zsh
+source $HOME/.zsh.plug/govc.zsh
 
 # }}}
