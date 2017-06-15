@@ -47,6 +47,8 @@ govc command -u user:pass@host
 
 ## Docker Container Management
 ### Photon, Minimal linux container host
+Photon is a awesome thing :yum:
+
 ### Docker in our fatherland
 
 Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docker/daemon.json`:
@@ -60,19 +62,9 @@ Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docke
 }
 ```
 
-### Docker Monitoring based on []
-
-Portainer is a simple management solution for docker.
-it consists of a webUI that allows you to easily manage your docker containers, images, networks and volumes.
-
-> remote docker engine
+### Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
+Let's run admiral foreven
 
 ```sh
-docker run -d -p 9000:9000 portainer/portainer -H tcp://<REMOTE_HOST>:<REMOTE_PORT>
-```
-
-> local docker engine
-
-```sh
-docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --name portainer portainer/portainer
+sudo docker run -t -d -p 8282:8282 --name admiral --restart unless-stopped vmware/admiral
 ```
