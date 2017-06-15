@@ -125,7 +125,7 @@ case $install_type in
 		dotfile "conf" files[@]
 		;;
 	1)
-		files=("bashrc" "dircolors" "tmux.conf" "tmux")
+		files=("bashrc" "dircolors" "tmux.conf" "tmux" "wakatime.cfg")
 		dotfile "conf" files[@]
 		;;
 esac
