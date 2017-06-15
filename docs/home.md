@@ -26,6 +26,7 @@ Parham Master (73):
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
 | 192.168.73.7     | Parham SVE14A27CXH  | TV              |
 | 192.168.73.8     | Parham USVM 4       | Ubuntu Server   |
+| 192.168.73.9     | Main Photon         | Photon OS       |
 | 192.168.73.10    | NAS                 | -               |
 | 192.168.73.13    | Renge Extender      | -               |
 | 192.168.73.254   | DNS - Gateway       | -               |
@@ -48,6 +49,29 @@ govc command -u user:pass@host
 ## Docker Container Management
 ### Photon, Minimal linux container host
 Photon is a awesome thing :yum:
+
+1. Enable docker remote API
+
+```sh
+```
+
+2. setup static ip address
+
+```sh
+cat > /etc/systemd/network/10-static-en.network << "EOF"
+
+[Match]
+Name=eth0
+
+[Network]
+Address=198.51.0.2/24
+Gateway=198.51.0.1
+EOF
+
+chmod 644 10-static-en.network
+
+systemctl restart systemd-networkd
+```
 
 ### Docker in our fatherland
 
