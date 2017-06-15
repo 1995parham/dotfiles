@@ -51,7 +51,9 @@ Photon is a awesome thing :yum:
 
 ### Docker in our fatherland
 
-Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docker/daemon.json`:
+Thanks to [docker.ir](http://www.docker.ir/).
+
+1. ubuntu: copy following content into `/etc/docker/daemon.json`:
 
 ```json
 {
@@ -60,6 +62,13 @@ Thanks to [docker.ir](http://www.docker.ir/). Copy following content `/etc/docke
   ],
   "userland-proxy": false
 }
+```
+
+2. photon: first enable docker service with `systemctl enable docker`
+and add following content into `/etc/systemd/system/multi-user.target.wants/docker.service`:
+
+```sh
+--registry-mirror=http://repo.docker.ir:5000
 ```
 
 ### Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
