@@ -17,6 +17,7 @@ usvm1	IN	A	192.168.73.4
 usvm2	IN	A	192.168.73.5
 usvm3	IN	A	192.168.73.6
 tv	IN	A	192.168.73.7
+docker	IN	A	192.168.73.9
 fs	IN	A	192.168.73.10
 vcenter	IN	A	192.168.73.11
 giant	IN	A	192.168.73.12
