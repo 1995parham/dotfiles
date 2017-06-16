@@ -39,7 +39,6 @@ Plug 'vim-utils/vim-man'
 Plug 'posva/vim-vue'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Add plugins to &runtimepath
 call plug#end()
