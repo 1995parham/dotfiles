@@ -53,6 +53,15 @@ Photon is a awesome thing :yum:
 1. Enable docker remote API
 
 ```sh
+systemctl stop docker
+
+cat > /etc/default/docker << "EOF"
+
+DOCKER_OPTS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+EOF
+
+iptables -A INPUT -p tcp --dport 2375 -j ACCEPT
+
 ```
 
 2. setup static ip address
@@ -69,8 +78,15 @@ Gateway=198.51.0.1
 EOF
 
 chmod 644 10-static-en.network
+rm 10-dhcp-en.network
 
 systemctl restart systemd-networkd
+```
+
+3. mangage what we need as we see !?!
+
+```
+connect ip_address:8282
 ```
 
 ### Docker in our fatherland
