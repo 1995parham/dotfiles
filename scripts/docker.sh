@@ -30,8 +30,24 @@ apt-get update
 apt-get install docker-ce
 echo "[docker] The Docker daemon starts automatically."
 
-echo "[docker] Installing docker-compose"
-if [ ! -e /usr/local/bin/docker-compose ]; then
-	curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+echo "[docker] Docker in futherland"
+cat > /etc/docker/daemon.json << "EOF"
+
+{
+	"registry-mirrors": [
+		"http://repo.docker.ir:5000"
+	],
+	"userland-proxy": false
+}
+
+EOF
+service docker restart
+
+compose_vr=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+compose_vl=$(docker-compose version --short)
+
+if [ "${compose_vl}" != "${compose_vr}" ]; then
+	echo "[docker] Installing docker-compose"
+	curl -L "https://github.com/docker/compose/releases/download/${compose_vr}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 fi
