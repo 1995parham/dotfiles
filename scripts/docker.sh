@@ -27,7 +27,7 @@ add-apt-repository \
 
 echo "[docker] Installing docker"
 apt-get update
-apt-get install docker-cs
+apt-get install docker-ce
 echo "[docker] The Docker daemon starts automatically."
 
 echo "[docker] Installing docker-compose"
