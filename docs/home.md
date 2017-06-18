@@ -33,7 +33,7 @@ Parham Master (73):
 | 192.168.73.254   | DNS - Gateway       | -               |
 
 
-## ESXi 6.5
+## vSphere 6.5
 ### govc
 govc is a command-line application for interacting with VMware vSphere APIs (ESXi and/or vCenter).
 
@@ -47,11 +47,15 @@ After installation you can use this awesome tool with
 govc command -u user:pass@host
 ```
 
+### vCenter
+First of all install the vCenter appliance after setup completed and vm started successfully,
+go to `:5480` and complete the installation. (Please note that vCenter need a simple DNS).
+
 ## Docker Container Management
 ### Photon, Minimal linux container host
 Photon is a awesome thing :yum:
 
-1. Enable docker remote API
+- Enable docker remote API
 
 ```sh
 systemctl stop docker
@@ -65,7 +69,7 @@ iptables -A INPUT -p tcp --dport 2375 -j ACCEPT
 
 ```
 
-2. setup static ip address
+- setup static ip address
 
 ```sh
 cat > /etc/systemd/network/10-static-en.network << "EOF"
@@ -84,17 +88,11 @@ rm 10-dhcp-en.network
 systemctl restart systemd-networkd
 ```
 
-3. mangage what we need as we see !?!
-
-```
-connect ip_address:8282
-```
-
 ### Docker in our fatherland
 
 Thanks to [docker.ir](http://www.docker.ir/).
 
-1. ubuntu: copy following content into `/etc/docker/daemon.json`:
+- **ubuntu**: copy following content into `/etc/docker/daemon.json`:
 
 ```json
 {
@@ -105,7 +103,7 @@ Thanks to [docker.ir](http://www.docker.ir/).
 }
 ```
 
-2. photon: first enable docker service with `systemctl enable docker`
+- **photon**: first enable docker service with `systemctl enable docker`
 and add following content into `/etc/systemd/system/multi-user.target.wants/docker.service`:
 
 ```sh
@@ -113,7 +111,7 @@ and add following content into `/etc/systemd/system/multi-user.target.wants/dock
 ```
 
 ### Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
-Let's run admiral foreven
+Let's run admiral forever
 
 ```sh
 sudo docker run -t -d -p 8282:8282 --name admiral --restart unless-stopped vmware/admiral
