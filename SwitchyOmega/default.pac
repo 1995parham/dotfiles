@@ -20,6 +20,7 @@
         if (/(?:^|\.)googleusercontent\.com$/.test(host)) return "+iran";
         if (/(?:^|\.)godoc\.org$/.test(host)) return "+iran";
         if (/(?:^|\.)mbed\.com$/.test(host)) return "+iran";
+        if (/(?:^|\.)google-developers\.appspot\.com$/.test(host)) return "+iran";
         return "DIRECT";
     },
     "+foreign": function(url, host, scheme) {
