@@ -17,5 +17,5 @@ echo "[powershell] Getting version information"
 powershell_v=$(curl -s https://api.github.com/repos/powershell/powershell/releases/latest | grep 'tag_name' | cut -d\" -f4)
 
 echo "[powershell] Installing powershell core $powershell_v"
-curl -L "https://github.com/powershell/powershell/releases/download/${powershell_v}/Powershell-${powershell_v:1}-x86_64.AppImage" -o /usr/local/bin/powershell
+curl -L --progress-bar "https://github.com/powershell/powershell/releases/download/${powershell_v}/Powershell-${powershell_v:1}-x86_64.AppImage" -o /usr/local/bin/powershell
 chmod +x /usr/local/bin/powershell
