@@ -48,7 +48,7 @@ Function Make-Copy {
 
     if ($create_link) {
         Copy-Item $src_path $dst_path
-		    Write-Output "[$module] Copy created successfully from $src_path to $dst_path"
+	Write-Output "[$module] Copy created successfully from $src_path to $dst_path"
     }
 
 }
