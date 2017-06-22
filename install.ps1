@@ -1,5 +1,4 @@
-
-# In The Name Of God
+﻿# In The Name Of God
 # ========================================
 # [] File Name : install.ps1
 #
