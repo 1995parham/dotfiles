@@ -1,29 +1,19 @@
-$Host.UI.RawUI.BackgroundColor = "DarkMagenta"
-$Host.UI.RawUI.ForegroundColor = "DarkYellow"
-$Host.UI.RawUI.BufferSize.Height = 3000
-$Host.UI.RawUI.BufferSize.Width = 180
-$Host.UI.RawUI.WindowSize.Width = 180
-$Host.UI.RawUI.WindowSize.Height = 62
+﻿Function Foreground-Color {
+	Param ([int] $color)
 
-#ErrorForegroundColor    : Red
-#ErrorBackgroundColor    : Black
-#WarningForegroundColor  : Yellow
-#WarningBackgroundColor  : Black
-#DebugForegroundColor    : Yellow
-#DebugBackgroundColor    : Black
-#VerboseForegroundColor  : Yellow
-#VerboseBackgroundColor  : Black
-#ProgressForegroundColor : Yellow
-#ProgressBackgroundColor : DarkCyan
+	$CSI = [char]0x1b + '['
 
-function prompt
+	if ($color -eq 0) {
+		"${CSI}39m"
+	} else {
+		"${CSI}38;5;${color}m"
+	}
+}
+
+Function Prompt
 {
-    Write-Host ("PS") -NoNewline
-    Write-Host (" " + $env:USERNAME) -NoNewline -ForegroundColor Yellow 
-    Write-Host (" " + $(Get-Date)) -NoNewline -ForegroundColor Green
-    Write-Host (" " + $(Get-Location)) -ForegroundColor Red
-    Write-Host (" >") -NoNewline
-    return " "
+	"PS $(Foreground-Color 27)$(whoami) $(Foreground-Color 46)[$($executionContext.SessionState.Path.CurrentLocation)]$(Foreground-Color 0)
+$('>' * ($nestedPromptLevel + 1)) "
 }
 
 Set-Location $HOME
