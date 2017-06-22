@@ -39,7 +39,7 @@ Function Make-Copy {
 
       $result = $host.ui.PromptForChoice($title, $message, $options, 0)
 
-      if ($result = 1) {
+      if ($result -eq 1) {
         Remove-Item -Path $dst_path -Recurse -Force
       } else {
         $create_link = $False
