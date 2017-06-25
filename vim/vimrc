@@ -73,6 +73,9 @@ call plug#end()
 
 " Plugins Configurations {{{
 
+" Wakatime
+let g:wakatime_PythonBinary = '/usr/bin/python3'
+
 " Tomorrow-Night
 set background=light
 set t_Co=256
