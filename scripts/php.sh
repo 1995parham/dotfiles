@@ -15,6 +15,7 @@ fi
 echo "[php] Installing PHP"
 
 apt-get install php php-cli php-xml curl
+apt-get install zip unzip
 
 echo "[php] Installing composer"
 
