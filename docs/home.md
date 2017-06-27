@@ -30,6 +30,7 @@ Parham Master (73):
 | 192.168.73.11    | vCenter             | -               |
 | 192.168.73.12    | Parham Giant        | ESXi            |
 | 192.168.73.13    | Renge Extender      | -               |
+| 192.168.73.14    | Parham Pi           | RPi             |
 | 192.168.73.254   | DNS - Gateway       | -               |
 
 
