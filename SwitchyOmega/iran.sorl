@@ -1,0 +1,15 @@
+﻿[SwitchyOmega Conditions]
+; Require: SwitchyOmega >= 2.3.2
+; Date: 6/28/2017
+; Usage: https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage
+
+*.vmware.com
+*.kubernetes.io
+*.docker.com
+*.developers.google.com
+*.firebase.google.com
+*.googleusercontent.com
+*.godoc.org
+*.mbed.com
+*.google-developers.appspot.com
+*.sdxcentral.com
