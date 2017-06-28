@@ -27,10 +27,36 @@ with following commands:
 
 ```sh
 # setup eslint locally
-sudo npm install eslint
+# node.js
+npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
+# react.js
+npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
 # setup project folder
 npm init
 touch .eslintrc.yml
+```
+
+and config eslint with `.eslintrc.yml` for nodejs:
+
+```yaml
+---
+  extends:
+    - standard
+  parserOptions:
+    ecmaVersion: 6
+```
+
+and for react:
+
+```yaml
+---
+  extends:
+    - standard
+    - standard-react
+  parserOptions:
+    ecmaVersion: 6
+    ecmaFeatures:
+      jsx: true
 ```
 
 ### PHP
