@@ -1,9 +1,8 @@
 ﻿[SwitchyOmega Conditions]
 ; Require: SwitchyOmega >= 2.3.2
-; Date: 6/29/2017
+; Date: 6/30/2017
 ; Usage: https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage
 
-*.radiojavan.com
 *.vmware.com
 *.kubernetes.io
 *.docker.com
@@ -17,4 +16,6 @@
 *.vimeo.com
 *.vimeocdn.com
 *.soundcloud.com
+*.sndcdn.com
 *.rjmediamusic.com
+*.radiojavan.com
