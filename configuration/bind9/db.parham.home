@@ -11,6 +11,7 @@ $TTL	604800
 ;
 	IN	NS	ns1.parhan.home.
 ns1	IN	A	192.168.73.100
+s1	IN	A	192.168.73.101
 mac	IN	A	192.168.73.1
 main	IN	A	192.168.73.3
 usvm1	IN	A	192.168.73.4
