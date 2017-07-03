@@ -11,6 +11,7 @@ $TTL	604800
 ;
 	IN	NS	ns1.parham.home.
 100	IN	PTR	ns1.parham.home.
+101	IN	PTR	s1.parham.home.
 1	IN	PTR	mac.parham.home.
 3	IN	PTR	main.parham.home.
 4	IN	PTR	usvm1.parham.home.
