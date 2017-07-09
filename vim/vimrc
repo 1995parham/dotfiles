@@ -74,7 +74,8 @@ call plug#end()
 " Plugins Configurations {{{
 
 " Wakatime
-let g:wakatime_PythonBinary = '/usr/bin/python3'
+let g:wakatime_PythonBinary = 'python3'
+let g:wakatime_ScreenRedraw = 1
 
 " Tomorrow-Night
 set background=light
