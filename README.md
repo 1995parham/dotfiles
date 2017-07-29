@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
 ![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
+![we](https://img.shields.io/badge/we-are-orange.svg?style=flat-square)
 
 ## Introduction
 
