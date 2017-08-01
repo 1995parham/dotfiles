@@ -18,6 +18,7 @@ $TTL	604800
 5	IN	PTR	usvm2.parham.home.
 6	IN	PTR	usvm3.parham.home.
 7	IN	PTR	tv.parham.home.
+8	IN	PTR	bambil.parham.home.
 9	IN	PTR	docker.parham.home.
 10	IN	PTR	fs.parham.home.
 11	IN	PTR	vcenter.parham.home.
