@@ -86,7 +86,7 @@ endif
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 
-let g:tomorrow_night_term_italic=1
+let g:tomorrow_night_term_italic=0
 colorscheme Tomorrow-Night
 
 " Git gutter
