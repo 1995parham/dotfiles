@@ -65,7 +65,6 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug '1995parham/vim-header', { 'do': '~/.vim/plugged/vim-header/init.sh' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -96,10 +95,6 @@ let g:SuperTabMappingForward = "<C-h>"
 " only enable normal mode functions.
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key='<C-E>'
-
-" vim-header
-let g:header_user = 'Parham Alvani'
-let g:header_email = 'parham.alvani@gmail.com'
 
 " vim-polygot
 let g:polyglot_disabled = ['python', 'javascript']
