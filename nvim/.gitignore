@@ -1,0 +1,3 @@
+plugged
+ftplugin/go/gocomplete.vim
+autoload/gocomplete.vim
