@@ -73,6 +73,9 @@ set foldmethod=marker
 " Set search results highlighting
 set hlsearch
 
+" Map <Esc> to exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " Let's move between tabs and create them !
 nmap <C-w>n :tabnext<CR>
 nmap <C-w>p :tabprevious<CR>
