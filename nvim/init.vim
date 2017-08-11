@@ -229,7 +229,7 @@ let g:user_emmet_mode='n'
 let g:user_emmet_leader_key='<C-E>'
 
 " vim-header
-let g:header_user = 'Parham Alvani'
+let g:header_name = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
 
 " vim-polygot
