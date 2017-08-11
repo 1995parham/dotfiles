@@ -119,8 +119,7 @@ echo; echo "[vim] Installation end"; echo
 echo "[nvim] Installation begin"; echo
 case $install_type in
 	0)
-		files=("vimrc" "vim")
-		dotfile "vim" files[@]
+		ln -s "$current_dir/nvim" "$HOME/.config/nvim"
 		;;
 	1)
 		;;
