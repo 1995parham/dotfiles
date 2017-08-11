@@ -137,7 +137,7 @@ echo "[conf] Installation begin"; echo
 case $install_type in
 	0)
 		files=("dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
-			"signature" "copyrighter" "aria2" "tmux" "gdbinit"
+			"signature" "aria2" "tmux" "gdbinit"
 			"ctags" "octaverc")
 		dotfile "conf" files[@]
 		;;
