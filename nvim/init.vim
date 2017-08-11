@@ -129,7 +129,7 @@ command Spellcheck setlocal spell spelllang=en_us
 " }}}
 
 " Plugins {{{
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Static plugins all from the github :)
 Plug 'junegunn/vim-easy-align'
