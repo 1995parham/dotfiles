@@ -194,7 +194,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug '1995parham/vim-header', { 'do': '~/.vim/plugged/vim-header/init.sh' }
+Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
 " Add plugins to &runtimepath
 call plug#end()
