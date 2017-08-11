@@ -115,6 +115,24 @@ less $vim_log
 rm $vim_log
 echo; echo "[vim] Installation end"; echo
 
+#### NVIM ####
+echo "[nvim] Installation begin"; echo
+case $install_type in
+	0)
+		files=("vimrc" "vim")
+		dotfile "vim" files[@]
+		;;
+	1)
+		;;
+esac
+echo "[nvim] Installing vim plugins"
+vim_log=$(mktemp)
+nvim -c 'PlugInstall' -c "w $vim_log" -c 'q' -c 'q'
+less $vim_log
+rm $vim_log
+echo; echo "[nvim] Installation end"; echo
+
+
 #### Conf ####
 echo "[conf] Installation begin"; echo
 case $install_type in
