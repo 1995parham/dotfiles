@@ -3,3 +3,4 @@
 	email = parham.alvani@gmail.com
 [core]
 	excludesfile = ~/.gitignore
+	editor = nvim
