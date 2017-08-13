@@ -209,6 +209,9 @@ call plug#end()
 let g:wakatime_PythonBinary = 'python3'
 let g:wakatime_ScreenRedraw = 1
 
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<C-u>"
+
 " Tomorrow-Night
 set background=light
 if (has("termguicolors"))
