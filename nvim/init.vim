@@ -182,7 +182,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-python/python-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'gcmt/taboo.vim'
 Plug 'cohama/agit.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'vim-utils/vim-man'
@@ -337,10 +336,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
 let g:airline_section_c = '%{strftime("%c")}'
-
-" Taboo
-let g:taboo_tab_format = ' [%N] %f%m'
-let g:taboo_tabline = 0
 
 " vim-buffergator
 map <C-b> :BuffergatorToggle<CR>
