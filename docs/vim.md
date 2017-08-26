@@ -1,5 +1,5 @@
 ---
-title: VIM for dummy
+title: VIM (NVIM) for dummies
 layout: page
 theme: green
 ---
@@ -7,13 +7,13 @@ theme: green
 ## VIM is your IDE
 
 If you are using this dotfiles vim configuration
-you can use following scripts to have better vim :D
+you can use following scripts and informations for having better vim.
 
 ### C
 
-If your c file is big and you want a function in it
-do not install jetbrains stuff :D just use CLint in
-your vim with following command:
+If your c file is big and you want just a function in it
+don't install jetbrains stuff, just use CTags in
+your vim with following command.
 
 ```sh
 sudo apt install ctags
@@ -21,9 +21,10 @@ sudo apt install ctags
 
 ### JavaScript
 
-Personally I use ESLint as linter for my JS projects
-and you can install it with locally in your project
-with following commands:
+Personally I use [ESLint](https://eslint.org/) as linter for my JS projects.
+It can be configured by many aspects and styles. Personally I use standard
+style of Javascript which can be configured on eslint by following comamnds and yaml configurations.
+You can find more about Javascript standard style [here](https://standardjs.com/).
 
 ```sh
 # setup eslint locally
@@ -36,7 +37,7 @@ npm init
 touch .eslintrc.yml
 ```
 
-and config eslint with `.eslintrc.yml` for nodejs:
+> `.eslintrc.yml` for nodejs
 
 ```yaml
 ---
@@ -46,7 +47,7 @@ and config eslint with `.eslintrc.yml` for nodejs:
     ecmaVersion: 6
 ```
 
-and for react:
+> `.eslintrc.yml` for react
 
 ```yaml
 ---
@@ -73,14 +74,14 @@ phpcs --config-set default_standard PSR2
 ### Python
 
 It's very good idea to use `pyvenv` in order to creating
-python project environment. Build your environment with:
+python project environment. Build and activate your environment with:
 
 ```sh
 pyvenv $PROJECT_ROOT
 . $PROJECT_ROOT/bin/activate
 ```
 
-after you do your works you can deactivate your virtual
+after do your works, you can deactivate your virtual
 environment with
 
 ```sh
@@ -129,13 +130,11 @@ After that you have complete IDE for go in vim.
 | 41 | [tbone](http://github.com/tpope/vim-tbone)      | 42 | [wildfire](http://github.com/gcmt/wildfire.vim)               |
 | 43 | [nerdtree](http://github.com/scrooloose/nerdtree)   | 44 | [js-libraries-syntax](http://github.com/othree/javascript-libraries-syntax.vim)    |
 | 45 | [vim-ruby](http://github.com/vim-ruby/vim-ruby)   | 46 | [gocode](http://github.com/nsf/gocode)                 |
-| 47 | [taboo](http://github.com/gcmt/taboo.vim)      | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
+| 47 | [ultisnips](http://github.com/SirVer/ultisnips)      | 48 | [vim-nerdtree-tabs](http://github.com/jistr/vim-nerdtree-tabs)      |
 | 49 | [Agit](http://github.com/cohama/agit.vim)       | 50 | [vim-buffergator](http://github.com/jeetsukumaran/vim-buffergator)        |
 | 51 | [vim-man](http://github.com/vim-utils/vim-man)    | 52 | [go-explorer](http://github.com/garyburd/go-explorer)            |
 | 53 | [vim-vue](http://github.com/posva/vim-vue)    | 54 | [vim-vue-syntastic](http://github.com/sekel/vim-vue-syntastic)      |
 | 55 | [Jenkinsfile-vim-syntax](http://github.com/martinda/Jenkinsfile-vim-syntax) | 56 | [syntastic-local-eslint](http://github.com/mtscout6/syntastic-local-eslint.vim) |
-
-
 
 ## Shortcuts
 
