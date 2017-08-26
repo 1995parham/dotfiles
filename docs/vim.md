@@ -149,6 +149,7 @@ After that you have complete IDE for go in vim.
 | `<C-h>`          | Toggles [SuperTab](https://github.com/ervandew/supertab)          |
 | `<C-b>`          | Toogles [Buffergator](https://github.com/jeetsukumaran/vim-buffergator)       |
 | `<F5>`           | Toggles [Tagbar](https://github.com/majutsushi/tagbar)            |
+| `<C-u>`          | Toggles [utlisnips](https://github.com/SirVer/ultisnips)         |
 | `<C-w> <Left>`   | Move to left window       |
 | `<C-w> <Right>`  | Move to right window      |
 | `<C-w> <Up>`     | Move to up window         |
