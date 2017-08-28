@@ -174,6 +174,7 @@ case $install_type in
 		;;
 	1)
 		;;
+esac
 echo; echo "[nvim] Installation end"; echo
 
 
