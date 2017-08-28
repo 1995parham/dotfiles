@@ -209,8 +209,19 @@ echo; echo "[zsh] Installation end"; echo
 
 #### Git ####
 echo "[git] Installation begin"; echo
-files=("gitconfig" "gitignore")
-dotfile "git" files[@]
+case $install_type in
+	0)
+		files=("gitconfig" "gitignore")
+		dotfile "git" files[@]
+		;;
+	1)
+		files=("gitignore")
+		dotfile "git" files[@]
+		files=("gitconfig")
+		dotfile "git" files[@] true "minor"
+		;;
+
+esac
 echo; echo "[git] Installation end"; echo
 
 #### Bin ####
