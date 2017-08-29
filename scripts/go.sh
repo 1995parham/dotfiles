@@ -17,6 +17,7 @@ else
 	echo "[go] Darwin"
 
 	brew install go
+	brew install dep
 fi
 
 echo "[go] Create go directory structure"
