@@ -29,7 +29,6 @@ if [ ! -d $HOME/Documents/Go ]; then
 fi
 
 echo "[go] Fetch some good and useful go packages"
-go get -u github.com/golang/dep/cmd/dep
 go get -u -v github.com/alecthomas/gometalinter
 go get -u -v github.com/nsf/gocode
 go get -u -v github.com/garyburd/go-explorer/src/getool
