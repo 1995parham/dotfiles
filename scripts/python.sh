@@ -28,4 +28,4 @@ echo "[python] Installing flake-8 pep8-naming sphinx"
 
 pip3 install flake8
 pip3 install pep8-naming
-pip3 install sphinx
+pip3 install pipenv
