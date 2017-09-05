@@ -192,6 +192,7 @@ Plug 'posva/vim-vue'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'sekel/vim-vue-syntastic'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'elzr/vim-json'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
