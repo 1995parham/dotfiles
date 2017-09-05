@@ -135,6 +135,7 @@ After that you have complete IDE for go in vim.
 | 51 | [vim-man](http://github.com/vim-utils/vim-man)    | 52 | [go-explorer](http://github.com/garyburd/go-explorer)            |
 | 53 | [vim-vue](http://github.com/posva/vim-vue)    | 54 | [vim-vue-syntastic](http://github.com/sekel/vim-vue-syntastic)      |
 | 55 | [Jenkinsfile-vim-syntax](http://github.com/martinda/Jenkinsfile-vim-syntax) | 56 | [syntastic-local-eslint](http://github.com/mtscout6/syntastic-local-eslint.vim) |
+| 57 | [vim-json](http://github.com/elzr/vim-json)  | 58 | |
 
 ## Shortcuts
 
