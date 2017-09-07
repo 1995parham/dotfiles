@@ -11,7 +11,7 @@ Parham Edge (1):
 {:.table .table-striped}
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
-| 192.168.1.1      | Provider Access Dev | TCI ADSL        |
+| 192.168.75.254   | Provider Access Dev | MTN Inrancell   |
 
 Parham Master (73):
 
@@ -31,7 +31,10 @@ Parham Master (73):
 | 192.168.73.12    | Parham Giant        | ESXi            |
 | 192.168.73.13    | Renge Extender      | -               |
 | 192.168.73.14    | Parham Pi           | RPi             |
-| 192.168.73.254   | DNS - Gateway       | -               |
+| 192.168.73.100   | DNS                 | -               |
+| 192.168.73.101   | DLink Switch        | -               |
+| 192.168.73.102   | Parham Giant Mgmt   | iKVM            |
+| 192.168.73.254   | Gateway             | -               |
 
 
 ## vSphere 6.5
