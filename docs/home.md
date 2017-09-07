@@ -38,6 +38,10 @@ Parham Master (73):
 | 192.168.73.254   | Gateway             | -               |
 
 
+## Openfiler
+Login into web management interface on `https://192.168.73.103:446/`
+with `openfiler:password`.
+
 ## vSphere 6.5
 ### govc
 govc is a command-line application for interacting with VMware vSphere APIs (ESXi and/or vCenter).
