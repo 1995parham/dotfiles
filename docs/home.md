@@ -34,6 +34,7 @@ Parham Master (73):
 | 192.168.73.100   | DNS                 | -               |
 | 192.168.73.101   | DLink Switch        | -               |
 | 192.168.73.102   | Parham Giant Mgmt   | iKVM            |
+| 192.168.73.103   | OpenFiler           | -               |
 | 192.168.73.254   | Gateway             | -               |
 
 
