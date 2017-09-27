@@ -195,6 +195,7 @@ After that you have complete IDE for go in vim.
 | `:b name`        | Open buffer               | `:bd name`       | Delete buffer                       |
 | `:Agit`          | Git log manager           | `:edit`          | Reload current file                 |
 | `:edit!`         | Reload current file force | `:edit x`        | Edit file x                         |
+| `:terminal`      | Open terminal             | | |
 
 #### Mode Commands
 
