@@ -36,6 +36,9 @@ set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
 " Hide the toolbar
 set guioptions-=T
 
+" Setup cursor shape
+set guicursor=
+
 " No backup files
 set nobackup
 
