@@ -32,6 +32,7 @@ echo "[go] Fetch some good and useful go packages"
 go get -u -v github.com/alecthomas/gometalinter
 go get -u -v github.com/nsf/gocode
 go get -u -v github.com/garyburd/go-explorer/src/getool
+go get -u -v github.com/golang/dep/cmd/dep
 gometalinter --install
 
 echo "[go] Install binary requirements of vim-go"
