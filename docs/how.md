@@ -24,6 +24,13 @@ sudo dpkg-reconfigure locales
 `docker system prune` will delete ALL unused data
 (i.e. In order: containers stopped, volumes without containers and images with no containers).
 
+## Enable 3D HW acceleration support on WMware 14 on Ubuntu 17.04
+Edit the file `~/.vmware/preferences` and look for a line that starts with
+`mks.gl.allowBlacklistedDrivers`, if it is not present - you can add it into the file.
+
+This should be changed to `mks.gl.allowBlacklistedDrivers = "TRUE"`
+(note the double quotes around TRUE)
+
 ## Zabbix based Monitoring
 
 Zabbix is an open source software for networks and application monitoring.
