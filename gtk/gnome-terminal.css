@@ -1,7 +1,0 @@
-TerminalWindow .notebook tab {
-	background-color: #e2e0dd;
-}
-
-TerminalWindow .notebook tab:active {
-	background-color: #ffa500;
-}
