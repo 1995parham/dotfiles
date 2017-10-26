@@ -57,7 +57,7 @@ configfile() {
 	local module=$1
 	local src_file=$2
 
-	if [ -e "$HOME/.config" ]; then
+	if [ ! -e "$HOME/.config" ]; then
 		mkdir "$HOME/.config"
 	fi
 

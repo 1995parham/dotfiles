@@ -22,3 +22,7 @@ Setup configuration files with:
 ```sh
 ./install.sh
 ```
+
+### Tilix
+
+Copy schemes from `tilix/` into `$HOME/.config/tilix/schemes`.

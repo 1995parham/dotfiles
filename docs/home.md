@@ -6,12 +6,12 @@ theme: red
 
 ## Topology
 
-Parham Edge (1):
+Parham Edge (75):
 
 {:.table .table-striped}
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
-| 192.168.75.254   | Provider Access Dev | MTN Inrancell   |
+| 192.168.75.254   | Provider Access Dev | TCI             |
 
 Parham Master (73):
 
@@ -22,15 +22,13 @@ Parham Master (73):
 | 192.168.73.2     | Parham MacBookPro15 | Desktop         |
 | 192.168.73.3     | Parham Main         | ESXi            |
 | 192.168.73.4     | Parham USVM 1       | Ubuntu Server   |
-| 192.168.73.5     | Parham USVM 2       | Ubuntu Server   |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
-| 192.168.73.7     | Parham SVE14A27CXH  | TV              |
+| 192.168.73.7     | Parham SVE14A27CXH  | -               |
 | 192.168.73.9     | Main Photon         | Photon OS       |
 | 192.168.73.10    | NAS                 | -               |
 | 192.168.73.11    | vCenter             | -               |
 | 192.168.73.12    | Parham Giant        | ESXi            |
 | 192.168.73.13    | Renge Extender      | -               |
-| 192.168.73.14    | Parham Pi           | RPi             |
 | 192.168.73.100   | DNS                 | -               |
 | 192.168.73.101   | DLink Switch        | -               |
 | 192.168.73.102   | Parham Giant Mgmt   | iKVM            |
