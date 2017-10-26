@@ -187,7 +187,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'cohama/agit.vim'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'vim-utils/vim-man'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'garyburd/go-explorer'
@@ -196,6 +195,7 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'sekel/vim-vue-syntastic'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'elzr/vim-json'
+Plug 'kylef/apiblueprint.vim'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }

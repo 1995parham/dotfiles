@@ -4,7 +4,7 @@ layout: page
 theme: orange
 ---
 
-## Colorful Terminal is here ...
+## Colorful Terminal
 
 For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
 
@@ -21,8 +21,35 @@ sudo dpkg-reconfigure locales
 ```
 
 ## Let's clean up the docker junks
+
 `docker system prune` will delete ALL unused data
 (i.e. In order: containers stopped, volumes without containers and images with no containers).
+
+## Enable 3D HW acceleration support on WMware 14 on Ubuntu 17.04
+
+Edit the file `~/.vmware/preferences` and look for a line that starts with
+`mks.gl.allowBlacklistedDrivers`, if it is not present - you can add it into the file.
+
+This should be changed to `mks.gl.allowBlacklistedDrivers = "TRUE"`
+(note the double quotes around TRUE)
+
+## Workstation 14 Linux 4.13 instability
+
+You can apply the patch after installing VMware like this:
+
+```sh
+sudo -s
+cd /tmp
+cp /usr/lib/vmware/modules/source/vmmon.tar .
+tar xf vmmon.tar
+rm vmmon.tar
+wget https://raw.githubusercontent.com/mkubecek/vmware-host-modules/fadedd9c8a4dd23f74da2b448572df95666dfe12/vmmon-only/linux/hostif.c
+mv -f hostif.c vmmon-only/linux/hostif.c
+tar cf vmmon.tar vmmon-only
+rm -fr vmmon-only
+mv -f vmmon.tar /usr/lib/vmware/modules/source/vmmon.tar
+vmware-modconfig --console --install-all
+```
 
 ## Zabbix based Monitoring
 

@@ -17,11 +17,10 @@ fi
 # Copy all fonts to user fonts directory
 echo "Copying fonts..."
 eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
+eval $find_command | xargs -0 -I % basename "%"
 
 # Reset font cache on Linux
 if command -v fc-cache @>/dev/null ; then
     echo "Resetting font cache, this may take a moment..."
     fc-cache -f $font_dir
 fi
-
-echo "Melso AdobeArabic fonts installed to $font_dir"
