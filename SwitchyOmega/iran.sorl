@@ -11,7 +11,6 @@
 *.docker.com +iran
 *.developers.google.com +iran
 *.firebase.google.com +iran
-*.godoc.org +iran
 *.mbed.com +iran
 *.google-developers.appspot.com +iran
 *.sdxcentral.com +iran
