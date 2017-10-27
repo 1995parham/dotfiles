@@ -1,0 +1,34 @@
+[SwitchyOmega Conditions]
+; Require: SwitchyOmega >= 2.3.2
+; Date: 9/14/2017
+; Usage: https://github.com/FelisCatus/SwitchyOmega/wiki/RuleListUsage
+
+*.analytics.google.com
+*.plot.ly
+*.material.io
+*.freenom.com
+*.ti.com
+*.vmware.com
+*.kubernetes.io
+*.docker.com
+*.developers.google.com
+*.firebase.google.com
+*.godoc.org
+*.mbed.com
+*.google-developers.appspot.com
+*.sdxcentral.com
+*.vimeo.com
+*.vimeocdn.com
+*.soundcloud.com
+*.sndcdn.com
+*.rjmediamusic.com
+*.radiojavan.com
+*.facebook.com
+*.doubleclick.net
+*.doubleclickbygoogle.com
+*.plus.google.com
+*.spotify.com
+*.t.co
+*.googleusercontent.com
+*.subscene.com
+*.datastax.com
