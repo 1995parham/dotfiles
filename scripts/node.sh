@@ -29,3 +29,6 @@ fi
 
 echo "[node] Installing PM2 - the industry-standard task runner"
 npm install -g pm2
+
+echo "[node] Installing Newman - Modern software is built on APIs. Postman helps you develop APIs faster."
+npm install -g newman
