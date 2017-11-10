@@ -23,5 +23,7 @@
 *.googleusercontent.com +iran
 *.subscene.com +iran
 *.datastax.com +iran
+*.atlassian.com +iran
+*.bitbucket.org +iran
 
 * +direct
