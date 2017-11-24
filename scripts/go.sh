@@ -25,7 +25,10 @@ if [ ! -d $HOME/Documents/Go ]; then
 	mkdir $HOME/Documents/Go/bin
 	mkdir $HOME/Documents/Go/src
 	mkdir $HOME/Documents/Go/lib
-	chown -R $USER:$USER $HOME/Documents/Go
+	
+	if [[ $OSTYPE == "linux-gnu" ]]; then
+		sudo chown -R $USER:$USER $HOME/Documents/Go
+	fi
 fi
 
 echo "[go] Fetch some good and useful go packages"
