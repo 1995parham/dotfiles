@@ -184,7 +184,7 @@ case $install_type in
 	0)
 		files=("dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
 			"signature" "aria2" "tmux" "gdbinit"
-			"ctags" "octaverc" "terminfo")
+			"ctags" "octaverc")
 		dotfile "conf" files[@]
 		;;
 	1)
@@ -229,6 +229,11 @@ echo "[bin] Installation begin"; echo
 files=("bin")
 dotfile "bin" files[@] false
 echo; echo "[bin] Installation end"; echo
+
+## Terminfo ##
+echo "[terminfo] Installation begin"; echo
+tic "$current_dir/xterm-256color-italic.terminfo"
+echo; echo "[terminfo] Installation end"; echo
 
 #### General configuration ####
 echo "[general configuration] Let's configure the things !"; echo
