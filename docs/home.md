@@ -19,7 +19,7 @@ Parham Master (73):
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
 | 192.168.73.1     | Parham MacBookPro   | ESXi            |
-| 192.168.73.2     | Parham MacBookPro15 | Desktop         |
+| 192.168.73.2     | Parham iMac         | Desktop         |
 | 192.168.73.3     | Parham Main         | ESXi            |
 | 192.168.73.4     | Parham USVM 1       | Ubuntu Server   |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
@@ -51,7 +51,9 @@ go get -u github.com/vmware/govmomi/govc
 After installation you can use this awesome tool with
 
 ```sh
-govc command -u user:pass@host
+govc host.info -u user:pass@host
+govc vm.info -vm.ip 192.168.73.4 -u user:pass@host
+govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64" -u user:pass@host
 ```
 
 ### vCenter
