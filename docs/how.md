@@ -4,6 +4,10 @@ layout: page
 theme: orange
 ---
 
+## Freedom of Developers
+** Thanks to Awesome backtory team **
+Just checkout [here](https://github.com/backtory/fod).
+
 ## Colorful Terminal
 
 For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
