@@ -19,6 +19,11 @@ $ sudo apt-get install golang-1.9-go
 
 Note that golang-1.9-go puts binaries in /usr/lib/go-1.9/bin. If you want them on your PATH, you need to make that change yourself.
 
+```sh
+$ sudo ln -s /usr/lib/go-1.9/bin/go /usr/bin/go
+$ sudo ln -s /usr/lib/go-1.9/bin/gofmt /usr/bin/gofmt
+```
+
 ## Colorful Terminal
 
 For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
