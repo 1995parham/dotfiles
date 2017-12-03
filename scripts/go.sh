@@ -36,6 +36,7 @@ go get -v -u "github.com/alecthomas/gometalinter"
 go get -v -u "github.com/nsf/gocode"
 go get -v -u "github.com/garyburd/go-explorer/src/getool"
 go get -v -u "github.com/golang/dep/cmd/dep"
+go get -v -u "github.com/derekparker/delve/cmd/dlv"
 gometalinter --install
 
 echo "[go] Install binary requirements of vim-go"
