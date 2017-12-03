@@ -24,4 +24,3 @@ else
 	apt-get install zsh ctags vim tmux mosh aria2
 	apt-get install neovim
 fi
-
