@@ -5,8 +5,19 @@ theme: orange
 ---
 
 ## Freedom of Developers
+
 ** Thanks to Awesome backtory team **
 Just checkout [here](https://github.com/backtory/fod).
+
+## Install Go on Ubuntu
+
+```sh
+$ sudo add-apt-repository ppa:gophers/archive
+$ sudo apt update
+$ sudo apt-get install golang-1.9-go
+```
+
+Note that golang-1.9-go puts binaries in /usr/lib/go-1.9/bin. If you want them on your PATH, you need to make that change yourself.
 
 ## Colorful Terminal
 
