@@ -35,7 +35,7 @@ echo "[docker] The Docker daemon starts automatically."
 
 echo "[docker] Docker in futherland"
 mkdir -p /etc/systemd/system/docker.service.d
-cat > /etc/systemd/system/docker.service.d/http-proxy << "EOF"
+cat > /etc/systemd/system/docker.service.d/http-proxy.conf << "EOF"
 [Service]
 Environment="HTTP_PROXY=http://fod.backtory.com:8118/"
 EOF
