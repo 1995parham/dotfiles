@@ -14,6 +14,7 @@ fi
 
 echo "[docker] HTTP Proxy, for those who lives in Iran"
 export http_proxy=http://fod.backtory.com:8118/
+export https_proxy=http://fod.backtory.com:8118/
 
 echo "[docker] Installing tools for apt repository management"
 apt-get -q update
@@ -53,3 +54,4 @@ fi
 
 echo "[docker] HTTP Proxy, for those who lives in Iran"
 unset http_proxy
+unset https_proxy
