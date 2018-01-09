@@ -124,6 +124,9 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 " Git commit
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+" Arduino
+autocmd Filetype arduino setlocal ts=2 sts=2 sw=2 expandtab
+
 " Cursor
 autocmd VimLeave * set guicursor=a:ver30
 
