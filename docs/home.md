@@ -35,6 +35,15 @@ Parham Master (73):
 | 192.168.73.103   | OpenFiler           | -               |
 | 192.168.73.254   | Gateway             | -               |
 
+Kubernetes:
+
+{:.table .table-striped}
+| IP Address       | Name                | Comment         |
+|:----------------:|:-------------------:|:----------------|
+| 192.168.73.60    | Parham Rancher      | Rancher         |
+
+
+
 
 ## Openfiler
 Login into web management interface on `https://192.168.73.103:446/`
