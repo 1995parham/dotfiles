@@ -38,9 +38,10 @@ Parham Master (73):
 Kubernetes:
 
 {:.table .table-striped}
-| IP Address       | Name                | Comment         |
-|:----------------:|:-------------------:|:----------------|
-| 192.168.73.60    | Parham Rancher      | Rancher         |
+| IP Address       | Name                | Comment           |
+|:----------------:|:-------------------:|:------------------|
+| 192.168.73.60    | Parham Rancher      | Rancher           |
+| 192.168.73.60    | Parham KMaster      | Kubernetes Master |
 
 
 
