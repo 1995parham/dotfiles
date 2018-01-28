@@ -35,13 +35,13 @@ Parham Master (73):
 | 192.168.73.103   | OpenFiler           | -               |
 | 192.168.73.254   | Gateway             | -               |
 
-Kubernetes:
+Rancher Cluster:
 
 {:.table .table-striped}
 | IP Address       | Name                | Comment           |
 |:----------------:|:-------------------:|:------------------|
 | 192.168.73.60    | Parham Rancher      | Rancher           |
-| 192.168.73.60    | Parham KMaster      | Kubernetes Master |
+| 192.168.73.61    | Parham RHost 1      | Rancher Host 1    |
 
 
 
