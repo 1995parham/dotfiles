@@ -35,12 +35,14 @@ apt-get install docker-ce
 echo "[docker] The Docker daemon starts automatically."
 
 echo "[docker] Docker in futherland"
-mkdir -p /etc/systemd/system/docker.service.d
-cat > /etc/systemd/system/docker.service.d/http-proxy.conf << "EOF"
-[Service]
-Environment="HTTP_PROXY=http://fod.backtory.com:8118/"
+cat > /etc/docker/daemon.json << "EOF"
+{
+  "registry-mirrors": [
+      "http://mirror.docker.cloud.aut.ac.ir"
+  ],
+  "dns": ["8.8.8.8", "8.8.4.4"]
+}
 EOF
-systemctl daemon-reload
 systemctl restart docker
 
 compose_vr=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
