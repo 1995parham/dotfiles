@@ -58,7 +58,7 @@ colorscheme Tomorrow-Night
 " Git gutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_eager = 0
-set signcolumn=yes
+" set signcolumn=yes
 highlight clear SignColumn
 
 " Emmmet
