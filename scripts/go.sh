@@ -11,6 +11,11 @@
 echo "[go] Installing go"
 if [[ $OSTYPE == "linux-gnu" ]]; then
 	echo "[go] Linux"
+
+	if [[ $EUID -eq 0 ]]; then
+		echo "[docker] This script must be run as normal user"
+		exit 1
+	fi
 	
 	sudo apt-get install golang
 else
@@ -37,6 +42,8 @@ go get -v -u "github.com/nsf/gocode"
 go get -v -u "github.com/garyburd/go-explorer/src/getool"
 go get -v -u "github.com/golang/dep/cmd/dep"
 go get -v -u "github.com/derekparker/delve/cmd/dlv"
+go get -v -u "github.com/revel/revel"
+go get -v -u "github.com/revel/cmd/revel"
 
 echo "[go] Install binary requirements of vim-go"
 vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
