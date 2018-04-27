@@ -17,7 +17,9 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 		exit 1
 	fi
 	
-	sudo apt-get install golang
+	sudo add-apt-repository -y ppa:gophers/archive
+	sudo apt-get update
+	sudo apt-get install golang-1.10-go
 else
 	echo "[go] Darwin"
 
