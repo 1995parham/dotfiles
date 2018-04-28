@@ -45,8 +45,14 @@ echo "[go] Fetch some good and useful go packages"
 go get -v -u "github.com/alecthomas/gometalinter"
 go get -v -u "github.com/nsf/gocode"
 go get -v -u "github.com/garyburd/go-explorer/src/getool"
+
+# Go Dep
 go get -v -u "github.com/golang/dep/cmd/dep"
+
+# Go Debugger
 go get -v -u "github.com/derekparker/delve/cmd/dlv"
+
+# Revel web framework
 go get -v -u "github.com/revel/revel"
 go get -v -u "github.com/revel/cmd/revel"
 
