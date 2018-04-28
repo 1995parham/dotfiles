@@ -20,6 +20,9 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 	sudo add-apt-repository -y ppa:gophers/archive
 	sudo apt-get update
 	sudo apt-get install golang-1.10-go
+
+	sudo ln -s /usr/lib/go-1.10/bin/go /usr/bin/go
+	sudo ln -s /usr/lib/go-1.10/bin/gofmt /usr/bin/gofmt
 else
 	echo "[go] Darwin"
 
