@@ -17,7 +17,12 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
 		exit 1
 	fi
 	
-	sudo apt-get install golang
+	sudo add-apt-repository -y ppa:gophers/archive
+	sudo apt-get update
+	sudo apt-get install golang-1.10-go
+
+	sudo ln -s /usr/lib/go-1.10/bin/go /usr/bin/go
+	sudo ln -s /usr/lib/go-1.10/bin/gofmt /usr/bin/gofmt
 else
 	echo "[go] Darwin"
 
@@ -40,8 +45,14 @@ echo "[go] Fetch some good and useful go packages"
 go get -v -u "github.com/alecthomas/gometalinter"
 go get -v -u "github.com/nsf/gocode"
 go get -v -u "github.com/garyburd/go-explorer/src/getool"
+
+# Go Dep
 go get -v -u "github.com/golang/dep/cmd/dep"
+
+# Go Debugger
 go get -v -u "github.com/derekparker/delve/cmd/dlv"
+
+# Revel web framework
 go get -v -u "github.com/revel/revel"
 go get -v -u "github.com/revel/cmd/revel"
 
