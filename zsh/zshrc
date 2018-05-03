@@ -31,6 +31,7 @@ export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
 	PATH="$PATH:$HOME/Documents/Go/bin"
 fi
+alias dep-proxy="http_proxy=fod.backtory.com:8118 dep"
 
 # }}}
 
