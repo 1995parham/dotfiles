@@ -38,7 +38,8 @@ echo "[docker] Docker in futherland"
 cat > /etc/docker/daemon.json << "EOF"
 {
   "registry-mirrors": [
-      "http://mirror.docker.cloud.aut.ac.ir"
+      "http://mirror.docker.cloud.aut.ac.ir",
+      "http://repo.docker.ir:5000"
   ],
   "dns": ["8.8.8.8", "8.8.4.4"]
 }
