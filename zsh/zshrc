@@ -248,8 +248,6 @@ source $HOME/.zsh.plug/mosh.zsh
 source $HOME/.zsh.plug/prompt.zsh
 source $HOME/.zsh.plug/docker.zsh
 source $HOME/.zsh.plug/govc.zsh
+source $HOME/.zsh.plug/travis.zsh
 
 # }}}
-
-# added by travis gem
-[ -f /home/parham/.travis/travis.sh ] && source /home/parham/.travis/travis.sh
