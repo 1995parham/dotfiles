@@ -20,7 +20,7 @@ echo "[docker] Installing tools for apt repository management"
 apt-get -q update
 apt-get install apt-transport-https ca-certificates
 
-echo "[docker] Add net GPG key"
+echo "[docker] Add new GPG key"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 echo "[docker] Add docker apt repository"
