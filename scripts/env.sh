@@ -22,7 +22,7 @@ else
 	fi
 
 	apt-get install zsh ctags vim tmux mosh aria2
-	add-apt-repository ppa:neovim-ppa/stable
+	add-apt-repository ppa:neovim-ppa/unstable
 	apt-get update
 	apt-get install neovim
 	gem install travis -v 1.8.8 --no-rdoc --no-ri
