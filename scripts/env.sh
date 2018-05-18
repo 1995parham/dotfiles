@@ -25,5 +25,6 @@ else
 	add-apt-repository ppa:neovim-ppa/unstable
 	apt-get update
 	apt-get install neovim
+	pip3 isntall neovim
 	gem install travis -v 1.8.8 --no-rdoc --no-ri
 fi
