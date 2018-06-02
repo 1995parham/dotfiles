@@ -32,6 +32,7 @@ if [ -d $HOME/Documents/Go/bin ]; then
 	PATH="$PATH:$HOME/Documents/Go/bin"
 fi
 alias dep-proxy="https_proxy=fod.backtory.com:8118 dep"
+alias go-get-proxy="https_proxy=fod.backtory.com:8118 go get"
 
 # }}}
 
