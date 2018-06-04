@@ -45,6 +45,7 @@ echo "[go] Fetch some good and useful go packages"
 export http_proxy=http://fod.backtory.com:8118/
 export https_proxy=http://fod.backtory.com:8118/
 
+# Go Tools
 go get -v -u "github.com/alecthomas/gometalinter"
 go get -v -u "github.com/nsf/gocode"
 go get -v -u "github.com/garyburd/go-explorer/src/getool"
