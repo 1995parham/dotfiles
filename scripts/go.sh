@@ -42,6 +42,9 @@ if [ ! -d $HOME/Documents/Go ]; then
 fi
 
 echo "[go] Fetch some good and useful go packages"
+export http_proxy=http://fod.backtory.com:8118/
+export https_proxy=http://fod.backtory.com:8118/
+
 go get -v -u "github.com/alecthomas/gometalinter"
 go get -v -u "github.com/nsf/gocode"
 go get -v -u "github.com/garyburd/go-explorer/src/getool"
@@ -58,3 +61,6 @@ go get -v -u "github.com/revel/cmd/revel"
 
 echo "[go] Install binary requirements of vim-go"
 vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
+
+unset http_proxy
+unset https_proxy
