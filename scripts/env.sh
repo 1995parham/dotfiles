@@ -13,6 +13,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install zsh ctags vim tmux mosh aria2
 	brew install neovim
 	pip3 install neovim
+	brew install yamllint
 else
 	echo "[env] Linux"
 
@@ -21,7 +22,7 @@ else
 		exit 1
 	fi
 
-	apt-get install zsh ctags vim tmux mosh aria2 jq
+	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint
 
 	add-apt-repository ppa:neovim-ppa/unstable
 	apt-get update
