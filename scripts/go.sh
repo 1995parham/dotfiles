@@ -60,6 +60,9 @@ go get -v -u "github.com/derekparker/delve/cmd/dlv"
 go get -v -u "github.com/revel/revel"
 go get -v -u "github.com/revel/cmd/revel"
 
+# GoCode, An autocompletion daemon for the Go programming language
+go get -v -u "github.com/nsf/gocode"
+
 echo "[go] Install binary requirements of vim-go"
 vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
 
