@@ -285,6 +285,8 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_extra_types = 1
 let g:go_fmt_command = "goimports"
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+set statusline+=go#statusline#Show()
+
 
 " vim-markdown
 let g:vim_markdown_math = 1
