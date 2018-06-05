@@ -105,9 +105,6 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 " Json
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 
-" Docker-compose
-autocmd Filetype docker-compose setlocal ts=2 sts=2 sw=2 expandtab
-
 " Vue
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
 autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2 expandtab
@@ -201,6 +198,7 @@ Plug 'elzr/vim-json'
 Plug 'kylef/apiblueprint.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
+Plug 'stephpy/vim-yaml'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
