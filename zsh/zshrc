@@ -70,7 +70,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Plugin configuration {{{
 # pj
-PROJECT_PATHS=(~/Document/Git/parham ~/Document/Go/src/github.com)
+PROJECT_PATHS=(~/Documents/Git/parham ~/Documents/Go/src)
 # }}}
 
 # User configuration {{{
