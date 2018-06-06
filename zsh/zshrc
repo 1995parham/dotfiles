@@ -64,6 +64,7 @@ plugins=(
   pyenv
   vi-mode
   pj
+  gitignore
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -135,10 +136,6 @@ alias go-get-proxy="https_proxy=fod.backtory.com:8118 go get"
 
 export GITHUB_USER="1995parham"
 export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
-
-function gi() {
-	curl -L -s "https://www.gitignore.io/api/$@";
-}
 
 # }}}
 
