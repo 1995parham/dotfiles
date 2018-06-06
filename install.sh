@@ -201,7 +201,8 @@ echo; echo "[conf] Installation end"; echo
 echo "[zsh] Installation begin"; echo
 case $install_type in
 	0)
-		files=("zshrc" "zsh.plug")
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh); exit"
+		files=("zshrc")
 		dotfile "zsh" files[@]
 		;;
 esac
