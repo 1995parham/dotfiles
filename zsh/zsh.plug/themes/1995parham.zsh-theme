@@ -23,6 +23,23 @@ function prompt_venv() {
 	echo %F{239}$(virtualenv_info)%f
 }
 
+# Docker info when there is a Dockerfile
+function prompt_docker() {
+  if which docker 2>/dev/null 1>/dev/null && [ -f "./Dockerfile" ] ; then
+    DOCKER_VERSION=`docker -v | awk '{print substr($3, 0, length($3))}'`
+    echo %F{239}docker$DOCKER_VERSION%f
+  fi
+}
+
+# Go info when there is a .go file
+function prompt_go() {
+  if which go 2>/dev/null 1>/dev/null && [ ! -z `ls | grep \.go$ | head -1` ]; then
+    GO_VERSION=`go version | awk '{print $3}'`
+		echo %F{239}$GO_VERSION%f
+  fi
+}
+
+
 function prompt_char() {
   git branch >/dev/null 2>/dev/null && echo '±' && return
   hg root >/dev/null 2>/dev/null && echo '☿' && return
@@ -150,7 +167,7 @@ function prompt_1995parham_precmd() {
   # %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
   # '!' is true if the shell is privileged.
   PROMPT='
-%F{159}::%f $(prompt_venv)
+%F{159}::%f $(prompt_venv) $(prompt_docker) $(prompt_go)
 %K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
