@@ -42,7 +42,7 @@ function separator_char() {
 }
 
 function local_remote_prompt() {
-	if [ -n $SSH_CONNECTION ]; then
+	if [ $SSH_CONNECTION ]; then
 		echo $SSH
 	else
 		echo '@'
