@@ -35,7 +35,7 @@ select t in "Default" "Minor"; do
 		echo "$REPLY in not a valid option"
 	fi
 done
-PS3=$oPS3
+PS3=$osPS3
 
 # Dotfile
 # parameter 1: module name - string
