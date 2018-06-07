@@ -1,8 +1,7 @@
 # .Files !
 
 [![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
-![me](https://img.shields.io/badge/me-parham-orange.svg?style=flat-square)
-![we](https://img.shields.io/badge/we-are-orange.svg?style=flat-square)
+[![Codacy Badge](https://img.shields.io/codacy/grade/02e3f859b8944e749d1ceca4a4c41e49.svg?style=flat-square)](https://www.codacy.com/app/1995parham/dotfiles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=1995parham/dotfiles&amp;utm_campaign=Badge_Grade)
 
 ## Introduction
 
