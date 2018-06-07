@@ -1,3 +1,4 @@
+# Oh-My-ZSH {{{
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -65,9 +66,12 @@ plugins=(
   vi-mode
   pj
   gitignore
+  docker
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# }}}
 
 # Plugin configuration {{{
 # pj
