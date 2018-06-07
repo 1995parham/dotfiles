@@ -11,6 +11,7 @@ DETACHED="\u27a6"
 CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
+SSH="\u21e2"
 
 # Setup python virtual environment prompt settings
 VIRTUAL_ENV_DISABLE_PROMPT=true
@@ -38,6 +39,14 @@ function kernel_version() {
 
 function separator_char() {
   echo "$SEGMENT_SEPARATOR"
+}
+
+function local_remote_prompt() {
+	if [ -n $SSH_CONNECTION ]; then
+		echo " $SSH"
+	else
+		echo ""
+	fi
 }
 
 # Modify the colors and symbols in these variables as desired.
@@ -142,7 +151,7 @@ function prompt_1995parham_precmd() {
   # '!' is true if the shell is privileged.
   PROMPT='
 %F{159}::%f $(prompt_venv)
-%K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
+%K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}@$(local_remote_prompt)%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
   export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
