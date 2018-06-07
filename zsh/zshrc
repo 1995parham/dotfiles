@@ -68,6 +68,9 @@ plugins=(
   gitignore
   docker
   gnu-utils
+
+  travis
+  govc
 )
 
 source $ZSH/oh-my-zsh.sh
