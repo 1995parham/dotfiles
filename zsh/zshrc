@@ -70,6 +70,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+# local configuration
+source $HOME/.zshrc.local
 
 # }}}
 
