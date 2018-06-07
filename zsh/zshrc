@@ -71,6 +71,7 @@ plugins=(
 
   travis
   govc
+  revel
 )
 
 source $ZSH/oh-my-zsh.sh
