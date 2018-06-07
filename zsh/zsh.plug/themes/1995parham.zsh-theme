@@ -121,6 +121,19 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 
+# Status:
+# - was there an error
+# - am I root
+# - are there background jobs?
+function prompt_status() {
+  local symbols
+  symbols=()
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}$CROSS"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
+
+  [[ -n "$symbols" ]] && echo $symbols
+}
 
 function prompt_1995parham_precmd() {
   vcs_info
@@ -129,7 +142,7 @@ function prompt_1995parham_precmd() {
   # '!' is true if the shell is privileged.
   PROMPT='
 %F{159}::%f $(prompt_venv)
-%K{235} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
+%K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}@%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
 %F{123}$(prompt_char)%f '
 
   export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
