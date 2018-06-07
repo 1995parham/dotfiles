@@ -202,7 +202,7 @@ echo "[zsh] Installation begin"; echo
 case $install_type in
 	0)
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-		files=("zshrc")
+		files=("zshrc" "zsh.plug")
 		dotfile "zsh" files[@]
 		;;
 esac
