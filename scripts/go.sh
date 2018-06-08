@@ -57,15 +57,17 @@ install_go() {
 }
 
 set_proxy() {
-	echo "[go] set backtory proxy"
-	export http_proxy=http://fod.backtory.com:8118/
-	export https_proxy=http://fod.backtory.com:8118/
+	echo "[go] set parham-usvs proxy"
+
+	ssh -fTN -L 38080:127.0.0.1:38080 $parham_usvs
+	export {http,https,ftp}_proxy=127.0.0.1:38080
 }
 
 unset_proxy() {
-	echo "[go] unset backtory proxy"
-	unset http_proxy
-	unset https_proxy
+	echo "[go] unset parham-usvs proxy"
+
+	ps -fU root -C ssh | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
+	unset {http,https,ftp}_proxy
 }
 
 install_go_package() {
