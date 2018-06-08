@@ -54,7 +54,7 @@ function _buffalo_new() {
 		"--skip-pop[skips adding pop/soda to your app]"\
 		"--skip-webpack[skips adding Webpack to your app]"\
 		"--skip-yarn[use npm instead of yarn for frontend dependencies management]"\
-		"--vcs[specify the Version control system you would like to use \\[none, git, bzr\\]] (default git)"\
+		"--vcs[specify the Version control system you would like to use \\[none, git, bzr\\] (default git)]"\
 		"-v[verbosely print out the go get commands]"\
 		"--with-dep[adds github.com/golang/dep to your dep]"
 }
