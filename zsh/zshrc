@@ -144,8 +144,6 @@ export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
 	PATH="$PATH:$HOME/Documents/Go/bin"
 fi
-alias dep-proxy="https_proxy=fod.backtory.com:8118 dep"
-alias go-get-proxy="https_proxy=fod.backtory.com:8118 go get"
 
 # }}}
 
@@ -156,3 +154,23 @@ export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
 
 # }}}
 
+# proxy {{{
+
+export parham_usvs="151.80.199.92"
+
+function proxy_start() {
+	dig +short myip.opendns.com @resolver1.opendns.com
+
+	ssh -fTN -L 38080:127.0.0.1:38080 $parham_usvs
+
+	export {http,https,ftp}_proxy=127.0.0.1:38080
+	
+	curl ipinfo.io/ip
+}
+
+function proxy_stop() {
+	ps -fU root -C ssh | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
+	unset {http,https,ftp}_proxy
+}
+
+# }}}
