@@ -28,9 +28,9 @@ ssh -fTN -L 38080:127.0.0.1:38080 $ip
 
 export {http,https,ftp}_proxy=127.0.0.1:38080
 
-unset {http,https,ftp}_proxy<Paste>
+unset {http,https,ftp}_proxy
 
-ps -fU root -C ssh | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
+ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
 ```
 
 ## Installation
