@@ -102,9 +102,13 @@ install_go_packages() {
 	echo "[go] Revel web framework"
 	install_go_package "github.com/revel/revel"
 	install_go_package "github.com/revel/cmd/revel"
+	
+	# Buffalo awesome web framework
+	echo "[go] Buffalo web framework"
+	install_go_package "github.com/gobuffalo/buffalo/buffalo"
 
 	echo "[go] Install binary requirements of vim-go"
-	# vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
+	vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
 }
 
 while getopts "ihpv" argv; do
