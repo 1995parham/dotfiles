@@ -66,7 +66,7 @@ set_proxy() {
 unset_proxy() {
 	echo "[go] unset parham-usvs proxy"
 
-	ps -fU root -C ssh | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
+	ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
 	unset {http,https,ftp}_proxy
 }
 
