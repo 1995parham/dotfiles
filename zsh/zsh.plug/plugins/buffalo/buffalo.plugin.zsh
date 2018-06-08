@@ -46,7 +46,17 @@ function _buffalo_new() {
 		"1:name"\
 		"--api[skip all front-end code and configure for an API server]"\
 		"--bootstrap[specify version for Bootstrap \\[3, 4\\] (default 3)]"\
-		"--ci-provider[specify the type of ci file you would like buffalo to generate \\[none, travis, gitlab-ci\\] (default none)]"
+		"--ci-provider[specify the type of ci file you would like buffalo to generate \\[none, travis, gitlab-ci\\] (default none)]"\
+		"--db-type[specify the type of database you want to use \\[postgres, mysql, cockroach\\] (default postgres)]"\
+		"--docker[specify the type of Docker file to generate \\[none, multi, standard\\] (default multi)]"\
+		"-f[delete and remake if the app already exists]"\
+		"-h[help for new]"\
+		"--skip-pop[skips adding pop/soda to your app]"\
+		"--skip-webpack[skips adding Webpack to your app]"\
+		"--skip-yarn[use npm instead of yarn for frontend dependencies management]"\
+		"--vcs[specify the Version control system you would like to use \\[none, git, bzr\\]] (default git)"\
+		"-v[verbosely print out the go get commands]"\
+		"--with-dep[adds github.com/golang/dep to your dep]"
 }
 
 function _buffalo_generate() {
