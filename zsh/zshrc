@@ -169,7 +169,7 @@ function proxy_start() {
 }
 
 function proxy_stop() {
-	ps -fU root -C ssh | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
+	ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
 	unset {http,https,ftp}_proxy
 }
 
