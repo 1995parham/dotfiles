@@ -99,13 +99,23 @@ install_go_packages() {
 	install_go_package "github.com/derekparker/delve/cmd/dlv"
 
 	# Revel web framework
-	echo "[go] Revel web framework"
-	install_go_package "github.com/revel/revel"
-	install_go_package "github.com/revel/cmd/revel"
+	read -p "Do you wish to install Revel web framework? [Y/n] " install_confirm
+	case $install_confirm in
+		Y )
+			echo "[go] Revel web framework"
+			install_go_package "github.com/revel/revel"
+			install_go_package "github.com/revel/cmd/revel"
+			;;
+    	esac
 	
 	# Buffalo awesome web framework
-	echo "[go] Buffalo web framework"
-	install_go_package "github.com/gobuffalo/buffalo/buffalo"
+	read -p "Do you wish to install Buffalo web framework? [Y/n] " install_confirm
+	case $install_confirm in
+		Y )
+			echo "[go] Buffalo web framework"
+			install_go_package "github.com/gobuffalo/buffalo/buffalo"
+			;;
+    	esac
 
 	echo "[go] Install binary requirements of vim-go"
 	vim -c 'GoUpdateBinaries' -c 'q' -c 'q'
