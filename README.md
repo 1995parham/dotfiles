@@ -5,7 +5,7 @@
 
 ## Introduction
 
-My Personal Ubuntu and OSx configuration files which were cratead in fall 2013. it shows my loneliness and biYarism!
+My Personal Ubuntu and OSx configuration files which were cratead in fall 2013.
 for more information about how to use this configuration with VIM, Zsh and ... see [here](http://1995parham.github.io/dotfiles/).
 
 ## Frameworks
