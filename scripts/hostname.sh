@@ -7,11 +7,22 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+
+program_name=$0
+
+usage() {
+	echo "usage: $program_name hostname"
+}
+
 if [[ $EUID -ne 0 ]]; then
 	echo "[hostname] This script must be run as root"
 	exit 1
 fi
 
+if [ -z "$1" ]; then
+	usage
+	exit 1
+fi
 new_hostname=$1
 
 echo "[hostname] Change hostname to $new_hostname"
