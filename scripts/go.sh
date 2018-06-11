@@ -15,8 +15,8 @@ verbose=false
 usage() {
 	echo "usage: $program_name [-i] [-h] [-p] [-v]"
 	echo "  -i   install go first"
-	echo "  -p   use backtory proxy for package installation"
-	echo "  -v   verbos"
+	echo "  -p   use parham-usvs proxy for package installation"
+	echo "  -v   verbose"
 	echo "  -h   display help"
 }
 
