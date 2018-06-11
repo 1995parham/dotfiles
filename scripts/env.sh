@@ -14,6 +14,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	brew install neovim
 	pip3 install neovim
 	brew install yamllint
+	
+	gem install travis -v 1.8.8 --no-rdoc --no-ri
 else
 	echo "[env] Linux"
 
