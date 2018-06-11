@@ -12,6 +12,7 @@ program_name=$0
 
 have_proxy=false
 verbose=false
+install=false
 
 usage() {
 	echo "usage: $program_name [-i] [-h] [-p] [-v]"
@@ -24,8 +25,11 @@ usage() {
 set_proxy() {
 	echo "[docker] set parham-usvs proxy"
 
-	ssh -fTN -L 38080:127.0.0.1:38080 $parham_usvs
-	export {http,https,ftp}_proxy=127.0.0.1:38080
+	ssh -fTN -L 38080:127.0.0.1:38080 parham@151.80.199.92
+	export {http,https,ftp}_proxy="127.0.0.1:38080"
+	cat > /etc/apt/apt.conf.d/95proxies << "EOF"
+Acquire::http::proxy "http://127.0.0.1:38080/";
+EOF
 }
 
 unset_proxy() {
@@ -33,6 +37,7 @@ unset_proxy() {
 
 	ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
 	unset {http,https,ftp}_proxy
+	rm /etc/apt/apt.conf.d/95proxies
 }
 
 install_docker_repository() {
@@ -120,7 +125,7 @@ if [ $have_proxy = true ]; then
 	set_proxy
 fi
 
-if [ $install = true]; then
+if [ $install = true ]; then
 	install_docker_repository
 	install_docker
 	if [ $have_proxy = true ]; then
