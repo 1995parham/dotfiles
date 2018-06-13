@@ -35,7 +35,7 @@ select t in "Default" "Minor"; do
 		echo "$REPLY in not a valid option"
 	fi
 done
-PS3=$oPS3
+PS3=$osPS3
 
 # Dotfile
 # parameter 1: module name - string
@@ -201,6 +201,7 @@ echo; echo "[conf] Installation end"; echo
 echo "[zsh] Installation begin"; echo
 case $install_type in
 	0)
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 		files=("zshrc" "zsh.plug")
 		dotfile "zsh" files[@]
 		;;
