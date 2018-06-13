@@ -7,7 +7,7 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-echo "[node] Installing Node 9.x"
+echo "[node] Installing Node 10.x"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	echo "[node] Darwin"
@@ -22,7 +22,7 @@ else
 		exit 1
 	fi
 
-	curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 	apt-get install -y nodejs
 	ln -s /usr/bin/nodejs /usr/bin/node
 fi
