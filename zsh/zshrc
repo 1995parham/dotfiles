@@ -8,6 +8,9 @@ antigen use oh-my-zsh
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# Buffalo web framework bundle.
+antigen bundle 1995parham/buffalo.zsh
+
 # Tell Antigen that you're done.
 antigen apply
 
@@ -84,7 +87,6 @@ plugins=(
   travis
   govc
   revel
-  buffalo
 )
 
 # local configuration
