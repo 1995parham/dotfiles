@@ -15,6 +15,8 @@ usage() {
 }
 
 change_hostname() {
+	echo "[hostname] In OVH datacenter please remember to disable cloud-init program"
+
 	echo "[hostname] Change hostname to $1"
 
 	echo "[hostname] hostname"
