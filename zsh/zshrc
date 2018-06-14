@@ -2,8 +2,30 @@
 
 source $HOME/.zsh.plug/antigen.zsh
 
+unset ZSH
+ZSH_CUSTOM=$HOME/.zsh.plug
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle go
+antigen bundle pyenv
+antigen bundle vi-mode
+antigen bundle pj
+antigen bundle gitignore
+antigen bundle docker
+antigen bundle gnu-utils
+
+# Bundles local plugins
+antigen bundle $ZSH_CUSTOM/plugins/travis
+antigen bundle $ZSH_CUSTOM/plugins/govc
+antigen bundle $ZSH_CUSTOM/plugins/revel
+
+# prompt theme
+antigen theme $ZSH_CUSTOM themes/1995parham
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -11,83 +33,16 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Buffalo web framework bundle.
 antigen bundle 1995parham/buffalo.zsh
 
-# Tell Antigen that you're done.
+# Tell antigen that you're done.
 antigen apply
 
 # }}}
 
-# Oh-My-ZSH {{{
+# Initiation + Oh My ZSH {{{
+source $ZSH/oh-my-zsh.sh
+
 # If you come from bash you might have to change your $PATH.
 export PATH=/usr/local/bin:$PATH
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="1995parham"
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.zsh.plug
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  golang
-  pyenv
-  vi-mode
-  pj
-  gitignore
-  docker
-  gnu-utils
-
-  travis
-  govc
-  revel
-)
 
 # local configuration
 if [ -f $HOME/.zshrc.local ]; then
@@ -142,7 +97,7 @@ bindkey -M vicmd v edit-command-line
 alias grep="grep --color=auto"
 alias vi="vim"
 alias vim="nvim"
-alias r="source ~/.zshrc"
+alias r="antigen update"
 alias tat='tmux new-session -As $(basename "$PWD" | tr . -)' # will attach if session exists, or create a new session
 alias tmuxsrc="tmux source-file ~/.tmux.conf"
 alias tmuxkillall="tmux ls | cut -d : -f 1 | xargs -I {} tmux kill-session -t {}" # tmux kill all sessions
