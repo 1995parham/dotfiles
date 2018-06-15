@@ -127,6 +127,9 @@ autocmd Filetype arduino setlocal ts=2 sts=2 sw=2 expandtab
 " Cursor
 autocmd VimLeave * set guicursor=a:ver30
 
+" GAS
+autocmd BufRead,BufNewFile *.S setlocal filetype=gas
+
 " }}}
 
 " Commands {{{
