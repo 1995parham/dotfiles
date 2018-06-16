@@ -24,7 +24,7 @@ else
 		exit 1
 	fi
 
-	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint
+	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint clang-6.0
 
 	add-apt-repository ppa:neovim-ppa/unstable
 	apt-get update
