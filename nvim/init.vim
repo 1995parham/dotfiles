@@ -18,6 +18,7 @@ set si " Smart indent
 set wrap " Wrap lines
 set smarttab
 set number
+set expandtab
 set ffs=unix,dos,unix
 
 " Use vim, not vi api
@@ -95,6 +96,9 @@ endwhile
 
 " PHP
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
+
+" C
+autocmd Filetype c setlocal ts=2 sts=2 sw=2 expandtab
 
 " C++
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
