@@ -18,6 +18,7 @@ set si " Smart indent
 set wrap " Wrap lines
 set smarttab
 set number
+set expandtab
 set ffs=unix,dos,unix
 
 " Use vim, not vi api
@@ -96,6 +97,9 @@ endwhile
 " PHP
 autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
 
+" C
+autocmd Filetype c setlocal ts=2 sts=2 sw=2 expandtab
+
 " C++
 autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -104,9 +108,6 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 
 " Json
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
-
-" Docker-compose
-autocmd Filetype docker-compose setlocal ts=2 sts=2 sw=2 expandtab
 
 " Vue
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
@@ -201,6 +202,7 @@ Plug 'elzr/vim-json'
 Plug 'kylef/apiblueprint.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
+Plug 'stephpy/vim-yaml'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
