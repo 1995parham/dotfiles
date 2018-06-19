@@ -13,13 +13,15 @@ program_name=$0
 have_proxy=false
 verbose=false
 install=false
+docker_app=false
 
 usage() {
-	echo "usage: $program_name [-i] [-h] [-p] [-v]"
+	echo "usage: $program_name [-i] [-h] [-p] [-v] [-a]"
 	echo "  -i   install and initiate docker"
 	echo "  -p   use parham-usvs proxy for installation"
 	echo "  -v   verbose"
 	echo "  -h   display help"
+        echo "  -a   install docker app"
 }
 
 set_proxy() {
@@ -96,8 +98,15 @@ install_update_docker_compose() {
 	fi
 }
 
+install_docker_app() {
+        curl -L -# https://github.com/docker/app/releases/download/v0.2.0/docker-app-linux.tar.gz -o docker-app-linux.tar.gz
+        tar xf docker-app-linux.tar.gz
+        rm docker-app-linux.tar.gz
+        mv docker-app-linux /usr/local/bin/docker-app
+}
 
-while getopts "ihpv" argv; do
+
+while getopts "ihpva" argv; do
 	case $argv in
 		i)
 			install=true
@@ -108,6 +117,9 @@ while getopts "ihpv" argv; do
 		v)
 			verbose=true
 			;;
+                a)
+                        docker_app=true
+                        ;;
 		h)
 			usage
 			exit
@@ -118,6 +130,12 @@ done
 if [[ $EUID -ne 0 ]]; then
 	echo "[docker] This script must be run as root"
 	exit 1
+fi
+
+if [ $docker_app = true ]; then
+        echo "[docker] Docker/App is in pre-release"
+        install_docker_app
+        exit
 fi
 
 
