@@ -174,7 +174,7 @@ export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
 
 # proxy {{{
 
-export parham_usvs="151.80.199.92"
+export parham_usvs="46.4.176.126"
 
 function proxy_start() {
 	dig +short myip.opendns.com @resolver1.opendns.com
