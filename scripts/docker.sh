@@ -27,7 +27,7 @@ usage() {
 set_proxy() {
 	echo "[docker] set parham-usvs proxy"
 
-	ssh -fTN -L 38080:127.0.0.1:38080 parham@151.80.199.92
+	ssh -fTN -L 38080:127.0.0.1:38080 parham@46.4.176.126
 	export {http,https,ftp}_proxy="127.0.0.1:38080"
 	cat > /etc/apt/apt.conf.d/95proxies << "EOF"
 Acquire::http::proxy "http://127.0.0.1:38080/";
