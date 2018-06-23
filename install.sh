@@ -201,9 +201,6 @@ echo; echo "[conf] Installation end"; echo
 echo "[zsh] Installation begin"; echo
 case $install_type in
 	0)
-                if [ ! -d $HOME/.oh-my-zsh ]; then
-                        git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
-                fi
 		files=("zshrc" "zsh.plug")
 		dotfile "zsh" files[@]
 		;;
