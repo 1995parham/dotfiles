@@ -1,3 +1,9 @@
+# Cloning {{{
+if [ ! -d ~/.zsh.plug/plugins/buffalo ]; then
+        git clone https://github.com/1995parham/buffalo.zsh ~/.zsh.plug/plugins/bundle/buffalo
+fi
+# }}}
+
 # Oh-My-ZSH {{{
 
 ZSH=$HOME/.oh-my-zsh
@@ -73,6 +79,7 @@ plugins=(
   travis
   govc
   revel
+  buffalo
 )
 
 source $ZSH/oh-my-zsh.sh
