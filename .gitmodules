@@ -1,3 +1,0 @@
-[submodule "zsh/zsh.plug/plugins/buffalo"]
-	path = zsh/zsh.plug/plugins/buffalo
-	url = https://github.com/1995parham/buffalo.zsh
