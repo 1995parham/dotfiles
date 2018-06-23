@@ -6,6 +6,9 @@ source $HOME/.zsh.plug/antigen.zsh
 unset ZSH
 antigen use oh-my-zsh
 
+# Buffalo web framework bundle.	
+antigen bundle 1995parham/buffalo.zsh	
+
 # Tell antigen that you're done.
 antigen apply
 
@@ -84,7 +87,6 @@ plugins=(
   travis
   govc
   revel
-  buffalo
 )
 
 source $ZSH/oh-my-zsh.sh
