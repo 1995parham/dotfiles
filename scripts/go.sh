@@ -7,6 +7,8 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $current_dir/lib/proxy.sh
 program_name=$0
 
 have_proxy=false
@@ -54,20 +56,6 @@ install_go() {
 			sudo chown -R $USER:$USER $HOME/Documents/Go
 		fi
 	fi
-}
-
-set_proxy() {
-	echo "[go] set parham-usvs proxy"
-
-	ssh -fTN -L 38080:127.0.0.1:38080 parham@46.4.176.126
-	export {http,https,ftp}_proxy=127.0.0.1:38080
-}
-
-unset_proxy() {
-	echo "[go] unset parham-usvs proxy"
-
-	ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
-	unset {http,https,ftp}_proxy
 }
 
 install_go_package() {
@@ -142,11 +130,11 @@ while getopts "ihpv" argv; do
 done
 
 if [ $have_proxy = true ]; then
-	set_proxy
+	proxy_start
 fi
 
 install_go_packages
 
 if [ $have_proxy = true ]; then
-	unset_proxy
+	proxy_stop
 fi
