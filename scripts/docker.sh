@@ -8,6 +8,8 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $current_dir/lib/proxy.sh
 program_name=$0
 
 have_proxy=false
@@ -22,24 +24,6 @@ usage() {
 	echo "  -v   verbose"
 	echo "  -h   display help"
         echo "  -a   install docker app"
-}
-
-set_proxy() {
-	echo "[docker] set parham-usvs proxy"
-
-	ssh -fTN -L 38080:127.0.0.1:38080 parham@46.4.176.126
-	export {http,https,ftp}_proxy="127.0.0.1:38080"
-	cat > /etc/apt/apt.conf.d/95proxies << "EOF"
-Acquire::http::proxy "http://127.0.0.1:38080/";
-EOF
-}
-
-unset_proxy() {
-	echo "[docker] unset parham-usvs proxy"
-
-	ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
-	unset {http,https,ftp}_proxy
-	rm /etc/apt/apt.conf.d/95proxies
 }
 
 install_docker_repository() {
@@ -140,7 +124,7 @@ fi
 
 
 if [ $have_proxy = true ]; then
-	set_proxy
+	proxy_start
 fi
 
 if [ $install = true ]; then
@@ -156,5 +140,5 @@ fi
 install_update_docker_compose
 
 if [ $have_proxy = true ]; then
-	unset_proxy
+	proxy_stop
 fi
