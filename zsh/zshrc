@@ -172,19 +172,4 @@ export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
 
 # export parham_usvs="46.4.176.126"
 
-function proxy_start() {
-        dig +short myip.opendns.com @resolver1.opendns.com
-
-        # ssh -fTN -L 38080:127.0.0.1:38080 $parham_usvs
-        read -s password
-        export {http,https,ftp}_proxy=sam:$password@ssl.gates.ga:50505
-
-        curl ipinfo.io/ip
-}
-
-function proxy_stop() {
-        # ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
-        unset {http,https,ftp}_proxy
-}
-
 # }}}
