@@ -13,7 +13,8 @@ proxy_start() {
 
         # ssh -fTN -L 38080:127.0.0.1:38080 $parham_usvs
         echo "[proxy] Welcome to proxy script"
-        read -p "Password: " -s password
+        printf '%s: ' 'Password'
+        read -s password
         export {http,https,ftp}_proxy=sam:$password@ssl.gates.ga:50505
 
         if [ $EUID -eq 0 ]; then
@@ -28,7 +29,7 @@ proxy_stop() {
         # ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
 
         if [ $EUID -eq 0 ]; then
-	        rm /etc/apt/apt.conf.d/95proxies
+                rm /etc/apt/apt.conf.d/95proxies
         fi
         unset {http,https,ftp}_proxy
         echo "[proxy] All proxy script configuration are removed"

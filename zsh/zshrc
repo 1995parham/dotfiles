@@ -86,6 +86,7 @@ plugins=(
   govc
   revel
   buffalo
+  proxy
 )
 
 source $ZSH/oh-my-zsh.sh
