@@ -1,7 +1,8 @@
 # Cloning {{{
 
 if [ ! -d $HOME/.oh-my-zsh ]; then
-        git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+        echo "Cloning robbyrusell/oh-my-zsh..."
+        git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh > /dev/null 2>&1
 fi
 
 if [ ! -d ~/.zsh.plug/plugins/buffalo ]; then
