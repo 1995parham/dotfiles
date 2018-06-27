@@ -1,4 +1,4 @@
-# Cloning {{{
+# Clone {{{
 
 if [ ! -d $HOME/.oh-my-zsh ]; then
         echo "Cloning robbyrusell/oh-my-zsh..."
