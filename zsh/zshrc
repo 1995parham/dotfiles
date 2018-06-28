@@ -1,14 +1,5 @@
-# Clone {{{
-
-if [ ! -d $HOME/.oh-my-zsh ]; then
-        echo "Cloning robbyrusell/oh-my-zsh..."
-        git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh > /dev/null 2>&1
-fi
-
-if [ ! -d ~/.zsh.plug/plugins/buffalo ]; then
-        git clone https://github.com/1995parham/buffalo.zsh ~/.zsh.plug/plugins/buffalo
-fi
-
+# ELone {{{
+source $HOME/.zsh.plug/elone.zsh
 # }}}
 
 # Oh-My-ZSH {{{
@@ -86,9 +77,12 @@ plugins=(
   travis
   govc
   revel
-  buffalo
   proxy
 )
+
+# Load ELone after your oh-my-zsh configuration
+elone oh
+elone bundle 1995parham/buffalo.zsh buffalo
 
 source $ZSH/oh-my-zsh.sh
 
