@@ -1,4 +1,16 @@
-# .Files !
+```
+  __| | ___ | |_ / _(_) | ___  ___ 
+ / _` |/ _ \| __| |_| | |/ _ \/ __|
+| (_| | (_) | |_|  _| | |  __/\__ \
+ \__,_|\___/ \__|_| |_|_|\___||___/
+                                   
+   ____  _  ___   ___  ____                   _                     
+  / __ \/ |/ _ \ / _ \| ___| _ __   __ _ _ __| |__   __ _ _ __ ___  
+ / / _` | | (_) | (_) |___ \| '_ \ / _` | '__| '_ \ / _` | '_ ` _ \ 
+| | (_| | |\__, |\__, |___) | |_) | (_| | |  | | | | (_| | | | | | |
+ \ \__,_|_|  /_/   /_/|____/| .__/ \__,_|_|  |_| |_|\__,_|_| |_| |_|
+  \____/                    |_|                                     
+```
 
 [![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
 [![Codacy Badge](https://img.shields.io/codacy/grade/02e3f859b8944e749d1ceca4a4c41e49.svg?style=flat-square)](https://www.codacy.com/app/1995parham/dotfiles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=1995parham/dotfiles&amp;utm_campaign=Badge_Grade)
