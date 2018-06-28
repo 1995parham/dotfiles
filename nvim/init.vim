@@ -267,6 +267,8 @@ let g:syntastic_go_checkers = ['gofmt', 'go', 'golint']
 
 let g:syntastic_c_compiler_options = ' -std=gnu11'
 
+let g:syntastic_nasm_nasm_args = '-f elf64'
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
