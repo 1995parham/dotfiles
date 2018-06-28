@@ -21,7 +21,7 @@ typeset -aU _ELONE_BUNDLE_RECORD
 
 # A syntax sugar to avoid the `-` when calling elone commands. With this
 # function, you can write `elone-bundle` as `elone bundle` and so on.
-elone() {
+elone () {
   local cmd="$1"
   if [[ -z "$cmd" ]]; then
     elone-help >&2
@@ -215,13 +215,42 @@ elone-bundle () {
   fi
 }
 
+# Updates a bundle performing a `git pull`.
+#
+# Usage
+#    -elone-update-bundle <record>
+#
+# Returns
+#    Nothing. Performs a `git pull`.
+-elone-bundle-update () {
+  typeset -A bundle; bundle=($@)
+  local start=$(date +'%s')
+
+  if [[ $# -eq 0 ]]; then
+    printf "ELone: Missing argument.\n" >&2
+    return 1
+  fi
+
+  printf "Updating %s from %s... " "${bundle[name]}" "${bundle[url]}"
+
+  # update=true verbose=false
+  if ! -elone-ensure-repo ${bundle[url]} ${bundle[dir]} true false; then
+    printf "Error! ...\n" >&2
+    return 1
+  fi
+
+  local took=$(( $(date +'%s') - $start ))
+  printf "Done. Took %ds.\n" $took
+}
+
+
 # Install oh-my-zsh
 #
 # Usage
 #     elone-oh
 #
-elone-oh() {
-  builtin typeset -A bundle;
+elone-oh () {
+  builtin typeset -A bundle
   bundle[url]="https://github.com/robbyrussell/oh-my-zsh.git"
   bundle[name]="rubbyrussell/oh-my-zsh"
   bundle[dir]="$ZSH"
@@ -251,9 +280,34 @@ elone-list () {
   fi
 
   for record in $_ELONE_BUNDLE_RECORD; do
-    echo $record
     bundle=(${(@s/ /)record})
     printf "\nplugin-name: %s\nplugin-location: %s\nbundle-type: %s\nrepo-url: %s\n" $bundle[2] $bundle[4] $bundle[3] $bundle[1]
+  done
+}
+
+# Updates the bundles.
+#
+# Usage
+#    elone-update
+#
+# Returns
+#    Nothing. Performs a `git pull`.
+elone-update () {
+  local record bundle
+
+  for record in $_ELONE_BUNDLE_RECORD; do
+    record=(${(@s/ /)record})
+
+    builtin typeset -A bundle
+    bundle[name]=$record[2]
+    bundle[dir]=$record[4]
+    bundle[btype]=$record[3]
+    bundle[url]=$record[1]
+
+    if ! -elone-bundle-update ${(kv)bundle}; then
+      return 1
+    fi
+
   done
 }
 
@@ -274,11 +328,11 @@ elone-list () {
 -elone-set-default ELONE_SUBMODULE_OPTS "--recursive --depth=1"
 
 
-elone-version() {
+elone-version () {
   printf "ELone: %s (%s)\n" "dotfiles-master" "HEAD"
 }
 
-elone-help() {
+elone-help () {
   elone-version
 
   cat <<EOF
