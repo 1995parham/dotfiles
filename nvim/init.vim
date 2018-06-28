@@ -95,38 +95,41 @@ endwhile
 " FileType Configurations {{{
 
 " PHP
-autocmd Filetype php setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
 
 " C
-autocmd Filetype c setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype c setlocal ts=2 sts=2 sw=2
 
 " C++
-autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype cpp setlocal ts=4 sts=4 sw=4
 
 " Ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " Json
-autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype json setlocal ts=2 sts=2 sw=2
 
 " Vue
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
-autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2
 
 " Babel configuration
 autocmd BufRead,BufNewFile .babelrc setlocal filetype=json
 
 " HTML
-autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 " JavaScript
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " Git commit
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Arduino
-autocmd Filetype arduino setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype arduino setlocal ts=2 sts=2 sw=2
+
+" ZSH
+autocmd FileType zsh setlocal ts=2 sts=2 sw=2
 
 " Cursor
 autocmd VimLeave * set guicursor=a:ver30
