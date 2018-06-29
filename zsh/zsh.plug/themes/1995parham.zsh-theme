@@ -28,7 +28,7 @@ function prompt_venv() {
 function prompt_docker() {
   if which docker 2>/dev/null 1>/dev/null && [ -f "./Dockerfile" ] ; then
     DOCKER_VERSION=`docker -v | awk '{print substr($3, 0, length($3))}'`
-    echo %F{239}docker'['$DOCKER_VERSION']'%f
+    echo %F{239}'['docker $DOCKER_VERSION']'%f
   fi
 }
 
