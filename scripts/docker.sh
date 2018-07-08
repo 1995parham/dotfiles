@@ -49,7 +49,7 @@ install_docker() {
 
 	echo "[docker] Manage Docker as a non-root user"
 	groupadd docker
-	usermod -aG docker $USER
+	usermod -aG docker $SUDO_USER
 }
 
 futherland_docker() {
