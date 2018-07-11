@@ -309,6 +309,7 @@ elone-update () {
     fi
 
   done
+  cd -
 }
 
 # Helper function: Same as `$1=$2`, but will only happen if the name
