@@ -156,10 +156,7 @@ case $install_type in
 		;;
 esac
 echo "[vim] Installing vim plugins"
-vim_log=$(mktemp)
-vim -c 'PlugInstall' -c "w $vim_log" -c 'q' -c 'q'
-less $vim_log
-rm $vim_log
+vim +PlugInstall +qall
 echo; echo "[vim] Installation end"; echo
 
 #### NVIM ####
@@ -174,10 +171,7 @@ esac
 echo "[nvim] Installing neovim plugins"
 case $install_type in
 	0)
-		vim_log=$(mktemp)
-		nvim -c 'PlugInstall' -c "w $vim_log" -c 'q' -c 'q'
-		less $vim_log
-		rm $vim_log
+                nvim +PlugInstall +qall
 		;;
 	1)
 		;;
