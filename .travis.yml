@@ -2,7 +2,7 @@ language: c
 sudo: enabled
 dist: trusty
 
-install:
-  - yes | sudo ./scripts/env.sh
+# install:
+#     - yes | sudo ./scripts/env.sh
 script:
-  - yes "Y" | ./install.sh
+  - yes "Y" | ./install.sh -m
