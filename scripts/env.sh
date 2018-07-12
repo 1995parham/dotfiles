@@ -26,7 +26,7 @@ else
 
 	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint
 
-	add-apt-repository ppa:neovim-ppa/unstable
+	add-apt-repository ppa:neovim-ppa/stable
 	apt-get update
 	apt-get install neovim
 	apt-get install python3-dev python3-pip
