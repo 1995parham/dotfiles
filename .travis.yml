@@ -5,4 +5,4 @@ dist: trusty
 # install:
 #     - yes | sudo ./scripts/env.sh
 script:
-  - yes "Y" | ./install.sh -m
+  - ./install.sh -m -y
