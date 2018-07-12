@@ -7,6 +7,13 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+program_name=$0
+
+usage() {
+        echo "usage: $program_name [-m] [-h]"
+	echo "  -m   minor version"
+	echo "  -h   display help"
+}
 
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -16,26 +23,26 @@ echo "[pre] Home directory found at $HOME"
 
 echo "[pre] Current directory found at $current_dir"
 
-osPS3=$PS3
-PS3="[pre] Please choose a type [ENTER to list options]:"
 install_type=0
-select t in "Default" "Minor"; do
-	if [ ! -z "$t" ]; then
-		case $REPLY in
-			1)
-				install_type=0
-				break
-				;;
-			2)
-				install_type=1
-				break
-				;;
-		esac
-	else
-		echo "$REPLY in not a valid option"
-	fi
+while getopts "m" argv; do
+	case $argv in
+		m)
+			install_type=1
+			;;
+		h)
+			usage
+			exit
+			;;
+	esac
 done
-PS3=$osPS3
+case $install_type in
+        0)
+                echo "[pre] Default installation"
+                ;;
+        1)
+                echo "[pre] Minor installation"
+                ;;
+esac
 
 # Dotfile
 # parameter 1: module name - string
