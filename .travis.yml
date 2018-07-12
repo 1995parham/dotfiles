@@ -1,5 +1,6 @@
 language: c
 sudo: enabled
+dist: trusty
 
 install:
   - yes | sudo ./scripts/env.sh
