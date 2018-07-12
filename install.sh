@@ -250,4 +250,5 @@ echo "[general configuration] We are done here !"; echo
 
 echo "[post] Thank you for using Parham Alvani dotfiles ! :)"
 echo -e "[post] Please check following directories:\n1. fonts/\n2. scripts/"
+echo -e "[post] Plase use shecan dns:\n94.232.174.194"
 echo "[post] Use *r* for reload your zshrc in place"
