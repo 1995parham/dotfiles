@@ -4,12 +4,7 @@ layout: page
 theme: orange
 ---
 
-## Freedom of Developers
-
-** Thanks to Awesome backtory team **
-Just checkout [here](https://github.com/backtory/fod).
-
-## Install Go on Ubuntu
+## Install Go on Ubuntu [Automated]
 
 ```sh
 $ sudo add-apt-repository ppa:gophers/archive
@@ -117,17 +112,6 @@ For having better bash completion use following package:
 yum install bash-completion
 ```
 
-## Dircolors on OSx
-
-Try installing the GNU coreutils from this if you really want dircolors to work.
-I also had to set an alias for dircolors to gdircolors as this is the command that FreeBSD ports installed the fun as.
-
-```sh
-brew install coreutils
-ln -s /usr/local/bin/gdircolors /usr/local/bin/dircolors
-ln -s /usr/local/bin/gls /usr/local/bin/ls
-```
-
 ## Font
 
 Personally I used *Meslo LG S Powerline* as my default font and you can
@@ -137,7 +121,7 @@ install it with
 ./fonts/install.sh
 ```
 
-## Airspeed [Automated ...]
+## Airspeed [Automated]
 
 For installing *airspeed* on OSx use pip3 command as follows
 
