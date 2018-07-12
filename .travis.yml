@@ -2,6 +2,6 @@ language: c
 sudo: enabled
 
 install:
-  - sudo ./scripts/env.sh
+  - yes | sudo ./scripts/env.sh
 script:
   - yes "Y" | ./install.sh
