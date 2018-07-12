@@ -10,7 +10,8 @@
 program_name=$0
 
 usage() {
-        echo "usage: $program_name [-m] [-h]"
+        echo "usage: $program_name [-m] [-h] [-y]"
+        echo "  -y   yes to all"
 	echo "  -m   minor version"
 	echo "  -h   display help"
 }
@@ -24,11 +25,15 @@ echo "[pre] Home directory found at $HOME"
 echo "[pre] Current directory found at $current_dir"
 
 install_type=0
-while getopts "m" argv; do
+yes_to_all=0
+while getopts "mhy" argv; do
 	case $argv in
 		m)
 			install_type=1
 			;;
+                y)
+                        yes_to_all=1
+                        ;;
 		h)
 			usage
 			exit
@@ -82,8 +87,10 @@ configfile() {
 
 	if [ -e $dst_path ] || [ -h $dst_path ]; then
 		echo "[$module] $src_file already existed"
-		read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
-		if [[ $delete_confirm == "Y" ]]; then
+                if [[ $yes_to_all == 0 ]]; then
+		        read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
+                fi
+		if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
 			rm -R $dst_path
 			echo "[$module] $dst_path was removed successfully"
 		else
@@ -126,8 +133,10 @@ linker() {
 
 	if [ -e $dst_path ] || [ -h $dst_path ]; then
 		echo "[$module] $src_file already existed"
-		read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
-		if [[ $delete_confirm == "Y" ]]; then
+                if [[ $yes_to_all == 0 ]]; then
+		        read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
+                fi
+		if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
 			rm -R $dst_path
 			echo "[$module] $dst_path was removed successfully"
 		else
