@@ -28,6 +28,11 @@ for more information about how to use this configuration with VIM, Zsh and ... s
   <img src="https://camo.githubusercontent.com/5c385f15f3eaedb72cfcfbbaf75355b700ac0757/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6f686d797a73682f6f682d6d792d7a73682d6c6f676f2e706e67">
 </p>
 
+## [Shecan](https://shecan.ir/) is Awesome
+```
+DNS: 94.232.174.194
+```
+
 ## GoProxy is here
 Install goproxy from [here](https://github.com/snail007/goproxy) and then you can use following ssh local port forwarding
 to create secure http proxy:
