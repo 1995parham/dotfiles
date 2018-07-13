@@ -24,13 +24,14 @@ else
 		exit 1
 	fi
 
-	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint
+	apt-get update -q
+	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint -y
 
-	add-apt-repository ppa:neovim-ppa/stable
-	apt-get update
-	apt-get install neovim
-	apt-get install python3-dev python3-pip
+	add-apt-repository ppa:neovim-ppa/stable -y
+	apt-get update -q
+	apt-get install neovim -y
+	apt-get install python3-dev python3-pip -y
 	pip3 install --upgrade neovim
 
-	gem install travis -v 1.8.8 --no-rdoc --no-ri
+	# gem install travis -v 1.8.8 --no-rdoc --no-ri
 fi
