@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	brew install zsh ctags vim tmux mosh aria2
 	brew install neovim
-	pip3 install neovim
+	pip3 install --upgrade neovim
 	brew install yamllint
 	
 	gem install travis -v 1.8.8 --no-rdoc --no-ri
