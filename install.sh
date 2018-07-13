@@ -134,7 +134,7 @@ linker() {
 
         if $create_link; then
                 ln -s $src_path $dst_path
-                echo "$module" "Symbolic link created successfully from $src_path to $dst_path"
+                message "$module" "Symbolic link created successfully from $src_path to $dst_path"
         fi
 }
 
@@ -253,6 +253,8 @@ for module in ${modules[@]}; do
 done
 
 announce "post" "Thank you for using Parham Alvani dotfiles ! :)"
-announce "post" "Please check following directories:\n1. fonts/\n2. scripts/"
+announce "post" "Please check following directories:"
+announce "post" "1. fonts/"
+announce "post" "2. scripts/"
 announce "post" "Plase use shecan dns: 94.232.174.194"
 announce "post" "Use *r* for reload your zshrc in place"
