@@ -2,7 +2,10 @@ language: c
 sudo: enabled
 dist: trusty
 
-# install:
-#     - yes | sudo ./scripts/env.sh
+install:
+  - sudo apt-get update
+  - sudo apt-get install -y zsh vim tmux
+  - sudo apt-get install -y neovim
 script:
   - yes "Y" | ./install.sh -m -y
+  - yes "Y" | ./install.sh -y
