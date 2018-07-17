@@ -1,9 +1,3 @@
----
-title: How to ...
-layout: page
-theme: orange
----
-
 ## Install Go on Ubuntu [Automated]
 
 ```sh
