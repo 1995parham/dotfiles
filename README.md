@@ -18,7 +18,10 @@
 
 ## Table of Contents
 
-[How To...](docs/how.md)
+- [How To...](docs/how.md)
+- [VIM](docs/vim.md)
+- [ZSH](docs/zsh.md)
+- [Home sweet Home](docs/home.md)
 
 ## Introduction
 
@@ -33,34 +36,17 @@ for more information about how to use this configuration with VIM, Zsh and ... s
   <img src="https://camo.githubusercontent.com/5c385f15f3eaedb72cfcfbbaf75355b700ac0757/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6f686d797a73682f6f682d6d792d7a73682d6c6f676f2e706e67">
 </p>
 
-## [Shecan](https://shecan.ir/) is Awesome
+## [Shecan](https://shecan.ir/) is Awesome :heart_eyes:
 ```
 DNS: 94.232.174.194
 ```
 
-## GoProxy is here
-Install goproxy from [here](https://github.com/snail007/goproxy) and then you can use following ssh local port forwarding
-to create secure http proxy:
-
-```sh
-# create secure http(s) proxy
-ip=151.80.199.92
-
-ssh -fTN -L 38080:127.0.0.1:38080 $ip
-
-export {http,https,ftp}_proxy=127.0.0.1:38080
-
-unset {http,https,ftp}_proxy
-
-ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
-```
-
 ## Installation
 
-Install required software with:
+Install required softwares with:
 
 ```sh
-./scripts/env.sh
+sudo ./scripts/env.sh
 ```
 
 Setup configuration files with:
@@ -68,7 +54,3 @@ Setup configuration files with:
 ```sh
 ./install.sh
 ```
-
-### Tilix
-
-Copy schemes from `tilix/` into `$HOME/.config/tilix/schemes`.
