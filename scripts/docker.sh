@@ -47,13 +47,15 @@ docker-install() {
 
 docker-configuration() {
 	message "docker" "Configuring docker"
-	cat | sudo tee /etc/docker/daemon.json << "EOF"
+        (cat | sudo tee /etc/docker/daemon.json) << EOF
 {
   "registry-mirrors": [
   ],
   "dns": ["8.8.8.8", "8.8.4.4"]
 }
 EOF
+
+        message "docker" "Restarting docker service"
 	sudo systemctl restart docker
 }
 
