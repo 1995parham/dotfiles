@@ -1,21 +1,13 @@
----
-title: Home Sweet Home
-layout: page
-theme: red
----
-
 ## Topology
 
 Parham Edge (75):
 
-{:.table .table-striped}
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
 | 192.168.75.254   | Provider Access Dev | TCI             |
 
 Parham Master (73):
 
-{:.table .table-striped}
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
 | 192.168.73.1     | Parham MacBookPro   | ESXi            |
@@ -24,28 +16,17 @@ Parham Master (73):
 | 192.168.73.4     | Parham USVM 1       | Ubuntu Server   |
 | 192.168.73.5     | Parham USVM 2       | Ubuntu Server   |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
-| 192.168.73.7     | Minikube            | KVM             |
 | 192.168.73.8     | Bambil VM           | Ubuntu Server   |
 | 192.168.73.10    | NAS                 | -               |
 | 192.168.73.11    | vCenter             | -               |
 | 192.168.73.12    | Parham Giant        | ESXi            |
 | 192.168.73.13    | Renge Extender      | -               |
-| 192.168.73.13    | Parham NUC          | Proxy           |
+| 192.168.73.13    | Parham NUC          | ?               |
 | 192.168.73.100   | DNS                 | -               |
 | 192.168.73.101   | DLink Switch        | -               |
 | 192.168.73.102   | Parham Giant Mgmt   | iKVM            |
 | 192.168.73.103   | OpenFiler           | -               |
 | 192.168.73.254   | Gateway             | -               |
-
-Rancher Cluster:
-
-{:.table .table-striped}
-| IP Address       | Name                | Comment           |
-|:----------------:|:-------------------:|:------------------|
-| 192.168.73.60    | Parham Rancher      | Rancher           |
-| 192.168.73.61    | Parham RHost 1      | Rancher Host 1    |
-
-
 
 
 ## Openfiler
@@ -109,31 +90,6 @@ rm 10-dhcp-en.network
 systemctl restart systemd-networkd
 ```
 
-### Docker in our fatherland
-
-Thanks to [docker.ir](http://www.docker.ir/).
-
-- **ubuntu**: copy following content into `/etc/docker/daemon.json`:
-
-```json
-{
-  "registry-mirrors": [
-    "http://repo.docker.ir:5000"
-  ],
-  "userland-proxy": false
-}
-```
-
-- **photon**: first enable docker service with `systemctl enable docker`
-and add following content into `/etc/systemd/system/multi-user.target.wants/docker.service`:
-
-```sh
---registry-mirror=http://repo.docker.ir:5000
-```
-
 ### Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
-Let's run admiral forever
 
-```sh
-sudo docker run -t -d -p 8282:8282 --name admiral --restart unless-stopped vmware/admiral
-```
+### Docker Management based on [Portainer](https://github.com/portainer)
