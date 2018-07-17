@@ -56,7 +56,7 @@ _main() {
 
         start=$(date +'%s')
 
-        source $current_dir/scripts/$script.sh
+        source $current_dir/scripts/$script.sh 2> /dev/null || { echo "script not found"; exit; }
         if [ "$show_help" -eq "1" ]; then
                 usage
         else
