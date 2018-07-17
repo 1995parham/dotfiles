@@ -7,7 +7,8 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-echo "[node] Installing Node 10.x"
+version="10.x"
+echo "[node] Installing Node $version"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	echo "[node] Darwin"
@@ -17,13 +18,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
 	echo "[node] Linux"
 
-	if [[ $EUID -ne 0 ]]; then
-		echo "[node] This script must be run as root"
-		exit 1
-	fi
-
-	curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-	apt-get install -y nodejs
+	curl -sL https://deb.nodesource.com/setup_$version | sudo -E bash -
+	sudo apt-get install -y nodejs
 	ln -s /usr/bin/nodejs /usr/bin/node
 fi
 
