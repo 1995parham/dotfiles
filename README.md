@@ -19,6 +19,9 @@
 ## Table of Contents
 
 [How To...](docs/how.md)
+[VIM](docs/vim.md)
+[ZSH](docs/zsh.md)
+[Home sweet Home](docs/home.md)
 
 ## Introduction
 
