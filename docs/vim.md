@@ -1,19 +1,13 @@
----
-title: VIM (NVIM) for dummies
-layout: page
-theme: green
----
-
 ## VIM is your IDE
 
-If you are using this dotfiles vim configuration
-you can use following scripts and informations for having better vim.
+If you are using this dotfiles (neo)vim configuration
+you can use following scripts and informations for having better (neo)vim.
 
 ### C
 
-If your c file is big and you want just a function in it
-don't install jetbrains stuff, just use CTags in
-your vim with following command.
+If your c file is big and you want to find just a function in it
+don't install jetbrains *** stuff, just use CTags in
+your vim with following command (it will install with `./scripts/env.sh`).
 
 ```sh
 sudo apt install ctags
@@ -77,7 +71,7 @@ It's very good idea to use `pyvenv` in order to creating
 python project environment. Build and activate your environment with:
 
 ```sh
-pyvenv $PROJECT_ROOT
+python3 -m venv $PROJECT_ROOT
 . $PROJECT_ROOT/bin/activate
 ```
 
@@ -90,8 +84,8 @@ deactivate
 
 ### Go
 
-It's very simple, just execute `:GoInstallBinaries` in vim normal mode.
-After that you have complete IDE for go in vim.
+It's very simple, just execute `:GoInstallBinaries` in vim normal mode,
+after that you have complete IDE for go in vim.
 
 {:.table .table-striped}
 | Shortcut         | Description                         |
@@ -99,7 +93,7 @@ After that you have complete IDE for go in vim.
 | `:GoMetaLinter`  | Statically checking Go source       |
 | `<Leader>gv`     | GoDoc in vertical pane              |
 | `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)               |
-|`:GoDoc`          | GoDoc == GeDoc if vim-go is plugged |
+| `:GoDoc`         | GoDoc == GeDoc if vim-go is plugged |
 
 
 ## Plugins
