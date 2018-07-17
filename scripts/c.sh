@@ -7,21 +7,24 @@
 #
 # [] Created By : $user.name ($user.email)
 # =======================================
-echo "[c] Installing clang + cmake"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "[c] Darwin"
 
-	brew install clang-foramt
-        brew install cmake
-else
-	echo "[c] Linux"
+usage() {
+        echo "usage: c"
+}
 
-	if [[ $EUID -ne 0 ]]; then
-		echo "[c] This script must be run as root"
-		exit 1
-	fi
+main() {
+        message "c" "Installing clang + cmake"
 
-        apt-get install clang clang-format
-        apt-get install cmake
-fi
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+	        message "c" "Darwin"
+
+	        brew install clang-foramt
+                brew install cmake
+        else
+	        message "c" "Linux"
+
+                sudo apt-get -y install clang clang-format
+                sudo apt-get -y install cmake
+        fi
+}
