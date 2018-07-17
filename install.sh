@@ -254,7 +254,7 @@ done
 
 announce "post" "Thank you for using Parham Alvani dotfiles ! :)"
 announce "post" "Please check following directories:"
-announce "post" "1. fonts/"
+announce "post" "1. fonts/ [Meslo LG S Powerline]"
 announce "post" "2. scripts/"
 announce "post" "Plase use shecan dns: 94.232.174.194"
 announce "post" "Use *r* for reload your zshrc in place"
