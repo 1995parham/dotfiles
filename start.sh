@@ -69,7 +69,8 @@ _main() {
 }
 
 if [[ $EUID -eq 0 ]]; then
-        message "pre" 
+        message "pre" "This script must be run as normal user"
+	exit 1
 fi
 
 _main $@
