@@ -7,8 +7,14 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
-if [[ $EUID -ne 0 ]]; then
-	echo "[asm] This script must be run as root"
-	exit 1
-fi
-apt-get install nasm radare2
+
+
+usage() {
+        echo "usage: asm"
+}
+
+main() {
+        message "asm" "Installing nasm + radare2"
+
+        sudo apt-get -y install nasm radare2
+}
