@@ -15,7 +15,7 @@ $ sudo ln -s /usr/lib/go-1.9/bin/gofmt /usr/bin/gofmt
 
 ## Colorful Terminal
 
-For colorizing your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
+For colorizing with 256-color your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
 
 ## Fix Perl warning setting locale failed on Raspbian
 
@@ -98,14 +98,6 @@ sudo iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
 
 > IP Masquerade is a form of Network Address Translation or NAT which NAT allows internally connected computers that do not have one or more registered Internet IP addresses to communicate to the Internet via the Linux server's Internet IP address.
 
-## Better bash on CentOS
-
-For having better bash completion use following package:
-
-```sh
-yum install bash-completion
-```
-
 ## Font
 
 Personally I used *Meslo LG S Powerline* as my default font and you can
@@ -133,7 +125,7 @@ cd ..
 sudo rm -Rf airspeed
 ```
 
-## Ubuntu Bug on Vaio Laptops
+## Ubuntu Bug on Vaio Laptops :heart:
 
 [Bug Description](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/887793)
 
@@ -142,7 +134,7 @@ sudo -s
 echo "disable" > /sys/firmware/acpi/interrupts/gpe13
 ```
 
-## ONOS Configuration
+## ONOS Configuration :older_man:
 
 For using [ONOS SDN platform](http://onosproject.org/) based on this dotfiles
 set following configuration in `zshrc.local`:
@@ -173,7 +165,7 @@ For installing oracle distribution of JDK use following commands:
 sudo apt-add-repository ppa:webupd8team/java
 sudo apt-get update
 
-# Trun on your not Iran IP !
+# Please consider oracle embargoes Iran
 
 sudo apt-get install oracle-java8-installer
 ```
