@@ -17,6 +17,7 @@ Use `escape` in order to enter vim mode for zsh.
 |:----------:|:--------------------------|
 | `dd`       | Delete current line       |
 | `$`        | Move to end of line       |
+| `0`        | Move to head of line      |
 
 ### Search Commands
 
