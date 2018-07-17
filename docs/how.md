@@ -189,4 +189,3 @@ sudo service systemd-logind restart
 ## How to export iTerm profiles
 
 At the bottom of the panel in `Preferences -> General`, there is a setting `Load preferences from a custom folder or URL` and there is a button next to it `Save settings to Folder`.
-Save your settings first and load it after you and have fun :)
