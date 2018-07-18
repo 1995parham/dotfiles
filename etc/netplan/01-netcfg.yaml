@@ -7,6 +7,7 @@ network:
       gateway4: 192.168.73.254
       nameservers:
         addresses:
+          - 94.232.174.197
           - 94.232.174.194
           - 192.168.73.254
         search:
