@@ -7,25 +7,66 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-echo "[python] Installing Python 3.x"
+verbose=false
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "[python] Darwin"
+usage() {
+        echo "usage: python [-i] [-v]"
+	echo "  -i   install python first"
+	echo "  -v   verbose"
+}
 
-	brew install python3
-else
-	echo "[python] Linux"
+python-install() {
+        message "python" "Installing Python 3.x"
 
-	if [[ $EUID -ne 0 ]]; then
-		echo "[python] This script must be run as root"
-		exit 1
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+	        message "python" "Darwin"
+
+	        brew install python3
+        else
+	        message "python" "Linux"
+
+	        sudo apt-get -y install python3 python3-venv python3-pip
+        fi
+
+        message "python" "$(python3 --version)"
+}
+
+python-install-package() {
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                pip3 install -U $1
+        else
+                sudo pip3 install -U $1
+        fi
+
+        if [ $? -eq 0 ]; then
+		message "python" "$1 installation succeeded"
+	else
+		message "python" "$1 installation failed"
 	fi
+}
 
-	apt-get install python3 python3-venv python3-pip
-fi
+python-install-packages() {
+        message "python" "Fetch some good and useful python packages"
 
-echo "[python] Installing flake-8 pep8-naming sphinx"
+        message "python" "Python Tools"
+        python-install-package flake8
+        python-install-package pep8-naming
+        python-install-package pipenv
+}
 
-pip3 install flake8
-pip3 install pep8-naming
-pip3 install pipenv
+main() {
+        # Reset optind between calls to getopts
+        OPTIND=1
+        while getopts "iv" argv; do
+	        case $argv in
+		        i)
+			        python-install
+			        ;;
+		        v)
+			        verbose=true
+			        ;;
+	        esac
+        done
+
+        python-install-packages
+}
