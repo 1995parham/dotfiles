@@ -8,7 +8,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 echo "Welcome to simple script for connecting to VPN Makers"
-if [[ "$OSTYPE" != "linux"* ]]; then
+if [[ "$OSTYPE" != "linux-gnu" ]]; then
 	echo >&2 "This script only works on linux based systems :)";
         exit
 fi
