@@ -9,7 +9,7 @@
 # =======================================
 
 usage() {
-        echo "usage sample"
+        echo "usage: sample"
 }
 
 main() {
