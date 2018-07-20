@@ -20,7 +20,7 @@ platformio-install() {
 
 platformio-udev() {
         message "platformio" "Installing udev rules"
-        sudo curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/scripts/99-platformio-udev.rules > /etc/udev/rules.d/99-platformio-udev.rules
+        curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
         sudo service udev restart
 }
 
