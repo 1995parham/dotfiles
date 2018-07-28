@@ -68,7 +68,7 @@ docker-update() {
 docker-compose-upstall() {
         message "docker" "Upstall docker-compose"
 	compose_vr=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
-	compose_vl=$(docker-compose version --short)
+	compose_vl=$(docker-compose version --short 2> /dev/null)
 
 	if [ "${compose_vl}" != "${compose_vr}" ]; then
 		message "docker" "Installing docker-compose"
