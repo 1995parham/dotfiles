@@ -17,5 +17,5 @@ main() {
 
         message "exercism" "Downloading exercism $exercism_v"
         curl -L -# "https://github.com/exercism/cli/releases/download/${exercism_v}/exercism-linux-64bit.tgz" -o exercism.tgz
-        tar -vfxz exercism.tgz
+        tar -vxzf exercism.tgz
 }
