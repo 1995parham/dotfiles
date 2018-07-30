@@ -43,7 +43,7 @@ _main() {
                 esac
         done
 
-        for i in $(seq 2 $OPTIND); do
+        for i in $(seq 2 1 $OPTIND 2> /dev/null); do
                 shift
         done
 
