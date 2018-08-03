@@ -27,7 +27,7 @@ node-install() {
 
 	        curl -sL https://deb.nodesource.com/setup_$version | sudo -E bash -
 	        sudo apt-get install -y nodejs
-	        ln -s /usr/bin/nodejs /usr/bin/node
+	        sudo ln -s /usr/bin/nodejs /usr/bin/node
         fi
 
         message "node" "$(node -v)"
