@@ -109,7 +109,7 @@ if [ -d $HOME/bin ]; then
   PATH="$PATH:$HOME/bin"
 fi
 if [ -d /snap/bin ]; then
-  PATH="$PATH:/sanp/bin"
+  PATH="$PATH:/snap/bin"
 fi
 
 # You may need to manually set your language environment
