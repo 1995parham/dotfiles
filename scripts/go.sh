@@ -8,11 +8,12 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 verbose=false
-version="1.10"
+beta=false
 
 usage() {
-	echo "usage: go-$version [-i] [-v]"
+	echo "usage: go [-i] [-b [-v]"
 	echo "  -i   install go first"
+        echo "  -b   install beta version"
 	echo "  -v   verbose"
 }
 
@@ -22,25 +23,27 @@ go-install() {
 	if [[ $OSTYPE == "linux-gnu" ]]; then
 		message "go" "Linux"
 
-		sudo add-apt-repository -y ppa:gophers/archive
-		sudo apt-get -y update
-		sudo apt-get -y install golang-$version-go
-
-		sudo ln -f -s /usr/lib/go-$version/bin/go /usr/bin/go
-		sudo ln -f -s /usr/lib/go-$version/bin/gofmt /usr/bin/gofmt
+                if [ $beta = true ]; then
+                        message "go" "beta version installation"
+                        sudo snap install go --beta --classic
+                else
+                        message "go" "stable version installation"
+                        sudo snap install go --classic
+                fi
 	else
 		message "go" "Darwin"
 
 		brew install go
 	fi
+        message "go" "$(go version)"
 
 	message "go" "Create go directory structure"
-	if [ ! -d $HOME/Documents/Go ]; then
-		mkdir $HOME/Documents/Go
-		mkdir $HOME/Documents/Go/bin
-		mkdir $HOME/Documents/Go/src
-		mkdir $HOME/Documents/Go/lib
-	fi
+        local gopath
+        gopath=$HOME/Documents/Go
+        for dir in bin pkg src mod; do
+                echo $dir
+	        [ -d $gopath/$dir ] || mkdir $gopath/$dir
+        done
 }
 
 go-install-package() {
@@ -98,18 +101,28 @@ go-install-packages() {
 
 
 main() {
+        local install
+        install=false
+
         # Reset optind between calls to getopts
         OPTIND=1
-        while getopts "iv" argv; do
+        while getopts "ivb" argv; do
 	        case $argv in
+                        b)
+                                beta=true
+                                ;;
 		        i)
-			        go-install
+                                install=true
 			        ;;
 		        v)
 			        verbose=true
 			        ;;
 	        esac
         done
+
+        if [ $install = true ]; then
+                go-install
+        fi
 
         if [ $have_proxy = true ]; then
 	        proxy_start
