@@ -18,6 +18,13 @@ program_name=$0
 # global variable for using parham-usvs proxy in specific script
 have_proxy=false
 
+trap '_end' INT
+
+_end() {
+        echo "See you later :)"
+        exit
+}
+
 _usage() {
 	echo "usage: $program_name [-p] [-h] script"
 	echo "  -p   use parham-usvs proxy"
