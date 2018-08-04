@@ -64,7 +64,6 @@ ZSH_CUSTOM=~/.zsh.plug
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  command-not-found
   git
   golang
   pyenv
@@ -88,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 
 # local configuration
 if [ -f $HOME/.zshrc.local ]; then
-        source $HOME/.zshrc.local
+  source $HOME/.zshrc.local
 fi
 
 # }}}
@@ -104,10 +103,13 @@ PROJECT_PATHS=(~/Documents/Git/parham ~/Documents/Go/src)
 export EDITOR="vim"
 export TERM="xterm-256color-italic"
 if [ -f $HOME/.dircolors ]; then
-        eval `dircolors $HOME/.dircolors`
+  eval `dircolors $HOME/.dircolors`
 fi
 if [ -d $HOME/bin ]; then
-        PATH="$PATH:$HOME/bin"
+  PATH="$PATH:$HOME/bin"
+fi
+if [ -d /snap/bin ]; then
+  PATH="$PATH:/sanp/bin"
 fi
 
 # You may need to manually set your language environment
@@ -152,7 +154,7 @@ alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
 
 export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
-        PATH="$PATH:$HOME/Documents/Go/bin"
+  PATH="$PATH:$HOME/Documents/Go/bin"
 fi
 
 # }}}
