@@ -25,7 +25,7 @@ else
 	fi
 
 	apt-get update -q
-	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint -y
+	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint curl -y
 
 	add-apt-repository ppa:neovim-ppa/stable -y
 	apt-get update -q
