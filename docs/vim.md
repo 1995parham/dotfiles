@@ -21,14 +21,16 @@ style of Javascript which can be configured on eslint by following comamnds and 
 You can find more about Javascript standard style [here](https://standardjs.com/).
 
 ```sh
-# setup eslint locally
-# node.js
-npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
-# react.js
-npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
 # setup project folder
 npm init
 touch .eslintrc.yml
+
+# node.js
+npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
+
+# react.js
+npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
+
 ```
 
 > `.eslintrc.yml` for nodejs
