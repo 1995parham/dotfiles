@@ -30,10 +30,12 @@ go-install() {
                         message "go" "stable version installation"
                         sudo snap install go --classic
                 fi
+                curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 	else
 		message "go" "Darwin"
 
 		brew install go
+                brew install dep
 	fi
         message "go" "$(go version)"
 
@@ -67,10 +69,6 @@ go-install-packages() {
 	go-install-package "github.com/alecthomas/gometalinter"
 	go-install-package "github.com/nsf/gocode"
 	go-install-package "github.com/garyburd/go-explorer/src/getool"
-
-	# Go Dep
-	message "go" "Go Dep"
-	go-install-package "github.com/golang/dep/cmd/dep"
 
 	# Go Debugger
 	message "go" "Go Debugger [delve]"
