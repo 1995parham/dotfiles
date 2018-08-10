@@ -264,6 +264,8 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['htmlhint']
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_go_checkers = ['gofmt', 'go', 'golint']
+let g:syntastic_dockerfile_checkers = ['hadolint']
+let g:syntastic_filetype_map = { "Dockerfile": "dockerfile" }
 
 let g:syntastic_c_compiler_options = ' -std=gnu11'
 
