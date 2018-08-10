@@ -15,20 +15,23 @@ sudo apt install ctags
 
 ### JavaScript
 
-Personally I use [ESLint](https://eslint.org/) as linter for my JS projects.
+Personally I use [eslint](https://eslint.org/) as linter for my node and js projects.
 It can be configured by many aspects and styles. Personally I use standard
 style of Javascript which can be configured on eslint by following comamnds and yaml configurations.
 You can find more about Javascript standard style [here](https://standardjs.com/).
 
 ```sh
-# setup eslint locally
-# node.js
-npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
-# react.js
-npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
 # setup project folder
 npm init
 touch .eslintrc.yml
+npm install --save-dev eslint
+
+# node.js
+npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
+
+# react.js
+npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
+
 ```
 
 > `.eslintrc.yml` for nodejs
