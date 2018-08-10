@@ -74,17 +74,21 @@ docker-compose-upstall() {
 		message "docker" "Installing docker-compose"
 		sudo curl -L "https://github.com/docker/compose/releases/download/${compose_vr}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 		sudo chmod +x /usr/local/bin/docker-compose
-                message "docker" $(docker-compose)
 	fi
+        message "docker" "$(docker-compose version)"
 }
 
 docker-hadolint-upstall() {
         message "docker" "Upstall hadolint/hadolint"
-	hadolint_v=$(curl -s https://api.github.com/repos/hadolint/hadolint/releases/latest | grep 'tag_name' | cut -d\" -f4)
+	hadolint_vr=$(curl -s https://api.github.com/repos/hadolint/hadolint/releases/latest | grep 'tag_name' | cut -d\" -f4)
+	hadolint_vl=$(hadolint --version 2> /dev/null | cut -d ' ' -f 4 | cut -d '-' -f 1)
 
-	sudo curl -L "https://github.com/hadolint/hadolint/releases/download/${hadolint_v}/hadolint-$(uname -s)-$(uname -m)" -o /usr/local/bin/hadolint
-	sudo chmod +x /usr/local/bin/hadolint
-        message "docker" $(hadolint --version)
+	if [ "${hadolint_vl}" != "${hadolint_vr}" ]; then
+		message "docker" "Installing hadolint"
+	        sudo curl -L "https://github.com/hadolint/hadolint/releases/download/${hadolint_vr}/hadolint-$(uname -s)-$(uname -m)" -o /usr/local/bin/hadolint
+	        sudo chmod +x /usr/local/bin/hadolint
+	fi
+        message "docker" "$(hadolint --version)"
 }
 
 docker-app-install() {
