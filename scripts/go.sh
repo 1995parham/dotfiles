@@ -30,12 +30,10 @@ go-install() {
                         message "go" "stable version installation"
                         sudo snap install go --classic
                 fi
-                curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 	else
 		message "go" "Darwin"
 
 		brew install go
-                brew install dep
 	fi
         message "go" "$(go version)"
 
@@ -46,6 +44,19 @@ go-install() {
                 echo $dir
 	        [ -d $gopath/$dir ] || mkdir $gopath/$dir
         done
+}
+
+go-install-dep() {
+	if [[ $OSTYPE == "linux-gnu" ]]; then
+		message "go" "Linux"
+
+                curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+	else
+		message "go" "Linux"
+
+                brew install dep
+	fi
+        message "go" "$(dep version)"
 }
 
 go-install-package() {
@@ -121,6 +132,8 @@ main() {
         if [ $install = true ]; then
                 go-install
         fi
+
+        go-install-dep
 
         if [ $have_proxy = true ]; then
 	        proxy_start
