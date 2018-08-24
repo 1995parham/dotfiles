@@ -1,16 +1,8 @@
-## Install Go on Ubuntu [Automated]
+## Useful terminal commands
 
 ```sh
-$ sudo add-apt-repository ppa:gophers/archive
-$ sudo apt update
-$ sudo apt-get install golang-1.9-go
-```
-
-Note that golang-1.9-go puts binaries in /usr/lib/go-1.9/bin. If you want them on your PATH, you need to make that change yourself.
-
-```sh
-$ sudo ln -s /usr/lib/go-1.9/bin/go /usr/bin/go
-$ sudo ln -s /usr/lib/go-1.9/bin/gofmt /usr/bin/gofmt
+# process list
+ps -ely
 ```
 
 ## Ubuntu Universal Repository
@@ -111,24 +103,6 @@ install it with
 
 ```sh
 ./fonts/install.sh
-```
-
-## Airspeed [Automated]
-
-For installing *airspeed* on OSx use pip3 command as follows
-
-```sh
-pip3 install airspeed
-```
-
-For installing it on Ubuntu you must compile it from source code:
-
-```sh
-git clone https://github.com/purcell/airspeed.git
-cd airspeed
-sudo python3 setup.py install
-cd ..
-sudo rm -Rf airspeed
 ```
 
 ## Ubuntu Bug on Vaio Laptops :heart:
