@@ -1,8 +1,8 @@
 ## Useful terminal commands
 
 ```sh
-# process list
-ps -ely
+# processes list
+> ps -ely
 ```
 
 ## Ubuntu Universal Repository
