@@ -1,10 +1,12 @@
+Home network topology and used technologies described in this section.
+
 ## Topology
 
 Parham Edge (75):
 
 | IP Address       | Name                | Comment         |
 |:----------------:|:-------------------:|:----------------|
-| 192.168.75.254   | Provider Access Dev | TCI             |
+| 192.168.75.254   | PoP                 | ?               |
 
 Parham Master (73):
 
@@ -30,12 +32,13 @@ Parham Master (73):
 
 
 ## Openfiler
-Login into web management interface on `https://192.168.73.103:446/`
-with `openfiler:password`.
+Web management interface is on `https://192.168.73.103:446/`
+with `openfiler:password` as login information.
 
 ## vSphere 6.5
 ### govc
 govc is a command-line application for interacting with VMware vSphere APIs (ESXi and/or vCenter).
+It can install with the following command:
 
 ```sh
 go get -u github.com/vmware/govmomi/govc
@@ -50,46 +53,10 @@ govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64" -u user:pass@host
 ```
 
 ### vCenter
-First of all install the vCenter appliance after setup completed and vm started successfully,
+First of all, install the vCenter appliance after setup completed and VM started successfully,
 go to `:5480` and complete the installation. (Please note that vCenter need a simple DNS).
 
-## Docker Container Management
-### Photon, Minimal linux container host
-Photon is a awesome thing :yum:
 
-- Enable docker remote API
+## Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
 
-```sh
-systemctl stop docker
-
-cat > /etc/default/docker << "EOF"
-
-DOCKER_OPTS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
-EOF
-
-iptables -A INPUT -p tcp --dport 2375 -j ACCEPT
-
-```
-
-- setup static ip address
-
-```sh
-cat > /etc/systemd/network/10-static-en.network << "EOF"
-
-[Match]
-Name=eth0
-
-[Network]
-Address=198.51.0.2/24
-Gateway=198.51.0.1
-EOF
-
-chmod 644 10-static-en.network
-rm 10-dhcp-en.network
-
-systemctl restart systemd-networkd
-```
-
-### Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
-
-### Docker Management based on [Portainer](https://github.com/portainer)
+## Docker Management based on [Portainer](https://github.com/portainer)
