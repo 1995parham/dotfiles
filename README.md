@@ -18,8 +18,10 @@
 
 ## Introduction
 
-My Personal Ubuntu and OSx configuration files which were cratead in fall 2013.
-for more information about how to use this configuration with VIM, Zsh and ... see following sections.
+My Personal Ubuntu and OSx configuration files which created in Fall 2013
+when I was a BSc Student of the Amirkabir University of Technology.
+First thank for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc.
+please check the following sections.
 
 ## Table of Contents
 
