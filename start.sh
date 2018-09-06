@@ -16,8 +16,11 @@ source $current_dir/scripts/lib/message.sh
 # start.sh
 program_name=$0
 
-# global variable for using parham-usvs proxy in specific script
+# global variable indicates using parham-usvs proxy in specific script
 have_proxy=false
+
+# global variabe indicates force in specific script
+force=false
 
 trap '_end' INT
 
@@ -30,6 +33,7 @@ _usage() {
 	echo "usage: $program_name [-p] [-h] script"
 	echo "  -p   use parham-usvs proxy"
 	echo "  -h   display help"
+        echo "  -f   force"
 }
 
 _main() {
@@ -40,13 +44,16 @@ _main() {
 
         show_help=0
 
-        while getopts 'ph' argv; do
+        while getopts 'phf' argv; do
                 case $argv in
                         h)
                                 show_help=1
                                 ;;
                         p)
                                 have_proxy=true
+                                ;;
+                        f)
+                                force=true
                                 ;;
                 esac
         done
@@ -78,7 +85,9 @@ _main() {
 
 if [[ $EUID -eq 0 ]]; then
         message "pre" "it must run without the root permissions with a regular user."
-	exit 1
+        if [ $force = false ]; then
+	        exit 1
+        fi
 fi
 
 _main $@
