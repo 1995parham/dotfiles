@@ -17,6 +17,7 @@ usage() {
         echo "  -h   display help"
 }
 
+# global variable that points to dotfiles root directory
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cat "$current_dir/logo.txt"
@@ -257,5 +258,5 @@ announce "post" "Thank you for using Parham Alvani dotfiles ! :)"
 announce "post" "Please check following directories:"
 announce "post" "1. fonts/ [Meslo LG S Powerline]"
 announce "post" "2. scripts/"
-announce "post" "Plase use shecan dns: 94.232.174.194"
+announce "post" "Plase use shecan dns: 178.22.122.100"
 announce "post" "Use *r* for reload your zshrc in place"
