@@ -245,6 +245,7 @@ install-general() {
         esac
 }
 
+# calls each module install function.
 modules=(vim nvim conf zsh git bin terminfo general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
