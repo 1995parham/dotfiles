@@ -8,6 +8,11 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
+# you can use global variables that are listed below
+# $have_proxy
+# $force
+# ... for more information see start.sh.
+
 usage() {
         echo "usage: sample"
 }
