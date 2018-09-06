@@ -1,3 +1,11 @@
+## Custom Ubuntu Image
+Sometimes you need custom ubuntu installation. In this customized installation,
+you can have your specific *files* and *apt packages*.
+This repository's `scripts` folder can help you with some useful software installation.
+Cubic is an awesome tool for doing this job and you can get more information about it
+from [this](https://askubuntu.com/questions/741753/how-to-use-cubic-to-create-a-custom-ubuntu-live-cd-image)
+StackOverflow answer.
+
 ## Useful terminal commands
 
 ```sh
