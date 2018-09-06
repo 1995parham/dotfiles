@@ -7,7 +7,8 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
-# global variable points to dotfiles root directory
+
+# global variable that points to dotfiles root directory
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $current_dir/scripts/lib/proxy.sh
 source $current_dir/scripts/lib/message.sh
