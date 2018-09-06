@@ -1,4 +1,4 @@
-## Custom Ubuntu Image
+## Custom Ubuntu Image :cd:
 Sometimes you need custom ubuntu installation. In this customized installation,
 you can have your specific *files* and *apt packages*.
 This repository's `scripts` folder can help you with some useful software installation.
