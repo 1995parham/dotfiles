@@ -53,7 +53,7 @@ case $install_type in
 esac
 echo
 
-# Dotfile
+# Creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
 # parameter 2: file names - array of string
 # parameter 3 [default = true]: is hidden file - bool
@@ -84,7 +84,7 @@ dotfile() {
         done
 }
 
-# config File
+# Creates a config file that resides in the `.config` directory, and provides a soft link for it.
 # parameter 1: module name - string
 # parameter 2: file name - string
 configfile() {
