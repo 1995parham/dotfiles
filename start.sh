@@ -19,8 +19,12 @@ program_name=$0
 # global variable indicates using parham-usvs proxy in specific script
 have_proxy=false
 
-# global variabe indicates force in specific script
+# global variable indicates force in specific script
 force=false
+
+# global variable indicates show help for user in specific script
+# there is no need to use it in your script
+show_help=false
 
 trap '_end' INT
 
@@ -30,24 +34,18 @@ _end() {
 }
 
 _usage() {
-	echo "usage: $program_name [-p] [-h] script"
+	echo "usage: $program_name [-p] [-h] [-f] script [script options]"
 	echo "  -p   use parham-usvs proxy"
 	echo "  -h   display help"
         echo "  -f   force"
 }
 
 _main() {
-        local show_help
-        local script
-        local start
-        local took
-
-        show_help=0
-
+        # parses options flags
         while getopts 'phf' argv; do
                 case $argv in
                         h)
-                                show_help=1
+                                show_help=true
                                 ;;
                         p)
                                 have_proxy=true
@@ -62,6 +60,20 @@ _main() {
                 shift
         done
 
+        # handles root user
+        if [[ $EUID -eq 0 ]]; then
+                message "pre" "it must run without the root permissions with a regular user."
+                if [ $force = false ]; then
+	                exit 1
+                fi
+                message "pre" "I hope you know what you are doing by using -f."
+        fi
+
+        # handles given script run and result
+        local script
+        local start
+        local took
+
         if [ -z $1 ]; then
                 _usage
                 exit
@@ -71,8 +83,8 @@ _main() {
 
         start=$(date +'%s')
 
-        source $current_dir/scripts/$script.sh 2> /dev/null || { echo "script not found"; exit; }
-        if [ "$show_help" -eq "1" ]; then
+        source $current_dir/scripts/$script.sh 2> /dev/null || { echo "404 script not found"; exit; }
+        if [ $show_help = true ]; then
                 usage
         else
                 main $@
@@ -82,12 +94,5 @@ _main() {
         took=$(( $(date +'%s') - $start ))
         printf "Done. Took %ds.\n" $took
 }
-
-if [[ $EUID -eq 0 ]]; then
-        message "pre" "it must run without the root permissions with a regular user."
-        if [ $force = false ]; then
-	        exit 1
-        fi
-fi
 
 _main $@
