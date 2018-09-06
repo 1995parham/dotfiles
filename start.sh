@@ -21,7 +21,7 @@ have_proxy=false
 trap '_end' INT
 
 _end() {
-        echo "See you later :)"
+        echo "See you later :) [you signal start.sh execuation]"
         exit
 }
 
@@ -76,7 +76,7 @@ _main() {
 }
 
 if [[ $EUID -eq 0 ]]; then
-        message "pre" "This script must be run as normal user"
+        message "pre" "it must run without the root permissions with a regular user."
 	exit 1
 fi
 
