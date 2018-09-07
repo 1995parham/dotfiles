@@ -91,7 +91,7 @@ _main() {
         fi
 
         echo
-        took=$(( $(date +'%s') - $start ))
+        took=$(( $(date +'%s') - start ))
         printf "Done. Took %ds.\n" $took
 }
 
