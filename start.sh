@@ -16,16 +16,6 @@ source $current_dir/scripts/lib/message.sh
 # start.sh
 program_name=$0
 
-# global variable indicates using parham-usvs proxy in specific script
-have_proxy=false
-
-# global variable indicates force in specific script
-force=false
-
-# global variable indicates show help for user in specific script
-# there is no need to use it in your script
-show_help=false
-
 trap '_end' INT
 
 _end() {
@@ -41,6 +31,19 @@ _usage() {
 }
 
 _main() {
+        ## global variables ##
+
+        # global variable indicates using parham-usvs proxy in specific script
+        local have_proxy=false
+
+        # global variable indicates force in specific script
+        local force=false
+
+        # global variable indicates show help for user in specific script
+        # there is no need to use it in your script
+        local show_help=false
+
+
         # parses options flags
         while getopts 'phf' argv; do
                 case $argv in
@@ -85,8 +88,12 @@ _main() {
 
         source $current_dir/scripts/$script.sh 2> /dev/null || { echo "404 script not found"; exit; }
         if [ $show_help = true ]; then
+                # prints the start.sh and the script helps
+                _usage
+                echo
                 usage
         else
+                # run the script
                 main $@
         fi
 
