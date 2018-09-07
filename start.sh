@@ -59,7 +59,7 @@ _main() {
                 esac
         done
 
-        for i in $(seq 2 1 $OPTIND 2> /dev/null); do
+        for ((i=2; i<=$OPTIND; i++)); do
                 shift
         done
 
