@@ -44,6 +44,14 @@ DNS: 94.232.174.194
 ```
 
 ## Installation
+Create my lovely directory structure:
+
+```sh
+mkdir Documents
+mkdir Downloads
+mkdir -p Documents/Git/parham
+mkdir -p Documents/Git/others
+```
 
 Install required softwares with:
 
