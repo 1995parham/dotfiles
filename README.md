@@ -44,13 +44,10 @@ DNS: 94.232.174.194
 ```
 
 ## Installation
-Create my lovely directory structure:
+Over-the-Air-Installation :joy:
 
 ```sh
-mkdir Documents
-mkdir Downloads
-mkdir -p Documents/Git/parham
-mkdir -p Documents/Git/others
+curl -L https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
 ```
 
 Install required softwares with:
