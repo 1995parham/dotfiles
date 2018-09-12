@@ -143,8 +143,9 @@ linker() {
 install-vim() {
         case $install_type in
                 0)
-                        files=("vimrc" "vim")
-                        dotfile "vim" files[@]
+                        # files=("vimrc" "vim")
+                        # dotfile "vim" files[@]
+                        return
                         ;;
                 1)
                         files=("vimrc")
