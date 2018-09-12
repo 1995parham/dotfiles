@@ -13,17 +13,17 @@ usage() {
 }
 
 hostname-change() {
-	message "hostname In OVH datacenter please remember to disable cloud-init program"
+	message "hostname" "In OVH datacenter please remember to disable cloud-init program"
 
-	message "hostname Change hostname to $1"
+	message "hostname" "Change hostname to $1"
 
-	message "hostname hostname"
+	message "hostname" "hostname"
 	sudo hostname $1
 
-	message "hostname /etc/hosts"
+	message "hostname" "/etc/hosts"
 	sudo sed -i 's/127.0.1.1.*/127.0.1.1\t'"$1"'/g' /etc/hosts
 
-	message "hostname /etc/hostname"
+	message "hostname" "/etc/hostname"
 	echo $1 | sudo tee /etc/hostname
 }
 
