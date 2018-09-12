@@ -17,7 +17,7 @@ usage() {
 # please consider to install the required packages on these system by hand.
 
 mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint)
-linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint)
+linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd)
 
 install-apt() {
         if [ $force = false ]; then
@@ -67,14 +67,17 @@ install() {
         else
 	        message "env" "Linux"
 
-                install-packages-apt ${linux_packages[@]}
+                install-packages-linux ${linux_packages[@]}
 
                 sudo add-apt-repository ppa:neovim-ppa/stable -y
 
-                install-packages-apt neovim python3-dev python3-pip
+                install-packages-linux neovim python3-dev python3-pip
         fi
 
-	gem install travis -v 1.8.8 --no-rdoc --no-ri
+        if $(hash gdate 2>/dev/null); then
+	        gem install travis -v 1.8.8 --no-rdoc --no-ri
+        fi
+
         pip3 install --upgrade neovim
 }
 
