@@ -53,7 +53,7 @@ curl -L https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-ai
 Install required softwares with:
 
 ```sh
-sudo ./scripts/env.sh
+./start.sh env
 ```
 
 Setup configuration files with:
