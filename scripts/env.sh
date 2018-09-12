@@ -7,31 +7,80 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "[env] Darwin"
+usage() {
+        echo "usage: env"
+        echo "installs required brew or apt packages"
+}
 
-	brew install zsh ctags vim tmux mosh aria2
-	brew install neovim
-	pip3 install --upgrade neovim
-	brew install yamllint
-	
+# vim is depreated beacuase of neovim
+# this env is not suitable for minimal systems
+# please consider to install the required packages on these system by hand.
+
+mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint)
+linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint)
+
+install-apt() {
+        if [ $force = false ]; then
+                sudo apt-get install $1
+        else
+                sudo apt-get install $1 -y
+        fi
+}
+
+install-brew() {
+        if $(brew ls --versions "$1" > /dev/null); then
+                message "env" "update $1 with brew"
+                brew upgrade "$1"
+        else
+                message "env" "install $1 with brew"
+                brew install "$1"
+        fi
+}
+
+install-packages-osx() {
+        for pkg in $@; do
+                install-brew $pkg
+        done
+}
+
+install-packages-linux() {
+	sudo apt-get update -q
+        for pkg in $@; do
+                message "env" "install $pkg with apt"
+                install-apt $pkg
+        done
+}
+
+install() {
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+	        message "env" "Darwin"
+                if [ $have_proxy = true ]; then
+                        proxy_start
+                fi
+
+                install-packages-osx ${mac_packages[@]}
+
+                if [ $have_proxy = true ]; then
+	                proxy_stop
+                fi
+
+        else
+	        message "env" "Linux"
+
+                install-packages-apt ${linux_packages[@]}
+
+                sudo add-apt-repository ppa:neovim-ppa/stable -y
+
+                install-packages-apt neovim python3-dev python3-pip
+        fi
+
 	gem install travis -v 1.8.8 --no-rdoc --no-ri
-else
-	echo "[env] Linux"
+        pip3 install --upgrade neovim
+}
 
-	if [[ $EUID -ne 0 ]]; then
-		echo "[env] This script must be run as root"
-		exit 1
-	fi
+main() {
+        # Reset optind between calls to getopts
+        OPTIND=1
 
-	apt-get update -q
-	apt-get install zsh ctags vim tmux mosh aria2 jq yamllint curl -y
-
-	add-apt-repository ppa:neovim-ppa/stable -y
-	apt-get update -q
-	apt-get install neovim -y
-	apt-get install python3-dev python3-pip -y
-	pip3 install --upgrade neovim
-
-	# gem install travis -v 1.8.8 --no-rdoc --no-ri
-fi
+        install
+}
