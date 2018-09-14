@@ -24,5 +24,5 @@ git clone https://github.com/1995parham/dotfiles
 cd dotfiles
 
 echo "Install the reuired packages using './start.sh env'"
-echo 'Add universal package using "sudo add-apt-repository deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"'
+echo "Add universal package using if you are on ubuntu."
 echo "Install dotfiles using ./install.sh"
