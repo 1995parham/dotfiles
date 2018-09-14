@@ -51,7 +51,7 @@ install-packages-linux() {
         done
 }
 
-install() {
+install-() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
 	        message "env" "Darwin"
                 if [ $have_proxy = true ]; then
@@ -85,5 +85,5 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        install
+        install-
 }
