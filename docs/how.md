@@ -6,6 +6,17 @@ Cubic is an awesome tool for doing this job and you can get more information abo
 from [this](https://askubuntu.com/questions/741753/how-to-use-cubic-to-create-a-custom-ubuntu-live-cd-image)
 StackOverflow answer.
 
+## Multiple Ways to Secure SSH Port
+[This article](http://www.hackingarticles.in/multiple-ways-to-secure-ssh-port/) will be explaining about the network securities which
+help the network administrator to secure the service of SSH on any server through multiple ways.
+
+1. Port Forwarding
+2. Disable Password Based Login And Using PGP Key (Public Key)
+3. Disable Root Login and Limit SSH User’s Access
+4. Google Authenticator
+5. Time Scheduling
+6. Disable Empty Passwords
+
 ## Useful terminal commands
 
 ```sh
