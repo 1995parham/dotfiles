@@ -16,22 +16,27 @@ options {
 	// Uncomment the following block, and insert the addresses replacing
 	// the all-0's placeholder.
 
+        // forwarders block contains the IP addresses of the recursive name servers that we want to forward requests
 	forwarders {
+                178.22.122.100; // shecan service
 		192.168.73.254;
 		8.8.8.8;
 	};
 
-	recursion yes;
+        // Server attempts to find the website in question in its local cache.
+        // If it cannot find an answer it will query other DNS servers on your behalf until it finds the address.
+	recursion yes; // explicitly turns recursion on
 	allow-query { home; };
-	forward only;
+	forward only; // server will forward all requests and should not attempt to resolve requests on its own.
 
 
 	//========================================================================
 	// If BIND logs error messages about the root key being expired,
 	// you will need to update your keys.  See https://www.isc.org/bind-keys
 	//========================================================================
-	dnssec-validation yes;
-	dnssec-enable yes;
+	dnssec-validation no;
+        // dnssec-validation yes;
+	// dnssec-enable yes;
 
 	auth-nxdomain no;    # conform to RFC1035
 	listen-on { any; };
