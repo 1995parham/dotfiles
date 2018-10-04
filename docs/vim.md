@@ -41,7 +41,7 @@ npm install --save-dev eslint-config-standard eslint-config-standard-react eslin
   extends:
     - standard
   parserOptions:
-    ecmaVersion: 6
+    ecmaVersion: 2018
 ```
 
 > `.eslintrc.yml` for react
