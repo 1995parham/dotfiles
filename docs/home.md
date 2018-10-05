@@ -19,11 +19,11 @@ Parham Master (73):
 | 192.168.73.5     | Parham USVM 2       | Ubuntu Server   |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
 | 192.168.73.7     | Parham USVM 4       | Ubuntu Server   |
+| 192.168.73.8    | Parham NUC          | ?               |
 | 192.168.73.10    | NAS                 | -               |
 | 192.168.73.11    | vCenter             | -               |
 | 192.168.73.12    | Parham Giant        | ESXi            |
 | 192.168.73.13    | Renge Extender      | -               |
-| 192.168.73.13    | Parham NUC          | ?               |
 | 192.168.73.99    | Parham Zipp         | -               |
 | 192.168.73.100   | DNS                 | -               |
 | 192.168.73.101   | DLink Switch        | -               |
