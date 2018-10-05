@@ -69,9 +69,7 @@ install-() {
 
                 install-packages-linux ${linux_packages[@]}
 
-                sudo add-apt-repository ppa:neovim-ppa/stable -y
-
-                install-packages-linux neovim python3-dev python3-pip
+                message "env" "Please install neovim by hands"
         fi
 
         if $(hash gdate 2>/dev/null); then
