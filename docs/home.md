@@ -24,6 +24,7 @@ Parham Master (73):
 | 192.168.73.12    | Parham Giant        | ESXi            |
 | 192.168.73.13    | Renge Extender      | -               |
 | 192.168.73.13    | Parham NUC          | ?               |
+| 192.168.73.99    | Parham Zipp         | -               |
 | 192.168.73.100   | DNS                 | -               |
 | 192.168.73.101   | DLink Switch        | -               |
 | 192.168.73.102   | Parham Giant Mgmt   | iKVM            |
