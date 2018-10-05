@@ -19,7 +19,7 @@ Parham Master (73):
 | 192.168.73.5     | Parham USVM 2       | Ubuntu Server   |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server   |
 | 192.168.73.7     | Parham USVM 4       | Ubuntu Server   |
-| 192.168.73.8    | Parham NUC          | ?               |
+| 192.168.73.8     | Parham NUC          | -               |
 | 192.168.73.10    | NAS                 | -               |
 | 192.168.73.11    | vCenter             | -               |
 | 192.168.73.12    | Parham Giant        | ESXi            |
