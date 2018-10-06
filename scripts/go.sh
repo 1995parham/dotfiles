@@ -12,7 +12,7 @@ beta=false
 
 usage() {
 	echo "usage: go [-i] [-b [-v]"
-	echo "  -i   install go first"
+        echo "  -i   install go first"
         echo "  -b   install beta version"
 	echo "  -v   verbose"
 }
@@ -42,7 +42,7 @@ go-install() {
         gopath=$HOME/Documents/Go
         for dir in bin pkg src mod; do
                 echo $dir
-	        [ -d $gopath/$dir ] || mkdir -p $gopath/$dir
+                [ -d $gopath/$dir ] || mkdir -p $gopath/$dir
         done
 }
 
@@ -77,13 +77,15 @@ go-install-packages() {
 
 	# Go Tools
 	message "go" "Go Tools"
-	go-install-package "github.com/alecthomas/gometalinter"
+        # vim-go installs go-metalinter
+	# go-install-package "github.com/alecthomas/gometalinter"
 	go-install-package "github.com/nsf/gocode"
 	go-install-package "github.com/garyburd/go-explorer/src/getool"
 
 	# Go Debugger
-	message "go" "Go Debugger [delve]"
-	go-install-package "github.com/derekparker/delve/cmd/dlv"
+        # vim-go adds dlv since v1.17 (March 27, 2018)
+	# message "go" "Go Debugger [delve]"
+	# go-install-package "github.com/derekparker/delve/cmd/dlv"
 
 	# Revel web framework
 	read -p "Do you wish to install Revel web framework? [Y/n] " install_confirm
@@ -93,16 +95,16 @@ go-install-packages() {
 			go-install-package "github.com/revel/revel"
 			go-install-package "github.com/revel/cmd/revel"
 			;;
-    	esac
-	
-	# Buffalo awesome web framework
-	read -p "Do you wish to install Buffalo web framework? [Y/n] " install_confirm
-	case $install_confirm in
+        esac
+
+        # Buffalo awesome web framework
+        read -p "Do you wish to install Buffalo web framework? [Y/n] " install_confirm
+        case $install_confirm in
 		Y )
 			message "go" "Buffalo web framework"
 			go-install-package "github.com/gobuffalo/buffalo/buffalo"
 			;;
-    	esac
+        esac
 
 	message "go" "Install binary requirements of vim-go"
         vim +GoUpdateBinaries +qall
@@ -116,17 +118,17 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
         while getopts "ivb" argv; do
-	        case $argv in
+                case $argv in
                         b)
                                 beta=true
                                 ;;
-		        i)
+                        i)
                                 install=true
-			        ;;
-		        v)
-			        verbose=true
-			        ;;
-	        esac
+                                ;;
+                        v)
+                                verbose=true
+                                ;;
+                esac
         done
 
         if [ $install = true ]; then
@@ -136,12 +138,12 @@ main() {
         go-install-dep
 
         if [ $have_proxy = true ]; then
-	        proxy_start
+                proxy_start
         fi
 
         go-install-packages
 
         if [ $have_proxy = true ]; then
-	        proxy_stop
+                proxy_stop
         fi
 }
