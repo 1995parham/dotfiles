@@ -263,7 +263,7 @@ endif
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['htmlhint']
 let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_go_checkers = ['gofmt', 'go', 'golint']
+let g:syntastic_go_checkers = ['go', 'golint', 'gofmt']
 let g:syntastic_dockerfile_checkers = ['hadolint']
 let g:syntastic_filetype_map = { "Dockerfile": "dockerfile" }
 
@@ -284,8 +284,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_vue_checkers = ['eslint']
 
 " vim-go
+" please consider that vim-go is not responsible for validating
+" go code. syntastic does this.
 let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_operators = 1
@@ -346,8 +348,6 @@ let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_synchronize_view = 0
 
 " Airline (status line)
-let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#taboo#enabled = 1
