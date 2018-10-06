@@ -1,3 +1,8 @@
+# PATH {{{
+# prevent from duplicate records in path
+typeset -U path
+# }}}
+
 # ELone {{{
 source $HOME/.zsh.plug/elone.zsh
 # }}}
@@ -7,7 +12,7 @@ source $HOME/.zsh.plug/elone.zsh
 ZSH=$HOME/.oh-my-zsh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:$PATH
+path+=('/usr/local/bin')
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -106,10 +111,11 @@ if [ -f $HOME/.dircolors ]; then
   eval `dircolors $HOME/.dircolors`
 fi
 if [ -d $HOME/bin ]; then
-  PATH="$PATH:$HOME/bin"
+  path+=("$HOME/bin")
 fi
+
 if [ -d /snap/bin ]; then
-  PATH="$PATH:/snap/bin"
+  path+=('/snap/bin')
 fi
 
 # You may need to manually set your language environment
@@ -154,7 +160,7 @@ alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
 
 export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
-  PATH="$PATH:$HOME/Documents/Go/bin"
+  path+=("$HOME/Documents/Go/bin")
 fi
 
 # }}}
@@ -166,8 +172,6 @@ export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
 
 # }}}
 
-# proxy {{{
-
-# export parham_usvs="46.4.176.126"
-
+# PATH {{{
+export PATH
 # }}}
