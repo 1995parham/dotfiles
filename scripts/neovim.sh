@@ -36,4 +36,5 @@ upinstall-neovim() {
 
 
         sudo apt-get install python3-dev python3-pip
+        pip3 install --upgrade neovim
 }
