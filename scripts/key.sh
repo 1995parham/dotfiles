@@ -35,9 +35,6 @@ public() {
 private() {
 	git clone https://github.com/1995parham/keys
 
-	if [ ! -d $HOME/.ssh ]; then
-		mkdir $HOME/.ssh && chmod 0700 $HOME/.ssh
-	fi
 	if [ ! -d keys/$1 ]; then
 		echo "$1 does not exists on keys"
 		rm -Rf keys
@@ -56,6 +53,10 @@ main() {
 	if [ -s $2 ]; then
 		usage
 		return
+	fi
+
+	if [ ! -d $HOME/.ssh ]; then
+		mkdir $HOME/.ssh && chmod 0700 $HOME/.ssh
 	fi
 
 	if [ $1 = "private" ]; then
