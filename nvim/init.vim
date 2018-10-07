@@ -77,6 +77,8 @@ set foldmethod=marker
 " Set search results highlighting
 set hlsearch
 
+set shell=/bin/bash\ -l
+
 " Map <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
