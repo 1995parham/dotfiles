@@ -50,6 +50,13 @@ Over-the-Air-Installation :joy:
 curl -L https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
 ```
 
+
+Ubuntu Universal Repository (if you are on ubuntu :joy:)
+
+```sh
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+```
+
 Install required softwares with:
 
 ```sh
