@@ -24,12 +24,6 @@ help the network administrator to secure the service of SSH on any server throug
 > ps -ely
 ```
 
-## Ubuntu Universal Repository
-
-```sh
-sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
-```
-
 ## Colorful Terminal
 
 For colorizing with 256-color your terminal you can read [this](http://misc.flogisoft.com/bash/tip_colors_and_formatting) manual.
