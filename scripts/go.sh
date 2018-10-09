@@ -107,7 +107,9 @@ go-install-packages() {
         esac
 
 	message "go" "Install binary requirements of vim-go"
-        vim +GoUpdateBinaries +qall
+        # please consider that this script runs in bash so it cannot see
+        # aliases that are defined in zsh
+        nvim +GoUpdateBinaries +qall
 }
 
 
