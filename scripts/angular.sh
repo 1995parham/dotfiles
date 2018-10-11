@@ -15,6 +15,7 @@ usage() {
 angular-install-cli() {
         # it requires sudo on linux based systems
         sudo npm install -g @angular/cli
+        ng --version
 }
 
 angular-install-ts() {
