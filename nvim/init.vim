@@ -213,6 +213,7 @@ Plug 'vim-scripts/avr8bit.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -271,13 +272,15 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['htmlhint']
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_go_checkers = ['go', 'golint', 'gofmt']
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 let g:syntastic_dockerfile_checkers = ['hadolint']
 let g:syntastic_filetype_map = { "Dockerfile": "dockerfile" }
 
 let g:syntastic_c_compiler_options = ' -std=gnu11'
 
 let g:syntastic_nasm_nasm_args = '-f elf64'
+
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
