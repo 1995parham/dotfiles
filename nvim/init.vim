@@ -206,6 +206,7 @@ Plug 'kylef/apiblueprint.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
 Plug 'stephpy/vim-yaml'
+Plugin 'leafgarland/typescript-vim'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
