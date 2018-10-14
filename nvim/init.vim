@@ -270,6 +270,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['htmlhint']
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_go_checkers = ['go', 'golint', 'gofmt']
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_dockerfile_checkers = ['hadolint']
 let g:syntastic_filetype_map = { "Dockerfile": "dockerfile" }
 
