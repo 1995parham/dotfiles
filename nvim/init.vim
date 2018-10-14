@@ -212,6 +212,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
 " Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -270,7 +271,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_html_checkers = ['htmlhint']
 let g:syntastic_tex_checkers = ['chktex']
 let g:syntastic_go_checkers = ['go', 'golint', 'gofmt']
-let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 let g:syntastic_dockerfile_checkers = ['hadolint']
 let g:syntastic_filetype_map = { "Dockerfile": "dockerfile" }
 
