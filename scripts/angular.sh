@@ -21,6 +21,7 @@ angular-install-cli() {
 angular-install-ts() {
         # it requires sudo on linux based systems
         sudo npm install -g typescript
+        sudo npm install -g tslint
 }
 
 main() {
