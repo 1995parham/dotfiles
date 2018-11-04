@@ -122,7 +122,7 @@ autocmd BufRead,BufNewFile .babelrc setlocal filetype=json
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 " Less
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype less setlocal ts=2 sts=2 sw=2
 
 " JavaScript
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
