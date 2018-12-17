@@ -71,10 +71,6 @@ install-() {
 
                 message "env" "Please install neovim by hands"
         fi
-
-        if $(hash gdate 2>/dev/null); then
-	        gem install travis -v 1.8.8 --no-rdoc --no-ri
-        fi
 }
 
 main() {
