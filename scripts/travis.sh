@@ -18,7 +18,7 @@ main() {
         OPTIND=1
 
         if $(hash gem 2>/dev/null); then
-	        gem install travis -v 1.8.9 --no-rdoc --no-ri
+	        sudo gem install travis -v 1.8.9 --no-rdoc --no-ri
                 travis version
         else
                 echo "please install ruby first"
