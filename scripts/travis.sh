@@ -18,7 +18,15 @@ main() {
         OPTIND=1
 
         if $(hash gem 2>/dev/null); then
-	        sudo gem install travis -v 1.8.9 --no-rdoc --no-ri
+                if [[ "$OSTYPE" == "darwin"* ]]; then
+                        message "travis" "Darwin"
+
+                        gem install travis -v 1.8.9 --no-rdoc --no-ri
+                else
+                        message "travis" "Linux"
+                        sudo gem install travis -v 1.8.9 --no-rdoc --no-ri
+                fi
+
                 travis version
         else
                 echo "please install ruby first"
