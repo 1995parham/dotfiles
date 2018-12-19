@@ -28,7 +28,7 @@ proxy_start() {
         fi
 
         echo
-        curl ipinfo.io/ip
+        curl -m 1 ipinfo.io/ip
 }
 
 proxy_stop() {
