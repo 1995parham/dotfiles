@@ -4,3 +4,5 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
+[credential]
+	helper = cache
