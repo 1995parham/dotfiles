@@ -23,7 +23,9 @@ upinstall-neovim() {
         message "neovim" "Upstall neovim"
 
         neovim_vr=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep 'tag_name' | cut -d\" -f4)
-        neovim_vl=$(nvim --version | cut -d$'\n' -f1 | cut -d' ' -f2)
+        if hash nvim 2>/dev/null; then # check local version of nvim if it exists
+                neovim_vl=$(nvim --version | cut -d$'\n' -f1 | cut -d' ' -f2)
+        fi
 
         message "neovim" "Local version ${neovim_vl%%-*}, Remote version ${neovim_vr}"
 
