@@ -80,7 +80,7 @@ go-install-packages() {
         # vim-go installs go-metalinter
 	# go-install-package "github.com/alecthomas/gometalinter"
 	go-install-package "github.com/nsf/gocode"
-	go-install-package "github.com/garyburd/go-explorer/src/getool"
+	# go-install-package "github.com/garyburd/go-explorer/src/getool"
 
 	# Go Debugger
         # vim-go adds dlv since v1.17 (March 27, 2018)
@@ -137,7 +137,7 @@ main() {
                 go-install
         fi
 
-        go-install-dep
+        # go-install-dep
 
         if [ $have_proxy = true ]; then
                 proxy_start
