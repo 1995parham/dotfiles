@@ -16,7 +16,7 @@ usage() {
 # this env is not suitable for minimal systems
 # please consider to install the required packages on these system by hand.
 
-mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint)
+mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils)
 linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd)
 
 install-apt() {
@@ -64,12 +64,14 @@ install-() {
 	                proxy_stop
                 fi
 
+                pip3 install neovim
+
         else
 	        message "env" "Linux"
 
                 install-packages-linux ${linux_packages[@]}
 
-                message "env" "Please install neovim by hands"
+                message "env" "** Please install neovim by hands **"
         fi
 }
 
