@@ -18,7 +18,7 @@ Parham Master (73):
 | 192.168.73.4     | Parham USVM 1       | Ubuntu Server - I1820 - SSD     |
 | 192.168.73.5     | Parham USVM 2       | Ubuntu Server - I1820 - SSD     |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server - Snapp - Non-SSD |
-| 192.168.73.7     | | |
+| 192.168.73.7     | Parham USVM 4       | Ubuntu Server - - SSD           |
 | 192.168.73.8     | Parham NUC          | Ubuntu Desktop                  |
 | 192.168.73.10    | NAS                 | -                               |
 | 192.168.73.11    | | |
