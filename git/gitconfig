@@ -6,3 +6,5 @@
 	editor = nvim
 [credential]
 	helper = cache
+[url "ssh://git@gitlab.snapp.ir/"]
+	insteadOf = http://gitlab.snapp.ir/
