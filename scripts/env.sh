@@ -17,7 +17,8 @@ usage() {
 # please consider to install the required packages on these system by hand.
 
 mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils hub)
-linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd hub)
+linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd)
+linux_snaps=(hub)
 
 install-apt() {
         if [ $force = false ]; then
@@ -51,6 +52,13 @@ install-packages-linux() {
         done
 }
 
+install-snaps-linux() {
+        for snap in $@; do
+                message "env" "install $snap with snapp"
+                sudo snap install $snap --classic
+        done
+}
+
 install-() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
 	        message "env" "Darwin"
@@ -70,6 +78,7 @@ install-() {
 	        message "env" "Linux"
 
                 install-packages-linux ${linux_packages[@]}
+                install-snaps-linux ${linux_snaps[@]}
 
                 message "env" "** Please install neovim by hands **"
         fi
