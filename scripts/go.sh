@@ -77,10 +77,8 @@ go-install-packages() {
 
 	# Go Tools
 	message "go" "Go Tools"
-        # vim-go installs go-metalinter
-	# go-install-package "github.com/alecthomas/gometalinter"
-	go-install-package "github.com/nsf/gocode"
-	# go-install-package "github.com/garyburd/go-explorer/src/getool"
+        # Linters Runner for Go. 5x faster than gometalinter. Nice colored output.
+	go-install-package "github.com/golangci/golangci-lint/cmd/golangci-lint"
 
 	# Go Debugger
         # vim-go adds dlv since v1.17 (March 27, 2018)
