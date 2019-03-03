@@ -16,8 +16,8 @@ usage() {
 # this env is not suitable for minimal systems
 # please consider to install the required packages on these system by hand.
 
-mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils)
-linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd)
+mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils hub)
+linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd hub)
 
 install-apt() {
         if [ $force = false ]; then
