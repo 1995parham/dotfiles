@@ -20,6 +20,7 @@ Parham Master (73):
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server - Snapp - Non-SSD |
 | 192.168.73.7     | Parham USVM 4       | Ubuntu Server - SSD             |
 | 192.168.73.8     | Parham NUC          | Ubuntu Desktop                  |
+| 192.168.73.9     | Parham SVE14A27CXH  | Ubuntu Desktop                  |
 | 192.168.73.10    | NAS                 | -                               |
 | 192.168.73.11    | Parham Mininet      | Ubuntu Server - non SSD         |
 | 192.168.73.12    | Parham Giant        | ESXi                            |
