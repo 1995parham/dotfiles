@@ -7,13 +7,19 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-if [[ $EUID -ne 0 ]]; then
-	echo "[tshark] This script must be run as root"
-	exit 1
-fi
 
-echo "[tshark] Installing tshark"
+usage() {
+        echo "usage: tshark"
+}
 
-sudo apt-get install tshark
-sudo dpkg-reconfigure wireshark-common
-sudo adduser $USER wireshark
+main() {
+        # Reset optind between calls to getopts
+        OPTIND=1
+
+        message "tshark" "Install tshark from apt source"
+        sudo apt-get install tshark
+
+        message "tshark" "Non-root users can capture from interfaces"
+        sudo dpkg-reconfigure wireshark-common
+        sudo adduser $USER wireshark
+}
