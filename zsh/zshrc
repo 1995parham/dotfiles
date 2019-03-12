@@ -78,6 +78,7 @@ plugins=(
   docker
   gnu-utils
   ng
+  oc
 
   travis
   govc
