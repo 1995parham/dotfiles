@@ -1,4 +1,4 @@
-#!/bin/
+#!/bin/bash
 # In The Name of God
 # ========================================
 # [] File Name : forticlient.sh
@@ -12,15 +12,29 @@ usage() {
         echo "usage: forticlient"
 }
 
+forticlient-install() {
+	if [[ $OSTYPE == "linux-gnu" ]]; then
+		message "forticlient" "Linux"
+
+                message "fortclient" "Install forticlient from apt source"
+                sudo apt install openfortivpn
+
+                message "forticlient" "Install PPP"
+                sudo apt install ppp
+	else
+		message "forticlient" "Darwin"
+
+                message "forticlient" "Install forticlient from brew"
+		brew install openfortivpn
+	fi
+}
+
+
 main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        message "fortclient" "Install forticlient for apt source"
-        sudo apt install openfortivpn
-
-        message "forticlient" "Install PPP"
-        sudo apt install ppp
+        forticlient-install
 
         message "forticlient" "Create configuration file in current directory"
         touch openfortivpn.conf
