@@ -30,6 +30,7 @@ Parham Master (73):
 | 192.168.73.101   | DLink Switch        | -                               |
 | 192.168.73.102   | Parham Giant Mgmt   | iKVM                            |
 | 192.168.73.103   | OpenFiler           | -                               |
+| 192.168.73.252   | Macbook Pro 13      | VPN Endpoint                    |
 | 192.168.73.253   | Snapp Macbook Pro   | VPN Endpoint                    |
 | 192.168.73.254   | Gateway             | -                               |
 
