@@ -17,11 +17,13 @@ oc-install() {
 		message "oc" "Linux"
 
                 message "oc" "Upstall openshift-cli from github"
-	        oc_vr=$(curl -s https://api.github.com/repos/openshift/origin/releases/latest | grep 'tag_name' | cut -d\" -f4)
+                oc_vr=$(curl -s https://api.github.com/repos/openshift/origin/releases/latest | grep 'tag_name' | cut -d\" -f4)
 
                 message "oc" "Dowloading from github"
                 url=$(curl -s https://api.github.com/repos/openshift/origin/releases/latest | grep -E "https://github.com/openshift/origin/releases/download/${oc_vr}/openshift-origin-client-tools-${oc_vr}-[[:alnum:]]{7}-linux-64bit.tar.gz" | cut -d\" -f4)
-                curl -L $url | tar -xvz --wildcards --no-anchored '*oc*' | sudo tee /usr/local/bin/oc > /dev/null
+                curl -L $url | tar -xvz
+                sudo mv openshift-origin-client-tools*/oc /usr/local/bin/oc
+                rm -Rf openshift-origin-client-tools*
                 sudo chmod +x /usr/local/bin/oc
 	else
 		message "forticlient" "Darwin"
