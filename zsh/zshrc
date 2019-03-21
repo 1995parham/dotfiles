@@ -167,6 +167,14 @@ fi
 
 # }}}
 
+# Rust {{{
+
+if [ -d $HOME/.cargo ]; then
+  path+=("$HOME/.cargo/bin")
+fi
+
+# }}}
+
 # Github {{{
 
 export GITHUB_USER="1995parham"
