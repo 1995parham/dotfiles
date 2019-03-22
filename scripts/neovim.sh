@@ -37,6 +37,6 @@ upinstall-neovim() {
         message "neovim" "$(nvim --version)"
 
 
-        sudo apt-get install python3-dev python3-pip
+        sudo apt-get install python3-dev python3-pip python3-setuptools
         pip3 install --upgrade neovim
 }
