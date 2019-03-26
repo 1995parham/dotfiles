@@ -81,7 +81,6 @@ plugins=(
   oc
 
   travis
-  govc
   revel
   proxy
 )
