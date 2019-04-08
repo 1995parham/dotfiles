@@ -17,8 +17,8 @@ usage() {
 # please consider to install the required packages on these system by hand.
 
 mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils hub)
-linux_packages=(zsh ctags tmux mosh aria2 jq curl yamllint snapd)
-linux_snaps=(hub)
+linux_packages=(zsh ctags tmux mosh aria2 curl yamllint snapd)
+linux_snaps=(hub jq)
 
 install-apt() {
         if [ $force = false ]; then
