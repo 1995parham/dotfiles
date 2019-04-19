@@ -79,6 +79,7 @@ plugins=(
   gnu-utils
   ng
   oc
+  kubectl
 
   travis
   revel
