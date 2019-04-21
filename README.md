@@ -61,6 +61,8 @@ Install required softwares with:
 
 ```sh
 ./start.sh env
+./start.sh neovim
+
 ```
 
 Setup configuration files with:
