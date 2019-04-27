@@ -7,7 +7,7 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-version="11.x"
+version="12.x"
 
 usage() {
         echo "usage: node"
