@@ -107,7 +107,7 @@ PROJECT_PATHS=(~/Documents/Git/parham ~/Documents/Go/src)
 # User configuration {{{
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERM="xterm-256color-italic"
 if [ -f $HOME/.dircolors ]; then
   eval `dircolors $HOME/.dircolors`
