@@ -175,6 +175,12 @@ fi
 
 # }}}
 
+# k8s {{{
+
+alias kcd="kubectl config set-context $(kubectl config current-context) --namespace"
+
+# }}}
+
 # Github {{{
 
 export GITHUB_USER="1995parham"
