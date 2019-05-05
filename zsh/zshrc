@@ -177,7 +177,9 @@ fi
 
 # k8s {{{
 
-alias kcd="kubectl config set-context $(kubectl config current-context) --namespace"
+if hash kubectl 2>/dev/null; then
+  alias kcd="kubectl config set-context $(kubectl config current-context) --namespace"
+fi
 
 # }}}
 
