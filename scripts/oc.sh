@@ -12,6 +12,21 @@ usage() {
         echo "usage: oc"
 }
 
+kube-install() {
+	if [[ $OSTYPE == "linux-gnu" ]]; then
+		message "oc" "Linux"
+
+                message "oc" "Install kubectl from snap"
+                sudo snap install kubectl
+	else
+		message "oc" "Darwin"
+
+                message "oc" "Install kubectl from brew"
+                brew install kubernetes-cli
+	fi
+
+}
+
 oc-install() {
 	if [[ $OSTYPE == "linux-gnu" ]]; then
 		message "oc" "Linux"
@@ -26,9 +41,9 @@ oc-install() {
                 rm -Rf openshift-origin-client-tools*
                 sudo chmod +x /usr/local/bin/oc
 	else
-		message "forticlient" "Darwin"
+		message "oc" "Darwin"
 
-                message "forticlient" "Install openshift-cli from brew"
+                message "oc" "Install openshift-cli from brew"
 		brew install openshift-cli
 	fi
 }
@@ -38,5 +53,6 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
+        kube-install
         oc-install
 }
