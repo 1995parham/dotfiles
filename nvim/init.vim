@@ -128,7 +128,9 @@ autocmd Filetype less setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " TypeScript
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript.tsx setlocal ts=2 sts=2 sw=2
 
 " Git commit
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -218,6 +220,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
