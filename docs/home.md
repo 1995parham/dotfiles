@@ -41,6 +41,7 @@ interface is available on `https://192.168.73.103:446/` with `openfiler:password
 
 ## vSphere 6.5
 Each physical server has vSphere 6.7 installed and they are not connected to the vCenter.
+There is no need for vCenter for now.
 
 ### govc
 
@@ -63,8 +64,3 @@ govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64" -u user:pass@host
 
 First of all, install the vCenter appliance after setup completed and VM started successfully,
 go to `:5480` and complete the installation. (Please note that vCenter need a simple DNS).
-
-
-## Docker Monitoring based on [Admiral](https://github.com/vmware/admiral)
-
-## Docker Management based on [Portainer](https://github.com/portainer)
