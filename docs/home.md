@@ -4,9 +4,9 @@ Home network topology and used technologies described in this section.
 
 Parham Edge (75):
 
-| IP Address       | Name                | Comment         |
-|:----------------:|:-------------------:|:----------------|
-| 192.168.75.254   | PoP                 | ?               |
+| IP Address       | Name                | Comment             |
+|:----------------:|:-------------------:|:--------------------|
+| 192.168.75.254   | PoP                 | Connected to ZI-TEL |
 
 Parham Master (73):
 
