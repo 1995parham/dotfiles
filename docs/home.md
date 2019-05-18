@@ -36,11 +36,12 @@ Parham Master (73):
 
 
 ## Openfiler
-
-Web management interface is on `https://192.168.73.103:446/`
-with `openfiler:password` as login information.
+I have installed [openfiler](https://www.openfiler.com/) on a separate VM and its web management
+interface is available on `https://192.168.73.103:446/` with `openfiler:password` as login information.
 
 ## vSphere 6.5
+Each physical server has vSphere 6.7 installed and they are not connected to the vCenter.
+
 ### govc
 
 govc is a command-line application for interacting with VMware vSphere APIs (ESXi and/or vCenter).
