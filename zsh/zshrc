@@ -181,6 +181,12 @@ alias kcd='kubectl config set-context $(kubectl config current-context) --namesp
 
 # }}}
 
+# linuxbrew {{{
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $($(brew --prefix)/bin/brew shellenv)
+# }}}
+
 # Github {{{
 
 export GITHUB_USER="1995parham"
