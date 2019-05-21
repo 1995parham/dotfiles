@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils jq hub)
-linux_packages=(zsh ctags mosh aria2 curl yamllint snapd)
+linux_packages=(zsh ctags mosh aria2 curl snapd)
 linux_brews=(tmux yamllint jq hub neovim)
 linux_snaps=()
 
