@@ -57,12 +57,12 @@ Ubuntu Universal Repository (if you are on ubuntu :joy:)
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 ```
 
+Install brew from [brew.sh](http://brew.sh)
+
 Install required softwares with:
 
 ```sh
 ./start.sh env
-./start.sh neovim
-
 ```
 
 Setup configuration files with:
