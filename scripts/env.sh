@@ -12,13 +12,10 @@ usage() {
         echo "installs required brew or apt packages"
 }
 
-# vim is depreated beacuase of neovim
-# this env is not suitable for minimal systems
-# please consider to install the required packages on these system by hand.
-
-mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils hub)
-linux_packages=(zsh ctags tmux mosh aria2 curl yamllint snapd)
-linux_snaps=(hub jq)
+mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils jq hub)
+linux_packages=(zsh ctags mosh aria2 curl yamllint snapd)
+linux_brews=(tmux yamllint jq hub neovim)
+linux_snaps=()
 
 install-apt() {
         if [ $force = false ]; then
@@ -79,8 +76,7 @@ install-() {
 
                 install-packages-linux ${linux_packages[@]}
                 install-snaps-linux ${linux_snaps[@]}
-
-                message "env" "** Please install neovim by hands **"
+                install-packages-osx ${linux_brews[@]}
         fi
 }
 
