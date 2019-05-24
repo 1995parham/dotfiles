@@ -1,18 +1,18 @@
 [user]
-	name = Parham Alvani
-	email = parham.alvani@gmail.com
+        name = Parham Alvani
+        email = parham.alvani@gmail.com
 [core]
-	excludesfile = ~/.gitignore
-	editor = nvim
+        excludesfile = ~/.gitignore
+        editor = nvim
 [credential]
-	helper = cache
+        helper = cache
 [url "ssh://git@gitlab.snapp.ir/"]
-	insteadOf = https://gitlab.snapp.ir/
+        insteadOf = https://gitlab.snapp.ir/
 [commit]
-	template = /Users/parham/.gitmessage
+        template = /Users/parham/.gitmessage
 [merge]
-  tool = vimdiff
+        tool = vimdiff
 [mergetool]
-  prompt = true
+        prompt = true
 [mergetool "vimdiff"]
-  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c 'wincmd w' -c 'wincmd J'
+        cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c 'wincmd w' -c 'wincmd J'
