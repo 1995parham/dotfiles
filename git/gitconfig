@@ -9,7 +9,7 @@
 [url "ssh://git@gitlab.snapp.ir/"]
         insteadOf = https://gitlab.snapp.ir/
 [commit]
-        template = /Users/parham/.gitmessage
+        template = ~/.gitmessage
 [merge]
         tool = vimdiff
 [mergetool]
