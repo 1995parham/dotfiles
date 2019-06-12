@@ -28,33 +28,6 @@ npm install --save-dev eslint
 
 # node.js
 npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
-
-# react.js
-npm install --save-dev eslint-config-standard eslint-config-standard-react eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-plugin-react
-
-```
-
-> `.eslintrc.yml` for nodejs
-
-```yaml
----
-  extends:
-    - standard
-  parserOptions:
-    ecmaVersion: 2018
-```
-
-> `.eslintrc.yml` for react
-
-```yaml
----
-  extends:
-    - standard
-    - standard-react
-  parserOptions:
-    ecmaVersion: 6
-    ecmaFeatures:
-      jsx: true
 ```
 
 ### PHP
@@ -92,10 +65,12 @@ after that you have complete IDE for go in vim.
 
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
-| `:GoMetaLinter`  | Statically checking Go source       |
-| `<Leader>gv`     | GoDoc in vertical pane              |
-| `:GeDoc`         | GoDoc with [GoExplorer](https://github.com/garyburd/go-explorer)               |
+| `:GoMetaLinter`  | statically checking Go source       |
+| `:GeDoc`         | go doc with [GoExplorer](https://github.com/garyburd/go-explorer) |
 | `:GoDoc`         | GoDoc == GeDoc if vim-go is plugged |
+| `:GoFillStruct`  | use `fillstruct` to fill a struct literal with default values. Existing values (if any) are preserved. The cursor must be on the struct you wish to fill |
+| `:[range]GoAddTags [key],[option] [key1],[option] ...` | adds field tags for the fields of a struct |
+| `:GoImpl [receiver] [interface]` | generates method stubs for implementing an interface |
 
 
 ## Plugins
@@ -140,66 +115,67 @@ after that you have complete IDE for go in vim.
 
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
-| `<C-n>`          | Toggles [NerdTree](https://github.com/scrooloose/nerdtree)          |
-| `<C-h>`          | Toggles [SuperTab](https://github.com/ervandew/supertab)          |
-| `<C-b>`          | Toogles [Buffergator](https://github.com/jeetsukumaran/vim-buffergator)       |
-| `<F5>`           | Toggles [Tagbar](https://github.com/majutsushi/tagbar)            |
-| `<C-u>`          | Toggles [utlisnips](https://github.com/SirVer/ultisnips)         |
-| `<C-w> <Left>`   | Move to left window       |
-| `<C-w> <Right>`  | Move to right window      |
-| `<C-w> <Up>`     | Move to up window         |
-| `<C-w> <Down>`   | Move to down window       |
-| `<C-w> s`        | New horizontal window     |
-| `<C-w> v`        | New vertical window       |
-| `<C-w> n`        | Move to next tab          |
-| `<C-w> p`        | Move to previous tab      |
-| `<C-w> c`        | New empty tab             |
-| `<C-w> nn`       | Move to tab number nn     |
-| `-`              | Leader Key                |
-| `J`              | Join lines                |
-| `u`              | Undo                      |
-| `.`              | Redo                      |
+| `<C-n>`          | toggles [NerdTree](https://github.com/scrooloose/nerdtree)          |
+| `<C-h>`          | toggles [SuperTab](https://github.com/ervandew/supertab)          |
+| `<C-b>`          | toogles [Buffergator](https://github.com/jeetsukumaran/vim-buffergator)       |
+| `<F5>`           | toggles [Tagbar](https://github.com/majutsushi/tagbar)            |
+| `<C-u>`          | toggles [utlisnips](https://github.com/SirVer/ultisnips)         |
+| `<C-w> <Left>`   | move to left window       |
+| `<C-w> <Right>`  | move to right window      |
+| `<C-w> <Up>`     | move to up window         |
+| `<C-w> <Down>`   | move to down window       |
+| `<C-w> s`        | new horizontal window     |
+| `<C-w> v`        | new vertical window       |
+| `<C-w> n`        | move to next tab          |
+| `<C-w> p`        | move to previous tab      |
+| `<C-w> c`        | new empty tab             |
+| `<C-w> nn`       | move to tab number nn     |
+| `-`              | leader Key                |
+| `J`              | join lines                |
+| `u`              | undo                      |
+| `.`              | redo                      |
 
 #### Movement Commands
 
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
-| `0` `$`          | Begin/End of line                   |
-| `G` `gg`         | Begin/End of file                   |
-| `w` `b`          | Next/Prev word                      |
-| `<C-U>` `<C-D>`  | Next/Prev page                      |
-| `H` `M` `L`      | Top/Mid/Btm of win                  |
-| `zt` `zz` `zb`   | Scroll to top/mid/btm               |
-| `%`              | Matching parenthesis                |
+| `0` `$`          | begin/End of line                   |
+| `G` `gg`         | begin/End of file                   |
+| `w` `b`          | next/prev word                      |
+| `<C-U>` `<C-D>`  | next/prev page                      |
+| `H` `M` `L`      | top/mid/btm of win                  |
+| `zt` `zz` `zb`   | scroll to top/mid/btm               |
+| `%`              | matching parenthesis                |
+| `[[ ]]`          | next/prev function/method           |
 
 #### Search Commands
 
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
-| `*` `#`          | Find current word backward/forward  |
-| `n` `N`          | Next/Prev search result             |
+| `*` `#`          | find current word backward/forward  |
+| `n` `N`          | next/prev search result             |
 
 #### EX Commands
 
 | Shortcut         | Description               | Shortcut         | Description                         |
 |:----------------:|:--------------------------|:----------------:|:------------------------------------|
-| `:b name`        | Open buffer               | `:bd name`       | Delete buffer                       |
-| `:Agit`          | Git log manager           | `:edit`          | Reload current file                 |
-| `:edit!`         | Reload current file force | `:edit x`        | Edit file x                         |
-| `:terminal`      | Open terminal             | | |
+| `:b name`        | open buffer               | `:bd name`       | delete buffer                       |
+| `:edit`          | reload current file       | | |
+| `:edit!`         | reload current file force | `:edit x`        | edit file x                         |
+| `:terminal`      | open terminal             | | |
 
 #### Mode Commands
 
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
-| `<ESC>`          | Enter *Normal* mode                 |
-| `v`              | Enter *Visual* mode                 |
-| `V`              | Enter *Visual Line* mode            |
-| `i`              | Enter *Insert* mode                 |
-| `I`              | Enter *Insert* mode [head of line]  |
-| `a`              | Enter *Insert* mode [next position] |
-| `A`              | Enter *Insert* mode [end of line]   |
-| `R`              | Enter *Replace* mode                |
+| `<ESC>`          | enter *Normal* mode                 |
+| `v`              | enter *Visual* mode                 |
+| `V`              | enter *Visual Line* mode            |
+| `i`              | enter *Insert* mode                 |
+| `I`              | enter *Insert* mode [head of line]  |
+| `a`              | enter *Insert* mode [next position] |
+| `A`              | enter *Insert* mode [end of line]   |
+| `R`              | enter *Replace* mode                |
 
 ### NerdTree and Buffergator
 
@@ -211,4 +187,3 @@ after that you have complete IDE for go in vim.
 | `o`      | open & close directory   |
 | `m`      | show menu                |
 | `I`      | toggle show hidden files |
-
