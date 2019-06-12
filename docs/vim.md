@@ -74,6 +74,8 @@ after that you have complete IDE for go in vim.
 | `:[range]GoAddTags [key],[option] [key1],[option] ...` | adds field tags for the fields of a struct |
 | `:GoImpl [receiver] [interface]` | generates method stubs for implementing an interface |
 
+To setup a complete golang environment use [this](https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876)
+medium post.
 
 ## Plugins
 
