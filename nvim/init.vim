@@ -173,7 +173,8 @@ Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
@@ -211,8 +212,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " Plug 'garyburd/go-explorer'
 Plug 'posva/vim-vue'
-Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'sekel/vim-vue-syntastic'
+" Plug 'mtscout6/syntastic-local-eslint.vim'
+" Plug 'sekel/vim-vue-syntastic'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'elzr/vim-json'
 Plug 'kylef/apiblueprint.vim'
@@ -270,54 +271,31 @@ let g:header_email = 'parham.alvani@gmail.com'
 " vim-polygot
 let g:polyglot_disabled = ['python', 'javascript']
 
-" Syntastic
-if has('python3')
-	let g:syntastic_python_python_exec = system('which python3')
-elseif has('python')
-	let g:syntastic_python_python_exec = system('which python')
-endif
-
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_html_checkers = ['htmlhint']
-let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_go_checkers = ['go', 'golint', 'gofmt']
-let g:syntastic_dockerfile_checkers = ['hadolint']
-let g:syntastic_filetype_map = { "Dockerfile": "dockerfile" }
-
-let g:syntastic_c_compiler_options = ' -std=gnu11'
-
-let g:syntastic_nasm_nasm_args = '-f elf64'
-
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_vue_checkers = ['eslint']
+" ale
+" error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
 
 " vim-go
 " please consider that vim-go is not responsible for validating
-" go code. syntastic does this.
+" go code. ale does this.
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
+let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_methods = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_declarations = 1
-let g:go_highlight_extra_types = 1
-let g:go_fmt_command = "goimports"
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-set statusline+=go#statusline#Show()
 
+let g:go_fmt_command = "goimports"
+" Simply press K when over a type or function to get more details.
+" au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+set statusline+=go#statusline#Show()
 
 " vim-markdown
 let g:vim_markdown_math = 1
@@ -369,7 +347,6 @@ let g:nerdtree_tabs_synchronize_view = 0
 
 " Airline (status line)
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#taboo#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tagbar#enabled = 1
