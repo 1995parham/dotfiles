@@ -30,6 +30,8 @@ npm install --save-dev eslint
 npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
 ```
 
+for React applications I think that using `react-script` is enough.
+
 ### PHP
 
 Personally I use PHP_CodeSniffer as code style checker
