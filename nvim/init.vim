@@ -173,7 +173,7 @@ Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale' " check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
