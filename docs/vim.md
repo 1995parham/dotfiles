@@ -164,7 +164,7 @@ medium post.
 | Shortcut         | Description               | Shortcut         | Description                         |
 |:----------------:|:--------------------------|:----------------:|:------------------------------------|
 | `:b name`        | open buffer               | `:bd name`       | delete buffer                       |
-| `:edit`          | reload current file       | | |
+| `:edit`          | reload current file       | `:Agit` | git log manager |
 | `:edit!`         | reload current file force | `:edit x`        | edit file x                         |
 | `:terminal`      | open terminal             | | |
 
