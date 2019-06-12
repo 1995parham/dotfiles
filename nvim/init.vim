@@ -188,8 +188,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'othree/html5.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'ap/vim-css-color'
-Plug 'mattn/webapi-vim'
-Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux' " vim plugin for .tmux.conf.
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
 Plug 'wellle/targets.vim'
@@ -218,11 +217,12 @@ Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'Quramy/tsuquyomi'
+Plug 'junegunn/fzf.vim' " things you can do with fzf and Vim.
 
 " plugins with options
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } " fzf is a general-purpose command-line fuzzy finder.
 Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
 " Add plugins to &runtimepath
