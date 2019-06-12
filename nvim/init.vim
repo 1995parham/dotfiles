@@ -159,7 +159,7 @@ command Spellcheck setlocal spell spelllang=en_us
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
-" Static plugins all from the github :)
+" static plugins all from the github :)
 Plug 'junegunn/vim-easy-align'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
@@ -173,14 +173,12 @@ Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
-" Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'dag/vim2hs'
 Plug 'fatih/vim-go'
 Plug 'majutsushi/tagbar'
 Plug 'bps/vim-tshark'
@@ -210,10 +208,7 @@ Plug 'cohama/agit.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'garyburd/go-explorer'
 Plug 'posva/vim-vue'
-" Plug 'mtscout6/syntastic-local-eslint.vim'
-" Plug 'sekel/vim-vue-syntastic'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'elzr/vim-json'
 Plug 'kylef/apiblueprint.vim'
@@ -223,10 +218,11 @@ Plug 'stephpy/vim-yaml'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
-" Plugin options
+" plugins with options
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
 " Add plugins to &runtimepath
