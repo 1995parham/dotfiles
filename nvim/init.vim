@@ -189,6 +189,7 @@ Plug 'othree/html5.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'ap/vim-css-color'
 Plug 'tmux-plugins/vim-tmux' " vim plugin for .tmux.conf.
+Plug 'StanAngeloff/php.vim' " an up-to-date Vim syntax for PHP (7.x supported)
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
 Plug 'wellle/targets.vim'
@@ -273,6 +274,8 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 " enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
+" phpstan from vendor directory
+let g:ale_php_phpstan_executable = system('if ! type git &> /dev/null; then echo phpstan; else PSE=`git rev-parse --show-toplevel 2> /dev/null`/vendor/bin/phpstan; if [ -x "$PSE" ]; then echo -n $PSE; else echo phpstan; fi; fi')
 
 " vim-go
 " please consider that vim-go is not responsible for validating
