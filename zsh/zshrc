@@ -80,6 +80,7 @@ plugins=(
   ng
   oc
   kubectl
+  laravel
 
   travis
   revel
