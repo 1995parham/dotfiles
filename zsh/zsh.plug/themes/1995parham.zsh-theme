@@ -172,8 +172,8 @@ function prompt_1995parham_precmd() {
   # '!' is true if the shell is privileged.
   PROMPT='
 %F{159}::%f $(prompt_venv) $(prompt_docker) $(prompt_go)
-%K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
-%F{123}$(prompt_char)%f $(prompt_proxy)'
+$(echo "\u250c") %K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
+$(echo "\u2514") %F{123}$(prompt_char)%f $(prompt_proxy)'
 
   export SPROMPT="Correct %F{red}%R%f to %F{green}%r%f [(y)es (n)o (a)bort (e)dit]? "
   EPROMPT='%F{118}%@%f %F{161}$(kernel_version)%f'
