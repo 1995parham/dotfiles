@@ -71,7 +71,6 @@ ZSH_CUSTOM=~/.zsh.plug
 plugins=(
   git
   golang
-  pyenv
   vi-mode
   pj
   gitignore
