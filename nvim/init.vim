@@ -238,7 +238,10 @@ let g:wakatime_PythonBinary = 'python3'
 let g:wakatime_ScreenRedraw = 1
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger="<C-u>"
+let g:UltiSnipsExpandTrigger="<c-u>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Tomorrow-Night
 set background=light
