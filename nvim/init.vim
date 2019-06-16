@@ -215,9 +215,9 @@ Plug 'kylef/apiblueprint.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
 Plug 'stephpy/vim-yaml'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim' " typescript syntax files for Vim
+Plug 'peitalin/vim-jsx-typescript' " react JSX syntax highlighting for vim and Typescript
+Plug 'Quramy/tsuquyomi' " a Vim plugin for TypeScript
 Plug 'junegunn/fzf.vim' " things you can do with fzf and Vim.
 
 " plugins with options
@@ -233,17 +233,30 @@ call plug#end()
 
 " Plugins Configurations {{{
 
-" Wakatime
+" vim-jsx-typescript
+" dark red
+hi tsxTagName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+
+" wakatime
 let g:wakatime_PythonBinary = 'python3'
 let g:wakatime_ScreenRedraw = 1
 
-" Ultisnips
+" ultisnips
 let g:UltiSnipsExpandTrigger="<c-u>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-" Tomorrow-Night
+" tomorrow-night
 set background=light
 if (has("termguicolors"))
 	set termguicolors
