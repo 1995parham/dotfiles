@@ -7,7 +7,7 @@ set encoding=utf-8
 
 " Stick unamed register into system clipboard
 if $TMUX == ''
-    set clipboard+=unnamed
+        set clipboard+=unnamed
 endif
 
 " Correct delete key in OSX
@@ -88,8 +88,8 @@ nmap <C-w>p :tabprevious<CR>
 nmap <C-w>c :tabnew<CR>
 let n = 1
 while n < 10
-	execute "map <C-w>" . n . " " . n . "gt"
-	let n += 1
+        execute "map <C-w>" . n . " " . n . "gt"
+        let n += 1
 endwhile
 
 " }}}
@@ -160,7 +160,7 @@ command Spellcheck setlocal spell spelllang=en_us
 call plug#begin('~/.config/nvim/plugged')
 
 " static plugins all from the github :)
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'     " a simple, easy-to-use Vim alignment plugin.
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
 Plug 'vim-scripts/textutil.vim'
@@ -173,7 +173,7 @@ Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
-Plug 'w0rp/ale' " check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
+Plug 'w0rp/ale'                    " check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'airblade/vim-gitgutter'
@@ -188,8 +188,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'othree/html5.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'ap/vim-css-color'
-Plug 'tmux-plugins/vim-tmux' " vim plugin for .tmux.conf.
-Plug 'StanAngeloff/php.vim' " an up-to-date Vim syntax for PHP (7.x supported)
+Plug 'tmux-plugins/vim-tmux'       " vim plugin for .tmux.conf.
+Plug 'StanAngeloff/php.vim'        " an up-to-date Vim syntax for PHP (7.x supported)
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
 Plug 'wellle/targets.vim'
@@ -209,16 +209,15 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'posva/vim-vue'
-Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'elzr/vim-json'
 Plug 'kylef/apiblueprint.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'vim-scripts/avr8bit.vim'
 Plug 'stephpy/vim-yaml'
-Plug 'leafgarland/typescript-vim' " typescript syntax files for Vim
+Plug 'leafgarland/typescript-vim'  " typescript syntax files for Vim
 Plug 'peitalin/vim-jsx-typescript' " react JSX syntax highlighting for vim and Typescript
-Plug 'Quramy/tsuquyomi' " a Vim plugin for TypeScript
-Plug 'junegunn/fzf.vim' " things you can do with fzf and Vim.
+Plug 'Quramy/tsuquyomi'            " a Vim plugin for TypeScript
+Plug 'junegunn/fzf.vim'            " things you can do with fzf and Vim.
 
 " plugins with options
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -232,6 +231,13 @@ call plug#end()
 "}}}
 
 " Plugins Configurations {{{
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " vim-jsx-typescript
 " dark red
@@ -259,7 +265,7 @@ let g:UltiSnipsEditSplit="vertical"
 " tomorrow-night
 set background=light
 if (has("termguicolors"))
-	set termguicolors
+        set termguicolors
 endif
 
 colorscheme Tomorrow-Night
@@ -318,42 +324,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " Tagbar
 nmap <F5> :TagbarToggle<CR>
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-
+" golang tagbar is enabled by vim-go
 
 " NerdTree
 map <C-n> <plug>NERDTreeTabsToggle<CR>
@@ -393,27 +364,27 @@ let g:javascript_plugin_jsdoc = 1
 
 " Octave
 augroup filetypedetect
-	au! BufRead,BufNewFile *.m,*.oct set filetype=octave
+        au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 augroup END
 
 " Use keywords from Octave syntax language file for autocomplete
 if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype octave
-				\	if &omnifunc == "" |
-				\	setlocal omnifunc=syntaxcomplete#Complete |
-				\	endif
+        autocmd Filetype octave
+                                \	if &omnifunc == "" |
+                                \	setlocal omnifunc=syntaxcomplete#Complete |
+                                \	endif
 
 endif
 
 " PHP
 function! PhpSyntaxOverride()
-	hi! def link phpDocTags  phpDefine
-	hi! def link phpDocParam phpType
+        hi! def link phpDocTags  phpDefine
+        hi! def link phpDocParam phpType
 endfunction
 
 augroup phpSyntaxOverride
-	autocmd!
-	autocmd FileType php call PhpSyntaxOverride()
+        autocmd!
+        autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
 "}}}
