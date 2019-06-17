@@ -160,7 +160,8 @@ command Spellcheck setlocal spell spelllang=en_us
 call plug#begin('~/.config/nvim/plugged')
 
 " static plugins all from the github :)
-Plug 'junegunn/vim-easy-align'     " a simple, easy-to-use Vim alignment plugin.
+Plug 'junegunn/vim-easy-align'       " a simple, easy-to-use Vim alignment plugin.
+Plug 'editorconfig/editorconfig-vim' " EditorConfig plugin for Vim
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
 Plug 'vim-scripts/textutil.vim'
