@@ -50,7 +50,7 @@ set nowritebackup
 set noswapfile
 
 " Set leader key
-let mapleader = '-'
+let mapleader = "\<space>"
 
 " Always show cursor
 set ruler
@@ -231,6 +231,9 @@ call plug#end()
 "}}}
 
 " Plugins Configurations {{{
+
+" vim-fzf
+nmap <leader><tab> :Files<CR>
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
