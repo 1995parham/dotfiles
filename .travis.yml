@@ -1,9 +1,0 @@
-language: c
-sudo: enabled
-dist: trusty
-
-install:
-  - sudo ./start.sh -f env.sh
-script:
-  - yes "Y" | ./install.sh -m -y
-  - yes "Y" | ./install.sh -y
