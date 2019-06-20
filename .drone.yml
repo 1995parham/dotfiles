@@ -1,0 +1,11 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: install
+    image: ubuntu:18.04
+    commands:
+      - yes "Y" | ./start.sh env
+      - yes "Y" | ./install.sh -y
+      - >
+        [ $(readlink $HOME/.zshrc) = $PWD/zsh/zshrc ]
