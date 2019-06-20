@@ -160,90 +160,116 @@ command Spellcheck setlocal spell spelllang=en_us
 call plug#begin('~/.config/nvim/plugged')
 
 " static plugins all from the github :)
-Plug 'junegunn/vim-easy-align'       " a simple, easy-to-use Vim alignment plugin.
-Plug 'editorconfig/editorconfig-vim' " EditorConfig plugin for Vim
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'lervag/vimtex'
 Plug 'vim-scripts/textutil.vim'
 Plug 'moll/vim-node'
-Plug 'digitaltoad/vim-jade'
-Plug 'wakatime/vim-wakatime'
 Plug '1995parham/vim-zimpl'
 Plug '1995parham/vim-gas'
 Plug '1995parham/vim-tcpdump'
 Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
-Plug 'w0rp/ale'                    " check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go'
-Plug 'majutsushi/tagbar'
 Plug 'bps/vim-tshark'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'othree/html5.vim'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'ap/vim-css-color'
-Plug 'tmux-plugins/vim-tmux'       " vim plugin for .tmux.conf.
-Plug 'StanAngeloff/php.vim'        " an up-to-date Vim syntax for PHP (7.x supported)
-Plug 'mattn/emmet-vim'
-Plug 'ervandew/supertab'
-Plug 'wellle/targets.vim'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-tbone'
-Plug 'gcmt/wildfire.vim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-python/python-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'cohama/agit.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'posva/vim-vue'
-Plug 'elzr/vim-json'
-Plug 'kylef/apiblueprint.vim'
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'vim-scripts/avr8bit.vim'
-Plug 'stephpy/vim-yaml'
-Plug 'leafgarland/typescript-vim'  " typescript syntax files for Vim
-Plug 'peitalin/vim-jsx-typescript' " react JSX syntax highlighting for vim and Typescript
-Plug 'Quramy/tsuquyomi'            " a Vim plugin for TypeScript
-Plug 'junegunn/fzf.vim'            " things you can do with fzf and Vim.
 
-" plugins with options
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Vim plugin that displays tags in a window, ordered by scope
+Plug 'majutsushi/tagbar'
+
+" Vim plugin to list, select and switch between buffers.
+Plug 'jeetsukumaran/vim-buffergator'
+
+" vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
+
+" vim-wakatime
+Plug 'wakatime/vim-wakatime'
+
+" A solid language pack for Vim.
+Plug 'sheerun/vim-polyglot'
+
+" git
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+Plug 'cohama/agit.vim'        " A powerful Git log viewer
+
+" nerdtree
+Plug 'jistr/vim-nerdtree-tabs'     " NERDTree and tabs together in Vim, painlessly
+Plug 'scrooloose/nerdtree'         " A tree explorer plugin for vim.
+Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
+
+" a simple, easy-to-use Vim alignment plugin.
+Plug 'junegunn/vim-easy-align'
+
+" EditorConfig plugin for Vim
+Plug 'editorconfig/editorconfig-vim'
+
+" check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
+Plug 'w0rp/ale'
+
+" lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" snippets
+Plug 'SirVer/ultisnips'            " UltiSnips - The ultimate snippet solution for Vim
+Plug 'honza/vim-snippets'          " vim-snipmate default snippets
+Plug 'epilande/vim-react-snippets' " React code snippets for vim
+
+" fuzzy finder (try space with tab)
+Plug 'junegunn/fzf.vim'                                           " things you can do with fzf and Vim.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } " fzf is a general-purpose command-line fuzzy finder.
+
+" language specific
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Go development plugin for Vim
+Plug 'leafgarland/typescript-vim'                  " typescript syntax files for Vim
+Plug 'peitalin/vim-jsx-typescript'                 " react JSX syntax highlighting for vim and Typescript
+Plug 'Quramy/tsuquyomi'                            " a Vim plugin for TypeScript
+Plug 'StanAngeloff/php.vim'                        " an up-to-date Vim syntax for PHP (7.x supported)
+Plug 'tmux-plugins/vim-tmux'                       " vim plugin for .tmux.conf.
+Plug 'mrk21/yaml-vim'                              " YAML syntax/indent plugin for Vim
+Plug 'vim-scripts/avr8bit.vim'                     " for Atmel 8bit Microcontroller
+Plug 'JuliaEditorSupport/julia-vim'                " Vim support for Julia.
+Plug 'ekalinin/Dockerfile.vim'                     " Vim syntax file & snippets for Docker's Dockerfile
+Plug 'elzr/vim-json'                               " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+Plug 'posva/vim-vue'                               " Syntax Highlight for Vue.js components
+Plug 'othree/html5.vim'                            " HTML5 omnicomplete and syntax
+" Plug 'digitaltoad/vim-jade'                        " Vim syntax highlighting for Pug (formerly Jade) templates.
+
+" vimproc is a great asynchronous execution library for Vim.
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+" easily adds brief author info and license headers
 Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
 " Add plugins to &runtimepath
 call plug#end()
 
-"}}}
+" }}}
 
 " Plugins Configurations {{{
 
-" vim-fzf
+" vim-fzf {{{
 nmap <leader><tab> :Files<CR>
+" }}}
 
-" vim-easy-align
+" vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+" }}}
 
-" vim-jsx-typescript
+" vim-jsx-typescript {{{
 " dark red
 hi tsxTagName guifg=#E06C75
 
@@ -255,46 +281,45 @@ hi tsxEqual guifg=#F99575
 
 " yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
+" }}}
 
-" wakatime
+" wakatime {{{
 let g:wakatime_PythonBinary = 'python3'
 let g:wakatime_ScreenRedraw = 1
+" }}}
 
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-u>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+" ultisnips {{{
+let g:UltiSnipsExpandTrigger = "<c-u>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+let g:UltiSnipsEditSplit = "vertical"
+" }}}
 
-" tomorrow-night
+" tomorrow-night {{{
 set background=light
 if (has("termguicolors"))
         set termguicolors
 endif
 
 colorscheme Tomorrow-Night
+" }}}
 
-" Git gutter
+" gitgutter {{{
 let g:gitgutter_enabled = 1
 let g:gitgutter_eager = 0
 highlight clear SignColumn
+" }}}
 
-" Super tab
-let g:SuperTabMappingForward = "<C-h>"
-
-" Emmmet
-" only enable normal mode functions.
-let g:user_emmet_mode='n'
-let g:user_emmet_leader_key='<C-E>'
-
-" vim-header
+" vim-header {{{
 let g:header_name = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
+" }}}
 
-" vim-polygot
+" vim-polygot {{{
 let g:polyglot_disabled = ['python', 'javascript']
+" }}}
 
-" ale
+" ale {{{
 " error and warning signs.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
@@ -302,8 +327,9 @@ let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 " phpstan from vendor directory
 let g:ale_php_phpstan_executable = system('if ! type git &> /dev/null; then echo phpstan; else PSE=`git rev-parse --show-toplevel 2> /dev/null`/vendor/bin/phpstan; if [ -x "$PSE" ]; then echo -n $PSE; else echo phpstan; fi; fi')
+" }}}
 
-" vim-go
+" vim-go {{{
 " please consider that vim-go is not responsible for validating
 " go code. ale does this.
 let g:go_highlight_functions = 1
@@ -321,21 +347,37 @@ let g:go_fmt_command = "goimports"
 " Simply press K when over a type or function to get more details.
 " au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 set statusline+=go#statusline#Show()
+" }}}
 
-" vim-markdown
+" vim-markdown {{{
 let g:vim_markdown_math = 1
 let g:vim_markdown_folding_disabled = 1
+" }}}
 
-" Tagbar
+" Tagbar {{{
 nmap <F5> :TagbarToggle<CR>
 " golang tagbar is enabled by vim-go
+" }}}
 
-" NerdTree
+" nerdtree {{{
 map <C-n> <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_synchronize_view = 0
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+" }}}
 
-" Airline (status line)
+" Airline (status line) {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#taboo#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -346,27 +388,34 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
 let g:airline_section_c = '%{strftime("%c")}'
+" }}}
 
-" vim-buffergator
+" vim-buffergator {{{
 map <C-b> :BuffergatorToggle<CR>
+" }}}
 
-" vimtex
+" vimtex {{{
 let g:vimtex_disable_version_warning = 1
+" }}}
 
-" C
+" c {{{
 let c_gnu = 1
+" }}}
 
-" CPP
+" cpp {{{
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
+" }}}
 
-" Python
+" python {{{
 let g:python_highlight_all = 1
+" }}}
 
-" javascript
+" javascript {{{
 let g:javascript_plugin_jsdoc = 1
+" }}}
 
-" Octave
+" octave {{{
 augroup filetypedetect
         au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 augroup END
@@ -379,16 +428,6 @@ if has("autocmd") && exists("+omnifunc")
                                 \	endif
 
 endif
-
-" PHP
-function! PhpSyntaxOverride()
-        hi! def link phpDocTags  phpDefine
-        hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-        autocmd!
-        autocmd FileType php call PhpSyntaxOverride()
-augroup END
+" }}}
 
 "}}}
