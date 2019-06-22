@@ -125,6 +125,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype less setlocal ts=2 sts=2 sw=2
 
 " JavaScript
+autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascript.jsx
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " TypeScript
