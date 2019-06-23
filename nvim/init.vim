@@ -82,15 +82,10 @@ set shell=/bin/bash\ -l
 " Map <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-" Let's move between tabs and create them !
+" Let's move between tabs and create them with ease
 nmap <C-w>n :tabnext<CR>
 nmap <C-w>p :tabprevious<CR>
 nmap <C-w>c :tabnew<CR>
-let n = 1
-while n < 10
-        execute "map <C-w>" . n . " " . n . "gt"
-        let n += 1
-endwhile
 
 " }}}
 
