@@ -181,6 +181,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'vim-python/python-syntax'
 
+" Gundo.vim is Vim plugin to visualize your Vim undo tree.
+Plug 'sjl/gundo.vim'
+
 " Vim plugin that displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
 
