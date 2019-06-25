@@ -79,6 +79,9 @@ set hlsearch
 
 set shell=/bin/bash\ -l
 
+" look for a tags file recursively in parent directories
+set tags=tags;
+
 " Map <Esc> to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
