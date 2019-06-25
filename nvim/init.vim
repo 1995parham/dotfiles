@@ -176,10 +176,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'vim-python/python-syntax'
+
+" fugitive.vim: A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
 
 " A Vim plugin to visualizes the Vim undo tree.
 Plug 'simnalamburt/vim-mundo'
