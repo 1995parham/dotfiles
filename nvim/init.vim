@@ -246,7 +246,9 @@ Plug 'ekalinin/Dockerfile.vim'                     " Vim syntax file & snippets 
 Plug 'elzr/vim-json'                               " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 Plug 'posva/vim-vue'                               " Syntax Highlight for Vue.js components
 Plug 'othree/html5.vim'                            " HTML5 omnicomplete and syntax
-" Plug 'digitaltoad/vim-jade'                        " Vim syntax highlighting for Pug (formerly Jade) templates.
+" Plug 'digitaltoad/vim-jade'                      " Vim syntax highlighting for Pug (formerly Jade) templates.
+Plug 'andrewstuart/vim-kubernetes'                 " This package provides kubernetes YAML snippets, as well as a growing number of integrations with kubectl.
+
 
 " vimproc is a great asynchronous execution library for Vim.
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
