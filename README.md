@@ -1,15 +1,15 @@
 ```
-  __| | ___ | |_ / _(_) | ___  ___ 
+  __| | ___ | |_ / _(_) | ___  ___
  / _` |/ _ \| __| |_| | |/ _ \/ __|
 | (_| | (_) | |_|  _| | |  __/\__ \
  \__,_|\___/ \__|_| |_|_|\___||___/
-                                   
-   ____  _  ___   ___  ____                   _                     
-  / __ \/ |/ _ \ / _ \| ___| _ __   __ _ _ __| |__   __ _ _ __ ___  
- / / _` | | (_) | (_) |___ \| '_ \ / _` | '__| '_ \ / _` | '_ ` _ \ 
+
+   ____  _  ___   ___  ____                   _
+  / __ \/ |/ _ \ / _ \| ___| _ __   __ _ _ __| |__   __ _ _ __ ___
+ / / _` | | (_) | (_) |___ \| '_ \ / _` | '__| '_ \ / _` | '_ ` _ \
 | | (_| | |\__, |\__, |___) | |_) | (_| | |  | | | | (_| | | | | | |
  \ \__,_|_|  /_/   /_/|____/| .__/ \__,_|_|  |_| |_|\__,_|_| |_| |_|
-  \____/                    |_|                                     
+  \____/                    |_|
 ```
 
 [![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
@@ -39,6 +39,7 @@ please check the following sections.
 </p>
 
 ## [Shecan](https://shecan.ir/) is Awesome :heart_eyes:
+Shecan is a Nameserver who resolves the sanctioned domains to a proxy that remove the sanction for you
 ```
 DNS: 94.232.174.194
 ```
@@ -50,23 +51,39 @@ Over-the-Air-Installation :joy:
 curl -L https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
 ```
 
-
 Ubuntu Universal Repository (if you are on ubuntu :joy:)
 
 ```sh
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 ```
 
-Install brew from [brew.sh](http://brew.sh)
+Install [brew.sh](http://brew.sh) for OSx and even Linux
 
-Install required softwares with:
+```sh
+./start.sh brew
+```
+
+Install required softwares
 
 ```sh
 ./start.sh env
 ```
 
-Setup configuration files with:
+Setup configuration files
 
 ```sh
 ./install.sh
+```
+
+Install useful fonts
+
+```sh
+cd fonts && ./install.sh
+```
+
+Install iTerm on OSx and use the following configuration
+
+```
+Color Scheme fron ./iterm
+Font Haskling Regular 10pt 80iv 100nn
 ```
