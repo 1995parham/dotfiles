@@ -1,3 +1,4 @@
+# Home
 Home network topology and used technologies described in this section.
 
 ## Topology
@@ -35,7 +36,7 @@ Parham Master (73):
 | 192.168.73.254   | Gateway             | -                               |
 
 
-## Openfiler
+## FreeNAS
 I have installed [freenas](https://freenas.org/) on a separate VM and its web management
 interface is available on `http://192.168.73.106/` with `root` access.
 
@@ -59,8 +60,3 @@ govc host.info -u user:pass@host
 govc vm.info -vm.ip 192.168.73.4 -u user:pass@host
 govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64" -u user:pass@host
 ```
-
-### vCenter
-
-First of all, install the vCenter appliance after setup completed and VM started successfully,
-go to `:5480` and complete the installation. (Please note that vCenter need a simple DNS).
