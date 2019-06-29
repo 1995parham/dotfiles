@@ -333,6 +333,8 @@ let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 " phpstan from vendor directory
 let g:ale_php_phpstan_executable = system('if ! type git &> /dev/null; then echo phpstan; else PSE=`git rev-parse --show-toplevel 2> /dev/null`/vendor/bin/phpstan; if [ -x "$PSE" ]; then echo -n $PSE; else echo phpstan; fi; fi')
+" set golang linters
+let g:ale_linters = {'go': ['gometalinter', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet']}
 " }}}
 
 " vim-go {{{
