@@ -85,5 +85,5 @@ Install iTerm on OSx and use the following configuration
 
 ```
 Color Scheme fron ./iterm
-Font Haskling Regular 9pt 100iv 100nn
+Font Meslo LG S for Powerline 9pt 100iv 100nn
 ```
