@@ -150,35 +150,6 @@ export ONOS_CELL=${ONOS_CELL:-local}
 Inorder to use gtk configuration
 copy the settings files from `gtk` into `~/.config/gtk-3.0/gtk.css`.
 
-## Oracle Java Installation
-
-For installing oracle distribution of JDK use following commands:
-
-```sh
-sudo apt-add-repository ppa:webupd8team/java
-sudo apt-get update
-
-# Please consider oracle embargoes Iran
-
-sudo apt-get install oracle-java8-installer
-```
-
-## Tell ubuntu do nothing when laptop lid is closed
-
-Open the `/etc/systemd/logind.conf` file in a text editor as root, for example:
-
-```sh
-sudo -H gedit /etc/systemd/logind.conf
-```
-
-Add a line `HandleLidSwitch=ignore` (make sure it's not commented out!)
-
-Restart the systemd daemon with this command:
-
-```sh
-sudo service systemd-logind restart
-```
-
 ## How to export iTerm profiles
 
 At the bottom of the panel in `Preferences -> General`, there is a setting `Load preferences from a custom folder or URL` and there is a button next to it `Save settings to Folder`.
