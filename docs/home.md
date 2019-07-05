@@ -17,7 +17,7 @@ Parham Master (73):
 | 192.168.73.2     | Parham iMac         | Desktop                         |
 | 192.168.73.3     | Parham Main         | ESXi                            |
 | 192.168.73.4     | Parham USVM 1       | Ubuntu Server - SSD             |
-| 192.168.73.5     | Parham USVM 2       | Ubuntu Server - SSD             |
+| 192.168.73.5     | Parham USVM 2       | Ubuntu Server - CPLEX - SSD     |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server - Snapp - Non-SSD |
 | 192.168.73.7     | Kube                | Ubuntu Server - SSD             |
 | 192.168.73.8     | Parham USVM 4       | Ubuntu Server - I1820 - SSD     |
