@@ -21,16 +21,15 @@ Parham Master (73):
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server - Snapp - Non-SSD |
 | 192.168.73.7     | Kube                | Ubuntu Server - SSD             |
 | 192.168.73.8     | Parham USVM 4       | Ubuntu Server - I1820 - SSD     |
-| 192.168.73.9     | Parham SVE14A27CXH  | Ubuntu Desktop                  |
+| DHCP             | Parham SVE14A27CXH  | Ubuntu Desktop                  |
 | 192.168.73.10    | NAS                 | -                               |
 | 192.168.73.11    | Parham Mininet      | Ubuntu Server - non SSD         |
 | 192.168.73.12    | Parham Giant        | ESXi                            |
-| 192.168.73.13    | Renge Extender      | -                               |
-| 192.168.73.99    | Parham Zipp         | -                               |
+| 192.168.73.99    | Parham Zipp         | Libratone                       |
 | 192.168.73.100   | DNS                 | -                               |
 | 192.168.73.101   | DLink Switch        | -                               |
 | 192.168.73.102   | Parham Giant Mgmt   | iKVM                            |
-| 192.168.73.103   | OpenFiler           | -                               |
+| 192.168.73.106   | FreeNAS             | -                               |
 | 192.168.73.252   | Macbook Pro 13      | VPN Endpoint                    |
 | 192.168.73.253   | Snapp Macbook Pro   | VPN Endpoint                    |
 | 192.168.73.254   | Gateway             | -                               |
