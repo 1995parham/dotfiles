@@ -15,7 +15,7 @@ Parham Master (73):
 |:----------------:|:-------------------:|:--------------------------------|
 | 192.168.73.1     | | |
 | 192.168.73.2     | Parham iMac         | Desktop                         |
-| 192.168.73.3     | Parham Main         | ESXi                            |
+| 192.168.73.3     | Parham Compute      | ESXi                            |
 | 192.168.73.4     | Parham USVM 1       | Ubuntu Server - SSD             |
 | 192.168.73.5     | Parham USVM 2       | Ubuntu Server - CPLEX - SSD     |
 | 192.168.73.6     | Parham USVM 3       | Ubuntu Server - Snapp - Non-SSD |
@@ -24,7 +24,7 @@ Parham Master (73):
 | DHCP             | Parham SVE14A27CXH  | Ubuntu Desktop                  |
 | 192.168.73.10    | NAS                 | -                               |
 | 192.168.73.11    | Parham Mininet      | Ubuntu Server - non SSD         |
-| 192.168.73.12    | Parham Giant        | ESXi                            |
+| 192.168.73.12    | Parham Op           | ESXi                            |
 | 192.168.73.99    | Parham Zipp         | Libratone                       |
 | 192.168.73.100   | DNS                 | -                               |
 | 192.168.73.101   | DLink Switch        | -                               |
