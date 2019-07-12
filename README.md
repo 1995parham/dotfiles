@@ -62,6 +62,7 @@ Install [brew.sh](http://brew.sh) for OSx and even Linux
 ```sh
 ./start.sh brew
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 ```
 
 Install required softwares
