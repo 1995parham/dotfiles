@@ -229,11 +229,6 @@ install-bin() {
         dotfile "bin" files[@] false
 }
 
-## Terminfo ##
-install-terminfo() {
-        tic "$current_dir/xterm-256color-italic.terminfo"
-}
-
 #### General configuration ####
 install-general() {
         case $install_type in
@@ -248,7 +243,7 @@ install-general() {
 }
 
 # calls each module install function.
-modules=(vim nvim conf zsh git bin terminfo general)
+modules=(vim nvim conf zsh git bin general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
         install-$module
