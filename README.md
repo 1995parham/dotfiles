@@ -18,9 +18,9 @@
 
 ## Introduction
 
-My Personal Ubuntu and OSx configuration files which created in Fall 2013
+My Personal Ubuntu and OSx configuration which has been created in Fall 2013
 when I was a BSc Student of the Amirkabir University of Technology.
-First thank for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc.
+First of all thank you for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc.
 please check the following sections.
 
 ## Table of Contents
@@ -37,12 +37,6 @@ please check the following sections.
 <p align="center">
   <img src="https://camo.githubusercontent.com/5c385f15f3eaedb72cfcfbbaf75355b700ac0757/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6f686d797a73682f6f682d6d792d7a73682d6c6f676f2e706e67">
 </p>
-
-## [Shecan](https://shecan.ir/) is Awesome :heart_eyes:
-Shecan is a Nameserver who resolves the sanctioned domains to a proxy that remove the sanction for you
-```
-DNS: 94.232.174.194
-```
 
 ## Installation
 Over-the-Air-Installation :joy:
