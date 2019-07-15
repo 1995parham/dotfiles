@@ -41,9 +41,8 @@ Parham Master (73):
 I have installed [freenas](https://freenas.org/) on a separate VM and its web management
 interface is available on `http://192.168.73.106/` with `root` access.
 
-## vSphere 6.5
-Each physical server has vSphere 6.7 installed and they are not connected to the vCenter.
-There is no need for vCenter for now.
+## vSphere
+Each physical server has vSphere 6.7 installed and is connected to vCenter.
 
 ### govc
 
@@ -61,3 +60,12 @@ govc host.info -u user:pass@host
 govc vm.info -vm.ip 192.168.73.4 -u user:pass@host
 govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64" -u user:pass@host
 ```
+
+## Movie Storages
+These disks are available as storage for movies
+
+- Parham HDD 1 (1.5T)
+- Parham HDD 2 (1T)
+- Parham HDD 3 (500G)
+- Parham HDD 4 (500G)
+- Parham HDD 5 (1T)
