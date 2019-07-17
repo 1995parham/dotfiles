@@ -53,12 +53,22 @@ It can install with the following command:
 go get -u github.com/vmware/govmomi/govc
 ```
 
-After installation you can use this awesome tool with
+After installation you can use this awesome tool like the following example:
 
 ```sh
-govc host.info -u user:pass@host
-govc vm.info -vm.ip 192.168.73.4 -u user:pass@host
-govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64" -u user:pass@host
+govc host.info
+govc ls '*'
+govc vm.info -vm.ip 192.168.73.4
+govc vm.info -vm.ipath "/ha-datacenter/vm/Windows 7 x64"
+```
+
+you can store the usefule information in `~/.zshrc.local`:
+
+```sh
+export GOVC_USERNAME=administrator@parham.home
+export GOVC_PASSWORD=secret
+export GOVC_URL=192.168.73.9
+export GOVC_INSECURE=true
 ```
 
 ## Movie Storages
