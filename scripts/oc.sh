@@ -16,8 +16,8 @@ kube-install() {
 	if [[ $OSTYPE == "linux-gnu" ]]; then
 		message "oc" "Linux"
 
-                message "oc" "Install kubectl from snap"
-                sudo snap install kubectl
+                message "oc" "Install kubectl from brew"
+                brew install kubernetes-cli
 	else
 		message "oc" "Darwin"
 
