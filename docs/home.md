@@ -29,7 +29,7 @@ Parham Master (73):
 | 192.168.73.100   | DNS                 | -                               |
 | 192.168.73.101   | DLink Switch        | -                               |
 | 192.168.73.102   | Parham Op Mgmt      | iKVM                            |
-| 192.168.73.103   | DMZ                 | Photon OS                       |
+| 192.168.73.103   | OpenVPN             | Ubuntu Server                   |
 | 192.168.73.106   | FreeNAS             | -                               |
 | 192.168.73.252   | Macbook Pro 13      | VPN Endpoint                    |
 | 192.168.73.253   | Snapp Macbook Pro   | VPN Endpoint                    |
