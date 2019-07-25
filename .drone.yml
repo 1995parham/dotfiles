@@ -5,7 +5,10 @@ steps:
   - name: install
     image: ubuntu:18.04
     commands:
-      - useradd -m -s /bin/bash parham
+      - >
+        useradd -m -s /bin/bash parham \
+          && echo "docker:docker" | chpasswd && adduser parham sudo
+      - apt-get update && apt-get install sudo
       - sudo -i -u parham && echo $(whoami)
       - yes "Y" | ./start.sh env
       - yes "Y" | ./install.sh -y
