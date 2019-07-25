@@ -9,8 +9,8 @@ steps:
         useradd -m -s /bin/bash parham \
           && echo "parham:parham" | chpasswd && adduser parham sudo
       - apt-get update && apt-get install sudo
-      - sudo -i -u parham && echo $(whoami)
-      - yes "Y" | ./start.sh env
-      - yes "Y" | ./install.sh -y
+      - sudo -u parham /bin/bash -c 'echo $(whoami)'
+      - sudo -u parham /bin/bash -c 'yes "Y" | ./start.sh env'
+      - sudo -u parham /bin/bash -c 'yes "Y" | ./install.sh -y'
       - > # check symlinks
         [ $(readlink $HOME/.zshrc) = $PWD/zsh/zshrc ]
