@@ -6,7 +6,7 @@ steps:
     image: ubuntu:18.04
     commands:
       - useradd -m -s /bin/bash parham
-      - su parham
+      - su -l parham
       - yes "Y" | ./start.sh env
       - yes "Y" | ./install.sh -y
       - >
