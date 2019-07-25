@@ -4,8 +4,9 @@ name: default
 steps:
   - name: install
     image: ubuntu:18.04
-    user: 1000
     commands:
+      - useradd -m -s /bin/bash parham
+      - su parham
       - yes "Y" | ./start.sh env
       - yes "Y" | ./install.sh -y
       - >
