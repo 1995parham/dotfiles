@@ -6,8 +6,7 @@ steps:
     image: ubuntu:18.04
     commands:
       - useradd -m -s /bin/bash parham
-      - su -l parham
-      - yes "Y" | ./start.sh env
-      - yes "Y" | ./install.sh -y
-      - >
+      - su -l parham && yes "Y" | ./start.sh env
+      - su -l parham && yes "Y" | ./install.sh -y
+      - > # check symlinks
         [ $(readlink $HOME/.zshrc) = $PWD/zsh/zshrc ]
