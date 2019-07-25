@@ -12,5 +12,5 @@ steps:
       - sudo -u parham /bin/bash -c 'echo $(whoami)'
       - sudo -u parham /bin/bash -c 'yes "Y" | ./start.sh env'
       - sudo -u parham /bin/bash -c 'yes "Y" | ./install.sh -y'
-      - > # check symlinks
-        [ $(readlink $HOME/.zshrc) = $PWD/zsh/zshrc ]
+      # - > # check symlinks
+      # [ $(readlink $HOME/.zshrc) = $PWD/zsh/zshrc ]
