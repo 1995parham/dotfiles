@@ -303,13 +303,13 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 let g:UltiSnipsEditSplit = "vertical"
 " }}}
 
-" tomorrow-night {{{
-set background=light
+" velenjak.vim {{{
 if (has("termguicolors"))
         set termguicolors
 endif
 
-colorscheme Tomorrow-Night
+let g:velenjak_term_italic = 1
+colorscheme velenjak
 " }}}
 
 " gitgutter {{{
