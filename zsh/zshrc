@@ -77,7 +77,6 @@ plugins=(
   docker
   gnu-utils
   ng
-  oc
   kubectl
   laravel
 
@@ -88,7 +87,7 @@ plugins=(
 
 # Load ELone after your oh-my-zsh configuration
 elone oh
-elone bundle 1995parham/buffalo.zsh buffalo
+# elone bundle 1995parham/buffalo.zsh buffalo
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,7 +100,7 @@ fi
 
 # Plugin configuration {{{
 # pj
-PROJECT_PATHS=(~/Documents/Git/parham ~/Documents/Go/src)
+PROJECT_PATHS=(~/Documents/Git/parham)
 # }}}
 
 # User configuration {{{
@@ -176,6 +175,10 @@ fi
 # }}}
 
 # k8s {{{
+
+if hash oc 2>/dev/null; then
+  source <(oc completion zsh)
+fi
 
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
 
