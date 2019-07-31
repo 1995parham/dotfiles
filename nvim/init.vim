@@ -179,8 +179,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'vim-python/python-syntax'
 
-" tomorrow night vim theme
-Plug '1995parham/tomorrow-night-vim'
+" Velenjak Neovim Theme
+Plug '1995parham/velenjak.vim'
 
 " fugitive.vim: A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
