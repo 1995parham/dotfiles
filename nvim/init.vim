@@ -166,7 +166,6 @@ Plug 'moll/vim-node'
 Plug '1995parham/vim-zimpl'
 Plug '1995parham/vim-gas'
 Plug '1995parham/vim-tcpdump'
-Plug '1995parham/tomorrow-night-vim'
 Plug '1995parham/vim-spice'
 Plug 'aolab/vim-avro'
 Plug 'pangloss/vim-javascript'
@@ -179,6 +178,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'vim-python/python-syntax'
+
+" tomorrow night vim theme
+Plug '1995parham/tomorrow-night-vim'
 
 " fugitive.vim: A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
