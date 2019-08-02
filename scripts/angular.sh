@@ -13,15 +13,13 @@ usage() {
 }
 
 angular-install-cli() {
-        # it requires sudo on linux based systems
-        sudo npm install -g @angular/cli
+        npm install -g @angular/cli
         ng --version
 }
 
 angular-install-ts() {
-        # it requires sudo on linux based systems
-        sudo npm install -g typescript
-        sudo npm install -g tslint
+        npm install -g typescript
+        npm install -g tslint
 }
 
 main() {
