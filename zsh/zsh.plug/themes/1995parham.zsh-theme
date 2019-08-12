@@ -21,12 +21,12 @@ function virtualenv_info() {
 }
 
 function prompt_venv() {
-	echo %F{239}$(virtualenv_info)%f
+  echo %F{239}$(virtualenv_info)%f
 }
 
 # Docker info when there is a Dockerfile
 function prompt_docker() {
-  if which docker 2>/dev/null 1>/dev/null && [ -f "./Dockerfile" ] ; then
+  if which docker 2>/dev/null 1>&2 && [ -f "./Dockerfile" ] ; then
     DOCKER_VERSION=`docker -v | awk '{print substr($3, 0, length($3))}'`
     echo %F{239}'['docker $DOCKER_VERSION']'%f
   fi
@@ -34,14 +34,24 @@ function prompt_docker() {
 
 # Go info when there is a .go file
 function prompt_go() {
-  if which go 2>/dev/null 1>/dev/null && [ ! -z `ls | grep \.go$ | head -1` ]; then
+  if which go 2>/dev/null 1>&2 && [ ! -z `ls | grep \.go$ | head -1` ]; then
     GO_VERSION=`go version | awk '{print $3}'`
-		echo %F{239}'['$GO_VERSION']'%f
+    echo %F{239}'['$GO_VERSION']'%f
   fi
 }
 
+# Is there any proxy?
 function prompt_proxy() {
-	[ $http_proxy ] || [ $https_proxy ] || [ $ftp_proxy ] && echo "$SWORD "
+  [ $http_proxy ] || [ $https_proxy ] || [ $ftp_proxy ] && echo "$SWORD "
+}
+
+function prompt_kube() {
+  if which kubectl 2>/dev/null 1>&2; then
+    kubectl_current_context=$(kubectl config current-context)
+    kubectl_cluster=$(echo $kubectl_current_context | cut -d '_' -f 4)
+    kubectl_prompt="k8s::$kubectl_cluster"
+    echo %F{239}'['$kubectl_prompt']'%f
+  fi
 }
 
 function prompt_char() {
@@ -63,11 +73,11 @@ function separator_char() {
 }
 
 function local_remote_prompt() {
-	if [ $SSH_CONNECTION ]; then
-		echo $SSH
-	else
-		echo '@'
-	fi
+  if [ $SSH_CONNECTION ]; then
+    echo $SSH
+  else
+    echo '@'
+  fi
 }
 
 # Modify the colors and symbols in these variables as desired.
@@ -138,9 +148,9 @@ function prompt_dir() {
   parham_git_replaced="$(printf $home_replaced | sed -e "s,^~/Documents/Git/parham,`printf "\xe2\x97\x87"`,")"
   others_git_replaced="$(printf $parham_git_replaced | sed -e "s,^~/Documents/Git/others,`printf "\xe2\x97\x86"`,")"
   go_home_replaced="$(printf $others_git_replaced | sed -e "s,^~/Documents/Go/src,`printf "\xe2\x99\xa5"`,")"
-	prompt=$go_home_replaced
+  prompt=$go_home_replaced
 
-	echo %F{234}$prompt%f
+  echo %F{234}$prompt%f
 }
 
 # vi-mode
@@ -171,7 +181,7 @@ function prompt_1995parham_precmd() {
   # %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
   # '!' is true if the shell is privileged.
   PROMPT='
-%F{159}::%f $(prompt_venv) $(prompt_docker) $(prompt_go)
+%F{159}::%f $(prompt_venv) $(prompt_docker) $(prompt_go) $(prompt_kube)
 $(echo "\u250c") %K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}$(box_name)%f %k%K{214}%F{235}$(separator_char)%f $(prompt_dir) %k%F{214}$(separator_char)%f $(git_prompt_string)
 $(echo "\u2514") %F{123}$(prompt_char)%f $(prompt_proxy)'
 
@@ -184,7 +194,6 @@ $(echo "\u2514") %F{123}$(prompt_char)%f $(prompt_proxy)'
 function prompt_1995parham_setup() {
   autoload -Uz add-zsh-hook
   autoload -Uz vcs_info
-	
   zle -N zle-line-init
   zle -N zle-keymap-select
 
