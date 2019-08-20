@@ -72,7 +72,7 @@ export GOVC_INSECURE=true
 ```
 
 ## Movie Storages
-These disks are available as storage for movies
+These disks are available as storage for movies. In each of them, all movies are stored on `Personal Data\My Folders\My Videos\Movie`.
 
 - Parham HDD 1 (1.5T)
 - Parham HDD 2 (1T)
