@@ -47,10 +47,13 @@ function prompt_proxy() {
 
 function prompt_kube() {
   if which kubectl 2>/dev/null 1>&2; then
-    kubectl_current_context=$(kubectl config current-context)
-    kubectl_cluster=$(echo $kubectl_current_context | cut -d '_' -f 4)
-    kubectl_prompt="k8s::$kubectl_cluster"
-    echo %F{239}'['$kubectl_prompt']'%f
+    local namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2> /dev/null)
+    namespace=${namespace:-default}
+    local user=$(kubectl config view --minify --output 'jsonpath={..context.user}' 2> /dev/null)
+    user=${user:-nobody}
+    local context=$(kubectl config current-context 2>/dev/null)
+    context=${context:-N/A}
+    echo %F{239}'['%f %F{blue}'\u2388'%f%F{239} $user@$context:$namespace']'%f
   fi
 }
 
