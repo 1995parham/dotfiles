@@ -50,10 +50,11 @@ function prompt_kube() {
     local namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2> /dev/null)
     namespace=${namespace:-default}
     local user=$(kubectl config view --minify --output 'jsonpath={..context.user}' 2> /dev/null)
+    user=${user%%\/*}
     user=${user:-nobody}
-    local context=$(kubectl config current-context 2>/dev/null)
-    context=${context:-N/A}
-    echo %F{239}'['%f %F{blue}'\u2388'%f%F{239} $user@$context:$namespace']'%f
+    local cluster=$(kubectl config view --minify --output 'jsonpath={..context.cluster}' 2> /dev/null)
+    cluster=${cluster:-n/a}
+    echo %F{239}'['%f %F{blue}'\u2388'%f%F{239} $user@$cluster-%F{216}$namespace%f%F{239}']'%f
   fi
 }
 
