@@ -5,40 +5,32 @@ source $HOME/.vim/vimrc-general
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-" Static plugins all from the github :)
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'moll/vim-node'
-Plug 'digitaltoad/vim-jade'
-Plug 'wakatime/vim-wakatime'
-Plug '1995parham/vim-zimpl'
-Plug '1995parham/vim-gas'
-Plug '1995parham/vim-tcpdump'
-Plug '1995parham/tomorrow-night-vim'
-Plug '1995parham/vim-spice'
-Plug 'aolab/vim-avro'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'dag/vim2hs'
-Plug 'majutsushi/tagbar'
-Plug 'bps/vim-tshark'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'othree/html5.vim'
-Plug 'ap/vim-css-color'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'vim-python/python-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'gcmt/taboo.vim'
-Plug 'cohama/agit.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'vim-utils/vim-man'
-Plug 'posva/vim-vue'
+" Velenjak Neovim Theme
+Plug '1995parham/velenjak.vim'
 
-" On-demand loading
+" git
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+Plug 'cohama/agit.vim'        " A powerful Git log viewer
+
+" nerdtree
+Plug 'jistr/vim-nerdtree-tabs'     " NERDTree and tabs together in Vim, painlessly
+Plug 'scrooloose/nerdtree'         " A tree explorer plugin for vim.
+Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
+
+" Vim plugin to list, select and switch between buffers.
+Plug 'jeetsukumaran/vim-buffergator'
+
+" vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
+
+" vim-wakatime
+Plug 'wakatime/vim-wakatime'
+
+" A solid language pack for Vim.
+Plug 'sheerun/vim-polyglot'
+
+" Velenjak Neovim Theme
+Plug '1995parham/velenjak.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -47,78 +39,46 @@ call plug#end()
 
 " Plugins Configurations {{{
 
-" Wakatime
-let g:wakatime_PythonBinary = '/usr/bin/python3'
+" wakatime {{{
+let g:wakatime_PythonBinary = 'python3'
+let g:wakatime_ScreenRedraw = 1
+" }}}
 
-" Tomorrow-Night
-set background=light
-set t_Co=256
-colorscheme Tomorrow-Night
+" velenjak.vim {{{
+if (has("termguicolors"))
+        set termguicolors
+endif
 
-" Git gutter
+let g:velenjak_term_italic = 1
+colorscheme velenjak
+" }}}
+
+" gitgutter {{{
 let g:gitgutter_enabled = 1
 let g:gitgutter_eager = 0
-" set signcolumn=yes
 highlight clear SignColumn
+" }}}
 
-" Emmmet
-" only enable normal mode functions.
-let g:user_emmet_mode='n'
-let g:user_emmet_leader_key='<C-E>'
-
-" vim-markdown
-let g:vim_markdown_math = 1
-let g:vim_markdown_folding_disabled = 1
-
-" Tagbar
-nmap <F5> :TagbarToggle<CR>
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-
-
-" NerdTree
+" nerdtree {{{
 map <C-n> <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_synchronize_view = 0
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+" }}}
 
-" Airline (status line)
-let g:airline_powerline_fonts = 1
-
+" Airline (status line) {{{
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#taboo#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tagbar#enabled = 1
@@ -128,25 +88,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
 let g:airline_section_c = '%{strftime("%c")}'
-
-" Taboo
-let g:taboo_tab_format = ' [%N] %f%m'
-let g:taboo_tabline = 0
-
-" vim-buffergator
-map <C-b> :BuffergatorToggle<CR>
-
-" C
-let c_gnu = 1
-
-" CPP
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-
-" Python
-let g:python_highlight_all = 1
-
-" javascript
-let g:javascript_plugin_jsdoc = 1
+" }}}
 
 "}}}
