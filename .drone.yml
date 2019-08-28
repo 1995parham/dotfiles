@@ -1,7 +1,15 @@
+---
 kind: pipeline
 name: default
 
 steps:
+  - name: lint
+    image: python
+    commands:
+      - pip install vim-vint
+      - vint -c --enable-neovim nvim/init.vim
+      - vint -c vim/vimrc
+
   - name: install
     image: ubuntu:18.04
     commands:
