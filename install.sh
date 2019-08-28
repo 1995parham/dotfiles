@@ -141,19 +141,10 @@ linker() {
 
 #### VIM ####
 install-vim() {
-        case $install_type in
-                0)
-                        # files=("vimrc" "vim")
-                        # dotfile "vim" files[@]
-                        return
-                        ;;
-                1)
-                        files=("vimrc")
-                        dotfile "vim" files[@] true "minor"
-                        files=("vim")
-                        dotfile "vim" files[@]
-                        ;;
-        esac
+        files=("vimrc")
+        dotfile "vim" files[@]
+        files=("vim")
+        dotfile "vim" files[@]
 
         message "vim" "Installing vim plugins"
         vim +PlugInstall +qall
