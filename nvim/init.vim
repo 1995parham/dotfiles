@@ -87,6 +87,11 @@ nmap <C-w>n :tabnext<CR>
 nmap <C-w>p :tabprevious<CR>
 nmap <C-w>c :tabnew<CR>
 
+" lazy drawing
+" https://github.com/tmux/tmux/issues/353#issuecomment-342741778
+set lazyredraw
+set ttyfast
+
 " }}}
 
 " FileType Configurations {{{
