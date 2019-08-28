@@ -18,10 +18,7 @@
 
 ## Introduction
 
-My Personal Ubuntu and OSx configuration which has been created in Fall 2013
-when I was a BSc Student of the Amirkabir University of Technology.
-First of all thank you for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc.
-please check the following sections.
+This repository contains my personal's configurations for Ubuntu and OSx, which has been created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology. First of all, thank you for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc. please check the following sections.
 
 ## Table of Contents
 
