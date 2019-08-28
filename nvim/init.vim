@@ -159,24 +159,18 @@ command Spellcheck setlocal spell spelllang=en_us
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
-" static plugins all from the github :)
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-scripts/textutil.vim'
-Plug 'moll/vim-node'
-Plug '1995parham/vim-zimpl'
-Plug '1995parham/vim-gas'
-Plug '1995parham/vim-tcpdump'
-Plug '1995parham/vim-spice'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'bps/vim-tshark'
-Plug 'plasticboy/vim-markdown'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'ap/vim-css-color'
+" wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 Plug 'tpope/vim-endwise'
+
+" Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
+" The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
-Plug 'vim-python/python-syntax'
+
+" Vim plugin for editing rtf,rtfd,doc,wordml files.
+Plug 'vim-scripts/textutil.vim'
+
+" Vim bookmark plugin that allows toggling bookmarks per line
+" Plug 'MattesGroeger/vim-bookmarks'
 
 " Velenjak Neovim Theme
 Plug '1995parham/velenjak.vim'
@@ -249,6 +243,14 @@ Plug 'posva/vim-vue'                               " Syntax Highlight for Vue.js
 Plug 'othree/html5.vim'                            " HTML5 omnicomplete and syntax
 " Plug 'digitaltoad/vim-jade'                      " Vim syntax highlighting for Pug (formerly Jade) templates.
 Plug 'andrewstuart/vim-kubernetes'                 " This package provides kubernetes YAML snippets, as well as a growing number of integrations with kubectl.
+Plug 'bps/vim-tshark'                              " A Vim plugin to make it easy to read pcap dumps.
+Plug 'vim-python/python-syntax'                    " Python syntax highlighting for Vim
+Plug 'Shirk/vim-gas'                               " Advanced syntax highlighting for GNU As
+Plug 'pangloss/vim-javascript'                     " Vastly improved Javascript indentation and syntax support in Vim
+Plug 'othree/javascript-libraries-syntax.vim'      " Syntax for JavaScript libraries
+Plug 'plasticboy/vim-markdown'                     " Markdown Vim Mode
+Plug 'octol/vim-cpp-enhanced-highlight'            " Additional Vim syntax highlighting for C++
+Plug 'ap/vim-css-color'                            " Preview colours in source code while editing
 
 
 " vimproc is a great asynchronous execution library for Vim.
@@ -428,6 +430,12 @@ let g:javascript_plugin_jsdoc = 1
 augroup filetypedetect
         au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 augroup END
+" }}}
+
+" vim-gas {{{
+augroup gas
+        autocmd BufRead,BufNewFile *.S set filetype=gas
+augroup end
 " }}}
 
 "}}}
