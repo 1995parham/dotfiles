@@ -160,14 +160,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 " static plugins all from the github :)
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'lervag/vimtex'
 Plug 'vim-scripts/textutil.vim'
 Plug 'moll/vim-node'
 Plug '1995parham/vim-zimpl'
 Plug '1995parham/vim-gas'
 Plug '1995parham/vim-tcpdump'
 Plug '1995parham/vim-spice'
-Plug 'aolab/vim-avro'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'bps/vim-tshark'
