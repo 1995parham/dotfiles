@@ -83,3 +83,9 @@ Install iTerm on OSx and use the following configuration
 Color Scheme fron ./iterm
 Font Meslo LG S for Powerline 9pt 100iv 100nn
 ```
+
+Remove OSx Lags (if you are on osx :joy:)
+
+```sh
+echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
+```
