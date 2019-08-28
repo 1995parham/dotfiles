@@ -1,70 +1,153 @@
-" General {{{
-source $HOME/.vim/vimrc-general
+" Settings {{{
+syntax on
+
+" UFT-8 Encoding
+set encoding=utf-8
+scriptencoding utf-8
+
+" Stick unamed register into system clipboard
+if $TMUX ==# ''
+    set clipboard+=unnamed
+endif
+
+" Correct delete key in OSX
+set backspace=eol,start,indent
+
+set autoindent  " Auto indent
+set smartindent " Smart indent
+set wrap        " Wrap lines
+set smarttab
+set number
+set expandtab
+set fileformats=unix,dos,unix
+
+" Get rid of the delay when pressing O (for example)
+" http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+set timeout timeoutlen=1000 ttimeoutlen=100
+
+" Always show status bar
+set laststatus=2
+
+" Set the status line to something useful
+set statusline=%f\ %=L:%l/%L\ %c\ (%p%%)
+
+" Hide the toolbar
+set guioptions-=T
+
+" No backup files
+set nobackup
+
+" No write backup
+set nowritebackup
+
+" No swap file
+set noswapfile
+
+" Set leader key
+let mapleader = '\<space>'
+
+" Always show cursor
+set ruler
+
+" Make sure any searches /searchPhrase doesn't need the \c escape character
+set ignorecase
+
+" Ignore case in search
+set smartcase
+
+" Autoload files that have changed outside of vim
+set autoread
+
+" Highlight tailing whitespace
+set list listchars=tab:\ \ ,trail:·
+
+" Mod line supporting
+set modeline
+set modelines=5
+
+" Set folding type in marker
+set foldmethod=marker
+
+" Set search results highlighting
+set hlsearch
+
+" Let's move between tabs and create them !
+nmap <C-w>n :tabnext<CR>
+nmap <C-w>p :tabprevious<CR>
+nmap <C-w>c :tabnew<CR>
+
+" }}}
+
+" FileType Configurations {{{
+
+augroup format
+        " PHP
+        autocmd Filetype php setlocal ts=4 sts=4 sw=4
+
+        " C++
+        autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 expandtab
+
+        " Json
+        autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+
+        " Docker-compose
+        autocmd Filetype docker-compose setlocal ts=2 sts=2 sw=2 expandtab
+
+        " Vue
+        autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
+        autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2 expandtab
+
+        " Babel configuration
+        autocmd BufRead,BufNewFile .babelrc setlocal filetype=json
+
+        " HTML
+        autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+
+        " JavaScript
+        autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+
+        " Git commit
+        autocmd Filetype gitcommit setlocal spell textwidth=72
+augroup end
+
+" }}}
+
+" Commands {{{
+
+" Command Mappings
+command Spellcheck setlocal spell spelllang=en_us
+
 " }}}
 
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-" Static plugins all from the github :)
-Plug 'junegunn/vim-easy-align'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'lervag/vimtex'
-Plug 'vim-scripts/textutil.vim'
-Plug 'moll/vim-node'
-Plug 'digitaltoad/vim-jade'
-Plug 'wakatime/vim-wakatime'
-Plug '1995parham/vim-zimpl'
-Plug '1995parham/vim-gas'
-Plug '1995parham/vim-tcpdump'
-Plug '1995parham/tomorrow-night-vim'
-Plug '1995parham/vim-spice'
-Plug 'aolab/vim-avro'
-Plug 'scrooloose/syntastic'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'dag/vim2hs'
-Plug 'fatih/vim-go'
-Plug 'majutsushi/tagbar'
-Plug 'bps/vim-tshark'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'othree/html5.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'ap/vim-css-color'
-Plug 'mattn/webapi-vim'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'mattn/emmet-vim'
-Plug 'ervandew/supertab'
-Plug 'wellle/targets.vim'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-tbone'
-Plug 'gcmt/wildfire.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-python/python-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'gcmt/taboo.vim'
-Plug 'cohama/agit.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'vim-utils/vim-man'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'garyburd/go-explorer'
-Plug 'posva/vim-vue'
-Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'sekel/vim-vue-syntastic'
-Plug 'martinda/Jenkinsfile-vim-syntax'
+" Velenjak Neovim Theme
+Plug '1995parham/velenjak.vim'
 
-" Plugin options
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" git
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+Plug 'cohama/agit.vim'        " A powerful Git log viewer
+
+" nerdtree
+Plug 'jistr/vim-nerdtree-tabs'     " NERDTree and tabs together in Vim, painlessly
+Plug 'scrooloose/nerdtree'         " A tree explorer plugin for vim.
+Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
+
+" Vim plugin to list, select and switch between buffers.
+Plug 'jeetsukumaran/vim-buffergator'
+
+" vim plugin that provides additional text objects
+Plug 'wellle/targets.vim'
+
+" vim-wakatime
+Plug 'wakatime/vim-wakatime'
+
+" A solid language pack for Vim.
+Plug 'sheerun/vim-polyglot'
+
+" Velenjak Neovim Theme
+Plug '1995parham/velenjak.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -73,120 +156,46 @@ call plug#end()
 
 " Plugins Configurations {{{
 
-" Wakatime
+" wakatime {{{
 let g:wakatime_PythonBinary = 'python3'
 let g:wakatime_ScreenRedraw = 1
+" }}}
 
-" Tomorrow-Night
-set background=light
-
-colorscheme Tomorrow-Night
-
-" Git gutter
-let g:gitgutter_enabled = 1
-let g:gitgutter_eager = 0
-set signcolumn=yes
-highlight clear SignColumn
-
-" Super tab
-let g:SuperTabMappingForward = "<C-h>"
-
-" Emmmet
-" only enable normal mode functions.
-let g:user_emmet_mode='n'
-let g:user_emmet_leader_key='<C-E>'
-
-" vim-polygot
-let g:polyglot_disabled = ['python', 'javascript']
-
-" Syntastic
-if has('python3')
-	let g:syntastic_python_python_exec = system('which python3')
-elseif has('python')
-	let g:syntastic_python_python_exec = system('which python')
+" velenjak.vim {{{
+if (has('termguicolors'))
+        set termguicolors
 endif
 
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_html_checkers = ['htmlhint']
-let g:syntastic_tex_checkers = ['chktex']
-let g:syntastic_go_checkers = ['gofmt', 'go', 'golint']
+let g:velenjak_term_italic = 1
+colorscheme velenjak
+" }}}
 
-let g:syntastic_c_compiler_options = ' -std=gnu11'
+" gitgutter {{{
+let g:gitgutter_enabled = 1
+let g:gitgutter_eager = 0
+highlight clear SignColumn
+" }}}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_vue_checkers = ['eslint']
-
-" vim-go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
-" vim-markdown
-let g:vim_markdown_math = 1
-let g:vim_markdown_folding_disabled = 1
-
-" Tagbar
-nmap <F5> :TagbarToggle<CR>
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-
-
-" NerdTree
+" nerdtree {{{
 map <C-n> <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_synchronize_view = 0
+let g:NERDTreeIndicatorMapCustom = {
+    \ 'Modified'  : '✹',
+    \ 'Staged'    : '✚',
+    \ 'Untracked' : '✭',
+    \ 'Renamed'   : '➜',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : '✖',
+    \ 'Dirty'     : '✗',
+    \ 'Clean'     : '✔︎',
+    \ 'Ignored'   : '☒',
+    \ 'Unknown'   : '?'
+    \ }
+" }}}
 
-" Airline (status line)
-let g:airline_powerline_fonts = 1
-
+" Airline (status line) {{{
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#taboo#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tagbar#enabled = 1
@@ -196,53 +205,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
 let g:airline_section_c = '%{strftime("%c")}'
-
-" Taboo
-let g:taboo_tab_format = ' [%N] %f%m'
-let g:taboo_tabline = 0
-
-" vim-buffergator
-map <C-b> :BuffergatorToggle<CR>
-
-" vimtex
-let g:vimtex_disable_version_warning = 1
-
-" C
-let c_gnu = 1
-
-" CPP
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-
-" Python
-let g:python_highlight_all = 1
-
-" javascript
-let g:javascript_plugin_jsdoc = 1
-
-" Octave
-augroup filetypedetect
-	au! BufRead,BufNewFile *.m,*.oct set filetype=octave
-augroup END
-
-" Use keywords from Octave syntax language file for autocomplete
-if has("autocmd") && exists("+omnifunc")
-	autocmd Filetype octave
-				\	if &omnifunc == "" |
-				\	setlocal omnifunc=syntaxcomplete#Complete |
-				\	endif
-
-endif
-
-" PHP
-function! PhpSyntaxOverride()
-	hi! def link phpDocTags  phpDefine
-	hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-	autocmd!
-	autocmd FileType php call PhpSyntaxOverride()
-augroup END
+" }}}
 
 "}}}
