@@ -28,7 +28,6 @@ please check the following sections.
 - [How To...](docs/how.md)
 - [VIM](docs/vim.md)
 - [ZSH](docs/zsh.md)
-- [Home sweet Home](docs/home.md)
 
 ## Frameworks
 <p align="center">
