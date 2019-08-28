@@ -146,6 +146,10 @@ Plug 'wakatime/vim-wakatime'
 " A solid language pack for Vim.
 Plug 'sheerun/vim-polyglot'
 
+" lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Velenjak Neovim Theme
 Plug '1995parham/velenjak.vim'
 
