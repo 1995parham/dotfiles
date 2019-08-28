@@ -2,27 +2,24 @@
 syntax on
 
 " UFT-8 Encoding
-scriptencoding utf-8
 set encoding=utf-8
+scriptencoding utf-8
 
 " Stick unamed register into system clipboard
-if $TMUX == ''
+if $TMUX ==# ''
         set clipboard+=unnamed
 endif
 
 " Correct delete key in OSX
 set backspace=eol,start,indent
 
-set ai " Auto indent
-set si " Smart indent
-set wrap " Wrap lines
+set autoindent  " Auto indent
+set smartindent " Smart indent
+set wrap        " Wrap lines
 set smarttab
 set number
 set expandtab
-set ffs=unix,dos,unix
-
-" Use vim, not vi api
-set nocompatible
+set fileformats=unix,dos,unix
 
 " Get rid of the delay when pressing O (for example)
 " http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
@@ -94,57 +91,56 @@ nmap <C-w>c :tabnew<CR>
 
 " FileType Configurations {{{
 
-" PHP
-autocmd Filetype php setlocal ts=4 sts=4 sw=4
+augroup format
+        " PHP
+        autocmd Filetype php setlocal ts=4 sts=4 sw=4
 
-" C
-autocmd Filetype c setlocal ts=2 sts=2 sw=2
+        " C
+        autocmd Filetype c setlocal ts=2 sts=2 sw=2
 
-" C++
-autocmd Filetype cpp setlocal ts=4 sts=4 sw=4
+        " C++
+        autocmd Filetype cpp setlocal ts=4 sts=4 sw=4
 
-" Ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+        " Json
+        autocmd Filetype json setlocal ts=2 sts=2 sw=2
 
-" Json
-autocmd Filetype json setlocal ts=2 sts=2 sw=2
+        " Vue
+        autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
+        autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2
 
-" Vue
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript
-autocmd Filetype vue.javascript setlocal ts=2 sts=2 sw=2
+        " Babel configuration
+        autocmd BufRead,BufNewFile .babelrc setlocal filetype=json
 
-" Babel configuration
-autocmd BufRead,BufNewFile .babelrc setlocal filetype=json
+        " HTML
+        autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
-" HTML
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
+        " Less
+        autocmd Filetype less setlocal ts=2 sts=2 sw=2
 
-" Less
-autocmd Filetype less setlocal ts=2 sts=2 sw=2
+        " JavaScript
+        autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascript.jsx
+        autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
-" JavaScript
-autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascript.jsx
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+        " TypeScript
+        autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
+        autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
+        autocmd Filetype typescript.tsx setlocal ts=2 sts=2 sw=2
 
-" TypeScript
-autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
-autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
-autocmd Filetype typescript.tsx setlocal ts=2 sts=2 sw=2
+        " Git commit
+        autocmd Filetype gitcommit setlocal spell textwidth=72
 
-" Git commit
-autocmd Filetype gitcommit setlocal spell textwidth=72
+        " Arduino
+        autocmd Filetype arduino setlocal ts=2 sts=2 sw=2
 
-" Arduino
-autocmd Filetype arduino setlocal ts=2 sts=2 sw=2
+        " ZSH
+        autocmd FileType zsh setlocal ts=2 sts=2 sw=2
 
-" ZSH
-autocmd FileType zsh setlocal ts=2 sts=2 sw=2
+        " vugu
+        autocmd BufRead,BufNewFile *.vugu setlocal filetype=vue
 
-" vugu
-autocmd BufRead,BufNewFile *.vugu setlocal filetype=vue
-
-" Cursor
-autocmd VimLeave * set guicursor=a:ver30
+        " Cursor
+        autocmd VimLeave * set guicursor=a:ver30
+augroup end
 
 " }}}
 
@@ -295,14 +291,14 @@ let g:wakatime_ScreenRedraw = 1
 " }}}
 
 " ultisnips {{{
-let g:UltiSnipsExpandTrigger = "<c-u>"
-let g:UltiSnipsJumpForwardTrigger = "<c-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsExpandTrigger = '<c-u>'
+let g:UltiSnipsJumpForwardTrigger = '<c-b>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
+let g:UltiSnipsEditSplit = 'vertical'
 " }}}
 
 " velenjak.vim {{{
-if (has("termguicolors"))
+if (has('termguicolors'))
         set termguicolors
 endif
 
@@ -351,7 +347,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_declarations = 1
 
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 " Simply press K when over a type or function to get more details.
 " au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 set statusline+=go#statusline#Show()
@@ -372,16 +368,16 @@ map <C-n> <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_synchronize_view = 0
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
+    \ 'Modified'  : '✹',
+    \ 'Staged'    : '✚',
+    \ 'Untracked' : '✭',
+    \ 'Renamed'   : '➜',
+    \ 'Unmerged'  : '═',
+    \ 'Deleted'   : '✖',
+    \ 'Dirty'     : '✗',
+    \ 'Clean'     : '✔︎',
     \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
+    \ 'Unknown'   : '?'
     \ }
 " }}}
 
@@ -427,15 +423,6 @@ let g:javascript_plugin_jsdoc = 1
 augroup filetypedetect
         au! BufRead,BufNewFile *.m,*.oct set filetype=octave
 augroup END
-
-" Use keywords from Octave syntax language file for autocomplete
-if has("autocmd") && exists("+omnifunc")
-        autocmd Filetype octave
-                                \	if &omnifunc == "" |
-                                \	setlocal omnifunc=syntaxcomplete#Complete |
-                                \	endif
-
-endif
 " }}}
 
 "}}}
