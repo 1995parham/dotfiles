@@ -23,7 +23,7 @@ kubeval-upstall() {
 
         if [[ $kubeval_vr != $kubeval_vl ]]; then
                 message "kubeval" "Dowloading from github"
-                sudo curl -L https://github.com/instrumenta/kubeval/releases/download/${kubeval_vr}/kubeval-$(uname -s | awk '{print tolower($0)}')-amd64.tar.gz | tar -xOf - kubeval > /usr/local/bin/kubeval
+                curl -L https://github.com/instrumenta/kubeval/releases/download/${kubeval_vr}/kubeval-$(uname -s | awk '{print tolower($0)}')-amd64.tar.gz | tar -zxOf - kubeval | sudo tee /usr/local/bin/kubeval > /dev/null
                 sudo chmod +x /usr/local/bin/kubeval
         fi
 
