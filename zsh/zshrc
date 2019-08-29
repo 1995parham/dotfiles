@@ -185,12 +185,14 @@ alias kcd='kubectl config set-context $(kubectl config current-context) --namesp
 
 # }}}
 
-# linuxbrew {{{
+# brew {{{
 export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# only for linuxbrew with hotfix in sudo mode
+test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 hash brew 2>/dev/null && eval $($(brew --prefix)/bin/brew shellenv)
 # }}}
 
