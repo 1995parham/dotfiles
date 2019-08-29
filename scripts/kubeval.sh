@@ -14,11 +14,14 @@ usage() {
 
 
 kubeval-upstall() {
-        message "kubectl" "Upstall kubectl from github"
+        message "kubeval" "Upstall kubeval from github"
 	kubeval_vr=$(curl -s https://api.github.com/repos/instrumenta/kubeval/releases/latest | grep 'tag_name' | cut -d\" -f4)
-        kubeval_vl=$(kubeval --version | grep Version | cut -d' ' -f2)
+        kubeval_vl=''
+        if hash kubeval 2> /dev/null; then
+                kubeval_vl=$(kubeval --version | grep Version | cut -d' ' -f2)
+        fi
 
-        if [ $kubeval_vr != $kubeval_vl ]; then
+        if [[ $kubeval_vr != $kubeval_vl ]]; then
                 message "kubeval" "Dowloading from github"
                 sudo curl -L https://github.com/instrumenta/kubeval/releases/download/${kubeval_vr}/kubeval-$(uname -s | awk '{print tolower($0)}')-amd64.tar.gz | tar -xOf - kubeval > /usr/local/bin/kubeval
                 sudo chmod +x /usr/local/bin/kubeval
