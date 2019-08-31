@@ -85,3 +85,5 @@ Remove OSx Lags (if you are on osx :joy:)
 ```sh
 echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
 ```
+
+and Remove Workona Windows from Dock within `System Preferences -> Dock -> Minimize windows into application icon`
