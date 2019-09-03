@@ -13,39 +13,16 @@ usage() {
 }
 
 kube-install() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		message "oc" "Linux"
-
-                message "oc" "Install kubectl from brew"
-                brew install kubernetes-cli
-	else
-		message "oc" "Darwin"
-
-                message "oc" "Install kubectl from brew"
-                brew install kubernetes-cli
-	fi
+        message "oc" "Install kubectl from brew"
+        brew install kubernetes-cli
+        message "oc" "Install helm from brew"
+        brew install kubernetes-helm
 
 }
 
 oc-install() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		message "oc" "Linux"
-
-                message "oc" "Upstall openshift-cli from github"
-                oc_vr=$(curl -s https://api.github.com/repos/openshift/origin/releases/latest | grep 'tag_name' | cut -d\" -f4)
-
-                message "oc" "Dowloading from github"
-                url=$(curl -s https://api.github.com/repos/openshift/origin/releases/latest | grep -E "https://github.com/openshift/origin/releases/download/${oc_vr}/openshift-origin-client-tools-${oc_vr}-[[:alnum:]]{7}-linux-64bit.tar.gz" | cut -d\" -f4)
-                curl -L $url | tar -xvz
-                sudo mv openshift-origin-client-tools*/oc /usr/local/bin/oc
-                rm -Rf openshift-origin-client-tools*
-                sudo chmod +x /usr/local/bin/oc
-	else
-		message "oc" "Darwin"
-
-                message "oc" "Install openshift-cli from brew"
-		brew install openshift-cli
-	fi
+        message "oc" "Install openshift-cli from brew"
+        brew install openshift-cli
 }
 
 
