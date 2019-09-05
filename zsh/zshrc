@@ -105,7 +105,7 @@ PROJECT_PATHS=(~/Documents/Git/parham)
 # Aliases {{{
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export EDITOR="nvim"
+export EDITOR="$(which nvim)"
 export TERM="xterm-256color"
 if [ -f $HOME/.dircolors ]; then
   eval `dircolors $HOME/.dircolors`
