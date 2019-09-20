@@ -199,7 +199,6 @@ hash brew 2>/dev/null && eval $($(brew --prefix)/bin/brew shellenv)
 # Github {{{
 
 export GITHUB_USER="1995parham"
-export HOMEBREW_GITHUB_API_TOKEN="0dcb9b50e36d83de6ddbcff7b448b929399fc869"
 
 # }}}
 
