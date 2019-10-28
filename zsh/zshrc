@@ -164,6 +164,7 @@ export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
   path+=("$HOME/Documents/Go/bin")
 fi
+export GOPROXY="https://goproxy.io,direct"
 
 # }}}
 
