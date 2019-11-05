@@ -25,8 +25,9 @@ python-install() {
         else
                 message "python" "Linux"
 
-                sudo apt-get -y install python3 python3-venv python3-pip
+                sudo apt-get -y install python3
         fi
+        python3 -m ensurepip
 
         message "python" "$(python3 --version)"
 }
