@@ -21,7 +21,7 @@ usage() {
 docker-repositories() {
 	message "docker" "Installing tools for apt repository management"
 	sudo apt-get -y update
-	sudo apt-get -y install apt-transport-https ca-certificates
+        sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
 
 	message "docker" "Add new GPG key"
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
