@@ -81,7 +81,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local
 if [ -d $HOME/bin ]; then
 	PATH="$PATH:$HOME/bin"
 fi
-if [ -n $PREFIX ] && [ -f $PREFIX/bin ]; then
+if [ -n $PREFIX ] && [ -d $PREFIX/bin ]; then
         PATH="$PATH:$PREFIX/bin"
 fi
 # }}}
