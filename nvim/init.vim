@@ -251,6 +251,7 @@ Plug 'othree/javascript-libraries-syntax.vim'      " Syntax for JavaScript libra
 Plug 'plasticboy/vim-markdown'                     " Markdown Vim Mode
 Plug 'octol/vim-cpp-enhanced-highlight'            " Additional Vim syntax highlighting for C++
 Plug 'ap/vim-css-color'                            " Preview colours in source code while editing
+Plug 'rust-lang/rust.vim'                          " Vim configuration for Rust.
 
 
 " vimproc is a great asynchronous execution library for Vim.
