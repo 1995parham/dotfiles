@@ -19,7 +19,7 @@ main() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
 	        message "c" "Darwin"
 
-	        brew install clang-foramt
+	        brew install clang-format
                 brew install cmake
         else
 	        message "c" "Linux"
