@@ -76,7 +76,7 @@
 .arangodb.com
 .rethinkdb.com
 .cloudfront.net
-.clients6.google.com
+.clients*.google.com
 
 .radiojavan.com
 .rj-mw1.com
