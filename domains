@@ -77,6 +77,7 @@
 .rethinkdb.com
 .cloudfront.net
 .clients*.google.com
+.gurobi.com
 
 .radiojavan.com
 .rj-mw1.com
