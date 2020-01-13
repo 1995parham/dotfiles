@@ -102,6 +102,17 @@ fi
 PROJECT_PATHS=(~/Documents/Git/parham)
 # }}}
 
+# brew {{{
+export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# only for linuxbrew with hotfix in sudo mode
+test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+hash brew 2>/dev/null && eval $($(brew --prefix)/bin/brew shellenv)
+# }}}
+
 # Aliases {{{
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -185,17 +196,6 @@ fi
 
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
 
-# }}}
-
-# brew {{{
-export HOMEBREW_NO_GITHUB_API=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-# only for linuxbrew with hotfix in sudo mode
-test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-hash brew 2>/dev/null && eval $($(brew --prefix)/bin/brew shellenv)
 # }}}
 
 # Github {{{
