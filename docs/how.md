@@ -158,21 +158,3 @@ At the bottom of the panel in `Preferences -> General`, there is a setting `Load
 ## Tilix Color Scheme
 
 Copy color schemes from `tilix/` into `$HOME/.config/tilix/schemes`.
-
-
-## GoProxy is here
-Install goproxy from [here](https://github.com/snail007/goproxy) and then you can use following ssh local port forwarding
-to create secure http proxy:
-
-```sh
-# create secure http(s) proxy
-ip=151.80.199.92
-
-ssh -fTN -L 38080:127.0.0.1:38080 $ip
-
-export {http,https,ftp}_proxy=127.0.0.1:38080
-
-unset {http,https,ftp}_proxy
-
-ps aux | grep "ssh -fTN" | grep "38080:" | awk '{print $2}' | xargs kill
-```
