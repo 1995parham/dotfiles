@@ -111,6 +111,12 @@ test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv
 test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 hash brew 2>/dev/null && eval $($(brew --prefix)/bin/brew shellenv)
+
+# use gnu coreutils in OSx
+if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
+  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
 # }}}
 
 # Aliases {{{
@@ -120,7 +126,7 @@ export EDITOR="$(which nvim)"
 export SUDO_EDITOR="$(which nvim)"
 export TERM="xterm-256color"
 if [ -f $HOME/.dircolors ]; then
-  eval `dircolors $HOME/.dircolors`
+  eval $(dircolors $HOME/.dircolors)
 fi
 if [ -d $HOME/bin ]; then
   path+=("$HOME/bin")
