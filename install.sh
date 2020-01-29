@@ -176,7 +176,7 @@ install-conf() {
                 0)
                         files=("dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
                         "signature" "aria2" "tmux" "gdbinit"
-                        "ctags" "octaverc")
+                        "ctags")
                         dotfile "conf" files[@]
                         ;;
                 1)
