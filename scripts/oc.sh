@@ -16,8 +16,7 @@ kube-install() {
         message "oc" "Install kubectl from brew"
         brew install kubernetes-cli
         message "oc" "Install helm from brew"
-        brew install kubernetes-helm
-
+        brew install helm
 }
 
 oc-install() {
