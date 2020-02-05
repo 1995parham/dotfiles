@@ -175,6 +175,9 @@ Plug 'vim-scripts/textutil.vim'
 " Velenjak Neovim Theme
 Plug '1995parham/velenjak.vim'
 
+" Vim plugin, insert or delete brackets, parens, quotes in pair
+Plug 'jiangmiao/auto-pairs'
+
 " fugitive.vim: A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
 
@@ -228,30 +231,31 @@ Plug 'junegunn/fzf.vim'                                           " things you c
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } " fzf is a general-purpose command-line fuzzy finder.
 
 " language specific
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Go development plugin for Vim
-Plug 'leafgarland/typescript-vim'                  " typescript syntax files for Vim
-Plug 'peitalin/vim-jsx-typescript'                 " react JSX syntax highlighting for vim and Typescript
-Plug 'Quramy/tsuquyomi'                            " a Vim plugin for TypeScript
-Plug 'StanAngeloff/php.vim'                        " an up-to-date Vim syntax for PHP (7.x supported)
-Plug 'tmux-plugins/vim-tmux'                       " vim plugin for .tmux.conf.
-Plug 'mrk21/yaml-vim'                              " YAML syntax/indent plugin for Vim
-Plug 'vim-scripts/avr8bit.vim'                     " for Atmel 8bit Microcontroller
-Plug 'JuliaEditorSupport/julia-vim'                " Vim support for Julia.
-Plug 'ekalinin/Dockerfile.vim'                     " Vim syntax file & snippets for Docker's Dockerfile
-Plug 'elzr/vim-json'                               " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
-Plug 'posva/vim-vue'                               " Syntax Highlight for Vue.js components
-Plug 'othree/html5.vim'                            " HTML5 omnicomplete and syntax
-" Plug 'digitaltoad/vim-jade'                      " Vim syntax highlighting for Pug (formerly Jade) templates.
-Plug 'andrewstuart/vim-kubernetes'                 " This package provides kubernetes YAML snippets, as well as a growing number of integrations with kubectl.
-Plug 'bps/vim-tshark'                              " A Vim plugin to make it easy to read pcap dumps.
-Plug 'vim-python/python-syntax'                    " Python syntax highlighting for Vim
-Plug 'Shirk/vim-gas'                               " Advanced syntax highlighting for GNU As
-Plug 'pangloss/vim-javascript'                     " Vastly improved Javascript indentation and syntax support in Vim
-Plug 'othree/javascript-libraries-syntax.vim'      " Syntax for JavaScript libraries
-Plug 'plasticboy/vim-markdown'                     " Markdown Vim Mode
-Plug 'octol/vim-cpp-enhanced-highlight'            " Additional Vim syntax highlighting for C++
-Plug 'ap/vim-css-color'                            " Preview colours in source code while editing
-Plug 'rust-lang/rust.vim'                          " Vim configuration for Rust.
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }     " Go development plugin for Vim
+Plug 'leafgarland/typescript-vim'                      " typescript syntax files for Vim
+Plug 'peitalin/vim-jsx-typescript'                     " react JSX syntax highlighting for vim and Typescript
+Plug 'Quramy/tsuquyomi'                                " a Vim plugin for TypeScript
+Plug 'StanAngeloff/php.vim'                            " an up-to-date Vim syntax for PHP (7.x supported)
+Plug 'tmux-plugins/vim-tmux'                           " vim plugin for .tmux.conf.
+Plug 'mrk21/yaml-vim'                                  " YAML syntax/indent plugin for Vim
+Plug 'vim-scripts/avr8bit.vim'                         " for Atmel 8bit Microcontroller
+Plug 'JuliaEditorSupport/julia-vim'                    " Vim support for Julia.
+Plug 'ekalinin/Dockerfile.vim'                         " Vim syntax file & snippets for Docker's Dockerfile
+Plug 'elzr/vim-json'                                   " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+Plug 'posva/vim-vue'                                   " Syntax Highlight for Vue.js components
+Plug 'othree/html5.vim'                                " HTML5 omnicomplete and syntax
+                                                       " Plug 'digitaltoad/vim-jade'                      " Vim syntax highlighting for Pug (formerly Jade) templates.
+Plug 'andrewstuart/vim-kubernetes'                     " This package provides kubernetes YAML snippets, as well as a growing number of integrations with kubectl.
+Plug 'bps/vim-tshark'                                  " A Vim plugin to make it easy to read pcap dumps.
+Plug 'vim-python/python-syntax'                        " Python syntax highlighting for Vim
+Plug 'Shirk/vim-gas'                                   " Advanced syntax highlighting for GNU As
+Plug 'pangloss/vim-javascript'                         " Vastly improved Javascript indentation and syntax support in Vim
+Plug 'othree/javascript-libraries-syntax.vim'          " Syntax for JavaScript libraries
+Plug 'plasticboy/vim-markdown'                         " Markdown Vim Mode
+Plug 'octol/vim-cpp-enhanced-highlight'                " Additional Vim syntax highlighting for C++
+Plug 'ap/vim-css-color'                                " Preview colours in source code while editing
+Plug 'rust-lang/rust.vim'                              " Vim configuration for Rust.
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic Highlighting for Python in Neovim
 
 
 " vimproc is a great asynchronous execution library for Vim.
