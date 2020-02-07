@@ -7,8 +7,6 @@
         editor = nvim
 [credential]
         helper = cache
-[url "ssh://git@gitlab.snapp.ir/"]
-        insteadOf = https://gitlab.snapp.ir/
 [commit]
         template = ~/.gitmessage
 [merge]
