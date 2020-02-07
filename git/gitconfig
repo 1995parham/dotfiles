@@ -1,6 +1,7 @@
 [user]
         name = Parham Alvani
         email = parham.alvani@gmail.com
+	signingkey = 928E69AA2697789AFF387AAD50340D0878C7DF6D
 [core]
         excludesfile = ~/.gitignore
         editor = nvim
