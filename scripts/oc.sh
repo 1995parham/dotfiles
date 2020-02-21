@@ -17,6 +17,8 @@ kube-install() {
         brew install kubernetes-cli
         message "oc" "Install helm from brew"
         brew install helm
+        message "oc" "Install stern (Multi pod and container log tailing for Kubernetes) from brew"
+        brew install stern
 }
 
 oc-install() {
