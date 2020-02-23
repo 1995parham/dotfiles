@@ -13,28 +13,14 @@ beta=false
 usage() {
 	echo "usage: go [-i] [-b [-v]"
         echo "  -i   install go first"
-        echo "  -b   install beta version"
 	echo "  -v   verbose"
 }
 
 go-install() {
 	message "go" "Installing go"
 
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		message "go" "Linux"
+        brew install go
 
-                if [ $beta = true ]; then
-                        message "go" "beta version installation"
-                        sudo snap install go --beta --classic
-                else
-                        message "go" "stable version installation"
-                        sudo snap install go --classic
-                fi
-	else
-		message "go" "Darwin"
-
-		brew install go
-	fi
         message "go" "$(go version)"
 
 	message "go" "Create go directory structure"
@@ -44,19 +30,6 @@ go-install() {
                 echo $dir
                 [ -d $gopath/$dir ] || mkdir -p $gopath/$dir
         done
-}
-
-go-install-dep() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		message "go" "Linux"
-
-                curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-	else
-		message "go" "Linux"
-
-                brew install dep
-	fi
-        message "go" "$(dep version)"
 }
 
 go-install-package() {
@@ -85,25 +58,6 @@ go-install-packages() {
 	# message "go" "Go Debugger [delve]"
 	# go-install-package "github.com/derekparker/delve/cmd/dlv"
 
-	# Revel web framework
-	read -p "Do you wish to install Revel web framework? [Y/n] " install_confirm
-	case $install_confirm in
-		Y )
-			message "go" "Revel web framework"
-			go-install-package "github.com/revel/revel"
-			go-install-package "github.com/revel/cmd/revel"
-			;;
-        esac
-
-        # Buffalo awesome web framework
-        read -p "Do you wish to install Buffalo web framework? [Y/n] " install_confirm
-        case $install_confirm in
-		Y )
-			message "go" "Buffalo web framework"
-			go-install-package "github.com/gobuffalo/buffalo/buffalo"
-			;;
-        esac
-
 	message "go" "Install binary requirements of vim-go"
         # please consider that this script runs in bash so it cannot see
         # aliases that are defined in zsh
@@ -117,11 +71,8 @@ main() {
 
         # Reset optind between calls to getopts
         OPTIND=1
-        while getopts "ivb" argv; do
+        while getopts "iv" argv; do
                 case $argv in
-                        b)
-                                beta=true
-                                ;;
                         i)
                                 install=true
                                 ;;
@@ -134,8 +85,6 @@ main() {
         if [ $install = true ]; then
                 go-install
         fi
-
-        # go-install-dep
 
         if [ $have_proxy = true ]; then
                 proxy_start
