@@ -145,6 +145,8 @@ install-vim() {
         dotfile "vim" files[@]
         files=("vim")
         dotfile "vim" files[@]
+        files=("ideavimrc")
+        dotfile "vim" files[@]
 
         message "vim" "Installing vim plugins"
         vim +PlugInstall +qall
