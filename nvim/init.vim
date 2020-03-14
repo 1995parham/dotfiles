@@ -255,7 +255,7 @@ Plug 'plasticboy/vim-markdown'                         " Markdown Vim Mode
 Plug 'octol/vim-cpp-enhanced-highlight'                " Additional Vim syntax highlighting for C++
 Plug 'ap/vim-css-color'                                " Preview colours in source code while editing
 Plug 'rust-lang/rust.vim'                              " Vim configuration for Rust.
-Plug 'psf/black'                                       " The uncompromising code formatter
+" Plug 'psf/black'                                       " The uncompromising code formatter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic Highlighting for Python in Neovim
 
 
