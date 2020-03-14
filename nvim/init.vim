@@ -244,7 +244,7 @@ Plug 'ekalinin/Dockerfile.vim'                         " Vim syntax file & snipp
 Plug 'elzr/vim-json'                                   " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
 Plug 'posva/vim-vue'                                   " Syntax Highlight for Vue.js components
 Plug 'othree/html5.vim'                                " HTML5 omnicomplete and syntax
-                                                       " Plug 'digitaltoad/vim-jade'                      " Vim syntax highlighting for Pug (formerly Jade) templates.
+" Plug 'digitaltoad/vim-jade'                          " Vim syntax highlighting for Pug (formerly Jade) templates.
 Plug 'andrewstuart/vim-kubernetes'                     " This package provides kubernetes YAML snippets, as well as a growing number of integrations with kubectl.
 Plug 'bps/vim-tshark'                                  " A Vim plugin to make it easy to read pcap dumps.
 Plug 'vim-python/python-syntax'                        " Python syntax highlighting for Vim
@@ -255,6 +255,7 @@ Plug 'plasticboy/vim-markdown'                         " Markdown Vim Mode
 Plug 'octol/vim-cpp-enhanced-highlight'                " Additional Vim syntax highlighting for C++
 Plug 'ap/vim-css-color'                                " Preview colours in source code while editing
 Plug 'rust-lang/rust.vim'                              " Vim configuration for Rust.
+Plug 'psf/black'                                       " The uncompromising code formatter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic Highlighting for Python in Neovim
 
 
