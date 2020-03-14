@@ -340,10 +340,22 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 " enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
+
 " phpstan from vendor directory
 let g:ale_php_phpstan_executable = system('if ! type git &> /dev/null; then echo phpstan; else PSE=`git rev-parse --show-toplevel 2> /dev/null`/vendor/bin/phpstan; if [ -x "$PSE" ]; then echo -n $PSE; else echo phpstan; fi; fi')
-" set golang linters
-let g:ale_linters = {'go': ['gometalinter', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet']}
+
+" set linters
+let g:ale_linters = {
+\       'go': ['golangci-lint', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet'],
+\}
+
+" set fixers and run them on save
+let g:ale_fixers = {
+\       '*': ['remove_trailing_lines', 'trim_whitespace'],
+\       'python': ['black'],
+\}
+
+let g:ale_fix_on_save = 1
 " }}}
 
 " vim-go {{{
