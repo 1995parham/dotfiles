@@ -54,6 +54,7 @@ python-install-packages() {
         python-install-package pep8-naming
         python-install-package pipenv
         python-install-package mypy
+        python-install-package black
 }
 
 main() {
