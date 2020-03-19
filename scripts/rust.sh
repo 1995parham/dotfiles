@@ -16,5 +16,6 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        curl https://sh.rustup.rs -sSf | sh
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        rustup component add clippy
 }
