@@ -344,6 +344,9 @@ let g:airline#extensions#ale#enabled = 1
 " phpstan from vendor directory
 let g:ale_php_phpstan_executable = system('if ! type git &> /dev/null; then echo phpstan; else PSE=`git rev-parse --show-toplevel 2> /dev/null`/vendor/bin/phpstan; if [ -x "$PSE" ]; then echo -n $PSE; else echo phpstan; fi; fi')
 
+" use cargo clippy for rust
+g:ale_rust_cargo_use_clippy = 1
+
 " set linters
 let g:ale_linters = {
 \       'go': ['golangci-lint', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet'],
@@ -353,6 +356,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \       '*': ['remove_trailing_lines', 'trim_whitespace'],
 \       'python': ['black'],
+\       'rust': ['rustfmt'],
 \}
 
 let g:ale_fix_on_save = 1
