@@ -18,26 +18,14 @@ usage() {
 python-install() {
         message "python" "Installing Python 3.x"
 
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "python" "Darwin"
-
-                brew install python3
-        else
-                message "python" "Linux"
-
-                sudo apt-get -y install python3
-        fi
+        brew install python3
         python3 -m ensurepip
 
         message "python" "$(python3 --version)"
 }
 
 python-install-package() {
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-                pip3 install -U $1
-        else
-                sudo pip3 install -U $1
-        fi
+        python3 -mpip install -U $1
 
         if [ $? -eq 0 ]; then
                 message "python" "$1 installation succeeded"
