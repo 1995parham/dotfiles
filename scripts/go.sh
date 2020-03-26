@@ -7,13 +7,9 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-verbose=false
-beta=false
-
 usage() {
-	echo "usage: go [-i] [-b [-v]"
+	echo "usage: go [-i]"
         echo "  -i   install go first"
-	echo "  -v   verbose"
 }
 
 go-install() {
@@ -33,11 +29,8 @@ go-install() {
 }
 
 go-install-package() {
-	if [ $verbose = true ]; then
-		go get -v -u $1
-	else
-		go get -u $1
-	fi
+	go get -u $1
+
 	if [ $? -eq 0 ]; then
 		message "go" "$1 installation succeeded"
 	else
@@ -71,13 +64,10 @@ main() {
 
         # Reset optind between calls to getopts
         OPTIND=1
-        while getopts "iv" argv; do
+        while getopts "i" argv; do
                 case $argv in
                         i)
                                 install=true
-                                ;;
-                        v)
-                                verbose=true
                                 ;;
                 esac
         done
@@ -86,13 +76,5 @@ main() {
                 go-install
         fi
 
-        if [ $have_proxy = true ]; then
-                proxy_start
-        fi
-
         go-install-packages
-
-        if [ $have_proxy = true ]; then
-                proxy_stop
-        fi
 }
