@@ -16,6 +16,7 @@ echo "Create directory structure"
 mkdir $HOME/Documents
 mkdir $HOME/Downloads
 mkdir -p $HOME/Documents/Git/parham
+mkdir -p $HOME/Documents/Git/raha
 mkdir -p $HOME/Documents/Git/others
 
 echo "Clone https://github.com/1995parham/dotfiles"

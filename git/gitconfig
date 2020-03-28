@@ -1,7 +1,9 @@
 [user]
         name = Parham Alvani
         email = parham.alvani@gmail.com
-	signingkey = 928E69AA2697789AFF387AAD50340D0878C7DF6D
+        signingkey = 928E69AA2697789AFF387AAD50340D0878C7DF6D
+[includeIf "gitdir:~/Documents/Git/raha/"]
+        path=~/.raha.gitconfig
 [core]
         excludesfile = ~/.gitignore
         editor = nvim
