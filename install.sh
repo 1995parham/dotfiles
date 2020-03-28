@@ -204,7 +204,7 @@ install-zsh() {
 install-git() {
 case $install_type in
                 0)
-                        files=("gitconfig" "gitignore" "gitmessage")
+                        files=("gitconfig" "gitignore" "gitmessage" "raha.gitconfig")
                         dotfile "git" files[@]
                         ;;
                 1)
