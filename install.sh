@@ -120,11 +120,19 @@ linker() {
 
         local create_link=true
 
-        if [ -e $dst_path ] || [ -h $dst_path ]; then
+        if [ -e $dst_path ] || [ -L $dst_path ]; then
                 message "$module" "$dst_path already existed"
+
+                if [[ $src_path = $(readlink $dst_path) ]]; then
+                        message "$module" "$dst_path is a correct link"
+                        create_link=false
+                        return
+                fi
+
                 if [[ $yes_to_all == 0 ]]; then
                         read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
                 fi
+
                 if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
                         rm -R $dst_path
                         message "$module" "$dst_path was removed successfully"
