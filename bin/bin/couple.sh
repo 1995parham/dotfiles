@@ -9,7 +9,7 @@
 # =======================================
 
 function in_relationship() {
-        local since=$(date -d "13 feb 2020 20:30:00" "+%s")
+        local since=$(date -d "13 feb 2020 22:26:00" "+%s")
         local now=$(date -d "now" "+%s")
 
         local minute=$((60))
