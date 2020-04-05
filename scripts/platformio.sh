@@ -15,7 +15,7 @@ usage() {
 
 platformio-install() {
         message "platformio" "Installing PlatformIO"
-        sudo pip2 install -U platformio
+        python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py)"
 }
 
 platformio-udev() {
@@ -36,7 +36,7 @@ main() {
 			        ;;
 	        esac
         done
-	
+
         platformio-install
         if [ $install_udev = true ]; then
                 platformio-udev
