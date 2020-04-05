@@ -15,7 +15,7 @@ usage() {
 
 platformio-install() {
         message "platformio" "Installing PlatformIO"
-        python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py)"
+        brew install platformio
 }
 
 platformio-udev() {
