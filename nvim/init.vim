@@ -205,7 +205,7 @@ Plug 'cohama/agit.vim'        " A powerful Git log viewer
 
 " nerdtree
 Plug 'jistr/vim-nerdtree-tabs'     " NERDTree and tabs together in Vim, painlessly
-Plug 'scrooloose/nerdtree'         " A tree explorer plugin for vim.
+Plug 'preservim/nerdtree'          " A tree explorer plugin for vim.
 Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
 
 " a simple, easy-to-use Vim alignment plugin.
