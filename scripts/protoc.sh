@@ -3,20 +3,17 @@
 # ========================================
 # [] File Name : protoc.sh
 #
-# [] Creation Date : 13-04-2020
+# [] Creation Date : 11-04-2020
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
-
 
 usage() {
         echo "usage: protoc"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
-
+        message "protoc" "Installing protobuf"
         brew install protobuf
         brew install protoc-gen-go
 }
