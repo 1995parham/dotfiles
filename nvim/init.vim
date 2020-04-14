@@ -172,8 +172,8 @@ Plug 'vim-scripts/textutil.vim'
 " Vim bookmark plugin that allows toggling bookmarks per line
 " Plug 'MattesGroeger/vim-bookmarks'
 
-" Velenjak Neovim Theme
-Plug '1995parham/velenjak.vim'
+" Naz Neovim Theme
+Plug '1995parham/naz.vim'
 
 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
@@ -310,13 +310,13 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-z>'
 let g:UltiSnipsEditSplit = 'vertical'
 " }}}
 
-" velenjak.vim {{{
+" naz.vim {{{
 if (has('termguicolors'))
         set termguicolors
 endif
 
-let g:velenjak_term_italic = 1
-colorscheme velenjak
+let g:naz_term_italic = 1
+colorscheme naz
 " }}}
 
 " gitgutter {{{
