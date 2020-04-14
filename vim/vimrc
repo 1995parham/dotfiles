@@ -122,8 +122,8 @@ command Spellcheck setlocal spell spelllang=en_us
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
 
-" Velenjak Neovim Theme
-Plug '1995parham/velenjak.vim'
+" Naz Neovim Theme
+Plug '1995parham/naz.vim'
 
 " git
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
@@ -165,13 +165,13 @@ let g:wakatime_PythonBinary = 'python3'
 let g:wakatime_ScreenRedraw = 1
 " }}}
 
-" velenjak.vim {{{
+" naz.vim {{{
 if (has('termguicolors'))
         set termguicolors
 endif
 
-let g:velenjak_term_italic = 1
-colorscheme velenjak
+let g:naz_term_italic = 0
+colorscheme naz
 " }}}
 
 " gitgutter {{{
