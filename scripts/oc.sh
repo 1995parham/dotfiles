@@ -28,9 +28,6 @@ oc-install() {
 
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
-
         kube-install
         oc-install
 }
