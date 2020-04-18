@@ -78,9 +78,11 @@ plugins=(
   gnu-utils
   ng
   kubectl
+  oc
+  helm
   laravel
+  pipenv
 
-  travis
   proxy
 )
 
