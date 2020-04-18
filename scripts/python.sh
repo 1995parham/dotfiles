@@ -10,9 +10,7 @@
 verbose=false
 
 usage() {
-        echo "usage: python [-i] [-v]"
-        echo "  -i   install python first"
-        echo "  -v   verbose"
+        echo "usage: python"
 }
 
 python-install() {
@@ -20,6 +18,9 @@ python-install() {
 
         brew install python3
         python3 -m ensurepip
+
+        message "python" "Installing Pipenv: Python Development Workflow for Humans"
+        brew install pipenv
 
         message "python" "$(python3 --version)"
 }
@@ -46,18 +47,6 @@ python-install-packages() {
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
-        while getopts "iv" argv; do
-                case $argv in
-                        i)
-                                python-install
-                                ;;
-                        v)
-                                verbose=true
-                                ;;
-                esac
-        done
-
+        python-install
         python-install-packages
 }
