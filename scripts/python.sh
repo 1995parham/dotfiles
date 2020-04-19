@@ -19,7 +19,7 @@ python-install() {
         brew install python3
         python3 -m ensurepip
 
-        message "python" "Installing Pipenv: Python Development Workflow for Humans"
+        message "python" "Installing Poetry: Python dependency management and packaging made easy."
         brew install poetry
 
         message "python" "$(python3 --version)"
