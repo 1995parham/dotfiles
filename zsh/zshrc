@@ -81,7 +81,7 @@ plugins=(
   oc
   helm
   laravel
-  pipenv
+  poetry
 
   proxy
 )
