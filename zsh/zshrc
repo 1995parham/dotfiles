@@ -81,16 +81,9 @@ plugins=(
   oc
   helm
   laravel
-  poetry
 
   proxy
 )
-
-# Load poetry completions in zsh
-if hash poetry 2>/dev/null && [ ! -d $ZSH/plugins/poetry ]; then
-  mkdir $ZSH/plugins/poetry
-  poetry completions zsh > $ZSH/plugins/poetry/_poetry
-fi
 
 # Load ELone after your oh-my-zsh configuration
 elone oh
