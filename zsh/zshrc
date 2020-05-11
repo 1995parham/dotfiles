@@ -113,6 +113,13 @@ test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/
 
 hash brew 2>/dev/null && eval $($(brew --prefix)/bin/brew shellenv)
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # use gnu coreutils in OSx
 if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
   PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
