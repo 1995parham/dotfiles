@@ -21,8 +21,9 @@ texlive-install() {
 	if [[ $OSTYPE == "linux-gnu" ]]; then
 		message "texlive" "Linux"
 
-                message "texlive" "Install texlive-basic with apt"
-                sudo apt install texlive-basic
+                message "texlive" "Install texlive-base with apt"
+                sudo apt install texlive-base
+                sudo apt install texlive-binaries
 	else
 		message "texlive" "Darwin"
 
