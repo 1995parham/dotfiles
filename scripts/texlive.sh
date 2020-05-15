@@ -15,6 +15,7 @@ usage() {
 
 texlive-packages() {
         sudo tlmgr install elsarticle
+        sudo tlmgr install xepersian
 }
 
 texlive-install() {
