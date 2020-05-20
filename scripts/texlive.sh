@@ -36,4 +36,6 @@ texlive-install() {
 main() {
         texlive-install
         texlive-packages
+
+        brew install texlab
 }
