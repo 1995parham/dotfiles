@@ -44,6 +44,8 @@ python-install-packages() {
         python-install-package pipenv
         python-install-package mypy
         python-install-package black
+        python-install-package 'python-language-server[all]'
+        python-install-package pyls-mypy
 }
 
 main() {
