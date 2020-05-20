@@ -349,7 +349,8 @@ let g:ale_rust_cargo_use_clippy = 1
 
 " set linters
 let g:ale_linters = {
-\       'go': ['golangci-lint', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet'],
+\       'go': ['gopls', 'golangci-lint', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet'],
+\       'python': ['pyls'],
 \}
 
 " set fixers and run them on save
