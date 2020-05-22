@@ -74,6 +74,15 @@ install-() {
         else
 	        message "env" "Linux"
 
+                # setup shell environments for linuxbrew.
+                test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
+                test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+                if ! type brew &>/dev/null; then
+                        message "env" "Please install linuxbrew with './start.sh brew'"
+                        return
+                fi
+
                 install-packages-linux ${linux_packages[@]}
                 install-snaps-linux ${linux_snaps[@]}
                 install-packages-osx ${linux_brews[@]}
