@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils jq httpstat github/gh/gh)
-linux_packages=(clang zsh ctags mosh aria2 curl snapd python3-pip)
+linux_packages=(clang zsh ctags mosh aria2 curl snapd python3-pip python3-setuptools)
 linux_brews=(tmux yamllint jq hub neovim httpstat)
 linux_snaps=()
 
@@ -78,7 +78,7 @@ install-() {
                 install-packages-osx ${linux_brews[@]}
         fi
 
-        python3 -mpip install setuptools neovim
+        python3 -mpip install neovim
 }
 
 main() {
