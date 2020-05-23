@@ -265,6 +265,9 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " easily adds brief author info and license headers
 Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
+" An alternative sudo.vim for Vim and Neovim
+Plug 'lambdalisue/suda.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -460,6 +463,10 @@ augroup END
 augroup gas
         autocmd BufRead,BufNewFile *.S set filetype=gas
 augroup end
+" }}}
+
+"  suda.vim{{{
+let g:suda_smart_edit = 1
 " }}}
 
 "}}}

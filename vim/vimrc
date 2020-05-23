@@ -150,8 +150,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Velenjak Neovim Theme
-Plug '1995parham/velenjak.vim'
+" An alternative sudo.vim for Vim and Neovim
+Plug 'lambdalisue/suda.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -209,6 +209,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tomorrow'
 
 let g:airline_section_c = '%{strftime("%c")}'
+" }}}
+
+"  suda.vim{{{
+let g:suda_smart_edit = 1
 " }}}
 
 "}}}
