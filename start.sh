@@ -7,6 +7,8 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
+# https://stackoverflow.com/questions/3822621/how-to-exit-if-a-command-failed
+set -e
 
 # global variable that points to dotfiles root directory
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
