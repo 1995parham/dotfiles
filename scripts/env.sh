@@ -70,7 +70,7 @@ install-() {
 
                 if ! type brew &>/dev/null; then
                         message "env" "Please install linuxbrew with './start.sh brew'"
-                        return
+                        exit 1
                 fi
 
                 install-packages-linux ${linux_packages[@]}
