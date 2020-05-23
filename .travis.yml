@@ -4,7 +4,7 @@ sudo: enabled
 dist: bionic
 
 install:
-  - ./start.sh env
   - ./start.sh brew
+  - ./start.sh env
 script:
   - yes "Y" | ./install.sh -y
