@@ -13,8 +13,6 @@
 ```
 
 [![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
-[![Drone (cloud)](https://img.shields.io/drone/build/1995parham/dotfiles.svg?style=flat-square)](https://cloud.drone.io/1995parham/dotfiles)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02e3f859b8944e749d1ceca4a4c41e49)](https://www.codacy.com/app/1995parham/dotfiles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=1995parham/dotfiles&amp;utm_campaign=Badge_Grade)
 
 ## Introduction
 
