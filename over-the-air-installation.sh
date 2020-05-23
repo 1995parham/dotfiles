@@ -8,19 +8,18 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 if ! [ -x "$(command -v git)" ]; then
-  echo "git is not installed."
+  echo "git is not installed. please install it first"
   exit 1
 fi
 
 echo "Create directory structure"
 mkdir $HOME/Documents
 mkdir $HOME/Downloads
-mkdir -p $HOME/Documents/Git/parham
-mkdir -p $HOME/Documents/Git/raha
+mkdir -p $HOME/Documents/Git/$USER
 mkdir -p $HOME/Documents/Git/others
 
 echo "Clone https://github.com/1995parham/dotfiles"
-cd $HOME/Documents/Git/parham
+cd $HOME/Documents/Git/$USER
 git clone https://github.com/1995parham/dotfiles
 cd dotfiles
 
