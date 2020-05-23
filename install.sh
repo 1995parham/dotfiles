@@ -10,6 +10,8 @@
 tput clear # Clear screen and move the cursor to 0,0
 program_name=$0
 
+requirements=(zsh tmux vim)
+
 usage() {
         echo "usage: $program_name [-m] [-h] [-y]"
         echo "  -y   yes to all"
@@ -53,6 +55,14 @@ case $install_type in
                 ;;
 esac
 echo
+
+# check the existence of required softwares
+for cmd in ${requirements[@]}; do
+        if ! hash $cmd 2>/dev/null; then
+                message "pre" "Please install $cmd before using this script"
+                exit 1
+        fi
+done
 
 # Creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
