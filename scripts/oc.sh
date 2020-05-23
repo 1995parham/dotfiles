@@ -15,10 +15,15 @@ usage() {
 kube-install() {
         message "oc" "Install kubectl from brew"
         brew install kubernetes-cli
+
         message "oc" "Install helm from brew"
         brew install helm
+
         message "oc" "Install stern (Multi pod and container log tailing for Kubernetes) from brew"
         brew install stern
+
+        message "oc" "Install stern (Tools for observing Kubernetes resources in real time) from brew"
+        brew install kubespy
 }
 
 oc-install() {
