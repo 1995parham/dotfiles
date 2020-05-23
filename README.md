@@ -72,3 +72,40 @@ echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
 
 - Personally I have used [Workona](https://workona.com/) in Chrome.
 In order to hide its hidden windows from the OSx dock, check `System Preferences -> Dock -> Minimize windows into application icon`.
+
+## Breaking Sanctions
+Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
+Use following command to install it.
+
+```sh
+curl -Ls https://install.direct/go.sh | sudo bash
+```
+
+You can configure it in many ways but here is my sample.
+
+```yaml
+{
+  "inbounds": [
+    {
+      "port": 1080,
+      "protocol": "http"
+    },
+  ],
+  "outbounds": [
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "an-awesome-server",
+            "method": "chacha20",
+            "ota": false,
+            "password": "secret",
+            "port": 1378
+          }
+        ]
+      }
+    }
+  ]
+}
+```
