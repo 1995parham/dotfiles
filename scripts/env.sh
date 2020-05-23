@@ -78,7 +78,7 @@ install-() {
                 install-packages-osx ${linux_brews[@]}
         fi
 
-        python3 -mpip install neovim
+        python3 -mpip install setuptools neovim
 }
 
 main() {
