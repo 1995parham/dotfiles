@@ -11,7 +11,7 @@
 proxy_start() {
         dig +short myip.opendns.com @resolver1.opendns.com
 
-        export {http,https,ftp}_proxy="http://127.0.0.1:1087"
+        export {http,https,ftp}_proxy="http://127.0.0.1:1080"
 
         echo
         curl -m 1 ipinfo.io/ip
