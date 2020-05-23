@@ -9,11 +9,11 @@
 # =======================================
 usage() {
         echo "usage: env"
-        echo "installs required brew or apt packages"
+        echo "installs required brew/apt packages"
 }
 
 mac_packages=(zsh ctags tmux mosh aria2 neovim yamllint coreutils jq httpstat github/gh/gh)
-linux_packages=(clang zsh ctags mosh aria2 curl snapd)
+linux_packages=(clang zsh ctags mosh aria2 curl snapd python3-pip)
 linux_brews=(tmux yamllint jq hub neovim httpstat)
 linux_snaps=()
 
@@ -59,18 +59,8 @@ install-snaps-linux() {
 install-() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
 	        message "env" "Darwin"
-                if [ $have_proxy = true ]; then
-                        proxy_start
-                fi
 
                 install-packages-osx ${mac_packages[@]}
-
-                if [ $have_proxy = true ]; then
-	                proxy_stop
-                fi
-
-                pip3 install neovim
-
         else
 	        message "env" "Linux"
 
@@ -87,6 +77,8 @@ install-() {
                 install-snaps-linux ${linux_snaps[@]}
                 install-packages-osx ${linux_brews[@]}
         fi
+
+        python3 -mpip install neovim
 }
 
 main() {
