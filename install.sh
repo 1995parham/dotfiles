@@ -10,8 +10,6 @@
 tput clear # Clear screen and move the cursor to 0,0
 program_name=$0
 
-requirements=(zsh tmux vim)
-
 usage() {
         echo "usage: $program_name [-m] [-h] [-y]"
         echo "  -y   yes to all"
@@ -49,9 +47,11 @@ done
 case $install_type in
         0)
                 message "pre" "Default installation"
+                requirements=(zsh tmux vim nvim)
                 ;;
         1)
                 message "pre" "Minor installation"
+                requirements=(tmux vim)
                 ;;
 esac
 echo
