@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name Of God
 # ========================================
-# [] File Name : vpn-makers.sh
+# [] File Name : ghermezi.sh
 #
 # [] Creation Date : 30-04-2016
 #
@@ -28,7 +28,7 @@ main() {
 
         if ! hash openconnect 2>/dev/null; then
                 echo "This script requires 'openconnect'"
-                exit
+                exit 1
         fi
 
         username="parham"
