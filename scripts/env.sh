@@ -68,7 +68,7 @@ install-() {
                 test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
                 test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-                if ! type brew &>/dev/null; then
+                if ! hash brew 2>/dev/null; then
                         message "env" "Please install linuxbrew with './start.sh brew'"
                         exit 1
                 fi
