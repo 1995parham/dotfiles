@@ -8,7 +8,7 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-function in_relationship() {
+in_relationship() {
         local since=$(date -d "13 feb 2020 22:26:00" "+%s")
         local now=$(date -d "now" "+%s")
 
@@ -27,7 +27,7 @@ function in_relationship() {
         echo $days days $hours hours $minutes minutes
 }
 
-function to_birthday() {
+to_birthday() {
         local to=$(date -d "19 oct" "+%s")
         local now=$(date -d "now" "+%s")
 
@@ -46,7 +46,7 @@ function to_birthday() {
         echo $days days $hours hours $minutes minutes
 }
 
-function main() {
+main() {
         echo "We are in relatioship for:"
         in_relationship
 
