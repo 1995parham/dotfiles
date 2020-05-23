@@ -26,64 +26,51 @@ This repository contains my personal's configurations for Ubuntu and OSx, which 
 - [VIM](docs/vim.md)
 - [ZSH](docs/zsh.md)
 
-## Frameworks
-<p align="center">
-  <img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-600x173.png" />
-</p>
-<p align="center">
-  <img src="https://camo.githubusercontent.com/5c385f15f3eaedb72cfcfbbaf75355b700ac0757/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6f686d797a73682f6f682d6d792d7a73682d6c6f676f2e706e67">
-</p>
-
 ## Installation
-Over-the-Air-Installation :joy:
+The following command creates a basic directory structure and clones the **dotfiles** repository:
 
 ```sh
 curl -L https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
 ```
 
-Ubuntu Universal Repository (if you are on ubuntu :joy:)
-
-```sh
-sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
-```
-
-Install [brew.sh](http://brew.sh) for OSx and even Linux
+**dotfiles** uses [brew.sh](http://brew.sh) as its main package manager so you must install it.
 
 ```sh
 ./start.sh brew
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 ```
 
-Install required softwares
+Install required softwares with apt/brew. Please note that this special script will automatically setup the brew environment to use it.
 
 ```sh
 ./start.sh env
 ```
 
-Setup configuration files
+Install configuration files with soft-links. This script also sets the zsh as a default shell and installs plugins on neovim and vim.
 
 ```sh
 ./install.sh
 ```
 
-Install useful fonts
+Install useful fonts.
 
 ```sh
 cd fonts && ./install.sh
 ```
 
-Install iTerm on OSx and use the following configuration
+Persoanlly I have used the following configuration on my [iTerm](https://www.iterm2.com/).
 
 ```
 Color Scheme fron ./iterm
 Font Meslo LG S for Powerline 9pt 100iv 100nn
 ```
 
-Remove OSx Lags (if you are on osx :joy:)
+## Tips and Tricks
+
+- You can use the following command in **sudo mode** to remove osx lags in our country that happens because of sanctions.
 
 ```sh
 echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
 ```
 
-and Remove Workona Windows from Dock within `System Preferences -> Dock -> Minimize windows into application icon`
+- Personally I have used [Workona](https://workona.com/) in Chrome.
+In order to hide its hidden windows from the OSx dock, check `System Preferences -> Dock -> Minimize windows into application icon`.
