@@ -105,6 +105,19 @@ You can configure it in many ways but here is my sample.
 }
 ```
 
+After this you can use the following commands in your shell to enable/disable http(s) proxy.
+
+```sh
+proxy_start # enable http(s) proxy
+proxy_stop  # disable http(s) proxy
+```
+
+Please note that in order to have this proxy on `apt` on linux you must run apt with:
+
+```sh
+sudo -E apt ...
+```
+
 ## vim
 
 ## VIM is your IDE
