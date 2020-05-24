@@ -127,6 +127,21 @@ Please note that in order to have this proxy on `apt` on linux you must run apt 
 sudo -E apt ...
 ```
 
+Create or edit `~/.docker/config.json` as follow to have proxy on your docker:
+
+```json
+{
+ "proxies":
+ {
+   "default":
+   {
+     "httpProxy": "http://127.0.0.1:1080",
+     "httpsProxy": "http://127.0.0.1:1080",
+   }
+ }
+}
+```
+
 ## vim
 
 ## VIM is your IDE
