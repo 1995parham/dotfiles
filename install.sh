@@ -7,6 +7,7 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+set -e
 tput clear # Clear screen and move the cursor to 0,0
 program_name=$0
 
