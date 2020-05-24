@@ -20,7 +20,6 @@ This repository contains my personal's configurations for Ubuntu and OSx, which 
 
 ## Table of Contents
 
-- [How To...](docs/how.md)
 - [VIM](docs/vim.md)
 - [ZSH](docs/zsh.md)
 
