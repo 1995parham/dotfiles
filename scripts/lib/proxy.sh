@@ -16,6 +16,7 @@ proxy_start() {
         fi
 
         export {http,https,ftp}_proxy="http://127.0.0.1:1080"
+        alias sudo='sudo -E'
 
         echo
         curl --max-time 5 ipinfo.io/ip
@@ -28,5 +29,6 @@ proxy_start() {
 
 proxy_stop() {
         unset {http,https,ftp}_proxy
+        unalias sudo='sudo -E'
         echo "[proxy] All proxy script configuration are removed"
 }
