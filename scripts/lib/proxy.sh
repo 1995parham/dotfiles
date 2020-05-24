@@ -11,10 +11,19 @@
 proxy_start() {
         dig +short myip.opendns.com @resolver1.opendns.com
 
+        if [ $? -ne 0 ]; then
+                return 1
+        fi
+
         export {http,https,ftp}_proxy="http://127.0.0.1:1080"
 
         echo
-        curl -m 1 ipinfo.io/ip
+        curl --max-time 5 ipinfo.io/ip
+
+        if [ $? -ne 0 ]; then
+                proxy_stop
+                return 1
+        fi
 }
 
 proxy_stop() {
