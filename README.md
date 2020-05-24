@@ -53,10 +53,9 @@ cd fonts && ./install.sh
 
 Persoanlly I have used the following configuration on my [iTerm](https://www.iterm2.com/).
 
-```
-Color Scheme fron ./iterm
-Font Meslo LG S for Powerline 9pt 100iv 100nn
-```
+| color scheme | font family | size | iv | nn | 
+|:------------:|:------------|:----:|:--:|:--:|
+| atom | Font Meslo LG S for Powerline | 9pt | 100 | 100 |
 
 At the end you have the following tools at your command:
 
