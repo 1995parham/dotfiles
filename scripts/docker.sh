@@ -89,10 +89,10 @@ main() {
 	        docker-update
         fi
 
-        docker-compose-install
-        docker-hadolint-install
-
         if [ $have_proxy = true ]; then
 	        proxy_stop
         fi
+
+        docker-compose-install
+        docker-hadolint-install
 }
