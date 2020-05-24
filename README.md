@@ -175,7 +175,6 @@ after that you have complete IDE for go in vim.
 
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
-| `:GoMetaLinter`  | statically checking Go source       |
 | `:GeDoc`         | go doc with [GoExplorer](https://github.com/garyburd/go-explorer) |
 | `:GoDoc`         | GoDoc == GeDoc if vim-go is plugged |
 | `:GoFillStruct`  | use `fillstruct` to fill a struct literal with default values. Existing values (if any) are preserved. The cursor must be on the struct you wish to fill |
