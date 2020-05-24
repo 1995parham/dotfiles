@@ -93,7 +93,7 @@ You can configure it in many ways but here is my sample.
     {
       "port": 1080,
       "protocol": "http"
-    },
+    }
   ],
   "outbounds": [
     {
