@@ -8,8 +8,7 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 usage() {
-	echo "usage: go [-i]"
-        echo "  -i   install go first"
+	echo "usage: go"
 }
 
 go-install() {
@@ -59,22 +58,10 @@ go-install-packages() {
 
 
 main() {
-        local install
-        install=false
-
         # Reset optind between calls to getopts
         OPTIND=1
-        while getopts "i" argv; do
-                case $argv in
-                        i)
-                                install=true
-                                ;;
-                esac
-        done
 
-        if [ $install = true ]; then
-                go-install
-        fi
+        go-install
 
         go-install-packages
 }
