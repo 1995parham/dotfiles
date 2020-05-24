@@ -199,9 +199,7 @@ install-nvim() {
 install-conf() {
         case $install_type in
                 0)
-                        files=("dircolors" "wakatime.cfg" "tmux.conf" "pinerc"
-                        "signature" "aria2" "tmux" "gdbinit"
-                        "ctags")
+                        files=("dircolors" "wakatime.cfg" "tmux.conf" "aria2" "tmux" "gdbinit" "ctags")
                         dotfile "conf" files[@]
                         ;;
                 1)
