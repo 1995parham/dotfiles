@@ -13,6 +13,7 @@
 ```
 
 [![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
+[![Build Status](https://travis-ci.com/1995parham/dotfiles.svg?branch=master)](https://travis-ci.com/1995parham/dotfiles)
 
 ## Introduction
 
