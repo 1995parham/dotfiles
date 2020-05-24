@@ -198,12 +198,6 @@ alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --c
 
 # }}}
 
-# Github {{{
-
-export GITHUB_USER="1995parham"
-
-# }}}
-
 # PATH {{{
 export PATH
 # }}}
