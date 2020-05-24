@@ -174,7 +174,7 @@ export GOPROXY="https://goproxy.io,direct"
 # please note that dotfiles uses brew for golang installation
 # so here sets GOROOT based on brew.
 if hash brew &> /dev/null && hash go &> /dev/null; then
-  export GOROOT=$(brew --prefix go)
+  export GOROOT=$(brew --prefix go)/libexec
 fi
 
 # }}}
