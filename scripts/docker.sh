@@ -12,10 +12,8 @@ install=false
 docker_app=false
 
 usage() {
-	echo "usage: docker [-i] [-v] [-a]"
+	echo "usage: docker [-i]"
 	echo "  -i   install and initiate docker"
-	echo "  -v   verbose"
-        echo "  -a   install docker app"
 }
 
 docker-repositories() {
@@ -36,27 +34,12 @@ docker-repositories() {
 docker-install() {
 	message "docker" "Installing docker"
 	sudo apt-get -y update
+        sudo apt-cache policy docker-ce
 	sudo apt-get -y install docker-ce
 
-	message "docker" "The Docker daemon starts automatically."
-
 	message "docker" "Manage Docker as a non-root user"
-	sudo groupadd docker
+	sudo groupadd -f docker
 	sudo usermod -aG docker $USER
-}
-
-docker-configuration() {
-	message "docker" "Configuring docker"
-        (cat | sudo tee /etc/docker/daemon.json) << EOF
-{
-  "registry-mirrors": [
-  ],
-  "dns": ["8.8.8.8", "8.8.4.4"]
-}
-EOF
-
-        message "docker" "Restarting docker service"
-	sudo systemctl restart docker
 }
 
 docker-update() {
@@ -65,40 +48,21 @@ docker-update() {
 	sudo apt-get -y install docker-ce
 }
 
-docker-compose-upstall() {
-        message "docker" "Upstall docker-compose"
-	compose_vr=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
-	compose_vl=$(docker-compose version --short 2> /dev/null)
+docker-compose-install() {
+        message "docker" "Install docker-compose from brew"
 
-	if [ "${compose_vl}" != "${compose_vr}" ]; then
-		message "docker" "Installing docker-compose"
-		sudo curl -L "https://github.com/docker/compose/releases/download/${compose_vr}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-		sudo chmod +x /usr/local/bin/docker-compose
-	fi
+        brew install docker-compose
+
         message "docker" "$(docker-compose version)"
 }
 
-docker-hadolint-upstall() {
-        message "docker" "Upstall hadolint/hadolint"
-	hadolint_vr=$(curl -s https://api.github.com/repos/hadolint/hadolint/releases/latest | grep 'tag_name' | cut -d\" -f4)
-	hadolint_vl=$(hadolint --version 2> /dev/null | cut -d ' ' -f 4 | cut -d '-' -f 1)
+docker-hadolint-install() {
+        message "docker" "Install hadolint/hadolint from brew"
 
-	if [ "${hadolint_vl}" != "${hadolint_vr}" ]; then
-		message "docker" "Installing hadolint"
-	        sudo curl -L "https://github.com/hadolint/hadolint/releases/download/${hadolint_vr}/hadolint-$(uname -s)-$(uname -m)" -o /usr/local/bin/hadolint
-	        sudo chmod +x /usr/local/bin/hadolint
-	fi
+        brew install hadolint
+
         message "docker" "$(hadolint --version)"
 }
-
-docker-app-install() {
-	message "docker" "Installing docker-app"
-        curl -L -# https://github.com/docker/app/releases/download/v0.2.0/docker-app-linux.tar.gz -o docker-app-linux.tar.gz
-        tar xf docker-app-linux.tar.gz
-        rm docker-app-linux.tar.gz
-        mv docker-app-linux /usr/local/bin/docker-app
-}
-
 
 main() {
         # Reset optind between calls to getopts
@@ -111,18 +75,8 @@ main() {
 		        v)
 			        verbose=true
 			        ;;
-                        a)
-                                docker_app=true
-                                ;;
 	        esac
         done
-
-        if [ $docker_app = true ]; then
-                message "docker" "Docker/App is in pre-release"
-                docker-app-install
-                exit
-        fi
-
 
         if [ $have_proxy = true ]; then
 	        proxy_start
@@ -131,13 +85,12 @@ main() {
         if [ $install = true ]; then
 	        docker-repositories
 	        docker-install
-                docker-configuration
         else
 	        docker-update
         fi
 
-        docker-compose-upstall
-        docker-hadolint-upstall
+        docker-compose-install
+        docker-hadolint-install
 
         if [ $have_proxy = true ]; then
 	        proxy_stop
