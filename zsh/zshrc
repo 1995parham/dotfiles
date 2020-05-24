@@ -95,7 +95,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-if type brew &>/dev/null; then
+if hash brew &> /dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
   autoload -Uz compinit
@@ -170,6 +170,12 @@ if [ -d $HOME/Documents/Go/bin ]; then
   path+=("$HOME/Documents/Go/bin")
 fi
 export GOPROXY="https://goproxy.io,direct"
+
+# please note that dotfiles uses brew for golang installation
+# so here sets GOROOT based on brew.
+if hash brew &> /dev/null && hash go &> /dev/null; then
+  export GOROOT=$(brew --prefix go)
+fi
 
 # }}}
 
