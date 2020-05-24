@@ -1,6 +1,6 @@
 ---
-language: minimal
-sudo: enabled
+language: shell
+os: linux
 dist: bionic
 
 install:
