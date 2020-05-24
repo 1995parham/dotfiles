@@ -139,6 +139,12 @@ Then update `/etc/systemd/system/docker.service.d/http-proxy.conf` with:
 [Service]
 Environment="HTTP_PROXY=http://127.0.0.1:1080/"
 ```
+And reload the docker daemon:
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
 
 ## vim
 
