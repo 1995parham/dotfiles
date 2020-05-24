@@ -7,9 +7,7 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-verbose=false
 install=false
-docker_app=false
 
 usage() {
 	echo "usage: docker [-i]"
