@@ -40,7 +40,7 @@ kube-install() {
         message "oc" "Install stern (Multi pod and container log tailing for Kubernetes) from brew"
         brew install stern
 
-        message "oc" "Install stern (Tools for observing Kubernetes resources in real time) from brew"
+        message "oc" "Install kubespy (Tools for observing Kubernetes resources in real time) from brew"
         brew install kubespy
 }
 
