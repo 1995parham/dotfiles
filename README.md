@@ -57,6 +57,15 @@ Color Scheme fron ./iterm
 Font Meslo LG S for Powerline 9pt 100iv 100nn
 ```
 
+At the end you have the following tools at your command:
+
+
+| Command | Tool |
+|:-------:|:-----|
+| `vim`   | [vim](https://www.vim.org/) |
+| `nvim`  | [NeoVim](https://neovim.io/) |
+| `tmux`  | [tmux](https://github.com/tmux/tmux/wiki) |
+
 ## Tips and Tricks
 
 - You can use the following command in **sudo mode** to remove osx lags in our country that happens because of sanctions.
