@@ -187,7 +187,7 @@ install-nvim() {
         message "nvim" "Installing neovim plugins"
         case $install_type in
                 0)
-                        nvim +PlugInstall +qall
+                        nvim --headless +PlugInstall +qall
                         ;;
                 1)
                         ;;
