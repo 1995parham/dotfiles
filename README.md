@@ -66,6 +66,18 @@ At the end you have the following tools at your command:
 | `nvim`  | [NeoVim](https://neovim.io/) |
 | `tmux`  | [tmux](https://github.com/tmux/tmux/wiki) |
 
+Then you can install other tools with `start.sh`, here some examples:
+
+```sh
+# install docker with proxy (see <Breaking Sanctions> section for more details)
+./start.sh -p docker -i
+# install golang
+./start.sh go
+# install python
+./start.sh python
+# and many many more...
+```
+
 ## Tips and Tricks
 
 - You can use the following command in **sudo mode** to remove osx lags in our country that happens because of sanctions.
