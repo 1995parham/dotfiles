@@ -250,7 +250,7 @@ install-general() {
         case $install_type in
                 0)
                         if [ $SHELL != '/bin/zsh' ]; then
-                                chsh $USER -s /bin/zsh
+                                chsh $USER -s /bin/zsh && sudo chsh $USER -s /bin/zsh && message "general" "Please change your shell to zsh manually"
                         fi
                         ;;
                 1)
