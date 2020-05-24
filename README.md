@@ -151,6 +151,7 @@ Then update `/etc/systemd/system/docker.service.d/http-proxy.conf` with:
 [Service]
 Environment="HTTP_PROXY=http://127.0.0.1:1080/"
 ```
+
 And reload the docker daemon:
 
 ```sh
@@ -193,23 +194,6 @@ for my php files.
 # setup phpcs globally
 composer global require "squizlabs/php_codesniffer=*"
 phpcs --config-set default_standard PSR2
-```
-
-### Python
-
-It's very good idea to use `pyvenv` in order to creating
-python project environment. Build and activate your environment with:
-
-```sh
-python3 -m venv $PROJECT_ROOT
-. $PROJECT_ROOT/bin/activate
-```
-
-after do your works, you can deactivate your virtual
-environment with
-
-```sh
-deactivate
 ```
 
 ### Go
