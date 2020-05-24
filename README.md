@@ -53,7 +53,7 @@ cd fonts && ./install.sh
 
 Persoanlly I have used the following configuration on my [iTerm](https://www.iterm2.com/).
 
-| color-scheme | font-family | size | iv | nn | 
+| color-scheme | font-family | size | iv | nn |
 |:------------:|:------------|:----:|:--:|:--:|
 | atom | Font Meslo LG S for Powerline | 9pt | 100 | 100 |
 
@@ -65,6 +65,13 @@ At the end you have the following tools at your command:
 | `vim`   | [vim](https://www.vim.org/) |
 | `nvim`  | [NeoVim](https://neovim.io/) |
 | `tmux`  | [tmux](https://github.com/tmux/tmux/wiki) |
+
+Don't forget the git credential setup:
+
+```sh
+git config --global user.name "Parham Alvani"
+git config --global user.email "parham.alvani@gmail.com"
+```
 
 Then you can install other tools with `start.sh`, here some examples:
 
