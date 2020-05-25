@@ -93,9 +93,6 @@ fi
 
 # Exports {{{
 export EDITOR="vim"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
 export TERM=xterm-256color
 # }}}
 
@@ -140,9 +137,6 @@ test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/
 
 if hash brew &> /dev/null; then
   FPATH=$(brew --prefix)/share/bash/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi
 
 # }}}
