@@ -69,6 +69,7 @@ At the end you have the following tools at your command:
 Don't forget the git credential setup:
 
 ```sh
+touch $HOME/.gitconfig
 git config --global user.name "Parham Alvani"
 git config --global user.email "parham.alvani@gmail.com"
 ```
