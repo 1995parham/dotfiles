@@ -130,6 +130,23 @@ if [ -f "$HOME/.dircolors" ]; then
 fi
 # }}}
 
+# brew {{{
+export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# only for linuxbrew with hotfix in sudo mode
+test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+if hash brew &> /dev/null; then
+  FPATH=$(brew --prefix)/share/bash/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# }}}
+
 # Local Configuration {{{
 if [ -f $HOME/.bashrc.local ]; then
         source "$HOME/.bashrc.local"
