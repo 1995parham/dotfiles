@@ -27,6 +27,9 @@ texlive-packages() {
         # references
         sudo tlmgr install biblatex
         sudo tlmgr install biber
+
+        # linters
+        sudo tlmgr install lacheck chktex
 }
 
 texlive-install() {
