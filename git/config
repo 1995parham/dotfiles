@@ -1,8 +1,8 @@
 ; vim: set ft=gitconfig:
 [includeIf "gitdir:~/Documents/Git/raha/"]
-        path = raha.gitconfig
+        path = ~/.config/git/raha.gitconfig
 [core]
-        excludesfile = gitignore
+        excludesfile = ~/.config/git/gitignore
         editor = nvim
 [credential]
         helper = cache
