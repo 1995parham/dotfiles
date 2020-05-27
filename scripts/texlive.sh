@@ -22,7 +22,7 @@ texlive-packages() {
 
         # presentation
         sudo tlmgr install beamer
-        sudo tlmgr install beamertheme-metropolis
+        sudo tlmgr install beamertheme-metropolis pgfopts
 
         # references
         sudo tlmgr install biblatex
