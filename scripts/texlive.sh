@@ -14,10 +14,19 @@ usage() {
 }
 
 texlive-packages() {
+        # elsevier journals
         sudo tlmgr install elsarticle
+
+        # xepersian
         sudo tlmgr install xepersian
+
+        # presentation
         sudo tlmgr install beamer
+        sudo tlmgr install beamertheme-metropolis
+
+        # references
         sudo tlmgr install biblatex
+        sudo tlmgr install biber
 }
 
 texlive-install() {
