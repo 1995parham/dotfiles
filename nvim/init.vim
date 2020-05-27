@@ -137,6 +137,9 @@ augroup format
         " Arduino
         autocmd Filetype arduino setlocal ts=2 sts=2 sw=2
 
+        " Latex/Tex
+        autocmd Filetype tex setlocal ts=2 sts=2 sw=2
+
         " ZSH
         autocmd FileType zsh setlocal ts=2 sts=2 sw=2
 
