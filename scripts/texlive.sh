@@ -17,6 +17,7 @@ texlive-packages() {
         sudo tlmgr install elsarticle
         sudo tlmgr install xepersian
         sudo tlmgr install beamer
+        sudo tlmgr install biblatex
 }
 
 texlive-install() {
