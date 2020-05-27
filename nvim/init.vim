@@ -231,6 +231,7 @@ Plug 'junegunn/fzf.vim'                                           " things you c
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } " fzf is a general-purpose command-line fuzzy finder.
 
 " language specific
+Plug 'lervag/vimtex'                                   " A modern vim plugin for editing LaTeX files.
 Plug 'fatih/vim-go'                                    " Go development plugin for Vim
 Plug 'leafgarland/typescript-vim'                      " typescript syntax files for Vim
 Plug 'peitalin/vim-jsx-typescript'                     " react JSX syntax highlighting for vim and Typescript
