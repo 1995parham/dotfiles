@@ -30,6 +30,8 @@ texlive-install() {
 
                 message "texlive" "Install basictex with brew"
 		brew cask install basictex
+
+                eval "$(/usr/libexec/path_helper)"
 	fi
 }
 
