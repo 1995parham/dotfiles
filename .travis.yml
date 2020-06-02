@@ -10,3 +10,4 @@ install:
   - yes "Y" | ./install.sh -y
 script:
   - [ $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc ]
+  - [ $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc ]
