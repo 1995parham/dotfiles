@@ -11,9 +11,7 @@ install:
 script:
   - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
   - test $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc
-  - bash
-  - hash brew
-  - hash nvim
-  - zsh
-  - hash brew
-  - hash nvim
+  - bash -c hash brew
+  - bash -c hash nvim
+  - zsh -c hash brew
+  - zsh -c hash nvim
