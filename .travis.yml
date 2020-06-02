@@ -9,5 +9,11 @@ before_install:
 install:
   - yes "Y" | ./install.sh -y
 script:
-  - [ $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc ]
-  - [ $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc ]
+  - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
+  - test $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc
+  - bash
+  - hash brew
+  - hash nvim
+  - zsh
+  - hash brew
+  - hash nvim
