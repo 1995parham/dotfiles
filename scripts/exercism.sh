@@ -12,11 +12,5 @@ usage() {
 }
 
 main() {
-        message "exercism" "Getting version information"
-        exercism_v=$(curl -s https://api.github.com/repos/exercism/cli/releases/latest | grep 'tag_name' | cut -d\" -f4)
-
-        message "exercism" "Downloading exercism $exercism_v"
-        curl -L -# "https://github.com/exercism/cli/releases/download/${exercism_v}/exercism-linux-64bit.tgz" -o exercism.tgz
-        tar -vxzf exercism.tgz
-        rm exercism.tgz
+        brew install exercism
 }
