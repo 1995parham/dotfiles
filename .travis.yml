@@ -3,8 +3,10 @@ language: shell
 os: linux
 dist: bionic
 
-install:
+before_install:
   - ./start.sh brew
   - ./start.sh env
-script:
+install:
   - yes "Y" | ./install.sh -y
+script:
+  - [ $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc ]
