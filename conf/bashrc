@@ -146,3 +146,19 @@ if [ -f $HOME/.bashrc.local ]; then
         source "$HOME/.bashrc.local"
 fi
 # }}}
+
+# Go {{{
+
+export GOPATH=$HOME/Documents/Go
+if [ -d $HOME/Documents/Go/bin ]; then
+  PATH="$PATH:$HOME/Documents/Go/bin"
+fi
+export GOPROXY="https://goproxy.io,direct"
+
+# please note that dotfiles uses brew for golang installation
+# so here sets GOROOT based on brew.
+if hash brew &> /dev/null && hash go &> /dev/null; then
+  export GOROOT=$(brew --prefix go)/libexec
+fi
+
+# }}}
