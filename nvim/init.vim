@@ -182,7 +182,7 @@ Plug '1995parham/naz.vim'
 Plug 'jiangmiao/auto-pairs'
 
 " fugitive.vim: A Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " A Vim plugin to visualizes the Vim undo tree.
 Plug 'simnalamburt/vim-mundo'
@@ -271,6 +271,11 @@ Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
 " An alternative sudo.vim for Vim and Neovim
 Plug 'lambdalisue/suda.vim'
+
+" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
+if executable('node')
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -477,38 +482,6 @@ let g:suda_smart_edit = 1
 
 " CoC Configurations {{{
 
-if exists('g:did_coc_loaded')
-        " Use `[g` and `]g` to navigate diagnostics
-        nmap <silent> [g <Plug>(coc-diagnostic-prev)
-        nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-        " GoTo code navigation.
-        nmap <silent> gd <Plug>(coc-definition)
-        nmap <silent> gy <Plug>(coc-type-definition)
-        nmap <silent> gi <Plug>(coc-implementation)
-        nmap <silent> gr <Plug>(coc-references)
-
-        " Use K to show documentation in preview window.
-        nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-        function! s:show_documentation()
-                if (index(['vim','help'], &filetype) >= 0)
-                        execute 'h '.expand('<cword>')
-                else
-                        call CocAction('doHover')
-                endif
-        endfunction
-
-        " Symbol renaming.
-        nmap <leader>rn <Plug>(coc-rename)
-
-        " Formatting selected code.
-        xmap <leader>f  <Plug>(coc-format-selected)
-        nmap <leader>f  <Plug>(coc-format-selected)
-
-        if executable('go')
-                call CocCommand('go.install.gopls')
-        endif
-endif
+autocmd VimEnter * if exists('g:did_coc_loaded') | exe "source ~/.config/nvim/coc.vim" | endif
 
 " }}}
