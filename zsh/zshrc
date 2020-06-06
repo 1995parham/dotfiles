@@ -70,8 +70,6 @@ ZSH_CUSTOM=~/.zsh.plug
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   vi-mode
-
-  proxy
 )
 
 # Load ELone after your oh-my-zsh configuration
