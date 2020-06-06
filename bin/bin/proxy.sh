@@ -1,47 +1,21 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : scripts/lib/proxy.sh
-#
-# [] Creation Date : 24-06-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
-proxy_start() {
-        dig +short myip.opendns.com @resolver1.opendns.com
+current_dir="$( cd "$( dirname "$(readlink -f ${BASH_SOURCE[0]})" )" && pwd )"
+source $current_dir/../../scripts/lib/proxy.sh
 
-        if [ $? -ne 0 ]; then
-                return 1
-        fi
-
-        export {http,https,ftp}_proxy="http://127.0.0.1:1080"
-        alias sudo='sudo -E'
-
-        echo
-        curl --max-time 5 ipinfo.io/ip
-
-        if [ $? -ne 0 ]; then
-                proxy_stop
-                return 1
-        fi
+usage() {
+        echo "proxy [start/stop]"
 }
-
-proxy_stop() {
-        unset {http,https,ftp}_proxy
-        unalias sudo
-        echo "[proxy] All proxy script configuration are removed"
-}
-
 
 if [ $# -ne 1 ]; then
-        echo "proxy [start/stop]"
+        usage
+        exit 1
 fi
 
 if [ $1 = "start" ]; then
         proxy_start
-fi
-
-if [ $1 = "stop" ]; then
+elif [ $1 = "stop" ]; then
         proxy_stop
+else
+        usage
 fi
