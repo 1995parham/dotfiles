@@ -182,7 +182,9 @@ Plug '1995parham/naz.vim'
 Plug 'jiangmiao/auto-pairs'
 
 " fugitive.vim: A Git wrapper so awesome, it should be illegal
-" Plug 'tpope/vim-fugitive'
+" git-coc:
+" Note: many useful features not implemented, it's recommended to use plugin like vim-fugitive at the same time.
+Plug 'tpope/vim-fugitive'
 
 " A Vim plugin to visualizes the Vim undo tree.
 Plug 'simnalamburt/vim-mundo'
@@ -361,12 +363,13 @@ let g:ale_rust_cargo_use_clippy = 1
 
 " set linters
 let g:ale_linters = {
-\       'go': ['golangci-lint', 'gofmt', 'staticcheck', 'gobuild', 'gosimple', 'golint', 'govet'],
+\       'go': ['golangci-lint'],
 \}
 
 " set fixers and run them on save
 let g:ale_fixers = {
 \       '*': ['remove_trailing_lines', 'trim_whitespace'],
+\       'go': ['goimports', 'gofmt'],
 \       'python': ['black'],
 \       'rust': ['rustfmt'],
 \}
@@ -390,9 +393,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_declarations = 1
 
-let g:go_fmt_command = 'goimports'
-" Simply press K when over a type or function to get more details.
-" au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 set statusline+=go#statusline#Show()
 " }}}
 
