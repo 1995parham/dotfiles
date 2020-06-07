@@ -26,8 +26,8 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-let g:coc_global_extensions = ["coc-json", "coc-html", "coc-go", "coc-rls", "coc-tsserver", "coc-snippets", "coc-python", "coc-yaml", "coc-pyright"]
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-go', 'coc-rls', 'coc-tsserver', 'coc-snippets', 'coc-python', 'coc-yaml', 'coc-pyright', 'coc-tslint-plugin']
 
-if executable('go') && &filetype == "go"
-        exec "CocCommand go.install.gopls"
+if executable('go') && &filetype ==# 'go'
+        exec 'CocCommand go.install.gopls'
 endif
