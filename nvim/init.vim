@@ -392,7 +392,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_declarations = 1
 
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
 
 set statusline+=go#statusline#Show()
 " }}}
@@ -483,6 +483,8 @@ let g:suda_smart_edit = 1
 
 " CoC Configurations {{{
 
-autocmd VimEnter * if exists('g:did_coc_loaded') | exe "source ~/.config/nvim/coc.vim" | endif
+augroup coc
+        autocmd VimEnter * if exists('g:did_coc_loaded') | exe "source ~/.config/nvim/coc.vim" | endif
+augroup end
 
 " }}}
