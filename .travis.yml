@@ -8,7 +8,10 @@ before_install:
   - ./start.sh env
 install:
   - yes "Y" | ./install.sh -y
+  - pip3 install vim-vint  # vim linter
 script:
+  - vint --enable-neovim ./nvim/init.vim ./nvim/coc.vim
+  - vint ./vim/vimrc
   - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
   - test $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc
   - bash -c hash brew
