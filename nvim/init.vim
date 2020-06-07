@@ -369,7 +369,6 @@ let g:ale_linters = {
 " set fixers and run them on save
 let g:ale_fixers = {
 \       '*': ['remove_trailing_lines', 'trim_whitespace'],
-\       'go': ['goimports', 'gofmt'],
 \       'python': ['black'],
 \       'rust': ['rustfmt'],
 \}
@@ -392,6 +391,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_variable_declarations = 1
+
+let g:go_fmt_command = "goimports"
 
 set statusline+=go#statusline#Show()
 " }}}
