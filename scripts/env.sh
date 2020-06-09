@@ -12,9 +12,9 @@ usage() {
         echo "installs required brew/apt packages"
 }
 
-mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq httpie)
-linux_packages=(clang zsh ctags aria2 curl snapd python3-pip python3-setuptools httpie)
-linux_brews=(tmux yamllint jq neovim)
+mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
+linux_packages=(clang zsh ctags aria2 curl snapd python3-pip python3-setuptools)
+linux_brews=(tmux yamllint jq neovim k6)
 linux_snaps=()
 
 install-apt() {
