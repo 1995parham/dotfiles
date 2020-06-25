@@ -1,3 +1,7 @@
+# dotfiles {{{
+current_dir="$( cd "$( dirname "$(readlink -f $HOME/.zshrc)" )" && pwd )"
+# }}}
+
 # Prompt {{{
 [ -z "$PS1" ] && return
 
@@ -160,5 +164,11 @@ export GOPROXY="https://goproxy.io,direct"
 if hash brew &> /dev/null && hash go &> /dev/null; then
   export GOROOT=$(brew --prefix go)/libexec
 fi
+
+# }}}
+
+# proxy {{{
+
+source $current_dir/../scripts/lib/proxy.sh
 
 # }}}

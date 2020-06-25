@@ -1,3 +1,7 @@
+# dotfiles {{{
+current_dir="$( cd "$( dirname "$(readlink -f $HOME/.zshrc)" )" && pwd )"
+# }}}
+
 # PATH {{{
 # prevent from duplicate records in path
 typeset -U path
@@ -197,4 +201,10 @@ alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --c
 
 # PATH {{{
 export PATH
+# }}}
+
+# proxy {{{
+
+source $current_dir/../scripts/lib/proxy.sh
+
 # }}}
