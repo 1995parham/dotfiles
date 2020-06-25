@@ -29,6 +29,6 @@ proxy_start() {
 
 proxy_stop() {
         unset {http,https,ftp}_proxy
-        unalias sudo
+        unalias sudo 2> /dev/null
         echo "[proxy] All proxy script configuration are removed"
 }
