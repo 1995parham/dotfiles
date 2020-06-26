@@ -4,6 +4,8 @@
 [core]
         excludesfile = ~/.config/git/gitignore
         editor = nvim
+[pull]
+        rebase = true
 [credential]
         helper = cache
 [merge]
