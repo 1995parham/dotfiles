@@ -33,5 +33,5 @@ let g:coc_global_extensions = [
                         \ 'coc-rust-analyzer', 'coc-vimtex' ]
 
 augroup go
-        autocmd FileType go if executable('go') | exec 'CocCommand go.install.gopls' | endif
+        autocmd BufRead,BufNewFile *.go if executable('go') | exec 'CocCommand go.install.gopls' | endif
 augroup end
