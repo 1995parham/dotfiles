@@ -32,6 +32,6 @@ let g:coc_global_extensions = [
                         \ 'coc-python', 'coc-yaml', 'coc-pyright', 'coc-tslint-plugin',
                         \ 'coc-rust-analyzer', 'coc-vimtex' ]
 
-if executable('go') && &filetype ==# 'go'
-        exec 'CocCommand go.install.gopls'
-endif
+augroup go
+        autocmd FileType go if executable('go') | exec 'CocCommand go.install.gopls' | endif
+augroup end
