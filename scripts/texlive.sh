@@ -30,6 +30,9 @@ texlive-packages() {
 
         # linters
         sudo tlmgr install lacheck chktex
+
+        # make
+        sudo tlmgr install latexmk
 }
 
 texlive-install() {
