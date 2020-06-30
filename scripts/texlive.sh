@@ -18,7 +18,7 @@ texlive-packages() {
         sudo tlmgr install elsarticle
 
         # xepersian
-        sudo tlmgr install xepersian
+        sudo tlmgr install xepersian bidi zref
 
         # presentation
         sudo tlmgr install beamer
