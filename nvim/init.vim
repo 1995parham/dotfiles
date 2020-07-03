@@ -264,6 +264,7 @@ Plug 'rust-lang/rust.vim'                              " Vim configuration for R
 Plug 'arzg/vim-rust-syntax-ext'                        " A Vim plugin that enhances Rust syntax highlighting
 " Plug 'psf/black'                                     " The uncompromising code formatter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic Highlighting for Python in Neovim
+Plug 'groenewege/vim-less'                             " vim syntax for LESS (dynamic CSS)
 
 
 " vimproc is a great asynchronous execution library for Vim.
