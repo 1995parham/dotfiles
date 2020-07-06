@@ -113,7 +113,14 @@ You can configure it in many ways but here is my sample.
     {
       "port": 1080,
       "protocol": "http"
+    }, {
+      "port": 1086,
+      "protocol": "socks",
+      "udp": true,
+      "auth": "noauth"
     }
+  ],
+
   ],
   "outbounds": [
     {
