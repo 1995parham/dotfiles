@@ -136,8 +136,8 @@ export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # only for linuxbrew with hotfix in sudo mode
-test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 if hash brew &> /dev/null; then
   FPATH=$(brew --prefix)/share/bash/site-functions:$FPATH

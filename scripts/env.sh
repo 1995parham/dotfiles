@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(clang zsh ctags aria2 curl snapd python3-pip python3-setuptools)
+linux_packages=(clang zsh ctags aria2 curl python3-pip python3-setuptools)
 linux_brews=(tmux yamllint jq neovim k6)
 linux_snaps=()
 
@@ -58,15 +58,15 @@ install-snaps-linux() {
 
 install-() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
-	        message "env" "Darwin"
+                message "env" "Darwin"
 
                 install-packages-osx ${mac_packages[@]}
         else
 	        message "env" "Linux"
 
                 # setup shell environments for linuxbrew.
-                test -d ~/.linuxbrew && eval $(sudo -u $(logname) ~/.linuxbrew/bin/brew shellenv)
-                test -d /home/linuxbrew/.linuxbrew && eval $(sudo -u $(logname) /home/linuxbrew/.linuxbrew/bin/brew shellenv)
+                test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+                test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
                 if ! hash brew 2>/dev/null; then
                         message "env" "Please install linuxbrew with './start.sh brew'"

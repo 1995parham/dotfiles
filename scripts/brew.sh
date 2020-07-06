@@ -19,7 +19,7 @@ main() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
                 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         else
-                sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+                bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
                 sudo apt-get install build-essential curl file git
         fi
 }
