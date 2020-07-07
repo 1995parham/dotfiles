@@ -208,3 +208,9 @@ export PATH
 source $current_dir/../scripts/lib/proxy.sh
 
 # }}}
+
+# Midnight_Commander {{{
+
+export MC_SKIN=modarin256-defbg
+
+# }}}
