@@ -53,6 +53,9 @@ texlive-install() {
                 chmod +x update-tlmgr-latest.sh
                 ./update-tlmgr-latest.sh
                 rm update-tlmgr-latest.sh
+
+                # https://tex.stackexchange.com/questions/23164/i-cant-find-the-format-file-xelatex-fmt
+                fmtutil-sys --all
         else
                 message "texlive" "Darwin"
 
