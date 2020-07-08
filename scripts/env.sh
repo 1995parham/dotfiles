@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(clang zsh ctags aria2 curl python3-pip python3-setuptools htop mc)
+linux_packages=(clang zsh ctags aria2 curl python3-pip python3-setuptools mc)
 linux_brews=(tmux yamllint jq neovim k6)
 linux_snaps=()
 
