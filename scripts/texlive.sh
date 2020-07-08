@@ -13,43 +13,54 @@ usage() {
         echo "usage: texlive"
 }
 
+texlive-package() {
+        if [[ $OSTYPE == "linux-gnu" ]]; then
+                tlmgr install $@
+        else
+                sudo tlmgr install $@
+        fi
+}
+
 texlive-packages() {
         # elsevier journals
-        sudo tlmgr install elsarticle
+        texlive-package elsarticle
 
         # xepersian
-        sudo tlmgr install xepersian bidi zref
+        texlive-package xepersian bidi zref
 
         # presentation
-        sudo tlmgr install beamer
-        sudo tlmgr install beamertheme-metropolis pgfopts
+        texlive-package beamer beamertheme-metropolis pgfopts
 
         # references
-        sudo tlmgr install biblatex
-        sudo tlmgr install biber
+        texlive-package biblatex biber
 
         # linters
-        sudo tlmgr install lacheck chktex
+        texlive-package lacheck chktex
 
         # make
-        sudo tlmgr install latexmk
+        texlive-package latexmk
 }
 
 texlive-install() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		message "texlive" "Linux"
+        if [[ $OSTYPE == "linux-gnu" ]]; then
+                message "texlive" "Linux"
 
-                message "texlive" "Install texlive-base with apt"
-                sudo apt install texlive-base
-                sudo apt install texlive-binaries
-	else
-		message "texlive" "Darwin"
+                message "texlive" "Install texlive with brew"
+                brew install texlive
+
+                # https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5
+                wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh
+                chmod +x update-tlmgr-latest.sh
+                ./update-tlmgr-latest.sh
+                rm update-tlmgr-latest.sh
+        else
+                message "texlive" "Darwin"
 
                 message "texlive" "Install basictex with brew"
-		brew cask install basictex
+                brew cask install basictex
 
                 eval "$(/usr/libexec/path_helper)"
-	fi
+        fi
 }
 
 main() {
