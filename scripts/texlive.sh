@@ -67,5 +67,5 @@ main() {
         texlive-install
         texlive-packages
 
-        brew install texlab
+        # brew install texlab
 }
