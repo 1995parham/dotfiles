@@ -1,0 +1,68 @@
+# vi: ft=sh
+
+# brew {{{
+
+export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# }}}
+
+# go {{{
+
+export GOPROXY="https://goproxy.io,direct"
+
+# please note that dotfiles uses brew for golang installation
+# so here sets GOROOT based on brew.
+if hash brew &> /dev/null && hash go &> /dev/null; then
+        export GOROOT=$(brew --prefix go)/libexec
+fi
+
+export GOPATH=$HOME/Documents/Go
+if [ -d $HOME/Documents/Go/bin ]; then
+        PATH="$HOME/Documents/Go/bin:$PATH"
+fi
+
+# }}}
+
+# rust {{{
+
+if [ -d $HOME/.cargo ]; then
+        PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# }}}
+
+# texlive {{{
+
+# dotfiles install texlive with brew on linux based systems so the following snippet
+# works for those. use mactex for osx instead.
+if brew --prefix texlive &> /dev/null; then
+        PATH="$PATH:$(brew --prefix texlive)/libexec/bin/x86_64-linux"
+fi
+
+# }}}
+
+# coreutils {{{
+
+if hash brew &> /dev/null && brew --prefix gnubin &> /dev/null; then
+        PATH="$(brew --prefix gnubin)/libexec:$PATH"
+fi
+
+# }}}
+
+# bin {{{
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+        PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+        PATH="$HOME/.local/bin:$PATH"
+fi
+
+# }}}
