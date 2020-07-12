@@ -121,7 +121,6 @@ You can configure it in many ways but here is my sample.
     }
   ],
 
-  ],
   "outbounds": [
     {
       "protocol": "shadowsocks",
