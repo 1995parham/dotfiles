@@ -24,7 +24,7 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using thi
 The following command creates a basic directory structure and clones the **dotfiles** repository:
 
 ```sh
-curl -L https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
+curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
 ```
 
 **dotfiles** uses [brew.sh](http://brew.sh) as its main package manager so you must install it.
