@@ -37,8 +37,6 @@ main() {
         forticlient-install
 
         message "forticlient" "Create configuration file in current directory"
-        touch openfortivpn.conf
-        chmod go= openfortivpn.conf
 
         message "forticlient" "Edit openfortivpn.conf file and update trusted-cert option with the string from the error. Make sure the option is not commented"
 }
