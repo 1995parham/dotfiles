@@ -97,6 +97,16 @@ echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
 - Personally I have used [Workona](https://workona.com/) in Chrome.
 In order to hide its hidden windows from the OSx dock, check `System Preferences -> Dock -> Minimize windows into application icon`.
 
+- For using Level U Pro with Linux mint after using this dotfiles you must use `bluetoothctl`.
+```
+[bluetooth]# scan on
+[bluetooth]# scan off
+[bluetooth]# pair A0:60:90:37:C0:3C
+[bluetooth]# trust A0:60:90:37:C0:3C
+[bluetooth]# connect A0:60:90:37:C0:3C
+[bluetooth]# info A0:60:90:37:C0:3C
+```
+
 ## Breaking Sanctions
 Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
 Use following command to install it.
