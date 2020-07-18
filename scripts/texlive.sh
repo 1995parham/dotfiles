@@ -7,10 +7,10 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
-
+linter=false
 
 usage() {
-        echo "usage: texlive"
+        echo "usage: texlive [-l]"
 }
 
 texlive-package() {
@@ -79,6 +79,20 @@ texlive-install() {
 main() {
         texlive-install
         texlive-packages
+
+        # Reset optind between calls to getopts
+        OPTIND=1
+        while getopts "l" argv; do
+	        case $argv in
+		        l)
+			        linter=true
+			        ;;
+	        esac
+        done
+
+        if [ $linter = true ]; then
+                texlive-linter
+        fi
 
         # brew install texlab
 }
