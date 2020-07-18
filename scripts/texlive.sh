@@ -21,6 +21,16 @@ texlive-package() {
         fi
 }
 
+texlive-linter() {
+        # linters
+        texlive-package latexindent
+        cpan YAML::Tiny
+        cpan File::HomeDir
+        cpan Unicode::GCString
+        cpan Log::Log4perl
+        cpan Log::Dispatch
+}
+
 texlive-packages() {
         # elsevier journals
         texlive-package elsarticle
