@@ -2,16 +2,16 @@
 current_dir="$( cd "$( dirname "$(readlink $HOME/.zshrc)" )" && pwd )"
 # }}}
 
-# PATH {{{
+# path {{{
 # prevent from duplicate records in path
 typeset -U path
 # }}}
 
-# ELone {{{
+# elone {{{
 source $HOME/.zsh.plug/elone.zsh
 # }}}
 
-# Oh-My-ZSH {{{
+# oh-my-zsh {{{
 
 ZSH=$HOME/.oh-my-zsh
 
@@ -110,7 +110,7 @@ fi
 
 # }}}
 
-# Aliases {{{
+# aliases {{{
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR="$(which nvim)"
@@ -164,7 +164,7 @@ alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
 
 # }}}
 
-# Go {{{
+# go {{{
 
 export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
@@ -180,7 +180,7 @@ fi
 
 # }}}
 
-# Rust {{{
+# rust {{{
 
 if [ -d $HOME/.cargo ]; then
   path+=("$HOME/.cargo/bin")
@@ -199,7 +199,7 @@ alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --c
 
 # }}}
 
-# PATH {{{
+# path {{{
 export PATH
 # }}}
 
@@ -209,7 +209,7 @@ source $current_dir/../scripts/lib/proxy.sh
 
 # }}}
 
-# Midnight_Commander {{{
+# midnight_commander {{{
 
 export MC_SKIN=modarin256-defbg
 
