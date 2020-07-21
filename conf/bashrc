@@ -2,7 +2,7 @@
 current_dir="$( cd "$( dirname "$(readlink -f $HOME/.bashrc)" )" && pwd )"
 # }}}
 
-# Prompt {{{
+# prompt {{{
 [ -z "$PS1" ] && return
 
 case $TERM in
@@ -80,7 +80,7 @@ PROMPT_COMMAND=set_bash_prompt
 
 # }}}
 
-# Path {{{
+# path {{{
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 if [ -d $HOME/bin ]; then
         PATH="$PATH:$HOME/bin"
@@ -95,12 +95,12 @@ if [ -d /snap/bin ]; then
 fi
 # }}}
 
-# Exports {{{
+# exports {{{
 export EDITOR="vim"
 export TERM=xterm-256color
 # }}}
 
-# Aliases {{{
+# aliases {{{
 case $(uname) in
         Darwin|FreeBSD)
                 alias l='locate -i'
@@ -119,13 +119,13 @@ case $(uname) in
 esac
 # }}}
 
-# Settings {{{
+# bash completion {{{
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
         . /etc/bash_completion
 fi
 # }}}
 
-# LS_COLORS {{{
+# ls colors {{{
 if [ -f "$HOME/.dircolors" ]; then
         eval $(dircolors "$HOME/.dircolors")
 fi
@@ -145,13 +145,13 @@ fi
 
 # }}}
 
-# Local Configuration {{{
+# local configuration {{{
 if [ -f $HOME/.bashrc.local ]; then
         source "$HOME/.bashrc.local"
 fi
 # }}}
 
-# Go {{{
+# go {{{
 
 export GOPATH=$HOME/Documents/Go
 if [ -d $HOME/Documents/Go/bin ]; then
