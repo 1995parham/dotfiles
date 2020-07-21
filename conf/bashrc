@@ -1,5 +1,5 @@
 # dotfiles {{{
-current_dir="$( cd "$( dirname "$(readlink -f $HOME/.zshrc)" )" && pwd )"
+current_dir="$( cd "$( dirname "$(readlink -f $HOME/.bashrc)" )" && pwd )"
 # }}}
 
 # Prompt {{{
