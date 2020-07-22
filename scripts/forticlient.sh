@@ -21,6 +21,8 @@ forticlient-install() {
 
                 message "forticlient" "Install PPP"
                 sudo apt install ppp
+
+                message "forticlient" "you can install network-manager-fortisslvpn and network-manager-fortisslvpn-gnome to have it on network manager and nmcli"
 	else
 		message "forticlient" "Darwin"
 
