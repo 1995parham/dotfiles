@@ -12,8 +12,8 @@
   \____/                    |_|
 ```
 
-[![license](https://img.shields.io/github/license/1995parham/dotfiles.svg?style=flat-square)]()
-[![Build Status](https://travis-ci.com/1995parham/dotfiles.svg?branch=master)](https://travis-ci.com/1995parham/dotfiles)
+![GitHub](https://img.shields.io/github/license/1995parham/dotfiles?logo=gnu&style=flat-square)
+[![Travis (.com)](https://img.shields.io/travis/com/1995parham/dotfiles?logo=travis&style=flat-square)](https://travis-ci.com/1995parham/dotfiles)
 
 ## Introduction
 
