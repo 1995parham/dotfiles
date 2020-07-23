@@ -115,7 +115,7 @@ Use following command to install it.
 curl -Ls https://install.direct/go.sh | sudo bash
 ```
 
-You can configure it in many ways but here is my sample.
+You can configure it by many ways in `/etc/v2ray/config.json` but here is my sample.
 
 ```yaml
 {
