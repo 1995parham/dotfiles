@@ -87,6 +87,7 @@ Then you can install other tools with `start.sh`, here some examples:
 ```
 
 ## Tips and Tricks
+[![](https://img.shields.io/badge/askubuntu-bookmarks-orange?style=flat-square&logo=ubuntu)](https://askubuntu.com/users/425876/parham-alvani?tab=bookmarks)
 
 - You can use the following command in **sudo mode** to remove osx lags in our country that happens because of sanctions.
 
