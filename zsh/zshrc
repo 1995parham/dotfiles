@@ -1,19 +1,13 @@
-# dotfiles {{{
-current_dir="$( cd "$( dirname "$(readlink $HOME/.zshrc)" )" && pwd )"
-# }}}
-
 # path {{{
 # prevent from duplicate records in path
 typeset -U path
 # }}}
 
-# elone {{{
-source $HOME/.zsh.plug/elone.zsh
-# }}}
-
 # oh-my-zsh {{{
 
 ZSH=$HOME/.oh-my-zsh
+
+[ -d $ZSH ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
 # If you come from bash you might have to change your $PATH.
 path+=('/usr/local/bin')
@@ -74,10 +68,12 @@ ZSH_CUSTOM=~/.zsh.plug
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   vi-mode
+  golang
+  rust rustup cargo
+  shell-proxy
+  # oc helm kubectl
+  gnu-utils
 )
-
-# Load ELone after your oh-my-zsh configuration
-elone oh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,6 +84,13 @@ fi
 
 # }}}
 
+# on-my-zsh-plugins {{{
+
+# proxy-shell
+export DEFAULT_PROXY="http://127.0.0.1:1080"
+
+# }}}
+
 # brew {{{
 export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -95,15 +98,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # only for linuxbrew with hotfix in sudo mode
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-if hash brew &> /dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
-
-# use gnu coreutils in OSx
-if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
-  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-fi
 
 # }}}
 
@@ -171,12 +165,6 @@ if [ -d $HOME/Documents/Go/bin ]; then
   path+=("$HOME/Documents/Go/bin")
 fi
 
-# please note that dotfiles uses brew for golang installation
-# so here sets GOROOT based on brew.
-if hash brew &> /dev/null && hash go &> /dev/null; then
-  export GOROOT=$(brew --prefix go)/libexec
-fi
-
 # }}}
 
 # rust {{{
@@ -202,25 +190,8 @@ alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --c
 export PATH
 # }}}
 
-# proxy {{{
-
-source $current_dir/../scripts/lib/proxy.sh
-
-# }}}
-
 # midnight_commander {{{
 
 export MC_SKIN=modarin256-defbg
-
-# }}}
-
-# completion {{{
-autoload -Uz compinit
-
-if test `find "$HOME/.zcompdump" -mtime 1`; then
-	compinit;
-else
-	compinit -C;
-fi;
 
 # }}}
