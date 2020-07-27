@@ -3,11 +3,6 @@
 # 1995parham's Theme
 # Parham Alvani theme for ZSH
 
-# Characters
-PLUSMINUS="\u00b1"
-CROSS="\u2718"
-LIGHTNING="\u26a1"
-
 # Setup python virtual environment prompt settings
 VIRTUAL_ENV_DISABLE_PROMPT=true
 function virtualenv_info() {
@@ -63,30 +58,16 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%}◒%{$reset_color%}"
 # vi_mode_prompt_info
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
 
-function prompt_dir() {
-  home_replaced=$(pwd | sed -e "s,^$HOME,⌂,")
-  parham_git_replaced=$(echo $home_replaced | sed -e "s,^~/Documents/Git/parham,◇,")
-  others_git_replaced=$(echo $parham_git_replaced | sed -e "s,^~/Documents/Git/others,◆,")
-  prompt=$others_git_replaced
-
-  echo %F{234}$prompt%f
-}
-
-function prompt_status() {
-  local symbols
-  symbols=()
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
-
-  [[ -n "$symbols" ]] && echo " $symbols"
-}
+# replaces home by a '~' and shows only 3 component of working directory
+typeset +H prompt_dir="%F{234}%3~%f "
+typeset +H prompt_status=" %{$fg_bold[red]%}%(?..⍉)%f %F{cyan}%(1j.⚙.)%f"
 
 # Original prompt with User name and Computer name included...
 # %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
 # '!' is true if the shell is privileged.
 PROMPT='
 %F{159}::%f $(prompt_venv) $(prompt_kube)
-┌ %K{235}$(prompt_status) %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}%M%f %k%K{214} $(prompt_dir) %k $(git_prompt_info) $(git_prompt_status)
+┌ %K{235}${prompt_status} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}%M%f %k%K{214} ${prompt_dir} %k $(git_prompt_info) $(git_prompt_status) $(git_remote_status)
 └ %F{123}○%f $(prompt_proxy)'
 
 PROMPT2='%{%(!.%F{red}.%F{white})%}◀%{$reset_color%} '
