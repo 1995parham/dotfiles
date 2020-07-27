@@ -98,9 +98,6 @@ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew
 
 if hash brew &> /dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi
 
 # use gnu coreutils in OSx
@@ -116,9 +113,11 @@ fi
 export EDITOR="$(which nvim)"
 export SUDO_EDITOR="$(which nvim)"
 export TERM="xterm-256color"
+
 if [ -f $HOME/.dircolors ]; then
   eval $(dircolors $HOME/.dircolors)
 fi
+
 if [ -d $HOME/bin ]; then
   path+=("$HOME/bin")
 fi
@@ -167,10 +166,10 @@ alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'"
 # go {{{
 
 export GOPATH=$HOME/Documents/Go
+export GOPROXY="https://goproxy.io,direct"
 if [ -d $HOME/Documents/Go/bin ]; then
   path+=("$HOME/Documents/Go/bin")
 fi
-export GOPROXY="https://goproxy.io,direct"
 
 # please note that dotfiles uses brew for golang installation
 # so here sets GOROOT based on brew.
@@ -212,5 +211,16 @@ source $current_dir/../scripts/lib/proxy.sh
 # midnight_commander {{{
 
 export MC_SKIN=modarin256-defbg
+
+# }}}
+
+# completion {{{
+autoload -Uz compinit
+
+if test `find "$HOME/.zcompdump" -mtime 1`; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 # }}}
