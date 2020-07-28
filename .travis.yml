@@ -4,11 +4,13 @@ os: linux
 dist: bionic
 
 before_install:
-  - ./start.sh brew
+  # install brew with profile (we will use python3 in installation section)
+  - ./start.sh brew -p
   - ./start.sh env
 install:
   - yes "Y" | ./install.sh -y
-  - pip3 install vim-vint  # vim linter
+  # vim linter
+  - pip3 install vim-vint
 script:
   - vint --enable-neovim ./nvim/init.vim ./nvim/coc.vim
   - vint ./vim/vimrc
