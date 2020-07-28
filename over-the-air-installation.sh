@@ -12,17 +12,15 @@ if ! [ -x "$(command -v git)" ]; then
   exit 1
 fi
 
-echo "Create directory structure"
+echo "create directory structure"
 mkdir $HOME/Documents
 mkdir $HOME/Downloads
 mkdir -p $HOME/Documents/Git/$USER
 mkdir -p $HOME/Documents/Git/others
 
-echo "Clone https://github.com/1995parham/dotfiles"
+echo "clone https://github.com/1995parham/dotfiles"
 cd $HOME/Documents/Git/$USER
 git clone https://github.com/1995parham/dotfiles
 cd dotfiles
 
-echo "Install the reuired packages using './start.sh env'"
-echo "Add universal package using if you are on ubuntu."
-echo "Install dotfiles using ./install.sh"
+echo "please refer to readme for further information"
