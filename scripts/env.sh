@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(atop clang zsh ctags aria2 curl python3-pip python3-setuptools mc tmux)
+linux_packages=(atop clang zsh ctags aria2 curl mc tmux)
 linux_brews=(yamllint jq neovim k6)
 
 install-apt() {
@@ -64,12 +64,12 @@ install-() {
                         message "env" "Please install linuxbrew with './start.sh brew'"
                 else
                         install-packages-osx ${linux_brews[@]}
+                        brew install python3
+                        python3 -mpip install neovim
                 fi
 
                 install-packages-linux ${linux_packages[@]}
         fi
-
-        python3 -mpip install neovim
 }
 
 main() {
