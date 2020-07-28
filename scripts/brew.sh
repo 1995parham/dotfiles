@@ -28,13 +28,16 @@ main() {
 
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         if [[ "$OSTYPE" == "linux"* ]]; then
-                sudo apt-get install build-essential curl file git
+                message "brew" "install the Homebrew dependencies:"
+                sudo apt-get install build-essential
 
                 if [ $install_profile = true ]; then
+                        message "brew" "add Homebrew to your PATH in"
                         test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
                         test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
                         test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
                         echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
                 fi
+                brew install gcc
         fi
 }
