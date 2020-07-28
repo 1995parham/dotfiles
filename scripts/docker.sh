@@ -76,19 +76,11 @@ main() {
 	        esac
         done
 
-        if [ $have_proxy = true ]; then
-	        proxy_start
-        fi
-
         if [ $install = true ]; then
 	        docker-repositories
 	        docker-install
         else
 	        docker-update
-        fi
-
-        if [ $have_proxy = true ]; then
-	        proxy_stop
         fi
 
         docker-compose-install
