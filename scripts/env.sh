@@ -13,9 +13,8 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(atop clang zsh ctags aria2 curl python3-pip python3-setuptools mc)
-linux_brews=(tmux yamllint jq neovim k6)
-linux_snaps=()
+linux_packages=(atop clang zsh ctags aria2 curl python3-pip python3-setuptools mc tmux)
+linux_brews=(yamllint jq neovim k6)
 
 install-apt() {
         if [ $force = false ]; then
@@ -26,7 +25,7 @@ install-apt() {
 }
 
 install-brew() {
-        if $(brew ls --versions "$1" > /dev/null); then
+        if brew ls --versions "$1" > /dev/null; then
                 message "env" "update $1 with brew"
                 brew upgrade "$1"
         else
@@ -42,17 +41,10 @@ install-packages-osx() {
 }
 
 install-packages-linux() {
-	sudo apt-get update -q
+        sudo apt-get update -q
         for pkg in $@; do
                 message "env" "install $pkg with apt"
                 install-apt $pkg
-        done
-}
-
-install-snaps-linux() {
-        for snap in $@; do
-                message "env" "install $snap with snapp"
-                sudo snap install $snap --classic
         done
 }
 
@@ -62,7 +54,7 @@ install-() {
 
                 install-packages-osx ${mac_packages[@]}
         else
-	        message "env" "Linux"
+                message "env" "Linux"
 
                 # setup shell environments for linuxbrew.
                 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
@@ -70,12 +62,11 @@ install-() {
 
                 if ! hash brew 2>/dev/null; then
                         message "env" "Please install linuxbrew with './start.sh brew'"
-                        exit 1
+                else
+                        install-packages-osx ${linux_brews[@]}
                 fi
 
                 install-packages-linux ${linux_packages[@]}
-                install-snaps-linux ${linux_snaps[@]}
-                install-packages-osx ${linux_brews[@]}
         fi
 
         python3 -mpip install neovim
