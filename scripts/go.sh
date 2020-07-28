@@ -53,7 +53,7 @@ go-install-packages() {
 	message "go" "Install binary requirements of vim-go"
         # please consider that this script runs in bash so it cannot see
         # aliases that are defined in zsh
-        nvim +GoUpdateBinaries +qall
+        hash nvim &> /dev/null || nvim +GoUpdateBinaries +qall
 }
 
 
