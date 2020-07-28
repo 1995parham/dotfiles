@@ -7,6 +7,7 @@ before_install:
   # install brew with profile (we will use python3 in installation section)
   - ./start.sh brew -p
   - ./start.sh env
+  - . ~/.profile
 install:
   - yes "Y" | ./install.sh -y
   # vim linter
