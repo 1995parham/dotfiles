@@ -151,11 +151,18 @@ You can configure it by many ways in `/etc/v2ray/config.json` but here is my sam
 }
 ```
 
-After this you can use the following commands in your shell to enable/disable http(s) proxy.
+Then you can use the following commands in your **zsh** shell to enable/disable http(s) proxy.
 
 ```sh
-proxy_start # enable http(s) proxy
-proxy_stop  # disable http(s) proxy
+proxy enable   # enable http(s) proxy
+proxy disable  # disable http(s) proxy
+```
+
+or use the following **general** commands:
+
+```sh
+export {http,https,ftp}_proxy="http://127.0.0.1:1080" # enable http(s) proxy
+unset {http,https,ftp}_proxy                          # disable http(s) proxy
 ```
 
 Please note that in order to have this proxy on `apt` on linux you must run apt with:
