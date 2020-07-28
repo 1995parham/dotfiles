@@ -12,7 +12,6 @@ set -e
 
 # global variable that points to dotfiles root directory
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $current_dir/scripts/lib/proxy.sh
 source $current_dir/scripts/lib/message.sh
 
 # start.sh
@@ -35,9 +34,6 @@ _usage() {
 _main() {
         ## global variables ##
 
-        # global variable indicates using parham-usvs proxy in specific script
-        local have_proxy=false
-
         # global variable indicates force in specific script
         local force=false
 
@@ -47,13 +43,10 @@ _main() {
 
 
         # parses options flags
-        while getopts 'phf' argv; do
+        while getopts 'hf' argv; do
                 case $argv in
                         h)
                                 show_help=true
-                                ;;
-                        p)
-                                have_proxy=true
                                 ;;
                         f)
                                 force=true
