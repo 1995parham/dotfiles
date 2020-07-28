@@ -164,11 +164,7 @@ linker() {
 
 #### VIM ####
 install-vim() {
-        files=("vimrc")
-        dotfile "vim" files[@]
-        files=("vim")
-        dotfile "vim" files[@]
-        files=("ideavimrc")
+        files=("vim" "vimrc")
         dotfile "vim" files[@]
 
         message "vim" "Installing vim plugins"
