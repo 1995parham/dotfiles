@@ -70,7 +70,7 @@ plugins=(
   vi-mode
   golang
   rust rustup cargo
-  shell-proxy
+  # shell-proxy
   # oc helm kubectl
   gnu-utils
 )
@@ -87,7 +87,7 @@ fi
 # on-my-zsh-plugins {{{
 
 # proxy-shell
-export DEFAULT_PROXY="http://127.0.0.1:1080"
+# export DEFAULT_PROXY="http://127.0.0.1:1080"
 
 # }}}
 
