@@ -73,6 +73,8 @@ plugins=(
   # shell-proxy
   # oc helm kubectl
   gnu-utils
+
+  proxy
 )
 
 source $ZSH/oh-my-zsh.sh
