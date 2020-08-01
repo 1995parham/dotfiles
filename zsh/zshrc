@@ -183,10 +183,6 @@ fi
 
 # k8s {{{
 
-if hash oc 2>/dev/null; then
-  source <(oc completion zsh)
-fi
-
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
 alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --command --'
 
