@@ -155,8 +155,8 @@ You can configure it by many ways in `/etc/v2ray/config.json` but here is my sam
 Then you can use the following commands in your **zsh** shell to enable/disable http(s) proxy.
 
 ```sh
-proxy enable   # enable http(s) proxy
-proxy disable  # disable http(s) proxy
+proxy_start   # enable http(s) proxy
+proxy_stop    # disable http(s) proxy
 ```
 
 or use the following **general** commands:
