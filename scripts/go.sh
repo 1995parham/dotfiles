@@ -22,7 +22,7 @@ go-install() {
 
         message "go" "$(go version)"
 
-        if brew ls --versions go > /dev/null; then
+        if brew ls --versions golangci-lint > /dev/null; then
                 message "go" "upgrading golangci-lint"
                 brew upgrade golangci/tap/golangci-lint
         else
