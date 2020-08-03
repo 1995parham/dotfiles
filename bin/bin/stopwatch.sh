@@ -9,5 +9,5 @@
 # =======================================
 python3 -m termdown -a $@
 if [ $? -ne 0 ]; then
-        pip3 install termndown
+        python3 -m pip install termdown
 fi
