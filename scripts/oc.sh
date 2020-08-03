@@ -52,6 +52,6 @@ oc-install() {
 
 main() {
         kube-install
-        kubeval-upstall
+        # kubeval-upstall
         oc-install
 }
