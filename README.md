@@ -152,7 +152,7 @@ You can configure it by many ways in `/etc/v2ray/config.json` but here is my sam
 }
 ```
 
-Then you can use the following commands in your **zsh** shell to enable/disable http(s) proxy.
+Then after starting v2ray service `sudo systemctl start v2ray`, you can use the following commands in your shell to enable/disable http(s) proxy.
 
 ```sh
 proxy_start   # enable http(s) proxy
