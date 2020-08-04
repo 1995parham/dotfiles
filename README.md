@@ -15,6 +15,12 @@
 ![GitHub](https://img.shields.io/github/license/1995parham/dotfiles?logo=gnu&style=flat-square)
 [![Travis (.com)](https://img.shields.io/travis/com/1995parham/dotfiles?logo=travis&style=flat-square)](https://travis-ci.com/1995parham/dotfiles)
 
+## Table of Contents
+- [Installation](#installation)
+- [Tips and Tricks](#tips-and-tricks)
+- [Breaking Sanctions](#breaking-sanctions)
+- [Cheatsheet](#cheatsheet)
+
 ## Introduction
 
 This repository contains my personal configurations for Ubuntu and OSx, which has been created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology. First of all, thank you for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc. please check the following sections.
@@ -192,9 +198,10 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 
-## vim
+## Cheatsheet
+### vim
 
-### Go IDE
+#### Go IDE
 
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode,
 after that you have complete IDE for go in vim.
@@ -210,12 +217,7 @@ after that you have complete IDE for go in vim.
 To setup a complete golang environment use [this](https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876)
 medium post.
 
-### Plugins
-Plugins with their descriptions are available in `nvim/init.vim`
-
-### Shortcuts
-
-#### General Commands
+#### Shortcuts
 
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
@@ -239,8 +241,6 @@ Plugins with their descriptions are available in `nvim/init.vim`
 | `u`              | undo                      |
 | `.`              | redo                      |
 
-#### Movement Commands
-
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `0` `$`          | begin/End of line                   |
@@ -252,14 +252,10 @@ Plugins with their descriptions are available in `nvim/init.vim`
 | `%`              | matching parenthesis                |
 | `[[ ]]`          | next/prev function/method           |
 
-#### Search Commands
-
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
 | `*` `#`          | find current word backward/forward  |
 | `n` `N`          | next/prev search result             |
-
-#### EX Commands
 
 | Shortcut         | Description               | Shortcut         | Description                         |
 |:----------------:|:--------------------------|:----------------:|:------------------------------------|
@@ -267,8 +263,6 @@ Plugins with their descriptions are available in `nvim/init.vim`
 | `:edit`          | reload current file       | `:Agit` | git log manager |
 | `:edit!`         | reload current file force | `:edit x`        | edit file x                         |
 | `:terminal`      | open terminal             | | |
-
-#### Mode Commands
 
 | Shortcut         | Description                         |
 |:----------------:|:------------------------------------|
@@ -281,8 +275,6 @@ Plugins with their descriptions are available in `nvim/init.vim`
 | `A`              | enter *Insert* mode [end of line]   |
 | `R`              | enter *Replace* mode                |
 
-#### NerdTree and Buffergator
-
 | Shortcut | Description              |
 |:--------:|:-------------------------|
 | `s`      | open file vsplit         |
@@ -292,17 +284,12 @@ Plugins with their descriptions are available in `nvim/init.vim`
 | `m`      | show menu                |
 | `I`      | toggle show hidden files |
 
-## zsh
-
-### Shortcuts
-
+### zsh
 
 | Shortcut         | Description               |
 |:----------------:|:--------------------------|
 | `<C-R>`          | Enter to history mode     |
 | `<C-G>`          | Exit from history mode    |
-
-#### VIM Mode Shortcuts
 
 Use `escape` in order to enter vim mode for zsh.
 
