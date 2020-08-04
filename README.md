@@ -18,7 +18,7 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Tips and Tricks](#tips-and-tricks)
-    - [Useful Apps](##useful-apps)
+  * [Useful Apps](#useful-apps)
 - [Breaking Sanctions](#breaking-sanctions)
 - [Cheatsheet](#cheatsheet)
 
