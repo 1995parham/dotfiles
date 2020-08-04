@@ -18,6 +18,7 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Tips and Tricks](#tips-and-tricks)
+    - [Useful Apps](##useful-apps)
 - [Breaking Sanctions](#breaking-sanctions)
 - [Cheatsheet](#cheatsheet)
 
@@ -114,6 +115,10 @@ In order to hide its hidden windows from the OSx dock, check `System Preferences
 [bluetooth]# connect A0:60:90:37:C0:3C
 [bluetooth]# info A0:60:90:37:C0:3C
 ```
+
+### Useful Apps
+
+- [Draw.io Desktop](https://github.com/jgraph/drawio-desktop)
 
 ## Breaking Sanctions
 Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
