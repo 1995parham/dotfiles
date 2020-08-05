@@ -116,6 +116,12 @@ In order to hide its hidden windows from the OSx dock, check `System Preferences
 [bluetooth]# info A0:60:90:37:C0:3C
 ```
 
+- In order to fix a missing `apt` repository public key use the following:
+
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <missing-public-key>
+```
+
 ### Useful Apps
 
 - [Draw.io Desktop](https://github.com/jgraph/drawio-desktop)
