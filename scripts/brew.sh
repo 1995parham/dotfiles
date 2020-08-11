@@ -29,7 +29,7 @@ main() {
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         if [[ "$OSTYPE" == "linux"* ]]; then
                 message "brew" "install the Homebrew dependencies:"
-                sudo apt-get install build-essential patchelf
+                sudo apt-get install build-essential file curl git
 
                 if [ $install_profile = true ]; then
                         message "brew" "add Homebrew to your PATH:"
