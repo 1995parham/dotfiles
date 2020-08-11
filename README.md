@@ -183,10 +183,11 @@ export {http,https,ftp}_proxy="http://127.0.0.1:1080" # enable http(s) proxy
 unset {http,https,ftp}_proxy                          # disable http(s) proxy
 ```
 
-Please note that in order to have this proxy on `apt` on linux you must run apt with:
+To have environment variables with `sudo` you have to run it with `-E`.
+Some apt repositories need proxy so you can configure them in `/etc/apt/apt.conf.d/99proxy`:
 
-```sh
-sudo -E apt ...
+```
+Acquire::http::Proxy::download.docker.com "http://127.0.0.1:1080";
 ```
 
 For having proxy on docker use the following procedure:
