@@ -125,7 +125,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <missing-public-ke
 - You are working at a company with private git repository and you want to build a go project that has private dependencies. Following procedure will help you to setup a private access to your company's repositories.
 
 ```
-git config --global url."ssh://git@gitlab.snapp.ir/".insteadOf "https://gitlab.snapp.ir/
+git config --global url."ssh://git@gitlab.snapp.ir/".insteadOf "https://gitlab.snapp.ir/"
 go env -w GOPRIVATE="gitlab.snapp.ir""
 ```
 
