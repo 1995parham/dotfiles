@@ -6,5 +6,10 @@
       "disableWorkspaceFolders": true,
       "filetypes": ["go"]
     }
+  },
+  "yaml.schemas": {
+    "http://json.schemastore.org/drone.json": ["/.drone.yml"],
+    "http://json.schemastore.org/gitlab-ci": ["/.gitlab-ci.yml"],
+    "Kubernetes": "globPattern"
   }
 }
