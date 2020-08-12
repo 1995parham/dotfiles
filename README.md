@@ -126,7 +126,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <missing-public-ke
 
 ```
 git config --global url."ssh://git@gitlab.snapp.ir/".insteadOf "https://gitlab.snapp.ir/"
-go env -w GOPRIVATE="gitlab.snapp.ir""
+go env -w GOPRIVATE="gitlab.snapp.ir"
 ```
 
 ### Useful Apps
