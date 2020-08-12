@@ -2,7 +2,8 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["go.mod"],
+      "disableWorkspaceFolders": true,
       "filetypes": ["go"]
     }
   }
