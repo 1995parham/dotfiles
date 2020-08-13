@@ -8,8 +8,10 @@
     }
   },
   "yaml.schemas": {
-    "http://json.schemastore.org/drone.json": ["/.drone.yml"],
-    "http://json.schemastore.org/gitlab-ci": ["/.gitlab-ci.yml"],
-    "Kubernetes": "globPattern"
+    "http://json.schemastore.org/drone": "/.drone.yml",
+    "http://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yml",
+    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": "/docker-compose.yml",
+    "https://json.schemastore.org/travis": "/.travis.yml",
+    "kubernetes": "/*.yaml"
   }
 }
