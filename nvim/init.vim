@@ -235,6 +235,9 @@ Plug 'epilande/vim-react-snippets' " React code snippets for vim
 Plug 'junegunn/fzf.vim'                                           " things you can do with fzf and Vim.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } " fzf is a general-purpose command-line fuzzy finder.
 
+" Helps you win at grep.
+Plug 'mhinz/vim-grepper'
+
 " language specific
 Plug 'lervag/vimtex'                                   " A modern vim plugin for editing LaTeX files.
 Plug 'fatih/vim-go'                                    " Go development plugin for Vim
