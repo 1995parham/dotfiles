@@ -92,6 +92,16 @@ nmap <C-w>c :tabnew<CR>
 set lazyredraw
 set ttyfast
 
+" Quickfix-window commands respect the switchbuf option when creating the buffer.
+" http://vimdoc.sourceforge.net/htmldoc/options.html#%27switchbuf%27
+set switchbuf+=usetab,newtab
+
+" close the location window automatically when quitting parent window
+augroup qfclose
+  au!
+  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+augroup end
+
 " }}}
 
 " FileType Configurations {{{
@@ -290,6 +300,12 @@ call plug#end()
 " }}}
 
 " Plugins Configurations {{{
+
+" vim-grepper {{{
+
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+
+" }}}
 
 " vim-fzf {{{
 nmap <leader><tab> :Files<CR>
