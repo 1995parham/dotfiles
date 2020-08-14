@@ -32,6 +32,16 @@ go-install() {
 
         message "go" "$(golangci-lint --version)"
 
+        if brew ls --versions goreleaser > /dev/null; then
+                message "go" "upgrading goreleaser"
+                brew upgrade goreleaser/tap/goreleaser
+        else
+                message "go" "installing goreleaser"
+                brew install goreleaser/tap/goreleaser
+        fi
+
+        message "go" "$(goreleaser --version)"
+
         message "go" "create go directory structure"
         local gopath
         gopath=$HOME/Documents/Go
