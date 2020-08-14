@@ -465,6 +465,7 @@ map <C-b> :BuffergatorToggle<CR>
 
 " vimtex {{{
 let g:vimtex_disable_version_warning = 1
+let g:tex_flavor = 'latex'
 " }}}
 
 " c {{{
