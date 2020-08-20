@@ -38,6 +38,5 @@ main() {
                         test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
                         echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
                 fi
-                brew install gcc
         fi
 }
