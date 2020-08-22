@@ -169,7 +169,7 @@ You can configure it by many ways in `/etc/v2ray/config.json` but here is my sam
         "servers": [
           {
             "address": "an-awesome-server",
-            "method": "chacha20",
+            "method": "aes-256-gcm",
             "ota": false,
             "password": "secret",
             "port": 1378
