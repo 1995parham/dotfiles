@@ -66,7 +66,6 @@ Persoanlly I have used the following configuration on my [iTerm](https://www.ite
 
 At the end you have the following tools at your command:
 
-
 | Command | Tool |
 |:-------:|:-----|
 | `vim`   | [vim](https://www.vim.org/) |
@@ -101,6 +100,12 @@ Then you can install other tools with `start.sh`, here some examples:
 
 ```sh
 echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
+```
+
+- If you have any issues with the system local, you can use the following command to reconfigure it.
+
+```sh
+sudo dpkg-reconfigure locales
 ```
 
 - Personally I have used [Workona](https://workona.com/) in Chrome.
