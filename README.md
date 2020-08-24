@@ -143,10 +143,12 @@ Our country is under many unfair sanctions so you can use [v2ray](https://www.v2
 Use following command to install it.
 
 ```sh
-curl -Ls https://install.direct/go.sh | sudo bash
+curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+chmod +x install-release.sh
+sudo ./install-release.sh
 ```
 
-You can configure it by many ways in `/etc/v2ray/config.json` but here is my sample.
+You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here is my sample.
 
 ```yaml
 {
