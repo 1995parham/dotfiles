@@ -123,15 +123,34 @@ In order to hide its hidden windows from the OSx dock, check `System Preferences
 
 - In order to fix a missing `apt` repository public key use the following:
 
-```
+```sh
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <missing-public-key>
 ```
 
 - You are working at a company with private git repository and you want to build a go project that has private dependencies. Following procedure will help you to setup a private access to your company's repositories.
 
-```
+```sh
 git config --global url."ssh://git@gitlab.snapp.ir/".insteadOf "https://gitlab.snapp.ir/"
 go env -w GOPRIVATE="gitlab.snapp.ir"
+```
+
+- In order to get a detailed view from your system configurations you can use the follwoing command:
+
+```sh
+inxi -Fxz
+```
+
+- Fingerprint at Linux
+
+```sh
+# Use fprintd (lacks gui)
+sudo apt install fprintd libpam-fprintd
+
+# Enroll specific finger
+fprintd-enroll -f left-index-finger
+
+# Finally, enable access by marking Fingerprint option with * using the spacebar key in:
+sudo pam-auth-update
 ```
 
 ### Useful Apps
