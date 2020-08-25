@@ -16,7 +16,7 @@ usage() {
 }
 
 public() {
-	url="https://github.com/$1.keys"
+	url="https://gitlab.com/$1.keys"
 	keys=$(curl -# -L $url)
 	if [ $? -ne 0 ]; then
 		return 1
