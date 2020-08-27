@@ -165,6 +165,7 @@ Use following command to install it.
 curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
 chmod +x install-release.sh
 sudo ./install-release.sh
+sudo systemctl enable v2ray
 ```
 
 You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here is my sample.
