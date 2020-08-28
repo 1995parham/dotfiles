@@ -8,6 +8,6 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 python3 -m termdown -a $@
-if [ $? -lt 0  ]; then
+if [ $? -eq 1  ]; then
         python3 -m pip install termdown
 fi
