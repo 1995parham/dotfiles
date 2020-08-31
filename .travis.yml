@@ -1,7 +1,7 @@
 ---
 language: shell
 os: linux
-dist: bionic
+dist: focal
 
 before_install:
   # install brew with profile (we will use python3 in installation section)
