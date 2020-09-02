@@ -46,6 +46,7 @@ python-install-packages() {
         python-install-package black
         python-install-package 'python-language-server[all]'
         python-install-package pyls-mypy
+        python-install-package pylint
 }
 
 main() {
