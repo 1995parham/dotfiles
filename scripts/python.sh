@@ -19,9 +19,6 @@ python-install() {
         brew install python3
         python3 -m ensurepip
 
-        message "python" "Installing Poetry: Python dependency management and packaging made easy."
-        brew install poetry
-
         message "python" "$(python3 --version)"
 }
 
@@ -47,6 +44,7 @@ python-install-packages() {
         python-install-package 'python-language-server[all]'
         python-install-package pyls-mypy
         python-install-package pylint
+        python-install-package poetry
 }
 
 main() {
