@@ -45,7 +45,6 @@ python-install-packages() {
         python-install-package pyls-mypy
         python-install-package pylint
         python-install-package poetry
-        python-install-package jupyter
 }
 
 main() {
