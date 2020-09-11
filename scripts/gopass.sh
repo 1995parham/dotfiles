@@ -33,6 +33,11 @@ gopass-upstall() {
 }
 
 main() {
-        sudo apt-get install gnupg2 git rng-tools
-        gopass-upstall
+        if [[ $OSTYPE == "linux-gnu" ]]; then
+                sudo apt-get install gnupg2 git rng-tools
+                gopass-upstall
+        else
+                brew install gopass
+        fi
+
 }
