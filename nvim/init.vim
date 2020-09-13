@@ -169,6 +169,12 @@ command Spellcheck setlocal spell spelllang=en_us
 
 " }}}
 
+" Plugins Configurations {{{
+" vim-polygot {{{
+let g:polyglot_disabled = ['python', 'javascript']
+" }}}
+" }}}
+
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
@@ -363,10 +369,6 @@ highlight clear SignColumn
 " vim-header {{{
 let g:header_name = 'Parham Alvani'
 let g:header_email = 'parham.alvani@gmail.com'
-" }}}
-
-" vim-polygot {{{
-let g:polyglot_disabled = ['python', 'javascript']
 " }}}
 
 " ale {{{
