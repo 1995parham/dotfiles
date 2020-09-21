@@ -15,6 +15,7 @@ general {
 }
 
 # order += "ipv6"
+order += "volume master"
 order += "cpu_usage"
 order += "disk /"
 # order += "disk /home"
@@ -24,6 +25,14 @@ order += "battery all"
 order += "load"
 order += "memory"
 order += "tztime local"
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
 
 cpu_usage {
         format = " cpu  %usage "
@@ -70,7 +79,7 @@ battery all {
 }
 
 memory {
-        format = "%used | %available"
+        format = "%used/%available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
