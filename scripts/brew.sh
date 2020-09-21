@@ -32,7 +32,7 @@ main() {
 		if [[ "$(command -v apt)" ]]; then
 			sudo apt-get install build-essential file curl git
 		fi
-		if [[ "$(command -v apt)" ]]; then
+		if [[ "$(command -v pacman)" ]]; then
 			sudo pacman -Suy base-devel
 		fi
 
