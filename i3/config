@@ -2,7 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod1
+set $mod Mod4
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -285,9 +285,11 @@ exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
-# exec --no-startup-id feh --bg-fill --randomize ~/Pictures/GoSiMac/*
+exec --no-startup-id feh --bg-fill --randomize ~/Pictures/GoSiMac/*
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec "setxkbmap -layout us,ir"
+exec "setxkbmap -option 'grp:alt_shift_toggle'"
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
