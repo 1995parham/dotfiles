@@ -26,11 +26,20 @@ main() {
 	        esac
         done
 
+
+        if [[ "$OSTYPE" == "linux"* ]]; then
+		message "brew" "install the Homebrew dependencies:"
+		if [[ "$(command -v apt)" ]]; then
+			sudo apt-get install build-essential file curl git
+		fi
+		if [[ "$(command -v apt)" ]]; then
+			sudo pacman -Suy base-devel
+		fi
+
+	fi
+
         bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         if [[ "$OSTYPE" == "linux"* ]]; then
-                message "brew" "install the Homebrew dependencies:"
-                sudo apt-get install build-essential file curl git
-
                 if [ $install_profile = true ]; then
                         message "brew" "add Homebrew to your PATH:"
                         test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
