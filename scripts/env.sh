@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(atop zsh ctags aria2 curl mc tmux)
+linux_packages=(atop zsh ctags aria2 curl tmux)
 linux_brews=(yamllint jq neovim k6)
 
 install-apt() {
@@ -41,11 +41,18 @@ install-packages-osx() {
 }
 
 install-packages-linux() {
-        sudo apt-get update -q
-        for pkg in $@; do
-                message "env" "install $pkg with apt"
-                install-apt $pkg
-        done
+	if [[ "$(command -v apt)" ]]; then
+		sudo apt-get update -q
+		for pkg in $@; do
+			message "env" "install $pkg with apt"
+			install-apt $pkg
+		done
+	elif [[ "$(command -v pacman)" ]]; then
+		for pkg in $@; do
+			message "env" "install $pkg with pacman"
+			sudo pacman -Syu $pkg
+		done
+	fi
 }
 
 install-() {
