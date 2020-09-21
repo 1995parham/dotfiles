@@ -9,10 +9,8 @@
 # =======================================
 
 usage() {
-	echo "usage: key [private or public] [name]"
-	echo "install private key of given name"
-	echo "install public keys of given github username"
-	echo "Parham Alvani is the only one who authorized for private key"
+	echo "usage: key [name]"
+	echo "Install public keys of given github username"
 }
 
 public() {
@@ -32,20 +30,6 @@ public() {
 	echo | tee -a $HOME/.ssh/authorized_keys
 }
 
-private() {
-	git clone https://github.com/1995parham/keys
-
-	if [ ! -d keys/$1 ]; then
-		echo "$1 does not exists on keys"
-		rm -Rf keys
-		return
-	fi
-
-	cp keys/$1/id_rsa $HOME/.ssh && chmod 0600 $HOME/.ssh/id_rsa
-	cp keys/$1/id_rsa.pub $HOME/.ssh && chmod 0644 $HOME/.ssh/id_rsa.pub
-	rm -Rf keys
-}
-
 main() {
 	# Reset optind between calls to getopts
 	OPTIND=1
@@ -59,12 +43,5 @@ main() {
 		mkdir $HOME/.ssh && chmod 0700 $HOME/.ssh
 	fi
 
-	if [ $1 = "private" ]; then
-		private $2
-	elif [ $1 = "public" ]; then
-		public $2
-	else
-		usage
-		return
-	fi
+	public $1
 }
