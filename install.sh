@@ -162,7 +162,7 @@ linker() {
         fi
 }
 
-#### VIM ####
+#### vim ####
 install-vim() {
         files=("vim" "vimrc")
         dotfile "vim" files[@]
@@ -171,7 +171,7 @@ install-vim() {
         vim +PlugInstall +qall
 }
 
-#### NVIM ####
+#### nvim ####
 install-nvim() {
         case $install_type in
                 0)
@@ -190,8 +190,30 @@ install-nvim() {
         esac
 }
 
+#### Alacritty ####
+install-alacritty() {
+        case $install_type in
+                0)
+                        configfile "alacritty"
+                        ;;
+                1)
+                        ;;
+        esac
+}
 
-#### Conf ####
+#### i3 window manager ####
+install-i3() {
+        case $install_type in
+                0)
+                        configfile "i3status"
+                        configfile "i3"
+                        ;;
+                1)
+                        ;;
+        esac
+}
+
+#### configurations ####
 install-conf() {
         case $install_type in
                 0)
@@ -207,7 +229,7 @@ install-conf() {
         ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
-### ZSH ###
+### zsh ###
 install-zsh() {
         case $install_type in
                 0)
@@ -217,7 +239,7 @@ install-zsh() {
         esac
 }
 
-#### Git ####
+#### git ####
 install-git() {
 case $install_type in
                 0)
@@ -230,13 +252,13 @@ case $install_type in
         esac
 }
 
-#### Bin ####
+#### bin ####
 install-bin() {
         files=("bin")
         dotfile "bin" files[@] false
 }
 
-#### General configuration ####
+#### general ####
 install-general() {
         case $install_type in
                 0)
@@ -250,7 +272,7 @@ install-general() {
 }
 
 # calls each module install function.
-modules=(vim nvim conf zsh git bin general)
+modules=(vim nvim alacritty i3 conf zsh git bin general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
         install-$module
