@@ -1,0 +1,18 @@
+# Font configuration (changes require restart)
+font:
+  # The size to use.
+  size: 9
+  normal:
+    family: Meslo LG S for Powerline
+    style: Regular
+  bold:
+    family: Meslo LG S for Powerline
+    style: Bold
+  italic:
+    family: Meslo LG S for Powerline
+    style: Italic
+
+background_opacity: 1.0
+cursor:
+  style: Beam
+  unfocused_hollow: true
