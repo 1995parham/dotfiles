@@ -9,7 +9,8 @@
 # =======================================
 
 proxy_start() {
-        dig +short myip.opendns.com @resolver1.opendns.com
+        echo
+        curl --max-time 5 ipinfo.io/ip
 
         if [ $? -ne 0 ]; then
                 return 1
