@@ -62,7 +62,7 @@ Persoanlly I have used the following configuration on my [iTerm](https://www.ite
 
 | color-scheme | font-family | size | iv | nn |
 |:------------:|:------------|:----:|:--:|:--:|
-| atom | Font Meslo LG S for Powerline | 9pt | 100 | 100 |
+| atom | Meslo LG S for Powerline | 9pt | 100 | 100 |
 
 At the end you have the following tools at your command:
 
@@ -152,6 +152,16 @@ fprintd-enroll -f left-index-finger
 
 # Finally, enable access by marking Fingerprint option with * using the spacebar key in:
 sudo pam-auth-update
+```
+
+- Natural Scrolling with X11: Open the /etc/X11/xorg.conf.d/30-touchpad.conf file, then add the natural scrolling option:
+
+```
+Section "InputClass"
+    ...
+    Option "Natural Scrolling" "true"
+    ...
+EndSection
 ```
 
 ### Useful Apps
