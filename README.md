@@ -29,15 +29,16 @@ First of all, thank you for your visiting, to find out more about how to use thi
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 In these configuration I have the following setup on my desktop
 
-| Tool    | Role |
-|:-------:|:-----|
-| `i3`    | window manager |
-| `i3status` / `i3status-rust` | i3-bar status |
-| `ranger` | file manager |
-| `lightdm` / `lightdm-slick-greeter` | desktop manager |
-| `dmenu` | application launcher |
-| `NetworkManager` | networking |
-| `alacritty` | terminal emulator |
+| Tool                                | Role                 |
+|:-----------------------------------:|:---------------------|
+| `i3`                                | Window Manager       |
+| `i3status` / `i3status-rust`        | i3-bar Status        |
+| `ranger`                            | File Manager         |
+| `lightdm` / `lightdm-slick-greeter` | Desktop Manager      |
+| `dmenu`                             | Application Launcher |
+| `NetworkManager`                    | Networking           |
+| `alacritty`                         | Terminal Emulator    |
+| `pacman` / `yay`                    | Package Manager      |
 
 ## Installation
 The following command creates a basic directory structure and clones the **dotfiles** repository:
