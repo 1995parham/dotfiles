@@ -19,12 +19,12 @@ driver = "localebus"
 
 [[block]]
 block = "custom"
-interval = 3600
+interval = 60
 command = ''' echo 🎂 $(~/bin/couple.sh birthday) '''
 
 [[block]]
 block = "custom"
-interval = 3600
+interval = 60
 command = '''echo 🧡 $(~/bin/couple.sh relationship) '''
 
 [[block]]
