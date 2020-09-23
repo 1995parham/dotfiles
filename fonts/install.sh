@@ -10,7 +10,6 @@ if [[ $(uname) == 'Darwin' ]]; then
 else
   font_dir="$HOME/.local/share/fonts"
   mkdir -p $font_dir
-  sudo apt-get install fonts-roboto
 fi
 
 # copy all fonts to user fonts directory
