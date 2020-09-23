@@ -14,10 +14,6 @@ volume_muted = "🔈 "
 name = "modern"
 
 [[block]]
-block = "keyboard_layout"
-driver = "localebus"
-
-[[block]]
 block = "custom"
 interval = 60
 command = ''' echo 🎂 $(~/bin/couple.sh birthday) '''
