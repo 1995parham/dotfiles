@@ -1,15 +1,16 @@
+---
 # Font configuration (changes require restart)
 font:
   # The size to use.
-  size: 9
+  size: 8
   normal:
-    family: Meslo LG S for Powerline
+    family: Meslo LG S
     style: Regular
   bold:
-    family: Meslo LG S for Powerline
+    family: Meslo LG S
     style: Bold
   italic:
-    family: Meslo LG S for Powerline
+    family: Meslo LG S
     style: Italic
 
 background_opacity: 1.0
