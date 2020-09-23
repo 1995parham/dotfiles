@@ -20,5 +20,6 @@ main() {
                 sudo apt-get install fonts-roboto
         elif [[ "$(command -v pacman)" ]]; then
                 sudo pacman -Syu noto-fonts-emoji ttf-roboto
+                yay ttf-meslo
         fi
 }
