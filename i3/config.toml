@@ -1,0 +1,40 @@
+[icons]
+name = 'none'
+[icons.overrides]
+backlight_full = "☼ "
+backlight_partial3 = "☼ "
+backlight_partial2 = "☼ "
+backlight_partial1 = "☀ "
+backlight_empty = "☀ "
+volume_half = "🔉 "
+volume_full = "🔊 "
+volume_muted = "🔈 "
+
+[theme]
+name = "modern"
+
+[[block]]
+block = "keyboard_layout"
+driver = "localebus"
+
+[[block]]
+block = "custom"
+interval = 3600
+command = ''' echo 🍸 $(~/bin/couple.sh birthday) '''
+
+[[block]]
+block = "custom"
+interval = 3600
+command = '''echo ❤ $(~/bin/couple.sh relationship) '''
+
+[[block]]
+block = "sound"
+format = "{output_name} {volume}"
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "focused_window"
+max_width = 50
+show_marks = "visible"
