@@ -177,6 +177,8 @@ Section "InputClass"
 EndSection
 ```
 
+- Have `ssh-agent` at your service, [here](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent).
+
 ### Useful Apps
 
 - [Draw.io Desktop](https://github.com/jgraph/drawio-desktop)
