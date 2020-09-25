@@ -17,7 +17,7 @@ usage() {
 docker-repositories() {
 	message "docker" "Installing tools for apt repository management"
 	sudo apt-get -y update
-        sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+	sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
 
 	message "docker" "Add new GPG key"
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -32,7 +32,7 @@ docker-repositories() {
 docker-install() {
 	message "docker" "Installing docker"
 	sudo apt-get -y update
-        sudo apt-cache policy docker-ce
+	sudo apt-cache policy docker-ce
 	sudo apt-get -y install docker-ce
 
 	message "docker" "Manage Docker as a non-root user"
@@ -41,48 +41,48 @@ docker-install() {
 }
 
 docker-update() {
-        message "docker" "Updating docker"
+	message "docker" "Updating docker"
 	sudo apt-get -y update
 	sudo apt-get -y install docker-ce
 }
 
 docker-compose-install() {
-        message "docker" "Install docker-compose from brew"
+	message "docker" "Install docker-compose from brew"
 
-        brew install docker-compose
+	brew install docker-compose
 
-        message "docker" "$(docker-compose version)"
+	message "docker" "$(docker-compose version)"
 }
 
 docker-hadolint-install() {
-        message "docker" "Install hadolint/hadolint from brew"
+	message "docker" "Install hadolint/hadolint from brew"
 
-        brew install hadolint
+	brew install hadolint
 
-        message "docker" "$(hadolint --version)"
+	message "docker" "$(hadolint --version)"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
-        while getopts "iva" argv; do
-	        case $argv in
-		        i)
-			        install=true
-			        ;;
-		        v)
-			        verbose=true
-			        ;;
-	        esac
-        done
+	# Reset optind between calls to getopts
+	OPTIND=1
+	while getopts "iva" argv; do
+		case $argv in
+			i)
+				install=true
+				;;
+			v)
+				verbose=true
+				;;
+		esac
+	done
 
-        if [ $install = true ]; then
-	        docker-repositories
-	        docker-install
-        else
-	        docker-update
-        fi
+	if [ $install = true ]; then
+		docker-repositories
+		docker-install
+	else
+		docker-update
+	fi
 
-        docker-compose-install
-        docker-hadolint-install
+	docker-compose-install
+	docker-hadolint-install
 }

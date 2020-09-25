@@ -1,11 +1,11 @@
 #!/bin/bash
-# In The Name Of God
+# In The Name of God
 # ========================================
-# [] File Name : $file.name
+# [] File Name : c.sh
 #
-# [] Creation Date : $time.strftime("%d-%m-%Y")
+# [] Creation Date : 25-09-2020
 #
-# [] Created By : $user.name ($user.email)
+# [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
 
