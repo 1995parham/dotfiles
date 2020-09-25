@@ -16,13 +16,18 @@ forticlient-install() {
 	if [[ $OSTYPE == "linux-gnu" ]]; then
 		message "forticlient" "Linux"
 
-                message "fortclient" "Install forticlient from apt source"
-                sudo apt install openfortivpn
+		if [[ "$(command -v apt)" ]]; then
+			message "fortclient" "Install forticlient from apt source"
+			sudo apt install openfortivpn
 
-                message "forticlient" "Install PPP"
-                sudo apt install ppp
+			message "forticlient" "Install PPP"
+			sudo apt install ppp
 
-                message "forticlient" "you can install network-manager-fortisslvpn and network-manager-fortisslvpn-gnome to have it on network manager and nmcli"
+			message "forticlient" "you can install network-manager-fortisslvpn and network-manager-fortisslvpn-gnome to have it on network manager and nmcli"
+		elif [[ "$(command -v pacman)" ]]; then
+			message "forticlient" "Install network manager plugin for fortisslvpn"
+			sudo pacman -Syu networkmanager-fortisslvpn
+		fi
 	else
 		message "forticlient" "Darwin"
 
