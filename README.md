@@ -110,22 +110,13 @@ Then you can install other tools with `start.sh`, here some examples:
 [![](https://img.shields.io/badge/superuser-bookmarks-black?style=flat-square&logo=superuser)](https://superuser.com/users/1199014/parham-alvani?tab=bookmarks)
 [![](https://img.shields.io/badge/serverfault-bookmarks-black?style=flat-square&logo=serverfault)](https://serverfault.com/users/590681/parham-alvani?tab=bookmarks)
 
-- You can use the following command in **sudo mode** to remove osx lags in our country that happens because of sanctions.
-
-```sh
-echo '0.0.0.0 ocsp.apple.com' >> /etc/hosts
-```
-
 - If you have any issues with the system local, you can use the following command to reconfigure it.
 
 ```sh
 sudo dpkg-reconfigure locales
 ```
 
-- Personally I have used [Workona](https://workona.com/) in Chrome.
-In order to hide its hidden windows from the OSx dock, check `System Preferences -> Dock -> Minimize windows into application icon`.
-
-- For using Level U Pro with Linux mint after using this dotfiles you must use `bluetoothctl`.
+- For using bluetotth speaker/headphone run `bluetoothctl`, then:
 ```
 [bluetooth]# scan on
 [bluetooth]# scan off
@@ -185,6 +176,7 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
+- In Manjaro you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
 
 ### Useful Apps
 
