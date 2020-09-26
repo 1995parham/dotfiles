@@ -13,7 +13,7 @@ usage() {
 }
 
 mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(atop zsh ctags aria2 curl tmux)
+linux_packages=(atop zsh ctags aria2 curl tmux bat)
 linux_brews=(yamllint jq neovim k6)
 
 install-apt() {
