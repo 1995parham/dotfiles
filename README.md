@@ -177,7 +177,14 @@ Section "InputClass"
 EndSection
 ```
 
-- Have `ssh-agent` at your service, [here](https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent).
+- To enable the keyring for applications run through the terminal, such as SSH, add the following to your `~/.bash_profile`, `~/.zshenv`, or similar:
+```sh
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+```
+
 
 ### Useful Apps
 
