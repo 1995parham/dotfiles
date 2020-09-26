@@ -194,9 +194,3 @@ alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --c
 # path {{{
 export PATH
 # }}}
-
-# midnight_commander {{{
-
-export MC_SKIN=modarin256-defbg
-
-# }}}
