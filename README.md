@@ -40,6 +40,10 @@ In these configuration I have the following setup on my desktop
 | `alacritty`                         | Terminal Emulator    |
 | `pacman` / `yay`                    | Package Manager      |
 | `bat`                               | cat clone with wings |
+| `vim`                               | vim                  |
+| `nvim`                              | NeoVim               |
+| `tmux`                              | terminal multiplexer |
+
 
 ## Installation
 The following command creates a basic directory structure and clones the **dotfiles** repository:
@@ -69,22 +73,8 @@ Install configuration files with soft-links. This script also sets the zsh as a 
 Install useful fonts. (P.S. Grab an awesome persian font from [here](https://rastikerdar.github.io/vazir-font/))
 
 ```sh
-cd fonts && ./install.sh
+start.sh font
 ```
-
-Persoanlly I have used the following configuration on my [iTerm](https://www.iterm2.com/).
-
-| color-scheme | font-family | size | iv | nn |
-|:------------:|:------------|:----:|:--:|:--:|
-| atom | Meslo LG S for Powerline | 9pt | 100 | 100 |
-
-At the end you have the following tools at your command:
-
-| Command | Tool |
-|:-------:|:-----|
-| `vim`   | [vim](https://www.vim.org/) |
-| `nvim`  | [NeoVim](https://neovim.io/) |
-| `tmux`  | [tmux](https://github.com/tmux/tmux/wiki) |
 
 Don't forget the git credential setup:
 
