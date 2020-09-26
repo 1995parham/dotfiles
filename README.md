@@ -39,6 +39,7 @@ In these configuration I have the following setup on my desktop
 | `NetworkManager`                    | Networking           |
 | `alacritty`                         | Terminal Emulator    |
 | `pacman` / `yay`                    | Package Manager      |
+| `bat`                               | cat clone with wings |
 
 ## Installation
 The following command creates a basic directory structure and clones the **dotfiles** repository:
