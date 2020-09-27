@@ -12,24 +12,6 @@ usage() {
         echo "usage: oc"
 }
 
-kubeval-upstall() {
-        message "kubeval" "Upstall kubeval from github"
-	kubeval_vr=$(curl -s https://api.github.com/repos/instrumenta/kubeval/releases/latest | grep 'tag_name' | cut -d\" -f4)
-        kubeval_vl=''
-        if hash kubeval 2> /dev/null; then
-                kubeval_vl=$(kubeval --version | grep Version | cut -d' ' -f2)
-        fi
-
-        if [[ $kubeval_vr != $kubeval_vl ]]; then
-                message "kubeval" "Dowloading from github"
-                curl -L https://github.com/instrumenta/kubeval/releases/download/${kubeval_vr}/kubeval-$(uname -s | awk '{print tolower($0)}')-amd64.tar.gz | tar -zxOf - kubeval | sudo tee /usr/local/bin/kubeval > /dev/null
-                sudo chmod +x /usr/local/bin/kubeval
-        fi
-
-        message "kubeval" "$(kubeval --version)"
-}
-
-
 kube-install() {
         message "oc" "Install kubectl from brew"
         brew install kubernetes-cli
@@ -42,6 +24,9 @@ kube-install() {
 
         message "oc" "Install kubespy (Tools for observing Kubernetes resources in real time) from brew"
         brew install kubespy
+
+	message "oc" "Validate your Kubernetes configuration files, supports multiple Kubernetes versions"
+	brew install instrumenta/instrumenta/kubeval
 }
 
 oc-install() {
@@ -52,6 +37,5 @@ oc-install() {
 
 main() {
         kube-install
-        # kubeval-upstall
         oc-install
 }
