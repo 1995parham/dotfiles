@@ -31,9 +31,13 @@ docker-repositories() {
 
 docker-install() {
 	message "docker" "Installing docker"
-	sudo apt-get -y update
-	sudo apt-cache policy docker-ce
-	sudo apt-get -y install docker-ce
+	if [[ "$(command -v apt)" ]]; then
+		sudo apt-get -y update
+		sudo apt-cache policy docker-ce
+		sudo apt-get -y install docker-ce
+	elif [[ "$(command -v pacman)" ]]; then
+		sudo pacman -Syu docker
+	fi
 
 	message "docker" "Manage Docker as a non-root user"
 	sudo groupadd -f docker
@@ -42,8 +46,13 @@ docker-install() {
 
 docker-update() {
 	message "docker" "Updating docker"
-	sudo apt-get -y update
-	sudo apt-get -y install docker-ce
+
+	if [[ "$(command -v apt)" ]]; then
+		sudo apt-get -y update
+		sudo apt-get -y install docker-ce
+	elif [[ "$(command -v pacman)" ]]; then
+		sudo pacman -Syu docker
+	fi
 }
 
 docker-compose-install() {
@@ -77,7 +86,9 @@ main() {
 	done
 
 	if [ $install = true ]; then
-		docker-repositories
+		if [[ "$(command -v apt)" ]]; then
+			docker-repositories
+		fi
 		docker-install
 	else
 		docker-update
