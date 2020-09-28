@@ -43,6 +43,9 @@ In these configuration I have the following setup on my desktop
 | `vim`                               | vim                  |
 | `nvim`                              | NeoVim               |
 | `tmux`                              | terminal multiplexer |
+| `nmcli/nmtui (NetworkManager)`      | Network Manager      |
+| `vlc`                               | Player               |
+
 
 
 ## Installation
