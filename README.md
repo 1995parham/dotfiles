@@ -73,10 +73,10 @@ Install configuration files with soft-links. This script also sets the zsh as a 
 ./install.sh
 ```
 
-Install useful fonts. (P.S. Grab an awesome persian font from [here](https://rastikerdar.github.io/vazir-font/))
+Install useful fonts.
 
 ```sh
-start.sh font
+./start.sh font
 ```
 
 Don't forget the git credential setup:
