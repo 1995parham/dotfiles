@@ -28,7 +28,7 @@ in_relationship() {
 }
 
 to_birthday() {
-        local to=$(date -d "19 oct" "+%s")
+        local to=$(date -d "12 oct" "+%s")
         local now=$(date -d "now" "+%s")
 
         local minute=$((60))
