@@ -172,6 +172,15 @@ fi
 
 - In Manjaro you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
 
+- Do you have any HFP-only Headphone? Use the following procedure to have it on you Arch:
+```sh
+sudo pacman -Syu ofono phonesim
+
+sudo systemctl start ofono.service
+phonesim -p 12345 /usr/share/phonesim/default.xml &
+dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:"true"
+```
+
 ### Useful Apps
 
 - [Draw.io Desktop](https://github.com/jgraph/drawio-desktop)
