@@ -45,7 +45,7 @@ In these configuration I have the following setup on my desktop
 | `tmux`                              | terminal multiplexer |
 | `nmcli/nmtui (NetworkManager)`      | Network Manager      |
 | `vlc`                               | Player               |
-
+| `feh`                               | Wallpaper (unsplash) |
 
 
 ## Installation
