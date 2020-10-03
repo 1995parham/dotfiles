@@ -18,7 +18,6 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Tips and Tricks](#tips-and-tricks)
-  * [Useful Apps](#useful-apps)
 - [Breaking Sanctions](#breaking-sanctions)
 - [Cheatsheet](#cheatsheet)
 
@@ -46,6 +45,7 @@ In these configuration I have the following setup on my desktop
 | `nmcli/nmtui (NetworkManager)`      | Network Manager      |
 | `vlc`                               | Player               |
 | `feh`                               | Wallpaper (unsplash) |
+| `drawio-desktop-bin`                | Drawing Diagram      |
 
 
 ## Installation
@@ -180,10 +180,6 @@ sudo systemctl start ofono.service
 phonesim -p 12345 /usr/share/phonesim/default.xml &
 dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:"true"
 ```
-
-### Useful Apps
-
-- [Draw.io Desktop](https://github.com/jgraph/drawio-desktop)
 
 ## Breaking Sanctions
 Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
