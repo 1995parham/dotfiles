@@ -12,17 +12,10 @@ usage() {
         echo "installs required brew/apt packages"
 }
 
-mac_packages=(zsh ctags tmux aria2 neovim yamllint coreutils jq k6)
-linux_packages=(atop zsh ctags aria2 curl tmux bat)
-linux_brews=(yamllint jq neovim k6)
+mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6)
+apt_packages=(atop zsh aria2 curl tmux bat neovim python3-pynvim jq yamllint)
+pacman_packages=(atop zsh aria2 curl tmux bat neovim python-pynvim jq yamllint)
 
-install-apt() {
-        if [ $force = false ]; then
-                sudo apt-get install $1
-        else
-                sudo apt-get install $1 -y
-        fi
-}
 
 install-brew() {
         if brew ls --versions "$1" > /dev/null; then
@@ -43,15 +36,12 @@ install-packages-osx() {
 install-packages-linux() {
 	if [[ "$(command -v apt)" ]]; then
 		sudo apt-get update -q
-		for pkg in $@; do
-			message "env" "install $pkg with apt"
-			install-apt $pkg
-		done
+
+		message "env" "install ${apt_packages[*]} with apt"
+		sudo apt-get install ${apt_packages[@]}
 	elif [[ "$(command -v pacman)" ]]; then
-		for pkg in $@; do
-			message "env" "install $pkg with pacman"
-			sudo pacman -Syu $pkg
-		done
+		message "env" "install ${pacman_packages[*]} with pacman"
+		sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]}
 	fi
 }
 
@@ -63,19 +53,7 @@ install-() {
         else
                 message "env" "Linux"
 
-                # setup shell environments for linuxbrew.
-                test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-                test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-                if ! hash brew 2>/dev/null; then
-                        message "env" "Please install linuxbrew with './start.sh brew'"
-                else
-                        install-packages-osx ${linux_brews[@]}
-                        brew install python3
-                        python3 -mpip install neovim
-                fi
-
-                install-packages-linux ${linux_packages[@]}
+                install-packages-linux
         fi
 }
 
