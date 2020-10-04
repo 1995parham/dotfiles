@@ -89,23 +89,6 @@ fi
 
 # }}}
 
-# brew {{{
-export HOMEBREW_NO_GITHUB_API=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-# only for linuxbrew with hotfix in sudo mode
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
-# }}}
-
 # aliases {{{
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -154,6 +137,7 @@ bindkey -M vicmd v edit-command-line
 alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source ~/.zshrc"
+alias nobrew="env -i NOBREW=1 SHELL=zsh zsh"
 
 # }}}
 
