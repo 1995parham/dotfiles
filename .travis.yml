@@ -14,6 +14,5 @@ script:
   - vint --enable-neovim ./nvim/init.vim ./nvim/coc.vim
   - vint ./vim/vimrc
   - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
-  - test $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc
   - bash -c hash nvim
   - zsh -c hash nvim
