@@ -29,10 +29,6 @@ message "pre" "Home directory found at $HOME"
 
 message "pre" "Current directory found at $current_dir"
 
-# setup shell environments for linuxbrew.
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 install_type=0
 yes_to_all=0
 while getopts "mhy" argv; do
@@ -49,14 +45,14 @@ while getopts "mhy" argv; do
                         ;;
         esac
 done
+
+requirements=(zsh tmux vim nvim)
 case $install_type in
         0)
                 message "pre" "Default installation"
-                requirements=(zsh tmux vim nvim)
                 ;;
         1)
-                message "pre" "Minor installation"
-                requirements=(tmux vim)
+                message "pre" "Headless installation"
                 ;;
 esac
 echo
@@ -173,21 +169,9 @@ install-vim() {
 
 #### nvim ####
 install-nvim() {
-        case $install_type in
-                0)
-                        configfile "nvim"
-                        ;;
-                1)
-                        ;;
-        esac
+        configfile "nvim"
         message "nvim" "Installing neovim plugins"
-        case $install_type in
-                0)
-                        nvim --headless +PlugInstall +qall
-                        ;;
-                1)
-                        ;;
-        esac
+        nvim --headless +PlugInstall +qall
 }
 
 #### Alacritty ####
@@ -215,41 +199,22 @@ install-i3() {
 
 #### configurations ####
 install-conf() {
-        case $install_type in
-                0)
-                        files=("bashrc" "dircolors" "wakatime.cfg" "tmux.conf" "aria2" "tmux" "gdbinit" "ctags")
-                        dotfile "conf" files[@]
-                        ;;
-                1)
-                        files=("bashrc" "dircolors" "tmux.conf" "tmux" "wakatime.cfg")
-                        dotfile "conf" files[@]
-                        ;;
-        esac
+        files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
+        dotfile "conf" files[@]
+
         message "conf" "Installing tmux plugins"
         ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
 ### zsh ###
 install-zsh() {
-        case $install_type in
-                0)
-                        files=("zshrc" "zsh.plug")
-                        dotfile "zsh" files[@]
-                        ;;
-        esac
+        files=("zshrc" "zsh.plug")
+        dotfile "zsh" files[@]
 }
 
 #### git ####
 install-git() {
-case $install_type in
-                0)
-                        configfile "git"
-                        ;;
-                1)
-                        files=("gitignore")
-                        dotfile "git" files[@]
-                        ;;
-        esac
+        configfile "git"
 }
 
 #### bin ####
@@ -260,15 +225,9 @@ install-bin() {
 
 #### general ####
 install-general() {
-        case $install_type in
-                0)
-                        if [ $SHELL != '/bin/zsh' ]; then
-                                chsh $USER -s /bin/zsh || sudo chsh $USER -s /bin/zsh || message "general" "Please change your shell to zsh manually"
-                        fi
-                        ;;
-                1)
-                        ;;
-        esac
+        if [ $SHELL != '/bin/zsh' ]; then
+                chsh $USER -s /bin/zsh || sudo chsh $USER -s /bin/zsh || message "general" "Please change your shell to zsh manually"
+        fi
 }
 
 # calls each module install function.
