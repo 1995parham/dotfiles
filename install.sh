@@ -217,7 +217,7 @@ install-i3() {
 install-conf() {
         case $install_type in
                 0)
-                        files=("bashrc" "dircolors" "wakatime.cfg" "tmux.conf" "aria2" "tmux" "gdbinit" "ctags" "xprofile")
+                        files=("bashrc" "dircolors" "wakatime.cfg" "tmux.conf" "aria2" "tmux" "gdbinit" "ctags")
                         dotfile "conf" files[@]
                         ;;
                 1)
