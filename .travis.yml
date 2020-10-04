@@ -4,8 +4,6 @@ os: linux
 dist: focal
 
 before_install:
-  # install brew with profile (we will use python3 in installation section)
-  - ./start.sh brew -p
   - ./start.sh env
   - . ~/.profile
 install:
@@ -17,7 +15,5 @@ script:
   - vint ./vim/vimrc
   - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
   - test $(readlink -f ~/.bashrc) = $(pwd)/conf/bashrc
-  - bash -c hash brew
   - bash -c hash nvim
-  - zsh -c hash brew
   - zsh -c hash nvim
