@@ -76,7 +76,7 @@ typeset +H prompt_status=" %{$fg_bold[red]%}%(?..⍉)%f %F{cyan}%(1j.⚙.)%f"
 # %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
 # '!' is true if the shell is privileged.
 PROMPT='
-%F{159}::%f $(prompt_venv) $(prompt_kube)
+%F{159}::%f $(prompt_venv) $(prompt_kube) $(pyenv_prompt_info)
 ┌ %K{235}${prompt_status} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}%M%f %k%K{214} ${prompt_dir} %k $(git_prompt_info) $(git_prompt_status) $(git_remote_status)
 └ %F{123}○%f $(prompt_proxy)'
 
