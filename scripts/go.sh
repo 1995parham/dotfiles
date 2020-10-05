@@ -12,35 +12,29 @@ usage() {
 }
 
 go-install() {
-        if brew ls --versions go > /dev/null; then
-                message "go" "upgrading go"
-                brew upgrade go
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                message "go" "Darwin"
+
+                if brew ls --versions go > /dev/null; then
+                        message "go" "upgrading go"
+                        brew upgrade go
+                else
+                        message "go" "installing go"
+                        brew install go
+                fi
         else
-                message "go" "installing go"
-                brew install go
+                message "go" "Linux"
+
+                if [[ "$(command -v apt)" ]]; then
+                        echo "TODO"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "go" "install go with pacman"
+                        sudo pacman -Syu --needed --noconfirm go
+                fi
         fi
 
         message "go" "$(go version)"
 
-        if brew ls --versions golangci-lint > /dev/null; then
-                message "go" "upgrading golangci-lint"
-                brew upgrade golangci/tap/golangci-lint
-        else
-                message "go" "installing golangci-lint"
-                brew install golangci/tap/golangci-lint
-        fi
-
-        message "go" "$(golangci-lint --version)"
-
-        if brew ls --versions goreleaser > /dev/null; then
-                message "go" "upgrading goreleaser"
-                brew upgrade goreleaser/tap/goreleaser
-        else
-                message "go" "installing goreleaser"
-                brew install goreleaser/tap/goreleaser
-        fi
-
-        message "go" "$(goreleaser --version)"
 
         message "go" "create go directory structure"
         local gopath
@@ -79,6 +73,8 @@ go-install-packages() {
         # please consider that this script runs in bash so it cannot see
         # aliases that are defined in zsh
         hash nvim &> /dev/null && nvim +GoUpdateBinaries --headless +qall
+
+        message "go" "golangci-lint $(golangci-lint --version)"
 }
 
 
