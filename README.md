@@ -91,7 +91,7 @@ Then you can install other tools with `start.sh`, here some examples:
 
 ```sh
 # install docker with proxy (see <Breaking Sanctions> section for more details)
-./start.sh -p docker -i
+./start.sh -p docker
 # install golang
 ./start.sh go
 # install python
