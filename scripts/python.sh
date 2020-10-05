@@ -13,13 +13,20 @@ usage() {
         echo "usage: python"
 }
 
-python-install() {
-        message "python" "Installing Python 3.x"
+pyenv-install() {
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                message "python" "Darwin"
 
-        brew install python3
-        python3 -m ensurepip
-
-        message "python" "$(python3 --version)"
+                brew install pyenv
+        else
+                message "python" "Linux"
+                if [[ "$(command -v apt)" ]]; then
+                        echo "There is nothing that we can do"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "python" "install pyenv with pacman"
+                        sudo pacman -Syu --needed --noconfirm pyenv
+                fi
+        fi
 }
 
 python-install-package() {
@@ -48,6 +55,15 @@ python-install-packages() {
 }
 
 main() {
-        python-install
-        python-install-packages
+        pyenv-install
+
+        if [[ "$(command -v pyenv)" ]]; then
+                pyenv versions
+        fi
+
+        read -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm; echo
+
+        if [[ $confirm == "Y" ]]; then
+                python-install-packages
+        fi
 }
