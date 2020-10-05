@@ -36,7 +36,7 @@ docker-install() {
 		sudo apt-cache policy docker-ce
 		sudo apt-get -y install docker-ce
 	elif [[ "$(command -v pacman)" ]]; then
-		sudo pacman -Syu docker
+		sudo pacman -Syu --noconfirm --needed docker
 	fi
 
 	message "docker" "Manage Docker as a non-root user"
@@ -51,41 +51,36 @@ docker-update() {
 		sudo apt-get -y update
 		sudo apt-get -y install docker-ce
 	elif [[ "$(command -v pacman)" ]]; then
-		sudo pacman -Syu docker
+		sudo pacman -Syu --noconfirm --needed docker
 	fi
 }
 
 docker-compose-install() {
-	message "docker" "Install docker-compose from brew"
-
-	brew install docker-compose
+	if [[ "$(command -v apt)" ]]; then
+		echo "There is nothing that we can do"
+	elif [[ "$(command -v pacman)" ]]; then
+		message "docker" "Install docker-compose with pacman"
+		sudo pacman -Syu --needed --noconfirm docker-compose
+	fi
 
 	message "docker" "$(docker-compose version)"
 }
 
 docker-hadolint-install() {
-	message "docker" "Install hadolint/hadolint from brew"
-
-	brew install hadolint
+	if [[ "$(command -v apt)" ]]; then
+		echo "There is nothing that we can do"
+	elif [[ "$(command -v pacman)" ]]; then
+		message "docker" "Install hadolint/hadolint with yay"
+		yay -Syu --needed --noconfirm hadolint-bin
+	fi
 
 	message "docker" "$(hadolint --version)"
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-	while getopts "iva" argv; do
-		case $argv in
-			i)
-				install=true
-				;;
-			v)
-				verbose=true
-				;;
-		esac
-	done
+	read -p "[docker] do you want to install docker ?[Y/n] " -n 1 install; echo
 
-	if [ $install = true ]; then
+	if [ $install = "Y" ]; then
 		if [[ "$(command -v apt)" ]]; then
 			docker-repositories
 		fi
