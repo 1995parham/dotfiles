@@ -102,6 +102,10 @@ if [ -f $HOME/.dircolors -a $(command -v dircolors) ]; then
   eval $(dircolors $HOME/.dircolors)
 fi
 
+if [ -f $HOME/.dircolors -a $(command -v gdircolors) ]; then
+  eval $(gdircolors $HOME/.dircolors)
+fi
+
 if [ -d $HOME/bin ]; then
   path+=("$HOME/bin")
 fi
@@ -139,7 +143,6 @@ bindkey -M vicmd v edit-command-line
 alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source ~/.zshrc"
-alias nobrew="env -i NOBREW=1 SHELL=zsh zsh"
 
 # }}}
 
