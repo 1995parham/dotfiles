@@ -135,11 +135,15 @@ augroup format
         " JavaScript
         autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascript.jsx
         autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+        autocmd BufEnter *.{js,jsx} :syntax sync fromstart
+        autocmd BufLeave *.{js,jsx} :syntax sync clear
 
         " TypeScript
         autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript.tsx
         autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
         autocmd Filetype typescript.tsx setlocal ts=2 sts=2 sw=2
+        autocmd BufEnter *.{ts,tsx} :syntax sync fromstart
+        autocmd BufLeave *.{ts,tsx} :syntax sync clear
 
         " Git commit
         autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -218,7 +222,7 @@ Plug 'wellle/targets.vim'
 Plug 'wakatime/vim-wakatime'
 
 " A solid language pack for Vim.
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " git
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
@@ -275,7 +279,6 @@ Plug 'bps/vim-tshark'                                  " A Vim plugin to make it
 Plug 'vim-python/python-syntax'                        " Python syntax highlighting for Vim
 Plug 'Shirk/vim-gas'                                   " Advanced syntax highlighting for GNU As
 Plug 'pangloss/vim-javascript'                         " Vastly improved Javascript indentation and syntax support in Vim
-Plug 'othree/javascript-libraries-syntax.vim'          " Syntax for JavaScript libraries
 Plug 'plasticboy/vim-markdown'                         " Markdown Vim Mode
 Plug 'octol/vim-cpp-enhanced-highlight'                " Additional Vim syntax highlighting for C++
 Plug 'ap/vim-css-color'                                " Preview colours in source code while editing
@@ -284,7 +287,7 @@ Plug 'arzg/vim-rust-syntax-ext'                        " A Vim plugin that enhan
 " Plug 'psf/black'                                     " The uncompromising code formatter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic Highlighting for Python in Neovim
 Plug 'groenewege/vim-less'                             " vim syntax for LESS (dynamic CSS)
-
+Plug 'maxmellon/vim-jsx-pretty'                        " JSX and TSX syntax pretty highlighting for vim.
 
 " vimproc is a great asynchronous execution library for Vim.
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
