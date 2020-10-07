@@ -26,6 +26,9 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+" you can use :Prettier to format current buffer.
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 let g:coc_global_extensions = [
                         \ 'coc-json', 'coc-html',
                         \ 'coc-rls', 'coc-tsserver', 'coc-snippets',
