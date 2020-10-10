@@ -201,11 +201,6 @@ Plug '1995parham/naz.vim'
 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
-" fugitive.vim: A Git wrapper so awesome, it should be illegal
-" git-coc:
-" Note: many useful features not implemented, it's recommended to use plugin like vim-fugitive at the same time.
-Plug 'tpope/vim-fugitive'
-
 " A Vim plugin to visualizes the Vim undo tree.
 Plug 'simnalamburt/vim-mundo'
 
@@ -227,6 +222,9 @@ Plug 'wakatime/vim-wakatime'
 " git
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'cohama/agit.vim'        " A powerful Git log viewer
+Plug 'tpope/vim-fugitive'     " fugitive.vim: A Git wrapper so awesome, it should be illegal
+" git-coc:
+" Note: many useful features not implemented, it's recommended to use plugin like vim-fugitive at the same time.
 
 " nerdtree
 Plug 'jistr/vim-nerdtree-tabs'     " NERDTree and tabs together in Vim, painlessly
@@ -237,7 +235,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
 Plug 'junegunn/vim-easy-align'
 
 " EditorConfig plugin for Vim
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 
 " check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plug 'w0rp/ale'
@@ -279,7 +277,6 @@ Plug 'othree/html5.vim'                                " HTML5 omnicomplete and 
 " Plug 'digitaltoad/vim-jade'                          " Vim syntax highlighting for Pug (formerly Jade) templates.
 Plug 'andrewstuart/vim-kubernetes'                     " This package provides kubernetes YAML snippets, as well as a growing number of integrations with kubectl.
 Plug 'bps/vim-tshark'                                  " A Vim plugin to make it easy to read pcap dumps.
-Plug 'vim-python/python-syntax'                        " Python syntax highlighting for Vim
 Plug 'Shirk/vim-gas'                                   " Advanced syntax highlighting for GNU As
 Plug 'pangloss/vim-javascript'                         " Vastly improved Javascript indentation and syntax support in Vim
 Plug 'plasticboy/vim-markdown'                         " Markdown Vim Mode
@@ -483,20 +480,6 @@ let c_gnu = 1
 " cpp {{{
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
-" }}}
-
-" python {{{
-let g:python_highlight_all = 1
-" }}}
-
-" javascript {{{
-let g:javascript_plugin_jsdoc = 1
-" }}}
-
-" octave {{{
-augroup filetypedetect
-        au! BufRead,BufNewFile *.m,*.oct set filetype=octave
-augroup END
 " }}}
 
 " vim-gas {{{
