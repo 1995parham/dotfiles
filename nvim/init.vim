@@ -258,6 +258,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } " fzf is a gen
 " Helps you win at grep.
 Plug 'mhinz/vim-grepper'
 
+" A vim plugin for syntax highlighting Ansible's common filetypes
+Plug 'pearofducks/ansible-vim'
+
 " language specific
 Plug 'lervag/vimtex'                                   " A modern vim plugin for editing LaTeX files.
 Plug 'fatih/vim-go'                                    " Go development plugin for Vim
