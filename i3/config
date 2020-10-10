@@ -141,14 +141,14 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 term
-set $ws2 web
+set $ws1 1:term
+set $ws2 2:web
 set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
-set $ws8 chat
+set $ws8 8:chat
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -286,7 +286,6 @@ exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 15 -locker blurlock
-exec --no-startup-id feh --bg-fill --randomize ~/Pictures/GoSiMac/*
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id setxkbmap -layout us,ir -option 'grp:alt_shift_toggle'
