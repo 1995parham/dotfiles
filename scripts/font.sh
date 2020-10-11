@@ -19,7 +19,8 @@ main() {
         if [[ "$(command -v apt)" ]]; then
                 sudo apt-get install fonts-roboto
         elif [[ "$(command -v pacman)" ]]; then
-                sudo pacman -Syu noto-fonts-emoji ttf-roboto
-                yay ttf-meslo vazir-fonts
+                sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto
+                yay -Syu --needed --noconfirm ttf-meslo
+                yay -Syu --needed --noconfirm vazir-fonts
         fi
 }
