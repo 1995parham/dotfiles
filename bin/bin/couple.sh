@@ -28,14 +28,22 @@ in_relationship() {
 }
 
 to_birthday() {
-        local to=$(date -d "12 oct" "+%s")
-        local now=$(date -d "now" "+%s")
-
         local minute=$((60))
         local hour=$(($minute * 60))
         local day=$(($hour * 24))
 
+        local this_year=$(date "+%Y")
+        local next_year=$(( $this_year + 1 ))
+
+        local to=$(date -d "12 oct $this_year 19:20:00" "+%s")
+        local now=$(date -d "now" "+%s")
+
         local diff=$(( $to - $now ))
+
+        if [ $diff -lt 0 ]; then
+                to=$(date -d "12 oct $next_year 19:20:00" "+%s")
+                diff=$(( $to - $now ))
+        fi
 
         local days=$(( $diff / $day ))
         diff=$(( $diff - $days * $day ))
