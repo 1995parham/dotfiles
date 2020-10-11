@@ -16,6 +16,7 @@
 [![Travis (.com)](https://img.shields.io/travis/com/1995parham/dotfiles?logo=travis&style=flat-square)](https://travis-ci.com/1995parham/dotfiles)
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Tips and Tricks](#tips-and-tricks)
 - [Breaking Sanctions](#breaking-sanctions)
@@ -28,37 +29,31 @@ First of all, thank you for your visiting, to find out more about how to use thi
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 In these configuration I have the following setup on my desktop
 
-| Tool                                | Role                 |
-|:-----------------------------------:|:---------------------|
-| `i3`                                | Window Manager       |
-| `i3status` / `i3status-rust`        | i3-bar Status        |
-| `ranger`                            | File Manager         |
+|                Tool                 | Role                 |
+| :---------------------------------: | :------------------- |
+|                `i3`                 | Window Manager       |
+|    `i3status` / `i3status-rust`     | i3-bar Status        |
+|              `ranger`               | File Manager         |
 | `lightdm` / `lightdm-slick-greeter` | Desktop Manager      |
-| `dmenu`                             | Application Launcher |
-| `NetworkManager`                    | Networking           |
-| `alacritty`                         | Terminal Emulator    |
-| `pacman` / `yay`                    | Package Manager      |
-| `bat`                               | cat clone with wings |
-| `vim`                               | vim                  |
-| `nvim`                              | NeoVim               |
-| `tmux`                              | terminal multiplexer |
-| `nmcli/nmtui (NetworkManager)`      | Network Manager      |
-| `vlc`                               | Player               |
-| `nitrogen`                          | Wallpaper (unsplash) |
-| `drawio-desktop-bin`                | Drawing Diagram      |
-
+|               `dmenu`               | Application Launcher |
+|          `NetworkManager`           | Networking           |
+|             `alacritty`             | Terminal Emulator    |
+|          `pacman` / `yay`           | Package Manager      |
+|                `bat`                | cat clone with wings |
+|                `vim`                | vim                  |
+|               `nvim`                | NeoVim               |
+|               `tmux`                | terminal multiplexer |
+|   `nmcli/nmtui (NetworkManager)`    | Network Manager      |
+|                `vlc`                | Player               |
+|             `nitrogen`              | Wallpaper (unsplash) |
+|        `drawio-desktop-bin`         | Drawing Diagram      |
 
 ## Installation
+
 The following command creates a basic directory structure and clones the **dotfiles** repository:
 
 ```sh
 curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
-```
-
-**dotfiles** uses [brew.sh](http://brew.sh) as its main package manager so you must install it.
-
-```sh
-./start.sh brew
 ```
 
 Install required softwares with apt/brew. Please note that this special script will automatically setup the brew environment to use it.
@@ -100,6 +95,7 @@ Then you can install other tools with `start.sh`, here some examples:
 ```
 
 ## Tips and Tricks
+
 [![](https://img.shields.io/badge/askubuntu-bookmarks-orange?style=flat-square&logo=ubuntu)](https://askubuntu.com/users/425876/parham-alvani?tab=bookmarks)
 [![](https://img.shields.io/badge/superuser-bookmarks-black?style=flat-square&logo=superuser)](https://superuser.com/users/1199014/parham-alvani?tab=bookmarks)
 [![](https://img.shields.io/badge/serverfault-bookmarks-black?style=flat-square&logo=serverfault)](https://serverfault.com/users/590681/parham-alvani?tab=bookmarks)
@@ -111,6 +107,7 @@ sudo dpkg-reconfigure locales
 ```
 
 - For using bluetotth speaker/headphone run `bluetoothctl`, then:
+
 ```
 [bluetooth]# scan on
 [bluetooth]# scan off
@@ -163,6 +160,7 @@ EndSection
 ```
 
 - To enable the keyring for applications run through the terminal, such as SSH, add the following to your `~/.bash_profile`, `~/.zshenv`, or similar:
+
 ```sh
 if [ -n "$DESKTOP_SESSION" ];then
     eval $(gnome-keyring-daemon --start)
@@ -173,6 +171,7 @@ fi
 - In Manjaro you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
 
 - Do you have any HFP-only Headphone? Use the following procedure to have it on you Arch:
+
 ```sh
 sudo pacman -Syu ofono phonesim
 
@@ -182,6 +181,7 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 ```
 
 ## Breaking Sanctions
+
 Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
 Use following command to install it.
 
@@ -196,34 +196,31 @@ You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here
 
 ```yaml
 {
-  "inbounds": [
-    {
-      "port": 1080,
-      "protocol": "http"
-    }, {
-      "port": 1086,
-      "protocol": "socks",
-      "udp": true,
-      "auth": "noauth"
-    }
-  ],
+  "inbounds":
+    [
+      { "port": 1080, "protocol": "http" },
+      { "port": 1086, "protocol": "socks", "udp": true, "auth": "noauth" },
+    ],
 
-  "outbounds": [
-    {
-      "protocol": "shadowsocks",
-      "settings": {
-        "servers": [
+  "outbounds":
+    [
+      {
+        "protocol": "shadowsocks",
+        "settings":
           {
-            "address": "an-awesome-server",
-            "method": "aes-256-gcm",
-            "ota": false,
-            "password": "secret",
-            "port": 1378
-          }
-        ]
-      }
-    }
-  ]
+            "servers":
+              [
+                {
+                  "address": "an-awesome-server",
+                  "method": "aes-256-gcm",
+                  "ota": false,
+                  "password": "secret",
+                  "port": 1378,
+                },
+              ],
+          },
+      },
+    ],
 }
 ```
 
@@ -269,6 +266,7 @@ sudo systemctl restart docker
 ```
 
 ## Cheatsheet
+
 ### vim
 
 #### Go IDE
@@ -276,103 +274,103 @@ sudo systemctl restart docker
 It's very simple, just execute `:GoInstallBinaries` in vim normal mode,
 after that you have complete IDE for go in vim.
 
-| Shortcut         | Description                         |
-|:----------------:|:------------------------------------|
-| `:GeDoc`         | go doc with [GoExplorer](https://github.com/garyburd/go-explorer) |
-| `:GoDoc`         | GoDoc == GeDoc if vim-go is plugged |
-| `:GoFillStruct`  | use `fillstruct` to fill a struct literal with default values. Existing values (if any) are preserved. The cursor must be on the struct you wish to fill |
-| `:[range]GoAddTags [key],[option] [key1],[option] ...` | adds field tags for the fields of a struct |
-| `:GoImpl [receiver] [interface]` | generates method stubs for implementing an interface |
+|                        Shortcut                        | Description                                                                                                                                              |
+| :----------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                        `:GeDoc`                        | go doc with [GoExplorer](https://github.com/garyburd/go-explorer)                                                                                        |
+|                        `:GoDoc`                        | GoDoc == GeDoc if vim-go is plugged                                                                                                                      |
+|                    `:GoFillStruct`                     | use `fillstruct` to fill a struct literal with default values. Existing values (if any) are preserved. The cursor must be on the struct you wish to fill |
+| `:[range]GoAddTags [key],[option] [key1],[option] ...` | adds field tags for the fields of a struct                                                                                                               |
+|            `:GoImpl [receiver] [interface]`            | generates method stubs for implementing an interface                                                                                                     |
 
 To setup a complete golang environment use [this](https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876)
 medium post.
 
 #### Shortcuts
 
-| Shortcut         | Description               |
-|:----------------:|:--------------------------|
-| `<C-n>`          | toggles [NerdTree](https://github.com/scrooloose/nerdtree)          |
-| `<C-h>`          | toggles [SuperTab](https://github.com/ervandew/supertab)          |
-| `<C-b>`          | toogles [Buffergator](https://github.com/jeetsukumaran/vim-buffergator)       |
-| `<F5>`           | toggles [Tagbar](https://github.com/majutsushi/tagbar)            |
-| `<C-u>`          | toggles [utlisnips](https://github.com/SirVer/ultisnips)         |
-| `<C-w> <Left>`   | move to left window       |
-| `<C-w> <Right>`  | move to right window      |
-| `<C-w> <Up>`     | move to up window         |
-| `<C-w> <Down>`   | move to down window       |
-| `<C-w> s`        | new horizontal window     |
-| `<C-w> v`        | new vertical window       |
-| `<C-w> n`        | move to next tab          |
-| `<C-w> p`        | move to previous tab      |
-| `<C-w> c`        | new empty tab             |
-| `<C-w> nn`       | move to tab number nn     |
-| `-`              | leader Key                |
-| `J`              | join lines                |
-| `u`              | undo                      |
-| `.`              | redo                      |
+|    Shortcut     | Description                                                             |
+| :-------------: | :---------------------------------------------------------------------- |
+|     `<C-n>`     | toggles [NerdTree](https://github.com/scrooloose/nerdtree)              |
+|     `<C-h>`     | toggles [SuperTab](https://github.com/ervandew/supertab)                |
+|     `<C-b>`     | toogles [Buffergator](https://github.com/jeetsukumaran/vim-buffergator) |
+|     `<F5>`      | toggles [Tagbar](https://github.com/majutsushi/tagbar)                  |
+|     `<C-u>`     | toggles [utlisnips](https://github.com/SirVer/ultisnips)                |
+| `<C-w> <Left>`  | move to left window                                                     |
+| `<C-w> <Right>` | move to right window                                                    |
+|  `<C-w> <Up>`   | move to up window                                                       |
+| `<C-w> <Down>`  | move to down window                                                     |
+|    `<C-w> s`    | new horizontal window                                                   |
+|    `<C-w> v`    | new vertical window                                                     |
+|    `<C-w> n`    | move to next tab                                                        |
+|    `<C-w> p`    | move to previous tab                                                    |
+|    `<C-w> c`    | new empty tab                                                           |
+|   `<C-w> nn`    | move to tab number nn                                                   |
+|       `-`       | leader Key                                                              |
+|       `J`       | join lines                                                              |
+|       `u`       | undo                                                                    |
+|       `.`       | redo                                                                    |
 
-| Shortcut         | Description                         |
-|:----------------:|:------------------------------------|
-| `0` `$`          | begin/End of line                   |
-| `G` `gg`         | begin/End of file                   |
-| `w` `b`          | next/prev word                      |
-| `<C-U>` `<C-D>`  | next/prev page                      |
-| `H` `M` `L`      | top/mid/btm of win                  |
-| `zt` `zz` `zb`   | scroll to top/mid/btm               |
-| `%`              | matching parenthesis                |
-| `[[ ]]`          | next/prev function/method           |
+|    Shortcut     | Description               |
+| :-------------: | :------------------------ |
+|     `0` `$`     | begin/End of line         |
+|    `G` `gg`     | begin/End of file         |
+|     `w` `b`     | next/prev word            |
+| `<C-U>` `<C-D>` | next/prev page            |
+|   `H` `M` `L`   | top/mid/btm of win        |
+| `zt` `zz` `zb`  | scroll to top/mid/btm     |
+|       `%`       | matching parenthesis      |
+|     `[[ ]]`     | next/prev function/method |
 
-| Shortcut         | Description                         |
-|:----------------:|:------------------------------------|
-| `*` `#`          | find current word backward/forward  |
-| `n` `N`          | next/prev search result             |
+| Shortcut | Description                        |
+| :------: | :--------------------------------- |
+| `*` `#`  | find current word backward/forward |
+| `n` `N`  | next/prev search result            |
 
-| Shortcut         | Description               | Shortcut         | Description                         |
-|:----------------:|:--------------------------|:----------------:|:------------------------------------|
-| `:b name`        | open buffer               | `:bd name`       | delete buffer                       |
-| `:edit`          | reload current file       | `:Agit` | git log manager |
-| `:edit!`         | reload current file force | `:edit x`        | edit file x                         |
-| `:terminal`      | open terminal             | | |
+|  Shortcut   | Description               |  Shortcut  | Description     |
+| :---------: | :------------------------ | :--------: | :-------------- |
+|  `:b name`  | open buffer               | `:bd name` | delete buffer   |
+|   `:edit`   | reload current file       |  `:Agit`   | git log manager |
+|  `:edit!`   | reload current file force | `:edit x`  | edit file x     |
+| `:terminal` | open terminal             |            |                 |
 
-| Shortcut         | Description                         |
-|:----------------:|:------------------------------------|
-| `<ESC>`          | enter *Normal* mode                 |
-| `v`              | enter *Visual* mode                 |
-| `V`              | enter *Visual Line* mode            |
-| `i`              | enter *Insert* mode                 |
-| `I`              | enter *Insert* mode [head of line]  |
-| `a`              | enter *Insert* mode [next position] |
-| `A`              | enter *Insert* mode [end of line]   |
-| `R`              | enter *Replace* mode                |
+| Shortcut | Description                         |
+| :------: | :---------------------------------- |
+| `<ESC>`  | enter _Normal_ mode                 |
+|   `v`    | enter _Visual_ mode                 |
+|   `V`    | enter _Visual Line_ mode            |
+|   `i`    | enter _Insert_ mode                 |
+|   `I`    | enter _Insert_ mode [head of line]  |
+|   `a`    | enter _Insert_ mode [next position] |
+|   `A`    | enter _Insert_ mode [end of line]   |
+|   `R`    | enter _Replace_ mode                |
 
 | Shortcut | Description              |
-|:--------:|:-------------------------|
-| `s`      | open file vsplit         |
-| `i`      | open file split          |
-| `t`      | open file in new tab     |
-| `o`      | open & close directory   |
-| `m`      | show menu                |
-| `I`      | toggle show hidden files |
+| :------: | :----------------------- |
+|   `s`    | open file vsplit         |
+|   `i`    | open file split          |
+|   `t`    | open file in new tab     |
+|   `o`    | open & close directory   |
+|   `m`    | show menu                |
+|   `I`    | toggle show hidden files |
 
 ### zsh
 
-| Shortcut         | Description               |
-|:----------------:|:--------------------------|
-| `<C-R>`          | Enter to history mode     |
-| `<C-G>`          | Exit from history mode    |
+| Shortcut | Description            |
+| :------: | :--------------------- |
+| `<C-R>`  | Enter to history mode  |
+| `<C-G>`  | Exit from history mode |
 
 Use `escape` in order to enter vim mode for zsh.
 
-| Shortcut   | Description               |
-|:----------:|:--------------------------|
-| `dd`       | Delete current line       |
-| `$`        | Move to end of line       |
-| `0`        | Move to head of line      |
+| Shortcut | Description          |
+| :------: | :------------------- |
+|   `dd`   | Delete current line  |
+|   `$`    | Move to end of line  |
+|   `0`    | Move to head of line |
 
 These commands use for history searching in vim mode.
 
-| Shortcut         | Description                         |
-|:----------------:|:------------------------------------|
-| `*` `#`          | Find current word backward/forward  |
-| `n` `N`          | Next/Prev search result             |
-| `/<exp>`         | Search for `<exp>` in hisory        |
+| Shortcut | Description                        |
+| :------: | :--------------------------------- |
+| `*` `#`  | Find current word backward/forward |
+| `n` `N`  | Next/Prev search result            |
+| `/<exp>` | Search for `<exp>` in hisory       |
