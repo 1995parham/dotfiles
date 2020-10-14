@@ -149,14 +149,27 @@ fprintd-enroll -f left-index-finger
 sudo pam-auth-update
 ```
 
-- Natural Scrolling with X11: Open the /etc/X11/xorg.conf.d/30-touchpad.conf file, then add the natural scrolling option:
+- Natural Scrolling with X11: Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
 
 ```
 Section "InputClass"
     ...
-    Option "Natural Scrolling" "true"
+Option "Natural Scrolling" "true"
     ...
 EndSection
+```
+
+- Swap Alt and Meta with X11: Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
+
+```
+
+Section "InputClass"
+    ...
+Option "XkbOptions" "altwin:swap_alt_win"
+    ...
+EndSection
+
+
 ```
 
 - To enable the keyring for applications run through the terminal, such as SSH, add the following to your `~/.bash_profile`, `~/.zshenv`, or similar:
