@@ -155,13 +155,13 @@ function FindProxyForURL(url, host) {
   } else {
     for (var i = 0; i < domains.length; i++) {
       if (dnsDomainIs(host, domains[i])) {
-        return "SOCKS localhost:1086";
+        return "SOCKS5 localhost:1086";
       }
     }
 
     for (var i = 0; i < regexs.length; i++) {
       if (regexs[i].test(host)) {
-        return "SOCKS localhost:1086";
+        return "SOCKS5 localhost:1086";
       }
     }
     return "DIRECT";
