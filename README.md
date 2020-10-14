@@ -175,6 +175,11 @@ fi
 ```sh
 sudo pacman -Syu ofono phonesim
 
+# validate the content of /etc/ofono/phonesim.conf
+# [phonesim]
+# Address=127.0.0.1
+# Port=12345
+
 sudo systemctl start ofono.service
 phonesim -p 12345 /usr/share/phonesim/default.xml &
 dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:"true"
