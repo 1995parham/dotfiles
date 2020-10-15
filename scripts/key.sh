@@ -34,11 +34,6 @@ main() {
 	# Reset optind between calls to getopts
 	OPTIND=1
 
-	if [ -s $2 ]; then
-		usage
-		return
-	fi
-
 	if [ ! -d $HOME/.ssh ]; then
 		mkdir $HOME/.ssh && chmod 0700 $HOME/.ssh
 	fi
