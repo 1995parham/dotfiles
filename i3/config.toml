@@ -21,7 +21,7 @@ command = ''' echo 🎂 $(~/bin/couple.sh birthday) '''
 [[block]]
 block = "custom"
 interval = 60
-command = '''echo 🧡 $(~/bin/couple.sh relationship) '''
+command = ''' echo 🧡 $(~/bin/couple.sh relationship) '''
 
 [[block]]
 block = "sound"
@@ -29,3 +29,8 @@ format = "{output_name} {volume}"
 
 [[block]]
 block = "backlight"
+
+[[block]]
+block = "custom"
+interval = 1440
+command = ''' curl "wttr.in/Tehran?format=%l:+%C+%h+%f+%t+%p\n" || echo ""  '''
