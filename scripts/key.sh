@@ -10,7 +10,7 @@
 
 usage() {
 	echo "usage: key [name]"
-	echo "Install public keys of given github username"
+	echo "Install public keys of given gitlab username"
 }
 
 public() {
