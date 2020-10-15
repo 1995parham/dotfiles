@@ -47,6 +47,8 @@ In these configuration I have the following setup on my desktop
 |                `vlc`                | Player               |
 |             `nitrogen`              | Wallpaper (unsplash) |
 |        `drawio-desktop-bin`         | Drawing Diagram      |
+|               `gimp`                | Image Editor         |
+| `google-chrome-stable` / `palemoon` | Browser              |
 
 ## Installation
 
