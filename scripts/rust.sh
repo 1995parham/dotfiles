@@ -16,7 +16,8 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --profile complete
+        source $HOME/.cargo/env
         rustup component add clippy
         rustup component add rustfmt
         rustup component add rls rust-analysis rust-src
