@@ -36,19 +36,22 @@ In these configuration I have the following setup on my desktop
 |              `ranger`               | File Manager         |
 | `lightdm` / `lightdm-slick-greeter` | Desktop Manager      |
 |               `dmenu`               | Application Launcher |
-|          `NetworkManager`           | Networking           |
+|   `nmcli/nmtui (NetworkManager)`    | Networking           |
 |             `alacritty`             | Terminal Emulator    |
 |          `pacman` / `yay`           | Package Manager      |
 |                `bat`                | cat clone with wings |
 |                `vim`                | vim                  |
 |               `nvim`                | NeoVim               |
-|               `tmux`                | terminal multiplexer |
-|   `nmcli/nmtui (NetworkManager)`    | Network Manager      |
-|                `vlc`                | Player               |
+|               `tmux`                | Terminal Multiplexer |
+|                `vlc`                | Video Player         |
 |             `nitrogen`              | Wallpaper (unsplash) |
 |        `drawio-desktop-bin`         | Drawing Diagram      |
 |               `gimp`                | Image Editor         |
 | `google-chrome-stable` / `palemoon` | Browser              |
+|            `youtube-dl`             | Youtube Downloader   |
+|            `github-cli`             | Github CLI           |
+|              `gopass`               | Password Manager     |
+|              `dstask`               | ToDo Manager         |
 
 ## Installation
 
@@ -196,6 +199,8 @@ sudo systemctl start ofono.service
 phonesim -p 12345 /usr/share/phonesim/default.xml &
 dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:"true"
 ```
+
+- You can configure `github-cli` to use existing tokens.
 
 ## Breaking Sanctions
 
