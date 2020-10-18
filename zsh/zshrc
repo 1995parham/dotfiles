@@ -114,6 +114,13 @@ if [ -d /snap/bin ]; then
   path+=('/snap/bin')
 fi
 
+# use a wrapper around sdcv to conveniently format its output
+function def() {
+	sdcv -n --utf8-output --color "$@" 2>&1 | \
+	fold --width=$(tput cols) | \
+	less -FRX
+}
+
 # You may need to manually set your language environment
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
