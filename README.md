@@ -54,6 +54,7 @@ In these configuration I have the following setup on my desktop
 |              `dstask`               | ToDo Manager         |
 |               `timew`               | Time Manager         |
 |       `sdcv [stardict-oald]`        | Dictionary           |
+|         `jcal-git` / `cal`          | Calender             |
 
 ## Installation
 
