@@ -53,6 +53,7 @@ In these configuration, I have the following softwares on my desktop:
 |              `gopass`               | Password Manager     |
 |              `dstask`               | ToDo Manager         |
 |               `timew`               | Time Manager         |
+|             `dijo-bin`              | Habit Manager        |
 |       `sdcv [stardict-oald]`        | Dictionary           |
 |         `jcal-git` / `cal`          | Calender             |
 |            `anydesk-bin`            | Anydesk              |
