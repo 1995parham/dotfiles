@@ -27,7 +27,7 @@
 This repository contains my personal configurations for Ubuntu, Manjaro i3 and OSx, which has been created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
 First of all, thank you for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc. please check the following sections.
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
-In these configuration I have the following setup on my desktop
+In these configuration, I have the following softwares on my desktop:
 
 |                Tool                 | Role                 |
 | :---------------------------------: | :------------------- |
@@ -55,6 +55,7 @@ In these configuration I have the following setup on my desktop
 |               `timew`               | Time Manager         |
 |       `sdcv [stardict-oald]`        | Dictionary           |
 |         `jcal-git` / `cal`          | Calender             |
+|            `anydesk-bin`            | Anydesk              |
 
 ## Installation
 
