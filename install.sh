@@ -185,6 +185,17 @@ install-alacritty() {
         esac
 }
 
+#### mpv ####
+install-mpv() {
+        case $install_type in
+                0)
+                        configfile "mpv"
+                        ;;
+                1)
+                        ;;
+        esac
+}
+
 #### i3 window manager ####
 install-i3() {
         case $install_type in
@@ -231,7 +242,7 @@ install-general() {
 }
 
 # calls each module install function.
-modules=(vim nvim alacritty i3 conf zsh git bin general)
+modules=(vim nvim alacritty i3 mpv conf zsh git bin general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
         install-$module
