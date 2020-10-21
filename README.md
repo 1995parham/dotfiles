@@ -43,7 +43,8 @@ In these configuration, I have the following softwares on my desktop:
 |                `vim`                | vim                  |
 |               `nvim`                | NeoVim               |
 |               `tmux`                | Terminal Multiplexer |
-|                `vlc`                | Video Player         |
+|                `mpv`                | Video Player         |
+|               `cmus`                | Music Player         |
 |             `nitrogen`              | Wallpaper (unsplash) |
 |        `drawio-desktop-bin`         | Drawing Diagram      |
 |               `gimp`                | Image Editor         |
