@@ -244,6 +244,9 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Improved nginx vim plugin (incl. syntax highlighting)
+Plug 'chr4/nginx.vim'
+
 " snippets
 Plug 'SirVer/ultisnips'            " UltiSnips - The ultimate snippet solution for Vim
 Plug 'honza/vim-snippets'          " vim-snipmate default snippets
