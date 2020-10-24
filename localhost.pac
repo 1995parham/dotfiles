@@ -137,6 +137,7 @@ function FindProxyForURL(_, host) {
     /(?:^|\.)grammarly.com/,
     /(?:^|\.)meetup.com/,
     /(?:^|\.)sqlalchemy.org/,
+    /(?:^|\.)baidu.com/,
 
     /(?:^|\.)radiojavan.com/,
     /(?:^|\.)rj-mw1.com/,
