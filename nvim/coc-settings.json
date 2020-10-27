@@ -6,6 +6,7 @@
       "filetypes": ["go"]
     }
   },
+  "rust.clippy_preference": "on",
   "yaml.schemas": {
     "http://json.schemastore.org/drone": "/.drone.yml",
     "http://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yml",
@@ -21,6 +22,7 @@
     "typescript",
     "typescriptreact",
     "json",
-    "html"
+    "html",
+    "rust"
   ]
 }
