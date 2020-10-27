@@ -42,6 +42,7 @@ In these configuration, I have the following softwares on my desktop:
 |                `bat`                | cat clone with wings |
 |                `vim`                | vim                  |
 |               `nvim`                | NeoVim               |
+|      `visual-studio-code-bin`       | Visual Studio Code   |
 |               `tmux`                | Terminal Multiplexer |
 |                `mpv`                | Video Player         |
 |               `cmus`                | Music Player         |
