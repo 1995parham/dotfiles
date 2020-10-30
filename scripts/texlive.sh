@@ -15,9 +15,9 @@ usage() {
 
 texlive-package() {
         if [[ $OSTYPE == "linux-gnu" ]]; then
-                tlmgr install $@
+                tllocalmgr install $@
         else
-                sudo tlmgr install $@
+                tlmgr install $@
         fi
 }
 
@@ -55,17 +55,13 @@ texlive-install() {
         if [[ $OSTYPE == "linux-gnu" ]]; then
                 message "texlive" "Linux"
 
-                message "texlive" "Install texlive with brew"
-                brew install texlive
-
-                # https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5
-                wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh
-                chmod +x update-tlmgr-latest.sh
-                ./update-tlmgr-latest.sh
-                rm update-tlmgr-latest.sh
-
-                # https://tex.stackexchange.com/questions/23164/i-cant-find-the-format-file-xelatex-fmt
-                fmtutil-sys --all
+                if [[ "$(command -v apt)" ]]; then
+                        echo "There is nothing that we can do"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "texlive" "Install texlive-core with pacman"
+                        sudo pacman -Syu --needed --noconfirm texlive-core
+                        yay -Syu --needed --noconfirm tllocalmgr-git
+                fi
         else
                 message "texlive" "Darwin"
 
@@ -83,16 +79,14 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
         while getopts "l" argv; do
-	        case $argv in
-		        l)
-			        linter=true
-			        ;;
-	        esac
+                case $argv in
+                        l)
+                                linter=true
+                                ;;
+                esac
         done
 
         if [ $linter = true ]; then
                 texlive-linter
         fi
-
-        # brew install texlab
 }
