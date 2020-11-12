@@ -69,12 +69,10 @@ done
 # parameter 1: module name - string
 # parameter 2: file names - array of string
 # parameter 3 [default = true]: is hidden file - bool
-# parameter 4 [default = ""]: file name extention - string
 dotfile() {
         local module=$1
         local files=${!2}
         local is_hidden=${3:-true}
-        local extention=${4:-""}
 
         for file in $files; do
                 if $is_hidden; then
@@ -83,11 +81,7 @@ dotfile() {
                         local dst_file="$file"
                 fi
 
-                if [ ! -z $extention ]; then
-                        local src_file="$file-$extention"
-                else
-                        local src_file="$file"
-                fi
+                local src_file="$file"
 
                 local dst_path="$HOME/$dst_file"
                 local src_path="$current_dir/$module/$src_file"
@@ -110,6 +104,10 @@ configfile() {
         if [ ! -z $src_file ]; then
                 local src_path="$current_dir/$module/$src_file"
                 local dst_file="$module/$src_file"
+
+                if [ ! -d "$HOME/.config/$module" ]; then
+                        mkdir "$HOME/.config/$module"
+                fi
         else
                 src_file=$module
                 local src_path="$current_dir/$module"
@@ -196,6 +194,17 @@ install-mpv() {
         esac
 }
 
+#### cmus ####
+install-cmus() {
+        case $install_type in
+                0)
+                        configfile "cmus" "rc"
+                        ;;
+                1)
+                        ;;
+        esac
+}
+
 #### i3 window manager ####
 install-i3() {
         case $install_type in
@@ -242,7 +251,7 @@ install-general() {
 }
 
 # calls each module install function.
-modules=(vim nvim alacritty i3 mpv conf zsh git bin general)
+modules=(vim nvim alacritty i3 mpv cmus conf zsh git bin general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
         install-$module
