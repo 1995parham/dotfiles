@@ -59,6 +59,7 @@ In these configuration, I have the following softwares on my desktop:
 |       `sdcv [stardict-oald]`        | Dictionary           |
 |         `jcal-git` / `cal`          | Calender             |
 |            `anydesk-bin`            | Anydesk              |
+|              `easytag`              | Music Infoamtion     |
 
 ## Installation
 
