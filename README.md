@@ -108,6 +108,8 @@ Then you can install other tools with `start.sh`, here some examples:
 # and many many more...
 ```
 
+Configuration of mentioned applications also is a part of this repository except VSCode that has its sync configuration.
+
 ## Tips and Tricks
 
 [![](https://img.shields.io/badge/askubuntu-bookmarks-orange?style=flat-square&logo=ubuntu)](https://askubuntu.com/users/425876/parham-alvani?tab=bookmarks)
