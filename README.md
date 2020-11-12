@@ -29,38 +29,38 @@ First of all, thank you for your visiting, to find out more about how to use thi
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 In these configuration, I have the following softwares on my desktop:
 
-|                Tool                 | Role                 |
-| :---------------------------------: | :------------------- |
-|                `i3`                 | Window Manager       |
-|    `i3status` / `i3status-rust`     | i3-bar Status        |
-|              `ranger`               | File Manager         |
-| `lightdm` / `lightdm-slick-greeter` | Desktop Manager      |
-|               `dmenu`               | Application Launcher |
-|   `nmcli/nmtui (NetworkManager)`    | Networking           |
-|             `alacritty`             | Terminal Emulator    |
-|          `pacman` / `yay`           | Package Manager      |
-|                `bat`                | cat clone with wings |
-|                `vim`                | vim                  |
-|               `nvim`                | NeoVim               |
-|      `visual-studio-code-bin`<sub>aur</sub>       | Visual Studio Code   |
-|               `tmux`                | Terminal Multiplexer |
-|                `mpv`                | Video Player         |
-|               `cmus`                | Music Player         |
-|             `nitrogen`              | Wallpaper (unsplash) |
-|        `drawio-desktop-bin`<sub>aur</sub>          | Drawing Diagram      |
-|               `gimp`                | Image Editor         |
+|                  Tool                   | Role                 |
+| :-------------------------------------: | :------------------- |
+|                  `i3`                   | Window Manager       |
+|      `i3status` / `i3status-rust`       | i3-bar Status        |
+|                `ranger`                 | File Manager         |
+|   `lightdm` / `lightdm-slick-greeter`   | Desktop Manager      |
+|                 `dmenu`                 | Application Launcher |
+|     `nmcli/nmtui (NetworkManager)`      | Networking           |
+|               `alacritty`               | Terminal Emulator    |
+|            `pacman` / `yay`             | Package Manager      |
+|                  `bat`                  | cat clone with wings |
+|                  `vim`                  | vim                  |
+|                 `nvim`                  | NeoVim               |
+| `visual-studio-code-bin`<sub>aur</sub>  | Visual Studio Code   |
+|                 `tmux`                  | Terminal Multiplexer |
+|                  `mpv`                  | Video Player         |
+|                 `cmus`                  | Music Player         |
+|               `nitrogen`                | Wallpaper (unsplash) |
+|   `drawio-desktop-bin`<sub>aur</sub>    | Drawing Diagram      |
+|                 `gimp`                  | Image Editor         |
 | `firefox` / `firefox-developer-edition` | Browser              |
-|            `youtube-dl`             | Youtube Downloader   |
-|            `github-cli`             | Github CLI           |
-|              `gopass`               | Password Manager     |
-|              `dstask`<sub>_</sub>              | ToDo Manager         |
-|               `timew`               | Time Manager         |
-|             `dijo-bin`<sub>aur</sub>               | Habit Manager        |
-|       `sdcv` + `stardict-oald`<sub>aur</sub>         | Dictionary           |
-|         `jcal-git`<sub>aur</sub>  / `cal`          | Calender             |
-|            `anydesk-bin`<sub>aur</sub>             | Anydesk              |
-|              `easytag`              | Music Infoamtion     |
-|              `chrony`               | NTP                  |
+|              `youtube-dl`               | Youtube Downloader   |
+|              `github-cli`               | Github CLI           |
+|                `gopass`                 | Password Manager     |
+|          `dstask`<sub>\_</sub>          | ToDo Manager         |
+|                 `timew`                 | Time Manager         |
+|        `dijo-bin`<sub>aur</sub>         | Habit Manager        |
+| `sdcv` + `stardict-oald`<sub>aur</sub>  | Dictionary           |
+|    `jcal-git`<sub>aur</sub> / `cal`     | Calender             |
+|       `anydesk-bin`<sub>aur</sub>       | Anydesk              |
+|                `easytag`                | Music Infoamtion     |
+|                `chrony`                 | NTP                  |
 
 ## Installation
 
