@@ -73,7 +73,7 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # focus_follows_mouse no
 
 # cmus
-bindsym XF86AudioPlay exec cmus-remote -p
+bindsym XF86AudioPlay exec cmus-remote -u
 bindsym XF86AudioPause exec cmus-remote -u
 bindsym XF86AudioNext exec cmus-remote -n
 bindsym XF86AudioPrev exec cmus-remote -r
