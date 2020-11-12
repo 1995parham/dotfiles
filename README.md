@@ -42,23 +42,23 @@ In these configuration, I have the following softwares on my desktop:
 |                `bat`                | cat clone with wings |
 |                `vim`                | vim                  |
 |               `nvim`                | NeoVim               |
-|      `visual-studio-code-bin`       | Visual Studio Code   |
+|      `visual-studio-code-bin`<sub>aur</sub>       | Visual Studio Code   |
 |               `tmux`                | Terminal Multiplexer |
 |                `mpv`                | Video Player         |
 |               `cmus`                | Music Player         |
 |             `nitrogen`              | Wallpaper (unsplash) |
-|        `drawio-desktop-bin`         | Drawing Diagram      |
+|        `drawio-desktop-bin`<sub>aur</sub>          | Drawing Diagram      |
 |               `gimp`                | Image Editor         |
-| `google-chrome-stable` / `palemoon` | Browser              |
+| `firefox` / `firefox-developer-edition` | Browser              |
 |            `youtube-dl`             | Youtube Downloader   |
 |            `github-cli`             | Github CLI           |
 |              `gopass`               | Password Manager     |
-|              `dstask`               | ToDo Manager         |
+|              `dstask`<sub>_</sub>              | ToDo Manager         |
 |               `timew`               | Time Manager         |
-|             `dijo-bin`              | Habit Manager        |
-|       `sdcv [stardict-oald]`        | Dictionary           |
-|         `jcal-git` / `cal`          | Calender             |
-|            `anydesk-bin`            | Anydesk              |
+|             `dijo-bin`<sub>aur</sub>               | Habit Manager        |
+|       `sdcv` + `stardict-oald`<sub>aur</sub>         | Dictionary           |
+|         `jcal-git`<sub>aur</sub>  / `cal`          | Calender             |
+|            `anydesk-bin`<sub>aur</sub>             | Anydesk              |
 |              `easytag`              | Music Infoamtion     |
 |              `chrony`               | NTP                  |
 
