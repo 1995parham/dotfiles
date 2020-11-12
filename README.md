@@ -60,6 +60,7 @@ In these configuration, I have the following softwares on my desktop:
 |         `jcal-git` / `cal`          | Calender             |
 |            `anydesk-bin`            | Anydesk              |
 |              `easytag`              | Music Infoamtion     |
+|              `chrony`               | NTP                  |
 
 ## Installation
 
