@@ -29,38 +29,38 @@ First of all, thank you for your visiting, to find out more about how to use thi
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 In these configuration, I have the following softwares on my desktop:
 
-|                  Tool                   | Role                 |
-| :-------------------------------------: | :------------------- |
-|                  `i3`                   | Window Manager       |
-|      `i3status` / `i3status-rust`       | i3-bar Status        |
-|                `ranger`                 | File Manager         |
-|   `lightdm` / `lightdm-slick-greeter`   | Desktop Manager      |
-|                 `dmenu`                 | Application Launcher |
-|     `nmcli/nmtui (NetworkManager)`      | Networking           |
-|               `alacritty`               | Terminal Emulator    |
-|            `pacman` / `yay`             | Package Manager      |
-|                  `bat`                  | cat clone with wings |
-|                  `vim`                  | vim                  |
-|                 `nvim`                  | NeoVim               |
-| `visual-studio-code-bin`<sub>aur</sub>  | Visual Studio Code   |
-|                 `tmux`                  | Terminal Multiplexer |
-|                  `mpv`                  | Video Player         |
-|                 `cmus`                  | Music Player         |
-|               `nitrogen`                | Wallpaper (unsplash) |
-|   `drawio-desktop-bin`<sub>aur</sub>    | Drawing Diagram      |
-|                 `gimp`                  | Image Editor         |
-| `firefox` / `firefox-developer-edition` | Browser              |
-|              `youtube-dl`               | Youtube Downloader   |
-|              `github-cli`               | Github CLI           |
-|                `gopass`                 | Password Manager     |
-|          `dstask`<sub>\_</sub>          | ToDo Manager         |
-|                 `timew`                 | Time Manager         |
-|        `dijo-bin`<sub>aur</sub>         | Habit Manager        |
-| `sdcv` + `stardict-oald`<sub>aur</sub>  | Dictionary           |
-|    `jcal-git`<sub>aur</sub> / `cal`     | Calender             |
-|       `anydesk-bin`<sub>aur</sub>       | Anydesk              |
-|                `easytag`                | Music Infoamtion     |
-|                `chrony`                 | NTP                  |
+|            Tool ( Manjaro i3 / OSx )            | Role                 | Package (Manjaro i3 / OSx) |
+| :---------------------------------------------: | :------------------- | :------------------------: |
+|                      `i3`                       | Window Manager       |         pacman / -         |
+|          `i3status` + `i3status-rust`           | i3-bar Status        |         pacman / -         |
+|                    `ranger`                     | File Manager         |       pacman / brew        |
+|       `lightdm` + `lightdm-slick-greeter`       | Desktop Manager      |         pacman / -         |
+|                     `dmenu`                     | Application Launcher |         pacman / -         |
+|         `nmcli/nmtui (NetworkManager)`          | Networking           |         pacman / -         |
+|                   `alacritty`                   | Terminal Emulator    |     pacman / brew cask     |
+|            `pacman` + `yay` / `brew`            | Package Manager      |            NaN             |
+|                      `bat`                      | cat clone with wings |       pacman / brew        |
+|                      `vim`                      | vim                  |       pacman / brew        |
+|                     `nvim`                      | NeoVim               |       pacman / brew        |
+| `visual-studio-code-bin` / `visual-studio-code` | Visual Studio Code   |      yay / brew cask       |
+|                     `tmux`                      | Terminal Multiplexer |       pacman / brew        |
+|                      `mpv`                      | Video Player         |       pacman / brew        |
+|                     `cmus`                      | Music Player         |       pacman / brew        |
+|                   `nitrogen`                    | Wallpaper (unsplash) |         pacman / -         |
+|         `drawio-desktop-bin` / `drawio`         | Drawing Diagram      |      yay / brew cask       |
+|                     `gimp`                      | Image Editor         |         pacman / -         |
+|     `firefox` / `firefox-developer-edition`     | Browser              |     pacman / brew cask     |
+|                  `youtube-dl`                   | Youtube Downloader   |         pacman / -         |
+|               `github-cli` / `gh`               | Github CLI           |       pacamn / brew        |
+|                    `gopass`                     | Password Manager     |       pacman / brew        |
+|                    `dstask`                     | ToDo Manager         |           - / -            |
+|             `timew` / `timewarrior`             | Time Manager         |       pacman / brew        |
+|                   `dijo-bin`                    | Habit Manager        |         pacman / -         |
+|            `sdcv` + `stardict-oald`             | Dictionary           |          yay / -           |
+|               `jcal-git` + `cal`                | Calender             |       pacman / brew        |
+|                  `anydesk-bin`                  | Anydesk              |      yay / brew cask       |
+|                    `easytag`                    | Music Infoamtion     |         pacman / -         |
+|                    `chrony`                     | NTP                  |         pacman / -         |
 
 ## Installation
 
