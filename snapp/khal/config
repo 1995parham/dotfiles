@@ -1,0 +1,7 @@
+[default]
+highlight_event_days = true
+
+[calendars]
+[[work]]
+        path = ~/Snapp/calenders/calendar
+        readonly = True
