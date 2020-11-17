@@ -31,6 +31,11 @@ format = "{output_name} {volume}"
 block = "backlight"
 
 [[block]]
+block = "music"
+player = "cmus"
+hide_when_empty = true
+
+[[block]]
 block = "custom"
 interval = 1440
 command = ''' curl "wttr.in/Tehran?format=%l:+%C+%h+%f+%t+%p\n" || echo ""  '''
