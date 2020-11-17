@@ -41,6 +41,7 @@ bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
+bind index <tab> sidebar-toggle-visible
 
 # Palette for use with the Linux console.  Black background.
 
@@ -61,3 +62,10 @@ color tilde brightmagenta black
 
 # color body brightwhite black '\*+[^*]+\*+'
 # color body brightwhite black '_+[^_]+_+'
+
+set realname = 'Parham Alvani'
+set from = parham.alvani@snapp.cab
+set use_from = yes
+
+set smtp_pass = $my_gopass
+set smtp_url  = smtp://parham.alvani@127.0.0.1:1025
