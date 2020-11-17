@@ -60,6 +60,8 @@ color markers red black
 color search white black
 color tilde brightmagenta black
 
+set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
+
 # color body brightwhite black '\*+[^*]+\*+'
 # color body brightwhite black '_+[^_]+_+'
 
