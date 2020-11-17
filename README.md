@@ -61,6 +61,8 @@ In these configuration, I have the following softwares on my desktop:
 |                  `anydesk-bin`                  | Anydesk              |      yay / brew cask       |
 |                    `easytag`                    | Music Infoamtion     |         pacman / -         |
 |                    `chrony`                     | NTP                  |         pacman / -         |
+|             `viewnior` / `Preview`              | Image Viewer         |         pacman / -         |
+|             `epdfview` / `Preview`              | PDF Viewer           |         pacman / -         |
 
 ## Installation
 
