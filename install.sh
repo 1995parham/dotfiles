@@ -172,50 +172,6 @@ install-nvim() {
         nvim --headless +PlugInstall +qall
 }
 
-#### Alacritty ####
-install-alacritty() {
-        case $install_type in
-                0)
-                        ;;
-                1)
-                        ;;
-        esac
-}
-
-#### mpv ####
-install-mpv() {
-        case $install_type in
-                0)
-                        configfile "mpv"
-                        ;;
-                1)
-                        ;;
-        esac
-}
-
-#### cmus ####
-install-cmus() {
-        case $install_type in
-                0)
-                        configfile "cmus" "rc"
-                        ;;
-                1)
-                        ;;
-        esac
-}
-
-#### i3 window manager ####
-install-i3() {
-        case $install_type in
-                0)
-                        configfile "i3status"
-                        configfile "i3"
-                        ;;
-                1)
-                        ;;
-        esac
-}
-
 #### configurations ####
 install-conf() {
         files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
@@ -250,7 +206,7 @@ install-general() {
 }
 
 # calls each module install function.
-modules=(vim nvim i3 conf zsh git bin general)
+modules=(vim nvim conf zsh git bin general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
         install-$module
