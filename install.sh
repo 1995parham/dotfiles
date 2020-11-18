@@ -176,7 +176,6 @@ install-nvim() {
 install-alacritty() {
         case $install_type in
                 0)
-                        configfile "alacritty"
                         ;;
                 1)
                         ;;
@@ -251,7 +250,7 @@ install-general() {
 }
 
 # calls each module install function.
-modules=(vim nvim alacritty i3 mpv cmus conf zsh git bin general)
+modules=(vim nvim i3 conf zsh git bin general)
 for module in ${modules[@]}; do
         message $module "Installation begin"; echo
         install-$module
