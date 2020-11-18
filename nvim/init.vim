@@ -182,6 +182,9 @@ let g:polyglot_disabled = ['python', 'javascript']
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
+" VIM syntax plugin for Tridactyl configuration files.
+Plug 'tridactyl/vim-tridactyl'
+
 " wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 Plug 'tpope/vim-endwise'
 
