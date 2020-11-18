@@ -46,6 +46,30 @@ configfile() {
         linker $module $src_path $dst_path
 }
 
+# Creates a config file that resides in the `.config` directory, and provides a soft link for it.
+# for better organization of the repository, modules can be gathered into a directory, in these cases
+# the third parameter is used.
+# parameter 1: module name - string
+# parameter 2: file name - string
+# parameter 3: directory - string - optional
+configrootfile() {
+        local module=$1
+        local src_file=$2
+        local src_dir=$3
+
+        if [ ! -e "$HOME/.config" ]; then
+                mkdir "$HOME/.config"
+        fi
+
+        if [ ! -z $src_file ]; then
+                local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+                local dst_file="$src_file"
+        fi
+        local dst_path="$HOME/.config/$dst_file"
+
+        linker $module $src_path $dst_path
+}
+
 # linker
 # parameter 1: module name - string
 # parameter 2: source path - string
