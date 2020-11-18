@@ -63,6 +63,7 @@ In these configuration, I have the following softwares on my desktop:
 |                    `chrony`                     | NTP                  |         pacman / -         |
 |             `viewnior` / `Preview`              | Image Viewer         |         pacman / -         |
 |             `epdfview` / `Preview`              | PDF Viewer           |         pacman / -         |
+|          `skypeforlinux-bin` / `Skype`          | Skype                |      yay / brew cask       |
 
 ## Installation
 
