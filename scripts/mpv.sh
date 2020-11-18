@@ -16,6 +16,19 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        sudo pacman -Syu --noconfirm --needed mpv
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                message "mpv" "Darwin"
+
+                brew install mpv
+        else
+                message "mpv" "Linux"
+                if [[ "$(command -v apt)" ]]; then
+                        echo "There is nothing that we can do"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "mpv" "install mpv with pacman"
+                        sudo pacman -Syu --noconfirm --needed mpv
+                fi
+        fi
+
         configfile mpv
 }
