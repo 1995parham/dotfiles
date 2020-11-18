@@ -22,5 +22,6 @@ main() {
         configfile "i3" "" "i3"
 
         sudo pacman -Syu --noconfirm --needed picom
+        configrootfile "picom" "picom.conf" "i3"
         sudo pacman -Syu --noconfirm --needed nitrogen
 }
