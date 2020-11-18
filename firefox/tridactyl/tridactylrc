@@ -1,0 +1,6 @@
+sanitise tridactyllocal tridactylsync
+
+set theme dark
+
+setpref toolkit.legacyUserProfileCustomizations.stylesheets true
+guiset gui none
