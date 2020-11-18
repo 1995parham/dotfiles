@@ -162,6 +162,9 @@ augroup format
 
         " Cursor
         autocmd VimLeave * set guicursor=a:ver30
+
+        " i3config
+        autocmd BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 augroup end
 
 " }}}
@@ -181,9 +184,6 @@ let g:polyglot_disabled = ['python', 'javascript']
 
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
-
-" VIM syntax plugin for Tridactyl configuration files.
-Plug 'tridactyl/vim-tridactyl'
 
 " wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 Plug 'tpope/vim-endwise'
@@ -294,6 +294,8 @@ Plug 'arzg/vim-rust-syntax-ext'                        " A Vim plugin that enhan
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic Highlighting for Python in Neovim
 Plug 'groenewege/vim-less'                             " vim syntax for LESS (dynamic CSS)
 Plug 'maxmellon/vim-jsx-pretty'                        " JSX and TSX syntax pretty highlighting for vim.
+Plug 'mboughaba/i3config.vim'                          " Vim syntax highlighting for i3 config
+Plug 'tridactyl/vim-tridactyl'                         " VIM syntax plugin for Tridactyl configuration files.
 
 " vimproc is a great asynchronous execution library for Vim.
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
