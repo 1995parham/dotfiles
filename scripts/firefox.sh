@@ -17,4 +17,6 @@ main() {
         OPTIND=1
 
         sudo pacman -Syu --noconfirm --needed firefox
+
+        configfile tridactyl "" firefox
 }
