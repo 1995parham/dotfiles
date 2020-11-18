@@ -1,3 +1,4 @@
+# vim: ft=i3config
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -54,29 +55,34 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec google-chrome-stable
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec ranger
+bindsym $mod+F5 exec alacritty -e 'cmus'
+
+# picom
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+
+# dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
+# screenshot
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# focus_follows_mouse no
+focus_follows_mouse no
 
 # cmus
-bindsym XF86AudioPlay exec cmus-remote -u
-bindsym XF86AudioPause exec cmus-remote -u
-bindsym XF86AudioNext exec cmus-remote -n
-bindsym XF86AudioPrev exec cmus-remote -r
+bindsym XF86AudioPlay exec cmus-remote -u; exec notify-send -a cmus 'play/pause'
+bindsym XF86AudioPause exec cmus-remote -u; exec notify-send -a cmus 'play/pause'
+bindsym XF86AudioNext exec cmus-remote -n; exec notify-send -a cmus 'next'
+bindsym XF86AudioPrev exec cmus-remote -r; exec notify-send -a cmus 'previous'
 
 # change focus
 bindsym $mod+j focus left
@@ -108,8 +114,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec notify-send -a i3 'tile horizontally'
+bindsym $mod+v split v;exec notify-send -a i3 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -188,7 +194,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
-assign [class="Google-chrome"] $ws2
 # assign [class="Pcmanfm"] $ws3
 assign [class="Telegram"] $ws8
 assign [class="Skype"] $ws8
@@ -221,7 +226,6 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="Google-chrome" title="hidden tabs? - Workona"] move scratchpad
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -239,17 +243,17 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+        bindsym l exec --no-startup-id i3exit lock, mode "default"
+        bindsym s exec --no-startup-id i3exit suspend, mode "default"
+        bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+        bindsym e exec --no-startup-id i3exit logout, mode "default"
+        bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+        bindsym r exec --no-startup-id i3exit reboot, mode "default"
+        bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+        # exit system mode: "Enter" or "Escape"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 # Resize window (you can also use the mouse for that)
@@ -336,49 +340,42 @@ bar {
         status_command i3status-rs ~/.config/i3/config.toml || i3-msg bar mode invisible bar-0
         tray_output none
 
-	bindsym button4 nop
-	bindsym button5 nop
+        bindsym button4 nop
+        bindsym button5 nop
 
-    colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
-
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
+        colors {
+                background #222D31
+                statusline #F9FAF9
+                separator  #454947
+        }
 }
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
         i3bar_command i3bar
-	status_command i3status
-	position bottom
+        status_command i3status
+        position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
 
-	bindsym button4 nop
-	bindsym button5 nop
+        bindsym button4 nop
+        bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+        strip_workspace_numbers yes
 
-    colors {
-        background #222D31
-        statusline #F9FAF9
-        separator  #454947
+        colors {
+                background #222D31
+                statusline #F9FAF9
+                separator  #454947
 
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+                #                  border  backgr. text
+                focused_workspace  #F9FAF9 #16a085 #292F34
+                active_workspace   #595B5B #353836 #FDF6E3
+                inactive_workspace #595B5B #222D31 #EEE8D5
+                binding_mode       #16a085 #2C2C2C #F9FAF9
+                urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
 
@@ -386,14 +383,14 @@ bar {
 bindsym $mod+m bar mode toggle
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000
+# class                 border  backgr. text    indic.   child_border
+client.focused          #556064 #556064 #80FFF9 #FDF6E3
+client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000
 
-  client.background       #2B2C2B
+client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
