@@ -17,6 +17,19 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        sudo pacman -Syu --noconfirm --needed alacritty
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                message "alacritty" "Darwin"
+
+                brew install --cask alacritty
+        else
+                message "alacritty" "Linux"
+                if [[ "$(command -v apt)" ]]; then
+                        echo "There is nothing that we can do"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "alacritty" "install alacritty with pacman"
+                        sudo pacman -Syu --noconfirm --needed alacritty
+                fi
+        fi
+
         configfile alacritty
 }
