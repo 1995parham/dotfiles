@@ -33,6 +33,8 @@ auto_view text/html
 set sort=threads
 set sort_aux=last-date-received
 
+set ssl_force_tls=no
+
 bind pager j next-line
 bind pager k previous-line
 bind attach,index,pager \CD next-page
