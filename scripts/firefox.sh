@@ -16,7 +16,20 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        sudo pacman -Syu --noconfirm --needed firefox
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                message "firefox" "Darwin"
+
+                brew install --cask firefox
+        else
+                message "firefox" "Linux"
+                if [[ "$(command -v apt)" ]]; then
+                        echo "There is nothing that we can do"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "firefox" "install firefox with pacman"
+                        sudo pacman -Syu --noconfirm --needed firefox
+                fi
+        fi
+
 
         configfile tridactyl "" firefox
 }
