@@ -39,3 +39,8 @@ hide_when_empty = true
 block = "custom"
 interval = 1440
 command = ''' curl "wttr.in/Tehran?format=%l:+%C+%h+%f+%t+%p\n" || echo ""  '''
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 5
