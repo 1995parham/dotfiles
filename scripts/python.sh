@@ -60,7 +60,7 @@ python-install-packages() {
 
         message "python" "Python Tools"
 
-        printf "%s\n"${packages[@]} > $(pyenv root)/default-packages
+        printf "%s\n" ${packages[@]} > $(pyenv root)/default-packages
         for package in ${packages[@]}; do
                 python-install-package $package
         done
