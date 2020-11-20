@@ -9,6 +9,20 @@
 # =======================================
 verbose=false
 
+packages=(
+        flake8
+        pep8-naming
+        pipenv
+        mypy
+        black
+        'python-language-server[all]'
+        pyls-mypy
+        pylint
+        poetry
+
+        pynvim
+)
+
 usage() {
         echo "usage: python"
 }
@@ -27,6 +41,8 @@ pyenv-install() {
                         sudo pacman -Syu --needed --noconfirm pyenv
                 fi
         fi
+
+        git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages || echo "pyenv-default-packages is already installed"
 }
 
 python-install-package() {
@@ -43,15 +59,11 @@ python-install-packages() {
         message "python" "Fetch some good and useful python packages"
 
         message "python" "Python Tools"
-        python-install-package flake8
-        python-install-package pep8-naming
-        python-install-package pipenv
-        python-install-package mypy
-        python-install-package black
-        python-install-package 'python-language-server[all]'
-        python-install-package pyls-mypy
-        python-install-package pylint
-        python-install-package poetry
+
+        printf "%s\n"${packages[@]} > $(pyenv root)/default-packages
+        for package in ${packages[@]}; do
+                python-install-package $package
+        done
 }
 
 main() {
