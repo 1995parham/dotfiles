@@ -163,6 +163,12 @@ fi
 
 # }}}
 
+# python {{{
+
+export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
+
+# }}}
+
 # rust {{{
 
 if [ -d $HOME/.cargo ]; then
