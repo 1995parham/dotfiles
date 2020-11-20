@@ -130,7 +130,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
@@ -298,7 +298,8 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 15 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id setxkbmap -layout us,ir -option 'grp:alt_shift_toggle'
+
+bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
