@@ -4,5 +4,4 @@ set theme dark
 
 autocmd DocStart mail.google.com mode ignore
 
-setpref toolkit.legacyUserProfileCustomizations.stylesheets true
-guiset gui none
+setpref toolkit.legacyUserProfileCustomizations.stylesheets false
