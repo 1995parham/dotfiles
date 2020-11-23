@@ -17,8 +17,8 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-	sudo pacman -Syu --noconfirm --needed mutt vdirsyncer khal
-        yay davmail
+	sudo pacman -Syu --noconfirm --needed mutt vdirsyncer khal element-desktop
+        yay -Syu --noconfirm --needed davmail
 
         systemctl --user enable davmail@snapp
         systemctl --user start davmail@snapp
@@ -27,4 +27,6 @@ main() {
         configfile khal "" snapp
         configfile vdirsyncer "" snapp
         configfile mutt "" snapp
+
+        vdirsyncer discover
 }
