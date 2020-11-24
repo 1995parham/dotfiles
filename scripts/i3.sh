@@ -26,4 +26,10 @@ main() {
         sudo pacman -Syu --noconfirm --needed nitrogen
         sudo pacman -Syu --noconfirm --needed dunst
         configfile dunst "" i3
+
+        configsystemd nitrogen nitrogen.timer i3
+        configsystemd nitrogen nitrogen.service i3
+
+        systemctl --user enable nitrogen.timer
+        systemctl --user start nitrogen.timer
 }
