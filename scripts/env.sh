@@ -15,6 +15,7 @@ usage() {
 mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6)
 apt_packages=(atop zsh aria2 curl tmux bat neovim python3-pynvim jq yamllint)
 pacman_packages=(atop zsh aria2 curl tmux bat neovim python-pynvim jq yamllint)
+pkg_packages=(neovim zsh tmux vim)
 
 
 install-brew() {
@@ -42,6 +43,9 @@ install-packages-linux() {
 	elif [[ "$(command -v pacman)" ]]; then
 		message "env" "install ${pacman_packages[*]} with pacman"
 		sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]}
+	elif [[ "$(command -v pkg)" ]]; then
+                message "env" "install ${pkg_packages[*]} with pkg (termux on Android)"
+		pkg install ${pkg_packages[@]}
 	fi
 }
 
