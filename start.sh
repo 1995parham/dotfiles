@@ -70,6 +70,31 @@ configrootfile() {
         linker $module $src_path $dst_path
 }
 
+# Creates a systemd file that resides in the `.config` directory, and provides a soft link for it.
+# for better organization of the repository, modules can be gathered into a directory, in these cases
+# the third parameter is used.
+# parameter 1: module name - string
+# parameter 2: file name - string
+# parameter 3: directory - string - optional
+configsystemd() {
+        local module=$1
+        local src_file=$2
+        local src_dir=$3
+
+        if [ ! -e "$HOME/.config/systemd/user" ]; then
+                mkdir -p "$HOME/.config/systemd/user"
+        fi
+
+        if [ ! -z $src_file ]; then
+                local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+                local dst_file="$src_file"
+        fi
+        local dst_path="$HOME/.config/systemd/user/$dst_file"
+
+        linker $module $src_path $dst_path
+}
+
+
 # linker
 # parameter 1: module name - string
 # parameter 2: source path - string
