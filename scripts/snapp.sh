@@ -29,4 +29,10 @@ main() {
         configfile mutt "" snapp
 
         vdirsyncer discover
+
+        configsystemd vdirsyncer vdirsyncer.timer snapp
+        configsystemd vdirsyncer vdirsyncer.service snapp
+
+        systemctl --user enable vdirsyncer.timer
+        systemctl --user start vdirsyncer.timer
 }
