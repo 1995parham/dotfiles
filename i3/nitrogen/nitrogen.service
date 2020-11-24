@@ -2,4 +2,4 @@
 Description=Change background
 
 [Service]
-ExecStart=nitroge --random %h/Pictures/GoSiMac/
+ExecStart=nitrogen --set-scaled --random %h/Pictures/GoSiMac/
