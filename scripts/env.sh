@@ -43,9 +43,6 @@ install-packages-linux() {
 	elif [[ "$(command -v pacman)" ]]; then
 		message "env" "install ${pacman_packages[*]} with pacman"
 		sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]}
-	elif [[ "$(command -v pkg)" ]]; then
-                message "env" "install ${pkg_packages[*]} with pkg (termux on Android)"
-		pkg install ${pkg_packages[@]}
 	fi
 }
 
@@ -54,6 +51,9 @@ install-() {
                 message "env" "Darwin"
 
                 install-packages-osx ${mac_packages[@]}
+        elif [[ "$OSTYPE" == "linux-android" ]]; then
+                message "env" "install ${pkg_packages[*]} with pkg (termux on Android)"
+		pkg install ${pkg_packages[@]}
         else
                 message "env" "Linux"
 
