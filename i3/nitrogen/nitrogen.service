@@ -1,0 +1,5 @@
+ [Unit]
+Description=Change background
+
+[Service]
+ExecStart=nitroge --random %h/Pictures/GoSiMac/
