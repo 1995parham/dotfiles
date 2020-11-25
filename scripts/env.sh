@@ -15,7 +15,7 @@ usage() {
 mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6)
 apt_packages=(atop zsh aria2 curl tmux bat neovim python3-pynvim jq yamllint)
 pacman_packages=(atop zsh aria2 curl tmux bat neovim python-pynvim jq yamllint)
-pkg_packages=(neovim zsh tmux vim)
+pkg_packages=(neovim zsh tmux vim python)
 
 
 install-brew() {
@@ -35,25 +35,26 @@ install-packages-osx() {
 }
 
 install-packages-linux() {
-	if [[ "$(command -v apt)" ]]; then
-		sudo apt-get update -q
+        if [[ "$(command -v apt)" ]]; then
+                sudo apt-get update -q
 
-		message "env" "install ${apt_packages[*]} with apt"
-		sudo apt-get install ${apt_packages[@]}
-	elif [[ "$(command -v pacman)" ]]; then
-		message "env" "install ${pacman_packages[*]} with pacman"
-		sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]}
-	fi
+                message "env" "install ${apt_packages[*]} with apt"
+                sudo apt-get install ${apt_packages[@]}
+        elif [[ "$(command -v pacman)" ]]; then
+                message "env" "install ${pacman_packages[*]} with pacman"
+                sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]}
+        fi
 }
 
 install-() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
                 message "env" "Darwin"
-
                 install-packages-osx ${mac_packages[@]}
+                python3 -mpip install pynvim
         elif [[ "$OSTYPE" == "linux-android" ]]; then
                 message "env" "install ${pkg_packages[*]} with pkg (termux on Android)"
-		pkg install ${pkg_packages[@]}
+                pkg install ${pkg_packages[@]}
+                python3 -mpip install pynvim
         else
                 message "env" "Linux"
 
