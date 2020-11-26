@@ -32,4 +32,8 @@ main() {
 
         systemctl --user enable nitrogen.timer
         systemctl --user start nitrogen.timer
+
+
+        linker dmenu $current_dir/i3/dmenurc $HOME/.dmenurc
+        chmod +x $HOME/.dmenurc
 }
