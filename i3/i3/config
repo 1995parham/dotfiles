@@ -229,7 +229,7 @@ for_window [class="Xfburn"] floating enable
 for_window [class="Element"] floating enable
 
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+# for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -358,13 +358,14 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
-client.focused          #556064 #556064 #80FFF9 #FDF6E3
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.focused          #333333 #ffa500 #333333 #FDF6E3
+client.focused_inactive #333333 #333333 #ffa500 #454948
+client.unfocused        #333333 #333333 #ffa500 #454948
+client.urgent           #333333 #333333 #b30000 #268BD2
+# Background and text color are used to draw placeholder window contents (when restoring layouts). Border and indicator are ignored.
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 
-client.background       #2B2C2B
+client.background       #333333
 
 #############################
 ### settings for i3-gaps: ###
