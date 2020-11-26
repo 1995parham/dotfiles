@@ -1,17 +1,27 @@
 [icons]
 name = 'none'
+
 [icons.overrides]
 backlight_full = "☼ "
 backlight_partial3 = "☼ "
 backlight_partial2 = "☼ "
 backlight_partial1 = "☀ "
 backlight_empty = "☀ "
-volume_half = "🔉 "
-volume_full = "🔊 "
-volume_muted = "🔈 "
+volume_half = "🕩 "
+volume_full = "🕪 "
+volume_muted = "🕨 "
 
+# https://github.com/greshake/i3status-rust/blob/master/themes.md
 [theme]
-name = "modern"
+name = "plain"
+
+[theme.overrides]
+separator_fg = "#454947"
+separator_bg = "#333333"
+idle_fg = "#F9FAF9"
+idle_bg = "#333333"
+warning_bg = "#333333"
+warning_fg = "#b30000"
 
 [[block]]
 block = "custom"
