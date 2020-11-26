@@ -153,14 +153,14 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1:term
-set $ws2 2:web
+set $ws1 1:main
+set $ws2 2
 set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
-set $ws8 8:chat
+set $ws8 8:social
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -195,7 +195,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pcmanfm"] $ws3
-assign [class="Telegram"] $ws8
+# assign [class="Telegram"] $ws8
 assign [class="Skype"] $ws8
 
 # Open specific applications in floating mode
@@ -239,6 +239,8 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# modes are colored with binding_mode in status bars.
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -302,36 +304,6 @@ exec_always --no-startup-id fix_xcursor
 
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
 
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your
-# terminal background change the line 362 from:
-# background #14191D
-# to:
-# background $term_background
-# Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
 
 # this bar is working with i3status-rust
 # pacman -Syu i3status-rust
@@ -339,6 +311,7 @@ bar {
         i3bar_command i3bar
         position top
         workspace_buttons no
+        binding_mode_indicator no
         status_command i3status-rs ~/.config/i3/config.toml || i3-msg bar mode invisible bar-0
         tray_output none
 
@@ -346,9 +319,7 @@ bar {
         bindsym button5 nop
 
         colors {
-                background #222D31
-                statusline #F9FAF9
-                separator  #454947
+                background #333333
         }
 }
 
@@ -368,16 +339,17 @@ bar {
         strip_workspace_numbers yes
 
         colors {
-                background #222D31
+                background #333333
                 statusline #F9FAF9
                 separator  #454947
 
                 #                  border  backgr. text
-                focused_workspace  #F9FAF9 #16a085 #292F34
-                active_workspace   #595B5B #353836 #FDF6E3
-                inactive_workspace #595B5B #222D31 #EEE8D5
-                binding_mode       #16a085 #2C2C2C #F9FAF9
-                urgent_workspace   #16a085 #FDF6E3 #E5201D
+                focused_workspace  #333333 #ffa500 #333333
+                inactive_workspace #333333 #333333 #ffa500
+                # TODO: active workspace are useful on multiple output configure it in future.
+                active_workspace   #333333 #333333 #ffa500
+                urgent_workspace   #333333 #333333 #b30000
+                binding_mode       #bcbcbc #bcbcbc #333333
     }
 }
 
