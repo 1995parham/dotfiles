@@ -28,6 +28,8 @@ main() {
                         message "firefox" "install firefox with pacman"
                         sudo pacman -Syu --noconfirm --needed firefox
                 fi
+
+                sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
         fi
 
 
