@@ -64,6 +64,7 @@ In these configuration, I have the following softwares on my desktop:
 |             `viewnior` / `Preview`              | Image Viewer         |         pacman / -         |
 |             `epdfview` / `Preview`              | PDF Viewer           |         pacman / -         |
 |          `skypeforlinux-bin` / `Skype`          | Skype                |      yay / brew cask       |
+|               `mailspring` / `?`                | Mail Client          |          yay / ?           |
 
 ## Installation
 
