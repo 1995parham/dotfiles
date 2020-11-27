@@ -91,18 +91,22 @@ dotfile() {
 }
 
 # Creates a config file that resides in the `.config` directory, and provides a soft link for it.
+# for better organization of the repository, modules can be gathered into a directory, in these cases
+# the third parameter is used.
 # parameter 1: module name - string
-# parameter 2: file name - string
+# parameter 2: file name - string - optional
+# parameter 3: directory - string - optional
 configfile() {
         local module=$1
         local src_file=$2
+        local src_dir=$3
 
         if [ ! -e "$HOME/.config" ]; then
                 mkdir "$HOME/.config"
         fi
 
         if [ ! -z $src_file ]; then
-                local src_path="$current_dir/$module/$src_file"
+                local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
                 local dst_file="$module/$src_file"
 
                 if [ ! -d "$HOME/.config/$module" ]; then
@@ -110,7 +114,7 @@ configfile() {
                 fi
         else
                 src_file=$module
-                local src_path="$current_dir/$module"
+                local src_path="$current_dir${src_dir:+/$src_dir}/$module"
                 local dst_file="$module"
         fi
         local dst_path="$HOME/.config/$dst_file"
@@ -176,6 +180,7 @@ install-nvim() {
 install-conf() {
         files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
         dotfile "conf" files[@]
+        configfile "htop" "" "conf"
 
         message "conf" "Installing tmux plugins"
         ~/.tmux/plugins/tpm/bin/install_plugins
