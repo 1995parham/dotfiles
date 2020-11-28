@@ -117,8 +117,8 @@ fi
 # use a wrapper around sdcv to conveniently format its output
 # on osx it uses the prebuild mac dictionary.
 function def() {
-  if [[ $OSTYPE == "darwin*" ]]; then
-    curl dict://dict.org/d:"${1}"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    curl dict://dict.org/d:$1
   else
     sdcv -n --utf8-output --color "$@" 2>&1 | \
     fold --width=$(tput cols) | \
