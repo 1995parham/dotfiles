@@ -4,6 +4,7 @@ set folder      = imap://127.0.0.1:1143
 set imap_user   = parham.alvani
 set imap_pass   = $my_gopass
 set spoolfile   = +INBOX
+set postponed   = +Drafts
 mailboxes       = +INBOX
 
 # Store message headers locally to speed things up.
