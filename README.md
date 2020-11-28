@@ -198,6 +198,12 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
+- For having gpg-agent on OSx add the following to your `~/.zshenv`:
+
+```sh
+eval $(gpg-agent --daemon)
+```
+
 - In Manjaro you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
 
 - Do you have any HFP-only Headphone? Use the following procedure to have it on you Arch:
