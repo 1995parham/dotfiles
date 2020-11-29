@@ -1,4 +1,4 @@
- [Unit]
+[Unit]
 Description=Sync calendar with vdirsyncer
 
 [Service]
