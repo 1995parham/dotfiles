@@ -1,4 +1,4 @@
- [Unit]
+[Unit]
 Description=Change background
 
 [Service]
