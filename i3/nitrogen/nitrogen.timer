@@ -6,4 +6,4 @@ OnBootSec=5m
 OnUnitActiveSec=5m
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=timers.target
