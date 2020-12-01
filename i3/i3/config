@@ -153,14 +153,14 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1:main
-set $ws2 2
+set $ws1 1:∀ main
+set $ws2 2:∃ main
 set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
-set $ws7 7:mail
-set $ws8 8:social
+set $ws7 7:@ mail
+set $ws8 8:🕻 social
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
