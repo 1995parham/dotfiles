@@ -25,6 +25,7 @@ main() {
         configrootfile picom picom.conf i3
         sudo pacman -Syu --noconfirm --needed nitrogen
         sudo pacman -Syu --noconfirm --needed dunst
+        sudo pacman -Syu --noconfirm --needed lxappearance
         configfile dunst "" i3
 
         configsystemd nitrogen nitrogen.timer i3
