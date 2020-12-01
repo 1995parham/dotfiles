@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name of God
 # ========================================
-# [] File Name : firefox.sh
+# [] File Name : vivaldi.sh
 #
 # [] Creation Date : 17-07-2018
 #
@@ -9,7 +9,7 @@
 # =======================================
 
 usage() {
-        echo "usage: firefox"
+        echo "usage: vivaldi"
 }
 
 main() {
@@ -17,21 +17,18 @@ main() {
         OPTIND=1
 
         if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "firefox" "Darwin"
+                message "vivaldi" "Darwin"
 
-                brew install --cask firefox
+                brew install --cask vivaldi
         else
-                message "firefox" "Linux"
+                message "vivaldi" "Linux"
                 if [[ "$(command -v apt)" ]]; then
                         echo "There is nothing that we can do"
                 elif [[ "$(command -v pacman)" ]]; then
-                        message "firefox" "install firefox with pacman"
-                        sudo pacman -Syu --noconfirm --needed firefox
+                        message "vivaldi" "install vivaldi with pacman"
+                        sudo pacman -Syu --noconfirm --needed vivaldi
                 fi
 
-                sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
+                sed -i 's#BROWSER=.*#BROWSER='$(which vivaldi-stable)'#g' ~/.profile
         fi
-
-
-        configfile tridactyl "" firefox
 }
