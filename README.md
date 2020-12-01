@@ -223,6 +223,8 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 
 - You can configure `github-cli` to use existing tokens.
 
+- You can use `lxappearance` to change gtk theme.
+
 ## Breaking Sanctions
 
 Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
