@@ -30,5 +30,7 @@ main() {
                 fi
 
                 sed -i 's#BROWSER=.*#BROWSER='$(which vivaldi-stable)'#g' ~/.profile
+                configfile "vimb" "config"
+                configfile "vimb" "bookmark"
         fi
 }
