@@ -21,16 +21,6 @@ texlive-package() {
         fi
 }
 
-texlive-linter() {
-        # linters
-        texlive-package latexindent
-        cpan YAML::Tiny
-        cpan File::HomeDir
-        cpan Unicode::GCString
-        cpan Log::Log4perl
-        cpan Log::Dispatch
-}
-
 texlive-packages() {
         # elsevier journals
         texlive-package elsarticle
@@ -75,18 +65,4 @@ texlive-install() {
 main() {
         texlive-install
         texlive-packages
-
-        # Reset optind between calls to getopts
-        OPTIND=1
-        while getopts "l" argv; do
-                case $argv in
-                        l)
-                                linter=true
-                                ;;
-                esac
-        done
-
-        if [ $linter = true ]; then
-                texlive-linter
-        fi
 }
