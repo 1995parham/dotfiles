@@ -17,20 +17,24 @@ main() {
         OPTIND=1
 
         if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "vivaldi" "Darwin"
+                message "browser" "Darwin"
 
-                brew install --cask vivaldi
+                brew install --cask firefox
         else
-                message "vivaldi" "Linux"
+                message "browser" "Linux"
                 if [[ "$(command -v apt)" ]]; then
                         echo "There is nothing that we can do"
                 elif [[ "$(command -v pacman)" ]]; then
-                        message "vivaldi" "install vivaldi with pacman"
-                        sudo pacman -Syu --noconfirm --needed vivaldi vimb
+                        message "browser" "install firefox / vimb with pacman"
+                        sudo pacman -Syu --noconfirm --needed firefox vimb
                 fi
 
-                sed -i 's#BROWSER=.*#BROWSER='$(which vivaldi-stable)'#g' ~/.profile
-                configfile "vimb" "config"
-                configfile "vimb" "bookmark"
+                configfile vimb config
+                configfile vimb bookmark
+
+                sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
         fi
+
+
+        configfile tridactyl "" firefox
 }
