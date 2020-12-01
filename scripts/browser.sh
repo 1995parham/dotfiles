@@ -1,15 +1,15 @@
 #!/bin/bash
 # In The Name of God
 # ========================================
-# [] File Name : vivaldi.sh
+# [] File Name : browser.sh
 #
-# [] Creation Date : 17-07-2018
+# [] Creation Date : 01-12-2020
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
 usage() {
-        echo "usage: vivaldi"
+        echo "usage: browser"
 }
 
 main() {
@@ -26,7 +26,7 @@ main() {
                         echo "There is nothing that we can do"
                 elif [[ "$(command -v pacman)" ]]; then
                         message "vivaldi" "install vivaldi with pacman"
-                        sudo pacman -Syu --noconfirm --needed vivaldi
+                        sudo pacman -Syu --noconfirm --needed vivaldi vimb
                 fi
 
                 sed -i 's#BROWSER=.*#BROWSER='$(which vivaldi-stable)'#g' ~/.profile
