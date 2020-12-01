@@ -25,12 +25,9 @@ main() {
                 if [[ "$(command -v apt)" ]]; then
                         echo "There is nothing that we can do"
                 elif [[ "$(command -v pacman)" ]]; then
-                        message "browser" "install firefox / vimb / w3m with pacman"
-                        sudo pacman -Syu --noconfirm --needed firefox vimb w3m
+                        message "browser" "install firefox / w3m with pacman"
+                        sudo pacman -Syu --noconfirm --needed firefox w3m
                 fi
-
-                configfile vimb config
-                configfile vimb bookmark
 
                 sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
         fi
