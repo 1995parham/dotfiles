@@ -1,7 +1,0 @@
-sanitise tridactyllocal tridactylsync
-
-set theme dark
-
-autocmd DocStart mail.google.com mode ignore
-
-setpref toolkit.legacyUserProfileCustomizations.stylesheets false
