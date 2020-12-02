@@ -5,7 +5,6 @@ set imap_user   = parham.alvani
 set imap_pass   = $my_gopass
 set spoolfile   = +INBOX
 set postponed   = +Drafts
-mailboxes       = +INBOX
 
 # Store message headers locally to speed things up.
 # If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things up even more.
