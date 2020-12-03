@@ -156,6 +156,13 @@ alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source ~/.zshrc"
 
+# use bat/batcat for viewing manpages
+if command -v bat &> /dev/null; then
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+elif command -v batcat &> /dev/null; then
+  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+fi
+
 # }}}
 
 # go {{{
