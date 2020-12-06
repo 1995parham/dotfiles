@@ -49,7 +49,7 @@ texlive-install() {
                         echo "There is nothing that we can do"
                 elif [[ "$(command -v pacman)" ]]; then
                         message "texlive" "Install texlive-core with pacman"
-                        sudo pacman -Syu --needed --noconfirm texlive-core biber
+                        sudo pacman -Syu --needed --noconfirm texlive-core biber texlab
                         yay -Syu --needed --noconfirm tllocalmgr-git
                 fi
         else
