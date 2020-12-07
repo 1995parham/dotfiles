@@ -13,6 +13,7 @@ set -e
 # global variable that points to dotfiles root directory
 current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $current_dir/scripts/lib/message.sh
+source $current_dir/scripts/lib/proxy.sh
 
 # Creates a config file that resides in the `.config` directory, and provides a soft link for it.
 # for better organization of the repository, modules can be gathered into a directory, in these cases
