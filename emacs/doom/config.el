@@ -35,7 +35,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(global-set-key (kbd "C-n") 'neotree-toggle)
 (global-set-key [f8] 'neotree-toggle)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
