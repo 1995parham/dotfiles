@@ -33,7 +33,9 @@ main() {
         mkdir -p ~/.config
         git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs || true
 
+        proxy_start
         ~/.config/emacs/bin/doom install
+        proxy_stop
 
         configfile doom "" emacs
 }
