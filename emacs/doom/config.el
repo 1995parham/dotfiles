@@ -36,6 +36,7 @@
 (setq display-line-numbers-type t)
 
 (global-set-key [f8] 'neotree-toggle)
+(global-set-key [f4] (setq bidi-paragraph-direction nil))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -53,3 +54,17 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(setq +mu4e-backend 'offlineimap)
+(setq +mu4e-mu4e-mail-path '~/mail)
+
+;; Each path is relative to `+mu4e-mu4e-mail-path'
+(set-email-account! "aut"
+  '((mu4e-sent-folder       . "/Sent")
+    (mu4e-drafts-folder     . "/Drafts")
+    (mu4e-trash-folder      . "/Trash")
+    (mu4e-refile-folder     . "/Archive")
+    (smtpmail-smtp-user     . "parham.alvani@aut.ac.ir")
+    (user-mail-address      . "parham.alvani@aut.ac.ir")
+    (mu4e-compose-signature . "Parham Alvani\nPh.D. Student of Computer Networks Engineering\nAmirkabir University of Technology\nparham.alvani@gmail.com | parham.alvani@aut.ac.ir\nhttp://1995parham.github.io"))
+  t)
