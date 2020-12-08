@@ -65,6 +65,12 @@
     (mu4e-trash-folder      . "/Trash")
     (mu4e-refile-folder     . "/Archive")
     (smtpmail-smtp-user     . "parham.alvani@aut.ac.ir")
+    (smtpmail-default-smtp-server . "webmail.aut.ac.ir")
+    (smtpmail-smtp-server . "webmail.aut.ac.ir")
+    (smtpmail-smtp-service . 587)
     (user-mail-address      . "parham.alvani@aut.ac.ir")
-    (mu4e-compose-signature . "Parham Alvani\nPh.D. Student of Computer Networks Engineering\nAmirkabir University of Technology\nparham.alvani@gmail.com | parham.alvani@aut.ac.ir\nhttp://1995parham.github.io"))
+    (mu4e-compose-signature . (concat
+                                "Parham Alvani\n"
+                                "Ph.D. Student of Computer Networks Engineering\nAmirkabir University of Technology\n"
+                                "parham.alvani@gmail.com | parham.alvani@aut.ac.ir\nhttp://1995parham.github.io")))
   t)
