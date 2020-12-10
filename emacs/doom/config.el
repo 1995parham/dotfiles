@@ -3,6 +3,17 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+(setq-default
+  tab-width 4
+  )
+
+(map! :map evil-window-map
+      "SPC" #'rotate-layout
+      "<left>"     #'evil-window-left
+       "<down>"     #'evil-window-down
+       "<up>"       #'evil-window-up
+       "<right>"    #'evil-window-right
+)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -35,8 +46,11 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(global-set-key [f8] 'neotree-toggle)
-(global-set-key [f4] (setq bidi-paragraph-direction nil))
+;; Using delete-trailing-whitespaces or whitespace-cleanup to manage leftover whitespace
+(add-hook 'after-save-hook #'whitespace-cleanup)
+
+(map! :n "M-n" #'neotree-toggle)
+(map! :n "M-d" (cmd! (if (eq bidi-paragraph-direction 'left-to-right) (setq bidi-paragraph-direction 'right-to-left) (setq bidi-paragraph-direction 'left-to-right))))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
