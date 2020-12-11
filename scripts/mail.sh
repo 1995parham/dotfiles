@@ -33,4 +33,6 @@ main() {
 
         mkdir -p ~/mail/aut
         mkdir -p ~/mail/main
+        mkdir -p ~/mail/personal
+        mkdir -p ~/mail/secret
 }
