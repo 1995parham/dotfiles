@@ -1,4 +1,5 @@
 *
-!core/
+!core
+!core/*
 !init.el
 !.gitignore
