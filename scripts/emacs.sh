@@ -17,8 +17,9 @@ main() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
                 message "emacs" "Darwin"
 
-                brew install ripgrep
-                brew install --cask emacs
+                # https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
+                brew install git ripgrep
+                brew install emacs
         else
                 message "emacs" "Linux"
                 if [[ "$(command -v apt)" ]]; then
@@ -29,5 +30,12 @@ main() {
                 fi
         fi
 
-        configfile emacs "" ""
+        mkdir -p ~/.config
+        git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs || true
+
+        proxy_start
+        ~/.config/emacs/bin/doom install
+        proxy_stop
+
+        configfile doom "" emacs
 }
