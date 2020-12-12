@@ -2,15 +2,15 @@
 # Font configuration (changes require restart)
 font:
   # The size to use.
-  size: 8
+  size: 13
   normal:
-    family: Meslo LG S
+    family: JetBrains Mono
     style: Regular
   bold:
-    family: Meslo LG S
+    family: JetBrains Mono
     style: Bold
   italic:
-    family: Meslo LG S
+    family: JetBrains Mono
     style: Italic
 
 background_opacity: 1.0
