@@ -1,7 +1,11 @@
 *
+<<<<<<< HEAD
 !core
 !core/*
 !doom
 !doom/*
+=======
+!core/
+>>>>>>> parent of b34900e (feat: Add Emacs Core)
 !init.el
 !.gitignore
