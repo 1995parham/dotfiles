@@ -1,5 +1,7 @@
 *
 !core
 !core/*
+!doom
+!doom/*
 !init.el
 !.gitignore
