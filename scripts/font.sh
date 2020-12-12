@@ -16,11 +16,18 @@ main() {
         # Reset optind between calls to getopts
         OPTIND=1
 
-        if [[ "$(command -v apt)" ]]; then
-                sudo apt-get install fonts-roboto
-        elif [[ "$(command -v pacman)" ]]; then
-                sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono
-                yay -Syu --needed --noconfirm ttf-meslo
-                yay -Syu --needed --noconfirm vazir-fonts
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+                message "font" "Darwin"
+                brew tap homebrew/cask-fonts
+                brew install --cask font-jetbrains-mono
+        else
+                message "font" "Linux"
+                if [[ "$(command -v apt)" ]]; then
+                        sudo apt-get install fonts-roboto
+                elif [[ "$(command -v pacman)" ]]; then
+                        sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono
+                        yay -Syu --needed --noconfirm ttf-meslo
+                        yay -Syu --needed --noconfirm vazir-fonts
+                fi
         fi
 }
