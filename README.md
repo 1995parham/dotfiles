@@ -42,7 +42,7 @@ In these configuration, I have the following softwares on my desktop:
 |                  `bat`                  | cat clone with wings |       pacman / brew        |
 |                  `vim`                  | vim                  |       pacman / brew        |
 |                 `nvim`                  | NeoVim               |       pacman / brew        |
-|            `emacs` / `emacs`            | Emacs                |     pacman / brew cask     |
+|                 `emacs`                 | Emacs                |     pacman / brew cask     |
 |                 `tmux`                  | Terminal Multiplexer |       pacman / brew        |
 |                  `mpv`                  | Video Player         |       pacman / brew        |
 |                 `cmus`                  | Music Player         |       pacman / brew        |
