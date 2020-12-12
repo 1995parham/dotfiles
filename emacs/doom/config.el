@@ -4,16 +4,16 @@
 ;; sync' after modifying this file!
 
 (setq-default
-  tab-width 4
-  )
+ tab-width 4
+ )
 
 (map! :map evil-window-map
       "SPC" #'rotate-layout
       "<left>"     #'evil-window-left
-       "<down>"     #'evil-window-down
-       "<up>"       #'evil-window-up
-       "<right>"    #'evil-window-right
-)
+      "<down>"     #'evil-window-down
+      "<up>"       #'evil-window-up
+      "<right>"    #'evil-window-right
+      )
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -49,7 +49,7 @@
 ;; Using delete-trailing-whitespaces or whitespace-cleanup to manage leftover whitespace
 (add-hook 'after-save-hook #'whitespace-cleanup)
 
-(map! :n "M-n" #'neotree-toggle)
+;; change the direction of the content. keybinding is useful in bi-directional document.
 (map! :n "M-d" (cmd! (if (eq bidi-paragraph-direction 'left-to-right) (setq bidi-paragraph-direction 'right-to-left) (setq bidi-paragraph-direction 'left-to-right))))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -69,22 +69,4 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq +mu4e-backend 'offlineimap)
-(setq +mu4e-mu4e-mail-path '~/mail)
-
-;; Each path is relative to `+mu4e-mu4e-mail-path'
-(set-email-account! "aut"
-  '((mu4e-sent-folder       . "/Sent")
-    (mu4e-drafts-folder     . "/Drafts")
-    (mu4e-trash-folder      . "/Trash")
-    (mu4e-refile-folder     . "/Archive")
-    (smtpmail-smtp-user     . "parham.alvani@aut.ac.ir")
-    (smtpmail-default-smtp-server . "webmail.aut.ac.ir")
-    (smtpmail-smtp-server . "webmail.aut.ac.ir")
-    (smtpmail-smtp-service . 587)
-    (user-mail-address      . "parham.alvani@aut.ac.ir")
-    (mu4e-compose-signature . (concat
-                                "Parham Alvani\n"
-                                "Ph.D. Student of Computer Networks Engineering\nAmirkabir University of Technology\n"
-                                "parham.alvani@gmail.com | parham.alvani@aut.ac.ir\nhttp://1995parham.github.io")))
-  t)
+(load! "+mail")
