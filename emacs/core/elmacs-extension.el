@@ -1,0 +1,10 @@
+(straight-use-package 'go-mode)
+(add-hook 'go-mode-hook #'lsp-deferred)
+(setenv "GOPATH" (expand-file-name "~/Documents/Go"))
+(add-to-list 'exec-path (concat (file-name-as-directory (getenv "GOPATH")) "bin") t)
+(straight-use-package 'auctex)
+(straight-use-package 'yaml-mode)
+(straight-use-package 'json-mode)
+(straight-use-package 'markdown-mode)
+
+(provide 'elmacs-extension)
