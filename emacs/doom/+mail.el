@@ -25,7 +25,7 @@
                       (mu4e-refile-folder     . "/Archive")
                       (smtpmail-smtp-user     . "1995parham@hitler.rocks")
                       (smtpmail-smtp-server . "mail.cock.li")
-                      (smtpmail-smtp-service . 587)
+                      (smtpmail-smtp-service . 465)
                       (user-mail-address      . "1995parham@hitler.rocks")
                       (mu4e-compose-signature . (concat
                                                  "Please don't reply to this address\n"
