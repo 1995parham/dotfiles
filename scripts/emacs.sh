@@ -30,12 +30,13 @@ main() {
                 fi
         fi
 
+        configfile doom "" emacs
+
         mkdir -p ~/.config
+        if [ -d "~/.config/emacs" ]; then rm -Rf ~/.config/emacs; fi
         git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs || true
 
         proxy_start
         ~/.config/emacs/bin/doom install
         proxy_stop
-
-        configfile doom "" emacs
 }
