@@ -30,8 +30,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 14))
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 18)
+       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 18))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -70,7 +70,11 @@
 ;; they are implemented.
 ;;
 
-; Use pdf-tools to open PDF files
+;; Setup go development environment
+(setenv "GOPATH" (expand-file-name "~/Documents/Go"))
+(add-to-list 'exec-path (concat (file-name-as-directory (getenv "GOPATH")) "bin") t)
+
+;; Use pdf-tools to open PDF files
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-source-correlate-start-server t)
 
