@@ -18,8 +18,7 @@ main() {
 
         if [[ "$OSTYPE" == "darwin"* ]]; then
                 message "font" "Darwin"
-                brew tap homebrew/cask-fonts
-                brew install --cask font-jetbrains-mono
+                brew install --cask homebrew/cask-fonts/font-jetbrains-mono
         else
                 message "font" "Linux"
                 if [[ "$(command -v apt)" ]]; then
