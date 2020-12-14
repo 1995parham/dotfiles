@@ -3,10 +3,10 @@
 
 ;; Each path is relative to `+mu4e-mu4e-mail-path'
 (set-email-account! "aut"
-                    '((mu4e-sent-folder       . "/Sent")
-                      (mu4e-drafts-folder     . "/Drafts")
-                      (mu4e-trash-folder      . "/Trash")
-                      (mu4e-refile-folder     . "/Archive")
+                    '((mu4e-sent-folder       . "/aut/Sent")
+                      (mu4e-drafts-folder     . "/aut/Drafts")
+                      (mu4e-trash-folder      . "/aut/Trash")
+                      (mu4e-refile-folder     . "/aut/Archive")
                       (smtpmail-smtp-user     . "parham.alvani@aut.ac.ir")
                       (smtpmail-default-smtp-server . "webmail.aut.ac.ir")
                       (smtpmail-smtp-server . "webmail.aut.ac.ir")
@@ -19,10 +19,10 @@
                     t)
 
 (set-email-account! "secret"
-                    '((mu4e-sent-folder       . "/Sent")
-                      (mu4e-drafts-folder     . "/Drafts")
-                      (mu4e-trash-folder      . "/Trash")
-                      (mu4e-refile-folder     . "/Archive")
+                    '((mu4e-sent-folder       . "/secret/Sent")
+                      (mu4e-drafts-folder     . "/secret/Drafts")
+                      (mu4e-trash-folder      . "/secret/Trash")
+                      (mu4e-refile-folder     . "/secret/Archive")
                       (smtpmail-smtp-user     . "1995parham@hitler.rocks")
                       (smtpmail-smtp-server . "mail.cock.li")
                       (smtpmail-smtp-service . 465)
