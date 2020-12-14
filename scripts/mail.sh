@@ -36,7 +36,9 @@ main() {
         mkdir -p ~/mail/personal
         mkdir -p ~/mail/secret
 
-         mu init --maildir ~/mail\
-                 --my-address 1995parham@hitler.rocks\
-                 --my-address parham.alvani@aut.ac.ir
+        mkdir ~/mail/.attachments
+
+        mu init --maildir ~/mail\
+                --my-address 1995parham@hitler.rocks\
+                --my-address parham.alvani@aut.ac.ir
 }
