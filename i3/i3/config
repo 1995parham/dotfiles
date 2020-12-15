@@ -156,8 +156,8 @@ bindsym $mod+Ctrl+Left workspace prev
 set $ws1 1:∀ main
 set $ws2 2:∃ main
 set $ws3 3:🗅 emacs
-set $ws4 4
-set $ws5 5
+set $ws4 4:× main
+set $ws5 5:Ψ vm
 set $ws6 6
 set $ws7 7:@ mail
 set $ws8 8:🕻 social
@@ -337,7 +337,7 @@ bar {
 
         bindsym button4 nop
         bindsym button5 nop
-#   font xft:URWGothic-Book 11
+#       font xft:URWGothic-Book 11
         strip_workspace_numbers yes
 
         colors {
