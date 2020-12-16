@@ -306,6 +306,8 @@ exec --no-startup-id clipit
 exec --no-startup-id xautolock -detectsleep -time 15 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id i3-msg '[workspace="$ws4" class=".*"] kill'
+exec_always --no-startup-id i3-msg 'workspace $ws4; append_layout ~/.config/i3/4-main.json'
 
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
 
