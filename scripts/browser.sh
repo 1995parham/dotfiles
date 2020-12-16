@@ -31,7 +31,4 @@ main() {
 
                 sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
         fi
-
-
-        configfile tridactyl "" firefox
 }
