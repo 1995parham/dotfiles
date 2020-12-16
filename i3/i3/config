@@ -306,9 +306,11 @@ exec --no-startup-id clipit
 exec --no-startup-id xautolock -detectsleep -time 15 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id i3-msg '[workspace="$ws4" class=".*"] kill'
-exec_always --no-startup-id i3-msg 'workspace $ws4; append_layout ~/.config/i3/4-main.json'
 
+# provide a building block for main workspace with a telegram and firefox
+exec --no-startup-id i3-msg 'workspace $ws4; append_layout ~/.config/i3/4-main.json'
+
+# provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
 
 
