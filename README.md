@@ -49,7 +49,7 @@ In these configuration, I have the following softwares on my desktop:
 |               `nitrogen`                | Wallpaper (unsplash) |         pacman / -         |
 |     `drawio-desktop-bin` / `drawio`     | Drawing Diagram      |      yay / brew cask       |
 |                 `gimp`                  | Image Editor         |         pacman / -         |
-| `firefox` / `firefox-developer-edition` | Browser              |     pacman / brew cask     |
+| `firefox` + `firefox-developer-edition` | Browser              |     pacman / brew cask     |
 |              `youtube-dl`               | Youtube Downloader   |         pacman / -         |
 |           `github-cli` / `gh`           | Github CLI           |       pacamn / brew        |
 |                `gopass`                 | Password Manager     |       pacman / brew        |
@@ -64,17 +64,16 @@ In these configuration, I have the following softwares on my desktop:
 |         `viewnior` / `Preview`          | Image Viewer         |         pacman / -         |
 |         `epdfview` / `Preview`          | PDF Viewer           |         pacman / -         |
 |      `skypeforlinux-bin` / `Skype`      | Skype                |      yay / brew cask       |
-|           `mailspring` / `?`            | Mail Client          |          yay / ?           |
 
 ## Installation
 
-The following command creates a basic directory structure and clones the **dotfiles** repository:
+The following command creates a basic directory structure and clones the *dotfiles* repository:
 
 ```sh
 curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
 ```
 
-Install required softwares with apt/brew. Please note that this special script will automatically setup the brew environment to use it.
+Install required softwares with pacman/brew.
 
 ```sh
 ./start.sh env
@@ -92,7 +91,7 @@ Install useful fonts.
 ./start.sh font
 ```
 
-Don't forget the git credential setup:
+**Don't** forget the git credential setup:
 
 ```sh
 touch $HOME/.gitconfig
@@ -100,7 +99,7 @@ git config --global user.name "Parham Alvani"
 git config --global user.email "parham.alvani@gmail.com"
 ```
 
-Then you can install other tools with `start.sh`, here some examples:
+Then you can install other tools with `start.sh`, here are some examples:
 
 ```sh
 # install docker with proxy (see <Breaking Sanctions> section for more details)
@@ -112,7 +111,7 @@ Then you can install other tools with `start.sh`, here some examples:
 # and many many more...
 ```
 
-Configuration of mentioned applications also is a part of this repository except VSCode that has its sync configuration.
+Configuration of mentioned applications also is a part of this repository.
 
 ## Tips and Tricks
 
@@ -120,7 +119,7 @@ Configuration of mentioned applications also is a part of this repository except
 [![](https://img.shields.io/badge/superuser-bookmarks-black?style=flat-square&logo=superuser)](https://superuser.com/users/1199014/parham-alvani?tab=bookmarks)
 [![](https://img.shields.io/badge/serverfault-bookmarks-black?style=flat-square&logo=serverfault)](https://serverfault.com/users/590681/parham-alvani?tab=bookmarks)
 
-- If you have any issues with the system local, you can use the following command to reconfigure it.
+- If you have any issues with the system local on Ubuntu, you can use the following command to reconfigure it.
 
 ```sh
 sudo dpkg-reconfigure locales
@@ -156,7 +155,7 @@ go env -w GOPRIVATE="gitlab.snapp.ir"
 inxi -Fxz
 ```
 
-- Fingerprint at Linux
+- Fingerprint at Ubuntu
 
 ```sh
 # Use fprintd (lacks gui)
@@ -169,7 +168,7 @@ fprintd-enroll -f left-index-finger
 sudo pam-auth-update
 ```
 
-- Natural Scrolling with X11: Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
+- Natural Scrolling with *X11*; Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
 
 ```
 Section "InputClass"
@@ -179,7 +178,7 @@ Option "Natural Scrolling" "true"
 EndSection
 ```
 
-- Swap Alt and Meta with X11: Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
+- Swap Alt and Meta with *X11*; Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
 
 ```
 Section "InputClass"
@@ -198,13 +197,7 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
-- For having gpg-agent on OSx add the following to your `~/.zshenv`:
-
-```sh
-eval $(gpg-agent --daemon)
-```
-
-- In Manjaro you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
+- In Manjaro i3 you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
 
 - Do you have any HFP-only Headphone? Use the following procedure to have it on you Arch:
 
@@ -221,13 +214,13 @@ phonesim -p 12345 /usr/share/phonesim/default.xml &
 dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:"true"
 ```
 
-- You can configure `github-cli` to use existing tokens.
+- **Don't** forget that you can configure `github-cli` to use existing tokens.
 
-- You can use `lxappearance` to change gtk theme.
+- You can use `lxappearance` to change gtk theme but first you must install it.
 
 ## Breaking Sanctions
 
-Our country is under many unfair sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
+Our country is under many **unfair** sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
 Use following command to install it.
 
 ```sh
@@ -237,7 +230,7 @@ sudo ./install-release.sh
 sudo systemctl enable v2ray
 ```
 
-You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here is my sample.
+You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here is my example.
 
 ```yaml
 {
@@ -314,23 +307,6 @@ sudo systemctl restart docker
 
 ### vim
 
-#### Go IDE
-
-It's very simple, just execute `:GoInstallBinaries` in vim normal mode,
-after that you have complete IDE for go in vim.
-
-|                        Shortcut                        | Description                                                                                                                                              |
-| :----------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                        `:GeDoc`                        | go doc with [GoExplorer](https://github.com/garyburd/go-explorer)                                                                                        |
-|                        `:GoDoc`                        | GoDoc == GeDoc if vim-go is plugged                                                                                                                      |
-|                    `:GoFillStruct`                     | use `fillstruct` to fill a struct literal with default values. Existing values (if any) are preserved. The cursor must be on the struct you wish to fill |
-| `:[range]GoAddTags [key],[option] [key1],[option] ...` | adds field tags for the fields of a struct                                                                                                               |
-|            `:GoImpl [receiver] [interface]`            | generates method stubs for implementing an interface                                                                                                     |
-
-To setup a complete golang environment use [this](https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876)
-medium post.
-
-#### Shortcuts
 
 |    Shortcut     | Description                                                             |
 | :-------------: | :---------------------------------------------------------------------- |
@@ -349,10 +325,10 @@ medium post.
 |    `<C-w> p`    | move to previous tab                                                    |
 |    `<C-w> c`    | new empty tab                                                           |
 |   `<C-w> nn`    | move to tab number nn                                                   |
-|       `-`       | leader Key                                                              |
+|    `<space>`    | leader Key                                                              |
 |       `J`       | join lines                                                              |
 |       `u`       | undo                                                                    |
-|       `.`       | redo                                                                    |
+|     `<C-r>`     | redo                                                                    |
 
 |    Shortcut     | Description               |
 | :-------------: | :------------------------ |
@@ -396,6 +372,22 @@ medium post.
 |   `o`    | open & close directory   |
 |   `m`    | show menu                |
 |   `I`    | toggle show hidden files |
+
+#### Go
+
+It's very simple, just execute `:GoInstallBinaries` in vim normal mode,
+after that you have complete IDE for go in vim. :dancer:
+
+|                        Shortcut                        | Description                                                                                                                                              |
+| :----------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                        `:GeDoc`                        | go doc with [GoExplorer](https://github.com/garyburd/go-explorer)                                                                                        |
+|                        `:GoDoc`                        | GoDoc == GeDoc if vim-go is plugged                                                                                                                      |
+|                    `:GoFillStruct`                     | use `fillstruct` to fill a struct literal with default values. Existing values (if any) are preserved. The cursor must be on the struct you wish to fill |
+| `:[range]GoAddTags [key],[option] [key1],[option] ...` | adds field tags for the fields of a struct                                                                                                               |
+|            `:GoImpl [receiver] [interface]`            | generates method stubs for implementing an interface                                                                                                     |
+
+To setup a complete golang environment use [this](https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876)
+medium post.
 
 ### zsh
 
