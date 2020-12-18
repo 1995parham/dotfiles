@@ -15,7 +15,7 @@ usage() {
 mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6 htop)
 apt_packages=(htop atop zsh aria2 curl tmux bat neovim python3-pynvim jq yamllint)
 pacman_packages=(htop atop zsh aria2 curl tmux bat neovim python-pynvim jq yamllint)
-pkg_packages=(neovim zsh tmux vim python)
+pkg_packages=(neovim zsh tmux vim python ncurses-utils)
 
 
 install-brew() {
