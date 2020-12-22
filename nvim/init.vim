@@ -265,6 +265,9 @@ Plug 'mhinz/vim-grepper'
 " A vim plugin for syntax highlighting Ansible's common filetypes
 Plug 'pearofducks/ansible-vim'
 
+" vim syntax for helm templates (yaml + gotmpl + sprig + custom)
+Plug 'towolf/vim-helm'
+
 " language specific
 Plug 'lervag/vimtex'                                   " A modern vim plugin for editing LaTeX files.
 Plug 'fatih/vim-go'                                    " Go development plugin for Vim
