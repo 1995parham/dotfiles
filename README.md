@@ -59,7 +59,7 @@ In these configuration, I have the following softwares on my desktop:
 |        `sdcv` + `stardict-oald`         | Dictionary           |          yay / -           |
 |           `jcal-git` + `cal`            | Calender             |       pacman / brew        |
 |              `anydesk-bin`              | Anydesk              |      yay / brew cask       |
-|                `easytag`                | Music Infoamtion     |         pacman / -         |
+|               `clementine`              | Music Infoamtion     |         pacman / -         |
 |                `chrony`                 | NTP                  |         pacman / -         |
 |         `viewnior` / `Preview`          | Image Viewer         |         pacman / -         |
 |         `epdfview` / `Preview`          | PDF Viewer           |         pacman / -         |
