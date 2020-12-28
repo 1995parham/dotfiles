@@ -53,7 +53,7 @@ oc-install() {
 			echo "There is nothing that we can do right now"
 		elif [[ "$(command -v pacman)" ]]; then
 			message "kubectl" "install origin-client-bin with yay"
-			yay -Syu --noconfirm --needed origin-client-bin
+			yay -Syu --noconfirm --needed okd-client-bin
 		fi
 
         fi
