@@ -49,6 +49,7 @@ In these configuration, I have the following softwares on my desktop:
 |               `nitrogen`                | Wallpaper (unsplash) |         pacman / -         |
 |     `drawio-desktop-bin` / `drawio`     | Drawing Diagram      |      yay / brew cask       |
 |                 `gimp`                  | Image Editor         |         pacman / -         |
+|                `ffmpeg`                 | Video Editor         |       pacman / brew        |
 | `firefox` + `firefox-developer-edition` | Browser              |     pacman / brew cask     |
 |              `youtube-dl`               | Youtube Downloader   |         pacman / -         |
 |           `github-cli` / `gh`           | Github CLI           |       pacamn / brew        |
@@ -59,7 +60,7 @@ In these configuration, I have the following softwares on my desktop:
 |        `sdcv` + `stardict-oald`         | Dictionary           |          yay / -           |
 |           `jcal-git` + `cal`            | Calender             |       pacman / brew        |
 |              `anydesk-bin`              | Anydesk              |      yay / brew cask       |
-|               `clementine`              | Music Infoamtion     |         pacman / -         |
+|              `clementine`               | Music Infoamtion     |         pacman / -         |
 |                `chrony`                 | NTP                  |         pacman / -         |
 |         `viewnior` / `Preview`          | Image Viewer         |         pacman / -         |
 |         `epdfview` / `Preview`          | PDF Viewer           |         pacman / -         |
@@ -67,7 +68,7 @@ In these configuration, I have the following softwares on my desktop:
 
 ## Installation
 
-The following command creates a basic directory structure and clones the *dotfiles* repository:
+The following command creates a basic directory structure and clones the _dotfiles_ repository:
 
 ```sh
 curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
@@ -168,7 +169,7 @@ fprintd-enroll -f left-index-finger
 sudo pam-auth-update
 ```
 
-- Natural Scrolling with *X11*; Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
+- Natural Scrolling with _X11_; Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
 
 ```
 Section "InputClass"
@@ -178,7 +179,7 @@ Option "Natural Scrolling" "true"
 EndSection
 ```
 
-- Swap Alt and Meta with *X11*; Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
+- Swap Alt and Meta with _X11_; Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
 
 ```
 Section "InputClass"
@@ -306,7 +307,6 @@ sudo systemctl restart docker
 ## Cheatsheet
 
 ### vim
-
 
 |    Shortcut     | Description                                                             |
 | :-------------: | :---------------------------------------------------------------------- |
