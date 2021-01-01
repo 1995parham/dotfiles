@@ -38,5 +38,8 @@ main() {
         linker dmenu $current_dir/i3/dmenurc $HOME/.dmenurc
         chmod +x $HOME/.dmenurc
 
+        linker gtk-2.0 $current_dir/i3/gtk-2.0/gtkrc-2.0 $HOME/.gtkrc-2.0
+        configfile gtk-3.0 settings.ini i3
+
         sudo pacman -Syu --noconfirm --needed perl-anyevent-i3
 }
