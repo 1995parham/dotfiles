@@ -25,7 +25,7 @@ main() {
         configrootfile picom picom.conf i3
         sudo pacman -Syu --noconfirm --needed nitrogen
         sudo pacman -Syu --noconfirm --needed dunst
-        # use manjaro-i3 super+crtl+b for changing the gtk theme
+        # use manjaro-i3 appearance-menu for changing the gtk theme
         # sudo pacman -Syu --noconfirm --needed lxappearance
         configfile dunst "" i3
 
