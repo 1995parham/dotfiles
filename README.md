@@ -58,7 +58,8 @@ In these configuration, I have the following softwares on my desktop:
 |         `timew` / `timewarrior`         | Time Manager         |       pacman / brew        |
 |               `dijo-bin`                | Habit Manager        |         pacman / -         |
 |        `sdcv` + `stardict-oald`         | Dictionary           |          yay / -           |
-|           `jcal-git` + `cal`            | Calender             |       pacman / brew        |
+|           `jcal-git` + `cal`            | Jalali Calender      |       pacman / brew        |
+|                  `cal`                  | Calender             |         yay / brew         |
 |              `anydesk-bin`              | Anydesk              |      yay / brew cask       |
 |              `clementine`               | Music Infoamtion     |         pacman / -         |
 |                `chrony`                 | NTP                  |         pacman / -         |
