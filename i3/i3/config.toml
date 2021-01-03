@@ -1,15 +1,5 @@
 [icons]
-name = 'none'
-
-[icons.overrides]
-backlight_full = "☼ "
-backlight_partial3 = "☼ "
-backlight_partial2 = "☼ "
-backlight_partial1 = "☀ "
-backlight_empty = "☀ "
-volume_half = "🕩 "
-volume_full = "🕪 "
-volume_muted = "🕨 "
+name = 'awesome5'
 
 # https://github.com/greshake/i3status-rust/blob/master/themes.md
 [theme]
