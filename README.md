@@ -144,19 +144,6 @@ sudo dpkg-reconfigure locales
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <missing-public-key>
 ```
 
-- You are working at a company with private git repository and you want to build a go project that has private dependencies. Following procedure will help you to setup a private access to your company's repositories.
-
-```sh
-git config --global url."ssh://git@gitlab.snapp.ir/".insteadOf "https://gitlab.snapp.ir/"
-go env -w GOPRIVATE="gitlab.snapp.ir"
-```
-
-- In order to get a detailed view from your system configurations you can use the follwoing command:
-
-```sh
-inxi -Fxz
-```
-
 - Fingerprint at Ubuntu
 
 ```sh
@@ -199,8 +186,6 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
-- In Manjaro i3 you can upgrade from Alsa to Pulseaudio by just typing `install_pulse` in the terminal. What it does is to execute a script located at `/usr/bin/install_pulse`.
-
 - Do you have any HFP-only Headphone? Use the following procedure to have it on you Arch:
 
 ```sh
@@ -217,8 +202,6 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 ```
 
 - **Don't** forget that you can configure `github-cli` to use existing tokens.
-
-- You can use `lxappearance` to change gtk theme but first you must install it.
 
 ## Breaking Sanctions
 
@@ -304,6 +287,18 @@ And reload the docker daemon:
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
+
+## Firefox
+
+I am using firefox as a main browser for daily basis.
+Firefox is awesome and the latest version of my bookmarks are sync on it.
+Firefox containers is a good way to have multiple account on the same time on a browser.
+
+| Name     | Color  |          GMail          |
+| :------- | :----: | :---------------------: |
+| Main     |  None  | parham.alvani@gmail.com |
+| Personal |  Blue  |  1995parham@gmail.com   |
+| Elahe    | Yellow |  elahe.dstn@gmail.com   |
 
 ## Cheatsheet
 
