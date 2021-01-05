@@ -159,7 +159,7 @@ set $ws3 3:🗅 emacs
 set $ws4 4:× main
 set $ws5 5:Ψ vm
 set $ws6 6
-set $ws7 7:@ mail
+set $ws7 7
 set $ws8 8:🕻 social
 
 # switch to workspace
