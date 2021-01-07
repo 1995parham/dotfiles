@@ -4,15 +4,19 @@ os: linux
 dist: focal
 
 before_install:
+  # install the required softwares
   - ./start.sh env
-  - . ~/.profile
 install:
+  # install dotfiles
   - yes "Y" | ./install.sh -y
   # vim linter
   - pip3 install vim-vint
 script:
+  # lint vim files
   - vint --enable-neovim ./nvim/init.vim ./nvim/coc.vim
   - vint ./vim/vimrc
+  # test symbolic links
   - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
-  - bash -c hash nvim
-  - zsh -c hash nvim
+  # check command existance in both shells
+  - bash -c hash nvim batcat bmon
+  - zsh -c hash nvim batcat bmon
