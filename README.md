@@ -294,11 +294,11 @@ I am using firefox as a main browser for daily basis.
 Firefox is awesome and the latest version of my bookmarks are sync on it.
 Firefox containers is a good way to have multiple account on the same time on a browser.
 
-| Name     | Color  |          GMail          |
-| :------- | :----: | :---------------------: |
-| Main     |  None  | parham.alvani@gmail.com |
-| Personal |  Blue  |  1995parham@gmail.com   |
-| Elahe    | Yellow |  elahe.dstn@gmail.com   |
+| Name     | Color  |          GMail          |    Github     |
+| :------- | :----: | :---------------------: | :-----------: |
+| Main     |  None  | parham.alvani@gmail.com |  1995parham   |
+| Personal |  Blue  |  1995parham@gmail.com   | parham-alvani |
+| Elahe    | Yellow |  elahe.dstn@gmail.com   | elahe-dastan  |
 
 ## Cheatsheet
 
