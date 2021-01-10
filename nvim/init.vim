@@ -106,7 +106,9 @@ augroup end
 
 " FileType Configurations {{{
 
-au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+augroup gopass
+        au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+augroup end
 
 augroup format
         " PHP
