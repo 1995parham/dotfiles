@@ -7,10 +7,9 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
-linter=false
 
 usage() {
-        echo "usage: texlive [-l]"
+        echo "usage: texlive"
 }
 
 texlive-package() {
@@ -45,13 +44,19 @@ texlive-install() {
         if [[ $OSTYPE == "linux-gnu" ]]; then
                 message "texlive" "Linux"
 
-                if [[ "$(command -v apt)" ]]; then
-                        echo "There is nothing that we can do"
-                elif [[ "$(command -v pacman)" ]]; then
-                        message "texlive" "Install texlive-core with pacman"
-                        sudo pacman -Syu --needed --noconfirm texlive-core biber texlab
-                        yay -Syu --needed --noconfirm tllocalmgr-git
+                message "texlive" "Download the installer from tug.org"
+                if [ ! -d texlive-installer ]; then
+                        mkdir texlive-installer
+                        curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
+                else
+                        message "texlive" "There is a failed installation of texlive"
                 fi
+
+                message "texlive" "Install with the installer -- default scheme is small"
+                cd texlive-installer/install-tl*
+                sudo ./install-tl -scheme small
+
+                exit
         else
                 message "texlive" "Darwin"
 
