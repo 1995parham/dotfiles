@@ -14,7 +14,7 @@ usage() {
 
 texlive-package() {
         if [[ $OSTYPE == "linux-gnu" ]]; then
-                tllocalmgr install $@
+                sudo tlmgr install $@
         else
                 tlmgr install $@
         fi
@@ -69,7 +69,7 @@ main() {
         if [ ! -d /usr/local/texlive ]; then
                 texlive-install
         else
-                message "texlive" "Remove already installed texlive"
+                message "texlive" "Remove already installed texlive if you want a reinstall"
         fi
         texlive-packages
 }
