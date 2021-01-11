@@ -55,8 +55,6 @@ texlive-install() {
                 message "texlive" "Install with the installer -- default scheme is small"
                 cd texlive-installer/install-tl*
                 sudo ./install-tl -scheme small
-
-                exit
         else
                 message "texlive" "Darwin"
 
@@ -68,6 +66,10 @@ texlive-install() {
 }
 
 main() {
-        texlive-install
+        if [ ! -d /usr/local/texlive ]; then
+                texlive-install
+        else
+                message "texlive" "Remove already installed texlive"
+        fi
         texlive-packages
 }
