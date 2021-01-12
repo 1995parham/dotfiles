@@ -38,6 +38,9 @@ texlive-packages() {
 
         # make
         texlive-package latexmk
+
+        # code
+        texlive-package minted fvextra catchfile xstring framed
 }
 
 texlive-install() {
@@ -72,4 +75,6 @@ main() {
                 message "texlive" "Remove already installed texlive if you want a reinstall"
         fi
         texlive-packages
+
+        sudo pacman -Syu --noconfirm --needed texlab python-pygments
 }
