@@ -76,5 +76,16 @@ main() {
         fi
         texlive-packages
 
-        sudo pacman -Syu --noconfirm --needed texlab python-pygments
+        message "texlive" "Install required packages for better latex experience"
+        if [[ $OSTYPE == "linux-gnu" ]]; then
+                if [[ "$(command -v apt)" ]]; then
+                        message "texlive" "with apt"
+                elif [[ "$(command -v pacman)" ]]; then
+                        message "texlive" "with pacman"
+                        sudo pacman -Syu --noconfirm --needed texlab python-pygments
+                fi
+        else
+                message "texlive" "Darwin"
+        fi
+
 }
