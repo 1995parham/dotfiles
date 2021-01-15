@@ -16,6 +16,7 @@ main() {
         sudo pacman -Syu --noconfirm --needed podman
         configfile "containers" "" "podman"
 
+        # https://www.redhat.com/sysadmin/rootless-podman
         sudo touch /etc/subuid
         sudo touch /etc/subgid
         grep -i $USER /etc/subuid || echo "$USER:100000:65536" | sudo tee -a /etc/subuid
