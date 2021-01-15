@@ -13,7 +13,7 @@ usage() {
 }
 
 main() {
-        sudo pacman -Syu --noconfirm --needed podman
+        sudo pacman -Syu --noconfirm --needed podman podman-compose
         configfile "containers" "" "podman"
 
         # https://www.redhat.com/sysadmin/rootless-podman
@@ -24,4 +24,7 @@ main() {
 
         # make sure about login
         podman login
+
+        message "podman" "podman-compose requires gcr images so run it for the first time with proxy"
+        message "podman" "also it would be great to check docker-compose file for mounting"
 }
