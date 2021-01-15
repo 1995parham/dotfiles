@@ -47,7 +47,7 @@ In these configuration, I have the following softwares on my desktop:
 |                    `mpv`                     | Video Player         |       pacman / brew        |
 |                    `cmus`                    | Music Player         |       pacman / brew        |
 |                  `nitrogen`                  | Wallpaper (unsplash) |         pacman / -         |
-|             `podman` / `docker`              | Container Engine     |         pacman / -         |
+|                   `docker`                   | Container Engine     |         pacman / -         |
 |       `drawio-desktop-bin` / `drawio`        | Drawing Diagram      |      yay / brew cask       |
 |                    `gimp`                    | Image Editor         |         pacman / -         |
 |                   `ffmpeg`                   | Video Editor         |       pacman / brew        |
