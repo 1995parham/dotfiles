@@ -7,11 +7,9 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-install=false
 
 usage() {
-	echo "usage: docker [-i]"
-	echo "  -i   install and initiate docker"
+	echo "usage: docker"
 }
 
 docker-repositories() {
@@ -31,6 +29,7 @@ docker-repositories() {
 
 docker-install() {
 	message "docker" "Installing docker"
+
 	if [[ "$(command -v apt)" ]]; then
 		sudo apt-get -y update
 		sudo apt-cache policy docker-ce
@@ -80,7 +79,7 @@ docker-hadolint-install() {
 main() {
 	read -p "[docker] do you want to install docker ?[Y/n] " -n 1 install; echo
 
-	if [ $install = "Y" ]; then
+	if [[ $install == "Y" ]]; then
 		if [[ "$(command -v apt)" ]]; then
 			docker-repositories
 		fi
@@ -91,4 +90,7 @@ main() {
 
 	docker-compose-install
 	docker-hadolint-install
+
+        # make sure about login
+        docker login
 }
