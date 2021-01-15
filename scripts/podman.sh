@@ -21,4 +21,7 @@ main() {
         sudo touch /etc/subgid
         grep -i $USER /etc/subuid || echo "$USER:100000:65536" | sudo tee -a /etc/subuid
         grep -i $USER /etc/subgid || echo "$USER:100000:65536" | sudo tee -a /etc/subgid
+
+        # make sure about login
+        podman login
 }
