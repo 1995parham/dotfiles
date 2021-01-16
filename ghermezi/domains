@@ -126,8 +126,6 @@
 .kaggle.com
 .kaggle.io
 .codecov.io
-.avatars*.githubusercontent.com
-.githubassets.com
 .blogger.com
 .opennetworking.org
 .v2fly.org
@@ -140,8 +138,8 @@
 .css-tricks.com
 .gitlab.com
 .duckduckgo.com
-.raw.githubusercontent.com
 .edgexfoundry.org
+.jaegertracing.io
 
 .radiojavan.com
 .rj-mw1.com
