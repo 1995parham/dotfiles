@@ -206,7 +206,7 @@ install-bin() {
 #### general ####
 install-general() {
         if [ $SHELL != '/bin/zsh' ]; then
-                chsh $USER -s /bin/zsh || sudo chsh $USER -s /bin/zsh || message "general" "Please change your shell to zsh manually"
+                message "general" "Please change your shell to zsh manually"
         fi
 }
 
