@@ -32,3 +32,8 @@
     - name: Install dotfiles
       ansible.builtin.shell:
         cmd: yes Y | $HOME/Documents/dotfiles/install.sh -y
+    - name: change user shell to zsh
+      become: true
+      user:
+        name: "{{ ansible_user_id }}"
+        shell: /bin/zsh
