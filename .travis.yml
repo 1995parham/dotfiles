@@ -34,7 +34,7 @@ script:
   - vint ./vim/vimrc
 
   # test symbolic links
-  - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
+  - test $(readlink -f ~/.zshrc) = ~/Documents/dotfiles/zsh/zshrc
 
   # check command existance in both shells
   - bash -c hash nvim batcat bmon
