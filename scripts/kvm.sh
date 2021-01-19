@@ -16,7 +16,7 @@ main() {
         sudo pacman -Syu --needed --noconfirm qemu
         sudo pacman -Syu --needed --noconfirm libvirt
         sudo pacman -Syu --needed --noconfirm ebtables dnsmasq bridge-utils
-        sudo pacman -Syu --needed --noconfirm virt-manager
+        sudo pacman -Syu --needed --noconfirm virt-manager x11-ssh-askpass
 
         message "kvm" "create base images folder"
         mkdir -p $HOME/kvm/base
