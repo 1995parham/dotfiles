@@ -1,41 +1,22 @@
 ---
+language: shell
 os: linux
 dist: focal
-language: python
-python: "3.9"
 
+before_install:
+  # install the required softwares
+  - ./start.sh env
 install:
+  # install dotfiles
+  - yes "Y" | ./install.sh -y
   # vim linter
   - pip3 install vim-vint
-
-  # install ansible
-  - pip3 install ansible
-
-  # install ansible linter
-  - pip3 install ansible-lint
-
-  # check ansible version
-  - ansible --version
-
-  - printf "localhost ansible_connection=local ansible_host=127.0.0.1 nats_client_advertise=127.0.0.1 nats_cluster_routes_address=127.0.0.1" > ansible/inventory
-
 script:
-  # lint ansible-playbook
-  - ansible-lint ansible
-
-  # basic role syntax check
-  - ansible-playbook ansible/main.yaml -i ansible/inventory --syntax-check
-
-  # Install NATS and start its service
-  - ansible-playbook ansible/main.yaml -i ansible/inventory --become
-
   # lint vim files
   - vint --enable-neovim ./nvim/init.vim ./nvim/coc.vim
   - vint ./vim/vimrc
-
   # test symbolic links
-  - test $(readlink -f ~/.zshrc) = ~/Documents/dotfiles/zsh/zshrc
-
+  - test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
   # check command existance in both shells
   - bash -c hash nvim batcat bmon
   - zsh -c hash nvim batcat bmon
