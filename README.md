@@ -55,7 +55,7 @@ In these configuration, I have the following softwares on my desktop:
 |                 `youtube-dl`                 | Youtube Downloader   |         pacman / -         |
 |             `github-cli` / `gh`              | Github CLI           |       pacamn / brew        |
 |                   `gopass`                   | Password Manager     |       pacman / brew        |
-|                   `dstask`                   | ToDo Manager         |           - / -            |
+|                   `dstask`                   | ToDo Manager         |         yay / brew         |
 |           `timew` / `timewarrior`            | Time Manager         |       pacman / brew        |
 |                  `dijo-bin`                  | Habit Manager        |         pacman / -         |
 |           `sdcv` + `stardict-oald`           | Dictionary           |          yay / -           |
