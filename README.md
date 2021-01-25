@@ -67,6 +67,7 @@ In these configuration, I have the following softwares on my desktop:
 |            `viewnior` / `Preview`            | Image Viewer         |         pacman / -         |
 |            `epdfview` / `Preview`            | PDF Viewer           |         pacman / -         |
 |        `skypeforlinux-bin` / `Skype`         | Skype                |      yay / brew cask       |
+|         `wireshark-qt` / `Wireshark`         | Packet Sniffer       |     pacman / brew cask     |
 | `libreoffice-fresh` + `libreoffice-fresh-fa` | Office Suite         |         pacman / -         |
 
 ## Installation
