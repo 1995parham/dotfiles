@@ -14,7 +14,7 @@ usage() {
 
 
 dstask-upstall() {
-        message "dstask" "Upstall gppass from github"
+        message "dstask" "Upstall dstask from github"
         dstask_vr=$(curl -s https://api.github.com/repos/naggie/dstask/releases/latest | grep 'tag_name' | cut -d\" -f4)
         dstask_vl=''
         if hash dstask &> /dev/null; then
