@@ -69,6 +69,7 @@ In these configuration, I have the following softwares on my desktop:
 |        `skypeforlinux-bin` / `Skype`         | Skype                |      yay / brew cask       |
 |         `wireshark-qt` / `Wireshark`         | Packet Sniffer       |     pacman / brew cask     |
 | `libreoffice-fresh` + `libreoffice-fresh-fa` | Office Suite         |         pacman / -         |
+|             `xfce-power-manager`             | Power Manager        |         pacman / -         |
 
 ## Installation
 
