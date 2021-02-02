@@ -106,8 +106,14 @@ if [ -f $HOME/.dircolors -a $(command -v gdircolors) ]; then
   eval $(gdircolors $HOME/.dircolors)
 fi
 
+# set PATH so it includes user's private bin if it exists
 if [ -d $HOME/bin ]; then
   path+=("$HOME/bin")
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d $HOME/.local/bin ]; then
+  path+=("$HOME/.local/bin")
 fi
 
 if [ -d /snap/bin ]; then
