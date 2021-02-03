@@ -1,3 +1,9 @@
+# source bash profile (system-wide) {{{
+
+mulate sh -c 'source /etc/profile'
+
+# }}}
+
 # path {{{
 # prevent from duplicate records in path
 typeset -U path
