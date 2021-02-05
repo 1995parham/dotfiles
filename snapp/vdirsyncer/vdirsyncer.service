@@ -1,5 +1,0 @@
-[Unit]
-Description=Sync calendar with vdirsyncer
-
-[Service]
-ExecStart=vdirsyncer sync
