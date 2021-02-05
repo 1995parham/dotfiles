@@ -1,3 +1,0 @@
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-image/*; viewnior %s;
-application/pdf; epdfview %s;
