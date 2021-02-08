@@ -14,7 +14,6 @@ program_name=$0
 usage() {
         echo "usage: $program_name [-m] [-h] [-y]"
         echo "  -y   yes to all"
-        echo "  -m   minor version"
         echo "  -h   display help"
 }
 
@@ -29,13 +28,9 @@ message "pre" "Home directory found at $HOME"
 
 message "pre" "Current directory found at $current_dir"
 
-install_type=0
 yes_to_all=0
-while getopts "mhy" argv; do
+while getopts "hy" argv; do
         case $argv in
-                m)
-                        install_type=1
-                        ;;
                 y)
                         yes_to_all=1
                         ;;
@@ -47,15 +42,6 @@ while getopts "mhy" argv; do
 done
 
 requirements=(zsh tmux vim nvim)
-case $install_type in
-        0)
-                message "pre" "Default installation"
-                ;;
-        1)
-                message "pre" "Headless installation"
-                ;;
-esac
-echo
 
 # check the existence of required softwares
 for cmd in ${requirements[@]}; do
@@ -160,7 +146,7 @@ linker() {
         fi
 }
 
-#### vim ####
+# vim
 install-vim() {
         files=("vim" "vimrc")
         dotfile "vim" files[@]
@@ -169,14 +155,14 @@ install-vim() {
         vim +PlugInstall +qall
 }
 
-#### nvim ####
+# nvim
 install-nvim() {
         configfile "nvim"
         message "nvim" "Installing neovim plugins"
         nvim --headless +PlugInstall +qall
 }
 
-#### configurations ####
+# configurations
 install-conf() {
         files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
         dotfile "conf" files[@]
@@ -186,24 +172,24 @@ install-conf() {
         ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
-### zsh ###
+# zsh
 install-zsh() {
         files=("zshrc" "zsh.plug")
         dotfile "zsh" files[@]
 }
 
-#### git ####
+# git
 install-git() {
         configfile "git"
 }
 
-#### bin ####
+# bin
 install-bin() {
         files=("bin")
         dotfile "bin" files[@] false
 }
 
-#### general ####
+# general
 install-general() {
         if [ $SHELL != '/bin/zsh' ]; then
                 message "general" "Please change your shell to zsh manually"
