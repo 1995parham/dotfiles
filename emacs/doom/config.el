@@ -87,6 +87,3 @@
 ;; Update PDF buffers after successful LaTeX runs
 (add-hook 'TeX-after-compilation-finished-functions
            #'TeX-revert-document-buffer)
-
-
-(load! "+mail")
