@@ -71,10 +71,11 @@ texlive-install() {
 main() {
         if [ ! -d /usr/local/texlive ]; then
                 texlive-install
+                message "texlive" "After installation you need to setup you path before you can use tlmgr so you need to run this script again"
+                exit
         else
                 message "texlive" "Remove already installed texlive if you want a reinstall"
         fi
-        texlive-packages
 
         message "texlive" "Install required packages for better latex experience"
         if [[ $OSTYPE == "linux-gnu" ]]; then
@@ -84,8 +85,11 @@ main() {
                         message "texlive" "with pacman"
                         sudo pacman -Syu --noconfirm --needed texlab python-pygments
                 fi
+                sudo tlmgr option repository ctan
         else
                 message "texlive" "Darwin"
+                tlmgr option repository ctan
         fi
 
+        texlive-packages
 }
