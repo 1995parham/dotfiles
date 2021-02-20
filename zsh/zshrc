@@ -217,6 +217,14 @@ if [ -d /usr/local/texlive/2020 ]; then
 fi
 # }}}
 
+# docker {{{
+
+# BuildKit is enabled by default on Docker Desktop,
+# but requires the DOCKER_BUILDKIT=1 environment variable to be set on other platforms.
+export DOCKER_BUILDKIT=1
+
+# }}}
+
 # path {{{
 export PATH
 # }}}
