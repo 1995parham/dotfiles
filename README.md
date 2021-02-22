@@ -70,6 +70,7 @@ The following list contains my personal software recommendation:
 |         `wireshark-qt` / `Wireshark`         | Packet Sniffer       |     pacman / brew cask     |
 | `libreoffice-fresh` + `libreoffice-fresh-fa` | Office Suite         |         pacman / -         |
 |             `xfce-power-manager`             | Power Manager        |         pacman / -         |
+|                   `kazam`                    | Screen Recorder      |          yay / -           |
 
 ## Installation
 
