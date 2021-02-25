@@ -71,6 +71,7 @@ The following list contains my personal software recommendation:
 | `libreoffice-fresh` + `libreoffice-fresh-fa` | Office Suite         |         pacman / -         |
 |             `xfce-power-manager`             | Power Manager        |         pacman / -         |
 |                   `kazam`                    | Screen Recorder      |          yay / -           |
+|             `markdown_previewer`             | Markdown             |         pacman / -         |
 
 ## Installation
 
