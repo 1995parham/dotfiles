@@ -47,7 +47,7 @@ The following list contains my personal software recommendation:
 |                    `mpv`                     | Video Player         |       pacman / brew        |
 |                    `cmus`                    | Music Player         |       pacman / brew        |
 |                  `nitrogen`                  | Wallpaper (unsplash) |         pacman / -         |
-|                   `docker`                   | Container Engine     |         pacman / -         |
+|                   `docker`                   | Container Engine     |     pacman / brew cask     |
 |       `drawio-desktop-bin` / `drawio`        | Drawing Diagram      |      yay / brew cask       |
 |                    `gimp`                    | Image Editor         |         pacman / -         |
 |                   `ffmpeg`                   | Video Editor         |       pacman / brew        |
@@ -57,9 +57,9 @@ The following list contains my personal software recommendation:
 |                   `gopass`                   | Password Manager     |       pacman / brew        |
 |                   `dstask`                   | ToDo Manager         |         yay / brew         |
 |           `timew` / `timewarrior`            | Time Manager         |       pacman / brew        |
-|                  `dijo-bin`                  | Habit Manager        |         pacman / -         |
+|             `dijo-bin` / `dijo`              | Habit Manager        |       pacman / brew        |
 |           `sdcv` + `stardict-oald`           | Dictionary           |          yay / -           |
-|              `jcal-git` + `cal`              | Jalali Calender      |       pacman / brew        |
+|             `jcal-git` / `jcal`              | Jalali Calender      |       pacman / brew        |
 |                    `cal`                     | Calender             |         yay / brew         |
 |                `anydesk-bin`                 | Anydesk              |      yay / brew cask       |
 |                 `clementine`                 | Music Infoamtion     |         pacman / -         |
