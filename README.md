@@ -32,7 +32,7 @@ The following list contains my personal software recommendation:
 |          Tool ( Manjaro i3 / OSx )           | Role                 | Package (Manjaro i3 / OSx) |
 | :------------------------------------------: | :------------------- | :------------------------: |
 |                     `i3`                     | Window Manager       |         pacman / -         |
-|         `i3status` + `i3status-rust`         | i3-bar Status        |         pacman / -         |
+|   `i3status` + `i3status-rust` / `iglance`   | Status Bar           |     pacman / brew cask     |
 |                   `ranger`                   | File Manager         |       pacman / brew        |
 |     `lightdm` + `lightdm-slick-greeter`      | Desktop Manager      |         pacman / -         |
 |                   `dmenu`                    | Application Launcher |         pacman / -         |
