@@ -36,6 +36,7 @@ main() {
         if [[ $OSTYPE == "linux-gnu" ]]; then
                 if [[ "$(command -v pacman)" ]]; then
                         sudo pacman -Syu gopass
+                        yay -Syu gopass-jsonapi-git
                 elif [[ "$(command -v apt)" ]]; then
                         sudo apt-get install gnupg2 git rng-tools
                         gopass-upstall
