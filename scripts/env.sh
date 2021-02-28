@@ -12,7 +12,7 @@ usage() {
         echo "installs required brew/apt packages"
 }
 
-mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6 htop inetutils)
+mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6 htop inetutils inxi)
 apt_packages=(htop atop zsh aria2 curl tmux bat neovim python3-pynvim jq yamllint bmon)
 pacman_packages=(htop atop zsh aria2 curl tmux bat neovim python-pynvim jq yamllint inxi mtr)
 pkg_packages=(neovim zsh tmux vim python ncurses-utils)
