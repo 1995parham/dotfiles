@@ -17,9 +17,11 @@ main() {
         if [[ "$OSTYPE" == "darwin"* ]]; then
                 message "emacs" "Darwin"
 
+                echo "There is nothing that we can do"
+
                 # https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
-                brew install git ripgrep
-                brew install emacs
+                # brew install git ripgrep
+                # brew install emacs
         else
                 message "emacs" "Linux"
                 if [[ "$(command -v apt)" ]]; then
