@@ -49,7 +49,7 @@ The following list contains my personal software recommendation:
 |                  `nitrogen`                  | Wallpaper (unsplash) |         pacman / -         |
 |                   `docker`                   | Container Engine     |     pacman / brew cask     |
 |       `drawio-desktop-bin` / `drawio`        | Drawing Diagram      |      yay / brew cask       |
-|                    `gimp`                    | Image Editor         |         pacman / -         |
+|              `gimp` / `Preview`              | Image Editor         |         pacman / -         |
 |                   `ffmpeg`                   | Video Editor         |       pacman / brew        |
 |   `firefox` + `firefox-developer-edition`    | Browser              |     pacman / brew cask     |
 |                 `youtube-dl`                 | Youtube Downloader   |         pacman / -         |
