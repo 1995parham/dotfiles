@@ -221,7 +221,7 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
-<details>
+</details>
 
 <details>
 <summary>Do you have any HFP-only Headphone?</summary>
