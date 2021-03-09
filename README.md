@@ -244,7 +244,7 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 </details>
 
 <details>
-<summary>**Don't** forget that you can configure `github-cli` to use existing tokens.</summary>
+<summary><b>Don't</b> forget that you can configure <code>github-cli</code> to use existing tokens.</summary>
 </details>
 
 ## Breaking Sanctions
