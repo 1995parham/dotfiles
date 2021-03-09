@@ -127,14 +127,19 @@ Configuration of mentioned applications also is a part of this repository.
 [![](https://img.shields.io/badge/superuser-bookmarks-black?style=flat-square&logo=superuser)](https://superuser.com/users/1199014/parham-alvani?tab=bookmarks)
 [![](https://img.shields.io/badge/serverfault-bookmarks-black?style=flat-square&logo=serverfault)](https://serverfault.com/users/590681/parham-alvani?tab=bookmarks)
 
-- If you have any issues with the system local on Ubuntu, you can use the following command to reconfigure it.
+<details>
+<summary>issue with system local on ubuntu</summary>
+
+use the following command to reconfigure it.
 
 ```sh
 sudo dpkg-reconfigure locales
 ```
 
+</details>
+
 <details>
-  <summary>using bluetooth speaker/headphone</summary>
+<summary>using bluetooth speaker/headphone</summary>
 
 run `bluetoothctl`, then:
 
@@ -146,16 +151,20 @@ run `bluetoothctl`, then:
 [bluetooth]# connect A0:60:90:37:C0:3C
 [bluetooth]# info A0:60:90:37:C0:3C
 ```
+
 </details>
 
-
-- In order to fix a missing `apt` repository public key use the following:
+<details>
+<summary>fix a missing <code>apt</code> repository public key</summary>
 
 ```sh
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys <missing-public-key>
 ```
 
-- Fingerprint at Ubuntu
+</details>
+
+<details>
+<summary>fingerprint at ubuntu</summary>
 
 ```sh
 # Use fprintd (lacks gui)
@@ -168,7 +177,12 @@ fprintd-enroll -f left-index-finger
 sudo pam-auth-update
 ```
 
-- Natural Scrolling with _X11_; Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
+</details>
+
+<details>
+<summary>Natural Scrolling with <i>X11</i></summary>
+
+Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
 
 ```
 Section "InputClass"
@@ -178,7 +192,12 @@ Option "Natural Scrolling" "true"
 EndSection
 ```
 
-- Swap Alt and Meta with _X11_; Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
+</details>
+
+<details>
+<summary>Swap Alt and Meta with <i>X11</i></summary>
+
+Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
 
 ```
 Section "InputClass"
@@ -188,7 +207,12 @@ Option "XkbOptions" "altwin:swap_alt_win"
 EndSection
 ```
 
-- To enable the keyring for applications run through the terminal, such as SSH, add the following to your `~/.bash_profile`, `~/.zshenv`, or similar:
+</details>
+
+<details>
+<summary>enable the keyring for applications run through the terminal, such as SSH</summary>
+
+add the following to your `~/.bash_profile`, `~/.zshenv`, or similar:
 
 ```sh
 if [ -n "$DESKTOP_SESSION" ];then
@@ -197,7 +221,12 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 ```
 
-- Do you have any HFP-only Headphone? Use the following procedure to have it on you Arch:
+<details>
+
+<details>
+<summary>Do you have any HFP-only Headphone?</summary>
+
+Use the following procedure to have it on you Arch:
 
 ```sh
 sudo pacman -Syu ofono phonesim
@@ -212,7 +241,11 @@ phonesim -p 12345 /usr/share/phonesim/default.xml &
 dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:"true"
 ```
 
-- **Don't** forget that you can configure `github-cli` to use existing tokens.
+</details>
+
+<details>
+<summary>**Don't** forget that you can configure `github-cli` to use existing tokens.</summary>
+</details>
 
 ## Breaking Sanctions
 
