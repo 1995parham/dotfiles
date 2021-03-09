@@ -133,7 +133,10 @@ Configuration of mentioned applications also is a part of this repository.
 sudo dpkg-reconfigure locales
 ```
 
-- For using bluetotth speaker/headphone run `bluetoothctl`, then:
+<details>
+  <summary>using bluetooth speaker/headphone</summary>
+
+run `bluetoothctl`, then:
 
 ```
 [bluetooth]# scan on
@@ -143,6 +146,8 @@ sudo dpkg-reconfigure locales
 [bluetooth]# connect A0:60:90:37:C0:3C
 [bluetooth]# info A0:60:90:37:C0:3C
 ```
+</details>
+
 
 - In order to fix a missing `apt` repository public key use the following:
 
