@@ -247,9 +247,20 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 <summary><b>Don't</b> forget that you can configure <code>github-cli</code> to use existing tokens.</summary>
 </details>
 
+<details>
+<summary>unsure samba on windows 10</summary>
+
+```powershell
+Write-Output "Provide a way for connecting to the unsecure samba"
+Get-SmbClientConfiguration
+Set-SmbClientConfiguration -EnableInsecureGuestLogons:$true
+```
+
+</details>
+
 ## Breaking Sanctions
 
-Our country is under many **unfair** sanctions so you can use [v2ray](https://www.v2ray.com/en/) to remove these sanctions.
+Our country is under many **unfair** sanctions so you can use [v2ray](https://www.v2ray.com/en/) on Linux to remove these sanctions.
 Use following command to install it.
 
 ```sh
