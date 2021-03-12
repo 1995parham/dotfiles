@@ -72,6 +72,7 @@ The following list contains my personal software recommendation:
 |             `xfce-power-manager`             |                    -                    |                   -                   | Power Manager           |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
 |                  `synthing`                  |               `syncthing`               |             `SyncTrayzor`             | Syncthing               |                   ✅                    |                  -                  |            ✅            |             -              |                  ✅                   |
 |                   `aria2`                    |                 `aria2`                 |                `aria2`                | Download Manager        |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
+|                      -                       |                    -                    |                `sudo`                 | Sudo                    |                    -                    |                  -                  |            -             |             ✅             |                   -                   |
 
 ## Installation
 
@@ -254,6 +255,15 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 Write-Output "Provide a way for connecting to the unsecure samba"
 Get-SmbClientConfiguration
 Set-SmbClientConfiguration -EnableInsecureGuestLogons:$true
+```
+
+</details>
+
+<details>
+<summary>use proxy with chocolatey</summary>
+
+```powershell
+sudo choco install <pkg> --proxy="http://127.0.0.1:1080"
 ```
 
 </details>
