@@ -180,7 +180,7 @@ sudo pam-auth-update
 </details>
 
 <details>
-<summary>Natural Scrolling with <i>X11</i></summary>
+<summary>natural scrolling with <i>X11</i></summary>
 
 Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural scrolling** option:
 
@@ -195,7 +195,7 @@ EndSection
 </details>
 
 <details>
-<summary>Swap Alt and Meta with <i>X11</i></summary>
+<summary>swap alt and meta with <i>X11</i></summary>
 
 Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** option:
 
@@ -224,7 +224,7 @@ fi
 </details>
 
 <details>
-<summary>Do you have any HFP-only Headphone?</summary>
+<summary>do you have any HFP-only headphone?</summary>
 
 Use the following procedure to have it on you Arch:
 
@@ -244,7 +244,7 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 </details>
 
 <details>
-<summary><b>Don't</b> forget that you can configure <code>github-cli</code> to use existing tokens.</summary>
+<summary><b>don't</b> forget that you can configure <code>github-cli</code> to use existing tokens.</summary>
 </details>
 
 <details>
