@@ -73,6 +73,7 @@ The following list contains my personal software recommendation:
 |                  `synthing`                  |               `syncthing`               |             `SyncTrayzor`             | Syncthing               |                   ✅                    |                  -                  |            ✅            |             -              |                  ✅                   |
 |                   `aria2`                    |                 `aria2`                 |                `aria2`                | Download Manager        |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
 |                      -                       |                    -                    |                `sudo`                 | Sudo                    |                    -                    |                  -                  |            -             |             ✅             |                   -                   |
+|                  `guvcview`                  |              `Photo Booth`              |                  `-`                  | Webcam                  |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
 
 ## Installation
 
