@@ -32,8 +32,8 @@ kube-install() {
 		if [[ "$(command -v apt)" ]]; then
 			echo "There is nothing that we can do right now"
 		elif [[ "$(command -v pacman)" ]]; then
-			message "kubectl" "install kubectl/helm/helmfile with pacman"
-			sudo pacman -Syu --noconfirm --needed  kubectl helm helmfile
+			message "kubectl" "install kubectl/helm/helmfile/argocd-cli with pacman"
+			sudo pacman -Syu --noconfirm --needed  kubectl helm helmfile argocd-cli
 
 			message "kubectl" "Install stern (Multi pod and container log tailing for Kubernetes) with yay"
 			yay -Syu --noconfirm --needed stern-bin
