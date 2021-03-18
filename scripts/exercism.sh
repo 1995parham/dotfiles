@@ -8,9 +8,9 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 usage() {
-        echo "usage: exercism"
+	echo "usage: exercism"
 }
 
 main() {
-        brew install exercism
+	brew install exercism
 }

@@ -8,13 +8,12 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-
 usage() {
-        echo "usage: asm"
+	echo "usage: asm"
 }
 
 main() {
-        message "asm" "Installing nasm + radare2"
+	message "asm" "Installing nasm + radare2"
 
-        sudo apt-get -y install nasm radare2
+	sudo apt-get -y install nasm radare2
 }

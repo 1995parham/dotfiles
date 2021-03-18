@@ -12,13 +12,13 @@ tput clear # Clear screen and move the cursor to 0,0
 program_name=$0
 
 usage() {
-        echo "usage: $program_name [-m] [-h] [-y]"
-        echo "  -y   yes to all"
-        echo "  -h   display help"
+	echo "usage: $program_name [-m] [-h] [-y]"
+	echo "  -y   yes to all"
+	echo "  -h   display help"
 }
 
 # global variable that points to dotfiles root directory
-current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cat "$current_dir/logo.txt"
 echo
@@ -30,25 +30,25 @@ message "pre" "Current directory found at $current_dir"
 
 yes_to_all=0
 while getopts "hy" argv; do
-        case $argv in
-                y)
-                        yes_to_all=1
-                        ;;
-                h)
-                        usage
-                        exit
-                        ;;
-        esac
+	case $argv in
+	y)
+		yes_to_all=1
+		;;
+	h)
+		usage
+		exit
+		;;
+	esac
 done
 
 requirements=(zsh tmux vim nvim)
 
 # check the existence of required softwares
 for cmd in ${requirements[@]}; do
-        if ! hash $cmd 2>/dev/null; then
-                message "pre" "Please install $cmd before using this script"
-                exit 1
-        fi
+	if ! hash $cmd 2>/dev/null; then
+		message "pre" "Please install $cmd before using this script"
+		exit 1
+	fi
 done
 
 # Creates a config file that resides in the `home` directory, and provides a soft link to it.
@@ -56,24 +56,24 @@ done
 # parameter 2: file names - array of string
 # parameter 3 [default = true]: is hidden file - bool
 dotfile() {
-        local module=$1
-        local files=${!2}
-        local is_hidden=${3:-true}
+	local module=$1
+	local files=${!2}
+	local is_hidden=${3:-true}
 
-        for file in $files; do
-                if $is_hidden; then
-                        local dst_file=".$file"
-                else
-                        local dst_file="$file"
-                fi
+	for file in $files; do
+		if $is_hidden; then
+			local dst_file=".$file"
+		else
+			local dst_file="$file"
+		fi
 
-                local src_file="$file"
+		local src_file="$file"
 
-                local dst_path="$HOME/$dst_file"
-                local src_path="$current_dir/$module/$src_file"
+		local dst_path="$HOME/$dst_file"
+		local src_path="$current_dir/$module/$src_file"
 
-                linker $module $src_path $dst_path
-        done
+		linker $module $src_path $dst_path
+	done
 }
 
 # Creates a config file that resides in the `.config` directory, and provides a soft link for it.
@@ -83,29 +83,29 @@ dotfile() {
 # parameter 2: file name - string - optional
 # parameter 3: directory - string - optional
 configfile() {
-        local module=$1
-        local src_file=$2
-        local src_dir=$3
+	local module=$1
+	local src_file=$2
+	local src_dir=$3
 
-        if [ ! -e "$HOME/.config" ]; then
-                mkdir "$HOME/.config"
-        fi
+	if [ ! -e "$HOME/.config" ]; then
+		mkdir "$HOME/.config"
+	fi
 
-        if [ ! -z $src_file ]; then
-                local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
-                local dst_file="$module/$src_file"
+	if [ ! -z $src_file ]; then
+		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+		local dst_file="$module/$src_file"
 
-                if [ ! -d "$HOME/.config/$module" ]; then
-                        mkdir "$HOME/.config/$module"
-                fi
-        else
-                src_file=$module
-                local src_path="$current_dir${src_dir:+/$src_dir}/$module"
-                local dst_file="$module"
-        fi
-        local dst_path="$HOME/.config/$dst_file"
+		if [ ! -d "$HOME/.config/$module" ]; then
+			mkdir "$HOME/.config/$module"
+		fi
+	else
+		src_file=$module
+		local src_path="$current_dir${src_dir:+/$src_dir}/$module"
+		local dst_file="$module"
+	fi
+	local dst_path="$HOME/.config/$dst_file"
 
-        linker $module $src_path $dst_path
+	linker $module $src_path $dst_path
 }
 
 # linker
@@ -113,95 +113,99 @@ configfile() {
 # parameter 2: source path - string
 # parameter 3: destination path - string
 linker() {
-        local module=$1
-        local src_path=$2
-        local dst_path=$3
+	local module=$1
+	local src_path=$2
+	local dst_path=$3
 
-        local create_link=true
+	local create_link=true
 
-        if [ -e $dst_path ] || [ -L $dst_path ]; then
-                message "$module" "$dst_path already existed"
+	if [ -e $dst_path ] || [ -L $dst_path ]; then
+		message "$module" "$dst_path already existed"
 
-                if [[ $src_path = $(readlink $dst_path) ]]; then
-                        message "$module" "$dst_path is a correct link"
-                        create_link=false
-                        return
-                fi
+		if [[ $src_path = $(readlink $dst_path) ]]; then
+			message "$module" "$dst_path is a correct link"
+			create_link=false
+			return
+		fi
 
-                if [[ $yes_to_all == 0 ]]; then
-                        read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm; echo
-                fi
+		if [[ $yes_to_all == 0 ]]; then
+			read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm
+			echo
+		fi
 
-                if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
-                        rm -R $dst_path
-                        message "$module" "$dst_path was removed successfully"
-                else
-                        create_link=false
-                fi
-        fi
+		if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
+			rm -R $dst_path
+			message "$module" "$dst_path was removed successfully"
+		else
+			create_link=false
+		fi
+	fi
 
-        if $create_link; then
-                ln -s $src_path $dst_path
-                message "$module" "Symbolic link created successfully from $src_path to $dst_path"
-        fi
+	if $create_link; then
+		ln -s $src_path $dst_path
+		message "$module" "Symbolic link created successfully from $src_path to $dst_path"
+	fi
 }
 
 # vim
 install-vim() {
-        files=("vim" "vimrc")
-        dotfile "vim" files[@]
+	files=("vim" "vimrc")
+	dotfile "vim" files[@]
 
-        message "vim" "Installing vim plugins"
-        vim +PlugInstall +qall
+	message "vim" "Installing vim plugins"
+	vim +PlugInstall +qall
 }
 
 # nvim
 install-nvim() {
-        configfile "nvim"
-        message "nvim" "Installing neovim plugins"
-        nvim --headless +PlugInstall +qall
+	configfile "nvim"
+	message "nvim" "Installing neovim plugins"
+	nvim --headless +PlugInstall +qall
 }
 
 # configurations
 install-conf() {
-        files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
-        dotfile "conf" files[@]
-        configfile "htop" "" "conf"
+	files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
+	dotfile "conf" files[@]
+	configfile "htop" "" "conf"
 
-        message "conf" "Installing tmux plugins"
-        ~/.tmux/plugins/tpm/bin/install_plugins
+	message "conf" "Installing tmux plugins"
+	~/.tmux/plugins/tpm/bin/install_plugins
 }
 
 # zsh
 install-zsh() {
-        files=("zshrc" "zsh.plug")
-        dotfile "zsh" files[@]
+	files=("zshrc" "zsh.plug")
+	dotfile "zsh" files[@]
 }
 
 # git
 install-git() {
-        configfile "git"
+	configfile "git"
 }
 
 # bin
 install-bin() {
-        files=("bin")
-        dotfile "bin" files[@] false
+	files=("bin")
+	dotfile "bin" files[@] false
 }
 
 # general
 install-general() {
-        if [ $SHELL != '/bin/zsh' ]; then
-                message "general" "Please change your shell to zsh manually"
-        fi
+	if [ $SHELL != '/bin/zsh' ]; then
+		message "general" "Please change your shell to zsh manually"
+	fi
 }
 
 # calls each module install function.
 modules=(vim nvim conf zsh git bin general)
 for module in ${modules[@]}; do
-        message $module "Installation begin"; echo
-        install-$module
-        echo; message $module "Installation end"; echo
+	message $module "Installation begin"
+	echo
+	install-$module
+	echo
+	message $module "Installation end"
+	echo
 done
 
 announce "post" "Thank you for using Parham Alvani dotfiles ! :)"

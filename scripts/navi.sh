@@ -9,26 +9,26 @@
 # =======================================
 
 usage() {
-        echo "usage: navi"
+	echo "usage: navi"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
+	# Reset optind between calls to getopts
+	OPTIND=1
 
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "navi" "Darwin"
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		message "navi" "Darwin"
 
-                brew install navi
-        else
-                message "navi" "Linux"
-                if [[ "$(command -v apt)" ]]; then
-                        echo "There is nothing that we can do"
-                elif [[ "$(command -v pacman)" ]]; then
-                        message "navi" "install navi with yay"
-                        yay -Syu --noconfirm --needed navi-bin
-                fi
-        fi
+		brew install navi
+	else
+		message "navi" "Linux"
+		if [[ "$(command -v apt)" ]]; then
+			echo "There is nothing that we can do"
+		elif [[ "$(command -v pacman)" ]]; then
+			message "navi" "install navi with yay"
+			yay -Syu --noconfirm --needed navi-bin
+		fi
+	fi
 
-        navi repo add 1995parham/cheats
+	navi repo add 1995parham/cheats
 }

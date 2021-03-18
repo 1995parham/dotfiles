@@ -8,23 +8,22 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-
 usage() {
-        echo "usage: c"
+	echo "usage: c"
 }
 
 main() {
-        message "c" "Installing clang + cmake"
+	message "c" "Installing clang + cmake"
 
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-	        message "c" "Darwin"
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		message "c" "Darwin"
 
-	        brew install clang-format
-                brew install cmake
-        else
-	        message "c" "Linux"
+		brew install clang-format
+		brew install cmake
+	else
+		message "c" "Linux"
 
-                sudo apt-get -y install clang clang-format
-                sudo apt-get -y install cmake
-        fi
+		sudo apt-get -y install clang clang-format
+		sudo apt-get -y install cmake
+	fi
 }

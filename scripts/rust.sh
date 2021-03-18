@@ -9,16 +9,16 @@
 # =======================================
 
 usage() {
-        echo "usage: rust"
+	echo "usage: rust"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
+	# Reset optind between calls to getopts
+	OPTIND=1
 
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
-        source $HOME/.cargo/env
-        rustup component add clippy
-        rustup component add rustfmt
-        rustup component add rls rust-analysis rust-src
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+	source $HOME/.cargo/env
+	rustup component add clippy
+	rustup component add rustfmt
+	rustup component add rls rust-analysis rust-src
 }
