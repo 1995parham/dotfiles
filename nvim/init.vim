@@ -202,6 +202,9 @@ Plug 'vim-scripts/textutil.vim'
 " Vim bookmark plugin that allows toggling bookmarks per line
 " Plug 'MattesGroeger/vim-bookmarks'
 
+" Vim plugin for shfmt
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+
 " Naz Neovim Theme
 Plug '1995parham/naz.vim'
 
@@ -324,6 +327,14 @@ call plug#end()
 " }}}
 
 " Plugins Configurations {{{
+
+" vim-shfmt {{{
+
+if executable('shfmt')
+  let &l:formatprg='shfmt -i ' . &l:shiftwidth . ' -ln posix -sr -ci -s'
+endif
+
+" }}}
 
 " vim-grepper {{{
 
