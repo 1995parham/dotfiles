@@ -9,11 +9,11 @@
 # =======================================
 
 usage() {
-        echo "usage: protoc"
+	echo "usage: protoc"
 }
 
 main() {
-        message "protoc" "Installing protobuf"
-        brew install protobuf
-        brew install protoc-gen-go
+	message "protoc" "Installing protobuf"
+	brew install protobuf
+	brew install protoc-gen-go
 }

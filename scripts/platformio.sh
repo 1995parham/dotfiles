@@ -9,36 +9,36 @@
 # =======================================
 
 usage() {
-        echo "usage: platformio [-d]"
-        echo "  -d   install udev rule"
+	echo "usage: platformio [-d]"
+	echo "  -d   install udev rule"
 }
 
 platformio-install() {
-        message "platformio" "Installing PlatformIO"
-        brew install platformio
+	message "platformio" "Installing PlatformIO"
+	brew install platformio
 }
 
 platformio-udev() {
-        message "platformio" "Installing udev rules"
-        curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
-        sudo service udev restart
+	message "platformio" "Installing udev rules"
+	curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
+	sudo service udev restart
 }
 
 main() {
-        install_udev=false
+	install_udev=false
 
-        # Reset optind between calls to getopts
-        OPTIND=1
-        while getopts "d" argv; do
-	        case $argv in
-		        d)
-                                install_udev=true
-			        ;;
-	        esac
-        done
+	# Reset optind between calls to getopts
+	OPTIND=1
+	while getopts "d" argv; do
+		case $argv in
+		d)
+			install_udev=true
+			;;
+		esac
+	done
 
-        platformio-install
-        if [ $install_udev = true ]; then
-                platformio-udev
-        fi
+	platformio-install
+	if [ $install_udev = true ]; then
+		platformio-udev
+	fi
 }

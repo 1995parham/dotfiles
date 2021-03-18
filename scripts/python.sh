@@ -10,72 +10,73 @@
 verbose=false
 
 packages=(
-        flake8
-        pep8-naming
-        pipenv
-        mypy
-        black
-        'python-language-server[all]'
-        pyls-mypy
-        pylint
-        poetry
+	flake8
+	pep8-naming
+	pipenv
+	mypy
+	black
+	'python-language-server[all]'
+	pyls-mypy
+	pylint
+	poetry
 
-        pynvim
+	pynvim
 )
 
 usage() {
-        echo "usage: python"
+	echo "usage: python"
 }
 
 pyenv-install() {
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "python" "Darwin"
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		message "python" "Darwin"
 
-                brew install pyenv
-        else
-                message "python" "Linux"
-                if [[ "$(command -v apt)" ]]; then
-                        echo "There is nothing that we can do"
-                elif [[ "$(command -v pacman)" ]]; then
-                        message "python" "install pyenv with pacman"
-                        sudo pacman -Syu --needed --noconfirm pyenv
-                fi
-        fi
+		brew install pyenv
+	else
+		message "python" "Linux"
+		if [[ "$(command -v apt)" ]]; then
+			echo "There is nothing that we can do"
+		elif [[ "$(command -v pacman)" ]]; then
+			message "python" "install pyenv with pacman"
+			sudo pacman -Syu --needed --noconfirm pyenv
+		fi
+	fi
 
-        git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages || echo "pyenv-default-packages is already installed"
+	git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages || echo "pyenv-default-packages is already installed"
 }
 
 python-install-package() {
-        python3 -mpip install -U $1
+	python3 -mpip install -U $1
 
-        if [ $? -eq 0 ]; then
-                message "python" "$1 installation succeeded"
-        else
-                message "python" "$1 installation failed"
-        fi
+	if [ $? -eq 0 ]; then
+		message "python" "$1 installation succeeded"
+	else
+		message "python" "$1 installation failed"
+	fi
 }
 
 python-install-packages() {
-        message "python" "Fetch some good and useful python packages"
+	message "python" "Fetch some good and useful python packages"
 
-        message "python" "Python Tools"
+	message "python" "Python Tools"
 
-        printf "%s\n" ${packages[@]} > $(pyenv root)/default-packages
-        for package in ${packages[@]}; do
-                python-install-package $package
-        done
+	printf "%s\n" ${packages[@]} >$(pyenv root)/default-packages
+	for package in ${packages[@]}; do
+		python-install-package $package
+	done
 }
 
 main() {
-        pyenv-install
+	pyenv-install
 
-        if [[ "$(command -v pyenv)" ]]; then
-                pyenv versions
-        fi
+	if [[ "$(command -v pyenv)" ]]; then
+		pyenv versions
+	fi
 
-        read -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm; echo
+	read -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm
+	echo
 
-        if [[ $confirm == "Y" ]]; then
-                python-install-packages
-        fi
+	if [[ $confirm == "Y" ]]; then
+		python-install-packages
+	fi
 }

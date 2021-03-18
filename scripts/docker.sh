@@ -77,7 +77,8 @@ docker-hadolint-install() {
 }
 
 main() {
-	read -p "[docker] do you want to install docker ?[Y/n] " -n 1 install; echo
+	read -p "[docker] do you want to install docker ?[Y/n] " -n 1 install
+	echo
 
 	if [[ $install == "Y" ]]; then
 		if [[ "$(command -v apt)" ]]; then
@@ -91,6 +92,6 @@ main() {
 	docker-compose-install
 	docker-hadolint-install
 
-        # make sure about login
-        docker login
+	# make sure about login
+	docker login
 }
