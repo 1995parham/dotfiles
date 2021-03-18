@@ -389,8 +389,8 @@ The following list contains my personal software recommendation:
     <td>guvcview</td>
     <td></td>
     <td>Photo Booth</td>
-    <td>Camera</td>
     <td></td>
+    <td>Camera</td>
   </tr>
   <tr>
     <td>HTTP/gRPC Load Test</td>
