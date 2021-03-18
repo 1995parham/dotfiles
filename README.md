@@ -274,7 +274,7 @@ The following list contains my personal software recommendation:
   </tr>
   <tr>
     <td>Jalali Calender</td>
-    <td-</td>
+    <td></td>
     <td>jcal-git</td>
     <td>jcal</td>
     <td></td>
