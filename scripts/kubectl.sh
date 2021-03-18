@@ -16,16 +16,16 @@ kube-install() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         message "kubectl" "Install kubectl from brew"
         brew install kubernetes-cli
-        
+
         message "kubectl" "Install helm from brew"
         brew install helm
-        
+
         message "kubectl" "Install helmfile from brew"
         brew install helmfile
-        
+
         message "kubectl" "Install stern (Multi pod and container log tailing for Kubernetes) from brew"
         brew install stern
-        
+
         message "kubectl" "Validate your Kubernetes configuration files, supports multiple Kubernetes versions"
         brew install instrumenta/instrumenta/kubeval
 
@@ -37,10 +37,10 @@ kube-install() {
         elif [[ "$(command -v pacman)" ]]; then
             message "kubectl" "install kubectl/helm/helmfile/argocd-cli with pacman"
             sudo pacman -Syu --noconfirm --needed  kubectl helm helmfile argocd-cli
-            
+
             message "kubectl" "Install stern (Multi pod and container log tailing for Kubernetes) with yay"
             yay -Syu --noconfirm --needed stern-bin
-            
+
             message "kubectl" "Validate your Kubernetes configuration files, supports multiple Kubernetes versions with yay"
             yay -Syu --noconfirm --needed kubeval-bin
         fi
@@ -58,7 +58,7 @@ oc-install() {
             message "kubectl" "install origin-client-bin with yay"
             yay -Syu --noconfirm --needed okd-client-bin
         fi
-        
+
     fi
 }
 
