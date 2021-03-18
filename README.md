@@ -29,52 +29,380 @@ First of all, thank you for your visiting, to find out more about how to use thi
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 The following list contains my personal software recommendation:
 
-|                  Manjaro i3                  |                   OSx                   |                Windows                | Role                    | [pacman](https://archlinux.org/pacman/) | [yay](https://github.com/Jguer/yay) | [brew](https://brew.sh/) | [scoop](https://scoop.sh/) | [chocolatey](https://chocolatey.org/) |
-| :------------------------------------------: | :-------------------------------------: | :-----------------------------------: | :---------------------- | :-------------------------------------: | :---------------------------------: | :----------------------: | :------------------------: | :-----------------------------------: |
-|                     `i3`                     |                    -                    |                   -                   | Window Manager          |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|         `i3status` + `i3status-rust`         |                `iglance`                |                   -                   | Status Bar              |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                   `ranger`                   |                `ranger`                 |                   -                   | File Manager            |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|     `lightdm` + `lightdm-slick-greeter`      |                    -                    |                   -                   | Desktop Manager         |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                   `dmenu`                    |                    -                    |                   -                   | Application Launcher    |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|        `nmcli/nmtui` (NetworkManager)        |                    -                    |                   -                   | Networking              |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                 `alacritty`                  |               `alacritty`               |              `alacritty`              | Terminal Emulator       |                   ✅                    |                  -                  |            ✅            |             -              |                  ✅                   |
-|               `pacman` + `yay`               |                 `brew`                  | `scopp` (with extra bucket) + `choco` | Package Manager         |                    -                    |                  -                  |            -             |             -              |                   -                   |
-|                    `bat`                     |                  `bat`                  |                 `bat`                 | cat clone with wings    |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|                    `vim`                     |                  `vim`                  |                 `vim`                 | vim                     |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|                    `nvim`                    |                 `nvim`                  |                `nvim`                 | NeoVim                  |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|                   `emacs`                    |                `vscode`                 |               `vscode`                | Emacs / VSCode          |                   ✅                    |                  -                  |            ✅            |             -              |                  ✅                   |
-|                    `tmux`                    |                 `tmux`                  |                   -                   | Terminal Multiplexer    |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                    `mpv`                     |                  `mpv`                  |                 `mpv`                 | Video Player            |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                    `cmus`                    |                 `cmus`                  |                   -                   | Music Player            |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                  `nitrogen`                  |                    -                    |                   -                   | Wallpaper (unsplash)    |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                   `docker`                   |                `docker`                 |                   -                   | Container Engine        |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|             `drawio-desktop-bin`             |                `drawio`                 |                   -                   | Drawing Diagram         |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
-|                    `gimp`                    |                `Preview`                |                   -                   | Image Editor            |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                   `ffmpeg`                   |                `ffmpeg`                 |               `ffmpeg`                | Video Editor            |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|   `firefox` + `firefox-developer-edition`    | `firefox` + `firefox-developer-edition` |               `firefox`               | Browser                 |                   ✅                    |                  -                  |            ✅            |             -              |                  ✅                   |
-|                 `youtube-dl`                 |              `youtube-dl`               |             `youtube-dl`              | Youtube Downloader      |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|                 `github-cli`                 |                  `gh`                   |                   -                   | Github CLI              |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                   `gopass`                   |                `gopass`                 |                   -                   | Password Manager        |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|                   `dstask`                   |                `dstask`                 |                   -                   | ToDo Manager            |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
-|                   `timew`                    |              `timewarrior`              |                   -                   | Time Manager            |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                  `dijo-bin`                  |                 `dijo`                  |                   -                   | Habit Manager           |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
-|           `sdcv` + `stardict-oald`           |                    -                    |                   -                   | Dictionary              |                    -                    |                 ✅                  |            -             |             -              |                   -                   |
-|                  `jcal-git`                  |                 `jcal`                  |                   -                   | Jalali Calender         |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-|                    `cal`                     |                  `cal`                  |                   -                   | Calender                |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
-|                `anydesk-bin`                 |                `Anydesk`                |                   -                   | Anydesk                 |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
-|                 `clementine`                 |                    -                    |                   -                   | Music Infoamtion Editor |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                   `chrony`                   |                    -                    |                   -                   | Time Server (NTP)       |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                  `viewnior`                  |                `Preview`                |                   -                   | Image Viewer            |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                  `epdfview`                  |                `Preview`                |             `adobereader`             | PDF Viewer              |                   ✅                    |                  -                  |            -             |             -              |                  ✅                   |
-|             `skypeforlinux-bin`              |                 `Skype`                 |                `Skype`                | Skype                   |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
-|                `wireshark-qt`                |               `Wireshark`               |                   -                   | Packet Sniffer          |                   ✅                    |                  -                  |            ✅            |             -              |                   -                   |
-| `libreoffice-fresh` + `libreoffice-fresh-fa` |                    -                    |                   -                   | Office Suite            |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|             `xfce-power-manager`             |                    -                    |                   -                   | Power Manager           |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                  `synthing`                  |               `syncthing`               |             `SyncTrayzor`             | Syncthing               |                   ✅                    |                  -                  |            ✅            |             -              |                  ✅                   |
-|                   `aria2`                    |                 `aria2`                 |                `aria2`                | Download Manager        |                   ✅                    |                  -                  |            ✅            |             ✅             |                   -                   |
-|                    `sudo`                    |                 `sudo`                  |                `sudo`                 | Sudo                    |                    -                    |                  -                  |            -             |             ✅             |                   -                   |
-|                  `guvcview`                  |              `Photo Booth`              |               `Camera`                | Camera                  |                   ✅                    |                  -                  |            -             |             -              |                   -                   |
-|                   `k6-bin`                   |                  `k6`                   |                   -                   | HTTP/gRPC Load Test     |                    -                    |                 ✅                  |            ✅            |             -              |                   -                   |
+<!-- applications {{{ -->
+<table>
+<thead>
+  <tr>
+    <th>Role</th>
+    <th colspan="2">Manjaro i3</th>
+    <th>OS x</th>
+    <th colspan="2">windows</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td></td>
+    <td><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreferrer">pacman</a></td>
+    <td><a href="https://github.com/Jguer/yay" target="_blank" rel="noopener noreferrer">yay</a></td>
+    <td><a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">brew</a></td>
+    <td><a href="https://scoop.sh/" target="_blank" rel="noopener noreferrer">scoop</a></td>
+    <td><a href="https://chocolatey.org/" target="_blank" rel="noopener noreferrer">chocolatey</a></td>
+  </tr>
+  <tr>
+    <td>Window Manager</td>
+    <td>i3</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Status Bar</td>
+    <td>i3status + i3status-rust</td>
+    <td></td>
+    <td>iglance</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>File Manager</td>
+    <td>ranger</td>
+    <td></td>
+    <td>ranger</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Desktop Manager</td>
+    <td>lightdm + lightdm-slick-greeter</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Application Launcher</td>
+    <td>dmenu</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Networking</td>
+    <td>nmcli/nmtui (NetworkManager)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Terminal Emulator</td>
+    <td>alacritty</td>
+    <td></td>
+    <td>alacritty</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Package Manager</td>
+    <td>pacman + yay (with base-devel)</td>
+    <td></td>
+    <td>brew</td>
+    <td>scopp (with extra bucket)</td>
+    <td>choco</td>
+  </tr>
+  <tr>
+    <td>cat clone with wings</td>
+    <td>bat</td>
+    <td></td>
+    <td>bat</td>
+    <td>bat</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>vim</td>
+    <td>vim</td>
+    <td></td>
+    <td>vim</td>
+    <td>vim (use wsl)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>NeoVim</td>
+    <td>nvim</td>
+    <td></td>
+    <td>nvim</td>
+    <td>nvim (use wsl)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Emacs / VSCode</td>
+    <td>emacs</td>
+    <td></td>
+    <td>vscode</td>
+    <td></td>
+    <td>vscode</td>
+  </tr>
+  <tr>
+    <td>Terminal Multiplexer</td>
+    <td>tmux</td>
+    <td></td>
+    <td>tmux</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Video Player</td>
+    <td>mpv</td>
+    <td></td>
+    <td>mpv</td>
+    <td>mpv</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Music Player</td>
+    <td>cmus</td>
+    <td>cmus</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Wallpaper (unsplash)</td>
+    <td>nitrogen</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Container Engine</td>
+    <td>docker</td>
+    <td></td>
+    <td>docker</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Drawing Diagram</td>
+    <td></td>
+    <td>drawio-desktop-bin</td>
+    <td>drawio</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Image Editor</td>
+    <td>gimp</td>
+    <td></td>
+    <td>Preview</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Video Editor</td>
+    <td>ffmpeg</td>
+    <td></td>
+    <td>ffmpeg</td>
+    <td>ffmpeg</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Browser</td>
+    <td>firefox + firefox-developer-edition</td>
+    <td></td>
+    <td>firefox + firefox-developer-edition</td>
+    <td></td>
+    <td>firefox</td>
+  </tr>
+  <tr>
+    <td>Youtube Downloader</td>
+    <td>youtube-dl</td>
+    <td></td>
+    <td>youtube-dl</td>
+    <td>youtube-dl</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Github CLI</td>
+    <td>github-cli</td>
+    <td></td>
+    <td>gh</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Password Manager</td>
+    <td>gopass</td>
+    <td>gopass-jsonapi-git</td>
+    <td>gopass</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ToDo Manager</td>
+    <td></td>
+    <td>dstask</td>
+    <td>dstask</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Time Manager</td>
+    <td>timew</td>
+    <td></td>
+    <td>timewarrior</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Habit Manager</td>
+    <td></td>
+    <td>dijo-bin</td>
+    <td>dijo</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Dictionary</td>
+    <td>sdcv</td>
+    <td>stardict-oald</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Jalali Calender</td>
+    <td-</td>
+    <td>jcal-git</td>
+    <td>jcal</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Calender</td>
+    <td>cal</td>
+    <td></td>
+    <td>cal</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Anydesk</td>
+    <td></td>
+    <td>anydesk-bin</td>
+    <td>Anydesk</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Music Infoamtion Editor</td>
+    <td>clementine</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Time Server (NTP)</td>
+    <td>chrony</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Image Viewer</td>
+    <td>viewnior</td>
+    <td></td>
+    <td>Preview</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>PDF Viewer</td>
+    <td>epdfview</td>
+    <td></td>
+    <td>Preview</td>
+    <td></td>
+    <td>adobereader</td>
+  </tr>
+  <tr>
+    <td>Skype</td>
+    <td></td>
+    <td>skypeforlinux-bin</td>
+    <td>Skype</td>
+    <td></td>
+    <td>Skype</td>
+  </tr>
+  <tr>
+    <td>Packet Sniffer</td>
+    <td>wireshark-qt</td>
+    <td>Wireshark</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Office Suite</td>
+    <td>libreoffice-fresh + libreoffice-fresh-fa</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Power Manager</td>
+    <td>xfce-power-manager</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Syncthing</td>
+    <td>synthing</td>
+    <td></td>
+    <td>syncthing</td>
+    <td></td>
+    <td>SyncTrayzor</td>
+  </tr>
+  <tr>
+    <td>Download Manager</td>
+    <td>aria2</td>
+    <td></td>
+    <td>aria2</td>
+    <td>aria2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Sudo</td>
+    <td>sudo</td>
+    <td></td>
+    <td>sudo</td>
+    <td>sudo</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Camera</td>
+    <td>guvcview</td>
+    <td></td>
+    <td>Photo Booth</td>
+    <td>Camera</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>HTTP/gRPC Load Test</td>
+    <td>k6-bin</td>
+    <td>k6</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+<!-- }}} -->
 
 ## Installation
 
