@@ -9,26 +9,26 @@
 # =======================================
 
 usage() {
-        echo "usage: mpv"
+	echo "usage: mpv"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
+	# Reset optind between calls to getopts
+	OPTIND=1
 
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "mpv" "Darwin"
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		message "mpv" "Darwin"
 
-                brew install mpv
-        else
-                message "mpv" "Linux"
-                if [[ "$(command -v apt)" ]]; then
-                        echo "There is nothing that we can do"
-                elif [[ "$(command -v pacman)" ]]; then
-                        message "mpv" "install mpv with pacman"
-                        sudo pacman -Syu --noconfirm --needed mpv
-                fi
-        fi
+		brew install mpv
+	else
+		message "mpv" "Linux"
+		if [[ "$(command -v apt)" ]]; then
+			echo "There is nothing that we can do"
+		elif [[ "$(command -v pacman)" ]]; then
+			message "mpv" "install mpv with pacman"
+			sudo pacman -Syu --noconfirm --needed mpv
+		fi
+	fi
 
-        configfile mpv
+	configfile mpv
 }

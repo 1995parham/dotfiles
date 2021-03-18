@@ -14,10 +14,10 @@
 # ... for more information see start.sh.
 
 usage() {
-        echo "usage: sample"
+	echo "usage: sample"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
+	# Reset optind between calls to getopts
+	OPTIND=1
 }

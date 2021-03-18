@@ -9,26 +9,26 @@
 # =======================================
 
 usage() {
-        echo "usage: cmus"
+	echo "usage: cmus"
 }
 
 main() {
-        # Reset optind between calls to getopts
-        OPTIND=1
+	# Reset optind between calls to getopts
+	OPTIND=1
 
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-                message "cmus" "Darwin"
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		message "cmus" "Darwin"
 
-                brew install cmus
-        else
-                message "cmus" "Linux"
-                if [[ "$(command -v apt)" ]]; then
-                        echo "There is nothing that we can do"
-                elif [[ "$(command -v pacman)" ]]; then
-                        message "cmus" "install cmus with pacman"
-                        sudo pacman -Syu --noconfirm --needed cmus
-                fi
-        fi
+		brew install cmus
+	else
+		message "cmus" "Linux"
+		if [[ "$(command -v apt)" ]]; then
+			echo "There is nothing that we can do"
+		elif [[ "$(command -v pacman)" ]]; then
+			message "cmus" "install cmus with pacman"
+			sudo pacman -Syu --noconfirm --needed cmus
+		fi
+	fi
 
-        configfile cmus rc
+	configfile cmus rc
 }

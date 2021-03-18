@@ -9,32 +9,32 @@
 # =======================================
 
 usage() {
-        echo "usage: angular"
+	echo "usage: angular"
 }
 
 angular-install-cli() {
-        npm install -g @angular/cli
-        ng --version
+	npm install -g @angular/cli
+	ng --version
 }
 
 angular-install-ts() {
-        npm install -g typescript
-        npm install -g tslint
+	npm install -g typescript
+	npm install -g tslint
 }
 
 main() {
-        # reset optind between calls to getopts
-        OPTIND=1
+	# reset optind between calls to getopts
+	OPTIND=1
 
-        # check npm and node status
-        if which node > /dev/null; then
-                if [ $(node -v | cut -d '.' -f 1 | cut -b 2-) -lt 8 ]; then
-                        echo "Please install node version 8.x at least"
-                fi
-                angular-install-cli
-                angular-install-ts
-        else
-                echo "Please install node first"
-                return 1
-        fi
+	# check npm and node status
+	if which node >/dev/null; then
+		if [ $(node -v | cut -d '.' -f 1 | cut -b 2-) -lt 8 ]; then
+			echo "Please install node version 8.x at least"
+		fi
+		angular-install-cli
+		angular-install-ts
+	else
+		echo "Please install node first"
+		return 1
+	fi
 }

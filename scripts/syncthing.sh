@@ -9,14 +9,14 @@
 # =======================================
 
 main() {
-        if [[ $OSTYPE == "linux-gnu" ]]; then
-                sudo pacman -Syu --needed --noconfirm syncthing
-                sudo systemctl enable syncthing@parham
-                sudo systemctl start syncthing@parham
-        else
-                brew install syncthing
-                brew services start syncthing
-        fi
+	if [[ $OSTYPE == "linux-gnu" ]]; then
+		sudo pacman -Syu --needed --noconfirm syncthing
+		sudo systemctl enable syncthing@parham
+		sudo systemctl start syncthing@parham
+	else
+		brew install syncthing
+		brew services start syncthing
+	fi
 
-        message "syncthing" "Please refer to its documentation for setup the mesh"
+	message "syncthing" "Please refer to its documentation for setup the mesh"
 }

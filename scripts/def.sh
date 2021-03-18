@@ -9,10 +9,10 @@
 # =======================================
 
 usage() {
-        echo "usage: def"
+	echo "usage: def"
 }
 
 main() {
-        sudo pacman -Syu --needed --noconfirm sdcv
-        yay -Syu --needed --noconfirm stardict-oald
+	sudo pacman -Syu --needed --noconfirm sdcv
+	yay -Syu --needed --noconfirm stardict-oald
 }
