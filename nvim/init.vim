@@ -328,14 +328,6 @@ call plug#end()
 
 " Plugins Configurations {{{
 
-" vim-shfmt {{{
-
-if executable('shfmt')
-  let &l:formatprg='shfmt -i ' . &l:shiftwidth . ' -ln posix -sr -ci -s'
-endif
-
-" }}}
-
 " vim-grepper {{{
 
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
