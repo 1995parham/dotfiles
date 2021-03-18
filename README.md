@@ -49,7 +49,7 @@ The following list contains my personal software recommendation:
     <td><a href="https://chocolatey.org/" target="_blank" rel="noopener noreferrer">chocolatey</a></td>
   </tr>
   <tr>
-    <td>Window Manager</td>
+    <th>Window Manager</th>
     <td>i3</td>
     <td></td>
     <td></td>
@@ -57,7 +57,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Status Bar</td>
+    <th>Status Bar</th>
     <td>i3status + i3status-rust</td>
     <td></td>
     <td>iglance</td>
@@ -65,7 +65,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>File Manager</td>
+    <th>File Manager</th>
     <td>ranger</td>
     <td></td>
     <td>ranger</td>
@@ -73,7 +73,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Desktop Manager</td>
+    <th>Desktop Manager</th>
     <td>lightdm + lightdm-slick-greeter</td>
     <td></td>
     <td></td>
@@ -81,7 +81,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Application Launcher</td>
+    <th>Application Launcher</th>
     <td>dmenu</td>
     <td></td>
     <td></td>
@@ -89,7 +89,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Networking</td>
+    <th>Networking</th>
     <td>nmcli/nmtui (NetworkManager)</td>
     <td></td>
     <td></td>
@@ -97,7 +97,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Terminal Emulator</td>
+    <th>Terminal Emulator</th>
     <td>alacritty</td>
     <td></td>
     <td>alacritty</td>
@@ -105,7 +105,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Package Manager</td>
+    <th>Package Manager</th>
     <td>pacman + yay (with base-devel)</td>
     <td></td>
     <td>brew</td>
@@ -113,7 +113,7 @@ The following list contains my personal software recommendation:
     <td>choco</td>
   </tr>
   <tr>
-    <td>cat clone with wings</td>
+    <th>cat clone with wings</th>
     <td>bat</td>
     <td></td>
     <td>bat</td>
@@ -121,7 +121,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>vim</td>
+    <th>vim</th>
     <td>vim</td>
     <td></td>
     <td>vim</td>
@@ -129,7 +129,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>NeoVim</td>
+    <th>NeoVim</th>
     <td>nvim</td>
     <td></td>
     <td>nvim</td>
@@ -137,7 +137,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Emacs / VSCode</td>
+    <th>Emacs / VSCode</th>
     <td>emacs</td>
     <td></td>
     <td>vscode</td>
@@ -145,7 +145,7 @@ The following list contains my personal software recommendation:
     <td>vscode</td>
   </tr>
   <tr>
-    <td>Terminal Multiplexer</td>
+    <th>Terminal Multiplexer</th>
     <td>tmux</td>
     <td></td>
     <td>tmux</td>
@@ -153,7 +153,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Video Player</td>
+    <th>Video Player</th>
     <td>mpv</td>
     <td></td>
     <td>mpv</td>
@@ -161,15 +161,15 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Music Player</td>
-    <td>cmus</td>
+    <th>Music Player</th>
     <td>cmus</td>
     <td></td>
+    <td>cmus</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td>Wallpaper (unsplash)</td>
+    <th>Wallpaper (unsplash)</th>
     <td>nitrogen</td>
     <td></td>
     <td></td>
@@ -177,7 +177,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Container Engine</td>
+    <th>Container Engine</th>
     <td>docker</td>
     <td></td>
     <td>docker</td>
@@ -185,7 +185,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Drawing Diagram</td>
+    <th>Drawing Diagram</th>
     <td></td>
     <td>drawio-desktop-bin</td>
     <td>drawio</td>
@@ -193,7 +193,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Image Editor</td>
+    <th>Image Editor</th>
     <td>gimp</td>
     <td></td>
     <td>Preview</td>
@@ -201,7 +201,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Video Editor</td>
+    <th>Video Editor</th>
     <td>ffmpeg</td>
     <td></td>
     <td>ffmpeg</td>
@@ -209,7 +209,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Browser</td>
+    <th>Browser</th>
     <td>firefox + firefox-developer-edition</td>
     <td></td>
     <td>firefox + firefox-developer-edition</td>
@@ -217,7 +217,7 @@ The following list contains my personal software recommendation:
     <td>firefox</td>
   </tr>
   <tr>
-    <td>Youtube Downloader</td>
+    <th>Youtube Downloader</th>
     <td>youtube-dl</td>
     <td></td>
     <td>youtube-dl</td>
@@ -225,7 +225,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Github CLI</td>
+    <th>Github CLI</th>
     <td>github-cli</td>
     <td></td>
     <td>gh</td>
@@ -233,7 +233,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Password Manager</td>
+    <th>Password Manager</th>
     <td>gopass</td>
     <td>gopass-jsonapi-git</td>
     <td>gopass</td>
@@ -241,7 +241,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>ToDo Manager</td>
+    <th>ToDo Manager</th>
     <td></td>
     <td>dstask</td>
     <td>dstask</td>
@@ -249,7 +249,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Time Manager</td>
+    <th>Time Manager</th>
     <td>timew</td>
     <td></td>
     <td>timewarrior</td>
@@ -257,7 +257,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Habit Manager</td>
+    <th>Habit Manager</th>
     <td></td>
     <td>dijo-bin</td>
     <td>dijo</td>
@@ -265,7 +265,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Dictionary</td>
+    <th>Dictionary</th>
     <td>sdcv</td>
     <td>stardict-oald</td>
     <td></td>
@@ -273,7 +273,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Jalali Calender</td>
+    <th>Jalali Calender</th>
     <td></td>
     <td>jcal-git</td>
     <td>jcal</td>
@@ -281,7 +281,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Calender</td>
+    <th>Calender</th>
     <td>cal</td>
     <td></td>
     <td>cal</td>
@@ -289,7 +289,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Anydesk</td>
+    <th>Anydesk</th>
     <td></td>
     <td>anydesk-bin</td>
     <td>Anydesk</td>
@@ -297,7 +297,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Music Infoamtion Editor</td>
+    <th>Music Infoamtion Editor</th>
     <td>clementine</td>
     <td></td>
     <td></td>
@@ -305,7 +305,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Time Server (NTP)</td>
+    <th>Time Server (NTP)</th>
     <td>chrony</td>
     <td></td>
     <td></td>
@@ -313,7 +313,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Image Viewer</td>
+    <th>Image Viewer</th>
     <td>viewnior</td>
     <td></td>
     <td>Preview</td>
@@ -321,7 +321,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>PDF Viewer</td>
+    <th>PDF Viewer</th>
     <td>epdfview</td>
     <td></td>
     <td>Preview</td>
@@ -329,7 +329,7 @@ The following list contains my personal software recommendation:
     <td>adobereader</td>
   </tr>
   <tr>
-    <td>Skype</td>
+    <th>Skype</th>
     <td></td>
     <td>skypeforlinux-bin</td>
     <td>Skype</td>
@@ -337,7 +337,7 @@ The following list contains my personal software recommendation:
     <td>Skype</td>
   </tr>
   <tr>
-    <td>Packet Sniffer</td>
+    <th>Packet Sniffer</th>
     <td>wireshark-qt</td>
     <td>Wireshark</td>
     <td></td>
@@ -345,15 +345,15 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Office Suite</td>
+    <th>Office Suite</th>
     <td>libreoffice-fresh + libreoffice-fresh-fa</td>
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td>Microsoft Windows</td>
   </tr>
   <tr>
-    <td>Power Manager</td>
+    <th>Power Manager</th>
     <td>xfce-power-manager</td>
     <td></td>
     <td></td>
@@ -361,7 +361,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Syncthing</td>
+    <th>Syncthing</th>
     <td>synthing</td>
     <td></td>
     <td>syncthing</td>
@@ -369,7 +369,7 @@ The following list contains my personal software recommendation:
     <td>SyncTrayzor</td>
   </tr>
   <tr>
-    <td>Download Manager</td>
+    <th>Download Manager</th>
     <td>aria2</td>
     <td></td>
     <td>aria2</td>
@@ -377,7 +377,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Sudo</td>
+    <th>Sudo</th>
     <td>sudo</td>
     <td></td>
     <td>sudo</td>
@@ -385,7 +385,7 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
-    <td>Camera</td>
+    <th>Camera</th>
     <td>guvcview</td>
     <td></td>
     <td>Photo Booth</td>
@@ -393,7 +393,7 @@ The following list contains my personal software recommendation:
     <td>Camera</td>
   </tr>
   <tr>
-    <td>HTTP/gRPC Load Test</td>
+    <th>HTTP/gRPC Load Test</th>
     <td>k6-bin</td>
     <td>k6</td>
     <td></td>
