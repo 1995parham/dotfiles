@@ -328,6 +328,12 @@ call plug#end()
 
 " Plugins Configurations {{{
 
+" vim-shfmt {{{
+
+let g:shfmt_fmt_on_save = 1
+
+" }}}
+
 " vim-grepper {{{
 
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
