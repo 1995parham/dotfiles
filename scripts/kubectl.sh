@@ -30,7 +30,7 @@ kube-install() {
 		brew install instrumenta/instrumenta/kubeval
 
 		message "kubectl" "Argocd CLI"
-		brew install argocd-cli
+		brew install argocd
 	else
 		if [[ "$(command -v apt)" ]]; then
 			echo "There is nothing that we can do right now"
