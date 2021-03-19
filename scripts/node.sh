@@ -20,7 +20,8 @@ node-install() {
 	else
 		message "node" "Linux"
 		if [[ "$(command -v apt)" ]]; then
-			echo "TODO"
+			curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+			sudo apt-get install -y nodejs
 		elif [[ "$(command -v pacman)" ]]; then
 			message "node" "install node with pacman"
 			sudo pacman -Syu --noconfirm --needed nodejs npm
