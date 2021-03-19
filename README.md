@@ -241,6 +241,14 @@ The following list contains my personal software recommendation:
     <td></td>
   </tr>
   <tr>
+    <th>GNU Privacy Guard</th>
+    <td>gpg</td>
+    <td></td>
+    <td>gpg + gpg-suite-no-mail</td>
+    <td></td>
+    <td>gpg4win</td>
+  </tr>
+  <tr>
     <th>ToDo Manager</th>
     <td></td>
     <td>dstask</td>
