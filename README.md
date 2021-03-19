@@ -470,6 +470,21 @@ Also it would be nice to install [pshazz](https://github.com/lukesampson/pshazz)
 
 Currently I use WSL with `git.exe` because of its hanging issue and also I have to remove passphase for windows private key because there is no way to store it somewhere.
 
+I use `Windows Terminal` as my primary terminal with the follwing configuration:
+
+```json
+{
+  "profiles": {
+    "defaults": {
+      "fontFace": "JetBrains Mono",
+      "fontSize": 12
+    }
+  }
+}
+```
+
+use `sudo choco install jetbrainsmono` to install Jetbrains font and check [here](https://garrytrinder.github.io/2020/12/my-wsl2-windows-terminal-setup) for more information.
+
 ## Tips and Tricks
 
 [![](https://img.shields.io/badge/askubuntu-bookmarks-orange?style=flat-square&logo=ubuntu)](https://askubuntu.com/users/425876/parham-alvani?tab=bookmarks)
@@ -621,6 +636,7 @@ sudo choco install <pkg> --proxy="http://127.0.0.1:1080"
 
 you can use the following stable and awesome mirror for your systems.
 <strong>https://mirror.iranserver.com/</strong>
+
 </details>
 
 ## Breaking Sanctions
@@ -637,33 +653,29 @@ sudo systemctl enable v2ray
 
 You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here is my example.
 
-```yaml
+```json
 {
-  "inbounds":
-    [
-      { "port": 1080, "protocol": "http" },
-      { "port": 1086, "protocol": "socks", "udp": true, "auth": "noauth" },
-    ],
+  "inbounds": [
+    { "port": 1080, "protocol": "http" },
+    { "port": 1086, "protocol": "socks", "udp": true, "auth": "noauth" }
+  ],
 
-  "outbounds":
-    [
-      {
-        "protocol": "shadowsocks",
-        "settings":
+  "outbounds": [
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
           {
-            "servers":
-              [
-                {
-                  "address": "an-awesome-server",
-                  "method": "aes-256-gcm",
-                  "ota": false,
-                  "password": "secret",
-                  "port": 1378,
-                },
-              ],
-          },
-      },
-    ],
+            "address": "an-awesome-server",
+            "method": "aes-256-gcm",
+            "ota": false,
+            "password": "secret",
+            "port": 1378
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 
