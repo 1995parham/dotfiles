@@ -158,8 +158,9 @@ augroup format
         " Latex/Tex
         autocmd Filetype tex setlocal ts=2 sts=2 sw=2
 
-        " ZSH
+        " Shells
         autocmd FileType zsh setlocal ts=2 sts=2 sw=2
+        autocmd FileType sh setlocal noexpandtab
 
         " vugu
         autocmd BufRead,BufNewFile *.vugu setlocal filetype=vue
