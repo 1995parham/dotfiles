@@ -412,7 +412,7 @@ The following list contains my personal software recommendation:
 </table>
 <!-- }}} -->
 
-## Installation
+## Installation (Linux, OSx)
 
 The following command creates a basic directory structure and clones the _dotfiles_ repository:
 
@@ -459,6 +459,14 @@ Then you can install other tools with `start.sh`, here are some examples:
 ```
 
 Configuration of mentioned applications also is a part of this repository.
+
+## Installation (Windows)
+
+First of all you need to install `scoop` and `chocolatey` as package managers and also add the `extra` bucket for `scoop`. **Install Everything by one of these package managers**
+
+Then you can start installing the required application by hand from the application list.
+I cannot use `vim` or `neovim` on windows so I use them on WSL with Ubuntu 20.04 and use VScode on Windows.
+Also it would be nice to install [pshazz](https://github.com/lukesampson/pshazz) based on [this](https://github.com/lukesampson/scoop/wiki/Theming-Powershell) article.
 
 ## Tips and Tricks
 
