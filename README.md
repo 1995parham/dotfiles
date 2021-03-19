@@ -614,6 +614,13 @@ sudo choco install <pkg> --proxy="http://127.0.0.1:1080"
 
 </details>
 
+<details>
+<summary>ubuntu mirrors in Iran</summary>
+
+you can use the following stable and awesome mirror for your systems.
+<strong>https://mirror.iranserver.com/</strong>
+</details>
+
 ## Breaking Sanctions
 
 Our country is under many **unfair** sanctions so you can use [v2ray](https://www.v2ray.com/en/) on Linux to remove these sanctions.
