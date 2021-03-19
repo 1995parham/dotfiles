@@ -485,6 +485,8 @@ I use `Windows Terminal` as my primary terminal with the follwing configuration:
 
 use `sudo choco install jetbrainsmono` to install Jetbrains font and check [here](https://garrytrinder.github.io/2020/12/my-wsl2-windows-terminal-setup) for more information.
 
+Also it is fun to install `powertoys` with `sudo choco install powertoys`.
+
 ## Tips and Tricks
 
 [![](https://img.shields.io/badge/askubuntu-bookmarks-orange?style=flat-square&logo=ubuntu)](https://askubuntu.com/users/425876/parham-alvani?tab=bookmarks)
