@@ -26,7 +26,7 @@ go-install() {
 		message "go" "Linux"
 
 		if [[ "$(command -v apt)" ]]; then
-			echo "TODO"
+			sudo apt install golang-go
 		elif [[ "$(command -v pacman)" ]]; then
 			message "go" "install go with pacman"
 			sudo pacman -Syu --needed --noconfirm go
