@@ -157,7 +157,7 @@ The following list contains my personal software recommendation:
     <td>mpv</td>
     <td></td>
     <td>mpv</td>
-    <td>mpv</td>
+    <td>vlc</td>
     <td></td>
   </tr>
   <tr>
