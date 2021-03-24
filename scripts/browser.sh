@@ -9,26 +9,18 @@
 # =======================================
 
 usage() {
-	echo "usage: browser"
+	echo "browsers for daily use, we believe in firefox"
 }
 
-main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
+main_brew() {
+	brew install --cask firefox
+}
 
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "browser" "Darwin"
+main_pacman() {
+	sudo pacman -Syu --noconfirm --needed firefox w3m
+	sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
+}
 
-		brew install --cask firefox
-	else
-		message "browser" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "browser" "install firefox / w3m with pacman"
-			sudo pacman -Syu --noconfirm --needed firefox w3m
-		fi
-
-		sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
-	fi
+main_apt() {
+	return -1
 }

@@ -9,24 +9,19 @@
 # =======================================
 
 usage() {
-	echo "usage: font"
+	echo "fonts for terminal, subtitles and more"
 }
 
-main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
+main_brew() {
+	brew install --cask homebrew/cask-fonts/font-jetbrains-mono
+}
 
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "font" "Darwin"
-		brew install --cask homebrew/cask-fonts/font-jetbrains-mono
-	else
-		message "font" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			sudo apt-get install fonts-roboto
-		elif [[ "$(command -v pacman)" ]]; then
-			sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome
-			yay -Syu --needed --noconfirm ttf-meslo
-			yay -Syu --needed --noconfirm vazir-fonts
-		fi
-	fi
+main_pacman() {
+	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome
+	yay -Syu --needed --noconfirm ttf-meslo
+	yay -Syu --needed --noconfirm vazir-fonts
+}
+
+main_apt() {
+	sudo apt-get install fonts-roboto
 }

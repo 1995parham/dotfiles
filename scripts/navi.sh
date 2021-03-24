@@ -9,26 +9,23 @@
 # =======================================
 
 usage() {
-	echo "usage: navi"
+	echo "navi cheatsheet"
+}
+
+main_brew() {
+
+	brew install navi
+}
+
+main_apt() {
+	return -1
+}
+
+main_pacman() {
+
+	yay -Syu --noconfirm --needed navi-bin
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "navi" "Darwin"
-
-		brew install navi
-	else
-		message "navi" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "navi" "install navi with yay"
-			yay -Syu --noconfirm --needed navi-bin
-		fi
-	fi
-
 	navi repo add 1995parham/cheats
 }
