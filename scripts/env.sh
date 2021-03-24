@@ -8,62 +8,30 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 usage() {
-	echo "usage: env"
-	echo "installs required brew/apt packages"
+	echo -n "installs required packages"
 }
 
-mac_packages=(zsh tmux aria2 neovim yamllint coreutils jq k6 htop inetutils inxi shfmt)
-apt_packages=(htop atop zsh aria2 curl tmux bat neovim python3-pynvim jq yamllint bmon)
-pacman_packages=(htop atop zsh aria2 curl tmux bat neovim python-pynvim jq yamllint inxi mtr shfmt)
-pkg_packages=(neovim zsh tmux vim python ncurses-utils)
+packages=(zsh tmux htop aria2 atop curl bat neovim vim jq yamllint)
 
-install-brew() {
-	if brew ls --versions "$1" >/dev/null; then
-		message "env" "update $1 with brew"
-		brew upgrade "$1"
-	else
-		message "env" "install $1 with brew"
-		brew install "$1"
-	fi
+brew_packages=(coreutils k6 inetutils inxi shfmt)
+apt_packages=(python3-pynvim bmon)
+pacman_packages=(python-pynvim inxi mtr shfmt)
+
+main_apt() {
+	sudo apt-get update -q
+
+	msg "install ${apt_packages[*]} + ${packages[*]} with apt"
+	sudo apt-get install ${apt_packages[@]} ${packages[@]}
 }
 
-install-packages-osx() {
-	for pkg in $@; do
-		install-brew $pkg
-	done
+main_pacman() {
+	msg "install ${pacman_packages[*]} + ${packages[*]} with pacman"
+	sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]} ${packages[@]}
 }
 
-install-packages-linux() {
-	if [[ "$(command -v apt)" ]]; then
-		sudo apt-get update -q
+main_brew() {
+	msg "install ${brew_packages[*]} + ${packages[*]} with brew"
+	brew install ${brew_packages[*]} ${packages[@]}
 
-		message "env" "install ${apt_packages[*]} with apt"
-		sudo apt-get install ${apt_packages[@]}
-	elif [[ "$(command -v pacman)" ]]; then
-		message "env" "install ${pacman_packages[*]} with pacman"
-		sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]}
-	fi
-}
-
-install-() {
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "env" "Darwin"
-		install-packages-osx ${mac_packages[@]}
-		python3 -mpip install pynvim
-	elif [[ "$OSTYPE" == "linux-android" ]]; then
-		message "env" "install ${pkg_packages[*]} with pkg (termux on Android)"
-		pkg install ${pkg_packages[@]}
-		python3 -mpip install pynvim
-	else
-		message "env" "Linux"
-
-		install-packages-linux
-	fi
-}
-
-main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-
-	install-
+	python3 -mpip install pynvim
 }
