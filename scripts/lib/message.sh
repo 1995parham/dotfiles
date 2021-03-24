@@ -14,7 +14,7 @@ message() {
         module=$1
         message=$2
 
-        echo "$(tput setaf 46)[$module] $(tput setaf 202)$message$(tput sgr 0)" || echo "[$module] $message"
+        echo -e "\e[38;5;46m[$module] \e[38;5;202m$message\e[39m"
 }
 
 # print log message with following format in bold
@@ -23,5 +23,5 @@ announce() {
         module=$1
         message=$2
 
-        echo "$(tput bold)$(tput setaf 46)[$module] $(tput setaf 45)$message$(tput sgr 0)" || echo "[$module] $message"
+        echo -e "\e[1m\e[38;5;46m[$module] \e[38;5;45m$message\e[39m"
 }
