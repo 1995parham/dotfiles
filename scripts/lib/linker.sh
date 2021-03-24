@@ -1,3 +1,13 @@
+#!/bin/bash
+# In The Name of God
+# ========================================
+# [] File Name : linker.sh
+#
+# [] Creation Date : 24-03-2021
+#
+# [] Created By : Parham Alvani <parham.alvani@gmail.com>
+# =======================================
+
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
 # parameter 2: file names - array of string
@@ -101,21 +111,21 @@ linker() {
 # parameter 2: file name - string
 # parameter 3: directory - string - optional
 configrootfile() {
-        local module=$1
-        local src_file=$2
-        local src_dir=$3
+	local module=$1
+	local src_file=$2
+	local src_dir=$3
 
-        if [ ! -e "$HOME/.config" ]; then
-                mkdir "$HOME/.config"
-        fi
+	if [ ! -e "$HOME/.config" ]; then
+		mkdir "$HOME/.config"
+	fi
 
-        if [ ! -z $src_file ]; then
-                local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
-                local dst_file="$src_file"
-        fi
-        local dst_path="$HOME/.config/$dst_file"
+	if [ ! -z $src_file ]; then
+		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+		local dst_file="$src_file"
+	fi
+	local dst_path="$HOME/.config/$dst_file"
 
-        linker $module $src_path $dst_path
+	linker $module $src_path $dst_path
 }
 
 # creates a systemd file that resides in the `.config` directory, and provides a soft link for it.
@@ -125,19 +135,19 @@ configrootfile() {
 # parameter 2: file name - string
 # parameter 3: directory - string - optional
 configsystemd() {
-        local module=$1
-        local src_file=$2
-        local src_dir=$3
+	local module=$1
+	local src_file=$2
+	local src_dir=$3
 
-        if [ ! -e "$HOME/.config/systemd/user" ]; then
-                mkdir -p "$HOME/.config/systemd/user"
-        fi
+	if [ ! -e "$HOME/.config/systemd/user" ]; then
+		mkdir -p "$HOME/.config/systemd/user"
+	fi
 
-        if [ ! -z $src_file ]; then
-                local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
-                local dst_file="$src_file"
-        fi
-        local dst_path="$HOME/.config/systemd/user/$dst_file"
+	if [ ! -z $src_file ]; then
+		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+		local dst_file="$src_file"
+	fi
+	local dst_path="$HOME/.config/systemd/user/$dst_file"
 
-        linker $module $src_path $dst_path
+	linker $module $src_path $dst_path
 }
