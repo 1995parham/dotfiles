@@ -19,8 +19,6 @@ usage() {
 # global variable that points to dotfiles root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-cat "$current_dir/logo.txt"
-echo
 source "$current_dir/scripts/lib/message.sh"
 source "$current_dir/scripts/lib/linker.sh"
 source "$current_dir/scripts/lib/header.sh"
