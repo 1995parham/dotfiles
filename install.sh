@@ -23,6 +23,7 @@ cat "$current_dir/logo.txt"
 echo
 source "$current_dir/scripts/lib/message.sh"
 source "$current_dir/scripts/lib/linker.sh"
+source "$current_dir/scripts/lib/header.sh"
 
 message "pre" "Home directory found at $HOME"
 
