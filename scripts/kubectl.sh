@@ -9,60 +9,47 @@
 # =======================================
 
 usage() {
-	echo "usage: oc"
+	echo "k8s or openshift cluster is at your service on cli with these awesome commands"
 }
 
-kube-install() {
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "kubectl" "Install kubectl from brew"
-		brew install kubernetes-cli
+main_brew() {
+	msg "kubectl"
+	brew install kubernetes-cli
 
-		message "kubectl" "Install helm from brew"
-		brew install helm
+	msg "helm"
+	brew install helm
 
-		message "kubectl" "Install helmfile from brew"
-		brew install helmfile
+	msg "helmfile"
+	brew install helmfile
 
-		message "kubectl" "Install stern (Multi pod and container log tailing for Kubernetes) from brew"
-		brew install stern
+	msg "multi pod and container log tailing for Kubernetes"
+	brew install stern
 
-		message "kubectl" "Validate your Kubernetes configuration files, supports multiple Kubernetes versions"
-		brew install instrumenta/instrumenta/kubeval
+	msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
+	brew install instrumenta/instrumenta/kubeval
 
-		message "kubectl" "Argocd CLI"
-		brew install argocd
-	else
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do right now"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "kubectl" "install kubectl/helm/helmfile/argocd-cli with pacman"
-			sudo pacman -Syu --noconfirm --needed kubectl helm helmfile argocd-cli
+	msg "argocd cli"
+	brew install argocd
 
-			message "kubectl" "Install stern (Multi pod and container log tailing for Kubernetes) with yay"
-			yay -Syu --noconfirm --needed stern-bin
+	msg "openshift-cli"
+	brew install openshift-cli
 
-			message "kubectl" "Validate your Kubernetes configuration files, supports multiple Kubernetes versions with yay"
-			yay -Syu --noconfirm --needed kubeval-bin
-		fi
-	fi
 }
 
-oc-install() {
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "kubectl" "Install openshift-cli from brew"
-		brew install openshift-cli
-	else
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do right now"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "kubectl" "install origin-client-bin with yay"
-			yay -Syu --noconfirm --needed okd-client-bin
-		fi
-
-	fi
+main_apt() {
+	return -1
 }
 
-main() {
-	kube-install
-	oc-install
+main_pacman() {
+	msg "okd-client-bin"
+	yay -Syu --noconfirm --needed okd-client-bin
+
+	msg "kubectl/helm/helmfile/argocd-cli"
+	sudo pacman -Syu --noconfirm --needed kubectl helm helmfile argocd-cli
+
+	msg "multi pod and container log tailing for Kubernetes"
+	yay -Syu --noconfirm --needed stern-bin
+
+	msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
+	yay -Syu --noconfirm --needed kubeval-bin
 }

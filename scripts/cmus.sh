@@ -9,26 +9,21 @@
 # =======================================
 
 usage() {
-	echo "usage: cmus"
+	echo "cmus music player in terminal with 1995parham configuration"
+}
+
+main_brew() {
+	brew install cmus
+}
+
+main_apt() {
+	return -1
+}
+
+main_pacman() {
+	sudo pacman -Syu --noconfirm --needed cmus
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "cmus" "Darwin"
-
-		brew install cmus
-	else
-		message "cmus" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "cmus" "install cmus with pacman"
-			sudo pacman -Syu --noconfirm --needed cmus
-		fi
-	fi
-
 	configfile cmus rc
 }

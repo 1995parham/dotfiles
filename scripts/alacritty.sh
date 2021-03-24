@@ -9,26 +9,22 @@
 # =======================================
 
 usage() {
-	echo "usage: alacritty"
+	echo -n "alacritty terminal with jetbrains mono font and configuration"
+}
+
+main_brew() {
+	brew install --cask alacritty
+}
+
+main_pacman() {
+	sudo pacman -Syu --noconfirm --needed alacritty
+}
+
+main_apt() {
+	msg "there is nothing that we can do"
+	return -1
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "alacritty" "Darwin"
-
-		brew install --cask alacritty
-	else
-		message "alacritty" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "alacritty" "install alacritty with pacman"
-			sudo pacman -Syu --noconfirm --needed alacritty
-		fi
-	fi
-
 	configfile alacritty
 }
