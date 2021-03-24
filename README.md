@@ -17,10 +17,17 @@
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Installation (Linux, OSx)](#installation-linux-osx)
+- [Installation (Windows)](#installation-windows)
 - [Tips and Tricks](#tips-and-tricks)
 - [Breaking Sanctions](#breaking-sanctions)
+- [Firefox](#firefox)
 - [Cheatsheet](#cheatsheet)
+  - [vim](#vim)
+    - [Go](#go)
+  - [zsh](#zsh)
 
 ## Introduction
 
@@ -468,6 +475,13 @@ Then you can start installing the required application by hand from the applicat
 I cannot use `vim` or `neovim` on windows so I use them on WSL with Ubuntu 20.04 and use VScode on Windows.
 Also it would be nice to install [pshazz](https://github.com/lukesampson/pshazz) based on [this](https://github.com/lukesampson/scoop/wiki/Theming-Powershell) article.
 
+Following script install package managers besides some useful packages:
+
+```powershell
+.\scripts\env.ps1
+.\scripts\fonts.ps1
+```
+
 Currently I use WSL with `git.exe` because of its hanging issue and also I have to remove passphase for windows private key because there is no way to store it somewhere.
 
 I use `Windows Terminal` as my primary terminal with the follwing configuration:
@@ -483,7 +497,7 @@ I use `Windows Terminal` as my primary terminal with the follwing configuration:
 }
 ```
 
-use `sudo choco install jetbrainsmono` to install Jetbrains font and check [here](https://garrytrinder.github.io/2020/12/my-wsl2-windows-terminal-setup) for more information.
+check [here](https://garrytrinder.github.io/2020/12/my-wsl2-windows-terminal-setup) for more information about beautiful wsl terminal.
 
 Also it is fun to install `powertoys` with `sudo choco install powertoys`.
 
