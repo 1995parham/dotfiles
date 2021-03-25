@@ -12,6 +12,20 @@ usage() {
 	echo "usage: gopass"
 }
 
+main_apt() {
+	sudo apt-get install gnupg2 git rng-tools
+	gopass-upstall
+}
+
+main_brew() {
+	brew install gopass gopass-jsonapi
+}
+
+main_pacman() {
+	sudo pacman -Syu gopass
+	yay -Syu gopass-jsonapi-bin
+}
+
 gopass-upstall() {
 	message "gopass" "Upstall gppass from github"
 	gopass_vr=$(curl -s https://api.github.com/repos/gopasspw/gopass/releases/latest | grep 'tag_name' | cut -d\" -f4)
@@ -29,19 +43,4 @@ gopass-upstall() {
 	fi
 
 	message "gopass" "$(gopass version)"
-}
-
-main() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		if [[ "$(command -v pacman)" ]]; then
-			sudo pacman -Syu gopass
-			yay -Syu gopass-jsonapi-git
-		elif [[ "$(command -v apt)" ]]; then
-			sudo apt-get install gnupg2 git rng-tools
-			gopass-upstall
-		fi
-	else
-		brew install gopass
-	fi
-
 }
