@@ -1,8 +1,8 @@
 $script = $args[0]
-Write-Output "load $script"
+Write-Output "loading $script..."
 
 try {
-        . "$PSScriptRoot/scripts/$script.ps1"
+        Import-Module "$PSScriptRoot/scripts/$script.psm1"
 }
 catch {
         Write-Error "failed to load [${script}], make sure the script exists"
@@ -10,10 +10,10 @@ catch {
 }
 
 try {
-        Action-Main
+        Install-Main
 }
 catch {
         Write-Error "failed to execute [${script}]: $($PSItem.ToString())"
 }
 
-Write-Output "complete"
+Write-Output "complete $scirpt"
