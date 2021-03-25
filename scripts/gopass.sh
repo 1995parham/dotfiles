@@ -22,8 +22,8 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman -Syu gopass
-	yay -Syu gopass-jsonapi-bin
+	sudo pacman --noconfirm --needed -Syu gopass
+	yay -Syu --noconfirm --needed gopass-jsonapi-bin
 }
 
 gopass-upstall() {
