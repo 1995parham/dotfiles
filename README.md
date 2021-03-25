@@ -242,7 +242,7 @@ The following list contains my personal software recommendation:
   <tr>
     <th>Password Manager</th>
     <td>gopass</td>
-    <td>gopass-jsonapi-git</td>
+    <td>gopass-jsonapi-bin</td>
     <td>gopass + gopass-jsonapi</td>
     <td></td>
     <td></td>
