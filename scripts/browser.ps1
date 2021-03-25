@@ -1,3 +1,5 @@
-Write-Output "install firefox browser"
+function Action-Main() {
+        Write-Output "install firefox browser"
 
-sudo choco install firefox
+        sudo choco install firefox
+}
