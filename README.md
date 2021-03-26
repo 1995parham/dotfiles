@@ -15,20 +15,6 @@
 ![GitHub](https://img.shields.io/github/license/1995parham/dotfiles?logo=gnu&style=flat-square)
 [![Travis (.com)](https://img.shields.io/travis/com/1995parham/dotfiles?logo=travis&style=flat-square)](https://travis-ci.com/1995parham/dotfiles)
 
-## Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Installation (Linux, OSx)](#installation-linux-osx)
-- [Installation (Windows)](#installation-windows)
-- [Tips and Tricks](#tips-and-tricks)
-- [Breaking Sanctions](#breaking-sanctions)
-- [Firefox](#firefox)
-- [Cheatsheet](#cheatsheet)
-  - [vim](#vim)
-    - [Go](#go)
-  - [zsh](#zsh)
-
 ## Introduction
 
 This repository contains my personal configurations for Ubuntu, Manjaro i3 and OSx, which has been created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
