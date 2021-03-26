@@ -18,11 +18,11 @@ main_apt() {
 }
 
 main_brew() {
-	brew install gopass gopass-jsonapi
+	brew install gopass gopass-jsonapi rng-tools gnupg gpg-suite-no-mail
 }
 
 main_pacman() {
-	sudo pacman --noconfirm --needed -Syu gopass
+	sudo pacman --noconfirm --needed -Syu gopass gnupg rng-tools
 	yay -Syu --noconfirm --needed gopass-jsonapi-bin
 }
 
