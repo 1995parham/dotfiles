@@ -235,7 +235,7 @@ The following list contains my personal software recommendation:
   </tr>
   <tr>
     <th>GNU Privacy Guard</th>
-    <td>gpg</td>
+    <td>gnupg</td>
     <td></td>
     <td>gpg + gpg-suite-no-mail</td>
     <td></td>
