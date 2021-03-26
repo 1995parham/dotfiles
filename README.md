@@ -455,17 +455,17 @@ Configuration of mentioned applications also is a part of this repository.
 
 ## Installation (Windows)
 
-First of all you need to install `scoop` and `chocolatey` as package managers and also add the `extra` bucket for `scoop`. **Install Everything by one of these package managers**
+First of all you need to install `scoop` and `chocolatey` as package managers and also add the `extra` bucket for `scoop`. **Install Everything by one of these package managers**. It can also be done by `.\start.ps1 env` too.
 
 Then you can start installing the required application by hand from the application list.
 I cannot use `vim` or `neovim` on windows so I use them on WSL with Ubuntu 20.04 and use VScode on Windows.
-Also it would be nice to install [pshazz](https://github.com/lukesampson/pshazz) based on [this](https://github.com/lukesampson/scoop/wiki/Theming-Powershell) article.
+Also it would be nice to install [pshazz](https://github.com/lukesampson/pshazz) based on [this](https://github.com/lukesampson/scoop/wiki/Theming-Powershell) article to have nice powershell.
 
 Following script install package managers besides some useful packages:
 
 ```powershell
-.\scripts\env.ps1
-.\scripts\fonts.ps1
+.\start.ps1 env
+.\start.ps1 font
 ```
 
 Currently I use WSL with `git.exe` because of its hanging issue and also I have to remove passphase for windows private key because there is no way to store it somewhere.
