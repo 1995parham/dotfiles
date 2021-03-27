@@ -23,7 +23,7 @@ program_name=$0
 trap '_end' INT
 
 _end() {
-	echo "See you later :) [you signal start.sh execuation]"
+	echo "see you later :) [you signal start.sh execuation]"
 	exit
 }
 
@@ -100,7 +100,7 @@ _main() {
 
 	echo
 	took=$(($(date +'%s') - start))
-	printf "Done. Took %ds.\n" $took
+	printf "done. it took %d seconds.\n" $took
 }
 
 run() {
