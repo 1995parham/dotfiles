@@ -8,7 +8,7 @@
  )
 
 (map! :map evil-window-map
-      "SPC" #'rotate-layout
+      "SPC"        #'rotate-layout
       "<left>"     #'evil-window-left
       "<down>"     #'evil-window-down
       "<up>"       #'evil-window-up
@@ -75,7 +75,7 @@
 (setenv "GOPATH" (expand-file-name "~/Documents/Go"))
 (add-to-list 'exec-path (concat (file-name-as-directory (getenv "GOPATH")) "bin") t)
 
-;; Setup texlive environemtn
+;; Setup texlive environment
 (add-to-list 'exec-path "/usr/local/texlive/2020/bin/x86_64-linux")
 (setenv "PATH" (concat "/usr/local/texlive/2020/bin/x86_64-linux:"
                          (getenv "PATH")))
@@ -87,3 +87,8 @@
 ;; Update PDF buffers after successful LaTeX runs
 (add-hook 'TeX-after-compilation-finished-functions
            #'TeX-revert-document-buffer)
+
+;; The information to be shown is normally collected from all agenda files,
+;; the files listed in the variable org-agenda-files.
+;; If a directory is part of this list, all files with the extension ‘.org’ in this directory are part of the list.
+(setq org-agenda-files (quote ("~/Documents/Git/parham/daily/")))
