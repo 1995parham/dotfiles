@@ -20,5 +20,8 @@ New-Module -Name emacs -ScriptBlock {
         $env:HTTPS_PROXY = "http://127.0.0.1:1080"
         powershell $HOME\.emacs.d\bin\doom.cmd install
         powershell $HOME\.emacs.d\bin\doom.cmd sync
+
+        Write-Output "refer to the following link for more information"
+        Write-Output "https://earvingad.github.io/posts/doom_emacs_windows/"
     }
 }
