@@ -641,6 +641,12 @@ you can use the following stable and awesome mirror for your systems.
 
 </details>
 
+<details>
+<summary>improve touch responsiveness</summary>
+
+follow <a href="https://www.windowscentral.com/how-improve-touch-response-surface">this</a> link to change registry.
+</details>
+
 ## Breaking Sanctions
 
 Our country is under many **unfair** sanctions so you can use [v2ray](https://www.v2ray.com/en/) on Linux to remove these sanctions.
