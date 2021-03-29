@@ -642,7 +642,7 @@ you can use the following stable and awesome mirror for your systems.
 </details>
 
 <details>
-<summary>improve touch responsiveness</summary>
+<summary>improve touch responsiveness on microsoft surface</summary>
 
 follow <a href="https://www.windowscentral.com/how-improve-touch-response-surface">this</a> link to change registry.
 </details>
