@@ -82,6 +82,8 @@ main() {
 	sudo usermod -aG docker $USER
 	newgrp docker
 
+	proxy_start
 	# make sure about login
 	docker login
+	proxy_stop
 }
