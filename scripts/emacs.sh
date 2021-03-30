@@ -13,7 +13,7 @@ usage() {
 }
 
 main_brew() {
-	echo "there is nothing that we can do"
+	msg "there is nothing that we can do"
 
 	# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
 	# brew install git ripgrep
@@ -21,7 +21,7 @@ main_brew() {
 	return -1
 }
 main_apt() {
-	echo "there is nothing that we can do"
+	msg "there is nothing that we can do"
 	return -1
 }
 

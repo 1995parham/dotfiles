@@ -13,84 +13,74 @@ usage() {
 }
 
 docker-repositories() {
-	message "docker" "Installing tools for apt repository management"
+	msg "installing tools for apt repository management"
 	sudo apt-get -y update
 	sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
 
-	message "docker" "Add new GPG key"
+	msg "add new gpg key"
+	proxy_start
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	proxy_stop
 
-	message "docker" "Add docker apt repository"
+	read -p "[docker] do you want to activate docker apt proxy?[Y/n] " -n 1 accept
+	echo
+
+	if [[ $accept == "Y" ]]; then
+		grep -i 'Acquire::http::Proxy::download.docker.com "http://127.0.0.1:1080";' /etc/apt/apt.conf.d/99proxy || echo 'Acquire::http::Proxy::download.docker.com "http://127.0.0.1:1080";' >>/etc/apt/apt.conf.d/99proxy
+	fi
+
+	msg "add docker apt repository"
 	sudo add-apt-repository -y \
 		"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
 		$(lsb_release -cs) \
 		stable"
 }
 
-docker-install() {
-	message "docker" "Installing docker"
+main_apt() {
+	read -p "[docker] do you want to install docker?[Y/n] " -n 1 install
+	echo
 
-	if [[ "$(command -v apt)" ]]; then
+	msg "installing docker"
+
+	if [[ $install == "Y" ]]; then
+		docker-repositories
+
 		sudo apt-get -y update
 		sudo apt-cache policy docker-ce
 		sudo apt-get -y install docker-ce
-	elif [[ "$(command -v pacman)" ]]; then
-		sudo pacman -Syu --noconfirm --needed docker
-	fi
 
-	message "docker" "Manage Docker as a non-root user"
-	sudo groupadd -f docker
-	sudo usermod -aG docker $USER
-}
-
-docker-update() {
-	message "docker" "Updating docker"
-
-	if [[ "$(command -v apt)" ]]; then
+		sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		sudo chmod +x /usr/local/bin/docker-compose
+	else
 		sudo apt-get -y update
 		sudo apt-get -y install docker-ce
-	elif [[ "$(command -v pacman)" ]]; then
-		sudo pacman -Syu --noconfirm --needed docker
 	fi
+
 }
 
-docker-compose-install() {
-	if [[ "$(command -v apt)" ]]; then
-		echo "There is nothing that we can do"
-	elif [[ "$(command -v pacman)" ]]; then
-		message "docker" "Install docker-compose with pacman"
-		sudo pacman -Syu --needed --noconfirm docker-compose
-	fi
-
-	message "docker" "$(docker-compose version)"
+main_brew() {
+	msg "there is nothing that we can do"
+	return -1
 }
 
-docker-hadolint-install() {
-	if [[ "$(command -v apt)" ]]; then
-		echo "There is nothing that we can do"
-	elif [[ "$(command -v pacman)" ]]; then
-		message "docker" "Install hadolint/hadolint with yay"
-		yay -Syu --needed --noconfirm hadolint-bin
-	fi
+main_pacman() {
+	msg "install docker-compose / docker with pacman"
+	sudo pacman -Syu --noconfirm --needed docker
+	sudo pacman -Syu --needed --noconfirm docker-compose
 
-	message "docker" "$(hadolint --version)"
+	msg "install hadolint/hadolint with yay"
+	yay -Syu --needed --noconfirm hadolint-bin
 }
 
 main() {
-	read -p "[docker] do you want to install docker ?[Y/n] " -n 1 install
-	echo
+	msg "$(docker-compose version)"
+	msg "$(docker version)"
+	msg "$(hadolint --version)"
 
-	if [[ $install == "Y" ]]; then
-		if [[ "$(command -v apt)" ]]; then
-			docker-repositories
-		fi
-		docker-install
-	else
-		docker-update
-	fi
-
-	docker-compose-install
-	docker-hadolint-install
+	msg "manage docker as a non-root user"
+	sudo groupadd -f docker
+	sudo usermod -aG docker $USER
+	newgrp docker
 
 	# make sure about login
 	docker login
