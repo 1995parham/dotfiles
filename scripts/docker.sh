@@ -9,7 +9,7 @@
 # =======================================
 
 usage() {
-	echo "usage: docker"
+	echo "install docker in iran🇮🇷"
 }
 
 docker-repositories() {
