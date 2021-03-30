@@ -48,9 +48,6 @@ main_apt() {
 		sudo apt-get -y update
 		sudo apt-cache policy docker-ce
 		sudo apt-get -y install docker-ce
-
-		sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-		sudo chmod +x /usr/local/bin/docker-compose
 	else
 		sudo apt-get -y update
 		sudo apt-get -y install docker-ce
