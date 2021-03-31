@@ -190,6 +190,9 @@ let g:polyglot_disabled = ['python', 'javascript']
 " Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
+" vim dashboard
+Plug 'glepnir/dashboard-nvim'
+
 " wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 Plug 'tpope/vim-endwise'
 
@@ -329,6 +332,22 @@ call plug#end()
 
 " Plugins Configurations {{{
 
+" dashboard-nvim {{{
+
+let g:dashboard_default_executive = 'fzf'
+
+let g:dashboard_custom_header = [
+\'',
+\'▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄',
+\'█▀░██▀▄▄▀█▀▄▄▀█░▄▄█▀▄▄▀█░▄▄▀█░▄▄▀█░████░▄▄▀█░▄▀▄░',
+\'██░██▄▀▀░█▄▀▀░█▄▄▀█░▀▀░█░▀▀░█░▀▀▄█░▄▄░█░▀▀░█░█▄█░',
+\'█▀░▀██▀▀▄██▀▀▄█▀▀▄█░████▄██▄█▄█▄▄█▄██▄█▄██▄█▄███▄',
+\'▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀',
+\'',
+\ ]
+
+" }}}
+
 " vim-shfmt {{{
 
 let g:shfmt_fmt_on_save = 1
@@ -342,7 +361,16 @@ nnoremap <Leader>* :Grepper -cword -noprompt<CR>
 " }}}
 
 " vim-fzf {{{
-nmap <leader><tab> :Files<CR>
+
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nmap <Leader>cn :<C-u>DashboardNewFile<CR>
+nnoremap <silent> <Leader>fh :History<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>tc :Colors<CR>
+nnoremap <silent> <Leader>fa :Rg<CR>
+nnoremap <silent> <Leader>fb :Marks<CR>
+
 " }}}
 
 " vim-easy-align {{{
@@ -392,6 +420,8 @@ colorscheme naz
 let g:gitgutter_enabled = 1
 let g:gitgutter_eager = 0
 highlight clear SignColumn
+
+nnoremap <silent> <Leader>g :Git<CR>
 " }}}
 
 " vim-header {{{
