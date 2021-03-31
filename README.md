@@ -17,8 +17,8 @@
 
 ## Introduction
 
-This repository contains my personal configurations for Ubuntu, Manjaro i3 and OSx, which has been created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
-First of all, thank you for your visiting, to find out more about how to use this configuration with NeoVIM, Oh-My-Zsh, etc. please check the following sections.
+This repository contains my personal configurations for ubuntu, manjaro (with i3 window manager), apple osx and even windows 10, which was created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
+First of all, thank you for your visiting, to find out more about how to use this configuration with neovim, oh-my-zsh, etc. please check the following sections.
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 The following list contains my personal software recommendation:
 
@@ -645,6 +645,7 @@ you can use the following stable and awesome mirror for your systems.
 <summary>improve touch responsiveness on microsoft surface</summary>
 
 follow <a href="https://www.windowscentral.com/how-improve-touch-response-surface">this</a> link to change registry.
+
 </details>
 
 ## Breaking Sanctions
