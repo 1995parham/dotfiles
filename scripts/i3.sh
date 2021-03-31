@@ -9,13 +9,18 @@
 # =======================================
 
 usage() {
-	echo "usage: i3"
+	echo "i3 window manager for manajaro i3"
 }
 
-main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
+main_brew() {
+	return 1
+}
 
+main_apt() {
+	return 1
+}
+
+main_pacman() {
 	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot i3status-rust
 
 	configfile i3status "" i3
@@ -29,12 +34,14 @@ main() {
 	# sudo pacman -Syu --noconfirm --needed lxappearance
 	configfile dunst "" i3
 
+	msg 'setup a systemd timer to change background images each 5 minutes with nitrogen'
 	configsystemd nitrogen nitrogen.timer i3
 	configsystemd nitrogen nitrogen.service i3
 
 	systemctl --user enable nitrogen.timer
 	systemctl --user start nitrogen.timer
 
+	msg 'configure the dmenu, default application luncher on manjaro i3'
 	linker dmenu $current_dir/i3/dmenurc $HOME/.dmenurc
 	chmod +x $HOME/.dmenurc
 
