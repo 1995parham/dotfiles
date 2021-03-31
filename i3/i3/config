@@ -200,7 +200,6 @@ assign [class="Telegram"] $ws4
 assign [class="firefox"] $ws4
 assign [class="Virt-manager"] $ws5
 assign [class="Skype"] $ws8
-assign [class="Mailspring"] $ws7
 assign [class="Emacs"] $ws3
 
 # Open specific applications in floating mode
