@@ -18,11 +18,12 @@ main_apt() {
 }
 
 main_brew() {
-	brew install nushell
+	brew install nushell starship
 }
 
 main_pacman() {
 	yay -Syu --noconfirm --needed nushell-bin
+	sudo pacman -Syu --noconfirm --needed starship
 }
 
 main() {
