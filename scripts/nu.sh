@@ -27,5 +27,6 @@ main_pacman() {
 }
 
 main() {
-	configfile nu
+	configfile nu "" nu
+	configrootfile starship starship.toml nu
 }

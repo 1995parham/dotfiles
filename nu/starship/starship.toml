@@ -1,0 +1,18 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[character]
+success_symbol = "[○](bold fg:#adff2f) "
+error_symbol = "[✗](bold fg:#ff4d4d) "
+
+[directory]
+style = "fg:#ffa500"
+
+[golang]
+style = "fg:#00add8"
+
+[git_branch]
+style = "fg:#a500ff"
+
+[kubernetes]
+disabled = false
