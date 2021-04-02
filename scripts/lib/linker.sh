@@ -65,7 +65,7 @@ configfile() {
 	linker $module $src_path $dst_path
 }
 
-# linker
+# linker does the soft linking, it has a yes_to_all parameter which you can use to skip the question phase
 # parameter 1: module name - string
 # parameter 2: source path - string
 # parameter 3: destination path - string
@@ -85,7 +85,7 @@ linker() {
 			return
 		fi
 
-		if [[ $yes_to_all == 0 ]]; then
+		if [[ $yes_to_all != 1 ]]; then
 			read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm
 			echo
 		fi
