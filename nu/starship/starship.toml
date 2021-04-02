@@ -1,18 +1,40 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+format = """
+[::](fg:cyan) $kubernetes$rust$go$helm
+[┌─](fg:white) $username @ $hostname $directory $git_branch $git_status $git_state
+[└─](fg:white)$character """
+
+[helm]
+format = " [$symbol($version )]($style)"
+style = "fg:#a9a9a9"
+
+[hostname]
+format = "[$hostname]($style)"
+ssh_only = false
+style = "bold fg:#00bfff"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+
 [character]
 success_symbol = "[○](bold fg:#adff2f) "
 error_symbol = "[✗](bold fg:#ff4d4d) "
 
 [directory]
 style = "fg:#ffa500"
+home_symbol = "🏠"
 
 [golang]
 style = "fg:#00add8"
 
 [git_branch]
 style = "fg:#a500ff"
+format = "[$symbol$branch]($style)"
 
 [kubernetes]
 disabled = false
+style = "fg:#00bfff"
+format = '[$symbol( \($namespace\))]($style)'
