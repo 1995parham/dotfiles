@@ -4,7 +4,7 @@ add_newline = true
 format = """
 [::](fg:cyan) $kubernetes$rust$go$helm
 [┌─](fg:white) $username @ $hostname $directory $git_branch $git_status $git_state
-[└─](fg:white)$character """
+[└─](fg:white)$character"""
 
 [helm]
 format = " [$symbol($version )]($style)"
