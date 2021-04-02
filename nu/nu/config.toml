@@ -1,30 +1,37 @@
+complete_from_path = true
+pivot_mode = "auto"
 prompt = "starship prompt"
 table_mode = "rounded"
 
 [color_config]
-primitive_int = "green"
-primitive_decimal = "red"
-primitive_filesize = "ur"
-primitive_string = "pb"
-primitive_line = "yellow"
-primitive_columnpath = "cyan"
-primitive_pattern = "white"
-primitive_boolean = "green"
-primitive_date = "ru"
-primitive_duration = "blue"
-primitive_range = "purple"
-primitive_path = "yellow"
-primitive_binary = "cyan"
-separator_color = "purple"
 header_align = "center"
-header_color = "c"
 header_bold = true
+header_color = "c"
 index_color = "rd"
 leading_trailing_space_bg = "white"
+primitive_binary = "cyan"
+primitive_boolean = "green"
+primitive_columnpath = "cyan"
+primitive_date = "ru"
+primitive_decimal = "red"
+primitive_duration = "blue"
+primitive_filesize = "ur"
+primitive_int = "green"
+primitive_line = "yellow"
+primitive_path = "yellow"
+primitive_pattern = "white"
+primitive_range = "purple"
+primitive_string = "pb"
+separator_color = "purple"
+
+[env]
+SHELL = "/bin/nu"
+
+[line_editor]
+bell_style = "none"
+color_mode = "enabled"
+completion_type = "circular"
 
 [textview]
 theme = "Monokai Extended Bright"
 true_color = true
-
-[env]
-SHELL = "/bin/nu"
