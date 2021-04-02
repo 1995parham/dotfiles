@@ -1,6 +1,30 @@
 prompt = "starship prompt"
 table_mode = "rounded"
 
+[color_config]
+primitive_int = "green"
+primitive_decimal = "red"
+primitive_filesize = "ur"
+primitive_string = "pb"
+primitive_line = "yellow"
+primitive_columnpath = "cyan"
+primitive_pattern = "white"
+primitive_boolean = "green"
+primitive_date = "ru"
+primitive_duration = "blue"
+primitive_range = "purple"
+primitive_path = "yellow"
+primitive_binary = "cyan"
+separator_color = "purple"
+header_align = "center"
+header_color = "c"
+header_bold = true
+index_color = "rd"
+leading_trailing_space_bg = "white"
+
 [textview]
 theme = "Monokai Extended Bright"
 true_color = true
+
+[env]
+SHELL = "/bin/nu"
