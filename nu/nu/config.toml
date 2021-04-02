@@ -1,1 +1,6 @@
 prompt = "starship prompt"
+table_mode = "rounded"
+
+[textview]
+theme = "Monokai Extended Bright"
+true_color = true
