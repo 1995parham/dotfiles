@@ -18,7 +18,7 @@ main_apt() {
 }
 
 main_brew() {
-	brew install gopass gopass-jsonapi rng-tools gnupg gpg-suite-no-mail
+	brew install gopass gopass-jsonapi gnupg gpg-suite-no-mail
 }
 
 main_pacman() {
