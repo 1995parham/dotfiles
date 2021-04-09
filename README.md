@@ -396,7 +396,15 @@ The following list contains my personal software recommendation:
   <tr>
     <th>HTTP/gRPC Load Test</th>
     <td>k6-bin</td>
+    <td></td>
     <td>k6</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Speedtest Cli</th>
+    <td>speedtest-cli</td>
+    <td></td>
     <td></td>
     <td></td>
     <td></td>
