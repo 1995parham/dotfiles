@@ -39,9 +39,7 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
+## sound-section
 
 # exec --no-startup-id volumeicon
 # bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
@@ -153,14 +151,14 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1: main-1
-set $ws2 2: main-2
-set $ws3 3: emacs
-set $ws4 4: www
-set $ws5 5: vm
-set $ws6 6: apps-1
-set $ws7 7: apps-2
-set $ws8 8: social
+set $ws1 1:main-1
+set $ws2 2:main-2
+set $ws3 3:emacs
+set $ws4 4:www
+set $ws5 5:vm
+set $ws6 6:apps-1
+set $ws7 7:apps-2
+set $ws8 8:social
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -293,6 +291,10 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+# A small program for hiding the mouse cursor
+exec --no-startup-id unclutter -b
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
 # exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -311,58 +313,6 @@ exec_always --no-startup-id fix_xcursor
 
 # provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
-
-
-# this bar is working with i3status-rust
-# pacman -Syu i3status-rust
-bar {
-        i3bar_command i3bar
-        position top
-        workspace_buttons no
-        binding_mode_indicator no
-        status_command i3status-rs ~/.config/i3/config.toml || i3-msg bar mode invisible bar-0
-        tray_output none
-
-        bindsym button4 nop
-        bindsym button5 nop
-
-        colors {
-                background #333333
-        }
-}
-
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-        i3bar_command i3bar
-        status_command i3status
-        position bottom
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
-        bindsym button4 nop
-        bindsym button5 nop
-#       font xft:URWGothic-Book 11
-        strip_workspace_numbers yes
-
-        colors {
-                background #333333
-                statusline #F9FAF9
-                separator  #454947
-
-                #                  border  backgr. text
-                focused_workspace  #333333 #ffa500 #333333
-                inactive_workspace #333333 #333333 #ffa500
-                # TODO: active workspace are useful on multiple output configure it in future.
-                active_workspace   #333333 #333333 #ffa500
-                urgent_workspace   #333333 #333333 #b30000
-                binding_mode       #bcbcbc #bcbcbc #333333
-    }
-}
-
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
