@@ -47,6 +47,7 @@ main_pacman() {
 	chmod +x $HOME/.dmenurc
 
 	msg 'configure rofi another application luncher'
+	sudo pacman -Syu --noconfirm --needed rofi
 	configfile rofi "" i3
 
 	linker gtk-2.0 $current_dir/i3/gtk-2.0/gtkrc-2.0 $HOME/.gtkrc-2.0
