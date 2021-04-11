@@ -36,7 +36,7 @@ bindsym $mod+Shift+Return exec alacritty --class="__termpad"
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id rofi -show
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
