@@ -259,7 +259,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid% %signal%%
+label-connected = %essid% %signal%% %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -269,7 +269,7 @@ format-disconnected =
 
 [module/eth]
 type = internal/network
-interface = eno1
+interface = enp4s0f0
 interval = 3.0
 
 format-connected-underline = #55aa55
