@@ -21,12 +21,13 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot i3status-rust
+	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot polybar
 
-	configfile i3status "" i3
 	configfile i3 "" i3
+	configfile polybar "" i3
 
 	sudo pacman -Syu --noconfirm --needed picom
+	sudo pacman -Syu --noconfirm --needed unclutter
 	configrootfile picom picom.conf i3
 	sudo pacman -Syu --noconfirm --needed nitrogen
 	sudo pacman -Syu --noconfirm --needed dunst
