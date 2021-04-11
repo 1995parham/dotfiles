@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = couple-birthday couple-relationship
-modules-right = date
+modules-right = date snapp
 
 tray-position = right
 tray-padding = 2
@@ -402,6 +402,14 @@ exec = ~/.config/polybar/scripts/couple.sh relationship
 interval = 60
 format = <label>
 format-foreground = #ff6500
+
+[module/snapp]
+type = custom/script
+exec = echo "Snapp"
+exec-if = nmcli -f GENERAL.STATE connection show Snapp | grep activated
+interval = 5
+format = <label>
+format-foreground = #03d873
 
 [settings]
 screenchange-reload = true
