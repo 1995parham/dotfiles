@@ -57,7 +57,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = couple-birthday couple-relationship
+modules-center = couple-birthday couple-relationship owghat
 modules-right = date snapp
 
 tray-position = right
@@ -402,6 +402,13 @@ exec = ~/.config/polybar/scripts/couple.sh relationship
 interval = 60
 format = <label>
 format-foreground = #ff6500
+
+[module/owghat]
+type = custom/script
+exec = ~/bin/owghat.sh
+interval = 21600
+format = <label>
+format-foreground = #adff2f
 
 [module/snapp]
 type = custom/script
