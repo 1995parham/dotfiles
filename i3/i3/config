@@ -29,6 +29,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+for_window [class=Alacritty instance="__termpad"] floating enable
+bindsym $mod+Shift+Return exec alacritty --class="__termpad"
 
 # kill focused window
 bindsym $mod+Shift+q kill
