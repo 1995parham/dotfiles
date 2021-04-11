@@ -57,6 +57,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
+modules-center = couple-birthday couple-relationship
 modules-right = date
 
 tray-position = right
@@ -102,21 +103,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;2
-font-1 = Font Awesome 5 Free:style=Regular:pixelsize=10;2
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = unifont:fontformat=truetype:pixelsize=8:antialias=false;2
-font-4 = 3270Medium Nerd Font:style=Medium:size=14;3
-font-5 = Font Awesome 5 Free Solid:pixelsize=10;2
-font-6 = 3270Medium Nerd Font:style=Medium:size=12;3
-font-7 = 3270Medium Nerd Font:style=Medium:size=18;4
-font-8 = DejaVu Sans Mono for Powerline:pixelsize=11:autohint=true:antialias=true;1
-font-9 = FontAwesome:size=10:autohint=true:antialias=true;1
-font-10 = URWGothic-Book:size=11:autohint=true:antialias=true;1
 
-modules-left = xwindow
+modules-left = xwindow info-tmux-sessions
 ; modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
 
 ;tray-position = right
 ;tray-padding = 2
@@ -162,7 +155,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %used% / %total%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -261,12 +254,12 @@ format = <label>
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlo1
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %essid% %signal%%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -274,21 +267,12 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
 [module/eth]
 type = internal/network
 interface = eno1
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -305,8 +289,6 @@ date = " %Y-%m-%d"
 
 time = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
@@ -318,36 +300,8 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = muted
 label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -372,51 +326,32 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+label-charging = Charging %percentage%% (%time%)
+format-charging = <label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = <animation-discharging> <label-discharging>
+time-format = %H:%M
+
+label-discharging = Discharging %percentage%% (%time%)
+format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+label-full = Fully charged
 format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+format = <label>
 format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
+format-warn = <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -425,9 +360,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = power
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
@@ -446,6 +381,27 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/info-tmux-sessions]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-tmux-sessions.sh
+interval = 5
+format = <label>
+format-foreground = #ffa500
+
+[module/couple-birthday]
+type = custom/script
+exec = ~/.config/polybar/scripts/couple.sh birthday
+interval = 60
+format = <label>
+format-foreground = #ff1493
+
+[module/couple-relationship]
+type = custom/script
+exec = ~/.config/polybar/scripts/couple.sh relationship
+interval = 60
+format = <label>
+format-foreground = #ff6500
 
 [settings]
 screenchange-reload = true
