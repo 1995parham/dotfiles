@@ -21,7 +21,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed mpd ncmpcpp
+	sudo pacman -Syu --noconfirm --needed mpd ncmpcpp mpc
 }
 
 main() {
