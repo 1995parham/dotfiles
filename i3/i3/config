@@ -58,7 +58,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec alacritty -e 'cmus'
+bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp'
 
 # picom
 bindsym $mod+t exec --no-startup-id pkill picom
