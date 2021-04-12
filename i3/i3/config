@@ -78,11 +78,11 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 focus_follows_mouse no
 
-# cmus
-bindsym XF86AudioPlay exec cmus-remote -u; exec notify-send -a cmus 'play/pause'
-bindsym XF86AudioPause exec cmus-remote -u; exec notify-send -a cmus 'play/pause'
-bindsym XF86AudioNext exec cmus-remote -n; exec notify-send -a cmus 'next'
-bindsym XF86AudioPrev exec cmus-remote -r; exec notify-send -a cmus 'previous'
+# music player
+bindsym XF86AudioPlay exec notify-send "$(mpc toggle | head -2)"
+bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
+bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
+bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
 
 # change focus
 bindsym $mod+j focus left
