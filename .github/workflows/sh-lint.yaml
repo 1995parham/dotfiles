@@ -3,6 +3,7 @@ name: Shell Script Lint
 on:
   push:
     paths:
+      - .github/workflows/sh-lint.yaml
       - '**.sh'
 jobs:
   sh-checker:
