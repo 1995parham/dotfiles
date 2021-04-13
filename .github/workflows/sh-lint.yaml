@@ -1,7 +1,9 @@
 ---
 name: Shell Script Lint
 on:
-  - push
+  push:
+    paths:
+      - '**.sh'
 jobs:
   sh-checker:
     runs-on: ubuntu-latest

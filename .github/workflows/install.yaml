@@ -1,7 +1,11 @@
 ---
 name: Install dotfiles
 on:
-  - push
+  push:
+    paths:
+      - install.sh
+      - scripts/env.sh
+      - start.sh
 jobs:
   ubuntu:
     runs-on: ubuntu-20.04
