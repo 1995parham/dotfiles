@@ -22,6 +22,11 @@ jobs:
       - name: validate symbolic links
         run: |
           test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
+        if: ${{ runner.os == 'Linux' }}
+      - name: validate symbolic links
+        run: |
+          test $(greadlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
+        if: ${{ runner.os == 'macOS' }}
       - name: validate installation of requirements on both shell
         run: |
           bash -c hash nvim batcat bmon
