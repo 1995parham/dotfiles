@@ -8,8 +8,8 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 if ! [ -x "$(command -v git)" ]; then
-  echo "git is not installed. please install it first"
-  exit 1
+	echo "git is not installed. please install it first"
+	exit 1
 fi
 
 echo "create directory structure"
