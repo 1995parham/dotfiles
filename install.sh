@@ -19,8 +19,11 @@ usage() {
 # global variable that points to dotfiles root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# shellcheck source=scripts/lib/message.sh
 source "$current_dir/scripts/lib/message.sh"
+# shellcheck source=scripts/lib/linker.sh
 source "$current_dir/scripts/lib/linker.sh"
+# shellcheck source=scripts/lib/header.sh
 source "$current_dir/scripts/lib/header.sh"
 
 message "pre" "Home directory found at $HOME"
@@ -33,7 +36,7 @@ while getopts "hy" argv; do
 	y)
 		yes_to_all=1
 		;;
-	h)
+	*)
 		usage
 		exit
 		;;
@@ -43,8 +46,8 @@ done
 requirements=(zsh tmux vim nvim)
 
 # check the existence of required softwares
-for cmd in ${requirements[@]}; do
-	if ! hash $cmd 2>/dev/null; then
+for cmd in "${requirements[@]}"; do
+	if ! hash "$cmd" 2>/dev/null; then
 		message "pre" "Please install $cmd before using this script"
 		exit 1
 	fi
@@ -95,19 +98,19 @@ install-bin() {
 
 # general
 install-general() {
-	if [ $SHELL != '/bin/zsh' ]; then
+	if [ "$SHELL" != '/bin/zsh' ]; then
 		message "general" "Please change your shell to zsh manually"
 	fi
 }
 
-# calls each module install function.
+# calls each module's install function.
 modules=(vim nvim conf zsh git bin general)
-for module in ${modules[@]}; do
-	message $module "Installation begin"
+for module in "${modules[@]}"; do
+	message "$module" "Installation begin"
 	echo
-	install-$module
+	install-"$module"
 	echo
-	message $module "Installation end"
+	message "$module" "Installation end"
 	echo
 done
 
