@@ -3,6 +3,7 @@ name: Install dotfiles
 on:
   push:
     paths:
+      - .github/workflows/install.yaml
       - install.sh
       - scripts/env.sh
       - start.sh
