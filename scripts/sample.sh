@@ -1,4 +1,4 @@
-#!/bin/
+#!/bin/bash
 # In The Name of God
 # ========================================
 # [] File Name : sample.sh
@@ -8,16 +8,29 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-# you can use global variables that are listed below
-# $have_proxy
-# $force
-# ... for more information see start.sh.
-
 usage() {
-	echo "usage: sample"
+	echo -n -e "sample for using ./start.sh\n" \
+		"you can use global variables that are listed below\n" \
+		"- force\n" \
+		"for more information see start.sh\n"
+}
+
+main_apt() {
+	msg "there is nothing that we can do"
+	return 1
+}
+
+main_pacman() {
+	msg "there is nothing that we can do"
+	return 1
+}
+
+main_brew() {
+	msg "there is nothing that we can do"
+	return 1
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
+	msg "there is nothing that we can do"
+	return 1
 }
