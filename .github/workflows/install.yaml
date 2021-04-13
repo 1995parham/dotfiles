@@ -7,8 +7,11 @@ on:
       - scripts/env.sh
       - start.sh
 jobs:
-  ubuntu:
-    runs-on: ubuntu-20.04
+  basic:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macos-10.15]
     steps:
       - uses: actions/checkout@v1
       - name: start.sh env
