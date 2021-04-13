@@ -21,17 +21,17 @@ main_apt() {
 	sudo apt-get update -q
 
 	msg "install ${apt_packages[*]} + ${packages[*]} with apt"
-	sudo apt-get install ${apt_packages[@]} ${packages[@]}
+	sudo apt-get install "${apt_packages[@]}" "${packages[@]}"
 }
 
 main_pacman() {
 	msg "install ${pacman_packages[*]} + ${packages[*]} with pacman"
-	sudo pacman -Syu --noconfirm --needed ${pacman_packages[@]} ${packages[@]}
+	sudo pacman -Syu --noconfirm --needed "${pacman_packages[@]}" "${packages[@]}"
 }
 
 main_brew() {
 	msg "install ${brew_packages[*]} + ${packages[*]} with brew"
-	brew install ${brew_packages[*]} ${packages[@]}
+	brew install "${brew_packages[*]}" "${packages[@]}"
 
 	python3 -mpip install pynvim
 }

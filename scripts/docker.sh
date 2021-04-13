@@ -22,7 +22,7 @@ docker-repositories() {
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	proxy_stop
 
-	read -p "[docker] do you want to activate docker apt proxy?[Y/n] " -n 1 accept
+	read -p -r "[docker] do you want to activate docker apt proxy?[Y/n] " -n 1 accept
 	echo
 
 	if [[ $accept == "Y" ]]; then
@@ -37,7 +37,7 @@ docker-repositories() {
 }
 
 main_apt() {
-	read -p "[docker] do you want to install docker?[Y/n] " -n 1 install
+	read -p -r "[docker] do you want to install docker?[Y/n] " -n 1 install
 	echo
 
 	msg "installing docker"
@@ -57,7 +57,8 @@ main_apt() {
 
 main_brew() {
 	msg "there is nothing that we can do"
-	return -1
+
+	return 1
 }
 
 main_pacman() {
@@ -76,7 +77,7 @@ main() {
 
 	msg "manage docker as a non-root user"
 	sudo groupadd -f docker
-	sudo usermod -aG docker $USER
+	sudo usermod -aG docker "$USER"
 	newgrp docker
 
 	proxy_start

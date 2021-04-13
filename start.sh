@@ -12,10 +12,14 @@ set -e
 
 # global variable that points to dotfiles root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $current_dir/scripts/lib/message.sh
-source $current_dir/scripts/lib/proxy.sh
-source $current_dir/scripts/lib/linker.sh
-source $current_dir/scripts/lib/header.sh
+# shellcheck source=scripts/lib/message.sh
+source "$current_dir/scripts/lib/message.sh"
+# shellcheck source=scripts/lib/proxy.sh
+source "$current_dir/scripts/lib/proxy.sh"
+# shellcheck source=scripts/lib/linker.sh
+source "$current_dir/scripts/lib/linker.sh"
+# shellcheck source=scripts/lib/header.sh
+source "$current_dir/scripts/lib/header.sh"
 
 # start.sh
 program_name=$0
@@ -52,6 +56,9 @@ _main() {
 		f)
 			force=true
 			;;
+		*)
+			_usage
+			;;
 		esac
 	done
 
@@ -73,7 +80,7 @@ _main() {
 	local start
 	local took
 
-	if [ -z $1 ]; then
+	if [ -z "$1" ]; then
 		_usage
 		exit
 	fi
@@ -82,7 +89,7 @@ _main() {
 
 	start=$(date +'%s')
 
-	source $current_dir/scripts/$script.sh 2>/dev/null || {
+	source "$current_dir/scripts/$script.sh" 2>/dev/null || {
 		echo "404 script not found"
 		exit
 	}
@@ -93,9 +100,9 @@ _main() {
 		usage
 	else
 		# run the script
-		msg() { message $script $@; }
+		msg() { message "$script" "$@"; }
 		msg "$(usage)"
-		run $@
+		run "$@"
 	fi
 
 	echo
@@ -134,10 +141,10 @@ run() {
 
 	# run the script
 	if declare -f main >/dev/null; then
-		main $@
+		main "$@"
 	else
 		message "pre" "main not found"
 	fi
 }
 
-_main $@
+_main "$@"

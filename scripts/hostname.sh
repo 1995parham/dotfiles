@@ -16,7 +16,7 @@ hostname-change() {
 	msg "change hostname to $1"
 
 	msg "hostnamectl"
-	sudo hostnamectl set-hostname $1
+	sudo hostnamectl set-hostname "$1"
 
 	msg "/etc/hosts"
 	sudo sed -i 's/127.0.1.1.*/127.0.1.1\t'"$1"'/g' /etc/hosts
@@ -27,7 +27,7 @@ hostname-change() {
 	fi
 
 	msg "/etc/hostname"
-	echo $1 | sudo tee /etc/hostname
+	echo "$1" | sudo tee /etc/hostname
 }
 
 main() {
@@ -35,5 +35,5 @@ main() {
 		usage
 		return
 	fi
-	hostname-change $1
+	hostname-change "$1"
 }
