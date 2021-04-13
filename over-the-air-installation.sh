@@ -13,14 +13,14 @@ if ! [ -x "$(command -v git)" ]; then
 fi
 
 echo "create directory structure"
-mkdir $HOME/Documents
-mkdir $HOME/Downloads
-mkdir -p $HOME/Documents/Git/$USER
-mkdir -p $HOME/Documents/Git/others
+mkdir "$HOME/Documents"
+mkdir "$HOME/Downloads"
+mkdir -p "$HOME/Documents/Git/$USER"
+mkdir -p "$HOME/Documents/Git/others"
 
 echo "clone https://github.com/1995parham/dotfiles"
-cd $HOME/Documents/Git/$USER
+cd "$HOME/Documents/Git/$USER" || exit
 git clone https://github.com/1995parham/dotfiles
-cd dotfiles
+cd dotfiles || exit
 
 echo "please refer to readme for further information"
