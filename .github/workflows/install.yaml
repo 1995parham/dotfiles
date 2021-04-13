@@ -8,11 +8,8 @@ on:
       - scripts/env.sh
       - start.sh
 jobs:
-  basic:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-20.04, macos-10.15]
+  basic-ubuntu:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
       - name: start.sh env
@@ -22,11 +19,17 @@ jobs:
       - name: validate symbolic links
         run: |
           test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
-        if: ${{ runner.os == 'Linux' }}
-      - name: validate symbolic links
+      - name: validate installation of requirements on both shell
         run: |
-          test $(greadlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
-        if: ${{ runner.os == 'macOS' }}
+          bash -c hash nvim batcat bmon
+          zsh -c hash nvim batcat bmon
+
+  basic-osx:
+    runs-on: macos-10.15
+    steps:
+      - uses: actions/checkout@v1
+      - name: start.sh env
+        run: ./start.sh env
       - name: validate installation of requirements on both shell
         run: |
           bash -c hash nvim batcat bmon
