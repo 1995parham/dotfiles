@@ -11,11 +11,11 @@ usage() {
 	echo -n "installs required packages"
 }
 
-packages=(zsh tmux htop aria2 atop curl bat neovim vim jq yamllint)
+packages=(zsh tmux htop aria2 curl bat neovim vim jq yamllint)
 
 brew_packages=(coreutils k6 inetutils inxi shfmt)
-apt_packages=(python3-pynvim bmon)
-pacman_packages=(python-pynvim inxi mtr shfmt)
+apt_packages=(python3-pynvim bmon atop)
+pacman_packages=(python-pynvim inxi mtr shfmt atop)
 
 main_apt() {
 	sudo apt-get update -q
