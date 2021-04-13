@@ -1,0 +1,20 @@
+---
+name: Install dotfiles
+on:
+  - push
+jobs:
+  ubuntu:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: start.sh env
+        run: ./start.sh env
+      - name: install.sh
+        run: yes "Y" | ./install.sh -y
+      - name: validate symbolic links
+        run: |
+          test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
+      - name: validate installation of requirements on both shell
+        run: |
+          bash -c hash nvim batcat bmon
+          zsh -c hash nvim batcat bmon
