@@ -31,7 +31,7 @@ main_pacman() {
 
 main_brew() {
 	msg "install ${brew_packages[*]} + ${packages[*]} with brew"
-	brew install "${brew_packages[*]}" "${packages[@]}"
+	brew install "${brew_packages[@]}" "${packages[@]}"
 
 	python3 -mpip install pynvim
 }
