@@ -452,7 +452,7 @@ Then you can install other tools with `start.sh`, here are some examples:
 
 ```sh
 # install docker with proxy (see <Breaking Sanctions> section for more details)
-./start.sh -p docker
+./start.sh docker
 # install golang
 ./start.sh go
 # install python
