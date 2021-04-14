@@ -31,7 +31,7 @@ main() {
 	gopath=$HOME/Documents/Go
 	for dir in bin pkg src mod; do
 		echo $dir
-		[ -d $gopath/$dir ] || mkdir -p $gopath/$dir
+		[ -d "$gopath/$dir" ] || mkdir -p "$gopath/$dir"
 	done
 
 	go-install-packages
