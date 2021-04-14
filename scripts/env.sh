@@ -13,9 +13,9 @@ usage() {
 
 packages=(zsh tmux htop aria2 curl bat neovim vim jq yamllint)
 
-brew_packages=(coreutils k6 inetutils inxi shfmt)
+brew_packages=(coreutils k6 inetutils inxi)
 apt_packages=(python3-pynvim bmon atop)
-pacman_packages=(python-pynvim inxi mtr shfmt atop)
+pacman_packages=(python-pynvim inxi mtr atop)
 
 main_apt() {
 	sudo apt-get update -q
