@@ -21,6 +21,8 @@ main_apt() {
 }
 
 main_pacman() {
+	current_dir=${current_dir:?"current_dir must be set"}
+
 	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot polybar
 
 	configfile i3 "" i3
