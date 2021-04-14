@@ -25,7 +25,8 @@ error_symbol = "[✗](bold fg:#ff4d4d) "
 
 [directory]
 style = "fg:#ffa500"
-home_symbol = "🏠"
+truncate_to_repo = false
+home_symbol = "~"
 
 [golang]
 style = "fg:#00add8"
