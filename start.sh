@@ -89,6 +89,7 @@ _main() {
 
 	start=$(date +'%s')
 
+	# shellcheck disable=1090
 	source "$current_dir/scripts/$script.sh" 2>/dev/null || {
 		echo "404 script not found"
 		exit

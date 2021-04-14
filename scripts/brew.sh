@@ -23,6 +23,7 @@ main() {
 		p)
 			install_profile=true
 			;;
+		*) ;;
 		esac
 	done
 
@@ -41,8 +42,8 @@ main() {
 	if [[ "$OSTYPE" == "linux"* ]]; then
 		if [ $install_profile = true ]; then
 			message "brew" "add Homebrew to your PATH:"
-			test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-			test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+			test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+			test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 			test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 			echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 		fi
