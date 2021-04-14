@@ -1,4 +1,4 @@
-# Inserts a blank line between shell prompts
+# inserts a blank line between shell prompts
 add_newline = true
 
 format = """
@@ -37,4 +37,4 @@ format = "[$symbol$branch]($style)"
 [kubernetes]
 disabled = false
 style = "fg:#00bfff"
-format = '[$symbol( \($namespace\))]($style)'
+format = '[$symbol]($style)[\(]($style)[$context](fg:#9ae5ff) [$namespace\)]($style)'
