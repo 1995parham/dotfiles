@@ -2,7 +2,7 @@
 add_newline = true
 
 format = """
-[::](fg:cyan) $kubernetes$rust$go$helm
+[::](fg:cyan) $kubernetes $rust $golang $helm
 [┌─](fg:white) $username @ $hostname $directory $git_branch $git_status $git_state
 [└─](fg:white)$character"""
 
@@ -29,6 +29,7 @@ home_symbol = "🏠"
 
 [golang]
 style = "fg:#00add8"
+format = "[$symbol$version]($style)"
 
 [git_branch]
 style = "fg:#a500ff"
