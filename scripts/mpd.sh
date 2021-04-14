@@ -9,15 +9,15 @@
 # =======================================
 
 usage() {
-	echo "mpd music server with ncmpcpp"
+	echo "mpd music server with ncmpcpp as a client"
 }
 
 main_brew() {
-	return -1
+	return 1
 }
 
 main_apt() {
-	return -1
+	return 1
 }
 
 main_pacman() {

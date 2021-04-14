@@ -14,7 +14,7 @@ message() {
 	module=$1
 	shift
 
-	echo -e "\e[38;5;46m[$module] \e[38;5;202m$@\e[39m"
+	echo -e "\e[38;5;46m[$module] \e[38;5;202m$*\e[39m"
 }
 
 # print log message with following format in bold
@@ -23,5 +23,5 @@ announce() {
 	module=$1
 	shift
 
-	echo -e "\e[1m\e[38;5;46m[$module] \e[38;5;45m$@\e[39m"
+	echo -e "\e[1m\e[38;5;46m[$module] \e[38;5;45m$*\e[39m"
 }

@@ -8,15 +8,22 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-main() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		sudo pacman -Syu --needed --noconfirm syncthing
-		sudo systemctl enable syncthing@parham
-		sudo systemctl start syncthing@parham
-	else
-		brew install syncthing
-		brew services start syncthing
-	fi
+main_pacman() {
+	sudo pacman -Syu --needed --noconfirm syncthing
+	sudo systemctl enable syncthing@parham
+	sudo systemctl start syncthing@parham
+}
 
-	message "syncthing" "Please refer to its documentation for setup the mesh"
+main_brew() {
+	brew install syncthing
+	brew services start syncthing
+}
+
+main_apt() {
+	return 1
+}
+
+main() {
+
+	msg "please refer to its documentation for setup the mesh"
 }

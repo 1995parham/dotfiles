@@ -9,14 +9,14 @@
 # =======================================
 
 usage() {
-	echo "usage: texlive"
+	echo -n "install texlive with ease without any package manager"
 }
 
 texlive-package() {
 	if [[ $OSTYPE == "linux-gnu" ]]; then
-		sudo tlmgr install $@
+		sudo tlmgr install "$@"
 	else
-		tlmgr install $@
+		tlmgr install "$@"
 	fi
 }
 
@@ -56,7 +56,7 @@ texlive-install() {
 		fi
 
 		message "texlive" "Install with the installer -- default scheme is small"
-		cd texlive-installer/install-tl*
+		cd texlive-installer/install-tl* || return
 		sudo ./install-tl -scheme small
 	else
 		message "texlive" "Darwin"

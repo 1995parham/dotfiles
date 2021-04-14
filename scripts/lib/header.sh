@@ -8,6 +8,7 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
+# shellcheck disable=1004
 echo '
      _       _    __ _ _
   __| | ___ | |_ / _(_) | ___  ___

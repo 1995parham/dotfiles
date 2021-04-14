@@ -8,6 +8,9 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
+${current_dir:?"current_dir must be set"}
+${yes_to_all:=false}
+
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
 # parameter 2: file names - array of string
@@ -29,7 +32,7 @@ dotfile() {
 		local dst_path="$HOME/$dst_file"
 		local src_path="$current_dir/$module/$src_file"
 
-		linker $module $src_path $dst_path
+		linker "$module" "$src_path" "$dst_path"
 	done
 }
 
@@ -48,7 +51,7 @@ configfile() {
 		mkdir "$HOME/.config"
 	fi
 
-	if [ ! -z $src_file ]; then
+	if [ -n "$src_file" ]; then
 		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$module/$src_file"
 
@@ -62,7 +65,7 @@ configfile() {
 	fi
 	local dst_path="$HOME/.config/$dst_file"
 
-	linker $module $src_path $dst_path
+	linker "$module" "$src_path" "$dst_path"
 }
 
 # linker does the soft linking, it has a yes_to_all parameter which you can use to skip the question phase
@@ -76,22 +79,22 @@ linker() {
 
 	local create_link=true
 
-	if [ -e $dst_path ] || [ -L $dst_path ]; then
+	if [ -e "$dst_path" ] || [ -L "$dst_path" ]; then
 		message "$module" "$dst_path has already existed"
 
-		if [[ $src_path = $(readlink $dst_path) ]]; then
+		if [[ $src_path = $(readlink "$dst_path") ]]; then
 			message "$module" "$dst_path points to the correct location"
 			create_link=false
 			return
 		fi
 
 		if [[ $yes_to_all != 1 ]]; then
-			read -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm
+			read -r -p "[$module] do you want to remove $dst_path ?[Y/n] " -n 1 delete_confirm
 			echo
 		fi
 
 		if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
-			rm -R $dst_path
+			rm -R "$dst_path"
 			message "$module" "$dst_path is removed successfully"
 		else
 			create_link=false
@@ -99,7 +102,7 @@ linker() {
 	fi
 
 	if $create_link; then
-		ln -s $src_path $dst_path
+		ln -s "$src_path" "$dst_path"
 		message "$module" "Symbolic link created successfully from $src_path to $dst_path"
 	fi
 }
@@ -119,13 +122,13 @@ configrootfile() {
 		mkdir "$HOME/.config"
 	fi
 
-	if [ ! -z $src_file ]; then
+	if [ -n "$src_file" ]; then
 		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$src_file"
 	fi
 	local dst_path="$HOME/.config/$dst_file"
 
-	linker $module $src_path $dst_path
+	linker "$module" "$src_path" "$dst_path"
 }
 
 # creates a systemd file that resides in the `.config` directory, and provides a soft link for it.
@@ -143,11 +146,11 @@ configsystemd() {
 		mkdir -p "$HOME/.config/systemd/user"
 	fi
 
-	if [ ! -z $src_file ]; then
+	if [ -n "$src_file" ]; then
 		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$src_file"
 	fi
 	local dst_path="$HOME/.config/systemd/user/$dst_file"
 
-	linker $module $src_path $dst_path
+	linker "$module" "$src_path" "$dst_path"
 }

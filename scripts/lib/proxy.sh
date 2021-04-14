@@ -11,18 +11,14 @@
 proxy_start() {
 	echo -e "\e[38;5;46m[proxy] \e[38;5;202msetup proxy based on local http proxy that is setup by v2ray\e[39m"
 	echo -n -e "\e[38;5;46m[proxy] \e[38;5;202mpress enter to continue?\e[39m"
-	read accept
+	read -r accept
 
 	if [[ "$accept" != "" ]]; then
 		return 0
 	fi
 
 	echo
-	curl --max-time 5 ipinfo.io/ip
-
-	if [ $? -ne 0 ]; then
-		return 1
-	fi
+	curl --max-time 5 ipinfo.io/ip || return 1
 
 	export ftp_proxy="http://127.0.0.1:1080"
 	export http_proxy="http://127.0.0.1:1080"
@@ -30,12 +26,7 @@ proxy_start() {
 	alias sudo='sudo -E'
 
 	echo
-	curl --max-time 5 ipinfo.io/ip
-
-	if [ $? -ne 0 ]; then
-		proxy_stop
-		return 1
-	fi
+	curl --max-time 5 ipinfo.io/ip || proxy_stop
 }
 
 proxy_stop() {

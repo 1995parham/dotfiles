@@ -9,11 +9,22 @@
 # =======================================
 
 usage() {
-	echo "usage: protoc"
+	echo "protocol buffer from google"
 }
 
-main() {
-	message "protoc" "Installing protobuf"
+main_brew() {
+	msg "installing protobuf from brew with go bindings"
 	brew install protobuf
 	brew install protoc-gen-go
+}
+
+main_apt() {
+	return 1
+}
+
+main_pacman() {
+	msg "installing protobuf from yay and pacman with go bindings"
+
+	sudo pacman -Syu --needed --noconfirm protobuf
+	yay -Syu --needed --noconfirm protoc-gen-go
 }
