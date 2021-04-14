@@ -7,8 +7,6 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-verbose=false
-
 packages=(
 	flake8
 	pep8-naming
@@ -24,34 +22,26 @@ packages=(
 )
 
 usage() {
-	echo "usage: python"
+	echo -n "python with pyenv to use every version with ease"
 }
 
-pyenv-install() {
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "python" "Darwin"
+main_brew() {
+	brew install pyenv
+}
 
-		brew install pyenv
-	else
-		message "python" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "python" "install pyenv with pacman"
-			sudo pacman -Syu --needed --noconfirm pyenv
-		fi
-	fi
+main_apt() {
+	return 1
+}
 
-	git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages || echo "pyenv-default-packages is already installed"
+main_pacman() {
+	sudo pacman -Syu --needed --noconfirm pyenv
 }
 
 python-install-package() {
-	python3 -mpip install -U $1
-
-	if [ $? -eq 0 ]; then
-		message "python" "$1 installation succeeded"
+	if python3 -mpip install -U "$1"; then
+		msg "$1 installation succeeded"
 	else
-		message "python" "$1 installation failed"
+		msg "$1 installation failed"
 	fi
 }
 
@@ -60,20 +50,19 @@ python-install-packages() {
 
 	message "python" "Python Tools"
 
-	printf "%s\n" ${packages[@]} >$(pyenv root)/default-packages
-	for package in ${packages[@]}; do
-		python-install-package $package
+	printf "%s\n" "${packages[@]}" >"$(pyenv root)/default-packages"
+	for package in "${packages[@]}"; do
+		python-install-package "$package"
 	done
 }
 
 main() {
-	pyenv-install
-
 	if [[ "$(command -v pyenv)" ]]; then
+		git clone https://github.com/jawshooah/pyenv-default-packages.git "$(pyenv root)/plugins/pyenv-default-packages" || echo "pyenv-default-packages is already installed"
 		pyenv versions
 	fi
 
-	read -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm
+	read -r -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm
 	echo
 
 	if [[ $confirm == "Y" ]]; then
