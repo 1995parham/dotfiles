@@ -17,7 +17,7 @@ main_brew() {
 }
 
 main_apt() {
-	return -1
+	return 1
 }
 
 main_pacman() {

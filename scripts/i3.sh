@@ -43,14 +43,14 @@ main_pacman() {
 	systemctl --user start nitrogen.timer
 
 	msg 'configure the dmenu, default application luncher on manjaro i3'
-	linker dmenu $current_dir/i3/dmenurc $HOME/.dmenurc
-	chmod +x $HOME/.dmenurc
+	linker dmenu "$current_dir/i3/dmenurc" "$HOME/.dmenurc"
+	chmod +x "$HOME/.dmenurc"
 
 	msg 'configure rofi another application luncher'
 	sudo pacman -Syu --noconfirm --needed rofi
 	configfile rofi "" i3
 
-	linker gtk-2.0 $current_dir/i3/gtk-2.0/gtkrc-2.0 $HOME/.gtkrc-2.0
+	linker gtk-2.0 "$current_dir/i3/gtk-2.0/gtkrc-2.0" "$HOME/.gtkrc-2.0"
 	configfile gtk-3.0 settings.ini i3
 
 	sudo pacman -Syu --noconfirm --needed perl-anyevent-i3

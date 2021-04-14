@@ -9,10 +9,18 @@
 # =======================================
 
 usage() {
-	echo "usage: def"
+	echo "def, a free dictionary in terminal"
 }
 
-main() {
+main_pacman() {
 	sudo pacman -Syu --needed --noconfirm sdcv
 	yay -Syu --needed --noconfirm stardict-oald
+}
+
+main_brew() {
+	return 1
+}
+
+main_apt() {
+	return 1
 }

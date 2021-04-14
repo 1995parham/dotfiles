@@ -18,9 +18,9 @@ main_brew() {
 
 main_pacman() {
 	sudo pacman -Syu --noconfirm --needed firefox w3m
-	sed -i 's#BROWSER=.*#BROWSER='$(which firefox)'#g' ~/.profile
+	sed -i 's#BROWSER=.*#BROWSER='"$(which firefox)"'#g' ~/.profile
 }
 
 main_apt() {
-	return -1
+	return 1
 }
