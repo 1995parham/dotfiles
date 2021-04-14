@@ -30,7 +30,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 for_window [class=Alacritty instance="__termpad"] floating enable
-bindsym $mod+Shift+Return exec alacritty --class="__termpad"
+bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -55,10 +55,10 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
+bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu' --option="background_opacity=0.8"
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp'
+bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="background_opacity=0.8"
 
 # picom
 bindsym $mod+t exec --no-startup-id pkill picom
