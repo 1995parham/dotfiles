@@ -8,8 +8,8 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-${current_dir:?"current_dir must be set"}
-${yes_to_all:=false}
+current_dir=${current_dir:?"current_dir must be set"}
+yes_to_all=${yes_to_all:-false}
 
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
