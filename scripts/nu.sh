@@ -14,7 +14,7 @@ usage() {
 
 main_apt() {
 	msg "there is nothing that we can do"
-	return -1
+	return 1
 }
 
 main_brew() {

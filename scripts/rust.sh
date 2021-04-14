@@ -1,4 +1,4 @@
-#!/bin/
+#!/bin/bash
 # In The Name of God
 # ========================================
 # [] File Name : sample.sh
@@ -9,15 +9,15 @@
 # =======================================
 
 usage() {
-	echo "usage: rust"
+	echo "rust programming language with rustup"
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
-	source $HOME/.cargo/env
+
+	# shellcheck disable=1090
+	source "$HOME/.cargo/env"
+
 	rustup component add clippy
 	rustup component add rustfmt
 	rustup component add rls rust-analysis rust-src

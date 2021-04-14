@@ -34,6 +34,8 @@ main() {
 		d)
 			install_udev=true
 			;;
+		*) ;;
+
 		esac
 	done
 
