@@ -8,29 +8,26 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 usage() {
-	echo "usage: node"
+	echo "install nodejs, remembers neovim-coc always needs nodejs"
 }
 
-node-install() {
-	message "node" "Installing Node from brew"
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "node" "Darwin"
+main_brew() {
+	msg "installing node from brew"
+	brew install node
+}
 
-		brew install node
-	else
-		message "node" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
-			sudo apt-get install -y nodejs
-		elif [[ "$(command -v pacman)" ]]; then
-			message "node" "install node with pacman"
-			sudo pacman -Syu --noconfirm --needed nodejs npm
-		fi
-	fi
+main_apt() {
+	msg "installing node from its official apt repository"
+	curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+	sudo apt-get install -y nodejs
 
-	message "node" "$(node -v)"
+}
+
+main_pacman() {
+	message "node" "install node with pacman"
+	sudo pacman -Syu --noconfirm --needed nodejs npm
 }
 
 main() {
-	node-install
+	msg "$(node -v)"
 }
