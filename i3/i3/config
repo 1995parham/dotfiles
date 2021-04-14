@@ -62,7 +62,7 @@ bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="backgr
 
 # picom
 bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Ctrl+t exec --no-startup-id picom --experimental-backends -b
 
 # dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -292,7 +292,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
 # A small program for hiding the mouse cursor
 exec --no-startup-id unclutter -b
 # polybar
