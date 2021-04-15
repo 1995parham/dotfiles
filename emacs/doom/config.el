@@ -75,11 +75,6 @@
 (setenv "GOPATH" (expand-file-name "~/Documents/Go"))
 (add-to-list 'exec-path (concat (file-name-as-directory (getenv "GOPATH")) "bin") t)
 
-;; Setup texlive environment
-(add-to-list 'exec-path "/usr/local/texlive/2021/bin/x86_64-linux")
-(setenv "PATH" (concat "/usr/local/texlive/2021/bin/x86_64-linux:"
-                         (getenv "PATH")))
-
 ;; Use pdf-tools to open PDF files
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-source-correlate-start-server t)
