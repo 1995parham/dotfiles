@@ -12,84 +12,117 @@ usage() {
 	echo -n "install texlive with ease without any package manager"
 }
 
-texlive-package() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		sudo tlmgr install "$@"
-	else
-		tlmgr install "$@"
-	fi
-}
-
-texlive-packages() {
+packages=(
 	# elsevier journals
-	texlive-package elsarticle
+	elsarticle
+	# presentation with beamer
+	beamer beamertheme-metropolis pgfopts
 
-	# xepersian
-	texlive-package xepersian bidi zref
+	# xepersian from vafa khaleghi
+	xepersian bidi zref
 
-	# presentation
-	texlive-package beamer beamertheme-metropolis pgfopts
-
-	# references
-	texlive-package biblatex biber
+	# references with bib
+	biblatex biber
 
 	# linters
-	texlive-package lacheck chktex
+	lacheck chktex
 
-	# make
-	texlive-package latexmk
+	# make with latexmk
+	latexmk
 
-	# code
-	texlive-package minted fvextra catchfile xstring framed
+	# code snippets in your documents
+	minted fvextra catchfile xstring framed
+)
+
+latest-install-texlive() {
+	local directory
+	directory=$(find /usr/local/texlive/ -maxdepth 1 -type d -regextype sed -regex '.*/[0-9]\{4\}' | sort -r | head -1)
+
+	basename "$directory"
 }
 
 texlive-install() {
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		message "texlive" "Linux"
-
-		message "texlive" "Download the installer from tug.org"
-		if [ ! -d texlive-installer ]; then
-			mkdir texlive-installer
-			curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
-		else
-			message "texlive" "There is a failed installation of texlive"
-		fi
-
-		message "texlive" "Install with the installer -- default scheme is small"
-		cd texlive-installer/install-tl* || return
-		sudo ./install-tl -scheme small
+	if [ ! -d /usr/local/texlive ]; then
+		texlive-install-
 	else
-		message "texlive" "Darwin"
+		msg "remove already installed texlive if you want a reinstall"
 
-		message "texlive" "Install basictex with brew"
-		brew cask install basictex
+		version=$(latest-install-texlive)
 
-		eval "$(/usr/libexec/path_helper)"
+		msg "texlive: $version"
+
+		read -r -p "[texlive] do you want to remove texlives?[Y/n] " -n 1 confirm
+		echo
+
+		if [[ $confirm == "Y" ]]; then
+			sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path add
+			sudo rm -Rf /usr/local/texlive
+
+			texlive-install-
+		fi
 	fi
 }
 
-main() {
-	if [ ! -d /usr/local/texlive ]; then
-		texlive-install
-		message "texlive" "After installation you need to setup you path before you can use tlmgr so you need to run this script again"
-		exit
+texlive-install-() {
+	msg "download the installer from tug.org"
+	if [ ! -d texlive-installer ]; then
+		mkdir texlive-installer
+		curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
 	else
-		message "texlive" "Remove already installed texlive if you want a reinstall"
+		msg "there is a failed installation of texlive"
 	fi
 
-	message "texlive" "Install required packages for better latex experience"
-	if [[ $OSTYPE == "linux-gnu" ]]; then
-		if [[ "$(command -v apt)" ]]; then
-			message "texlive" "with apt"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "texlive" "with pacman"
-			sudo pacman -Syu --noconfirm --needed texlab python-pygments
-		fi
-		sudo tlmgr option repository ctan
-	else
-		message "texlive" "Darwin"
-		tlmgr option repository ctan
-	fi
+	msg "install with the installer -- default scheme is small"
+	cd texlive-installer/install-tl* || return
+	sudo ./install-tl -scheme small
+}
 
-	texlive-packages
+texlive-init() {
+	msg "welcome to texlive initiation"
+
+	local version
+	version=$(latest-install-texlive)
+
+	msg "symlinks texlive binaries into default locations"
+	sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path add
+
+	msg "tlmgr repositories are ready"
+	sudo tlmgr option repository ctan
+}
+
+main_pacman() {
+	texlive-install
+	texlive-init
+
+	msg "install required packages for better latex/xetex experience in persian"
+	sudo pacman -Syu --noconfirm --needed texlab python-pygments
+
+	for package in "${packages[@]}"; do
+		sudo tlmgr install "$package"
+	done
+}
+
+main_brew() {
+	msg "install basictex with brew"
+	brew cask install basictex
+
+	eval "$(/usr/libexec/path_helper)"
+
+	msg "tlmgr repositories are ready"
+	tlmgr option repository ctan
+
+	msg "install required packages for better latex/xetex experience in persian"
+	for package in "${packages[@]}"; do
+		tlmgr install "$package"
+	done
+}
+
+main_apt() {
+	texlive-install
+	texlive-init
+
+	msg "install required packages for better latex/xetex experience in persian"
+	for package in "${packages[@]}"; do
+		sudo tlmgr install "$package"
+	done
 }
