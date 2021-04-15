@@ -9,11 +9,17 @@
 # =======================================
 
 usage() {
-	echo "rust programming language with rustup"
+	echo -n "rust programming language with rustup"
 }
 
 main() {
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+	if [ ! -d "$HOME/.rustup" ]; then
+		curl -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+	fi
+
+	# enable rustup completions
+	[ -d "$HOME/.zfunc" ] || mkdir "$HOME/.zfunc"
+	rustup completions zsh >~/.zfunc/_rustup
 
 	# shellcheck disable=1090
 	source "$HOME/.cargo/env"
