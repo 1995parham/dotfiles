@@ -22,7 +22,7 @@ docker-repositories() {
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	proxy_stop
 
-	read -p -r "[docker] do you want to activate docker apt proxy?[Y/n] " -n 1 accept
+	read -r -p "[docker] do you want to activate docker apt proxy?[Y/n] " -n 1 accept
 	echo
 
 	if [[ $accept == "Y" ]]; then
@@ -37,7 +37,7 @@ docker-repositories() {
 }
 
 main_apt() {
-	read -p -r "[docker] do you want to install docker?[Y/n] " -n 1 install
+	read -r -p "[docker] do you want to install docker?[Y/n] " -n 1 install
 	echo
 
 	msg "installing docker"
