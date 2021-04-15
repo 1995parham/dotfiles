@@ -208,15 +208,6 @@ alias kbb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --c
 
 # }}}
 
-# texlive {{{
-
-if [ -d /usr/local/texlive/2021 ]; then
-  MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH
-  INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH
-  path+=("/usr/local/texlive/2021/bin/x86_64-linux")
-fi
-# }}}
-
 # docker {{{
 
 # BuildKit is enabled by default on Docker Desktop,
