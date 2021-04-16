@@ -136,7 +136,7 @@ The following list contains my personal software recommendation:
     <td></td>
     <td>vscode</td>
     <td></td>
-    <td>vscode</td>
+    <td>emacs</td>
   </tr>
   <tr>
     <th>Terminal Multiplexer</th>
@@ -156,7 +156,7 @@ The following list contains my personal software recommendation:
   </tr>
   <tr>
     <th>Music Player</th>
-    <td>cmus</td>
+    <td>mpd + ncmpcpp</td>
     <td></td>
     <td>cmus</td>
     <td></td>
