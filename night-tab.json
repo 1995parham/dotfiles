@@ -6,11 +6,11 @@
       "area": { "width": 100, "justify": "center", "align": "center" },
       "item": { "justify": "left" },
       "greeting": {
-        "show": false,
-        "type": "good",
-        "name": "",
+        "show": true,
+        "type": "hello",
+        "name": "Parham",
         "size": 1,
-        "newLine": false
+        "newLine": true
       },
       "clock": {
         "hours": { "show": true, "display": "number" },
@@ -506,3 +506,4 @@
     }
   ]
 }
+
