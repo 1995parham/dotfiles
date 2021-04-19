@@ -33,13 +33,13 @@ main_apt() {
 	msg "apt doesn't have pyenv so we need to install it manually"
 	curl https://pyenv.run | bash || true
 
-	export PATH="/home/parham/.pyenv/bin:$PATH"
+	export PATH="$HOME/.pyenv/bin:$PATH"
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 
 	msg "please use the followin settings on .profile"
 	echo '
-export PATH="/home/parham/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 	'
