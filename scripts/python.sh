@@ -38,6 +38,7 @@ main_apt() {
 	eval "$(pyenv virtualenv-init -)"
 
 	msg "please use the followin settings on .profile"
+	# shellcheck disable=2016
 	echo '
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
