@@ -30,7 +30,20 @@ main_brew() {
 }
 
 main_apt() {
-	return 1
+	msg "apt doesn't have pyenv so we need to install it manually"
+	curl https://pyenv.run | bash || true
+
+	export PATH="$HOME/.pyenv/bin:$PATH"
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+
+	msg "please use the followin settings on .profile"
+	# shellcheck disable=2016
+	echo '
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+	'
 }
 
 main_pacman() {
