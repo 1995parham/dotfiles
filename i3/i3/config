@@ -32,6 +32,9 @@ bindsym $mod+Return exec alacritty
 for_window [class=Alacritty instance="__termpad"] floating enable
 bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
 
+# i3 configuration at you glance to review
+bindsym $mod+F1 exec alacritty --class="__termpad" --option="background_opacity=0.8" --command "bat" "$HOME/.config/i3/config"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
