@@ -19,7 +19,7 @@ main() {
 	if [[ "$OSTYPE" == "darwin"* ]]; then
 		message "mpv" "Darwin"
 
-		brew install mpv
+		brew install --cask mpv
 	else
 		message "mpv" "Linux"
 		if [[ "$(command -v apt)" ]]; then
