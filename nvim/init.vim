@@ -520,7 +520,6 @@ let g:airline_theme = 'tomorrow'
 " }}}
 
 " vim-buffergator {{{
-map <C-b> :BuffergatorToggle<CR>
 " }}}
 
 " vimtex {{{
