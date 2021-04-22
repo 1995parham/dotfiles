@@ -84,7 +84,7 @@ The following list contains my personal software recommendation:
   </tr>
   <tr>
     <th>Networking</th>
-    <td>nmcli/nmtui (NetworkManager)</td>
+    <td>nmcli/nmtui (NetworkManager) / netplan</td>
     <td></td>
     <td></td>
     <td></td>
