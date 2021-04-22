@@ -238,6 +238,9 @@ for_window [class="Element"] floating enable
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
 
+# hide/unhide polybar
+bindsym $mod+m polybar-msg cmd toggle
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
