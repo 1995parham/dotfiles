@@ -239,7 +239,7 @@ for_window [class="Element"] floating enable
 # for_window [urgent=latest] focus
 
 # hide/unhide polybar
-bindsym $mod+m polybar-msg cmd toggle
+bindsym $mod+m exec polybar-msg cmd toggle
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
