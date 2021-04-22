@@ -419,7 +419,7 @@ The following list contains my personal software recommendation:
 The following command creates a basic directory structure and clones the _dotfiles_ repository:
 
 ```sh
-curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/master/over-the-air-installation.sh | bash
+curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/main/over-the-air-installation.sh | bash
 ```
 
 Install required softwares with pacman/brew.
