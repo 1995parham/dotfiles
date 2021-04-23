@@ -29,5 +29,5 @@ main_brew() {
 main() {
 	configsystemd guake guake.service
 
-	systemctl --user enable guake.service --nwo
+	systemctl --user enable guake.service --now
 }
