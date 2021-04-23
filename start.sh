@@ -116,11 +116,27 @@ run() {
 		message "pre" "darwin with brew (osx?)"
 
 		if declare -f main_brew >/dev/null; then
-			main_brew
+				main_brew
 		else
 			message "pre" "main_brew not found"
 		fi
 	else
+		if [[ "$(command -v brew)" ]]; then
+			message "pre" "linux with brew (ubuntu?)"
+
+			if declare -f main_brew >/dev/null; then
+				read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install
+				echo
+
+				if [[ $install == "Y" ]]; then
+					# brew installation on linux is optional
+					main_brew || true
+				fi
+			else
+				message "pre" "main_brew not found"
+			fi
+		fi
+
 		if [[ "$(command -v apt)" ]]; then
 			message "pre" "linux with apt (ubuntu?)"
 
