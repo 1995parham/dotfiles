@@ -13,16 +13,14 @@ usage() {
 }
 
 main_brew() {
-
 	brew install navi
 }
 
 main_apt() {
-	return 1
+	bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
 }
 
 main_pacman() {
-
 	yay -Syu --noconfirm --needed navi-bin
 }
 
