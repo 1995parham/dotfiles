@@ -1,0 +1,8 @@
+[Unit]
+Description=Start guake
+
+[Service]
+ExecStart=/bin/bash guake
+
+[Install]
+WantedBy=graphical.target
