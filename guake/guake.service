@@ -2,7 +2,7 @@
 Description=Start guake as a Service
 
 [Service]
-ExecStart=/bin/bash guake
+ExecStart=guake
 
 [Install]
 WantedBy=graphical.target
