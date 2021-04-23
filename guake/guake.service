@@ -1,0 +1,5 @@
+[Unit]
+Description=Start guake as a Service
+
+[Service]
+ExecStart=/bin/bash guake
