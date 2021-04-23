@@ -55,34 +55,45 @@ done
 
 # vim
 install-vim() {
-	files=("vim" "vimrc")
-	dotfile "vim" files[@]
+	dotfile "vim" "vim"
+	dotfile "vim" "vimrc"
 
-	message "vim" "Installing vim plugins"
+	message "vim" "installing vim plugins"
 	vim +PlugInstall +qall
 }
 
 # nvim
 install-nvim() {
 	configfile "nvim"
-	message "nvim" "Installing neovim plugins"
+	message "nvim" "installing neovim plugins"
 	nvim --headless +PlugInstall +qall
 }
 
 # configurations
 install-conf() {
-	files=("dircolors" "wakatime.cfg" "tmux.conf" "tmux" "aria2")
-	dotfile "conf" files[@]
+	dotfile "conf" "dircolors"
+	dotfile "conf" "aria2"
 	configfile "htop" "" "conf"
 
-	message "conf" "Installing tmux plugins"
+}
+
+# wakatime
+install-wakatime() {
+	dotfile "wakatime" "wakatime.cfg"
+}
+
+# tmux
+install-tmux() {
+	dotfile "tmux" 'tmux.conf'
+
+	message "tmux" "installing tmux plugins"
 	~/.tmux/plugins/tpm/bin/install_plugins
 }
 
 # zsh
 install-zsh() {
-	files=("zshrc" "zsh.plug")
-	dotfile "zsh" files[@]
+	dotfile "zsh" "zshrc"
+	dotfile "zsh" "zsh.plug"
 }
 
 # git
@@ -92,27 +103,26 @@ install-git() {
 
 # bin
 install-bin() {
-	files=("bin")
-	dotfile "bin" files[@] false
+	dotfile "bin" "bin" false
 }
 
 # general
 install-general() {
 	if [ "$SHELL" != '/bin/zsh' ]; then
-		message "general" "Please change your shell to zsh manually"
+		message "general" "please change your shell to zsh manually"
 	fi
 }
 
 # calls each module's install function.
-modules=(vim nvim conf zsh git bin general)
+modules=(conf tmux wakatime zsh git vim nvim bin general)
 for module in "${modules[@]}"; do
-	message "$module" "Installation begin"
+	message "$module" "---"
 	echo
 	install-"$module"
 	echo
-	message "$module" "Installation end"
+	message "$module" "---"
 	echo
 done
 
-announce "post" "Thank you for using Parham Alvani dotfiles ! :)"
-announce "post" "Use *r* for reload your zshrc in place"
+announce "post" "thank you for using Parham Alvani dotfiles ! :)"
+announce "post" "use *r* for reload your zshrc in place"
