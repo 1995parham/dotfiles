@@ -14,4 +14,3 @@ jobs:
         uses: luizm/action-sh-checker@v0.1.13
         with:
           sh_checker_comment: false
-          sh_checker_exclude: "conf"
