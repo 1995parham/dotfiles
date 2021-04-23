@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: start.sh env
-        run: ./start.sh env
+        run: yes "n" | ./start.sh env
       - name: install.sh
         run: yes "Y" | ./install.sh -y
       - name: validate symbolic links
