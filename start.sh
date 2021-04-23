@@ -40,7 +40,7 @@ _usage() {
 _main() {
 	## global variables ##
 
-	# global variable indicates force in specific script
+	# global variable indicates force in specific script and runs script with root
 	local force=false
 
 	# global variable indicates show help for user in specific script
