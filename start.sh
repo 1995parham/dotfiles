@@ -116,7 +116,7 @@ run() {
 		message "pre" "darwin with brew (osx?)"
 
 		if declare -f main_brew >/dev/null; then
-				main_brew
+			main_brew
 		else
 			message "pre" "main_brew not found"
 		fi
