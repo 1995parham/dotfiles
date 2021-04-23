@@ -13,27 +13,25 @@ yes_to_all=${yes_to_all:-false}
 
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
-# parameter 2: file names - array of string
+# parameter 2: file name - string
 # parameter 3 [default = true]: is hidden file (starts with dot) - bool
 dotfile() {
 	local module=$1
-	local files=${!2}
+	local file=$2
 	local is_hidden=${3:-true}
 
-	for file in $files; do
-		if $is_hidden; then
-			local dst_file=".$file"
-		else
-			local dst_file="$file"
-		fi
+	if $is_hidden; then
+		local dst_file=".$file"
+	else
+		local dst_file="$file"
+	fi
 
-		local src_file="$file"
+	local src_file="$file"
 
-		local dst_path="$HOME/$dst_file"
-		local src_path="$current_dir/$module/$src_file"
+	local dst_path="$HOME/$dst_file"
+	local src_path="$current_dir/$module/$src_file"
 
-		linker "$module" "$src_path" "$dst_path"
-	done
+	linker "$module" "$src_path" "$dst_path"
 }
 
 # creates a config file that resides in the `.config` directory, and provides a soft link to it.
