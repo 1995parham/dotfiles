@@ -137,7 +137,7 @@
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       (:if IS-LINUX \
+       (:if IS-LINUX
         latex +latexmk)    ; writing papers in Emacs has never been so fun, add +lsp if you want slow lsp
        ;;lean
        ;;factor
