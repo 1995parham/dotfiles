@@ -688,6 +688,7 @@ You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here
             "method": "aes-256-gcm",
             "ota": false,
             "password": "secret",
+            "ivCheck": true,
             "port": 1378
           }
         ]
