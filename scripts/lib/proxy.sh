@@ -27,6 +27,7 @@ proxy_start() {
 
 	echo
 	curl --max-time 5 ipinfo.io/ip || proxy_stop
+	echo
 }
 
 proxy_stop() {
