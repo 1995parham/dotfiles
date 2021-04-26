@@ -87,7 +87,3 @@
 ;; the files listed in the variable org-agenda-files.
 ;; If a directory is part of this list, all files with the extension ‘.org’ in this directory are part of the list.
 (setq org-agenda-files (quote ("~/Documents/Git/parham/daily/")))
-
-;; open eshll with eshell-toggle. eshell is a cross platform shell.
-(map! :n "SPC o t" 'eshell-toggle)
-(setq eshell-toggle-default-directory "~")
