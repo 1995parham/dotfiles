@@ -28,7 +28,7 @@ main_apt() {
 
 main_pacman() {
 	msg "install emacs/ripgre with pacman"
-	sudo pacman -Syu --noconfirm --needed emacs ripgrep
+	sudo pacman -Syu --noconfirm --needed emacs ripgrep aspell aspell-en
 }
 
 main() {
