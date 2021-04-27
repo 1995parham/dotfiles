@@ -87,6 +87,10 @@
 ;; If a directory is part of this list, all files with the extension ‘.org’ in this directory are part of the list.
 (setq org-agenda-files (quote ("~/Documents/Git/parham/daily/")))
 
+;; Use font Vazir for Arabic (Farsi)
+(after! unicode-fonts
+  (push "Vazir" (cadr (assoc "Arabic (Farsi)" unicode-fonts-block-font-mapping))))
+
 ;; https://emacs.stackexchange.com/questions/62987/cannot-set-correct-size-for-variable-pitch-font-in-doom-emacs
 (use-package! mixed-pitch
   :hook (org-mode . mixed-pitch-mode)
