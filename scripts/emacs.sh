@@ -40,8 +40,6 @@ main() {
 
 		if [[ $install == "Y" ]]; then
 			rm -Rf "$HOME/.config/emacs"
-		else
-			return 0
 		fi
 	fi
 
@@ -49,5 +47,7 @@ main() {
 
 	proxy_start
 	"$HOME/.config/emacs/bin/doom" install
+	"$HOME/.config/emacs/bin/doom" sync
+	"$HOME/.config/emacs/bin/doom" upgrade
 	proxy_stop
 }
