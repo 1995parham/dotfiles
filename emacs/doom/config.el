@@ -30,7 +30,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :height 1.0))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :height 1.0)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :height 1.3))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -90,10 +91,3 @@
 ;; Use font Vazir for Arabic (Farsi)
 (after! unicode-fonts
   (push "Vazir" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
-
-;; https://emacs.stackexchange.com/questions/62987/cannot-set-correct-size-for-variable-pitch-font-in-doom-emacs
-(use-package! mixed-pitch
-  :hook (org-mode . mixed-pitch-mode)
-  :config
-  (setq mixed-pitch-set-heigth t)
-  (set-face-attribute 'variable-pitch nil :height 1.3))
