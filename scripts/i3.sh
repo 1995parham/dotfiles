@@ -56,4 +56,10 @@ main_pacman() {
 	configfile gtk-3.0 settings.ini i3
 
 	sudo pacman -Syu --noconfirm --needed perl-anyevent-i3
+
+	msg 'gnome-keyring setup with ~/.profile'
+	sudo pacman -Syu --noconfirm --needed gnome-keyring
+	# shellcheck disable=2016
+	grep -E '\bgnome-keyring-daemon\b' "$HOME/.profile" ||
+		echo 'export "$(gnome-keyring-daemon --start)"' >>"$HOME/.profile"
 }
