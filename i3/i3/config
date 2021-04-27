@@ -300,8 +300,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # picom and nitrogen
 exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
-# Gnome keyring
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start
 # A small program for hiding the mouse cursor
 exec --no-startup-id unclutter -b
 # polybar
