@@ -89,7 +89,7 @@
 
 ;; Use font Vazir for Arabic (Farsi)
 (after! unicode-fonts
-  (push "Vazir" (cadr (assoc "Arabic (Farsi)" unicode-fonts-block-font-mapping))))
+  (push "Vazir" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
 
 ;; https://emacs.stackexchange.com/questions/62987/cannot-set-correct-size-for-variable-pitch-font-in-doom-emacs
 (use-package! mixed-pitch
