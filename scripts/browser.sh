@@ -17,8 +17,12 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed firefox w3m
-	sed -i 's#BROWSER=.*#BROWSER='"$(which firefox)"'#g' ~/.profile
+	sudo pacman -Syu --noconfirm --needed firefox w3m firefox-developer-edition
+	msg 'remove i3 BROWSER variable because it does nothing and also ruins everything'
+	sed -i 's/export BROWSER=.*/# export BROWSER=/g' ~/.profile
+	unset BROWSER
+
+	bash xdg-settings set default-web-browser firefox.desktop
 }
 
 main_apt() {
