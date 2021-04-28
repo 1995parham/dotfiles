@@ -5,7 +5,7 @@ require('nvim-treesitter.configs').setup {
     ignore_install = {},
     highlight = {
         enable = true, -- false will disable the whole extension
-        disable = {"json"} -- list of language that will be disabled
+        disable = {} -- list of language that will be disabled
     },
     incremental_selection = {enable = true},
     indent = {enable = true}
