@@ -19,4 +19,3 @@ vim.g.coc_filetype_map = {
 	['yaml.docker-compose'] = 'yaml',
 }
 
-vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { silent = true })
