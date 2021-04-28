@@ -5,6 +5,7 @@ vim.g.mapleader = ' '
 -- use t for tabs
 -- use b for buffers
 -- use o for open
+-- use g for git
 
 -- tabs
 vim.api.nvim_set_keymap('n', '<Leader>tn', ':tabnext<CR>', {})
@@ -23,3 +24,6 @@ vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { silent = true })
 
 -- files
 vim.api.nvim_set_keymap('n', '<Leader>ff', ':Files<CR>', { silent = true })
+
+-- git
+vim.api.nvim_set_keymap('n', '<Leader>gg', ':Git<CR>', { silent = true })

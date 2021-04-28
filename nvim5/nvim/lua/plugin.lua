@@ -37,10 +37,24 @@ return require('packer').startup(function()
 		}
   }
 
+	-- check syntax in vim asynchronously and fix files, with language server protocol (lsp) support
+	use {
+    'w0rp/ale',
+  }
+
+	-- vim plugin for shfmt
+	use {
+		'z0mbix/vim-shfmt',
+		ft = {'sh'},
+		config = function()
+			vim.g.shfmt_fmt_on_save = 1
+		end,
+	}
+
 	-- vim dashboard
 	use {
 		'glepnir/dashboard-nvim',
-		config = function() require('dashboard') end,
+    config = function() require('dashboard') end,
 	}
 
   -- neovim statusline plugin written in lua 
@@ -58,5 +72,25 @@ return require('packer').startup(function()
     config = function() require('statusline') end,
     requires = {'kyazdani42/nvim-web-devicons'}
   }
+
+	-- vim syntax highlighting for i3 config
+	use { 'mboughaba/i3config.vim', ft = { 'i3config' } }
+
+	-- intellisense engine for vim8 & neovim, full language server protocol support as vscode 
+	use {
+		'neoclide/coc.nvim',
+		branch = 'release',
+		config = function() require('coc') end
+	}
+
+	-- go development plugin for vim
+	use { 'fatih/vim-go' }
+
+	-- a vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+	use {'airblade/vim-gitgutter'}
+	-- a powerful git log viewer
+	use { 'cohama/agit.vim' }
+	-- fugitive.vim: a git wrapper so awesome, it should be illegal
+	use { 'tpope/vim-fugitive' }
 
 end)
