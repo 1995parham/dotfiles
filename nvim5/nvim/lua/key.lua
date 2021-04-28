@@ -11,7 +11,9 @@ vim.g.mapleader = ' '
 
 -- tabs
 vim.api.nvim_set_keymap('n', '<Leader>tn', ':tabnext<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-w>n', ':tabnext<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>tp', ':tabprevious<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-w>p', ':tabnext<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>tc', ':tabnew<CR>', {})
 
 -- buffers

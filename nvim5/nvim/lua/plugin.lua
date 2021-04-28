@@ -2,7 +2,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -11,12 +11,16 @@ end
 
 return require('packer').startup(function()
   -- packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use { 'wbthomason/packer.nvim' }
 
   -- naz neovim theme
   use {
-    '1995parham/naz.vim',
-    config = 'vim.cmd[[colorscheme naz]]'
+		'1995parham/naz.vim',
+		branch = 'main',
+		config = function() require('colorbuddy').colorscheme('naz') end,
+		requires = {
+			'tjdevries/colorbuddy.nvim',
+		}
   }
 
   -- wakatime
