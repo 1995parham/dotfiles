@@ -130,7 +130,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Naz Neovim Theme
-Plug '1995parham/naz.vim'
+Plug '1995parham/naz.vim', { 'tag': 'v1.0.0' }
 
 " git
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
