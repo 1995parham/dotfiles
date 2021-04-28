@@ -55,18 +55,18 @@ done
 
 # vim
 install-vim() {
-	dotfile "vim" "vim"
 	dotfile "vim" "vimrc"
-
-	message "vim" "installing vim plugins"
-	vim +PlugInstall +qall
 }
 
 # nvim
 install-nvim() {
-	configfile "nvim"
-	message "nvim" "installing neovim plugins"
-	nvim --headless +PlugInstall +qall
+	nvim_version="$(nvim -v | head -1 | cut -d' ' -f2)"
+
+	if [[ "$nvim_version" > 'v0.0.5' ]] || [[ "$nvim_version" == 'v0.0.5' ]]; then
+		configfile "nvim" "" "nvim5"
+	else
+		configfile "nvim"
+	fi
 }
 
 # configurations
@@ -74,7 +74,6 @@ install-conf() {
 	dotfile "conf" "dircolors"
 	dotfile "conf" "aria2"
 	configfile "htop" "" "conf"
-
 }
 
 # wakatime
