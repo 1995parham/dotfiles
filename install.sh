@@ -62,7 +62,7 @@ install-vim() {
 install-nvim() {
 	nvim_version="$(nvim -v | head -1 | cut -d' ' -f2)"
 
-	if [[ "$nvim_version" > 'v0.0.5' ]] || [[ "$nvim_version" == 'v0.0.5' ]]; then
+	if [[ "$nvim_version" > 'v0.5.0' ]] || [[ "$nvim_version" == 'v0.5.0' ]]; then
 		configfile "nvim" "" "nvim5"
 	else
 		configfile "nvim"
