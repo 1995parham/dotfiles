@@ -217,7 +217,7 @@ Plug 'vim-scripts/textutil.vim'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
 " Naz Neovim Theme
-Plug '1995parham/naz.vim'
+Plug '1995parham/naz.vim', { 'tag': 'v1.0.0' }
 
 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
