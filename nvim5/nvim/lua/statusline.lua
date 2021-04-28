@@ -103,7 +103,7 @@ gls.left[8] = {
     DiffModified = {
         provider = 'DiffModified',
         condition = checkwidth,
-        icon = ' * ',
+        icon = ' ~ ',
         highlight = {colors.orange, colors.purple}
     }
 }
