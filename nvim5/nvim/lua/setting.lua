@@ -36,3 +36,9 @@ vim.bo.softtabstop = vim.bo.tabstop
 if vim.fn.has('termguicolors') == 1 then
   vim.o.termguicolors = true
 end
+
+-- autoload files that have changed outside of vim
+vim.o.autoread = true
+
+-- highlight tailing whitespace
+vim.o.listchars = 'trail:·'
