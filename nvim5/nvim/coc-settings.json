@@ -1,0 +1,31 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  },
+  "rust.clippy_preference": "on",
+  "yaml.schemas": {
+    "http://json.schemastore.org/drone": "/.drone.yml",
+    "http://json.schemastore.org/gitlab-ci": "/.gitlab-ci.yml",
+    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": "/docker-compose.yml",
+    "https://json.schemastore.org/travis": "/.travis.yml",
+    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json": "swagger.yaml"
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "rust"
+  ]
+}
