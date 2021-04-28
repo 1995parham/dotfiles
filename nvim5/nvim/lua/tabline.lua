@@ -1,3 +1,1 @@
-vim.g.bufferline = {
-	tabpages = true
-}
+vim.g.bufferline = {tabpages = true}
