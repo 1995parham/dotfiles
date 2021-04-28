@@ -15,7 +15,7 @@ rename() {
 	local name=$1   # name of the series
 	local season=$2 # season of the series
 	local index=$3  # base episode index
-	local dry_run=${5:-"true"}
+	local dry_run=${4:-"true"}
 
 	echo "$name $season $dry_run"
 
