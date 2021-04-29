@@ -92,21 +92,20 @@
 (after! unicode-fonts
   (push "Vazir" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
 
-(use-package! ivy-bibtex
-  :after org
-  :init
-  ;; Telling bibtex-completion where your bibliographies can be found:
-  (setq bibtex-completion-bibliography
-        '("~/Sync/research/main.bib"))
-  ;; Specify where PDFs can be found
-  (setq bibtex-completion-library-path '("~/Sync/research"))
+;; Telling bibtex-completion where your bibliographies can be found:
+(setq bibtex-completion-bibliography
+'("~/Sync/research/main.bib"))
 
-  ;; Bibtex-completion supports two methods for storing notes.
-  ;; It can either store all notes in one file or store notes in multiple files, one file per publication.
-  ;; one file per publication is preferred
-  (setq bibtex-completion-notes-path "~/Sync/research/notes")
+;; Specify where PDFs can be found
+(setq bibtex-completion-library-path '("~/Sync/research"))
 
-  ;; "find article": opens up helm bibtex for search.
-  (map! :leader "f a"#'ivy-bibtex)
-  :config
-)
+;; Bibtex-completion supports two methods for storing notes.
+;; It can either store all notes in one file or store notes in multiple files, one file per publication.
+;; one file per publication is preferred
+(setq bibtex-completion-notes-path "~/Sync/research/notes")
+
+;; "find article": opens up helm bibtex for search.
+(map! :leader "f a"#'ivy-bibtex)
+
+;; switch default action to edit the pdf notes
+(setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
