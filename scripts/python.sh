@@ -17,6 +17,7 @@ packages=(
 	pyls-mypy
 	pylint
 	poetry
+	'isort[pipfile_deprecated_finder]'
 
 	pynvim
 )
