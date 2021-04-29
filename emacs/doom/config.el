@@ -94,7 +94,7 @@
 
 ;; Telling bibtex-completion where your bibliographies can be found:
 (setq bibtex-completion-bibliography
-'("~/Sync/research/main.bib"))
+'("~/org/research/main.bib"))
 
 ;; Specify where PDFs can be found
 (setq bibtex-completion-library-path '("~/Sync/research"))
