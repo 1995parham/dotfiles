@@ -33,14 +33,17 @@ return require('packer').startup(function()
 		config = function() require('treesitter') end
 	}
 
-	-- fzf is a general-purpose command-line fuzzy finder. 
+	-- fzf is a general-purpose command-line fuzzy finder.
 	use {
 		'junegunn/fzf.vim',
 		requires = {'junegunn/fzf.vim', run = './install --bin'}
 	}
 
 	-- check syntax in vim asynchronously and fix files, with language server protocol (lsp) support
-	use {'w0rp/ale'}
+	use {
+		'w0rp/ale',
+		setup = function() require('ale') end
+	}
 
 	-- vim plugin for shfmt
 	use {
@@ -52,14 +55,14 @@ return require('packer').startup(function()
 	-- vim dashboard
 	use {'glepnir/dashboard-nvim', config = function() require('dashboard') end}
 
-	-- neovim statusline plugin written in lua 
+	-- neovim statusline plugin written in lua
 	use {
 		'romgrk/barbar.nvim',
 		config = function() require('tabline') end,
 		requires = {'kyazdani42/nvim-web-devicons'}
 	}
 
-	-- neovim statusline plugin written in lua 
+	-- neovim statusline plugin written in lua
 	use {
 		'glepnir/galaxyline.nvim',
 		branch = 'main',
@@ -71,7 +74,7 @@ return require('packer').startup(function()
 	-- vim syntax highlighting for i3 config
 	use {'mboughaba/i3config.vim', ft = {'i3config'}}
 
-	-- intellisense engine for vim8 & neovim, full language server protocol support as vscode 
+	-- intellisense engine for vim8 & neovim, full language server protocol support as vscode
 	use {
 		'neoclide/coc.nvim',
 		branch = 'release',
@@ -89,7 +92,7 @@ return require('packer').startup(function()
 	use {'tpope/vim-fugitive'}
 
 	-- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
-	-- possible keybindings of the command you started typing. 
+	-- possible keybindings of the command you started typing.
 	use {
 		"folke/which-key.nvim",
 		config = function()
