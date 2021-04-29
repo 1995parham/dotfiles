@@ -104,8 +104,5 @@
 ;; one file per publication is preferred
 (setq bibtex-completion-notes-path "~/Sync/research/notes")
 
-;; "find article": opens up helm bibtex for search.
-(map! :leader "f a"#'ivy-bibtex)
-
 ;; switch default action to edit the pdf notes
 (setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
