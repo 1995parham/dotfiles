@@ -104,10 +104,26 @@ _main() {
 		msg() { message "$script" "$@"; }
 		msg "$(usage)"
 
-
 		# handle dependencies by executing the start.sh
 		# multiple times
 		dependencies=${dependencies:-""}
+		_dependencies "$dependencies"
+
+		run "$@"
+	fi
+
+	echo
+	took=$(($(date +'%s') - start))
+	printf "done. it took %d seconds.\n" $took
+}
+
+_dependencies() {
+		dependencies=$1
+
+		if [ -z "$dependencies" ]; then
+			return
+		fi
+
 		msg "dependencies: $dependencies"
 
 		read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
@@ -118,13 +134,6 @@ _main() {
 				"$current_dir/start.sh" "$dependency"
 			done
 		fi
-
-		run "$@"
-	fi
-
-	echo
-	took=$(($(date +'%s') - start))
-	printf "done. it took %d seconds.\n" $took
 }
 
 run() {
