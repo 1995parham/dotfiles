@@ -176,9 +176,6 @@ augroup end
 
 " Commands {{{
 
-" Command Mappings
-command Spellcheck setlocal spell spelllang=en_us
-
 " }}}
 
 " Plugins Configurations {{{
