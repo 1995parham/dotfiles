@@ -46,7 +46,7 @@ return require('packer').startup(function()
     use {
         'z0mbix/vim-shfmt',
         ft = {'sh'},
-        config = function() vim.g.shfmt_fmt_on_save = 1 end
+        setup = function() vim.g.shfmt_fmt_on_save = 1 end
     }
 
     -- vim dashboard
