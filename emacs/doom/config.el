@@ -102,7 +102,7 @@
 ;; Bibtex-completion supports two methods for storing notes.
 ;; It can either store all notes in one file or store notes in multiple files, one file per publication.
 ;; one file per publication is preferred
-(setq bibtex-completion-notes-path "~/Sync/research/notes")
+(setq bibtex-completion-notes-path "~/org/research/")
 
 ;; switch default action to edit the pdf notes
 (setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
