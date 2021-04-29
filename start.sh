@@ -118,22 +118,22 @@ _main() {
 }
 
 _dependencies() {
-		dependencies=$1
+	dependencies=$1
 
-		if [ -z "$dependencies" ]; then
-			return
-		fi
+	if [ -z "$dependencies" ]; then
+		return
+	fi
 
-		msg "dependencies: $dependencies"
+	msg "dependencies: $dependencies"
 
-		read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
-		echo
+	read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
+	echo
 
-		if [[ $accept == "Y" ]]; then
-			for dependency in $dependencies; do
-				"$current_dir/start.sh" "$dependency"
-			done
-		fi
+	if [[ $accept == "Y" ]]; then
+		for dependency in $dependencies; do
+			"$current_dir/start.sh" "$dependency"
+		done
+	fi
 }
 
 run() {
