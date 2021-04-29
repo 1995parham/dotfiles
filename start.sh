@@ -103,6 +103,22 @@ _main() {
 		# run the script
 		msg() { message "$script" "$@"; }
 		msg "$(usage)"
+
+
+		# handle dependencies by executing the start.sh
+		# multiple times
+		dependencies=${dependencies:-""}
+		msg "dependencies: $dependencies"
+
+		read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
+		echo
+
+		if [[ $accept == "Y" ]]; then
+			for dependency in $dependencies; do
+				"$current_dir/start.sh" "$dependency"
+			done
+		fi
+
 		run "$@"
 	fi
 
