@@ -1,43 +1,54 @@
 -- use <Space> as a leader key
 vim.g.mapleader = ' '
 
--- where these mappings are come from,
--- use t for tabs
--- use b for buffers
--- use o for open
--- use g for git
--- use f for files
--- use c for coc
+local wk = require("which-key")
 
 -- tabs
-vim.api.nvim_set_keymap('n', '<Leader>tn', ':tabnext<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-w>n', ':tabnext<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>tp', ':tabprevious<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-w>p', ':tabnext<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>tc', ':tabnew<CR>', {})
+wk.register({
+	t = {
+		name = "+tabs",
+		n = { "<cmd>tabnext<cr>", "next tab" },
+		p = { "<cmd>tabprevious<cr>", "previous tab" },
+		c = { "<cmd>tabnew<cr>", "new tab" },
+	},
 
--- buffers
-vim.api.nvim_set_keymap('n', '<Leader>bn', ':bnext<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>bp', ':bprevious<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>bk', ':bdelete<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>bb', ':BufferPick<CR>', {silent = true})
+	b = {
+		name = "+buffers",
+		n = { "<cmd>bnext<cr>", "next buffer" },
+		p = { "<cmd>bprevious<cr>", "previous buffer" },
+		k = { "<cmd>bdelete<cr>", "delete buffer" },
+		b = { "<cmd>BufferPick<cr>", "buffers" },
+	},
+
+	o = {
+		name = "+open",
+		t = { "<cmd>terminal<cr>", "open terminal" }
+	},
+
+	f = {
+		name = "+files",
+		f = { "<cmd>Files<cr>", "find file" },
+		n = { "<cmd>enew<cr>", "new file" }
+	},
+
+	g = {
+		name = "+git",
+		g = { "<cmd>Git<cr>", "git" },
+	}
+}, { prefix = "<leader>" })
+
+vim.api.nvim_set_keymap('n', '<C-w>n', ':tabnext<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-w>p', ':tabnext<CR>', {})
 
 -- terminal
-vim.api.nvim_set_keymap('n', '<Leader>ot', ':terminal<CR>', {silent = true})
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', {silent = true})
-
--- fzf.vim
-vim.api.nvim_set_keymap('n', '<Leader>ff', ':Files<CR>', {silent = true})
-
--- git
-vim.api.nvim_set_keymap('n', '<Leader>gg', ':Git<CR>', {silent = true})
 
 -- coc.vim
 vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', {silent = true})
 vim.api.nvim_set_keymap('n', 'gv', '<Plug>(coc-type-definition)',
-                        {silent = true})
+	{silent = true})
 vim.api
-    .nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {silent = true})
+.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {silent = true})
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', {silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>cc', ':<C-u>CocList commands<CR>',
-                        {silent = true})
+{silent = true})
