@@ -81,7 +81,7 @@
 
 ;; Update PDF buffers after successful LaTeX runs
 (add-hook 'TeX-after-compilation-finished-functions
-           #'TeX-revert-document-buffer)
+          #'TeX-revert-document-buffer)
 
 ;; The information to be shown is normally collected from all agenda files,
 ;; the files listed in the variable org-agenda-files.
@@ -91,3 +91,22 @@
 ;; Use font Vazir for Arabic (Farsi)
 (after! unicode-fonts
   (push "Vazir" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
+
+(use-package! ivy-bibtex
+  :after org
+  :init
+  ;; Telling bibtex-completion where your bibliographies can be found:
+  (setq bibtex-completion-bibliography
+        '("~/Sync/research/main.bib"))
+  ;; Specify where PDFs can be found
+  (setq bibtex-completion-library-path '("~/Sync/research"))
+
+  ;; Bibtex-completion supports two methods for storing notes.
+  ;; It can either store all notes in one file or store notes in multiple files, one file per publication.
+  ;; one file per publication is preferred
+  (setq bibtex-completion-notes-path "~/Sync/research/notes")
+
+  ;; "find article": opens up helm bibtex for search.
+  (map! :leader "f a"#'ivy-bibtex)
+  :config
+)
