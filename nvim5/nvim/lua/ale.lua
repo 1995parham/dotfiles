@@ -9,7 +9,7 @@ vim.g.ale_linters = {
 
 vim.g.ale_fixers = {
 	['*'] = {'remove_trailing_lines', 'trim_whitespace'},
-	python = {'black'},
+	python = {'black', 'isort'},
 	rust = {'rustfmt'},
 }
 
