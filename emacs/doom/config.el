@@ -86,7 +86,34 @@
 ;; The information to be shown is normally collected from all agenda files,
 ;; the files listed in the variable org-agenda-files.
 ;; If a directory is part of this list, all files with the extension ‘.org’ in this directory are part of the list.
-(setq org-agenda-files (quote ("~/Documents/Git/parham/daily/")))
+(setq org-agenda-files (quote ("~/tasks")))
+
+;; Better planing for future
+(after! org
+  (setq org-todo-keywords
+        '(
+          (sequence "TODO(t)" "PROG(p)" "DONE(d)")
+          (sequence "TOREAD(t)" "READ(d)")
+          (sequence "GOAL(t)" "ACCOMPL(d)")
+          (type "BOOK" "PROJ")
+          ))
+  (setq org-agenda-start-day ".")
+  (setq org-agenda-span 'week)
+  (setq org-agenda-todo-ignore-scheduled 'future)
+  (setq org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
+  (setq org-agenda-custom-commands
+        '(
+          ("n" "Life of Pi"
+           ((agenda "" ((org-agenda-span 'day)))
+            (todo "TODO")
+            (todo "PROG")
+            (todo "GOAL")
+            (todo "TOREAD" ((org-agenda-entry-types '(:scheduled))) ))
+           nil)
+          ("b" "Books" ((todo "BOOK")) nil)
+          )
+        )
+  )
 
 ;; Use font Vazir for Arabic (Farsi)
 (after! unicode-fonts
@@ -94,7 +121,7 @@
 
 ;; Telling bibtex-completion where your bibliographies can be found:
 (setq bibtex-completion-bibliography
-'("~/org/research/main.bib"))
+      '("~/org/research/main.bib"))
 
 ;; Specify where PDFs can be found
 (setq bibtex-completion-library-path '("~/Sync/research"))
