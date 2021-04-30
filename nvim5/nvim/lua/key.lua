@@ -10,6 +10,8 @@ wk.register({
 		n = { "<cmd>tabnext<cr>", "next tab" },
 		p = { "<cmd>tabprevious<cr>", "previous tab" },
 		c = { "<cmd>tabnew<cr>", "new tab" },
+		s = { "<cmd>split<cr>", "horizental split" },
+		v = { "<cmd>vsplit<cr>", "vertical split" },
 		q = { "<cmd>tabclose<cr>", "close tab" },
 	},
 
