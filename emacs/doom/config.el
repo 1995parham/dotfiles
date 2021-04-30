@@ -88,12 +88,15 @@
 ;; If a directory is part of this list, all files with the extension ‘.org’ in this directory are part of the list.
 (setq org-agenda-files (quote ("~/tasks")))
 
-;; Better planing for future
+;; Better planing for future with org-mode
 (after! org
   (setq org-todo-keywords
         '(
+          ;; Tasks
           (sequence "TODO(t)" "PROG(p)" "DONE(d)")
+          ;; Books
           (sequence "TOREAD(t)" "READ(d)")
+          ;; Goals
           (sequence "GOAL(t)" "ACCOMPL(d)")
           (type "BOOK" "PROJ")
           ))
@@ -101,6 +104,7 @@
   (setq org-agenda-span 'week)
   (setq org-agenda-todo-ignore-scheduled 'future)
   (setq org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
+  ;; Personal agenda views
   (setq org-agenda-custom-commands
         '(
           ("n" "Life of Pi"
@@ -108,8 +112,8 @@
             (todo "TODO")
             (todo "PROG")
             (todo "GOAL")
-            (todo "TOREAD" ((org-agenda-entry-types '(:scheduled))) ))
-           nil)
+            (todo "BOOK" ((org-agenda-entry-types '(:scheduled))) ))
+           ((org-agenda-prefix-format " %i %-12:c %b ")) )
           ("b" "Books" ((todo "BOOK")) nil)
           )
         )
