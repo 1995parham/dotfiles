@@ -5,11 +5,12 @@ local wk = require("which-key")
 
 -- tabs
 wk.register({
-	t = {
-		name = "+tabs",
+	w = {
+		name = "+windows",
 		n = { "<cmd>tabnext<cr>", "next tab" },
 		p = { "<cmd>tabprevious<cr>", "previous tab" },
 		c = { "<cmd>tabnew<cr>", "new tab" },
+		q = { "<cmd>tabclose<cr>", "close tab" },
 	},
 
 	b = {
