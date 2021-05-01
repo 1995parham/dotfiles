@@ -135,11 +135,18 @@ gls.left[11] = {
 	}
 }
 
-gls.left[13] = {
+gls.left[12] = {
 	DiagnosticWarn = {
 		provider = 'DiagnosticWarn',
 		icon = '  ',
 		highlight = {colors.blue, colors.bg}
+	}
+}
+
+gls.left[13] = {
+	CoC = {
+		provider = function() return vim.fn['coc#status']() end,
+		highlight = {colors.orange, colors.bg}
 	}
 }
 
