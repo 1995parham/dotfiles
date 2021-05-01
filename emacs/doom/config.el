@@ -90,6 +90,20 @@
 
 ;; Better planing for future with org-mode
 (after! org
+  (setq org-agenda-format-date 'org-agenda-format-date-persian)
+
+  (defun org-agenda-format-date-persian (date)
+    "format a date string for display in the daily/weekly agenda, or timeline.
+        this function makes sure that dates are aligned for easy reading."
+    (require 'cal-iso)
+    (let* ((dayname (calendar-day-name date 1 nil))
+           (day (cadr date))
+           (persian-date (substring (calendar-persian-date-string date) 0 -6))
+           (month (car date))
+           (monthname (calendar-month-name month 1))
+           (year (nth 2 date))
+      (format " %-2s. %s %2d, %s"
+              dayname monthname day persian-date)))
   (setq org-todo-keywords
         '(
           ;; Tasks
@@ -104,16 +118,49 @@
   (setq org-agenda-span 'week)
   (setq org-agenda-todo-ignore-scheduled 'future)
   (setq org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
+  (setq org-agenda-block-separator nil)
   ;; Personal agenda views
   (setq org-agenda-custom-commands
         '(
           ("n" "Life of Pi"
-           ((agenda "" ((org-agenda-span 'day)))
-            (todo "TODO")
-            (todo "PROG")
-            (todo "GOAL")
-            (todo "BOOK" ((org-agenda-entry-types '(:scheduled))) ))
-           ((org-agenda-prefix-format " %i %-12:c %b ")) )
+           ((agenda "" (
+                        (org-agenda-span 'day)
+                        (org-agenda-overriding-header "Calendar")
+                        (org-agenda-prefix-format "   %i %?-2 t%s %b")
+                        (org-agenda-skip-scheduled-if-done nil)
+                        (org-agenda-time-leading-zero nil)
+                        (org-agenda-timegrid-use-ampm nil)
+                        (org-agenda-skip-timestamp-if-done t)
+                        (org-agenda-skip-deadline-if-done t)
+                        (org-agenda-start-day "+0d")
+                        (org-agenda-span 2)
+                        (org-agenda-repeating-timestamp-show-all nil)
+                        (org-agenda-remove-tags t)
+                        (org-agenda-todo-keyword-format "")
+                        (org-agenda-time)
+                        (org-agenda-current-time-string "ᐊ┈┈┈┈┈┈┈ Now")
+                        )
+                    )
+            (todo "TODO" (
+                          (org-agenda-overriding-header "\nTo Do")
+                          (org-agenda-todo-keyword-format "")
+                          (org-agenda-prefix-format " %i %-12:c %b ")
+                          )
+                  )
+            (todo "GOAL" (
+                          (org-agenda-overriding-header "\nGoals")
+                          (org-agenda-todo-keyword-format "")
+                          (org-agenda-prefix-format " %i %-12:c %b ")
+                          )
+                  )
+            (todo "BOOK" (
+                          (org-agenda-overriding-header "\nBooks")
+                          (org-agenda-todo-keyword-format "")
+                          (org-agenda-entry-types '(:scheduled))
+                          )
+                  )
+            )
+           () )
           ("b" "Books" ((todo "BOOK")) nil)
           )
         )
