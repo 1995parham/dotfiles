@@ -25,7 +25,8 @@ wk.register({
 
 	o = {
 		name = "+open",
-		t = { "<cmd>terminal<cr>", "open terminal" }
+		t = { "<cmd>terminal<cr>", "open terminal" },
+		p = { "<cmd>NvimTreeToggle<cr>", "project sidebar" }
 	},
 
 	f = {
@@ -39,18 +40,18 @@ wk.register({
 		g = { "<cmd>Git<cr>", "git" },
 	},
 
-        c = {
-                name = "+code",
-                r = { '<plug>(coc-rename)', "rename" },
-                c = { '<cmd>CocList commands<cr>', "coc commands" },
-                f = { '<plug>(coc-format)', "format"},
-                g = {
-                        name = "+goto",
-                        d = { '<plug>(coc-definition)', "definition" },
-                        i = { '<plug>(coc-implementation)', "implementation" },
-                        r = { '<plug>(coc-references)', "references" },
-                }
-        }
+	c = {
+		name = "+code",
+		r = { '<plug>(coc-rename)', "rename" },
+		c = { '<cmd>CocList commands<cr>', "coc commands" },
+		f = { '<plug>(coc-format)', "format"},
+		g = {
+			name = "+goto",
+			d = { '<plug>(coc-definition)', "definition" },
+			i = { '<plug>(coc-implementation)', "implementation" },
+			r = { '<plug>(coc-references)', "references" },
+		}
+	}
 }, { prefix = "<leader>" })
 
 vim.api.nvim_set_keymap('n', '<C-w>n', ':tabnext<CR>', {})
