@@ -68,7 +68,8 @@ return require('packer').startup(function()
 		branch = 'main',
 		-- use statusline.lua to setup statusline
 		config = function() require('statusline') end,
-		requires = {'kyazdani42/nvim-web-devicons'}
+		requires = {'kyazdani42/nvim-web-devicons'},
+		after = 'nvim-treesitter/nvim-treesitter'
 	}
 
 	-- vim syntax highlighting for i3 config
