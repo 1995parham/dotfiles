@@ -17,7 +17,9 @@ main_brew() {
 }
 
 main_apt() {
-	bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
+	if [ ! -f /usr/local/bin/navi ]; then
+		BIN_DIR=/usr/local/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
+	fi
 }
 
 main_pacman() {
