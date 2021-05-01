@@ -101,6 +101,12 @@ return require('packer').startup(function()
 		after = { 'coc.nvim', 'nvim-treesitter' },
 	}
 
+	use {
+		'kyazdani42/nvim-tree.lua',
+		config = function() require('tree') end,
+		requires = {'kyazdani42/nvim-web-devicons'},
+	}
+
 	-- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
 	-- possible keybindings of the command you started typing.
 	use {
