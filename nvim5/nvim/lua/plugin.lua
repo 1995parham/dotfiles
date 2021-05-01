@@ -69,7 +69,7 @@ return require('packer').startup(function()
 		-- use statusline.lua to setup statusline
 		config = function() require('statusline') end,
 		requires = {'kyazdani42/nvim-web-devicons'},
-		after = 'nvim-treesitter/nvim-treesitter'
+		after = { 'nvim-treesitter/nvim-treesitter', 'neoclide/coc.nvim' }
 	}
 
 	-- vim syntax highlighting for i3 config
@@ -91,6 +91,9 @@ return require('packer').startup(function()
 	use {'cohama/agit.vim'}
 	-- fugitive.vim: a git wrapper so awesome, it should be illegal
 	use {'tpope/vim-fugitive'}
+
+	-- vim plugin for .tmux.conf.
+	use {'tmux-plugins/vim-tmux'}
 
 	-- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
 	-- possible keybindings of the command you started typing.

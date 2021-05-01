@@ -1,4 +1,4 @@
--- use <Space> as a leader key
+-- use <space> as a leader key
 vim.g.mapleader = ' '
 
 local wk = require("which-key")
@@ -37,7 +37,20 @@ wk.register({
 	g = {
 		name = "+git",
 		g = { "<cmd>Git<cr>", "git" },
-	}
+	},
+
+        c = {
+                name = "+code",
+                r = { '<plug>(coc-rename)', "rename" },
+                c = { '<cmd>CocList commands<cr>', "coc commands" },
+                f = { '<plug>(coc-format)', "format"},
+                g = {
+                        name = "+goto",
+                        d = { '<plug>(coc-definition)', "definition" },
+                        i = { '<plug>(coc-implementation)', "implementation" },
+                        r = { '<plug>(coc-references)', "references" },
+                }
+        }
 }, { prefix = "<leader>" })
 
 vim.api.nvim_set_keymap('n', '<C-w>n', ':tabnext<CR>', {})
@@ -53,5 +66,3 @@ vim.api.nvim_set_keymap('n', 'gv', '<Plug>(coc-type-definition)',
 vim.api
 .nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {silent = true})
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', {silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>cc', ':<C-u>CocList commands<CR>',
-{silent = true})
