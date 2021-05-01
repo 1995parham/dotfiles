@@ -7,3 +7,7 @@ vim.g.coc_global_extensions = {
 
 vim.g.coc_filetype_map = {['yaml.docker-compose'] = 'yaml'}
 
+-- Highlight the symbol and its references when holding the cursor.
+vim.api.nvim_exec([[
+autocmd CursorHold * silent call CocActionAsync('highlight')
+]], false)
