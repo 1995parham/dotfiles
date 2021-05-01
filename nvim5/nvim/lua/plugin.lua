@@ -25,7 +25,13 @@ return require('packer').startup(function()
 	}
 
 	-- wakatime
-	use 'wakatime/vim-wakatime'
+	use {'wakatime/vim-wakatime'}
+
+	-- markdown vim mode
+	use {
+		'plasticboy/vim-markdown',
+		requires = {'godlygeek/tabular'}
+	}
 
 	-- nvim Treesitter configurations and abstraction layer
 	use {
@@ -62,16 +68,6 @@ return require('packer').startup(function()
 		requires = {'kyazdani42/nvim-web-devicons'}
 	}
 
-	-- neovim statusline plugin written in lua
-	use {
-		'glepnir/galaxyline.nvim',
-		branch = 'main',
-		-- use statusline.lua to setup statusline
-		config = function() require('statusline') end,
-		requires = {'kyazdani42/nvim-web-devicons'},
-		after = { 'nvim-treesitter/nvim-treesitter', 'neoclide/coc.nvim' }
-	}
-
 	-- vim syntax highlighting for i3 config
 	use {'mboughaba/i3config.vim', ft = {'i3config'}}
 
@@ -94,6 +90,16 @@ return require('packer').startup(function()
 
 	-- vim plugin for .tmux.conf.
 	use {'tmux-plugins/vim-tmux'}
+
+	-- neovim statusline plugin written in lua
+	use {
+		'glepnir/galaxyline.nvim',
+		branch = 'main',
+		-- use statusline.lua to setup statusline
+		config = function() require('statusline') end,
+		requires = {'kyazdani42/nvim-web-devicons'},
+		after = { 'coc.nvim', 'nvim-treesitter' },
+	}
 
 	-- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
 	-- possible keybindings of the command you started typing.
