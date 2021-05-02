@@ -18,7 +18,7 @@ main_brew() {
 
 main_apt() {
 	if [ ! -f /usr/local/bin/navi ]; then
-		BIN_DIR=/usr/local/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
+		sudo BIN_DIR=/usr/local/bin bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
 	fi
 }
 
