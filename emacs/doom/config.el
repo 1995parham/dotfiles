@@ -101,9 +101,11 @@
            (persian-date (substring (calendar-persian-date-string date) 0 -6))
            (month (car date))
            (monthname (calendar-month-name month 1))
-           (year (nth 2 date))
-      (format " %-2s. %s %2d, %s"
-              dayname monthname day persian-date)))
+           (year (nth 2 date)))
+           (format " %-2s. %s %2d %2d, %s"
+              dayname monthname day year persian-date)
+      )
+    )
   (setq org-todo-keywords
         '(
           ;; Tasks
