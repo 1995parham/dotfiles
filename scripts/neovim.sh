@@ -12,7 +12,7 @@
 dependencies="node"
 
 usage() {
-	echo -n 'install edge version of neovim'
+	echo -n 'install edge version of neovim and general checkers/linters'
 }
 
 main_apt() {
@@ -26,6 +26,9 @@ main_pacman() {
 
 	msg "install edge neovim"
 	yay -Syu --noconfirm --needed neovim-nightly-bin
+
+	msg "shfmt and shellcheck for scripts"
+	sudo pacman -Syu --noconfirm --needed shfmt shellcheck
 }
 
 main_brew() {
