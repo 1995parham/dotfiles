@@ -9,7 +9,7 @@ vim.o.backspace = 'eol,start,indent'
 vim.o.autoindent = true
 vim.o.smartindent = true
 -- when on, lines longer than the width of the window will wrap and
--- displaying continues on the next line. 
+-- displaying continues on the next line.
 vim.wo.wrap = true
 -- when on, a <Tab> in front of a line inserts blanks according to
 -- 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places.  A
@@ -25,7 +25,7 @@ vim.o.expandtab = true
 -- buffer.
 vim.o.fileformats = 'unix,dos'
 
--- number of spaces that a <Tab> in the file counts for. 
+-- number of spaces that a <Tab> in the file counts for.
 vim.bo.tabstop = 2
 -- number of spaces to use for each step of (auto)indent.
 vim.bo.shiftwidth = vim.bo.tabstop
