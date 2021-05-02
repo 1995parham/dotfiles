@@ -26,12 +26,15 @@ vim.o.expandtab = true
 vim.o.fileformats = 'unix,dos'
 
 -- number of spaces that a <Tab> in the file counts for.
-vim.bo.tabstop = 2
+vim.o.tabstop = 2
+vim.bo.tabstop = vim.o.tabstop
 -- number of spaces to use for each step of (auto)indent.
 vim.bo.shiftwidth = vim.bo.tabstop
+vim.o.shiftwidth = vim.bo.tabstop
 -- number of spaces that a <Tab> counts for while performing editing
 -- operations, like inserting a <Tab> or using <BS>.
 vim.bo.softtabstop = vim.bo.tabstop
+vim.o.softtabstop = vim.bo.tabstop
 
 if vim.fn.has('termguicolors') == 1 then vim.o.termguicolors = true end
 
