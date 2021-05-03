@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = couple-birthday couple-relationship owghat
-modules-right = date snapp
+modules-right = date snapp irancell
 
 tray-position = right
 tray-padding = 2
@@ -418,6 +418,14 @@ exec-if = nmcli -f GENERAL.STATE connection show Snapp | grep activated
 interval = 5
 format = <label>
 format-foreground = #03d873
+
+[module/irancell]
+type = custom/script
+exec = echo "Irancell"
+exec-if = nmcli -f GENERAL.STATE connection show Irancell | grep activated
+interval = 5
+format = <label>
+format-foreground = #ffff00
 
 [settings]
 screenchange-reload = true
