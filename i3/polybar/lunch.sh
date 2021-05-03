@@ -9,12 +9,21 @@
 # =======================================
 
 # terminate already running bar instances
-killall -q polybar
+# killall -q polybar
+# if all your bars have ipc enabled, you can also use
+polybar-msg cmd quit
+
+# launch bars
+bars=('top' 'bottom')
+
+for bar in ${bars[*]}; do
+	echo "---" | tee -a "/tmp/$bar.log"
+
+	polybar "$bar" 2>&1 | tee -a "/tmp/$bar.log" &
+	disown
+done
 
 # wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# launch top and bottom bars in quiet mode
-polybar -q top &
-polybar -q bottom &
-echo "Bars launched..."
+echo "bars launched..."
