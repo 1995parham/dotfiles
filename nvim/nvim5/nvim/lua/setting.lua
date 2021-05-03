@@ -18,6 +18,7 @@ vim.wo.wrap = true
 vim.o.smarttab = true
 -- print the line number in front of each line.
 vim.wo.number = true
+vim.o.number = true
 -- in insert mode: use the appropriate number of spaces to insert a <Tab>.
 vim.o.expandtab = true
 -- gives the end-of-line (<EOL>) formats that will be tried when
