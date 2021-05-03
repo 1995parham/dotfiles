@@ -7,6 +7,7 @@
 #
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
+# https://github.com/polybar/polybar/wiki#launching-the-bar-in-your-wms-bootstrap-routine
 
 # terminate already running bar instances
 # killall -q polybar
