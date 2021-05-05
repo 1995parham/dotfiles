@@ -44,3 +44,6 @@ vim.o.autoread = true
 
 -- highlight tailing whitespace
 vim.o.listchars = 'trail:·'
+
+-- markers are used to specify folds by default
+vim.wo.foldmethod = 'marker'
