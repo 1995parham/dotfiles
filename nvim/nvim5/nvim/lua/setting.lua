@@ -47,3 +47,7 @@ vim.o.listchars = 'trail:·'
 
 -- markers are used to specify folds by default
 vim.wo.foldmethod = 'marker'
+
+-- quickfix-window commands respect the switchbuf option when creating the buffer.
+-- http://vimdoc.sourceforge.net/htmldoc/options.html#%27switchbuf%27
+vim.o.switchbuf = vim.o.switchbuf .. 'usetab,newtab'
