@@ -16,6 +16,9 @@ return require('packer').startup(function()
 	-- packer can manage itself
 	use {'wbthomason/packer.nvim'}
 
+	-- an alternative sudo.vim for vim and neovim
+	use {'lambdalisue/suda.vim'}
+
 	-- naz neovim theme
 	use {
 		'1995parham/naz.vim',
@@ -30,6 +33,10 @@ return require('packer').startup(function()
 	-- markdown vim mode
 	use {
 		'plasticboy/vim-markdown',
+		config = function()
+			vim.g.vim_markdown_folding_disabled = 1
+			vim.g.vim_markdown_math = 1
+		end,
 		requires = {'godlygeek/tabular'}
 	}
 
