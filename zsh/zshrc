@@ -1,7 +1,7 @@
 # source bash profile {{{
 
-emulate sh -c 'source /etc/profile'
-emulate sh -c 'source $HOME/.profile'
+test -f /etc/profile && emulate sh -c 'source /etc/profile'
+test -f "$HOME/.profile" && emulate sh -c 'source $HOME/.profile'
 
 # }}}
 
