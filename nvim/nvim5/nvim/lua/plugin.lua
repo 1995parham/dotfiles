@@ -19,6 +19,9 @@ return require('packer').startup(function()
 	-- an alternative sudo.vim for vim and neovim
 	use {'lambdalisue/suda.vim'}
 
+	-- vim-kubernetes
+	use {'andrewstuart/vim-kubernetes'}
+
 	-- naz neovim theme
 	use {
 		'1995parham/naz.vim',
