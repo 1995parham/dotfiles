@@ -53,7 +53,7 @@ main() {
 
 	if [[ "${USER,,}" =~ "parham" ]]; then
 		msg "hello master parham"
-		[ ! -d "$HOME/org" ] && git clone git@github.com:parham-alvani/notes
-		[ ! -d "$HOME/task" ] && git clone git@github.com:parham-alvani/tasks
+		[ ! -d "$HOME/org" ] && git clone git@github.com:parham-alvani/notes "$HOME/org"
+		[ ! -d "$HOME/tasks" ] && git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
 	fi
 }
