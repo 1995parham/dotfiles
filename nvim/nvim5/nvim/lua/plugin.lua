@@ -61,7 +61,7 @@ return require('packer').startup(function()
 	-- vim plugin for shfmt
 	use {
 		'z0mbix/vim-shfmt',
-		ft = {'sh'},
+		ft = {'sh', 'zsh', 'bash'},
 		setup = function() vim.g.shfmt_fmt_on_save = 1 end
 	}
 
