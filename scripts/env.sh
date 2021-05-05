@@ -11,7 +11,7 @@ usage() {
 	echo -n "installs required packages"
 }
 
-packages=(zsh tmux htop aria2 curl bat neovim vim jq yamllint)
+packages=(zsh tmux htop aria2 curl bat neovim vim jq yamllint fzf)
 
 brew_packages=(coreutils k6 inetutils inxi)
 apt_packages=(python3-pynvim bmon atop)
