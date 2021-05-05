@@ -5,7 +5,7 @@ vim.g.nvim_tree_auto_open = 1
 vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_auto_ignore_ft = { 'dashboard' }
 vim.g.nvim_tree_gitignore = 1
-vim.g.nvim_tree_tab_open = 1
+vim.g.nvim_tree_tab_open = 0
 
 vim.g.nvim_tree_bindings = {
 	["<CR>"]           = tree_cb("edit"),
