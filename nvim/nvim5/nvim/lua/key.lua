@@ -20,7 +20,7 @@ wk.register({
 		n = { "<cmd>bnext<cr>", "next buffer" },
 		p = { "<cmd>bprevious<cr>", "previous buffer" },
 		k = { "<cmd>bdelete<cr>", "delete buffer" },
-		b = { "<cmd>Telescope buffer<cr>", "buffers" },
+		b = { "<cmd>Telescope buffers<cr>", "buffers" },
 	},
 
   p = {
