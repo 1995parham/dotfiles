@@ -18,7 +18,7 @@ main_apt() {
 }
 
 main_pacman() {
-	yay -Syu --noconfirm --needed aur/ledger-live-bin
+	yay -Syu --noconfirm --needed ledger-udev aur/ledger-live-bin
 }
 
 main_brew() {
