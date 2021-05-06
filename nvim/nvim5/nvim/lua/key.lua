@@ -20,8 +20,13 @@ wk.register({
 		n = { "<cmd>bnext<cr>", "next buffer" },
 		p = { "<cmd>bprevious<cr>", "previous buffer" },
 		k = { "<cmd>bdelete<cr>", "delete buffer" },
-		b = { "<cmd>BufferPick<cr>", "buffers" },
+		b = { "<cmd>Telescope buffer<cr>", "buffers" },
 	},
+
+  p = {
+    name = "+project",
+    p = { "<cmd>lua require('telescope').extensions.project.project{ isplay_type = 'full' }<cr>", "project" }
+  },
 
 	o = {
 		name = "+open",
@@ -31,7 +36,8 @@ wk.register({
 
 	f = {
 		name = "+files",
-		f = { "<cmd>Files<cr>", "find file" },
+		f = { "<cmd>Telescope find_files<cr>", "find file" },
+		g = { "<cmd>Telescope live_grep<cr>", "grep" },
 		n = { "<cmd>enew<cr>", "new file" }
 	},
 
