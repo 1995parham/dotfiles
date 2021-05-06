@@ -23,15 +23,24 @@ main_apt() {
 main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
+	msg 'i3 with polybar'
 	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot polybar
 
 	configfile i3 "" i3
 	configfile polybar "" i3
 
+	msg 'jalali calender'
+	yay -Syu --noconfirm --needed jcal-git
+
+	msg 'picom'
 	sudo pacman -Syu --noconfirm --needed picom
 	sudo pacman -Syu --noconfirm --needed unclutter
 	configrootfile picom picom.conf i3
+
+	msg 'backgrounds with nitrogen'
 	sudo pacman -Syu --noconfirm --needed nitrogen
+
+	msg 'notification with dunst'
 	sudo pacman -Syu --noconfirm --needed dunst
 	# use manjaro-i3 appearance-menu for changing the gtk theme
 	# sudo pacman -Syu --noconfirm --needed lxappearance
