@@ -49,11 +49,18 @@ return require('packer').startup(function()
 		config = function() require('treesitter') end
 	}
 
-	-- fzf is a general-purpose command-line fuzzy finder.
+	-- find, filter, preview, pick. all lua, all the time.
 	use {
-		'junegunn/fzf.vim',
-		requires = {'junegunn/fzf.vim', run = './install --bin'}
+		'nvim-telescope/telescope.nvim',
+    config = function() require('tele') end,
+		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 	}
+
+  use {
+    'nvim-telescope/telescope-project.nvim',
+    config = function() require'telescope'.load_extension'project' end,
+    after = { 'telescope.nvim' }
+  }
 
 	-- check syntax in vim asynchronously and fix files, with language server protocol (lsp) support
 	use {
