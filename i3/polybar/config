@@ -430,6 +430,7 @@ format-foreground = #ffff00
 [module/jdate]
 type = custom/script
 exec = jdate +'%d %B %Y'
+exec-if = which jdate
 format-underline = #0a6cf5
 
 [settings]
