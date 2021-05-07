@@ -20,12 +20,13 @@ wk.register({
 		n = { "<cmd>bnext<cr>", "next buffer" },
 		p = { "<cmd>bprevious<cr>", "previous buffer" },
 		k = { "<cmd>bdelete<cr>", "delete buffer" },
-		b = { "<cmd>Telescope buffers<cr>", "buffers" },
+		b = { "<cmd>BufferPick<cr>", "buffers" },
 	},
 
   p = {
     name = "+project",
-    p = { "<cmd>lua require('telescope').extensions.project.project{ isplay_type = 'full' }<cr>", "project" }
+    p = { "<cmd>lua require('telescope').extensions.project.project{ isplay_type = 'full' }<cr>", "project" },
+		f = { "<cmd>Telescope find_files<cr>", "find file" },
   },
 
 	o = {
@@ -36,7 +37,7 @@ wk.register({
 
 	f = {
 		name = "+files",
-		f = { "<cmd>Telescope find_files<cr>", "find file" },
+		f = { "<cmd>lua require'telescope.builtin'.file_browser{}<cr>", "browser" },
 		g = { "<cmd>Telescope live_grep<cr>", "grep" },
 		n = { "<cmd>enew<cr>", "new file" }
 	},
@@ -51,6 +52,8 @@ wk.register({
 		r = { '<plug>(coc-rename)', "rename" },
 		c = { '<cmd>CocList commands<cr>', "coc commands" },
 		f = { '<plug>(coc-format)', "format"},
+		s = { "<cmd>lua require'telescope.builtin'.treesitter{}<cr>", "symbols" },
+    p = { "<cmd>lua require'telescope.builtin'.planets{}<cr>", "planets" },
 		g = {
 			name = "+goto",
 			d = { '<plug>(coc-definition)', "definition" },
