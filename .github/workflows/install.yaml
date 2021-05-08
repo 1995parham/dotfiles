@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: start.sh env
-        run: yes "Y" | ./start.sh env
+        run: ./start.sh -y env
       - name: install.sh
         run: ./install.sh -y
       - name: validate symbolic links
@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: start.sh env
-        run: yes "Y" | ./start.sh env
+        run: ./start.sh -y env
       - name: validate installation of requirements on both shell
         run: |
           bash -c hash nvim batcat bmon
