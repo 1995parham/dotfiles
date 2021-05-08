@@ -47,7 +47,7 @@ _main() {
 	# there is no need to use it in your script
 	local show_help=false
 
-	# ask no questions, my answer is YES
+	# ask no questions, use sane defaults
 	local yes_to_all=false
 
 	# as_dependency shows that this start.sh is going to install a dependency
@@ -185,7 +185,7 @@ install() {
 
 		if declare -f main_brew >/dev/null; then
 			if [ $yes_to_all = true ]; then
-				install_with_brew="Y"
+				install_with_brew="n"
 			else
 				read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install_with_brew
 				echo
