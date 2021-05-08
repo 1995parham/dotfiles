@@ -29,5 +29,5 @@ main_brew() {
 }
 
 main_apt() {
-	return 1
+	sudo apt install shellcheck
 }
