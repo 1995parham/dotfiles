@@ -15,7 +15,7 @@ jobs:
       - name: start.sh env
         run: yes "Y" | ./start.sh env
       - name: install.sh
-        run: yes "Y" | ./install.sh -y
+        run: ./install.sh -y
       - name: validate symbolic links
         run: |
           test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
