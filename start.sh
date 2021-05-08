@@ -30,10 +30,11 @@ _end() {
 }
 
 _usage() {
-	echo "usage: $program_name [-p] [-h] [-f] script [script options]"
-	echo "  -h   display help"
+	echo "usage: $program_name [-y] [-h] [-f] script [script options]"
 	echo "  -f   force"
-	echo "  -d   as dependency"
+	echo "  -h   display help"
+	echo "  -d   as dependency (internal usage)"
+	echo "  -y   yes to all"
 }
 
 _main() {
@@ -46,11 +47,14 @@ _main() {
 	# there is no need to use it in your script
 	local show_help=false
 
+	# ask no questions, my answer is YES
+	local yes_to_all=false
+
 	# as_dependency shows that this start.sh is going to install a dependency
 	local as_dependency=false
 
 	# parses options flags
-	while getopts 'dhf' argv; do
+	while getopts 'fdhy' argv; do
 		case $argv in
 		h)
 			show_help=true
@@ -60,6 +64,9 @@ _main() {
 			;;
 		d)
 			as_dependency=true
+			;;
+		y)
+			yes_to_all=true
 			;;
 		*)
 			_usage
@@ -82,7 +89,6 @@ _main() {
 		if [ $force = false ]; then
 			exit 1
 		fi
-		message "pre" "I hope you know what you are doing by using -f."
 	fi
 
 	# handles given script run and result
@@ -136,12 +142,16 @@ _dependencies() {
 
 	msg "dependencies: $dependencies"
 
-	read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
-	echo
+	if [ $yes_to_all = true ]; then
+		accept="Y"
+	else
+		read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
+		echo
+	fi
 
 	if [[ $accept == "Y" ]]; then
 		for dependency in $dependencies; do
-			"$current_dir/start.sh" -d "$dependency"
+			"$current_dir/start.sh" -d "$(test $yes_to_all = true && echo '-y')" "$dependency"
 		done
 	fi
 }
@@ -174,8 +184,12 @@ install() {
 		message "pre" "linux with brew (ubuntu?)"
 
 		if declare -f main_brew >/dev/null; then
-			read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install_with_brew
-			echo
+			if [ $yes_to_all = true ]; then
+				install_with_brew="Y"
+			else
+				read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install_with_brew
+				echo
+			fi
 
 			if [[ $install_with_brew == "Y" ]]; then
 				# brew installation on linux is optional
