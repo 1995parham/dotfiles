@@ -9,15 +9,23 @@
 # =======================================
 
 # shellcheck disable=2034
-dependencies="node"
+dependencies="node shell"
 
 usage() {
 	echo -n 'install edge version of neovim and general checkers/linters'
+	# shellcheck disable=1004
+	echo '
+                       _
+ _ __   ___  _____   _(_)_ __ ___
+| |_ \ / _ \/ _ \ \ / / | |_ ` _ \
+| | | |  __/ (_) \ V /| | | | | | |
+|_| |_|\___|\___/ \_/ |_|_| |_| |_|
+
+  '
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
-	return 1
+	sudo apt install neovim python3-pynvim
 }
 
 main_pacman() {
@@ -25,13 +33,11 @@ main_pacman() {
 	sudo pacman -Rsu neovim || true
 
 	msg "install edge neovim"
-	yay -Syu --noconfirm --needed neovim-nightly-bin
-
-	msg "shfmt and shellcheck for scripts"
-	sudo pacman -Syu --noconfirm --needed shfmt shellcheck
+	yay -Syu --noconfirm --needed neovim-nightly-bin python-pynvim
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
-	return 1
+	brew install --HEAD luajit
+	brew install --HEAD neovim
+	python3 -mpip install pynvim
 }

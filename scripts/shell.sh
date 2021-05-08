@@ -10,6 +10,14 @@
 
 usage() {
 	echo -n "write shell scripts with confidence"
+	echo '
+     _          _ _
+ ___| |__   ___| | |
+/ __| |_ \ / _ \ | |
+\__ \ | | |  __/ | |
+|___/_| |_|\___|_|_|
+
+  '
 }
 
 main_pacman() {

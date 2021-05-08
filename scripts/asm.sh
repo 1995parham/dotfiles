@@ -9,11 +9,17 @@
 # =======================================
 
 usage() {
-	echo "usage: asm"
+	echo "assembly with nasm and radare2, good old days"
+	# shellcheck disable=2016,1004
+	echo '
+  __ _ ___ _ __ ___
+ / _` / __| |_ ` _ \
+| (_| \__ \ | | | | |
+ \__,_|___/_| |_| |_|
+
+  '
 }
 
-main() {
-	message "asm" "Installing nasm + radare2"
-
+main_apt() {
 	sudo apt-get -y install nasm radare2
 }

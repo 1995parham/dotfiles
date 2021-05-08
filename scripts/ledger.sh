@@ -10,6 +10,15 @@
 
 usage() {
 	echo -n 'ledger hardware wallet management software and udev rules'
+	# shellcheck disable=2016
+	echo '
+ _          _
+| | ___  __| | __ _  ___ _ __
+| |/ _ \/ _` |/ _` |/ _ \ |__|
+| |  __/ (_| | (_| |  __/ |
+|_|\___|\__,_|\__, |\___|_|
+              |___/
+  '
 }
 
 main_apt() {

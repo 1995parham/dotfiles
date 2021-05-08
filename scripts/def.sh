@@ -10,6 +10,14 @@
 
 usage() {
 	echo "def, a free dictionary in terminal"
+	echo '
+     _       __
+  __| | ___ / _|
+ / _` |/ _ \ |_
+| (_| |  __/  _|
+ \__,_|\___|_|
+
+  '
 }
 
 main_pacman() {

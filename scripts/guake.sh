@@ -10,6 +10,15 @@
 
 usage() {
 	echo -n "guake drop-in terminal for gnome-based environments"
+	# shellcheck disable=1004,2016
+	echo '
+                   _
+  __ _ _   _  __ _| | _____
+ / _` | | | |/ _` | |/ / _ \
+| (_| | |_| | (_| |   <  __/
+ \__, |\__,_|\__,_|_|\_\___|
+ |___/
+  '
 }
 
 main_apt() {

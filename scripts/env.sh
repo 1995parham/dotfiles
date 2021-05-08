@@ -9,13 +9,23 @@
 # =======================================
 usage() {
 	echo -n "installs required packages"
+	echo '
+  ___ _ ____   __
+ / _ \ |_ \ \ / /
+|  __/ | | \ V /
+ \___|_| |_|\_/
+
+  '
 }
 
-packages=(zsh tmux htop aria2 curl bat neovim vim jq yamllint fzf)
+# shellcheck disable=2034
+dependencies="neovim"
+
+packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf)
 
 brew_packages=(coreutils k6 inetutils inxi)
-apt_packages=(python3-pynvim bmon atop)
-pacman_packages=(python-pynvim inxi mtr atop github-cli)
+apt_packages=(bmon atop)
+pacman_packages=(inxi mtr atop github-cli figlet)
 yay_packages=(jcal-git)
 
 main_apt() {
@@ -29,15 +39,11 @@ main_pacman() {
 	msg "install ${pacman_packages[*]} + ${packages[*]} with pacman"
 	sudo pacman -Syu --noconfirm --needed "${pacman_packages[@]}" "${packages[@]}"
 
-	if [[ "$(command -v yay)" ]]; then
-		msg "install ${yay_packages[*]} with yay"
-		yay -Syu --noconfirm --needed "${yay_packages[@]}"
-	fi
+	msg "install ${yay_packages[*]} with yay"
+	yay -Syu --noconfirm --needed "${yay_packages[@]}"
 }
 
 main_brew() {
 	msg "install ${brew_packages[*]} + ${packages[*]} with brew"
 	brew install "${brew_packages[@]}" "${packages[@]}"
-
-	python3 -mpip install pynvim
 }
