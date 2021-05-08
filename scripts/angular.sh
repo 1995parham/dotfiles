@@ -8,18 +8,30 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
+# shellcheck disable=2034
+dependencies="node"
+
 usage() {
 	echo -n "angular development with ease"
+	# shellcheck disable=2016
+	echo '
+                         _
+  __ _ _ __   __ _ _   _| | __ _ _ __
+ / _` | |_ \ / _` | | | | |/ _` | |__|
+| (_| | | | | (_| | |_| | | (_| | |
+ \__,_|_| |_|\__, |\__,_|_|\__,_|_|
+             |___/
+	'
 }
 
 angular-install-cli() {
-	npm install -g @angular/cli
+	sudo npm install -g @angular/cli
 	ng --version
 }
 
 angular-install-ts() {
-	npm install -g typescript
-	npm install -g tslint
+	sudo npm install -g typescript
+	sudo npm install -g tslint
 }
 
 main() {
@@ -32,9 +44,3 @@ main() {
 		return 1
 	fi
 }
-                         _            
-  __ _ _ __   __ _ _   _| | __ _ _ __ 
- / _` | '_ \ / _` | | | | |/ _` | '__|
-| (_| | | | | (_| | |_| | | (_| | |   
- \__,_|_| |_|\__, |\__,_|_|\__,_|_|   
-             |___/                    

@@ -10,6 +10,14 @@
 
 usage() {
 	echo "k8s or openshift cluster is at your service on cli with these awesome commands"
+	echo '
+ _          _               _   _
+| | ___   _| |__   ___  ___| |_| |
+| |/ / | | | |_ \ / _ \/ __| __| |
+|   <| |_| | |_) |  __/ (__| |_| |
+|_|\_\\__,_|_.__/ \___|\___|\__|_|
+
+	'
 }
 
 main_brew() {
@@ -53,9 +61,3 @@ main_pacman() {
 	msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
 	yay -Syu --noconfirm --needed kubeval-bin
 }
- _          _               _   _ 
-| | ___   _| |__   ___  ___| |_| |
-| |/ / | | | '_ \ / _ \/ __| __| |
-|   <| |_| | |_) |  __/ (__| |_| |
-|_|\_\\__,_|_.__/ \___|\___|\__|_|
-                                  
