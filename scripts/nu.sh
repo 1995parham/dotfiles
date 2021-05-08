@@ -10,6 +10,13 @@
 
 usage() {
 	echo "brand new shell in rust, give it a try"
+	echo '
+ _ __  _   _
+| |_ \| | | |
+| | | | |_| |
+|_| |_|\____|
+
+  '
 }
 
 main_apt() {

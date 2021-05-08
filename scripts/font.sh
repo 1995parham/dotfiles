@@ -10,6 +10,14 @@
 
 usage() {
 	echo "fonts for terminal, subtitles and more"
+	echo '
+  __             _
+ / _| ___  _ __ | |_
+| |_ / _ \| |_ \| __|
+|  _| (_) | | | | |_
+|_|  \___/|_| |_|\__|
+
+  '
 }
 
 main_brew() {

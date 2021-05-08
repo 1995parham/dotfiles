@@ -11,6 +11,14 @@
 usage() {
 	echo "usage: brew [-p]"
 	echo "-p: install .profile or .bash_profile for using brew"
+	echo '
+ _
+| |__  _ __ _____      __
+| |_ \| |__/ _ \ \ /\ / /
+| |_) | | |  __/\ V  V /
+|_.__/|_|  \___| \_/\_/
+
+  '
 }
 
 main() {

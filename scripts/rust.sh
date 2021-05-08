@@ -10,6 +10,14 @@
 
 usage() {
 	echo -n "rust programming language with rustup"
+	echo '
+                _
+ _ __ _   _ ___| |_
+| |__| | | / __| __|
+| |  | |_| \__ \ |_
+|_|   \__,_|___/\__|
+
+  '
 }
 
 main() {
@@ -21,7 +29,7 @@ main() {
 	[ -d "$HOME/.zfunc" ] || mkdir "$HOME/.zfunc"
 	rustup completions zsh >~/.zfunc/_rustup
 
-	# shellcheck disable=1090
+	# shellcheck disable=1091,1090
 	source "$HOME/.cargo/env"
 
 	rustup component add clippy

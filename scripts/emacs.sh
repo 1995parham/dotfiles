@@ -10,6 +10,14 @@
 
 usage() {
 	echo "emacs with bidirectional support"
+	# shellcheck disable=2016,1004
+	echo '
+  ___ _ __ ___   __ _  ___ ___
+ / _ \ |_ ` _ \ / _` |/ __/ __|
+|  __/ | | | | | (_| | (__\__ \
+ \___|_| |_| |_|\__,_|\___|___/
+
+  '
 }
 
 main_brew() {

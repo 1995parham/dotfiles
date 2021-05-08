@@ -10,6 +10,15 @@
 
 usage() {
 	echo "mpd music server with ncmpcpp as a client"
+	# shellcheck disable=2016
+	echo '
+                     _
+ _ __ ___  _ __   __| |
+| |_ ` _ \| "_ \ / _` |
+| | | | | | |_) | (_| |
+|_| |_| |_| .__/ \__,_|
+          |_|
+  '
 }
 
 main_brew() {

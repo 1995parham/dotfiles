@@ -9,6 +9,14 @@
 # =======================================
 usage() {
 	echo -n "setup working environment for go with neovim + fatih/vim-go"
+	# shellcheck disable=1004
+	echo '
+  __ _  ___
+ / _` |/ _ \
+| (_| | (_) |
+ \__, |\___/
+ |___/
+  '
 }
 
 main_brew() {

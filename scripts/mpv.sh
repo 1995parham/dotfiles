@@ -10,25 +10,28 @@
 
 usage() {
 	echo "usage: mpv"
+	echo '
+ _ __ ___  _ ____   __
+| |_ ` _ \| |_ \ \ / /
+| | | | | | |_) \ V /
+|_| |_| |_| .__/ \_/
+          |_|
+  '
+}
+
+main_brew() {
+	brew install --cask mpv
+}
+
+main_apt() {
+	msg "there is nothing that we can do"
+	return 1
+}
+
+main_pacman() {
+	sudo pacman -Syu --noconfirm --needed mpv
 }
 
 main() {
-	# Reset optind between calls to getopts
-	OPTIND=1
-
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "mpv" "Darwin"
-
-		brew install --cask mpv
-	else
-		message "mpv" "Linux"
-		if [[ "$(command -v apt)" ]]; then
-			echo "There is nothing that we can do"
-		elif [[ "$(command -v pacman)" ]]; then
-			message "mpv" "install mpv with pacman"
-			sudo pacman -Syu --noconfirm --needed mpv
-		fi
-	fi
-
 	configfile mpv
 }
