@@ -30,11 +30,13 @@ _end() {
 }
 
 _usage() {
+	echo ""
 	echo "usage: $program_name [-y] [-h] [-f] script [script options]"
 	echo "  -f   force"
 	echo "  -h   display help"
 	echo "  -d   as dependency (internal usage)"
 	echo "  -y   yes to all"
+	echo ""
 }
 
 _main() {
