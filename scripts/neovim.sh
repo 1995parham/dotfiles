@@ -37,7 +37,6 @@ main_pacman() {
 }
 
 main_brew() {
-	brew install --HEAD luajit
-	brew install --HEAD neovim
+	brew install neovim
 	python3 -mpip install pynvim
 }
