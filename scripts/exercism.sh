@@ -8,15 +8,27 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 usage() {
-	echo "usage: exercism"
-}
-
-main() {
-	brew install exercism
-}
-                        _               
-  _____  _____ _ __ ___(_)___ _ __ ___  
- / _ \ \/ / _ \ '__/ __| / __| '_ ` _ \ 
+	echo "exercism"
+	# shellcheck disable=1004
+	echo '
+                        _
+  _____  _____ _ __ ___(_)___ _ __ ___
+ / _ \ \/ / _ \ |__/ __| / __| |_ ` _ \
 |  __/>  <  __/ | | (__| \__ \ | | | | |
  \___/_/\_\___|_|  \___|_|___/_| |_| |_|
-                                        
+	'
+}
+
+main_brew() {
+	brew install exercism
+}
+
+main_apt() {
+	msg "there is nothing that we can do"
+	return 1
+}
+
+main_pacman() {
+	msg "there is nothing that we can do"
+	return 1
+}
