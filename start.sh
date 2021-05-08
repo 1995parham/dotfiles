@@ -179,13 +179,12 @@ install() {
 
 			if [[ $install_with_brew == "Y" ]]; then
 				# brew installation on linux is optional
-				main_brew || true
+				main_brew
+				return
 			fi
 		else
 			message "pre" "main_brew not found"
 		fi
-
-		return
 	fi
 
 	if [[ "$(command -v apt)" ]]; then
