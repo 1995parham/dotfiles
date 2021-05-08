@@ -18,8 +18,6 @@ source "$current_dir/scripts/lib/message.sh"
 source "$current_dir/scripts/lib/proxy.sh"
 # shellcheck source=scripts/lib/linker.sh
 source "$current_dir/scripts/lib/linker.sh"
-# shellcheck source=scripts/lib/header.sh
-source "$current_dir/scripts/lib/header.sh"
 
 # start.sh
 program_name=$0
@@ -35,6 +33,7 @@ _usage() {
 	echo "usage: $program_name [-p] [-h] [-f] script [script options]"
 	echo "  -h   display help"
 	echo "  -f   force"
+	echo "  -d   as dependency"
 }
 
 _main() {
@@ -47,14 +46,20 @@ _main() {
 	# there is no need to use it in your script
 	local show_help=false
 
+	# as_dependency shows that this start.sh is going to install a dependency
+	local as_dependency=false
+
 	# parses options flags
-	while getopts 'hf' argv; do
+	while getopts 'dhf' argv; do
 		case $argv in
 		h)
 			show_help=true
 			;;
 		f)
 			force=true
+			;;
+		d)
+			as_dependency=true
 			;;
 		*)
 			_usage
@@ -65,6 +70,11 @@ _main() {
 	for ((i = 2; i <= OPTIND; i++)); do
 		shift
 	done
+
+	if [ $as_dependency = false ]; then
+		# shellcheck source=scripts/lib/header.sh
+		source "$current_dir/scripts/lib/header.sh"
+	fi
 
 	# handles root user
 	if [[ $EUID -eq 0 ]]; then
@@ -131,7 +141,7 @@ _dependencies() {
 
 	if [[ $accept == "Y" ]]; then
 		for dependency in $dependencies; do
-			"$current_dir/start.sh" "$dependency"
+			"$current_dir/start.sh" -d "$dependency"
 		done
 	fi
 }
