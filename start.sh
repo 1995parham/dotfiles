@@ -137,55 +137,69 @@ _dependencies() {
 }
 
 run() {
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "pre" "darwin with brew (osx?)"
-
-		if declare -f main_brew >/dev/null; then
-			main_brew
-		else
-			message "pre" "main_brew not found"
-		fi
-	else
-		if [[ "$(command -v brew)" ]]; then
-			message "pre" "linux with brew (ubuntu?)"
-
-			if declare -f main_brew >/dev/null; then
-				read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install
-				echo
-
-				if [[ $install == "Y" ]]; then
-					# brew installation on linux is optional
-					main_brew || true
-				fi
-			else
-				message "pre" "main_brew not found"
-			fi
-		fi
-
-		if [[ "$(command -v apt)" ]]; then
-			message "pre" "linux with apt (ubuntu?)"
-
-			if declare -f main_apt >/dev/null; then
-				main_apt
-			else
-				message "pre" "main_apt not found"
-			fi
-		elif [[ "$(command -v pacman)" ]]; then
-			message "pre" "linux with pacman (manjaro?)"
-
-			if declare -f main_pacman >/dev/null; then
-				main_pacman
-			else
-				message "pre" "main_pacman not found"
-			fi
-		fi
-	fi
+	install
 
 	# run the script
 	if declare -f main >/dev/null; then
 		main "$@"
 	else
 		message "pre" "main not found"
+	fi
+}
+
+install() {
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		message "pre_install" "darwin with brew (osx?)"
+
+		if declare -f main_brew >/dev/null; then
+			main_brew
+		else
+			message "pre" "main_brew not found"
+		fi
+
+		return
+	fi
+
+	if [[ "$(command -v brew)" ]]; then
+		message "pre" "linux with brew (ubuntu?)"
+
+		if declare -f main_brew >/dev/null; then
+			read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install_with_brew
+			echo
+
+			if [[ $install_with_brew == "Y" ]]; then
+				# brew installation on linux is optional
+				main_brew || true
+			fi
+		else
+			message "pre" "main_brew not found"
+		fi
+
+		return
+	fi
+
+	if [[ "$(command -v apt)" ]]; then
+		message "pre" "linux with apt (ubuntu?)"
+
+		if declare -f main_apt >/dev/null; then
+			main_apt
+		else
+			message "pre" "main_apt not found"
+		fi
+
+		return
+	fi
+
+	if [[ "$(command -v pacman)" ]]; then
+		message "pre" "linux with pacman (manjaro?)"
+
+		if declare -f main_pacman >/dev/null; then
+			main_pacman
+		else
+			message "pre" "main_pacman not found"
+		fi
+
+		return
 	fi
 }
 
