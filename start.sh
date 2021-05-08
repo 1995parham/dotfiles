@@ -159,7 +159,7 @@ run() {
 
 install() {
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "pre_install" "darwin with brew (osx?)"
+		message "pre" "darwin with brew (osx?)"
 
 		if declare -f main_brew >/dev/null; then
 			main_brew
