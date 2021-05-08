@@ -10,6 +10,15 @@
 
 usage() {
 	echo -n "install texlive with ease without any package manager"
+	# shellcheck disable=1004
+	echo '
+ _            _ _
+| |_ _____  _| (_)_   _____
+| __/ _ \ \/ / | \ \ / / _ \
+| ||  __/>  <| | |\ V /  __/
+ \__\___/_/\_\_|_| \_/ \___|
+
+	'
 }
 
 packages=(
@@ -126,9 +135,3 @@ main_apt() {
 		sudo tlmgr install "$package"
 	done
 }
- _            _ _           
-| |_ _____  _| (_)_   _____ 
-| __/ _ \ \/ / | \ \ / / _ \
-| ||  __/>  <| | |\ V /  __/
- \__\___/_/\_\_|_| \_/ \___|
-                            
