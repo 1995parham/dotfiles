@@ -10,6 +10,15 @@
 
 usage() {
 	echo "kvm for manjaro"
+	# shellcheck disable=1004
+	echo '
+ _
+| | ____   ___ __ ___
+| |/ /\ \ / / |_ ` _ \
+|   <  \ V /| | | | | |
+|_|\_\  \_/ |_| |_| |_|
+
+  '
 }
 
 main_brew() {

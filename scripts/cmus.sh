@@ -10,6 +10,14 @@
 
 usage() {
 	echo "cmus music player in terminal with 1995parham configuration"
+	# shellcheck disable=1004
+	echo '
+  ___ _ __ ___  _   _ ___
+ / __| |_ ` _ \| | | / __|
+| (__| | | | | | |_| \__ \
+ \___|_| |_| |_|\__,_|___/
+
+  '
 }
 
 main_brew() {

@@ -10,6 +10,14 @@
 
 usage() {
 	echo "i3 window manager for manajaro i3"
+	# shellcheck disable=1004
+	echo '
+ _ _____
+(_)___ /
+| | |_ \
+| |___) |
+|_|____/
+  '
 }
 
 main_brew() {

@@ -9,6 +9,15 @@
 # =======================================
 usage() {
 	echo "install nodejs, remembers neovim-coc always needs nodejs"
+	# shellcheck disable=1004
+	echo '
+                 _
+ _ __   ___   __| | ___
+| |_ \ / _ \ / _| |/ _ \
+| | | | (_) | (_| |  __/
+|_| |_|\___/ \__|_|\___|
+
+  '
 }
 
 main_brew() {

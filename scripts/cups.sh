@@ -10,6 +10,14 @@
 
 usage() {
 	echo -n "install cups with pdf virtual printer"
+	# shellcheck disable=1004
+	echo '
+  ___ _   _ _ __  ___
+ / __| | | | |_ \/ __|
+| (__| |_| | |_) \__ \
+ \___|\__,_| .__/|___/
+           |_|
+  '
 }
 
 main_pacman() {

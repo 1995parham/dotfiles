@@ -9,21 +9,22 @@
 # =======================================
 
 usage() {
-	echo "usage: c"
+	echo "clang, cmake without prof.bakhshi :("
+	echo '
+  ___
+ / __|
+| (__
+ \___|
+
+  '
 }
 
-main() {
-	message "c" "Installing clang + cmake"
+main_brew() {
+	brew install clang-format
+	brew install cmake
+}
 
-	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "c" "Darwin"
-
-		brew install clang-format
-		brew install cmake
-	else
-		message "c" "Linux"
-
-		sudo apt-get -y install clang clang-format
-		sudo apt-get -y install cmake
-	fi
+main_apt() {
+	sudo apt -y install clang clang-format
+	sudo apt -y install cmake
 }
