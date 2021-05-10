@@ -92,6 +92,9 @@
 (after! org
   (setq org-agenda-format-date 'org-agenda-format-date-persian)
 
+	(pushnew! org-link-abbrev-alist
+						'("archwiki"      . "https://wiki.archlinux.org/title/%s"))
+
   (defun org-agenda-format-date-persian (date)
     "format a date string for display in the daily/weekly agenda, or timeline.
         this function makes sure that dates are aligned for easy reading."
