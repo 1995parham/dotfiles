@@ -152,8 +152,13 @@ _dependencies() {
 	fi
 
 	if [[ $accept == "Y" ]]; then
+		local options="-d"
+		if [ $yes_to_all = true ]; then
+			options="$options -y"
+		fi
+
 		for dependency in $dependencies; do
-			"$current_dir/start.sh" -d "$(test $yes_to_all = true && echo '-y')" "$dependency"
+			"$current_dir/start.sh" "$options" "$dependency"
 		done
 	fi
 }
