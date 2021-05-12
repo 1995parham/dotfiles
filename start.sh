@@ -170,31 +170,31 @@ run() {
 	if declare -f main >/dev/null; then
 		main "$@"
 	else
-		message "pre" "main not found"
+		msg "main not found"
 	fi
 }
 
 install() {
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		message "pre" "darwin with brew (osx?)"
+		msg "darwin with brew (osx?)"
 
 		if declare -f main_brew >/dev/null; then
 			main_brew
 		else
-			message "pre" "main_brew not found"
+			msg "main_brew not found"
 		fi
 
 		return
 	fi
 
 	if [[ "$(command -v brew)" ]]; then
-		message "pre" "linux with brew (ubuntu?)"
+		msg "linux with brew (ubuntu?)"
 
 		if declare -f main_brew >/dev/null; then
 			if [ $yes_to_all = true ]; then
 				install_with_brew="n"
 			else
-				read -r -p "[pre] do you want to install with brew?[Y/n] " -n 1 install_with_brew
+				read -r -p "[$script] do you want to install with brew?[Y/n] " -n 1 install_with_brew
 				echo
 			fi
 
@@ -204,29 +204,29 @@ install() {
 				return
 			fi
 		else
-			message "pre" "main_brew not found"
+			msg "main_brew not found"
 		fi
 	fi
 
 	if [[ "$(command -v apt)" ]]; then
-		message "pre" "linux with apt (ubuntu?)"
+		msg "linux with apt (ubuntu?)"
 
 		if declare -f main_apt >/dev/null; then
 			main_apt
 		else
-			message "pre" "main_apt not found"
+			msg "main_apt not found"
 		fi
 
 		return
 	fi
 
 	if [[ "$(command -v pacman)" ]]; then
-		message "pre" "linux with pacman (manjaro?)"
+		msg "linux with pacman (manjaro?)"
 
 		if declare -f main_pacman >/dev/null; then
 			main_pacman
 		else
-			message "pre" "main_pacman not found"
+			msg "main_pacman not found"
 		fi
 
 		return
