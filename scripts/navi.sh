@@ -34,5 +34,7 @@ main_pacman() {
 }
 
 main() {
-	navi repo add 1995parham/cheats
+	user=1995parham
+	repo=cheats
+	git clone "https://github.com/${user}/${repo}" "$(navi info cheats-path)/${user}__${repo}" || true
 }
