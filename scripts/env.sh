@@ -24,8 +24,8 @@ dependencies="neovim"
 packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf)
 
 brew_packages=(coreutils k6 inetutils inxi)
-apt_packages=(bmon atop)
-pacman_packages=(inxi mtr atop github-cli figlet websocat)
+apt_packages=(bmon atop mosh)
+pacman_packages=(inxi mtr atop github-cli figlet websocat mosh)
 yay_packages=(jcal-git)
 
 main_apt() {
