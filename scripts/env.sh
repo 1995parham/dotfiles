@@ -21,11 +21,11 @@ usage() {
 # shellcheck disable=2034
 dependencies="neovim"
 
-packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf)
+packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh)
 
 brew_packages=(coreutils k6 inetutils inxi)
-apt_packages=(bmon atop mosh)
-pacman_packages=(inxi mtr atop github-cli figlet websocat mosh)
+apt_packages=(bmon atop)
+pacman_packages=(inxi mtr atop github-cli figlet websocat)
 yay_packages=(jcal-git)
 
 main_apt() {
