@@ -28,7 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	yay -Syu --needed --noconfirm surface-control-bin libwacom-surface
+	yay -Syu --needed --noconfirm surface-control-bin
 }
 
 main_brew() {
