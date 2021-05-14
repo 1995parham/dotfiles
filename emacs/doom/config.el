@@ -180,7 +180,7 @@
       '("~/org/research/main.bib"))
 
 ;; Specify where PDFs can be found
-(setq bibtex-completion-library-path '("~/Sync/research"))
+(setq bibtex-completion-library-path '("~/Documents/Git/parham/reinnet/etcetera"))
 
 ;; Bibtex-completion supports two methods for storing notes.
 ;; It can either store all notes in one file or store notes in multiple files, one file per publication.
