@@ -189,3 +189,8 @@
 
 ;; switch default action to edit the pdf notes
 (setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
+
+;; use evince to open research papers
+(setq bibtex-completion-pdf-open-function
+  (lambda (fpath)
+    (call-process "evince" nil 0 nil fpath)))
