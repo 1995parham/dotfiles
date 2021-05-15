@@ -29,6 +29,7 @@ main_apt() {
 
 main_pacman() {
 	yay -Syu --needed --noconfirm surface-control-bin
+	sed -iE 's#^Xft.dpi:.*#Xft.dpi:\t144#g' ~/.Xresources
 }
 
 main_brew() {
