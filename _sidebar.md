@@ -1,1 +1,2 @@
+- [tips and tricks :monocle_face:](tips-and-tricks.md)
 - [breaking sanctions :iran:](breaking-sanctions.md)
