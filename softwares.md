@@ -1,3 +1,7 @@
+<!--
+	vim: ft=html
+-->
+
 <table>
   <thead>
     <tr>
