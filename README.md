@@ -16,6 +16,11 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/Install%20dotfiles?label=install&logo=github&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/Shell%20Script%20Lint?label=sh-lint&logo=github&style=flat-square)
 
+![Compatibiliy](https://img.shields.io/badge/works%20on-macos-grey?logo=macos&style=flat-square)
+![Compatibiliy](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=flat-square)
+![Compatibiliy](https://img.shields.io/badge/works%20on-manjaro-green?logo=manjaro&style=flat-square)
+
+
 ## Introduction
 
 This repository contains my personal configurations for ubuntu, manjaro (with i3 window manager), apple osx and even windows 10, which was created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
