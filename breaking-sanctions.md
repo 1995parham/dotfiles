@@ -1,5 +1,7 @@
+## V2ray
+
 Our country is under many **unfair** sanctions so you can use [v2ray](https://www.v2ray.com/en/) on Linux to remove these sanctions.
-Use following command to install it.
+Use the following commands to install it.
 
 ```sh
 curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
@@ -8,7 +10,7 @@ sudo ./install-release.sh
 sudo systemctl enable v2ray
 ```
 
-You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here is my example.
+You can configure it in many ways with `/usr/local/etc/v2ray/config.json` but here is my sample for connecting via shadowsocks into a remote server and exposing the HTTP and socks interfaces.
 
 ```json
 {
@@ -37,7 +39,11 @@ You can configure it by many ways in `/usr/local/etc/v2ray/config.json` but here
 }
 ```
 
-Then after starting v2ray service `sudo systemctl start v2ray`, you can use the following commands in your shell to enable/disable http(s) proxy.
+Then after starting v2ray service `sudo systemctl start v2ray`, you are good to go
+
+## HTTP/Socks Proxy
+
+you can use the following commands in your shell to enable/disable http(s) proxy.
 
 ```sh
 proxy_start   # enable http(s) proxy
