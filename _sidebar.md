@@ -1,2 +1,2 @@
-- [tips and tricks :monocle_face:](tips-and-tricks.md)
-- [breaking sanctions :iran:](breaking-sanctions.md)
+- [tips and tricks :monocle_face:](https://github.com/1995parham/dotfiles/wiki/tips-and-tricks)
+- [breaking sanctions :iran:](https://github.com/1995parham/dotfiles/wiki/breaking-sanctions)
