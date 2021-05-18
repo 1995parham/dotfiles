@@ -91,9 +91,10 @@
 ;; Better planing for future with org-mode
 (after! org
   (setq org-agenda-format-date 'org-agenda-format-date-persian)
+  (setq org-cycle-emulate-tab 'never)
 
-	(pushnew! org-link-abbrev-alist
-						'("archwiki"      . "https://wiki.archlinux.org/title/%s"))
+  (pushnew! org-link-abbrev-alist
+            '("archwiki"      . "https://wiki.archlinux.org/title/%s"))
 
   (defun org-agenda-format-date-persian (date)
     "format a date string for display in the daily/weekly agenda, or timeline.
@@ -105,7 +106,7 @@
            (month (car date))
            (monthname (calendar-month-name month 1))
            (year (nth 2 date)))
-           (format " %-2s. %s %2d %2d, %s"
+      (format " %-2s. %s %2d %2d, %s"
               dayname monthname day year persian-date)
       )
     )
@@ -192,5 +193,5 @@
 
 ;; use evince to open research papers
 (setq bibtex-completion-pdf-open-function
-  (lambda (fpath)
-    (call-process "evince" nil 0 nil fpath)))
+      (lambda (fpath)
+        (call-process "evince" nil 0 nil fpath)))
