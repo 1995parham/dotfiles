@@ -17,17 +17,17 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/Install%20dotfiles?label=install&logo=github&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/Shell%20Script%20Lint?label=sh-lint&logo=github&style=flat-square)
 
-![Compatibiliy](https://img.shields.io/badge/works%20on-macos-grey?logo=macos&style=flat-square)
-![Compatibiliy](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=flat-square)
-![Compatibiliy](https://img.shields.io/badge/works%20on-manjaro-green?logo=manjaro&style=flat-square)
-
 ## Introduction
 
 This repository contains my personal configurations for ubuntu, manjaro (with i3 window manager), apple osx and even windows 10, which was created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
 First of all, thank you for your visiting, to find out more about how to use this configuration with neovim, oh-my-zsh, etc. please check the following sections.
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 
-## Installation (Linux, OSx)
+## Installation
+
+![Compatibiliy](https://img.shields.io/badge/works%20on-macos-grey?logo=macos&style=for-the-badge)
+![Compatibiliy](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge)
+![Compatibiliy](https://img.shields.io/badge/works%20on-manjaro-green?logo=manjaro&style=for-the-badge)
 
 The following command creates a basic directory structure and clones the _dotfiles_ repository:
 
@@ -75,7 +75,9 @@ Then you can install other tools with `start.sh`, here are some examples:
 
 Configuration of mentioned applications also is a part of this repository.
 
-## Installation (Windows)
+## Installation
+
+![Compatibiliy](https://img.shields.io/badge/partially%20works%20on-windows-blue?logo=windows&style=for-the-badge)
 
 First of all you need to install `scoop` and `chocolatey` as package managers and also add the `extra` bucket for `scoop`. **Install Everything by one of these package managers**. It can also be done by `.\start.ps1 env` too.
 
