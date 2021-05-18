@@ -25,7 +25,7 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using thi
 
 ## Installation
 
-![Compatibiliy](https://img.shields.io/badge/works%20on-macos-grey?logo=macos&style=for-the-badge)
+![Compatibiliy](https://img.shields.io/badge/works%20on-macos-white?logo=macos&style=for-the-badge)
 ![Compatibiliy](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge)
 ![Compatibiliy](https://img.shields.io/badge/works%20on-manjaro-green?logo=manjaro&style=for-the-badge)
 
@@ -110,15 +110,3 @@ I use `Windows Terminal` as my primary terminal with the follwing configuration:
 check [here](https://garrytrinder.github.io/2020/12/my-wsl2-windows-terminal-setup) for more information about beautiful wsl terminal.
 
 Also it is fun to install `powertoys` with `sudo choco install powertoys`.
-
-## Firefox
-
-I am using firefox as a main browser for daily basis.
-Firefox is awesome and the latest version of my bookmarks are sync on it.
-Firefox containers is a good way to have multiple account on the same time on a browser.
-
-| Name     | Color  |          Gmail          |    Github     |
-| :------- | :----: | :---------------------: | :-----------: |
-| Main     |  None  | parham.alvani@gmail.com |  1995parham   |
-| Personal |  Blue  |  1995parham@gmail.com   | parham-alvani |
-| Elahe    | Yellow |  elahe.dstn@gmail.com   | elahe-dastan  |
