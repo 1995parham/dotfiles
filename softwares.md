@@ -59,7 +59,7 @@
     </tr>
     <tr>
       <th>Status Bar</th>
-      <td>i3status + i3status-rust</td>
+      <td>polybar</td>
       <td></td>
       <td>iglance</td>
       <td></td>
