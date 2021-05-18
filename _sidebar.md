@@ -1,3 +1,3 @@
 - [tips and tricks :monocle_face:](https://github.com/1995parham/dotfiles/wiki/tips-and-tricks)
 - [breaking sanctions :iran:](https://github.com/1995parham/dotfiles/wiki/breaking-sanctions)
-- [software :computer:](https://github.com/1995parham/dotfiles/wiki/softwares)
+- [softwares :computer:](https://github.com/1995parham/dotfiles/wiki/softwares)
