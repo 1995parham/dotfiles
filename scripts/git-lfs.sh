@@ -27,8 +27,7 @@ main_apt() {
 }
 
 main_pacman() {
-	msg "there is nothing that we can do"
-	return 1
+	sudo pacman -Syu --needed --noconfirm git-lfs
 }
 
 main_brew() {
