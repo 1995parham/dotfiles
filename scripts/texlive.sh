@@ -97,6 +97,9 @@ texlive-init() {
 
 	msg "tlmgr repositories are ready"
 	sudo tlmgr option repository ctan
+
+	msg "update tlmgr itself"
+	sudo tlmgr update --self
 }
 
 main_pacman() {
@@ -105,6 +108,7 @@ main_pacman() {
 
 	msg "install required packages for better latex/xetex experience in persian"
 	sudo pacman -Syu --noconfirm --needed texlab python-pygments
+	yay -Syu --noconfirm --needed texlive-upstream
 
 	for package in "${packages[@]}"; do
 		sudo tlmgr install "$package"
