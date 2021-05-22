@@ -52,6 +52,9 @@
 ;; change the direction of the content. keybinding is useful in bi-directional document.
 (map! :n "M-d" (cmd! (if (eq bidi-paragraph-direction 'left-to-right) (setq bidi-paragraph-direction 'right-to-left) (setq bidi-paragraph-direction 'left-to-right))))
 
+;; if non-nil, fontify subscript and superscript strings. concretely, this means that thescripts are raised or lowered.
+(setq font-latex-fontify-script nil)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
