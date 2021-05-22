@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = couple-birthday couple-relationship owghat
-modules-right = jdate date snapp irancell
+modules-right = jdate date snapp irancell bali
 
 tray-position = right
 tray-padding = 2
@@ -426,6 +426,14 @@ exec-if = nmcli -f GENERAL.STATE connection show Irancell | grep activated
 interval = 5
 format = <label>
 format-foreground = #ffff00
+
+[module/bali]
+type = custom/script
+exec = echo "Bali"
+exec-if = nmcli -f GENERAL.STATE connection show Bali | grep activated
+interval = 5
+format = <label>
+format-foreground = #0000ff
 
 [module/jdate]
 type = custom/script
