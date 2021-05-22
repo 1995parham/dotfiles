@@ -33,7 +33,7 @@ main_pacman() {
 	sudo pacman -Rsu neovim || true
 
 	msg "install edge neovim"
-	yay -Syu --noconfirm --needed neovim-nightly-bin python-pynvim
+	yay -Syu --noconfirm --needed neovim-nightly-git python-pynvim
 }
 
 main_brew() {
