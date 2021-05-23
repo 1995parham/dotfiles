@@ -32,7 +32,9 @@ main_pacman() {
 	msg "remove old neovim"
 	sudo pacman -Rsu neovim || true
 
-	msg "install edge neovim"
+	msg "install edge neovim, so first clear the yay cache because of pkgver issue"
+	rm -Rf ~/.cache/yay/neovim-nightly-bin || true
+	msg "let's complete the installation by installing"
 	yay -Syu --noconfirm --needed neovim-nightly-bin python-pynvim
 }
 
