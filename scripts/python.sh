@@ -23,7 +23,7 @@ packages=(
 )
 
 usage() {
-	echo -n "python with pyenv to use every version with ease"
+	echo -n "python with useful tools"
 	# shellcheck disable=1004
 	echo '
              _   _
@@ -64,10 +64,5 @@ python-install-packages() {
 }
 
 main() {
-	read -r -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm
-	echo
-
-	if [[ $confirm == "Y" ]]; then
-		python-install-packages
-	fi
+	python-install-packages
 }
