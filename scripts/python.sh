@@ -36,28 +36,15 @@ usage() {
 }
 
 main_brew() {
-	brew install pyenv
+	return 0
 }
 
 main_apt() {
-	msg "apt doesn't have pyenv so we need to install it manually"
-	curl https://pyenv.run | bash || true
-
-	export PATH="$HOME/.pyenv/bin:$PATH"
-	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
-
-	msg "please use the followin settings on .profile"
-	# shellcheck disable=2016
-	echo '
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-	'
+	return 0
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm pyenv
+	return 0
 }
 
 python-install-package() {
@@ -69,22 +56,14 @@ python-install-package() {
 }
 
 python-install-packages() {
-	message "python" "Fetch some good and useful python packages"
+	message "python" "fetch some good and useful python packages"
 
-	message "python" "Python Tools"
-
-	printf "%s\n" "${packages[@]}" >"$(pyenv root)/default-packages"
 	for package in "${packages[@]}"; do
 		python-install-package "$package"
 	done
 }
 
 main() {
-	if [[ "$(command -v pyenv)" ]]; then
-		git clone https://github.com/jawshooah/pyenv-default-packages.git "$(pyenv root)/plugins/pyenv-default-packages" || echo "pyenv-default-packages is already installed"
-		pyenv versions
-	fi
-
 	read -r -p "[python] do you want to install useful packages ?[Y/n] " -n 1 confirm
 	echo
 
