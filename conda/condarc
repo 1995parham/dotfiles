@@ -1,7 +1,7 @@
-auto_activate_base: False
-changeps1: False
-show_channel_urls: True
-auto_update_conda: True
+auto_activate_base: false
+changeps1: false
+show_channel_urls: true
+auto_update_conda: true
 proxy_servers:
-	http: http://127.0.0.1:1080
+  http: http://127.0.0.1:1080
   https: http://127.0.0.1:1080
