@@ -96,6 +96,10 @@ dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetP
 
 ### **don't** forget that you can configure `github-cli` to use existing tokens.
 
+```sh
+gopass show --password token/github/gh | gh auth login --with-token
+```
+
 ### unsecure samba on windows 10
 
 ```powershell
