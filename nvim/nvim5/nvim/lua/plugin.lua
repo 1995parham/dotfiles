@@ -85,7 +85,7 @@ return require('packer').startup(function()
 	}
 
 	-- vim syntax highlighting for i3 config
-	use {'mboughaba/i3config.vim', ft = {'i3config'}}
+	use {'mboughaba/i3config.vim'}
 
 	-- intellisense engine for vim8 & neovim, full language server protocol support as vscode
 	use {
