@@ -107,7 +107,7 @@ main_pacman() {
 	texlive-init
 
 	msg "install required packages for better latex/xetex experience in persian"
-	sudo pacman -Syu --noconfirm --needed texlab python-pygments
+	sudo pacman -Syu --noconfirm --needed texlab python-pygments graphviz
 	yay -Syu --noconfirm --needed texlive-upstream
 
 	for package in "${packages[@]}"; do
