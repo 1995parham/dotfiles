@@ -8,6 +8,9 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
+# shellcheck disable=2034
+dependencies="age"
+
 usage() {
 	echo -n -e "simple and flexible tool for managing secrets"
 
