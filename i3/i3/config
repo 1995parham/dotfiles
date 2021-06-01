@@ -322,6 +322,7 @@ exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec kitty'
 exec --no-startup-id i3-msg 'workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws3; exec emacs; workspace $ws1'
 
 # provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
