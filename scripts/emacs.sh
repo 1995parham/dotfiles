@@ -54,6 +54,7 @@ main() {
 	git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs || true
 
 	proxy_start
+	export no_proxy="github.com"
 	"$HOME/.config/emacs/bin/doom" install
 	"$HOME/.config/emacs/bin/doom" sync
 	"$HOME/.config/emacs/bin/doom" upgrade
