@@ -40,7 +40,7 @@ return require('packer').startup(function()
 			vim.g.vim_markdown_folding_disabled = 1
 			vim.g.vim_markdown_math = 1
 		end,
-		requires = {'godlygeek/tabular'}
+		requires = { 'godlygeek/tabular' }
 	}
 
 	-- nvim Treesitter configurations and abstraction layer
@@ -55,10 +55,10 @@ return require('packer').startup(function()
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 	}
 
+	-- an extension for telescope.nvim that allows you to switch between projects.
   use {
     'nvim-telescope/telescope-project.nvim',
-    config = function() require'telescope'.load_extension'project' end,
-    after = { 'telescope.nvim' }
+		config = function() require'telescope'.load_extension'project' end,
   }
 
 	-- check syntax in vim asynchronously and fix files, with language server protocol (lsp) support
