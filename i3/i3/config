@@ -75,8 +75,10 @@ bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 
+# manjaro help
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 
+# kill a window with a cursor
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 focus_follows_mouse no
@@ -148,7 +150,7 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-#navigate workspaces next / previous
+# navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
@@ -296,7 +298,7 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
 
-### autostart applications
+## autostart applications
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # picom and nitrogen
@@ -305,10 +307,15 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends 
 exec --no-startup-id unclutter -b
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
+# say hello from manjaro
 # exec --no-startup-id manjaro-hello
+# NetworkManager
 exec --no-startup-id nm-applet
+# power manager
 exec --no-startup-id xfce4-power-manager
+# notification for pacman updates
 exec --no-startup-id pamac-tray
+# clipboard manager
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
@@ -318,11 +325,8 @@ exec --no-startup-id xautolock -detectsleep -time 15 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-### workspace on demand
-
-exec --no-startup-id i3-msg 'workspace $ws1; exec kitty'
-exec --no-startup-id i3-msg 'workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws1'
-exec --no-startup-id i3-msg 'workspace $ws3; exec emacs; workspace $ws1'
+# workspace on demand
+exec i3-msg 'workspace $ws1; exec kitty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
 # provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
