@@ -34,5 +34,5 @@ main_pacman() {
 	msg "installing protobuf from yay and pacman with go bindings"
 
 	sudo pacman -Syu --needed --noconfirm protobuf
-	yay -Syu --needed --noconfirm protoc-gen-go
+	yay -Syu --needed --noconfirm protoc-gen-go protoc-gen-go-grpc
 }
