@@ -83,7 +83,7 @@
     </tr>
     <tr>
       <th>Application Launcher</th>
-      <td>dmenu</td>
+      <td>rofi / demnu</td>
       <td></td>
       <td></td>
       <td></td>
@@ -99,7 +99,7 @@
     </tr>
     <tr>
       <th>Terminal Emulator</th>
-      <td>alacritty</td>
+      <td>alacritty + kitty</td>
       <td></td>
       <td>alacritty</td>
       <td></td>
@@ -331,7 +331,7 @@
     </tr>
     <tr>
       <th>PDF Viewer</th>
-      <td>epdfview</td>
+      <td>epdfview / evince</td>
       <td></td>
       <td>Preview</td>
       <td></td>
