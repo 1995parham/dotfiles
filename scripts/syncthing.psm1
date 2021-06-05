@@ -1,4 +1,4 @@
-New-Module -Name nu -ScriptBlock {
+New-Module -Name syncthing -ScriptBlock {
     function Install-Main {
         Write-Output "installing syncthing on windows"
 
