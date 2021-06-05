@@ -142,8 +142,8 @@
       <td>emacs</td>
       <td></td>
       <td>vscode</td>
+      <td>emacs/vscode</td>
       <td></td>
-      <td>emacs</td>
     </tr>
     <tr>
       <th>Terminal Multiplexer</th>
@@ -214,8 +214,8 @@
       <td>firefox + firefox-developer-edition</td>
       <td></td>
       <td>firefox + firefox-developer-edition</td>
-      <td></td>
       <td>firefox</td>
+      <td></td>
     </tr>
     <tr>
       <th>Youtube Downloader</th>
@@ -238,7 +238,7 @@
       <td>gopass</td>
       <td>gopass-jsonapi-bin</td>
       <td>gopass + gopass-jsonapi</td>
-      <td></td>
+      <td>gopass</td>
       <td></td>
     </tr>
     <tr>
@@ -246,15 +246,7 @@
       <td>gnupg</td>
       <td></td>
       <td>gpg + gpg-suite-no-mail</td>
-      <td></td>
       <td>gpg4win</td>
-    </tr>
-    <tr>
-      <th>ToDo Manager</th>
-      <td></td>
-      <td>dstask</td>
-      <td>dstask</td>
-      <td></td>
       <td></td>
     </tr>
     <tr>
@@ -343,7 +335,7 @@
       <td>skypeforlinux-bin</td>
       <td>Skype</td>
       <td></td>
-      <td>Skype</td>
+      <td></td>
     </tr>
     <tr>
       <th>Packet Sniffer</th>
@@ -359,7 +351,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td>Microsoft Windows</td>
+      <td>Microsoft Office</td>
     </tr>
     <tr>
       <th>Power Manager</th>
@@ -374,8 +366,8 @@
       <td>synthing</td>
       <td></td>
       <td>syncthing</td>
+      <td>syncthing + synthingtray</td>
       <td></td>
-      <td>SyncTrayzor</td>
     </tr>
     <tr>
       <th>Download Manager</th>
