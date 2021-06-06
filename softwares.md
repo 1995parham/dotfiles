@@ -327,7 +327,7 @@
       <td></td>
       <td>Preview</td>
       <td></td>
-      <td>adobereader</td>
+      <td>sumatrapdf</td>
     </tr>
     <tr>
       <th>Skype</th>
