@@ -89,24 +89,17 @@ Set-ExecutionPolicy Unrestricted
 ```
 
 Then you can start installing the required application by hand from the application list.
-I cannot use `vim` or `neovim` on windows so I use them on WSL with Ubuntu 20.04 and use VScode on Windows.
-Also it would be nice to install [pshazz](https://github.com/lukesampson/pshazz) based on [this](https://github.com/lukesampson/scoop/wiki/Theming-Powershell) article to have nice powershell.
 
-Currently I use WSL with `git.exe` because of its hanging issue and also I have to remove passphase for windows private key because there is no way to store it somewhere.
-
+Having terminal with powershell on windows is the only way to have a terminal.
+With [oh-my-posh](https://ohmyposh.dev/docs/fonts) you can have a nicer prompt. please also note that, you will need a nerd font too.
 I use `Windows Terminal` as my primary terminal with the follwing configuration:
 
 ```json
 {
   "profiles": {
     "defaults": {
-      "fontFace": "JetBrains Mono",
-      "fontSize": 12
+      "fontFace": "MesloLGM NF"
     }
   }
 }
 ```
-
-check [here](https://garrytrinder.github.io/2020/12/my-wsl2-windows-terminal-setup) for more information about beautiful wsl terminal.
-
-Also it is fun to install `powertoys` with `sudo choco install powertoys`.
