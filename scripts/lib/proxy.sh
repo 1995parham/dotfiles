@@ -18,7 +18,7 @@ proxy_start() {
 	fi
 
 	echo
-	curl --max-time 5 ipinfo.io/ip || return 1
+	curl --max-time 5 ipconfig.io/ip || return 1
 
 	export ftp_proxy="http://127.0.0.1:1080"
 	export http_proxy="http://127.0.0.1:1080"
@@ -26,7 +26,7 @@ proxy_start() {
 	alias sudo='sudo -E'
 
 	echo
-	curl --max-time 5 ipinfo.io/ip || proxy_stop
+	curl --max-time 5 ipconfig.io/ip || proxy_stop
 	echo
 }
 
