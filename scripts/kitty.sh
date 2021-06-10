@@ -31,8 +31,7 @@ main_pacman() {
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
-	return 1
+	brew install --cask kitty
 }
 
 main() {
