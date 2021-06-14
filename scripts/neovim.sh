@@ -40,7 +40,6 @@ main_pacman() {
 }
 
 main_brew() {
-	brew uninstall neovim || true
-	brew install --HEAD neovim
+	brew install neovim
 	python3 -mpip install pynvim
 }
