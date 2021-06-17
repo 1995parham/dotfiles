@@ -121,3 +121,12 @@ use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com
 ### improve touch responsiveness on microsoft surface
 
 follow [this](https://www.windowscentral.com/how-improve-touch-response-surface) link to change registry.
+
+### windows insider preview builds
+
+for getting the windows insider updates in iran you need to use a proxy and the followin command set it for you:
+
+```
+Netsh winhttp set proxy 127.0.0.1:1080
+Netsh winhttp reset proxy
+```
