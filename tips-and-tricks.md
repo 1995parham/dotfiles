@@ -116,8 +116,7 @@ sudo choco install <pkg> --proxy="http://127.0.0.1:1080"
 
 ### ubuntu mirrors in Iran
 
-you can use the following stable and awesome mirror for your systems.
-**https://mirror.iranserver.com/**
+use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com/ubuntu_ and _http://security.ubuntu.com/ubuntu_.
 
 ### improve touch responsiveness on microsoft surface
 
