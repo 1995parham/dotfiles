@@ -7,7 +7,7 @@ New-Module -Name env -ScriptBlock {
             Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
         }
 
-		scoop bucket add extras
+	scoop bucket add extras
         scoop install sudo 7zip git aria2
     }
 }
