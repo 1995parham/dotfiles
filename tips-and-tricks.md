@@ -108,19 +108,9 @@ Get-SmbClientConfiguration
 Set-SmbClientConfiguration -EnableInsecureGuestLogons:$true
 ```
 
-### use proxy with chocolatey
-
-```powershell
-sudo choco install <pkg> --proxy="http://127.0.0.1:1080"
-```
-
 ### ubuntu mirrors in Iran
 
 use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com/ubuntu_ and _http://security.ubuntu.com/ubuntu_.
-
-### improve touch responsiveness on microsoft surface
-
-follow [this](https://www.windowscentral.com/how-improve-touch-response-surface) link to change registry.
 
 ### windows insider preview builds
 
