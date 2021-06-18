@@ -22,8 +22,7 @@ usage() {
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
-	return 1
+	sudo apt install kitty
 }
 
 main_pacman() {
