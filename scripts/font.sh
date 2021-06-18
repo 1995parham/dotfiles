@@ -34,4 +34,11 @@ main_pacman() {
 
 main_apt() {
 	sudo apt-get install fonts-roboto
+
+	jb_version="2.225"
+
+	wget "https://download.jetbrains.com/fonts/JetBrainsMono-$jb_version.zip"
+	unzip "JetBrainsMono-$jb_version.zip" -d jb && rm "JetBrainsMono-$jb_version.zip"
+
+	mv jb/fonts/ttf/* "$HOME/.local/share/fonts/" && rm -Rf jb
 }
