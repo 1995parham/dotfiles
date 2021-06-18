@@ -120,3 +120,11 @@ for getting the windows insider updates in iran you need to use a proxy and the 
 Netsh winhttp set proxy 127.0.0.1:1080
 Netsh winhttp reset proxy
 ```
+
+### wsl ssh timeout
+
+on wsl your ssh connections to github get timeout, use the following configuration on your `.ssh/config` to resolve it:
+
+```
+Ciphers aes256-gcm@openssh.com
+```
