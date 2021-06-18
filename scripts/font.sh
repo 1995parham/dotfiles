@@ -47,4 +47,15 @@ main_apt() {
 	unzip "JetBrainsMono-$jbm_version.zip" -d jb && rm "JetBrainsMono-$jbm_version.zip"
 
 	mv jb/fonts/ttf/* "$HOME/.local/share/fonts/" && rm -Rf jb
+
+	vzc_version="1.1.2"
+	msg "install vazir code ($vzc_version) by downloading its archive"
+
+	rm "vazir-code-font-v$vzc_version.zip" || true
+	rm -Rf vzc || true
+
+	wget "https://github.com/rastikerdar/vazir-code-font/releases/download/v$vzc_version/vazir-code-font-v$vzc_version.zip"
+	unzip "vazir-code-font-v$vzc_version.zip" -d vzc && rm "vazir-code-font-v$vzc_version.zip"
+
+	mv vzc/Vazir-Code.ttf "$HOME/.local/share/fonts" && rm -Rf vzc
 }
