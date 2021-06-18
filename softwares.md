@@ -42,10 +42,10 @@
       </td>
       <td>
         <a
-          href="https://chocolatey.org/"
+          href="https://docs.microsoft.com/en-us/windows/package-manager/winget/"
           target="_blank"
           rel="noopener noreferrer"
-          >chocolatey</a
+          >winget</a
         >
       </td>
     </tr>
