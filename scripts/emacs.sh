@@ -29,9 +29,12 @@ main_brew() {
 	return 1
 }
 main_apt() {
-	msg "there is nothing that we can do"
+	msg "install emacs/ripgre with apt"
 
-	return 1
+	sudo apt-get install fd-find
+	sudo add-apt-repository -y -n ppa:kelleyk/emacs
+	sudo apt-get update
+	sudo apt-get install emacs27
 }
 
 main_pacman() {
