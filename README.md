@@ -91,7 +91,7 @@ Set-ExecutionPolicy Unrestricted
 Then you can start installing the required application by hand from the application list.
 
 Having terminal with powershell on windows is the only way to have a terminal.
-With [oh-my-posh](https://ohmyposh.dev/docs/fonts) you can have a nicer prompt. please also note that, you will need a nerd font too.
+With [oh-my-posh](https://ohmyposh.dev/docs/fonts) you can have a nicer prompt. please also note that, you will need a nerd font too which is done by `font.psm1`.
 I use `Windows Terminal` as my primary terminal with the follwing configuration:
 
 ```json
