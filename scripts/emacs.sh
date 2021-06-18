@@ -32,9 +32,9 @@ main_apt() {
 	msg "install emacs/ripgre with apt"
 
 	sudo apt-get install fd-find
-	sudo add-apt-repository -y -n ppa:kelleyk/emacs
+	sudo add-apt-repository -y -n ppa:ubuntu-elisp/ppa
 	sudo apt-get update
-	sudo apt-get install emacs27
+	sudo apt-get install emacs-snapshot
 }
 
 main_pacman() {
