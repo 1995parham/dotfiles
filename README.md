@@ -79,7 +79,7 @@ Configuration of mentioned applications also is a part of this repository.
 
 ![Compatibiliy](https://img.shields.io/badge/partially%20works%20on-windows-blue?logo=windows&style=for-the-badge)
 
-First of all you need to install `scoop` and `chocolatey` as package managers and also add the `extra` bucket for `scoop`.
+First of all you need to install `scoop` and `winget` as package managers and also add the `extra` bucket for `scoop`.
 **Install Everything by one of these package managers**.
 
 ```powershell
