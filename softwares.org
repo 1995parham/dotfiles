@@ -1,5 +1,3 @@
-#+TITLE: Software
-
 * Software
 These are applications that I use in a daily manner.
 
