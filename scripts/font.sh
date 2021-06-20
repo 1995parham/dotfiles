@@ -58,4 +58,8 @@ main_apt() {
 	unzip "vazir-code-font-v$vzc_version.zip" -d vzc && rm "vazir-code-font-v$vzc_version.zip"
 
 	mv vzc/Vazir-Code.ttf "$HOME/.local/share/fonts" && rm -Rf vzc
+
+	v_version="29.0.2"
+	wget "https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v$v_version/dist/Vazir-Thin.ttf"
+	mv Vazir-Thin.ttf "$HOME/.local/share/fonts"
 }
