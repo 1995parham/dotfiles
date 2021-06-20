@@ -15,17 +15,153 @@ These are applications that I use in a daily manner.
 ** Applications
 For each package I have mentioned the package manager that has it and also /+/ means two package are together but /// means you can select between packages.
 
-| Role                 | Manjaro                                        | OSx              | Windows 10                        |
-|----------------------+------------------------------------------------+------------------+-----------------------------------|
-| Window Manager       | i3 (pacman)                                    | -                | -                                 |
-| Status Bar           | polybar (pacman)                               | iglance (brew)   | -                                 |
-| Desktop Manager      | lightdm + lightdm-slick-greeter (pacman)       | -                | -                                 |
-| Luncher              | rofi / dmenu (pacman)                          | -                | -                                 |
-| Networking           | NetworkManager[nmcli/nmtui] / netplan (pacman) | -                | -                                 |
-| Terminal Emulator    | alacritty + kitty (pacman)                     | alacritty (brew) | Windows Terminal Preview (winget) |
-| cat clone with wings | bat (pacman)                                   | bat (brew)       | bat (scoop)                       |
-| vim                  | vim (pacman)                                   | vim (brew)       | vim (wsl)                         |
-| neovim               | nvim (pacman)                                  | nvim (brew)      | nvim (wsl)                        |
-| Emacs                | emacs (pacman)                                 | vscode (brew)    | emacs (wsl) / vscode (winget)     |
-| Terminal Multiplexer | tmux (pacman)                                  | tmux (brew)      | tmux (wsl)                        |
-| Video Player         | mpv (pacman)                                   | mpv (brew)       | vlc (winget)                      |
+| Role                 | Manjaro                                        | OSx                                        | Windows 10                        |
+|----------------------+------------------------------------------------+--------------------------------------------+-----------------------------------|
+| Window Manager       | i3 (pacman)                                    | -                                          | -                                 |
+| Status Bar           | polybar (pacman)                               | iglance (brew)                             | -                                 |
+| Desktop Manager      | lightdm + lightdm-slick-greeter (pacman)       | -                                          | -                                 |
+| Luncher              | rofi / dmenu (pacman)                          | -                                          | -                                 |
+| Networking           | NetworkManager[nmcli/nmtui] / netplan (pacman) | -                                          | -                                 |
+| Terminal Emulator    | alacritty + kitty (pacman)                     | alacritty (brew)                           | Windows Terminal Preview (winget) |
+| cat clone with wings | bat (pacman)                                   | bat (brew)                                 | bat (scoop)                       |
+| vim                  | vim (pacman)                                   | vim (brew)                                 | vim (wsl)                         |
+| neovim               | nvim (pacman)                                  | nvim (brew)                                | nvim (wsl)                        |
+| Emacs                | emacs (pacman)                                 | vscode (brew)                              | emacs (wsl) / vscode (winget)     |
+| Terminal Multiplexer | tmux (pacman)                                  | tmux (brew)                                | tmux (wsl)                        |
+| Video Player         | mpv (pacman)                                   | mpv (brew)                                 | vlc (winget)                      |
+| Music Player         | mpd + ncmpcpp (pacman)                         | cmus (brew)                                | -                                 |
+| Wallpaper            | nitrogen (pacman)                              | -                                          | -                                 |
+| Container            | docker (pacman)                                | docker (brew)                              | -                                 |
+| Drawing Diagram      | drawio-desktop-bin (yay)                       | drawio (brew)                              | -                                 |
+| Image Editor         | gimp (pacman)                                  | Preview                                    | -                                 |
+| Video Editor         | ffmpeg (pacman)                                | ffmpeg (brew)                              | ffmpeg (scoop)                    |
+| Browser              | firefox + firefox-developer-edition (pacman)   | firefox + firefox-developer-edition (brew) | firefox (winget)                  |
+| Youtube Downloader   | youtube-dl (pacman)                            | youtube-dl (brew)                          | youtube-dl (scoop)                |
+| Password Manager     | gopass (pacman) + gopass-jsonapi-bin (yay)     | gopass + gopass-jsonapi-bin (brew)         | gopass (scoop)                    |
+| GNU Privacy Guard    | gnupg (pacman)                                 | gpg + gpg-suite-no-email (brew)            | gpg4win (winget)                  |
+| Time Manager         | timew (pacman)                                 | timew (brew)                               | -                                 |
+| Habit Manager        | dijo-bin (yay)                                 | dijo (brew)                                | -                                 |
+| Jalali Calendar      | jcal-git (yay)                                 | jcal (brew)                                | -                                 |
+| Calendar             | cal (pacman)                                   | cal (brew)                                 | -                                 |
+| Dictionary           | sdcv (pacman) + stardict-oald (yay)            | -                                          | -                                 |
+
+    <tr>
+      <th>Anydesk</th>
+      <td></td>
+      <td>anydesk-bin</td>
+      <td>Anydesk</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Music Infoamtion Editor</th>
+      <td>clementine</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Time Server (NTP)</th>
+      <td>chrony</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Image Viewer</th>
+      <td>viewnior</td>
+      <td></td>
+      <td>Preview</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>PDF Viewer</th>
+      <td>epdfview / evince</td>
+      <td></td>
+      <td>Preview</td>
+      <td></td>
+      <td>sumatrapdf</td>
+    </tr>
+    <tr>
+      <th>Skype</th>
+      <td></td>
+      <td>skypeforlinux-bin</td>
+      <td>Skype</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Packet Sniffer</th>
+      <td>wireshark-qt</td>
+      <td>Wireshark</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Office Suite</th>
+      <td>libreoffice-fresh + libreoffice-fresh-fa</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Microsoft Office</td>
+    </tr>
+    <tr>
+      <th>Power Manager</th>
+      <td>xfce-power-manager</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Syncthing</th>
+      <td>synthing</td>
+      <td></td>
+      <td>syncthing</td>
+      <td>syncthing + synthingtray</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Download Manager</th>
+      <td>aria2</td>
+      <td></td>
+      <td>aria2</td>
+      <td>aria2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Sudo</th>
+      <td>sudo</td>
+      <td></td>
+      <td>sudo</td>
+      <td>sudo</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Camera</th>
+      <td>guvcview</td>
+      <td></td>
+      <td>Photo Booth</td>
+      <td></td>
+      <td>Camera</td>
+    </tr>
+    <tr>
+      <th>HTTP/gRPC Load Test</th>
+      <td>k6-bin</td>
+      <td></td>
+      <td>k6</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Speedtest Cli</th>
+      <td>speedtest-cli</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
