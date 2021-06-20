@@ -31,8 +31,16 @@ main_pacman() {
 	unset BROWSER
 
 	bash xdg-settings set default-web-browser firefox.desktop
+
+	msg 'nyxt - the internet on your terms'
+	yay -Syu --noconfirm --needed nyxt
 }
 
 main_apt() {
+	msg "there is nothing that we can do"
 	return 1
+}
+
+main() {
+	configfile nyxt
 }
