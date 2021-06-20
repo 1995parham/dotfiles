@@ -1,0 +1,33 @@
+#+TITLE: Software
+
+* Software
+These are applications that I use in a daily manner.
+
+** Package Managers
++ Manjaro:
+  + [[https://archlinux.org/pacman/][Pacman]]
+  + [[github:Jguer/yay][Yet another Yogurt]]
++ OSx
+  - [[https://brew.sh][Brew]]
++ Windows 10
+  - [[https://scoop.sh][Scoop]]
+  - [[https://docs.microsoft.com/en-us/windows/package-manager/winget/][Winget]]
+  - WSLg2
+
+** Applications
+For each package I have mentioned the package manager that has it and also /+/ means two package are together but /// means you can select between packages.
+
+| Role                 | Manjaro                                        | OSx              | Windows 10                        |
+|----------------------+------------------------------------------------+------------------+-----------------------------------|
+| Window Manager       | i3 (pacman)                                    | -                | -                                 |
+| Status Bar           | polybar (pacman)                               | iglance (brew)   | -                                 |
+| Desktop Manager      | lightdm + lightdm-slick-greeter (pacman)       | -                | -                                 |
+| Luncher              | rofi / dmenu (pacman)                          | -                | -                                 |
+| Networking           | NetworkManager[nmcli/nmtui] / netplan (pacman) | -                | -                                 |
+| Terminal Emulator    | alacritty + kitty (pacman)                     | alacritty (brew) | Windows Terminal Preview (winget) |
+| cat clone with wings | bat (pacman)                                   | bat (brew)       | bat (scoop)                       |
+| vim                  | vim (pacman)                                   | vim (brew)       | vim (wsl)                         |
+| neovim               | nvim (pacman)                                  | nvim (brew)      | nvim (wsl)                        |
+| Emacs                | emacs (pacman)                                 | vscode (brew)    | emacs (wsl) / vscode (winget)     |
+| Terminal Multiplexer | tmux (pacman)                                  | tmux (brew)      | tmux (wsl)                        |
+| Video Player         | mpv (pacman)                                   | mpv (brew)       | vlc (winget)                      |
