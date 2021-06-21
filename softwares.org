@@ -4,7 +4,7 @@ These are applications that I use in a daily manner.
 ** Package Managers
 + Manjaro:
   + [[https://archlinux.org/pacman/][Pacman]]
-  + [[github:Jguer/yay][Yet another Yogurt]]
+  + [[https://github.com/Jguer/yay][Yet another Yogurt]]
 + OSx
   - [[https://brew.sh][Brew]]
 + Windows 10
