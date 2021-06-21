@@ -59,3 +59,4 @@ For each package I have mentioned the package manager that has it and also /+/ m
 | Camera                | guvcview (pacman)                                 | Photo Booth                                | Camera                            |
 | HTTP/gRPC Load Test   | k6-bin (yay)                                      | k6 (brew)                                  | -                                 |
 | Speedtest             | speedtest-cli (pacman)                            | -                                          | -                                 |
+| Note Keeping          | xournalpp (pacman)                                | xournalpp (brew)                           | xournalpp (scoop)                 |
