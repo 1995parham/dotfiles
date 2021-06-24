@@ -2,7 +2,13 @@ New-Module -Name emacs -ScriptBlock {
     function Install-Main {
         Write-Output "installing doom-emacs on windows"
 
-        scoop install git emacs ripgrep fd llvm
+        scoop install git ripgrep fd llvm
+
+        if (-not(Test-Path "C:\Program Files\Emacs\x86_64\bin" )) {
+            winget install 'GNU Emacs'
+        }
+
+        $env:Path = $env:Path + ";" + "C:\Program Files\Emacs\x86_64\bin"
 
         if (-not(Test-Path $HOME/.emacs.d)) {
             git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
