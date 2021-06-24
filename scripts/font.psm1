@@ -3,6 +3,6 @@ New-Module -Name font -ScriptBlock {
         Write-Output "install fonts"
 
         scoop bucket add nerd-fonts
-        sudo scoop install Meslo-NF JetBrains-Mono
+        sudo scoop install Meslo-NF JetBrains-Mono Font-Awesome
     }
 }
