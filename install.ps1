@@ -10,4 +10,9 @@ Write-Output 'install posh-git module'
 Install-Module posh-git -Scope CurrentUser
 
 Write-Output $profile
-New-Item -Path $profile -ItemType HardLink -Value $PSScriptRoot/powershell/profile.ps1
+if ((Test-Path $profile -IsValid) -and ((Get-Item $profile).Target -eq "$PSScriptRoot\powershell\profile.ps1")) {
+    Write-Output "$profile points to correct location"
+} else {
+    Remove-Item $profile || true
+    sudo New-Item -Path $profile -ItemType SymbolicLink -Value $PSScriptRoot/powershell/profile.ps1
+}
