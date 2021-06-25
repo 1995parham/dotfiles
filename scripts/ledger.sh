@@ -27,7 +27,8 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed ledger-live-bin
+	yay -Syu aur/ledger-udev
+	yay -Syu aur/ledger-live-bin
 }
 
 main_brew() {
