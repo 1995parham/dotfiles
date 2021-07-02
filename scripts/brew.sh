@@ -21,15 +21,13 @@ usage() {
   '
 }
 
-main() {
-	if [[ "$OSTYPE" == "linux"* ]]; then
-		msg "install the Homebrew dependencies:"
-		if [[ "$(command -v apt)" ]]; then
-			sudo apt-get install build-essential file curl git
-		fi
-	fi
+#main_apt() {
+#	msg "install the Homebrew dependencies"
+#	sudo apt-get install build-essential file curl git
+#}
 
-	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+main() {
+	yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	if [[ "$OSTYPE" == "linux"* ]]; then
 		msg "add homebrew to your profile"
