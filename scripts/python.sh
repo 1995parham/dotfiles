@@ -11,6 +11,7 @@ packages=(
 	flake8
 	pep8-naming
 	pipenv
+	poetry
 	mypy
 	black
 	'python-language-server[all]'
