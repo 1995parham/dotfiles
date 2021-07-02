@@ -64,9 +64,7 @@ main_apt() {
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
-
-	return 1
+	brew --cask install docker
 }
 
 main_pacman() {
@@ -89,7 +87,7 @@ main() {
 	newgrp docker
 
 	proxy_start
-	# make sure about login
+	msg "docker-hub login"
 	docker login
 	proxy_stop
 }
