@@ -601,15 +601,13 @@ def perform_installation(mountpoint):
             "For post-installation tips, see https://wiki.archlinux.org/index.php/Installation_guide#Post-installation",
             fg="yellow",
         )
-        if not archinstall.arguments.get("silent"):
-            choice = input(
-                "Would you like to chroot into the newly created installation and perform post-installation configuration? [Y/n] "
-            )
-            if choice.lower() in ("y", ""):
-                try:
-                    installation.drop_to_shell()
-                except:
-                    pass
+        installation.log("su parham", fg="yellow")
+        installation.log("build yay package with makepkg -si", fg="yellow")
+        installation.log("enable lightdm service", fg="yellow")
+        try:
+            installation.drop_to_shell()
+        except:
+            pass
 
     # For support reasons, we'll log the disk layout post installation (crash or no crash)
     archinstall.log(
