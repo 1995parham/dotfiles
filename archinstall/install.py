@@ -12,31 +12,10 @@ from archinstall.lib.profiles import Profile
 
 if archinstall.arguments.get("help"):
     print("See `man archinstall` for help.")
-    exit(0)
+    sys.exit(0)
 if os.getuid() != 0:
     print("Archinstall requires root privileges to run. See --help for more.")
-    exit(1)
-
-# Log various information about hardware before starting the installation. This might assist in troubleshooting
-archinstall.log(
-    f"Hardware model detected: {archinstall.sys_vendor()} {archinstall.product_name()}; UEFI mode: {archinstall.has_uefi()}",
-    level=logging.DEBUG,
-)
-archinstall.log(
-    f"Processor model detected: {archinstall.cpu_model()}", level=logging.DEBUG
-)
-archinstall.log(
-    f"Memory statistics: {archinstall.mem_available()} available out of {archinstall.mem_total()} total installed",
-    level=logging.DEBUG,
-)
-archinstall.log(
-    f"Virtualization detected: {archinstall.virtualization()}; is VM: {archinstall.is_vm()}",
-    level=logging.DEBUG,
-)
-archinstall.log(
-    f"Graphics devices detected: {archinstall.graphics_devices().keys()}",
-    level=logging.DEBUG,
-)
+    sys.exit(1)
 
 # For support reasons, we'll log the disk layout pre installation to match against post-installation layout
 archinstall.log(
@@ -403,7 +382,7 @@ def perform_installation_steps():
         Once that's done, we'll hand over to perform_installation()
         """
         mode = archinstall.GPT
-        if has_uefi() is False:
+        if archinstall.has_uefi() is False:
             mode = archinstall.MBR
         with archinstall.Filesystem(
             archinstall.arguments["harddrive"], mode
@@ -460,7 +439,7 @@ def perform_installation_steps():
                     archinstall.storage.get("MOUNT_POINT", "/mnt")
                 )
 
-            if has_uefi():
+            if archinstall.has_uefi():
                 fs.find_partition("/boot").mount(
                     archinstall.storage.get("MOUNT_POINT", "/mnt") + "/boot"
                 )
@@ -507,7 +486,7 @@ def perform_installation(mountpoint):
                 )  # Set the mirrors in the installation medium
             if (
                 archinstall.arguments["bootloader"] == "grub-install"
-                and has_uefi()
+                and archinstall.has_uefi()
             ):
                 installation.add_additional_packages("grub")
             installation.add_bootloader(archinstall.arguments["bootloader"])
