@@ -30,7 +30,7 @@ main_pacman() {
 	yay -Syu --needed --noconfirm vazir-fonts
 	yay -Syu --needed --noconfirm vazir-code-fonts
 	# yay -Syu --needed --noconfirm borna-fonts
-	yay -Syu --needed --noconfirm ttf-times-new-roman
+	# yay -Syu --needed --noconfirm ttf-times-new-roman
 }
 
 main_apt() {
