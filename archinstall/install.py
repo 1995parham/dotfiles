@@ -59,6 +59,7 @@ def ask_user_questions():
         "base-devel",
         "lightdm",
         "lightdm-gtk-greeter",
+        "xorg",
     ]
 
     archinstall.arguments["custom-commands"] = [
