@@ -41,6 +41,7 @@ def ask_user_questions():
     archinstall.arguments["nic"] = {"NetworkManager": True}
     archinstall.arguments["ntp"] = True
     archinstall.arguments["audio"] = "pipewire"
+    archinstall.arguments["timezone"] = "Asia/Tehran"
     archinstall.arguments["packages"] = [
         "docker",
         "git",
@@ -51,6 +52,7 @@ def ask_user_questions():
         "python-pynvim",
         "python",
         "python-pip",
+        "kitty",
     ]
 
     # Ask which harddrive/block-device we will install to
@@ -124,38 +126,17 @@ def ask_user_questions():
                     f"Enter a mount-point for {partition}: "
                 ).strip(" ")
                 if len(mountpoint):
-
+                    new_filesystem = ""
                     # Get a valid & supported filesystem for the partition:
                     while 1:
                         new_filesystem = input(
-                            f"Enter a valid filesystem for {partition} (leave blank for {partition.filesystem}): "
+                            f"Enter a valid filesystem for {partition}"
+                            "and - if you don't want to format it"
+                            f"(leave blank for {partition.filesystem}): "
                         ).strip(" ")
                         if len(new_filesystem) <= 0:
-                            if (
-                                partition.encrypted
-                                and partition.filesystem == "crypto_LUKS"
-                            ):
-                                old_password = archinstall.arguments.get(
-                                    "!encryption-password", None
-                                )
-                                if not old_password:
-                                    old_password = input(
-                                        f"Enter the old encryption password for {partition}: "
-                                    )
-
-                                if autodetected_filesystem := partition.detect_inner_filesystem(
-                                    old_password
-                                ):
-                                    new_filesystem = autodetected_filesystem
-                                else:
-                                    archinstall.log(
-                                        "Could not auto-detect the filesystem inside the encrypted volume.",
-                                        fg="red",
-                                    )
-                                    archinstall.log(
-                                        "A filesystem must be defined for the unlocked encrypted partition."
-                                    )
-                                    continue
+                            break
+                        if (new_filesystem) == "-":
                             break
 
                         # Since the potentially new filesystem is new
@@ -188,10 +169,13 @@ def ask_user_questions():
                     # TODO: allow_formatting might be redundant since target_mountpoint should only be
                     #       set if we actually want to format it anyway.
                     mountpoints_set.append(mountpoint)
-                    partition.allow_formatting = True
+                    if new_filesystem == "-":
+                        partition.allow_formatting = False
+                    else:
+                        partition.allow_formatting = True
                     partition.target_mountpoint = mountpoint
                     # Only overwrite the filesystem definition if we selected one:
-                    if len(new_filesystem):
+                    if len(new_filesystem) and new_filesystem != "-":
                         partition.filesystem = new_filesystem
 
             archinstall.log("Using existing partition table reported above.")
