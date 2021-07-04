@@ -26,14 +26,11 @@ main_brew() {
 
 main_pacman() {
 	sudo pacman -Syu --noconfirm --needed firefox w3m firefox-developer-edition
-	msg 'remove i3 BROWSER variable because it does nothing and also ruins everything'
-	sed -i 's/export BROWSER=.*/# export BROWSER=/g' ~/.profile
-	unset BROWSER
 
 	bash xdg-settings set default-web-browser firefox.desktop
 
-	msg 'nyxt - the internet on your terms'
-	yay -Syu --noconfirm --needed nyxt
+	# msg 'nyxt - the internet on your terms'
+	# yay -Syu --noconfirm --needed nyxt
 }
 
 main_apt() {
@@ -41,6 +38,6 @@ main_apt() {
 	return 1
 }
 
-main() {
-	configfile nyxt
-}
+#main() {
+# configfile nyxt
+#}
