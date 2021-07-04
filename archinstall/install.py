@@ -60,13 +60,13 @@ def ask_user_questions():
         "lightdm",
         "lightdm-gtk-greeter",
         "xorg",
+        "go",
         "firefox",
     ]
 
     archinstall.arguments["custom-commands"] = [
         "cd /home/parham; git clone https://aur.archlinux.org/yay.git",
         "chown -R parham:parham /home/parham/yay",
-        "cd /home/parham/yay; makepkg -si",
         "cd /home/parham; git clone https://github.com/1995parham/dotfiles.git",
         "chown -R parham:parham /home/parham/dotfiles",
         "usermod -aG docker parham",
