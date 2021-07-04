@@ -194,21 +194,6 @@ def ask_user_questions():
             ] = archinstall.ask_for_main_filesystem_format()
         archinstall.arguments["harddrive"].keep_partitions = False
 
-    # Get disk encryption password (or skip if blank)
-    if (
-        archinstall.arguments["harddrive"]
-        and archinstall.arguments.get("!encryption-password", None) is None
-    ):
-        if passwd := archinstall.get_password(
-            prompt="Enter disk encryption password (leave blank for no encryption): "
-        ):
-            archinstall.arguments["!encryption-password"] = passwd
-            archinstall.arguments[
-                "harddrive"
-            ].encryption_password = archinstall.arguments[
-                "!encryption-password"
-            ]
-
     archinstall.arguments["bootloader"] = "grub-install"
 
     # Get the hostname for the machine
