@@ -36,8 +36,9 @@ def ask_user_questions():
     )
 
     mirrors = archinstall.list_mirrors()
-    archinstall.arguments["mirror-region"]["Worldwide"] = mirrors["Worldwide"]
-    archinstall.arguments["mirror-region"]["Iran"] = mirrors.get("Iran", {})
+    archinstall.arguments["mirror-region"] = {
+        "Iran": mirrors.get("Iran", {})
+    } | {"Worldwide": mirrors["Worldwide"]}
     archinstall.arguments["profile"] = "sway"
     archinstall.arguments["kernels"] = ["linux"]
     archinstall.arguments["nic"] = {"NetworkManager": True}
@@ -133,7 +134,7 @@ def ask_user_questions():
                     while 1:
                         new_filesystem = input(
                             f"Enter a valid filesystem for {partition}"
-                            "and - if you don't want to format it"
+                            " and - if you don't want to format it "
                             f"(leave blank for {partition.filesystem}): "
                         ).strip(" ")
                         if len(new_filesystem) <= 0:
