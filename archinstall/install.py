@@ -36,9 +36,8 @@ def ask_user_questions():
     )
 
     mirrors = archinstall.list_mirrors()
-    archinstall.arguments["mirror-region"] = (
-        mirrors.get("Iran", {}) | mirrors["Worldwide"]
-    )
+    archinstall.arguments["mirror-region"]["Worldwide"] = mirrors["Worldwide"]
+    archinstall.arguments["mirror-region"]["Iran"] = mirrors.get("Iran", {})
     archinstall.arguments["profile"] = "sway"
     archinstall.arguments["kernels"] = ["linux"]
     archinstall.arguments["nic"] = {"NetworkManager": True}
