@@ -63,6 +63,7 @@ def ask_user_questions():
         "go",
         "alacritty",
         "firefox",
+        "xdg-utils",
     ]
 
     archinstall.arguments["custom-commands"] = [
