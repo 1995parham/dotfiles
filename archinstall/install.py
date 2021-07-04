@@ -43,6 +43,7 @@ def ask_user_questions():
     archinstall.arguments["ntp"] = True
     archinstall.arguments["audio"] = "pipewire"
     archinstall.arguments["timezone"] = "Asia/Tehran"
+    archinstall.arguments["keyboard-language"] = "us"
     archinstall.arguments["packages"] = [
         "docker",
         "git",
