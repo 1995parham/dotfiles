@@ -35,7 +35,7 @@ def ask_user_questions():
         "sys-encoding", "utf-8"
     )
 
-    archinstall.arguments["mirror-region"] = "Iran"
+    archinstall.arguments["mirror-region"] = { "Iran" }
     archinstall.arguments["profile"] = "sway"
     archinstall.arguments["kernels"] = ["linux"]
     archinstall.arguments["nic"] = {"NetworkManager": True}
