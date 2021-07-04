@@ -72,7 +72,7 @@ def ask_user_questions():
         "usermod -aG docker parham",
     ]
 
-    archinstall.arguments["services"] = ["lightdm"]
+    # archinstall.arguments["services"] = ["lightdm"]
 
     # Ask which harddrive/block-device we will install to
     archinstall.arguments["harddrive"] = archinstall.select_disk(
