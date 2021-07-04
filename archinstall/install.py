@@ -51,11 +51,26 @@ def ask_user_questions():
         "curl",
         "v2ray",
         "neovim",
+        "zsh",
         "python-pynvim",
         "python",
         "python-pip",
         "kitty",
+        "base-devel",
+        "lightdm",
+        "lightdm-gtk-greeter",
     ]
+
+    archinstall.arguments["custom-commands"] = [
+        "cd /home/parham; git clone https://aur.archlinux.org/yay.git",
+        "chown -R parham:parham /home/parham/yay",
+        "cd /home/parham/yay; makepkg -si",
+        "cd /home/parham; git clone https://github.com/1995parham/dotfiles.git",
+        "chown -R parham:parham /home/parham/dotfiles",
+        "usermod -aG docker parham",
+    ]
+
+    archinstall.arguments["services"] = ["ligthdm"]
 
     # Ask which harddrive/block-device we will install to
     archinstall.arguments["harddrive"] = archinstall.select_disk(
