@@ -39,9 +39,7 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed imv
 
 	msg 'pdf viewer'
-	sudo pacman -Syu --noconfirm --needed epdfview
-
-	sudo pacman -Syu --noconfirm --needed unclutter
+	sudo pacman -Syu --noconfirm --needed mupdf
 
 	msg 'notification with dunst'
 	sudo pacman -Syu --noconfirm --needed dunst libnotify
@@ -65,4 +63,6 @@ main_pacman() {
 	msg 'configure the dmenu, default application luncher on manjaro i3'
 	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
+
+	dotfile sway profile
 }
