@@ -44,7 +44,7 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed unclutter
 
 	msg 'notification with dunst'
-	sudo pacman -Syu --noconfirm --needed dunst
+	sudo pacman -Syu --noconfirm --needed dunst libnotify
 	configfile dunst "" sway
 
 	msg 'backgrounds with swaybg'
