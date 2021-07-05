@@ -25,7 +25,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-for_window [class=Alacritty instance="__termpad"] floating enable
+for_window [app_id="__termpad"] floating enable
 bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
 
 # i3 configuration at you glance to review
@@ -182,43 +182,14 @@ assign [class="Skype"] $ws8
 assign [class="Emacs"] $ws3
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border none
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [class="Element"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="skype"] floating enable border none
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload; exec "notify-send reloaded"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -274,8 +245,6 @@ bindsym $mod+9 exec --no-startup-id swaylock
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # picom and nitrogen
 # exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
-# A small program for hiding the mouse cursor
-exec --no-startup-id unclutter -b
 # polybar
 # exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
 # say hello from manjaro
@@ -296,11 +265,20 @@ exec --no-startup-id unclutter -b
 #exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id fix_xcursor
 
+# timeout in milliseconds
+seat hide hide_cursor 1000
+
 # workspace on demand
 exec swaymsg 'workspace $ws1; exec kitty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
-# provide support for en/fa layouts
-bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
+input "type:keyboard" {
+  xkb_layout us,ir
+  xkb_options grp:alt_shift_toggle
+}
+
+input "type:touchpad" {
+  natural_scroll enabled
+}
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
@@ -314,22 +292,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #333333
 
 bar {
-  position bottom
-  strip_workspace_numbers yes
-
-  colors {
-    background #333333
-    statusline #F9FAF9
-    separator  #454947
-
-    #                  border  backgr. text
-    focused_workspace  #333333 #ffa500 #333333
-    inactive_workspace #333333 #333333 #ffa500
-    # TODO: active workspace are useful on multiple output configure it in future.
-    active_workspace   #333333 #333333 #ffa500
-    urgent_workspace   #333333 #333333 #b30000
-    binding_mode       #bcbcbc #bcbcbc #333333
-    }
+  swaybar_command waybar
 }
 
 # Set inner/outer gaps
