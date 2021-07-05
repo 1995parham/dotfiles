@@ -22,7 +22,7 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -41,15 +41,8 @@ bindsym $mod+Shift+q kill
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show
 
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
-
 ## sound-section
 
-# exec --no-startup-id volumeicon
-# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
@@ -74,9 +67,6 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-
-# manjaro help
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 
 # kill a window with a cursor
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -208,39 +198,14 @@ assign [class="Skype"] $ws8
 assign [class="Emacs"] $ws3
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border none
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
 for_window [class="Element"] floating enable
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
 
-# hide/unhide polybar
+# hide/unhide polybar with its ipc
 bindsym $mod+m exec polybar-msg cmd toggle
 
 # reload the configuration file
@@ -300,30 +265,12 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 ## autostart applications
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # picom and nitrogen
 exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
 # A small program for hiding the mouse cursor
 exec --no-startup-id unclutter -b
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
-# say hello from manjaro
-# exec --no-startup-id manjaro-hello
-# NetworkManager
-exec --no-startup-id nm-applet
-# power manager
-exec --no-startup-id xfce4-power-manager
-# notification for pacman updates
-exec --no-startup-id pamac-tray
-# clipboard manager
-exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -detectsleep -time 15 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 
 # workspace on demand
 exec i3-msg 'workspace $ws1; exec kitty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
@@ -341,10 +288,6 @@ client.urgent           #333333 #333333 #b30000 #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 
 client.background       #333333
-
-#############################
-### settings for i3-gaps: ###
-#############################
 
 # Set inner/outer gaps
 gaps inner 14
