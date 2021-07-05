@@ -25,7 +25,7 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome otf-font-awesome
+	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome
 	yay -Syu --needed --noconfirm ttf-meslo
 	yay -Syu --needed --noconfirm vazir-fonts
 	yay -Syu --needed --noconfirm vazir-code-fonts
