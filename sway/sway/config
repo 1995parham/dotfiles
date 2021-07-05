@@ -200,7 +200,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
+mode --pango_markup "$mode_system" {
         bindsym l exec --no-startup-id i3exit lock, mode "default"
         bindsym s exec --no-startup-id i3exit suspend, mode "default"
         bindsym u exec --no-startup-id i3exit switch_user, mode "default"
@@ -241,32 +241,7 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id swaylock
 
-## autostart applications
-
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# picom and nitrogen
-# exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
-# polybar
-# exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
-# say hello from manjaro
-# exec --no-startup-id manjaro-hello
-# NetworkManager
-#exec --no-startup-id nm-applet
-# power manager
-#exec --no-startup-id xfce4-power-manager
-# notification for pacman updates
-#exec --no-startup-id pamac-tray
-# clipboard manager
-#exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-#exec --no-startup-id xautolock -detectsleep -time 15 -locker blurlock
-#exec_always --no-startup-id ff-theme-util
-#exec_always --no-startup-id fix_xcursor
-
-# timeout in milliseconds
+# hide cursor after timeout which is in milliseconds.
 seat hide hide_cursor 1000
 
 # workspace on demand
@@ -279,6 +254,7 @@ input "type:keyboard" {
 
 input "type:touchpad" {
   natural_scroll enabled
+  dwt enabled
 }
 
 # Theme colors
