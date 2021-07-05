@@ -128,3 +128,12 @@ on wsl your ssh connections to github get timeout, use the following configurati
 ```
 Ciphers aes256-gcm@openssh.com
 ```
+
+### update-grub with windows
+
+```sh
+yay -Syu --needed --noconfirm update-grub
+sudo pacman -Syu os-probe
+
+# set GRUB_DISABLE_OS_PROBER=false in /etc/default/grub
+```
