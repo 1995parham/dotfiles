@@ -37,7 +37,7 @@ def ask_user_questions():
 
     mirrors = archinstall.list_mirrors()
     archinstall.arguments["mirror-region"] = {"Iran": mirrors["Iran"]}
-    archinstall.arguments["profile"] = "sway"
+    archinstall.arguments["profile"] = "i3"
     archinstall.arguments["kernels"] = ["linux"]
     archinstall.arguments["nic"] = {"NetworkManager": True}
     archinstall.arguments["ntp"] = True
@@ -61,6 +61,7 @@ def ask_user_questions():
         "lightdm-gtk-greeter",
         "xorg",
         "go",
+        "alacritty",
         "firefox",
     ]
 
