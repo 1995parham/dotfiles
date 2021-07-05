@@ -429,8 +429,8 @@ format-foreground = #ffff00
 
 [module/bali]
 type = custom/script
-exec = echo "Bali"
-exec-if = nmcli -f GENERAL.STATE connection show Bali | grep activated
+exec = echo "Baly"
+exec-if = nmcli -f GENERAL.STATE connection show Baly | grep activated
 interval = 5
 format = <label>
 format-foreground = #0000ff
