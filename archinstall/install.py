@@ -606,6 +606,7 @@ def perform_installation(mountpoint):
         installation.log("su parham", fg="yellow")
         installation.log("build yay package with makepkg -si", fg="yellow")
         installation.log("enable lightdm service", fg="yellow")
+        installation.log("pacman.conf, ILoveCandy + Color", fg="yellow")
         try:
             installation.drop_to_shell()
         except:
