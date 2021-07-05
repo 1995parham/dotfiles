@@ -82,8 +82,8 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed rofi
 	configfile rofi "" i3
 
-	msg 'gnome-keyring setup with ~/.profile'
-	sudo pacman -Syu --noconfirm --needed gnome-keyring
+	msg 'gnome-keyring/seahorse setup with ~/.profile'
+	sudo pacman -Syu --noconfirm --needed gnome-keyring seahorse
 	dotfile i3 profile
 
 	msg 'pavucontrol, a panel for audio'
