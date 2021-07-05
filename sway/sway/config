@@ -183,8 +183,8 @@ assign [class="Emacs"] $ws3
 
 # Open specific applications in floating mode
 for_window [app_id="pavucontrol"] floating enable
-for_window [class="Skype" instance="skype"] floating enable
-for_window [class="Skype" instance="skype"] border none
+for_window [class="Skype"] floating enable
+for_window [class="Skype"] border none
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
