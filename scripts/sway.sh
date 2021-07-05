@@ -38,6 +38,9 @@ main_pacman() {
 	msg 'x11/wayland image viewer'
 	sudo pacman -Syu --noconfirm --needed imv
 
+	msg 'pdf viewer'
+	sudo pacman -Syu --noconfirm --needed epdfview
+
 	sudo pacman -Syu --noconfirm --needed unclutter
 
 	msg 'notification with dunst'
