@@ -35,6 +35,9 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim
 	configfile sway "" sway
 
+	msg 'x11/wayland image viewer'
+	sudo pacman -Syu --noconfirm --needed imv
+
 	sudo pacman -Syu --noconfirm --needed unclutter
 
 	msg 'notification with dunst'
