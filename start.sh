@@ -221,7 +221,7 @@ install() {
 	fi
 
 	if [[ "$(command -v pacman)" ]]; then
-		msg "linux with pacman (manjaro?)"
+		msg "linux with pacman (arch!)"
 
 		if declare -f main_pacman >/dev/null; then
 			main_pacman
