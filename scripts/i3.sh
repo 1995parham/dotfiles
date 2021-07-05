@@ -39,6 +39,11 @@ main_pacman() {
 	configfile i3 "" i3
 	configfile polybar "" i3
 
+	msg 'ranger with image preview'
+	sudo pacman -Syu --noconfirm --needed ranger ueberzug
+
+	configfile ranger "" i3
+
 	msg 'x11/wayland image viewer'
 	sudo pacman -Syu --noconfirm --needed imv
 
