@@ -1,0 +1,5 @@
+[Unit]
+Description=Change background
+
+[Service]
+ExecStart=feh --bg-fill --randomize %h/Pictures/GoSiMac/*
