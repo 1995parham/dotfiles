@@ -33,6 +33,7 @@ main_pacman() {
 
 	msg 'sway'
 	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim
+	configfile sway "" sway
 
 	sudo pacman -Syu --noconfirm --needed unclutter
 
@@ -51,12 +52,11 @@ main_pacman() {
 	systemctl --user enable swaybg.timer
 	systemctl --user start swaybg.timer
 
-	msg 'configure the dmenu, default application luncher on manjaro i3'
-	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
-	chmod +x "$HOME/.dmenurc"
-
-	msg 'configure rofi another application luncher'
+	msg 'configure rofi as an another application luncher'
 	sudo pacman -Syu --noconfirm --needed rofi
 	configfile rofi "" sway
 
+	msg 'configure the dmenu, default application luncher on manjaro i3'
+	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
+	chmod +x "$HOME/.dmenurc"
 }
