@@ -32,10 +32,9 @@ main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
 	msg 'i3 with polybar'
-	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot polybar
+	sudo pacman -Syu --noconfirm --needed i3-gaps i3-scrot matcha-gtk-theme
 
 	configfile i3 "" i3
-	configfile polybar "" i3
 
 	msg 'x11/wayland image viewer'
 	sudo pacman -Syu --noconfirm --needed imv
