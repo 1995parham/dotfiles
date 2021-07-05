@@ -2,4 +2,4 @@
 Description=Change background
 
 [Service]
-ExecStart=feh --bg-fill --randomize %h/Pictures/GoSiMac/*
+ExecStart=feh --bg-fill --randomize %h/Pictures/GoSiMac/
