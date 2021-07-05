@@ -29,6 +29,7 @@ main_pacman() {
 	yay -Syu --needed --noconfirm ttf-meslo
 	yay -Syu --needed --noconfirm vazir-fonts
 	yay -Syu --needed --noconfirm vazir-code-fonts
+	yay -Syu --needed --noconfirm nerd-fonts-jetbrains-mono
 }
 
 main_apt() {
