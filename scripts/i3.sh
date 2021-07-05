@@ -37,6 +37,12 @@ main_pacman() {
 	configfile i3 "" i3
 	configfile polybar "" i3
 
+	msg 'x11/wayland image viewer'
+	sudo pacman -Syu --noconfirm --needed imv
+
+	msg 'pdf viewer'
+	sudo pacman -Syu --noconfirm --needed mupdf
+
 	msg 'jalali calender'
 	yay -Syu --noconfirm --needed jcal-git
 
@@ -45,21 +51,24 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed unclutter
 	configrootfile picom picom.conf i3
 
-	msg 'backgrounds with nitrogen'
-	sudo pacman -Syu --noconfirm --needed nitrogen
+	msg 'x11/wayland image viewer'
+	sudo pacman -Syu --noconfirm --needed imv
+
+	msg 'pdf viewer'
+	sudo pacman -Syu --noconfirm --needed mupdf
 
 	msg 'notification with dunst'
-	sudo pacman -Syu --noconfirm --needed dunst
-	# use manjaro-i3 appearance-menu for changing the gtk theme
-	# sudo pacman -Syu --noconfirm --needed lxappearance
+	sudo pacman -Syu --noconfirm --needed dunst libnotify
 	configfile dunst "" i3
 
+	msg 'backgrounds with feh'
+	sudo pacman -Syu --noconfirm --needed feh
 	msg 'setup a systemd timer to change background images each 5 minutes with nitrogen'
-	configsystemd nitrogen nitrogen.timer i3
-	configsystemd nitrogen nitrogen.service i3
+	configsystemd feh feh.timer i3
+	configsystemd feh feh.service i3
 
-	systemctl --user enable nitrogen.timer
-	systemctl --user start nitrogen.timer
+	systemctl --user enable feh.timer
+	systemctl --user start feh.timer
 
 	msg 'configure the dmenu, default application luncher on manjaro i3'
 	linker dmenu "$current_dir/i3/dmenurc" "$HOME/.dmenurc"
@@ -77,7 +86,5 @@ main_pacman() {
 
 	msg 'gnome-keyring setup with ~/.profile'
 	sudo pacman -Syu --noconfirm --needed gnome-keyring
-	# shellcheck disable=2016
-	grep -E '\bgnome-keyring-daemon\b' "$HOME/.profile" ||
-		echo 'export "$(gnome-keyring-daemon --start)"' >>"$HOME/.profile"
+	dotfile i3 profile
 }
