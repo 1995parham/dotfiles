@@ -267,7 +267,8 @@ bindsym $mod+9 exec --no-startup-id blurlock
 ## autostart applications
 
 # picom and nitrogen
-exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
+exec --no-startup-id $HOME/.fehbg
+exec --no-startup-id picom --experimental-backends -b
 # A small program for hiding the mouse cursor
 exec --no-startup-id unclutter -b
 # polybar
