@@ -1,7 +1,12 @@
 #!/bin/bash
 
+pid="$(pidof swaybg)"
+
 new_wallpaper="$(find "$HOME/Pictures/GoSiMac" -maxdepth 1 -type f | shuf -n 1)"
 
+export SWAYSOCK
 SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
 
-swaymsg -s "$SWAYSOCK" output '*' bg "$new_wallpaper" fill
+swaybg -i "$new_wallpaper" -m fill &
+sleep 1
+kill "$pid"
