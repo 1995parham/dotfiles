@@ -85,6 +85,7 @@ main_pacman() {
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
 	sudo pacman -Syu --noconfirm --needed gnome-keyring seahorse
 	dotfile i3 profile
+	linker gnupg "$current_dir/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
 	msg 'pavucontrol, a panel for audio'
 	sudo pacman -Syu --noconfirm --needed pavucontrol
