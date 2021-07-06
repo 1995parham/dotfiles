@@ -71,9 +71,6 @@ main_pacman() {
 	configsystemd feh feh.timer i3
 	configsystemd feh feh.service i3
 
-	systemctl --user enable feh.timer
-	systemctl --user start feh.timer
-
 	msg 'configure the dmenu, default application luncher on i3'
 	linker dmenu "$current_dir/i3/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
@@ -89,4 +86,8 @@ main_pacman() {
 
 	msg 'pavucontrol, a panel for audio'
 	sudo pacman -Syu --noconfirm --needed pavucontrol
+
+	msg 'enable feh services later to be a good post installation script'
+	systemctl --user enable feh.timer
+	systemctl --user start feh.timer
 }
