@@ -1,8 +1,11 @@
 #!/bin/bash
 
-systemctl enable lightdm
+if [[ $USER != parham ]]; then
+	echo "you are not my master"
+	exit
+fi
 
-su -s parham
+sudo systemctl enable lightdm
 
 cd "$HOME/yay" && makepkg -si
 cd "$HOME/dotfiles/" && ./start.sh i3
