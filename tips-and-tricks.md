@@ -137,3 +137,15 @@ sudo pacman -Syu os-probe
 
 # set GRUB_DISABLE_OS_PROBER=false in /etc/default/grub
 ```
+
+### touchpad on trackpad with asus
+
+```sh
+sudo pacman -Syu libevdev python-libevdev i2c-tools
+sudo modprobe i2c-dev
+sudo i2cdetect -l
+
+git clone https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver
+cd asus-touchpad-numpad-driver
+sudo ./install.sh
+```
