@@ -2,7 +2,7 @@
 # Font configuration (changes require restart)
 font:
   # Point size
-  size: 9.0
+  size: 13.0
   normal:
     family: JetBrains Mono
     style: Regular
@@ -23,6 +23,9 @@ font:
 mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
+
+env:
+  WINIT_X11_SCALE_FACTOR: "1"
 
 background_opacity: 1.0
 cursor:
