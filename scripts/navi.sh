@@ -36,5 +36,5 @@ main_pacman() {
 main() {
 	user=1995parham
 	repo=cheats
-	git clone "git@github.com/${user}/${repo}" "$(navi info cheats-path)/${user}__${repo}" || true
+	git clone "git@github.com:${user}/${repo}" "$(navi info cheats-path)/${user}__${repo}" || true
 }
