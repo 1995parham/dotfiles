@@ -88,6 +88,9 @@ main_pacman() {
 	msg 'pavucontrol, a panel for audio'
 	sudo pacman -Syu --noconfirm --needed pavucontrol
 
+	msg 'pulse-audio tray'
+	sudo pacman -Syu --noconfirm --needed pasystray
+
 	msg 'enable feh services later to be a good post installation script'
 	systemctl --user enable feh.timer
 	systemctl --user start feh.timer
