@@ -266,13 +266,16 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 ## autostart applications
 
-# picom and nitrogen
+# restore last background with feh
 exec --no-startup-id $HOME/.fehbg
+# picom
 exec --no-startup-id picom --experimental-backends -b
-# A small program for hiding the mouse cursor
+# a small program for hiding the mouse cursor
 exec --no-startup-id unclutter -b
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
+# pulse audio system trau
+exec --no-startup-id pasystray
 
 # workspace on demand
 exec i3-msg 'workspace $ws1; exec kitty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
