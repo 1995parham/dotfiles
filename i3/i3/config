@@ -80,6 +80,11 @@ bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
 bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
 
+# volume control
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
