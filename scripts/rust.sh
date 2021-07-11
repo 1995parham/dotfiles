@@ -29,6 +29,8 @@ main() {
 	[ -d "$HOME/.zfunc" ] || mkdir "$HOME/.zfunc"
 	rustup completions zsh >~/.zfunc/_rustup
 
+	msg 'install cargo-edit with _cargo install cargo-edit_ manually because of its cpu load'
+
 	# shellcheck disable=1091,1090
 	source "$HOME/.cargo/env"
 
