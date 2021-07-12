@@ -40,7 +40,7 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed "${pacman_packages[@]}" "${packages[@]}"
 
 	msg "install ${yay_packages[*]} with yay"
-	yay -Syu --noconfirm --needed "${yay_packages[@]}"
+	yay -Syu --needed "${yay_packages[@]}"
 }
 
 main_brew() {

@@ -26,10 +26,10 @@ main_brew() {
 
 main_pacman() {
 	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts
-	yay -Syu --needed --noconfirm ttf-meslo
-	yay -Syu --needed --noconfirm vazir-fonts
-	yay -Syu --needed --noconfirm vazir-code-fonts
-	yay -Syu --needed --noconfirm nerd-fonts-jetbrains-mono
+	yay -Syu --needed ttf-meslo
+	yay -Syu --needed vazir-fonts
+	yay -Syu --needed vazir-code-fonts
+	yay -Syu --needed nerd-fonts-jetbrains-mono
 }
 
 main_apt() {
