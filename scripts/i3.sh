@@ -9,7 +9,7 @@
 # =======================================
 
 usage() {
-	echo "i3 window manager for manajaro i3"
+	echo "i3 window manager for arch"
 	# shellcheck disable=1004
 	echo '
  _ _____
@@ -32,7 +32,7 @@ main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
 	msg 'i3 with polybar'
-	sudo pacman -Syu --noconfirm --needed i3-gaps xclip
+	sudo pacman -Syu --noconfirm --needed i3-gaps xclip gtk3
 	yay -Syu --noconfirm --needed i3-scrot matcha-gtk-theme polybar i3exit
 
 	configfile gtk-3.0 settings.ini i3
