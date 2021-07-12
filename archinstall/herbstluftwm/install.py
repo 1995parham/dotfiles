@@ -62,6 +62,7 @@ def ask_user_questions():
         "base-devel",
         "xorg",
         "go",
+        "netsurf",
         "alacritty",
         "xdg-utils",
     ]
