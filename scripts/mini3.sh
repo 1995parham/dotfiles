@@ -31,8 +31,8 @@ main_apt() {
 main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
-	msg 'i3 with polybar'
-	sudo pacman -Syu --noconfirm --needed i3-gaps xclip
+	msg 'i3 with i3status-rust'
+	sudo pacman -Syu --noconfirm --needed i3-gaps xclip i3status-rust
 	yay -Syu --noconfirm --needed i3-scrot matcha-gtk-theme i3exit
 
 	configfile gtk-3.0 settings.ini i3
