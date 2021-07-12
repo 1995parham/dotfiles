@@ -1,9 +1,0 @@
-Mod=Mod4
-herbstclient keybind Super+Return spawn alacritty
-herbstclient keybind Super+Shitf+R reload
-herbstclient keybind Super+Up focus up
-herbstclient keybind Super+Left focus left
-herbstclient keybind Super+Right focus right
-herbstclient keybind Super+Down focus down
-herbstclient keybind Super+D spawn dmenu_run
-herbstclient keybind Super+Shift+Q close_and_remove
