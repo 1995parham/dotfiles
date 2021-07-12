@@ -34,8 +34,8 @@ main_pacman() {
 	msg 'i3 with polybar'
 	sudo pacman -Syu --noconfirm --needed i3-gaps xclip
 	yay -Syu --noconfirm --needed i3-scrot matcha-gtk-theme polybar i3exit
-	configfile gtk-3.0 settings.ini i3
 
+	configfile gtk-3.0 settings.ini i3
 	configfile i3 "" i3
 	configfile polybar "" i3
 
