@@ -279,7 +279,7 @@ exec --no-startup-id picom --experimental-backends -b
 exec --no-startup-id unclutter -b
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
-# pulse audio system trau
+# pulse audio system tray
 exec --no-startup-id pasystray
 
 # workspace on demand
