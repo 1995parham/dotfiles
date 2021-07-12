@@ -1,3 +1,6 @@
+'''
+Guided installation baed on archlinux/archinstall.
+'''
 import json
 import logging
 import os
@@ -17,17 +20,18 @@ if os.getuid() != 0:
     print("Archinstall requires root privileges to run. See --help for more.")
     sys.exit(1)
 
-# For support reasons, we'll log the disk layout pre installation to match against post-installation layout
+# For support reasons, we'll log the disk layout pre installation to
+# match against post-installation layout
 archinstall.log(
     f"Disk states before installing: {archinstall.disk_layouts()}",
     level=logging.DEBUG,
 )
 
 
-def ask_user_questions():
-    """
-    setup the default values and then continue for the disk setup.
-    """
+def defaults():
+    '''
+    setup the default values.
+    '''
     archinstall.arguments["sys-language"] = archinstall.arguments.get(
         "sys-language", "en_US"
     )
@@ -37,7 +41,7 @@ def ask_user_questions():
 
     mirrors = archinstall.list_mirrors()
     archinstall.arguments["mirror-region"] = {"Iran": mirrors["Iran"]}
-    archinstall.arguments["profile"] = "xorg"
+    archinstall.arguments["profile"] = "i3"
     archinstall.arguments["kernels"] = ["linux"]
     archinstall.arguments["nic"] = {"NetworkManager": True}
     archinstall.arguments["ntp"] = True
@@ -56,26 +60,29 @@ def ask_user_questions():
         "python",
         "python-pip",
         "kitty",
+        "base-devel",
         "lightdm",
         "lightdm-gtk-greeter",
-        "herbstluftwm",
-        "base-devel",
         "xorg",
         "go",
-        "netsurf",
         "alacritty",
         "xdg-utils",
     ]
 
     archinstall.arguments["custom-commands"] = [
-        "cd /home/parham; git clone https://aur.archlinux.org/yay.git",
-        "chown -R parham:parham /home/parham/yay",
+        "cd /home/parham; git clone https://aur.archlinux.org/yay-bin.git",
+        "chown -R parham:parham /home/parham/yay-bin",
         "cd /home/parham; git clone https://github.com/1995parham/dotfiles.git",
         "chown -R parham:parham /home/parham/dotfiles",
         "usermod -aG docker parham",
     ]
 
     # archinstall.arguments["services"] = ["lightdm"]
+
+def ask_user_questions():
+    """
+    setup disk layout and then continue the installation.
+    """
 
     # Ask which harddrive/block-device we will install to
     archinstall.arguments["harddrive"] = archinstall.select_disk(
@@ -224,12 +231,6 @@ def ask_user_questions():
             "Desired hostname for the installation: "
         ).strip(" ")
 
-    # Ask for a root password (optional, but triggers requirement for super-user if skipped)
-    if not archinstall.arguments.get("!root-password", None):
-        archinstall.arguments["!root-password"] = archinstall.get_password(
-            prompt="Enter root password (Recommendation: leave blank to leave root disabled): "
-        )
-
     # Ask for additional users (super-user if root pw was not set)
     archinstall.arguments["users"] = {}
     archinstall.arguments["superusers"] = {}
@@ -244,10 +245,7 @@ def ask_user_questions():
         "Enter a username to create a additional user (leave blank to skip & continue): "
     )
     archinstall.arguments["users"] = users
-    archinstall.arguments["superusers"] = {
-        **archinstall.arguments["superusers"],
-        **superusers,
-    }
+    archinstall.arguments["superusers"] = archinstall.arguments.get("superusers", {}) | superusers
 
     # Ask for archinstall-specific profiles (such as desktop environments etc)
     if not archinstall.arguments.get("profile", None):
@@ -284,57 +282,27 @@ def ask_user_questions():
     print(
         "If you desire a web browser, such as firefox or chromium, you may specify it in the following prompt."
     )
-    while True:
-        if not archinstall.arguments.get("packages", None):
-            archinstall.arguments["packages"] = [
-                package
-                for package in input(
-                    "Write additional packages to install (space separated, leave blank to skip): "
-                ).split(" ")
-                if len(package)
-            ]
-
-        if len(archinstall.arguments["packages"]):
-            # Verify packages that were given
-            try:
-                archinstall.log(
-                    "Verifying that additional packages exist (this might take a few seconds)"
-                )
-                archinstall.validate_package_list(
-                    archinstall.arguments["packages"]
-                )
-                break
-            except archinstall.RequirementError as e:
-                archinstall.log(e, fg="red")
-                archinstall.arguments[
-                    "packages"
-                ] = None  # Clear the packages to trigger a new input question
-        else:
-            # no additional packages were selected, which we'll allow
-            break
+    if len(archinstall.arguments["packages"]):
+        # Verify packages that were given
+        try:
+            archinstall.log(
+                "Verifying that additional packages exist (this might take a few seconds)"
+            )
+            archinstall.validate_package_list(
+                archinstall.arguments["packages"]
+            )
+        except archinstall.RequirementError as err:
+            archinstall.log(err, fg="red")
+            archinstall.arguments[
+                "packages"
+            ] = None  # Clear the packages to trigger a new input question
 
     # Ask or Call the helper function that asks the user to optionally configure a network.
     if not archinstall.arguments.get("nic", None):
-        archinstall.arguments["nic"] = archinstall.ask_to_configure_network()
-        if not archinstall.arguments["nic"]:
-            archinstall.log(
-                "No network configuration was selected. Network is going to be unavailable until configured manually!",
-                fg="yellow",
-            )
-
-    if not archinstall.arguments.get("timezone", None):
-        archinstall.arguments["timezone"] = archinstall.ask_for_a_timezone()
-
-    if archinstall.arguments["timezone"]:
-        if not archinstall.arguments.get("ntp", False):
-            archinstall.arguments["ntp"] = input(
-                "Would you like to use automatic time synchronization (NTP) with the default time servers? [Y/n]: "
-            ).strip().lower() in ("y", "yes", "")
-            if archinstall.arguments["ntp"]:
-                archinstall.log(
-                    "Hardware time and other post-configuration steps might be required in order for NTP to work. For more information, please check the Arch wiki.",
-                    fg="yellow",
-                )
+        archinstall.log(
+            "No network configuration was selected. Network is going to be unavailable until configured manually!",
+            fg="yellow",
+        )
 
 
 def perform_installation_steps():
@@ -354,7 +322,7 @@ def perform_installation_steps():
     print()
 
     if archinstall.arguments.get("dry_run"):
-        exit(0)
+        sys.exit(0)
 
     if not archinstall.arguments.get("silent"):
         input("Press Enter to continue.")
@@ -532,8 +500,8 @@ def perform_installation(mountpoint):
                 )
 
             if (
-                archinstall.arguments.get("packages", None)
-                and archinstall.arguments.get("packages", None)[0] != ""
+                len(archinstall.arguments.get("packages", [])) != 0
+                and archinstall.arguments.get("packages", [])[0] != ""
             ):
                 installation.add_additional_packages(
                     archinstall.arguments.get("packages", None)
@@ -587,7 +555,7 @@ def perform_installation(mountpoint):
                             " * Profile's post configuration requirements was not fulfilled.",
                             fg="red",
                         )
-                        exit(1)
+                        sys.exit(1)
 
         # If the user provided a list of services to be enabled, pass the list to the enable_service function.
         # Note that while it's called enable_service, it can actually take a list of services and iterate it.
@@ -617,19 +585,14 @@ def perform_installation(mountpoint):
 
 
 if not check_mirror_reachable():
-    log_file = os.path.join(
-        archinstall.storage.get("LOG_PATH", None),
-        archinstall.storage.get("LOG_FILE", None),
-    )
-
     archinstall.log(
         "Arch Linux mirrors are not reachable"
-        "Please check your internet connection"
-        f"and the log file '{log_file}'.",
-        level=logging.INFO,
+        "Please check your internet connection",
         fg="red",
     )
     sys.exit(1)
+
+defaults()
 
 ask_user_questions()
 
