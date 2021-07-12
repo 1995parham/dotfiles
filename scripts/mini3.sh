@@ -32,7 +32,7 @@ main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
 	msg 'i3 with polybar'
-	sudo pacman -Syu --noconfirm --needed i3 xclip
+	sudo pacman -Syu --noconfirm --needed i3-gaps xclip
 	yay -Syu --noconfirm --needed i3-scrot matcha-gtk-theme i3exit
 
 	configfile gtk-3.0 settings.ini i3
