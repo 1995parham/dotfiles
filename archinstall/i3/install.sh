@@ -7,5 +7,5 @@ fi
 
 sudo systemctl enable lightdm
 
-cd "$HOME/yay" && makepkg -si
+cd "$HOME/yay-bin" && makepkg -si
 cd "$HOME/dotfiles/" && ./start.sh i3
