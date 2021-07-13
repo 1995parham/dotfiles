@@ -17,5 +17,6 @@ vim.g.ale_fixers = {
 }
 
 vim.g.ale_python_black_options = '--line-length 80'
+vim.g.ale_python_mypy_options = '–ignore-missing-imports'
 
 vim.g.ale_fix_on_save = 1
