@@ -7,6 +7,9 @@ vim.g.ale_linters = {
 	go = {'golangci-lint'},
 }
 
+vim.g.ale_go_golangci_lint_options = '--enable-all'
+vim.g.ale_go_golangci_lint_package = 1
+
 vim.g.ale_fixers = {
 	['*'] = {'remove_trailing_lines', 'trim_whitespace'},
 	python = {'black', 'isort'},
