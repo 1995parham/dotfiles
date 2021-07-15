@@ -267,7 +267,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+9 exec --no-startup-id "blurlock; sleep 10; xset dpms force off"
 
 ## autostart applications
 
