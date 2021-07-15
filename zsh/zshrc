@@ -200,15 +200,6 @@ fi
 
 # }}}
 
-# k8s {{{
-
-alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
-alias kbb='kubectl run busybox --image=busybox:1.33 --rm -it --restart=Never --command --'
-alias kalpine='kubectl run 1995parham --image=ghcr.io/1995parham-me/docker --rm -it --restart=Never --command --'
-alias knats='kubectl run nats-box --image=synadia/nats-box:latest --rm -it --restart=Never --command --'
-
-# }}}
-
 # docker {{{
 
 # BuildKit is enabled by default on Docker Desktop,
