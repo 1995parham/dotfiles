@@ -91,6 +91,9 @@ main_pacman() {
 	msg 'pulse-audio tray'
 	sudo pacman -Syu --noconfirm --needed pasystray
 
+	msg 'there is no power manager and all events will be handled by systemd'
+	sudo cp "$current_dir/i3/systemd/logind.conf" /etc/systemd/logind.conf
+
 	msg 'enable feh services later to be a good post installation script'
 	systemctl --user enable feh.timer
 	systemctl --user start feh.timer
