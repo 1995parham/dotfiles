@@ -133,7 +133,7 @@ Ciphers aes256-gcm@openssh.com
 
 ```sh
 yay -Syu --needed --noconfirm update-grub
-sudo pacman -Syu os-probe
+sudo pacman -Syu os-prober
 
 # set GRUB_DISABLE_OS_PROBER=false in /etc/default/grub
 ```
