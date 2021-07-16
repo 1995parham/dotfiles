@@ -113,6 +113,9 @@ main_pacman() {
 	for package in "${packages[@]}"; do
 		sudo tlmgr install "$package"
 	done
+
+	msg "symlinks texlive newly installed binaries into default locations"
+	sudo tlmgr path add
 }
 
 main_brew() {
@@ -138,4 +141,6 @@ main_apt() {
 	for package in "${packages[@]}"; do
 		sudo tlmgr install "$package"
 	done
+	msg "symlinks texlive newly installed binaries into default locations"
+	sudo tlmgr path add
 }
