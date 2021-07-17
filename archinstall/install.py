@@ -61,13 +61,15 @@ def defaults():
         "python-pip",
         "kitty",
         "base-devel",
-        "lightdm",
-        "lightdm-gtk-greeter",
         "xorg",
         "go",
         "alacritty",
         "xdg-utils",
-    ]
+    ] + [
+        "lightdm",
+        "lightdm-gtk-greeter",
+        ] if archinstall.arguments["profile"] == "i3" else \
+    ["gdm"] if archinstall.arguments["profile"] == "gnome" else []
 
     archinstall.arguments["custom-commands"] = [
         "cd /home/parham; git clone https://aur.archlinux.org/yay-bin.git",
