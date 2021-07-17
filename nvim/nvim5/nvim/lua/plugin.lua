@@ -22,6 +22,9 @@ return require('packer').startup(function()
 	-- vim-kubernetes
 	use {'andrewstuart/vim-kubernetes'}
 
+  -- syntax highlighting for kitty terminal config files.
+  use "fladson/vim-kitty"
+
 	-- naz neovim theme
 	use {
 		'1995parham/naz.vim',
