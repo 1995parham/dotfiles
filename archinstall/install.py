@@ -1,6 +1,6 @@
-'''
+"""
 Guided installation baed on archlinux/archinstall.
-'''
+"""
 import json
 import logging
 import os
@@ -29,9 +29,9 @@ archinstall.log(
 
 
 def defaults():
-    '''
+    """
     setup the default values.
-    '''
+    """
     archinstall.arguments["sys-language"] = archinstall.arguments.get(
         "sys-language", "en_US"
     )
@@ -48,31 +48,34 @@ def defaults():
     archinstall.arguments["audio"] = "pipewire"
     archinstall.arguments["timezone"] = "Asia/Tehran"
     archinstall.arguments["keyboard-language"] = "us"
-    archinstall.arguments["packages"] = [
-        "docker",
-        "git",
-        "wget",
-        "curl",
-        "v2ray",
-        "neovim",
-        "zsh",
-        "python-pynvim",
-        "python",
-        "python-pip",
-        "kitty",
-        "base-devel",
-        "xorg",
-        "go",
-        "alacritty",
-        "xdg-utils",
-    ] + [
-        "lightdm",
-        "lightdm-gtk-greeter",
-        ] if archinstall.arguments["profile"] == "i3" else \
-    [
-        "gdm",
-        "flatpak"
-    ] if archinstall.arguments["profile"] == "gnome" else []
+    archinstall.arguments["packages"] = (
+        [
+            "docker",
+            "git",
+            "wget",
+            "curl",
+            "v2ray",
+            "neovim",
+            "zsh",
+            "python-pynvim",
+            "python",
+            "python-pip",
+            "kitty",
+            "base-devel",
+            "xorg",
+            "go",
+            "alacritty",
+            "xdg-utils",
+        ]
+        + [
+            "lightdm",
+            "lightdm-gtk-greeter",
+        ]
+        if archinstall.arguments["profile"] == "i3"
+        else ["gdm", "flatpak"]
+        if archinstall.arguments["profile"] == "gnome"
+        else []
+    )
 
     archinstall.arguments["custom-commands"] = [
         "cd /home/parham; git clone https://aur.archlinux.org/yay-bin.git",
@@ -83,6 +86,7 @@ def defaults():
     ]
 
     # archinstall.arguments["services"] = ["lightdm"]
+
 
 def ask_user_questions():
     """
@@ -120,9 +124,7 @@ def ask_user_questions():
                     archinstall.log(f" {partition}")
                     partition_mountpoints[partition] = None
             except archinstall.UnknownFilesystemFormat:
-                archinstall.log(
-                    f" {partition} (Filesystem not supported)", fg="red"
-                )
+                archinstall.log(f" {partition} (Filesystem not supported)", fg="red")
 
         # We then ask what to do with the partitions.
         if (option := archinstall.ask_for_disk_layout()) == "abort":
@@ -156,9 +158,7 @@ def ask_user_questions():
                     continue
 
                 # Select a mount-point
-                mountpoint = input(
-                    f"Enter a mount-point for {partition}: "
-                ).strip(" ")
+                mountpoint = input(f"Enter a mount-point for {partition}: ").strip(" ")
                 if len(mountpoint):
                     new_filesystem = ""
                     # Get a valid & supported filesystem for the partition:
@@ -240,9 +240,7 @@ def ask_user_questions():
     archinstall.arguments["users"] = {}
     archinstall.arguments["superusers"] = {}
     if not archinstall.arguments.get("!root-password", None):
-        archinstall.arguments[
-            "superusers"
-        ] = archinstall.ask_for_superuser_account(
+        archinstall.arguments["superusers"] = archinstall.ask_for_superuser_account(
             "Create a required super-user with sudo privileges: ", forced=True
         )
 
@@ -250,7 +248,9 @@ def ask_user_questions():
         "Enter a username to create a additional user (leave blank to skip & continue): "
     )
     archinstall.arguments["users"] = users
-    archinstall.arguments["superusers"] = archinstall.arguments.get("superusers", {}) | superusers
+    archinstall.arguments["superusers"] = (
+        archinstall.arguments.get("superusers", {}) | superusers
+    )
 
     # Ask for archinstall-specific profiles (such as desktop environments etc)
     if not archinstall.arguments.get("profile", None):
@@ -293,9 +293,7 @@ def ask_user_questions():
             archinstall.log(
                 "Verifying that additional packages exist (this might take a few seconds)"
             )
-            archinstall.validate_package_list(
-                archinstall.arguments["packages"]
-            )
+            archinstall.validate_package_list(archinstall.arguments["packages"])
         except archinstall.RequirementError as err:
             archinstall.log(err, fg="red")
             archinstall.arguments[
@@ -320,9 +318,7 @@ def perform_installation_steps():
         archinstall.arguments, indent=4, sort_keys=True, cls=archinstall.JSON
     )
     archinstall.log(user_configuration, level=logging.INFO)
-    with open(
-        "/var/log/archinstall/user_configuration.json", "w"
-    ) as config_file:
+    with open("/var/log/archinstall/user_configuration.json", "w") as config_file:
         config_file.write(user_configuration)
     print()
 
@@ -348,9 +344,7 @@ def perform_installation_steps():
         mode = archinstall.GPT
         if archinstall.has_uefi() is False:
             mode = archinstall.MBR
-        with archinstall.Filesystem(
-            archinstall.arguments["harddrive"], mode
-        ) as fs:
+        with archinstall.Filesystem(archinstall.arguments["harddrive"], mode) as fs:
             # Wipe the entire drive if the disk flag `keep_partitions`is False.
             if archinstall.arguments["harddrive"].keep_partitions is False:
                 fs.use_entire_disk(
@@ -441,10 +435,7 @@ def perform_installation(mountpoint):
                 archinstall.arguments["sys-encoding"].upper(),
             )
             installation.set_hostname(archinstall.arguments["hostname"])
-            if (
-                archinstall.arguments["mirror-region"].get("mirrors", None)
-                is not None
-            ):
+            if archinstall.arguments["mirror-region"].get("mirrors", None) is not None:
                 installation.set_mirrors(
                     archinstall.arguments["mirror-region"]
                 )  # Set the mirrors in the installation medium
@@ -464,16 +455,12 @@ def perform_installation(mountpoint):
                 installation.copy_iso_network_config(
                     enable_services=True
                 )  # Sources the ISO network configuration to the install medium.
-            elif archinstall.arguments.get("nic", {}).get(
-                "NetworkManager", False
-            ):
+            elif archinstall.arguments.get("nic", {}).get("NetworkManager", False):
                 installation.add_additional_packages("networkmanager")
                 installation.enable_service("NetworkManager.service")
                 # Otherwise, if a interface was selected, configure that interface
             elif archinstall.arguments.get("nic", {}):
-                installation.configure_nic(
-                    **archinstall.arguments.get("nic", {})
-                )
+                installation.configure_nic(**archinstall.arguments.get("nic", {}))
                 installation.enable_service("systemd-networkd")
                 installation.enable_service("systemd-resolved")
 
@@ -513,23 +500,15 @@ def perform_installation(mountpoint):
                 )
 
             if archinstall.arguments.get("profile", None):
-                installation.install_profile(
-                    archinstall.arguments.get("profile", None)
-                )
+                installation.install_profile(archinstall.arguments.get("profile", None))
 
-            for user, user_info in archinstall.arguments.get(
-                "users", {}
-            ).items():
-                installation.user_create(
-                    user, user_info["!password"], sudo=False
-                )
+            for user, user_info in archinstall.arguments.get("users", {}).items():
+                installation.user_create(user, user_info["!password"], sudo=False)
 
             for superuser, user_info in archinstall.arguments.get(
                 "superusers", {}
             ).items():
-                installation.user_create(
-                    superuser, user_info["!password"], sudo=True
-                )
+                installation.user_create(superuser, user_info["!password"], sudo=True)
 
             if timezone := archinstall.arguments.get("timezone", None):
                 installation.set_timezone(timezone)
@@ -537,9 +516,9 @@ def perform_installation(mountpoint):
             if archinstall.arguments.get("ntp", False):
                 installation.activate_ntp()
 
-            if (
-                root_pw := archinstall.arguments.get("!root-password", None)
-            ) and len(root_pw):
+            if (root_pw := archinstall.arguments.get("!root-password", None)) and len(
+                root_pw
+            ):
                 installation.user_set_pw("root", root_pw)
 
             # This step must be after profile installs to allow profiles to install language pre-requisits.
@@ -591,8 +570,7 @@ def perform_installation(mountpoint):
 
 if not check_mirror_reachable():
     archinstall.log(
-        "Arch Linux mirrors are not reachable"
-        "Please check your internet connection",
+        "Arch Linux mirrors are not reachable" "Please check your internet connection",
         fg="red",
     )
     sys.exit(1)
