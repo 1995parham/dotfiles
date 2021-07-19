@@ -53,7 +53,7 @@ main_pacman() {
 	yay -Syu --noconfirm --needed okd-client-bin
 
 	msg "kubectl/helm/helmfile/argocd-cli"
-	sudo pacman -Syu --noconfirm --needed kubectl helm helmfile argocd
+	sudo pacman -Syu --noconfirm --needed kubectl helm helmfile argocd kubectx
 
 	msg "multi pod and container log tailing for Kubernetes"
 	yay -Syu --noconfirm --needed stern-bin
