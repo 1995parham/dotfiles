@@ -24,6 +24,7 @@ usage() {
 packages=(
 	# elsevier journals
 	elsarticle
+
 	# presentation with beamer
 	beamer beamertheme-metropolis pgfopts
 
@@ -41,6 +42,9 @@ packages=(
 
 	# code snippets in your documents
 	minted fvextra catchfile xstring framed
+
+	# more math
+	amsmath
 )
 
 latest-install-texlive() {
