@@ -1,3 +1,5 @@
+#!/bin/bash
+
 usage() {
 	echo -n "1995parham's aur packages"
 
