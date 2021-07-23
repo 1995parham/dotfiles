@@ -15,4 +15,5 @@ main() {
 	git clone aur@aur.archlinux.org:natscli "$HOME/Documents/Git/parham/aur/natscli"
 	git clone aur@aur.archlinux.org:okd-client-bin "$HOME/Documents/Git/parham/aur/okd-client-bin"
 	git clone aur@aur.archlinux.org:gopass-jsonapi-bin "$HOME/Documents/Git/parham/aur/gopass-jsonapi-bin"
+	git clone aur@aur.archlinux.org:jwt-cli-bin "$HOME/Documents/Git/parham/aur/jwt-cli-bin"
 }
