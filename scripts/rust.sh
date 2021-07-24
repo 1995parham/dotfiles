@@ -37,7 +37,6 @@ main() {
 	rustup completions zsh >~/.zfunc/_rustup
 
 	cargo install cargo-edit
-	cargo install diesel_cli
 
 	rustup component add clippy
 	rustup component add rustfmt
