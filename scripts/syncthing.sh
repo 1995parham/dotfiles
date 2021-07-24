@@ -36,6 +36,6 @@ main_apt() {
 }
 
 main() {
-
-	msg "please refer to its documentation for setup the mesh"
+	msg "systems can connect to each other, in parham architecture all of them connect to one main server"
+	msg "disable [Enable Relaying] [Global Discovery] [Enable NAT traversal] in [Connections] tab to reduce overhead."
 }
