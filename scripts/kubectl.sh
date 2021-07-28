@@ -9,7 +9,7 @@
 # =======================================
 
 usage() {
-	echo "k8s or openshift cluster is at your service on cli with these awesome commands"
+	echo "k8s and openshift cluster is at your service on cli with these awesome commands"
 	echo '
  _          _               _   _
 | | ___   _| |__   ___  ___| |_| |
@@ -52,7 +52,7 @@ main_pacman() {
 	msg "okd-client-bin"
 	yay -Syu --noconfirm --needed okd-client-bin
 
-	msg "kubectl/helm/helmfile/argocd-cli/kubectx"
+	msg "kubectl, helm, helmfile, argocd-cli and kubectx"
 	sudo pacman -Syu --noconfirm --needed kubectl helm helmfile argocd kubectx
 
 	msg "multi pod and container log tailing for Kubernetes"
@@ -60,4 +60,12 @@ main_pacman() {
 
 	msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
 	yay -Syu --noconfirm --needed kubeval-bin
+}
+
+main() {
+	msg "awesome chart repositories"
+	helm repo add bitnami https://charts.bitnami.com/bitnami || true
+	helm repo add nats https://nats-io.github.io/k8s/helm/charts || true
+
+	helm repo update
 }
