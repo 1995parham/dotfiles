@@ -22,11 +22,14 @@ function prompt_kube() {
   if which kubectl 2>/dev/null 1>&2; then
     local namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2> /dev/null)
     namespace=${namespace:-default}
+
     local user=$(kubectl config view --minify --output 'jsonpath={..context.user}' 2> /dev/null)
     user=${user%%\/*}
     user=${user:-nobody}
+
     local cluster=$(kubectl config view --minify --output 'jsonpath={..context.cluster}' 2> /dev/null)
     cluster=${cluster:-n/a}
+
     echo %F{239}'['%f %F{blue}'\u2388'%f%F{239} $user@%F{216}$cluster%f/%F{216}$namespace%f%F{239}']'%f
   fi
 }
