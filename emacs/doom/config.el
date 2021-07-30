@@ -196,6 +196,6 @@
 ;; use evince to open research papers
 (setq bibtex-completion-pdf-open-function
       (lambda (fpath)
-        (call-process "evince" nil 0 nil fpath)))
+        (call-process "xdg-open" nil 0 nil fpath)))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
