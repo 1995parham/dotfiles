@@ -74,6 +74,9 @@ main_pacman() {
 
 	msg "install hadolint/hadolint with yay"
 	yay -Syu --needed --noconfirm hadolint-bin
+
+	msg "install dive with yay"
+	yay -Syu --needed --noconfirm dive-bin
 }
 
 main() {
