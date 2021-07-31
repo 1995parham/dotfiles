@@ -14,7 +14,11 @@ message() {
 	module=$1
 	shift
 
-	echo -e "\e[38;5;46m[$module] \e[38;5;202m$*\e[39m"
+	if [[ "$(command -v tput)" ]]; then
+		echo "$(tput setaf 46)[$module] $(tput setaf 202)$*$(tput sgr 0)"
+	else
+		echo -e "\e[38;5;46m[$module] \e[38;5;202m$*\e[39m"
+	fi
 }
 
 # print log message with following format in bold
@@ -23,5 +27,9 @@ announce() {
 	module=$1
 	shift
 
-	echo -e "\e[1m\e[38;5;46m[$module] \e[38;5;45m$*\e[39m"
+	if [[ "$(command -v tput)" ]]; then
+		echo "$(tput setaf 46)[$module] $(tput setaf 45)$*$(tput sgr 0)"
+	else
+		echo -e "\e[1m\e[38;5;46m[$module] \e[38;5;45m$*\e[39m"
+	fi
 }
