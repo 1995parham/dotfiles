@@ -27,7 +27,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm gimp imagemagick
+	sudo pacman -Syu --needed --noconfirm gimp imagemagick imv
 }
 
 main_brew() {
