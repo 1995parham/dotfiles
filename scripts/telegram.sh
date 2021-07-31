@@ -34,8 +34,3 @@ main_pacman() {
 main_brew() {
 	brew install --cask telegram-desktop
 }
-
-main() {
-	msg "there is nothing that we can do"
-	return 1
-}
