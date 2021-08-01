@@ -9,8 +9,13 @@
 # =======================================
 
 proxy_start() {
-	echo -e "\e[38;5;46m[proxy] \e[38;5;202msetup proxy based on local http proxy that is setup by v2ray\e[39m"
-	echo -n -e "\e[38;5;46m[proxy] \e[38;5;202mpress enter to continue?\e[39m"
+	if [[ "$(command -v tput)" ]]; then
+		echo "$(tput setaf 46)[proxy] $(tput setaf 202)setup proxy based on local http proxy which is setup by v2ray$(tput sgr 0)"
+		echo -n "$(tput setaf 46)[proxy] $(tput setaf 202)press enter to continue$(tput sgr 0)"
+	else
+		echo -e "\e[38;5;46m[proxy] \e[38;5;202msetup proxy based on local http proxy which is setup by v2ray\e[39m"
+		echo -n -e "\e[38;5;46m[proxy] \e[38;5;202mpress enter to continue\e[39m"
+	fi
 	read -r accept
 
 	if [[ "$accept" != "" ]]; then
@@ -34,5 +39,9 @@ proxy_stop() {
 	unset {http,https,ftp}_proxy
 	unalias sudo 2>/dev/null
 
-	echo -e "\e[38;5;46m[proxy] \e[38;5;202mall proxy script configuration are removed\e[39m"
+	if [[ "$(command -v tput)" ]]; then
+		echo "$(tput setaf 46)[proxy] $(tput setaf 202)all proxy script configurations are removed$(tput sgr 0)"
+	else
+		echo -e "\e[38;5;46m[proxy] \e[38;5;202mall proxy script configurations are removed\e[39m"
+	fi
 }
