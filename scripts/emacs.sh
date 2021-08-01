@@ -21,8 +21,6 @@ usage() {
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
-
 	# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
 	brew install git ripgrep
 
