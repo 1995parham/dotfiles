@@ -30,8 +30,7 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman --noconfirm --needed -Syu gopass gnupg rng-tools
-	yay -Syu --noconfirm --needed gopass-jsonapi-bin
+	sudo pacman --noconfirm --needed -Syu gopass gnupg rng-tools gopass-jsonapi
 }
 
 gopass-upstall() {
