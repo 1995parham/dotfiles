@@ -62,7 +62,7 @@ main() {
 	"$HOME/.config/emacs/bin/doom" upgrade
 	proxy_stop
 
-	if [[ "${USER,,}" =~ "parham" ]]; then
+	if [[ "$USER" == "parham" ]]; then
 		msg "hello master parham"
 		[ ! -d "$HOME/org" ] && git clone git@github.com:parham-alvani/notes "$HOME/org"
 		[ ! -d "$HOME/tasks" ] && git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
