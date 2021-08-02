@@ -31,6 +31,8 @@ main_apt() {
 main_brew() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
+	brew install --cask iglance
+
 	msg 'osx keyring'
 	brew install pinentry-mac
 	mkdir -p "$HOME/.gnupg"
