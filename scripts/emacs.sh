@@ -24,8 +24,10 @@ main_brew() {
 	# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
 	brew install git ripgrep
 
-	brew tap railwaycat/emacsmacport
-	brew install --cask emacs-mac
+	brew tap d12frosted/emacs-plus
+	msg 'installation takes time and cpu'
+	brew install --cask emacs-plus
+	ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications
 }
 main_apt() {
 	msg "install emacs/ripgre with apt"
