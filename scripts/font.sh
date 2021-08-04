@@ -20,6 +20,17 @@ usage() {
   '
 }
 
+if [[ $(uname) == 'Darwin' ]]; then
+	# MacOS
+	font_dir="$HOME/Library/Fonts"
+else
+	# Linux
+	font_dir="$HOME/.local/share/fonts"
+	if [ ! -d "$HOME/.local/share/fonts" ]; then
+		mkdir -p $font_dir
+	fi
+fi
+
 _install_jetbrains() {
 	if fc-list -q 'JetBrains Mono'; then
 		msg "you have the jetbrains mono installed"
@@ -33,7 +44,7 @@ _install_jetbrains() {
 		wget "https://download.jetbrains.com/fonts/JetBrainsMono-$jbm_version.zip"
 		unzip "JetBrainsMono-$jbm_version.zip" -d jb && rm "JetBrainsMono-$jbm_version.zip"
 
-		mv jb/fonts/ttf/* "$HOME/.local/share/fonts/" && rm -Rf jb
+		mv jb/fonts/ttf/* "$font_dir" && rm -Rf jb
 	fi
 }
 
@@ -50,7 +61,7 @@ _install_vazir_code() {
 		wget "https://github.com/rastikerdar/vazir-code-font/releases/download/v$vzc_version/vazir-code-font-v$vzc_version.zip"
 		unzip "vazir-code-font-v$vzc_version.zip" -d vzc && rm "vazir-code-font-v$vzc_version.zip"
 
-		mv vzc/Vazir-Code.ttf "$HOME/.local/share/fonts" && rm -Rf vzc
+		mv vzc/Vazir-Code.ttf "$font_dir" && rm -Rf vzc
 	fi
 }
 
@@ -60,7 +71,7 @@ _install_vazir_thin() {
 	else
 		v_version="29.1.0"
 		wget "https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v$v_version/dist/Vazir-Thin.ttf"
-		mv Vazir-Thin.ttf "$HOME/.local/share/fonts"
+		mv Vazir-Thin.ttf "$font_dir"
 	fi
 }
 
