@@ -52,6 +52,9 @@
 ;; change the direction of the content. keybinding is useful in bi-directional document.
 (map! :n "M-d" (cmd! (if (eq bidi-paragraph-direction 'left-to-right) (setq bidi-paragraph-direction 'right-to-left) (setq bidi-paragraph-direction 'left-to-right))))
 
+;; do dont handle M-SPC for osx
+(if IS-MAC (global-set-key "\M-SPC" nil))
+
 ;; if non-nil, fontify subscript and superscript strings. concretely, this means that thescripts are raised or lowered.
 (setq font-latex-fontify-script nil)
 
