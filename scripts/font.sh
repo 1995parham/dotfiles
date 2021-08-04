@@ -27,7 +27,7 @@ else
 	# Linux
 	font_dir="$HOME/.local/share/fonts"
 	if [ ! -d "$HOME/.local/share/fonts" ]; then
-		mkdir -p $font_dir
+		mkdir -p "$font_dir"
 	fi
 fi
 
