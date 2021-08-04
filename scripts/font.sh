@@ -20,23 +20,7 @@ usage() {
   '
 }
 
-main_brew() {
-	brew install --cask homebrew/cask-fonts/font-jetbrains-mono
-	brew install --cask homebrew/cask-fonts/font-jetbrains-mono-nerd-font
-}
-
-main_pacman() {
-	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts
-	yay -Syu --needed ttf-meslo
-	yay -Syu --needed vazir-fonts
-	yay -Syu --needed vazir-code-fonts
-	yay -Syu --needed nerd-fonts-jetbrains-mono
-}
-
-main_apt() {
-	msg 'install roboto font from apt repository'
-	sudo apt-get install fonts-roboto
-
+_install_jetbrains() {
 	if fc-list -q 'JetBrains Mono'; then
 		msg "you have the jetbrains mono installed"
 	else
@@ -51,7 +35,9 @@ main_apt() {
 
 		mv jb/fonts/ttf/* "$HOME/.local/share/fonts/" && rm -Rf jb
 	fi
+}
 
+_install_vazir_code() {
 	if fc-list -q 'Vazir Code'; then
 		msg "you have the vazir code installed"
 	else
@@ -66,12 +52,40 @@ main_apt() {
 
 		mv vzc/Vazir-Code.ttf "$HOME/.local/share/fonts" && rm -Rf vzc
 	fi
+}
 
+_install_vazir_thin() {
 	if fc-list -q 'Vazir Thin'; then
 		msg "you have the vazir thin installed"
 	else
-		v_version="29.0.2"
+		v_version="29.1.0"
 		wget "https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v$v_version/dist/Vazir-Thin.ttf"
 		mv Vazir-Thin.ttf "$HOME/.local/share/fonts"
 	fi
+}
+
+main_brew() {
+	brew install --cask homebrew/cask-fonts/font-jetbrains-mono
+	brew install --cask homebrew/cask-fonts/font-jetbrains-mono-nerd-font
+
+	_install_vazir_thin
+}
+
+main_pacman() {
+	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts
+	yay -Syu --needed ttf-meslo
+	yay -Syu --needed vazir-fonts
+	yay -Syu --needed vazir-code-fonts
+	yay -Syu --needed nerd-fonts-jetbrains-mono
+}
+
+main_apt() {
+	msg 'install roboto font from apt repository'
+	sudo apt-get install fonts-roboto
+
+	_install_jetbrains
+
+	_install_vazir_thin
+
+	_install_vazir_code
 }
