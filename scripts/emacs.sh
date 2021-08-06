@@ -26,7 +26,7 @@ main_brew() {
 
 	brew tap d12frosted/emacs-plus
 	msg 'installation takes time and cpu'
-	brew install --cask emacs-plus
+	brew install --cask emacs-plus@28
 	ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications
 }
 main_apt() {
