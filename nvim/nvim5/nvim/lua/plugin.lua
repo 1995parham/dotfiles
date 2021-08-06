@@ -25,6 +25,9 @@ return require('packer').startup(function()
   -- syntax highlighting for kitty terminal config files.
   use "fladson/vim-kitty"
 
+  -- vim configuration for Zig
+  use 'ziglang/zig.vim'
+
 	-- naz neovim theme
 	use {
 		'1995parham/naz.vim',
