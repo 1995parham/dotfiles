@@ -36,5 +36,8 @@ main_brew() {
 }
 
 main() {
+	current_dir=${current_dir:?"current_dir must be set"}
+
+	kind create cluster --config "$current_dir/kind/cluster.yaml" --name 1995parham
 	msg 'happy k8s in docker'
 }
