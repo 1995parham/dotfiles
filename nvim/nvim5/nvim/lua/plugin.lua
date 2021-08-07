@@ -123,11 +123,15 @@ return require('packer').startup(function()
 		after = { 'coc.nvim', 'nvim-treesitter' },
 	}
 
+  -- a file explorer tree for neovim written in lua
 	use {
 		'kyazdani42/nvim-tree.lua',
 		config = function() require('tree') end,
 		requires = {'kyazdani42/nvim-web-devicons'},
 	}
+
+  -- vimtex: a modern vim and neovim filetype plugin for latex files.
+  use 'lervag/vimtex'
 
 	-- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
 	-- possible keybindings of the command you started typing.
