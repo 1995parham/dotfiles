@@ -38,6 +38,10 @@ main_brew() {
 main() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
+	msg '1995parham cluster'
 	kind create cluster --config "$current_dir/kind/cluster.yaml" --name 1995parham
+	msg 'networking with calico'
+	kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml
+
 	msg 'happy k8s in docker'
 }
