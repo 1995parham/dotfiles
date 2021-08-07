@@ -9,17 +9,17 @@
 # =======================================
 
 usage() {
-	echo -n "useful packages for linux-surface"
+	echo -n -e "sample for using ./start.sh\n"
 
-	# shellcheck disable=1004
+	# shellcheck disable=1004,2016
 	echo '
-                 __
- ___ _   _ _ __ / _| __ _  ___ ___
-/ __| | | | |__| |_ / _` |/ __/ _ \
-\__ \ |_| | |  |  _| (_| | (_|  __/
-|___/\__,_|_|  |_|  \__,_|\___\___|
+     _                    _
+  __| |_ __ __ ___      _(_) ___
+ / _` | |__/ _` \ \ /\ / / |/ _ \
+| (_| | | | (_| |\ V  V /| | (_) |
+ \__,_|_|  \__,_| \_/\_/ |_|\___/
 
-	'
+  '
 }
 
 main_apt() {
@@ -28,10 +28,10 @@ main_apt() {
 }
 
 main_pacman() {
-	yay -Syu --needed --noconfirm surface-control-bin
+	msg "there is nothing that we can do"
+	return 1
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
-	return 1
+	brew install --cask drawio
 }
