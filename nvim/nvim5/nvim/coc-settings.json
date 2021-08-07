@@ -10,19 +10,6 @@
     }
   },
   "rust.clippy_preference": "on",
-  "http.proxy": "http://127.0.0.1:1080",
-  "yaml.schemaStore.enable": true,
-  "yaml.schemas": {
-    "http://json.schemastore.org/drone.json": [".drone.yml"],
-    "http://json.schemastore.org/gitlab-ci.json": [".gitlab-ci.yml"],
-    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
-      "docker-compose.yml"
-    ],
-    "https://json.schemastore.org/travis": [".travis.yml"],
-    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/schemas/v3.0/schema.json": [
-      "swagger.yaml"
-    ]
-  },
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
