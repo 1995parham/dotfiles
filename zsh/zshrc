@@ -5,11 +5,6 @@ test -f "$HOME/.profile" && emulate sh -c 'source $HOME/.profile'
 
 # }}}
 
-# path {{{
-# prevent from duplicate records in path
-typeset -U path
-# }}}
-
 # oh-my-zsh {{{
 
 # path to your oh-my-zsh installation.
@@ -97,36 +92,17 @@ fi
 
 # }}}
 
-# aliases {{{
-
-# export MANPATH="/usr/local/man:$MANPATH"
-EDITOR="$(which nvim)"
-export EDITOR
-
-SUDO_EDITOR="$(which nvim)"
-export SUDO_EDITOR
-
-TERM="xterm-256color"
-export TERM
-
-if [ -f "$HOME/.dircolors" ] && [ "$(command -v dircolors)" ]; then
-	eval $(dircolors "$HOME/.dircolors")
+# dircolors {{{
+if [ -f "$HOME/.dircolors" ]; then
+  if [ "$(command -v dircolors)" ]; then
+	  eval $(dircolors "$HOME/.dircolors")
+  elif [ "$(command -v gdircolors)" ]; then
+    eval $(gdircolors "$HOME/.dircolors")
+  fi
 fi
+# }}}
 
-if [ -f "$HOME/.dircolors" ] && [ "$(command -v gdircolors)" ]; then
-	eval $(gdircolors "$HOME/.dircolors")
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-	path+=("$HOME/bin")
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ]; then
-	path+=("$HOME/.local/bin")
-fi
-
+# def for definition {{{
 # use a wrapper around sdcv to conveniently format its output
 # on osx it uses the prebuild mac dictionary.
 function def() {
@@ -139,33 +115,9 @@ function def() {
 	fi
 }
 
-# You may need to manually set your language environment
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# }}}
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# edit command in vim
-bindkey -M vicmd v edit-command-line
-
-# set personal aliases
-# for a full list of active aliases, run `alias`.
-alias grep="grep --color=auto"
-alias vi="vim"
-alias r="source ~/.zshrc"
-alias emacs="emacs -nw"
+# man with bat {{{
 
 # use bat/batcat for viewing manpages
 if command -v bat &>/dev/null; then
@@ -176,40 +128,15 @@ fi
 
 # }}}
 
-# go {{{
+# aliases {{{
 
-export GOPATH="$HOME/Documents/Go"
-export GOPROXY="https://goproxy.io,direct"
-if [ -d "$HOME/Documents/Go/bin" ]; then
-	path+=("$HOME/Documents/Go/bin")
-fi
+# set personal aliases
+# for a full list of active aliases, run `alias`.
+alias grep="grep --color=auto"
+alias vi="vim"
+alias r="source ~/.zshrc"
+alias emacs="emacs -nw"
 
-# }}}
-
-# python {{{
-
-export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
-
-# }}}
-
-# rust {{{
-
-if [ -d "$HOME/.cargo" ]; then
-	path+=("$HOME/.cargo/bin")
-fi
-
-# }}}
-
-# docker {{{
-
-# BuildKit is enabled by default on Docker Desktop,
-# but requires the DOCKER_BUILDKIT=1 environment variable to be set on other platforms.
-export DOCKER_BUILDKIT=1
-
-# }}}
-
-# path {{{
-export PATH
 # }}}
 
 # navi {{{
@@ -257,8 +184,19 @@ fi
 
 # history {{{
 
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
 # search history with text already entered at the prompt in zsh
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+
+# }}}
+
+# vim-mode {{{
+
+# edit command in vim
+bindkey -M vicmd v edit-command-line
 
 # }}}
