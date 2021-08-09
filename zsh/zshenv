@@ -1,0 +1,81 @@
+# path {{{
+# prevent from duplicate records in path
+typeset -U path
+# }}}
+
+# go {{{
+
+export GOPATH="$HOME/Documents/Go"
+export GOPROXY="https://goproxy.io,direct"
+if [ -d "$HOME/Documents/Go/bin" ]; then
+	path+=("$HOME/Documents/Go/bin")
+fi
+
+# }}}
+
+# python {{{
+
+export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
+
+# }}}
+
+# rust {{{
+
+if [ -d "$HOME/.cargo" ]; then
+	path+=("$HOME/.cargo/bin")
+fi
+
+# }}}
+
+# docker {{{
+
+# BuildKit is enabled by default on Docker Desktop,
+# but requires the DOCKER_BUILDKIT=1 environment variable to be set on other platforms.
+export DOCKER_BUILDKIT=1
+
+# }}}
+
+# home-made paths {{{
+
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+	path+=("$HOME/bin")
+fi
+
+# set PATH so it includes user's local private bin if it exists
+if [ -d "$HOME/.local/bin" ]; then
+	path+=("$HOME/.local/bin")
+fi
+
+
+# }}}
+
+# languages {{{
+
+# You may need to manually set your language environment
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# }}}
+
+# editors and terminals {{{
+
+# export MANPATH="/usr/local/man:$MANPATH"
+EDITOR="$(which nvim)"
+export EDITOR
+
+SUDO_EDITOR="$(which nvim)"
+export SUDO_EDITOR
+
+TERM="xterm-256color"
+export TERM
+
+# }}}
+
+# path {{{
+
+export PATH
+
+# }}}
