@@ -283,7 +283,7 @@ exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
 exec --no-startup-id pasystray
 
 # workspace on demand
-exec i3-msg 'workspace $ws1; exec kitty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
+exec i3-msg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
 # provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
