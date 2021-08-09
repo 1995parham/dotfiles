@@ -96,6 +96,7 @@ install-tmux() {
 # zsh
 install-zsh() {
 	dotfile "zsh" "zshrc"
+	dotfile "zsh" "zshenv"
 	dotfile "zsh" "zsh.plug"
 }
 
