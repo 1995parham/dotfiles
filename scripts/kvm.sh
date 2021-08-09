@@ -30,8 +30,6 @@ main_apt() {
 }
 
 main_pacman() {
-	current_dir=${current_dir:?"current_dir must be set"}
-
 	sudo pacman -Syu --needed --noconfirm qemu
 	sudo pacman -Syu --needed --noconfirm libvirt
 	sudo pacman -Syu --needed --noconfirm iptables dnsmasq bridge-utils
@@ -46,7 +44,7 @@ main_pacman() {
 
 	msg "cloud-init is awesome for preconfigured vm"
 	sudo pacman -Syu --needed --noconfirm cloud-image-utils
-	[ -d "$HOME/kvm/seed" ] || cp -r "$current_dir/kvm/seed" "$HOME/kvm"
+	[ -d "$HOME/kvm/seed" ] || git clone git@github.com:1995parham-me/kvm "$HOME/kvm/seed"
 
 	msg "user access for kvm and libvirt"
 	sudo usermod -aG libvirt "$USER"
