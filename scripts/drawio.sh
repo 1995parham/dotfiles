@@ -28,8 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	msg "there is nothing that we can do"
-	return 1
+	yay -Syu drawio-desktop-bin
 }
 
 main_brew() {
