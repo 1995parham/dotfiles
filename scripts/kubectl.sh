@@ -39,6 +39,8 @@ main_brew() {
 	msg "openshift-cli"
 	brew install openshift-cli
 
+	msg "kubectx"
+	brew install kubectx
 }
 
 main_apt() {
