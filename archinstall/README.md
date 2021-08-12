@@ -4,7 +4,8 @@
 
 ```sh
 # connet to network with iwctl or nmcli
-pacman -Sy archinstall
-curl -L https://raw.githubusercontent.com/1995parham/dotfiles/main/archinstall/install.py > install.py
+pacman -Sy archinstall git
+git clone https://github.com/1995parham/dotfiles
+cd dotfiles/archinstall
 python3 install.py
 ```
