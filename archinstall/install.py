@@ -71,7 +71,8 @@ def defaults():
             "lightdm",
             "lightdm-gtk-greeter",
         ]
-        if archinstall.arguments["profile"] == "i3"
+        if archinstall.arguments["profile"] == "i3" \
+        or archinstall.arguments["profile"] == "cinnamon"
         else ["gdm", "flatpak"]
         if archinstall.arguments["profile"] == "gnome"
         else []
