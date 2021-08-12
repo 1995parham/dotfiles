@@ -67,14 +67,14 @@ def defaults():
             "alacritty",
             "xdg-utils",
         ]
-        + [
+        + ([
             "lightdm",
             "lightdm-gtk-greeter",
         ]
         if archinstall.arguments["profile"] == "i3"
         else ["gdm"]
         if archinstall.arguments["profile"] == "gnome"
-        else []
+        else [])
     )
 
     archinstall.arguments["custom-commands"] = [
