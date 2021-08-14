@@ -27,11 +27,14 @@ fi
 
 # }}}
 
-# docker {{{
+# docker/helm/... {{{
 
 # BuildKit is enabled by default on Docker Desktop,
 # but requires the DOCKER_BUILDKIT=1 environment variable to be set on other platforms.
 export DOCKER_BUILDKIT=1
+
+# Currently OCI support is considered experimental.
+export HELM_EXPERIMENTAL_OCI=1
 
 # }}}
 
