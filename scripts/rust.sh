@@ -29,7 +29,20 @@ main_apt() {
 }
 
 main_brew() {
-	return 1
+	if [ ! -d "$HOME/.rustup" ]; then
+		curl -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+	fi
+	if [ ! -d "$HOME/.rustup" ] || [ ! -d "$HOME/.cargo" ]; then
+		msg 'rustup installation failed'
+		exit
+	fi
+
+	# shellcheck disable=1091,1090
+	source "$HOME/.cargo/env"
+
+	# enable rustup completions
+	[ -d "$HOME/.zfunc" ] || mkdir "$HOME/.zfunc"
+	rustup completions zsh >~/.zfunc/_rustup
 }
 
 main() {
