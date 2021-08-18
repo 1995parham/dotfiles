@@ -5,6 +5,9 @@ if [[ $USER != parham ]]; then
 	exit
 fi
 
+echo "install mesa-vdpau for better performance on ATI graphic cards"
+echo "https://wiki.archlinux.org/title/Improving_performance"
+
 sudo systemctl enable lightdm
 
 cd "$HOME/yay-bin" && makepkg -si
