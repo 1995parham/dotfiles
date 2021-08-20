@@ -9,6 +9,14 @@
 # =======================================
 # https://github.com/polybar/polybar/wiki#launching-the-bar-in-your-wms-bootstrap-routine
 
+# findout the active network card with ip command
+CARD=$(ip addr | awk '/state UP/ {print $2}')
+if [[ $CARD == wl* ]]; then
+	export WLAN=${CARD%%:}
+elif [[ $CARD == e* ]]; then
+	export ETH=${CARD%%:}
+fi
+
 # terminate already running bar instances
 # killall -q polybar
 # if all your bars have ipc enabled, you can also use
