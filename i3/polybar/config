@@ -255,7 +255,7 @@ format = <label>
 
 [module/wlan]
 type = internal/network
-interface = wlo1
+interface = ${env:WLAN:wlo1}
 interval = 3.0
 
 format-connected = <label-connected>
@@ -270,7 +270,7 @@ format-disconnected =
 
 [module/eth]
 type = internal/network
-interface = enp4s0f0
+interface = ${env:ETH:enp4s0f0}
 interval = 3.0
 
 format-connected-underline = #55aa55
