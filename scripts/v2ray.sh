@@ -28,7 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --no-confirm v2ray
+	sudo pacman -Syu --needed --noconfirm v2ray
 }
 
 main_brew() {
@@ -37,6 +37,7 @@ main_brew() {
 }
 
 main() {
-	msg "there is nothing that we can do"
-	return 1
+	current_dir=${current_dir:?"current_dir must be set"}
+
+	sudo cp "$current_dir/ghermezi/config.json" /etc/v2ray/config.json
 }
