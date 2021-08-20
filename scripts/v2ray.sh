@@ -29,15 +29,17 @@ main_apt() {
 
 main_pacman() {
 	sudo pacman -Syu --needed --noconfirm v2ray
+
+	current_dir=${current_dir:?"current_dir must be set"}
+
+	sudo cp "$current_dir/ghermezi/config.json" /etc/v2ray/config.json
 }
 
 main_brew() {
 	brew install v2ray
 	brew services start v2ray
-}
 
-main() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
-	sudo cp "$current_dir/ghermezi/config.json" /etc/v2ray/config.json
+	sudo cp "$current_dir/ghermezi/config.json" /usr/local/etc/v2ray/config.json
 }
