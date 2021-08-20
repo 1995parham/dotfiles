@@ -25,7 +25,7 @@ packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 
 brew_packages=(coreutils k6 inetutils inxi fontconfig wget)
 apt_packages=(bmon atop)
-pacman_packages=(yq mtr atop github-cli websocat fuse2)
+pacman_packages=(mtr atop github-cli websocat fuse2)
 yay_packages=(jcal-git jwt-cli-bin)
 
 main_apt() {
