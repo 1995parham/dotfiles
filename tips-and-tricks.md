@@ -48,9 +48,11 @@ Open the `/etc/X11/xorg.conf.d/30-touchpad.conf` file, then add the **natural sc
 
 ```
 Section "InputClass"
-    ...
-Option "Natural Scrolling" "true"
-    ...
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "NaturalScrolling" "true"
 EndSection
 ```
 
@@ -61,7 +63,7 @@ Open the `/etc/X11/xorg.conf.d/00-keyboard.conf` file, then add the **altwin** o
 ```
 Section "InputClass"
     ...
-Option "XkbOptions" "altwin:swap_alt_win"
+  Option "XkbOptions" "altwin:swap_alt_win"
     ...
 EndSection
 ```
