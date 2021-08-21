@@ -25,8 +25,11 @@ return require('packer').startup(function()
   -- syntax highlighting for kitty terminal config files.
   use "fladson/vim-kitty"
 
-  -- vim configuration for Zig
+  -- vim configuration for zig
   use 'ziglang/zig.vim'
+
+  -- erlang indentation and syntax for vim
+  use 'vim-erlang/vim-erlang-runtime'
 
 	-- naz neovim theme
 	use {
