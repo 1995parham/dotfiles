@@ -29,6 +29,7 @@ main_apt() {
 
 main_pacman() {
 	sudo pacman -Syu --needed --noconfirm erlang
+	yay -Syu --needed --noconfirm rebar3
 }
 
 main_brew() {
