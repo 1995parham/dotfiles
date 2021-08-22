@@ -1,0 +1,10 @@
+[Unit]
+Description=Change background
+
+[Service]
+Type=oneshot
+Environment=DISPLAY=:0
+ExecStart=%h/.config/gnome-desktop/gnome-desktop.sh
+
+[Install]
+WantedBy=basic.target
