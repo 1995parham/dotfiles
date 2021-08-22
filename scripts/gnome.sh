@@ -57,6 +57,13 @@ main_pacman() {
 
 	msg 'have two input source for us and ir'
 	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ir')]"
+
+	msg 'setup a systemd timer to change background images each 5 minutes with gsettings'
+	configsystemd gnome-desktop gnome-desktop.timer gnome
+	configsystemd gnome-desktop gnome-desktop.service gnome
+	configfile gnome-desktop gnome-desktop.sh gnome
+	systemctl --user enable gnome-desktop.timer
+	systemctl --user start gnome-desktop.timer
 }
 
 main_brew() {
