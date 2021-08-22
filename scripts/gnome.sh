@@ -27,7 +27,7 @@ main_apt() {
 }
 
 main_pacman() {
-	msg 'enable fractional scaling to have more space'
+	msg 'enable fractional scaling to have more space, you need to restart and then you can change it from settings'
 	gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 	msg 'show weekday besides the clock on menubar'
@@ -40,11 +40,19 @@ main_pacman() {
 	gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 
 	msg 'keybinding for me, not anyone else'
-
-	for i in $(seq 1 10); do
-		gsettings set "org.gnome.desktop.wm.keybindings switch-to-workspace-$i" "['<Super>$i']"
-		gsettings set "org.gnome.shell.keybindings switch-to-application-$i" "[]"
+	for i in $(seq 1 9); do
+		gsettings set org.gnome.desktop.wm.keybindings "switch-to-workspace-$i" "['<Super>$i']"
+		gsettings set org.gnome.shell.keybindings "switch-to-application-$i" "[]"
 	done
+
+	msg '8 workspaces is useful for me'
+	gsettings set org.gnome.desktop.wm.preferences num-workspaces 8
+
+	msg 'small text is better'
+	gsettings set org.gnome.desktop.interface text-scaling-factor 0.95
+
+	msg 'have two input source for us and ir'
+	gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('xkb', 'ir')]"
 }
 
 main_brew() {
