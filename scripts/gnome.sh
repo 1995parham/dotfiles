@@ -30,14 +30,17 @@ main_pacman() {
 	msg 'enable fractional scaling to have more space, you need to restart and then you can change it from settings'
 	gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
-	msg 'show weekday besides the clock on menubar'
+	msg 'show weekday besides the 24h clock on menubar'
 	gsettings set org.gnome.desktop.interface clock-show-weekday true
+	gsettings set org.gnome.desktop.interface clock-format "'24h'"
 
 	msg 'show battery percentage on menubar'
 	gsettings set org.gnome.desktop.interface show-battery-percentage true
 
-	msg 'natrual scrolling'
+	msg 'touchpad in my way'
 	gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
+	gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+	gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
 
 	msg 'keybinding for me, not anyone else'
 	for i in $(seq 1 9); do
@@ -47,6 +50,7 @@ main_pacman() {
 
 	msg '8 workspaces is useful for me'
 	gsettings set org.gnome.desktop.wm.preferences num-workspaces 8
+	gsettings set org.gnome.desktop.wm.preferences workspace-names "['main-1', 'main-2', 'emacs', 'www', 'vm', 'apps-1', 'apps-2', 'social']"
 
 	msg 'small text is better'
 	gsettings set org.gnome.desktop.interface text-scaling-factor 0.95
