@@ -33,7 +33,7 @@
 ;; (setq doom-font (font-spec :family "JetBrains Mono" :height 1.0)
 ;;     doom-variable-pitch-font (font-spec :family "JetBrains Mono" :height 1.3))
 ;;
-(set-face-attribute 'default nil :font "JetBrains Mono" :height 100)
+(set-face-attribute 'default nil :font "JetBrains Mono" :height 90)
 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
