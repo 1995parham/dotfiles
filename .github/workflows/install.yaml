@@ -18,7 +18,7 @@ jobs:
         run: ./install.sh -y
       - name: validate symbolic links
         run: |
-          test $(readlink -f ~/.zshrc) = $(pwd)/zsh/zshrc
+          test "$(readlink -f ~/.zshrc)" = "$(pwd)/zsh/zshrc"
       - name: validate installation of requirements on both shell
         run: |
           bash -c hash nvim batcat bmon
