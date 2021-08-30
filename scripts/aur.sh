@@ -20,4 +20,5 @@ main() {
 	git clone aur@aur.archlinux.org:jwt-cli-bin "$HOME/Documents/Git/parham/aur/jwt-cli-bin"
 	git clone aur@aur.archlinux.org:gosimac-bin "$HOME/Documents/Git/parham/aur/gosimac-bin"
 	git clone aur@aur.archlinux.org:dive-bin "$HOME/Documents/Git/parham/aur/dive-bin"
+	git clone aur@aur.archlinux.org:actionlint-bin "$HOME/Documents/Git/parham/aur/actionlint-bin"
 }
