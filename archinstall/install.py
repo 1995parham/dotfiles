@@ -50,7 +50,6 @@ def defaults():
     archinstall.arguments["keyboard-language"] = "us"
     archinstall.arguments["packages"] = (
         [
-            "docker",
             "git",
             "wget",
             "curl",
