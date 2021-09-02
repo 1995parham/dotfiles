@@ -27,11 +27,10 @@ fi
 
 # }}}
 
-# docker/helm/... {{{
+# podman/helm/... {{{
 
-# BuildKit is enabled by default on Docker Desktop,
-# but requires the DOCKER_BUILDKIT=1 environment variable to be set on other platforms.
-export DOCKER_BUILDKIT=1
+# rootless docker daemon but with podman
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 
 # Currently OCI support is considered experimental.
 export HELM_EXPERIMENTAL_OCI=1
