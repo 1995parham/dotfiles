@@ -92,6 +92,12 @@ main_pacman() {
 	systemctl --user enable podman.socket
 
 	msg 'remeber arch has cgroup 2 by default'
+
+	msg 'check /etc/hosts to contain the localhost'
+	cat <<EOF
+127.0.0.1 localhost
+::1 localhost
+EOF
 }
 
 main() {
