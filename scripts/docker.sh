@@ -71,7 +71,7 @@ main_brew() {
 
 main_pacman() {
 	msg "install podman-compose / podman with pacman"
-	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose slirp4netns
+	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose slirp4netns podman-dnsname
 
 	msg "install hadolint/hadolint with yay"
 	yay -Syu --needed --noconfirm hadolint-bin
@@ -87,6 +87,9 @@ main_pacman() {
 	sudo touch /etc/subuid
 	sudo touch /etc/subgid
 	sudo usermod --add-subuids 200000-210000 --add-subgids 200000-210000 parham
+
+	msg 'podman service with systemd-user'
+	systemctl --user enable podman.socket
 }
 
 main() {
