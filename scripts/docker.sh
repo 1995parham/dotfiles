@@ -90,6 +90,8 @@ main_pacman() {
 
 	msg 'podman service with systemd-user'
 	systemctl --user enable podman.socket
+
+	msg 'remeber arch has cgroup 2 by default'
 }
 
 main() {
