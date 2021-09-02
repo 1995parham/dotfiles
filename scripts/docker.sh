@@ -71,7 +71,7 @@ main_brew() {
 
 main_pacman() {
 	msg "install podman-compose / podman with pacman"
-	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose slirp4netns podman-dnsname
+	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose slirp4netns podman-dnsname docker-compose
 
 	msg "install hadolint/hadolint with yay"
 	yay -Syu --needed --noconfirm hadolint-bin
@@ -93,7 +93,7 @@ main_pacman() {
 }
 
 main() {
-	msg "$(podman-compose version)"
+	msg "$(docker-compose version)"
 	msg "$(podman version)"
 	msg "$(hadolint --version)"
 }
