@@ -28,6 +28,20 @@ main_apt() {
 
 main_pacman() {
 	yay -Syu kind-bin
+
+	sudo mkdir /etc/systemd/system/user@.service.d || true
+	echo "
+[Service]
+Delegate=yes
+" | sudo tee /etc/systemd/system/user@.service.d/delegate.conf
+	sudo systemctl daemon-reload
+
+	echo "
+ip6_tables
+ip6table_nat
+ip_tables
+iptable_nat
+" | sudo tee /etc/modules-load.d/iptables.conf
 }
 
 main_brew() {
