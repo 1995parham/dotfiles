@@ -83,7 +83,12 @@ First of all you need to install `scoop` and `winget` as package managers and al
 **Install Everything by one of these package managers**.
 
 ```powershell
+winget install git
+
+git cloe https://github.com/1995parham/dotfiles
+
 Set-ExecutionPolicy Unrestricted
+
 .\start.ps1 env
 .\start.ps1 font
 ```
