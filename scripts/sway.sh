@@ -64,5 +64,9 @@ main_pacman() {
 	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
+	msg 'gnome-keyring/seahorse setup with ~/.profile'
+	sudo pacman -Syu --noconfirm --needed gnome-keyring seahorse
 	dotfile sway profile
+	mkdir -p "$HOME/.gnupg"
+	linker gnupg "$current_dir/i3/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }
