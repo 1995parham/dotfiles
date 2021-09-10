@@ -245,9 +245,6 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id swaylock
 
-# hide cursor after timeout which is in milliseconds.
-seat hide hide_cursor 1000
-
 # workspace on demand
 exec swaymsg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
