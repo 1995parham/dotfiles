@@ -151,3 +151,11 @@ git clone https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver
 cd asus-touchpad-numpad-driver
 sudo ./install.sh
 ```
+
+### how we can persist xrandr options
+
+you can persist the xrandr commands by writing them intto `.xprofile`.
+
+```sh
+xrandr --output LVDS-1 --gamma 1.6
+```
