@@ -1,0 +1,5 @@
+[Unit]
+Description=Change background
+
+[Service]
+ExecStart=%h/.config/swaybg/gosimac.sh
