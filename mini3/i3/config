@@ -6,7 +6,7 @@
 set $mod Mod4
 
 # set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
+workspace_layout tabbed
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
