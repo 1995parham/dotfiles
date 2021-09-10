@@ -1,6 +1,5 @@
 # vim: ft=i3config
-# i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# sway config file
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -245,7 +244,7 @@ bindsym $mod+9 exec --no-startup-id swaylock
 seat hide hide_cursor 1000
 
 # workspace on demand
-exec swaymsg 'workspace $ws1; exec kitty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
+exec swaymsg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
 input "type:keyboard" {
   xkb_layout us,ir
