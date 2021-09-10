@@ -81,7 +81,6 @@ def defaults():
         "chown -R parham:parham /home/parham/yay-bin",
         "cd /home/parham; git clone https://github.com/1995parham/dotfiles.git",
         "chown -R parham:parham /home/parham/dotfiles",
-        "usermod -aG docker parham",
     ]
 
     # archinstall.arguments["services"] = ["lightdm"]
