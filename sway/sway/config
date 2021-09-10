@@ -144,14 +144,16 @@ set $ws7 7:apps-2
 set $ws8 8:social
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
+bindsym --to-code {
+  $mod+1 workspace $ws1
+  $mod+2 workspace $ws2
+  $mod+3 workspace $ws3
+  $mod+4 workspace $ws4
+  $mod+5 workspace $ws5
+  $mod+6 workspace $ws6
+  $mod+7 workspace $ws7
+  $mod+8 workspace $ws8
+}
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -249,9 +251,11 @@ seat hide hide_cursor 1000
 # workspace on demand
 exec swaymsg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
+# provide support for en/fa layouts
+bindsym --to-code $mod+space exec "swaymsg input type:keyboard xkb_switch_layout next"
+
 input "type:keyboard" {
   xkb_layout us,ir
-  xkb_options grp:alt_shift_toggle
 }
 
 input "type:touchpad" {
