@@ -256,6 +256,8 @@ bindsym --to-code $mod+space exec "swaymsg input type:keyboard xkb_switch_layout
 
 input "type:keyboard" {
   xkb_layout us,ir
+  repeat_delay 300
+  repeat_rate 30
 }
 
 input "type:touchpad" {
