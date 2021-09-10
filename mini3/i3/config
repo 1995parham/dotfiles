@@ -202,7 +202,7 @@ assign [class="Emacs"] $ws3
 # Open specific applications in floating mode
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype"] floating enable border none
-for_window [class="Element"] floating enable
+# for_window [class="Element"] floating enable
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
