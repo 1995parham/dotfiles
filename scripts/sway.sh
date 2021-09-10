@@ -49,13 +49,6 @@ main_pacman() {
 	msg 'setup a systemd timer to change background images each 5 minutes with swaybg'
 	sudo pacman -Syu --noconfirm --needed swaybg
 
-	configsystemd swaybg swaybg.timer sway
-	configsystemd swaybg swaybg.service sway
-	configfile swaybg gosimac.sh sway
-
-	systemctl --user enable swaybg.timer
-	systemctl --user start swaybg.timer
-
 	msg 'configure rofi as an another application luncher'
 	sudo pacman -Syu --noconfirm --needed rofi
 	configfile rofi "" sway
