@@ -329,3 +329,4 @@ mode "$mode_gaps_outer" {
 }
 
 include @sysconfdir@/sway/config.d/*
+output eDP-1 scale 1.5
