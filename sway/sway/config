@@ -202,8 +202,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # modes are colored with binding_mode in status bars.
 
 # Set shut down, restart and locking features
+set $mode_system (s)uspend, (r)eboot, (Shift+s)hutdown
 bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode --pango_markup "$mode_system" {
         bindsym s exec --no-startup-id systemctl suspend, mode "default"
         bindsym r exec --no-startup-id systemctl reboot, mode "default"
