@@ -34,9 +34,10 @@ main_pacman() {
 	msg 'sway'
 	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim
 	configfile sway "" sway
+	configfile waybar "" sway
 
 	yay -Syu --noconfirm --needed matcha-gtk-theme
-	configfile gtk-3.0 settings.ini i3
+	configfile gtk-3.0 settings.ini sway
 
 	msg 'x11/wayland image viewer'
 	sudo pacman -Syu --noconfirm --needed imv
