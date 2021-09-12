@@ -159,3 +159,12 @@ you can persist the xrandr commands by writing them intto `.xprofile`.
 ```sh
 xrandr --output LVDS-1 --gamma 1.6
 ```
+
+### make macbook to be your linux
+
+write the following configuration on `/etc/modprobe.d/hid_apple.conf`:
+
+```
+options hid_apple swap_opt_cmd=1
+options hid_apple swap_fn_leftctrl=1
+```
