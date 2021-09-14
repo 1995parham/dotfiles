@@ -327,5 +327,5 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-include @sysconfdir@/sway/config.d/*
+include /etc/sway/config.d/*
 output eDP-1 scale 1.4
