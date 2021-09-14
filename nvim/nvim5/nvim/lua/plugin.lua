@@ -22,6 +22,9 @@ return require('packer').startup(function()
 	-- vim-kubernetes
 	use {'andrewstuart/vim-kubernetes'}
 
+  -- vim syntax highlighting plugin for json with c-style line (//) and block (/* */) comments.
+  use {'kevinoid/vim-jsonc'}
+
   -- syntax highlighting for kitty terminal config files.
   use "fladson/vim-kitty"
 
