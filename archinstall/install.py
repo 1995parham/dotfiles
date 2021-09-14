@@ -73,6 +73,8 @@ def defaults():
         if archinstall.arguments["profile"] == "i3"
         else ["gdm"]
         if archinstall.arguments["profile"] == "gnome"
+        else ["sddm"]
+        if archinstall.arguments["profile"] == "sway"
         else [])
     )
 
