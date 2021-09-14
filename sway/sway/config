@@ -54,6 +54,15 @@ bindsym $mod+Print --release exec --no-startup-id grim -g "$(swaymsg -t get_tree
 # kill a window with a cursor
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
+# idle configuration
+exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
+# this will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. it will also lock your screen before your computer goes to sleep.
+
 focus_follows_mouse no
 
 # music player
