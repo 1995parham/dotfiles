@@ -143,7 +143,7 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "modules-center": ["idle_inhibitor"],
-    "modules-left": ["custom/date"],
+    "modules-left": ["custom/date", "custom/jdate"],
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -154,6 +154,10 @@
     "custom/date": {
       "exec": "date +'%d %B %Y'",
       "exec-if": "which date"
+    },
+    "custom/jdate": {
+      "exec": "jdate +'%d %B %Y'",
+      "exec-if": "which jdate"
     }
   }
 ]
