@@ -77,6 +77,8 @@ window#waybar.chromium {
 #tray,
 #mode,
 #idle_inhibitor,
+#custom-date,
+#custom-jdate,
 #mpd {
   padding: 0 10px;
   margin: 0 4px;
@@ -217,6 +219,10 @@ label:focus {
 }
 
 #custom-date {
+  background-color: #006bff;
+}
+
+#custom-jdate {
   background-color: #006bff;
 }
 
