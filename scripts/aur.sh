@@ -14,11 +14,13 @@ usage() {
 main() {
 	mkdir -p "$HOME/Documents/Git/parham/aur"
 
-	git clone aur@aur.archlinux.org:natscli "$HOME/Documents/Git/parham/aur/natscli"
-	git clone aur@aur.archlinux.org:natscli-bin "$HOME/Documents/Git/parham/aur/natscli-bin"
-	git clone aur@aur.archlinux.org:okd-client-bin "$HOME/Documents/Git/parham/aur/okd-client-bin"
-	git clone aur@aur.archlinux.org:jwt-cli-bin "$HOME/Documents/Git/parham/aur/jwt-cli-bin"
-	git clone aur@aur.archlinux.org:gosimac-bin "$HOME/Documents/Git/parham/aur/gosimac-bin"
-	git clone aur@aur.archlinux.org:dive-bin "$HOME/Documents/Git/parham/aur/dive-bin"
-	git clone aur@aur.archlinux.org:actionlint-bin "$HOME/Documents/Git/parham/aur/actionlint-bin"
+	pkgs=("natscli" "natscli-bin" "okd-client-bin" "jwt-cli-bin" "gosimac-bin" "dive-bin" "actionlint-bin" "jcal")
+
+	for pkg in "${pkgs[@]}"; do
+		if [ ! -d "$HOME/Documents/Git/parham/aur/$pkg" ]; then
+			git clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur/$pkg"
+		else
+			echo "$pkg is already exists"
+		fi
+	done
 }
