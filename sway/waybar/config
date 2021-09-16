@@ -11,7 +11,8 @@
     "modules-right": [
       "mpd",
       "pulseaudio",
-      "network",
+      "network#eth",
+      "network#wifi",
       "cpu",
       "memory",
       "temperature",
@@ -109,9 +110,15 @@
       // "format-full": "",
       "format-icons": ["", "", "", "", ""]
     },
-    "network": {
-      // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "network#wifi": {
+      "interface": "wl*",
       "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "network#eth": {
+      "interface": "e*",
       "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
       "format-linked": "{ifname} (No IP) ",
       "format-disconnected": "Disconnected ⚠",
