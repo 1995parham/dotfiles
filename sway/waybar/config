@@ -151,6 +151,7 @@
     // "width": 1280, // Waybar width
     "modules-center": ["idle_inhibitor"],
     "modules-left": ["custom/date", "custom/jdate"],
+    "modules-right": ["custom/snapp", "custom/baly"],
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -165,6 +166,16 @@
     "custom/jdate": {
       "exec": "jdate +'%d %B %Y'",
       "exec-if": "which jdate"
+    },
+    "custom/snapp": {
+      "interval": 5,
+      "exec": "echo Snapp",
+      "exec-if": "nmcli -f GENERAL.STATE connection show Snapp | grep activated"
+    },
+    "custom/baly": {
+      "interval": 5,
+      "exec": "echo Baly",
+      "exec-if": "nmcli -f GENERAL.STATE connection show Baly | grep activated"
     }
   }
 ]
