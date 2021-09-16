@@ -79,8 +79,6 @@ window#waybar.chromium {
 #idle_inhibitor,
 #custom-date,
 #custom-jdate,
-#custom-snapp,
-#custom-baly,
 #mpd {
   padding: 0 10px;
   margin: 0 4px;
@@ -226,14 +224,6 @@ label:focus {
 
 #custom-jdate {
   background-color: #006bff;
-}
-
-#custom-snapp {
-  background-color: #03d873;
-}
-
-#custom-baly {
-  background-color: #0000ff;
 }
 
 #language {
