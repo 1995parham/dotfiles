@@ -24,6 +24,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+# termpad is a special application class which is floating for terminal.
 for_window [app_id="__termpad"] floating enable
 bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
 
@@ -206,15 +207,13 @@ assign [class="Emacs"] $ws3
 for_window [app_id="pavucontrol"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="Skype"] border none
+for_window [app_id="Alacritty"] opacity set 0.95
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+r reload; exec "notify-send reloaded"
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # modes are colored with binding_mode in status bars.
 
@@ -266,8 +265,6 @@ bindsym --to-code $mod+space exec "swaymsg input type:keyboard xkb_switch_layout
 
 input "type:keyboard" {
   xkb_layout us,ir
-  repeat_delay 300
-  repeat_rate 30
 }
 
 input "type:touchpad" {
