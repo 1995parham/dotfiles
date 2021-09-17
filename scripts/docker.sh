@@ -89,9 +89,9 @@ main_pacman() {
 	sudo usermod --add-subuids 200000-210000 --add-subgids 200000-210000 parham
 
 	msg 'podman service with systemd-user'
-	systemctl --user enable podman.socket
+	systemctl --user enable --start podman.socket
 
-	msg 'remeber arch has cgroup 2 by default'
+	msg 'remember arch has cgroup 2 by default'
 
 	msg 'check /etc/hosts to contain the localhost'
 	cat <<EOF
