@@ -9,6 +9,7 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": [
+      "disk",
       "mpd",
       "pulseaudio",
       "network#eth",
@@ -123,6 +124,9 @@
       "format-linked": "{ifname} (No IP) ",
       "format-disconnected": "Disconnected ⚠",
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "disk": {
+      "format": "{used} / {total}"
     },
     "pulseaudio": {
       // "scroll-step": 1, // %, can be a float
