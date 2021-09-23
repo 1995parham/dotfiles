@@ -65,6 +65,7 @@ main() {
 	msg "awesome chart repositories"
 	helm repo add bitnami https://charts.bitnami.com/bitnami || true
 	helm repo add nats https://nats-io.github.io/k8s/helm/charts || true
+	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart || true
 
 	helm repo update
 }
