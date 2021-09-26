@@ -2,7 +2,7 @@ vim.g.coc_global_extensions = {
     'coc-json', 'coc-html', 'coc-css', 'coc-rls', 'coc-tsserver',
     'coc-snippets', 'coc-pyright',
     'coc-tslint-plugin', 'coc-rust-analyzer', 'coc-vimtex', 'coc-angular',
-    'coc-toml',
+    'coc-toml', 'coc-java',
     'coc-prettier', 'coc-texlab',
 }
 
