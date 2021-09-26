@@ -28,7 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm jdk-openjdk
+	sudo pacman -Syu --needed --noconfirm jdk-openjdk gradle
 }
 
 main_brew() {
