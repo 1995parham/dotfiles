@@ -23,8 +23,7 @@ usage() {
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
-	return 1
+	sudo apt install openjdk-16-jdk
 }
 
 main_pacman() {
