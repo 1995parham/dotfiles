@@ -36,11 +36,18 @@ main() {
 
 	msg "create go directory structure"
 	local gopath
-	gopath=$HOME/Documents/Go
-	for dir in bin pkg src mod; do
-		echo $dir
-		[ -d "$gopath/$dir" ] || mkdir -p "$gopath/$dir"
-	done
+	gopath=$HOME/.cache/go
+	[ -d "$gopath/pkg" ] || mkdir -p "$gopath/pkg"
+
+	local gobin
+	gobin=$HOME/.local/bin
+	[ -d "$gobin" ] || mkdir -p "$gobin"
+
+	go env -w GOPATH="$HOME/.cache/go"
+	go env -w GOBIN="$HOME/.local/bin"
+	go env -w GOPROXY="https://goproxy.cn,goproxy.io,direct"
+	go env -w GONOSUMDB="gitlab.snapp.ir"
+	go env -w GOPRIVATE="gitlab.snapp.ir"
 
 	go-install-packages
 }
