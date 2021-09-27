@@ -3,16 +3,6 @@
 typeset -U path
 # }}}
 
-# go {{{
-
-export GOPATH="$HOME/Documents/Go"
-export GOPROXY="https://goproxy.cn,goproxy.io,direct"
-if [ -d "$HOME/Documents/Go/bin" ]; then
-	path+=("$HOME/Documents/Go/bin")
-fi
-
-# }}}
-
 # python {{{
 
 export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
