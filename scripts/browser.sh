@@ -38,6 +38,7 @@ main_apt() {
 	return 1
 }
 
-#main() {
-# configfile nyxt
-#}
+main() {
+	# configfile nyxt
+	msg "please install the native tridactyl from its normal mode"
+}
