@@ -41,4 +41,6 @@ main_apt() {
 main() {
 	# configfile nyxt
 	msg "please install the native tridactyl from its normal mode"
+
+	configfile tridactyl "" firefox
 }
