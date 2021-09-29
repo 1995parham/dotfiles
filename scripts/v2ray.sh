@@ -23,7 +23,7 @@ __   _|___ \ _ __ __ _ _   _
 }
 
 main_apt() {
-	curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh > install-release.sh
+	curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh >install-release.sh
 	chmod +x install-release.sh
 	sudo ./install-release.sh
 	rm install-release.sh
