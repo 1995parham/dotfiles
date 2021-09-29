@@ -41,5 +41,7 @@ main() {
 		fi
 	fi
 
+	msg 'there is a proxy on conda, be careful'
+
 	dotfile conda condarc
 }
