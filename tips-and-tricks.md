@@ -112,24 +112,8 @@ Set-SmbClientConfiguration -EnableInsecureGuestLogons:$true
 
 ### ubuntu mirrors in Iran
 
-use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com/ubuntu_ and _http://security.ubuntu.com/ubuntu_.
-
-### windows insider preview builds
-
-for getting the windows insider updates in iran you need to use a proxy and the followin command set it for you:
-
-```
-Netsh winhttp set proxy 127.0.0.1:1080
-Netsh winhttp reset proxy
-```
-
-### wsl ssh timeout
-
-on wsl your ssh connections to github get timeout, use the following configuration on your `.ssh/config` to resolve it:
-
-```
-Ciphers aes256-gcm@openssh.com
-```
+use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com/ubuntu_.
+use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://security.ubuntu.com/ubuntu_.
 
 ### update-grub with windows
 
@@ -140,7 +124,7 @@ sudo pacman -Syu os-prober
 # set GRUB_DISABLE_OS_PROBER=false in /etc/default/grub
 ```
 
-### touchpad on trackpad with asus
+### touchpad on trackpad for asus useless feature
 
 ```sh
 sudo pacman -Syu libevdev python-libevdev i2c-tools
@@ -160,7 +144,7 @@ you can persist the xrandr commands by writing them intto `.xprofile`.
 xrandr --output LVDS-1 --gamma 1.6
 ```
 
-### make macbook to be your linux
+### make macbook to act like a normal keyboard
 
 write the following configuration on `/etc/modprobe.d/hid_apple.conf`:
 
