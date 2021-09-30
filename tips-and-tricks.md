@@ -112,8 +112,8 @@ Set-SmbClientConfiguration -EnableInsecureGuestLogons:$true
 
 ### ubuntu mirrors in Iran
 
-use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com/ubuntu_.
-use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://security.ubuntu.com/ubuntu_.
+- use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://archive.ubuntu.com/ubuntu_.
+- use _http://ir.archive.ubuntu.com/ubuntu/_ instead of _http://security.ubuntu.com/ubuntu_.
 
 ### update-grub with windows
 
