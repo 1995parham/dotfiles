@@ -67,6 +67,7 @@ main_apt() {
 
 main_brew() {
 	brew --cask install docker
+	brew install docker-compose
 }
 
 main_pacman() {
@@ -102,7 +103,6 @@ EOF
 }
 
 main() {
-	msg "$(docker-compose version)"
-	msg "$(podman version)"
+	msg "$(docker version)"
 	msg "$(hadolint --version)"
 }
