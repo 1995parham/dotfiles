@@ -36,8 +36,8 @@ main_pacman() {
 	configfile sway "" sway
 	configfile waybar "" sway
 
-	msg 'better sway with more keys [brightnessctl, pactl]'
-	sudo pacman -Syu --noconfirm --needed brightnessctl pactl
+	msg 'better sway with more keys [brightnessctl]'
+	sudo pacman -Syu --noconfirm --needed brightnessctl
 
 	yay -Syu --noconfirm --needed matcha-gtk-theme
 	configfile gtk-3.0 settings.ini sway
