@@ -79,6 +79,7 @@ window#waybar.chromium {
 #idle_inhibitor,
 #custom-date,
 #custom-jdate,
+#custom-vpn,
 #mpd {
   padding: 0 10px;
   margin: 0 4px;
