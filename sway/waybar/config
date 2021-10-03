@@ -155,12 +155,17 @@
     // "width": 1280, // Waybar width
     "modules-center": ["idle_inhibitor"],
     "modules-left": ["custom/date", "custom/jdate"],
+    "modules-right": ["custom/vpn"],
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
         "activated": "",
         "deactivated": ""
       }
+    },
+    "custom/vpn": {
+      "interval": 3,
+      "exec": "nmcli -f GENERAL.STATE connection show Snapp | grep activated > /dev/null && echo 'Snapp'"
     },
     "custom/date": {
       "exec": "date +'%d %B %Y'",
