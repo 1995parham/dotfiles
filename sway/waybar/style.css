@@ -79,7 +79,8 @@ window#waybar.chromium {
 #idle_inhibitor,
 #custom-date,
 #custom-jdate,
-#custom-vpn,
+#custom-snapp,
+#custom-baly,
 #mpd {
   padding: 0 10px;
   margin: 0 4px;
@@ -227,8 +228,12 @@ label:focus {
   background-color: #006bff;
 }
 
-#custom-vpn {
+#custom-snapp {
   background-color: #03d873;
+}
+
+#custom-baly {
+  background-color: #006bff;
 }
 
 #language {
