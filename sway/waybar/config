@@ -155,7 +155,7 @@
     // "width": 1280, // Waybar width
     "modules-center": ["idle_inhibitor"],
     "modules-left": ["custom/date", "custom/jdate"],
-    "modules-right": ["custom/vpn"],
+    "modules-right": ["custom/snapp", "custom/baly"],
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -163,9 +163,13 @@
         "deactivated": ""
       }
     },
-    "custom/vpn": {
+    "custom/snapp": {
       "interval": 3,
       "exec": "nmcli -f GENERAL.STATE connection show Snapp | grep activated > /dev/null && echo 'Snapp'"
+    },
+    "custom/baly": {
+      "interval": 3,
+      "exec": "nmcli -f GENERAL.STATE connection show Baly | grep activated > /dev/null && echo 'Baly'"
     },
     "custom/date": {
       "exec": "date +'%d %B %Y'",
