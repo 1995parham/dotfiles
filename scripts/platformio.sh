@@ -7,14 +7,31 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-if [[ $EUID -ne 0 ]]; then
-	echo "[platformio] This script must be run as root"
-	exit 1
-fi
 
-echo "[platformio] Installing PlatformIO"
-pip2 install -U platformio
+usage() {
+	echo -n -e "platformio, professional collaborative platform for embedded development"
 
-echo "[platformio] Installing udev rules"
-curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/scripts/99-platformio-udev.rules >/etc/udev/rules.d/99-platformio-udev.rules
-service udev restart
+	# shellcheck disable=1004,2016
+	echo '
+       _       _    __                      _
+ _ __ | | __ _| |_ / _| ___  _ __ _ __ ___ (_) ___
+| |_ \| |/ _| | __| |_ / _ \| |__| |_ |_ \| |/ _ \
+| |_) | | (_| | |_|  _| (_) | |  | | | | | | | (_) |
+| |__/|_|\____|\__|_|  \___/|_|  |_| |_| |_|_|\___/
+|_|
+  '
+}
+
+main_apt() {
+	msg "there is nothing that we can do"
+	return 1
+}
+
+main_pacman() {
+	yay -Syu --needed --noconfirm platformio
+}
+
+main_brew() {
+	msg "there is nothing that we can do"
+	return 1
+}
