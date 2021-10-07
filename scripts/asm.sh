@@ -20,6 +20,10 @@ usage() {
   '
 }
 
+main_pacman() {
+	sudo pacman -Syu --needed --noconfirm nasm
+}
+
 main_apt() {
 	sudo apt-get -y install nasm radare2
 }
