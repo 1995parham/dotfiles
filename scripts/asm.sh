@@ -21,7 +21,7 @@ usage() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm nasm
+	sudo pacman -Syu --needed --noconfirm nasm rizin rz-cutter
 }
 
 main_apt() {
