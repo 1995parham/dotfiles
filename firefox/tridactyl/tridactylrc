@@ -1,3 +1,5 @@
 sanitise tridactyllocal tridactylsync
 
 set theme dark
+
+blacklistadd krunker.io
