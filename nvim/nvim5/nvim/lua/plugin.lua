@@ -31,6 +31,9 @@ return require('packer').startup(function()
   -- vim configuration for zig
   use 'ziglang/zig.vim'
 
+  -- vim syntax for tmol
+  use 'cespare/vim-toml'
+
   -- erlang indentation and syntax for vim
   use 'vim-erlang/vim-erlang-runtime'
 
