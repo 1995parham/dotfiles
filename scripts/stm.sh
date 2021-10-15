@@ -31,6 +31,7 @@ main_pacman() {
 		openocd \
 		bluez \
 		bluez-utils \
+		tinygo \
 		rfkill
 
 	rustup component add llvm-tools-preview
