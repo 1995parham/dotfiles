@@ -26,6 +26,8 @@ usage() {
 }
 
 main_pacman() {
+	msg 'you can use yay fritzing to have an application for drawing circuit schemas'
+
 	sudo pacman -Syu --needed --noconfirm arm-none-eabi-gdb \
 		minicom \
 		openocd \
