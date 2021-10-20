@@ -14,6 +14,8 @@ set $mod Mod4
 default_border pixel 1
 default_floating_border normal
 
+focus_follows_mouse no
+
 # Hide borders
 hide_edge_borders none
 
@@ -47,22 +49,24 @@ bindsym $mod+d exec --no-startup-id rofi -show
 # pulseaudio control
 bindsym $mod+Ctrl+m exec pavucontrol
 
-################################################################################################
-
-# Screen brightness controls
+# screen brightness controls
 bindsym XF86MonBrightnessUp exec "brightnessctl s 10%+ && notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "brightnessctl s 10%- && notify-send 'brightness down'"
 
+# bmenu
 bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu' --option="background_opacity=0.8"
+
+# firefox
 bindsym $mod+F2 exec firefox
+
+# ranger
 bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="background_opacity=0.8"
 
 # picom
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom --experimental-backends -b
 
-# dunst
+# dunst (notification)
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 # screenshot
@@ -73,13 +77,12 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 # kill a window with a cursor
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-focus_follows_mouse no
-
 # music player
 bindsym XF86AudioPlay exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
 bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
+bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="background_opacity=0.8"
 
 # volume control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -196,8 +199,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 # use `xporp` for finding about window classes and more
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pcmanfm"] $ws3
 assign [class="Telegram"] $ws4
 assign [class="firefox"] $ws4
 assign [class="Virt-manager"] $ws5
@@ -224,32 +225,13 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# modes are colored with binding_mode in status bars.
-
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-        bindsym l exec --no-startup-id i3exit lock, mode "default"
-        bindsym s exec --no-startup-id i3exit suspend, mode "default"
-        bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-        bindsym e exec --no-startup-id i3exit logout, mode "default"
-        bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-        bindsym r exec --no-startup-id i3exit reboot, mode "default"
-        bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-        # exit system mode: "Enter" or "Escape"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
 # lock screen
 bindsym $mod+9 exec --no-startup-id "blurlock; sleep 10; xset dpms force off"
 
 # provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
 
-# Theme colors
+# theme colors
 # class                 border  backgr. text    indic.   child_border
 client.focused          #333333 #ffa500 #333333 #FDF6E3
 client.focused_inactive #333333 #333333 #ffa500 #454948
