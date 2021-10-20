@@ -2,6 +2,8 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+include ~/.config/i3/config.d/*.conf
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -28,12 +30,12 @@ font pango:Vazir 10
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
+# start a terminal fullscreen and floating
 bindsym $mod+Return exec alacritty
 for_window [class=Alacritty instance="__termpad"] floating enable
 bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
 
-# i3 configuration at you glance to review
+# i3 configuration at you glance to review with bat
 bindsym $mod+F1 exec alacritty --class="__termpad" --option="background_opacity=0.8" --command "bat" "$HOME/.config/i3/config"
 
 # kill focused window
@@ -42,15 +44,14 @@ bindsym $mod+Shift+q kill
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show
 
-## sound-section
-
+# pulseaudio control
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "brightnessctl s 10%+ && notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "brightnessctl s 10%- && notify-send 'brightness down'"
 
 bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu' --option="background_opacity=0.8"
 bindsym $mod+F2 exec firefox
@@ -242,48 +243,8 @@ mode "$mode_system" {
         bindsym Escape mode "default"
 }
 
-# Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-# Lock screen
+# lock screen
 bindsym $mod+9 exec --no-startup-id "blurlock; sleep 10; xset dpms force off"
-
-## autostart applications
-
-# restore last background with feh
-exec --no-startup-id $HOME/.fehbg
-# picom
-exec --no-startup-id picom --experimental-backends -b
-# a small program for hiding the mouse cursor
-exec --no-startup-id unclutter -b
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/lunch.sh
-# pulse audio system tray
-exec --no-startup-id pasystray
-
-# workspace on demand
-exec i3-msg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
 
 # provide support for en/fa layouts
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
@@ -298,56 +259,3 @@ client.urgent           #333333 #333333 #b30000 #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 
 client.background       #333333
-
-# Set inner/outer gaps
-gaps inner 14
-gaps outer -2
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}

@@ -109,7 +109,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = xwindow info-tmux-sessions
 modules-center = mpd
-modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right = filesystem backlight pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
 
 ;tray-position = right
 ;tray-padding = 2
@@ -214,8 +214,9 @@ icon-next = 
 label-song-maxlen = 30
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
 
 format = <label> <bar>
 label = BL
@@ -230,11 +231,6 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
