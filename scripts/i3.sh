@@ -42,6 +42,9 @@ main_pacman() {
 	msg 'ranger with image preview'
 	sudo pacman -Syu --noconfirm --needed ranger ueberzug
 
+	msg 'better brightness control with brightnessctl'
+	sudo pacman -Syu --noconfirm --needed brightnessctl
+
 	configfile ranger "" i3
 
 	msg 'x11/wayland image viewer'
