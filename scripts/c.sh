@@ -19,6 +19,10 @@ usage() {
   '
 }
 
+main_pacman() {
+	sudo pacman -Syu --needed --noconfirm clang
+}
+
 main_brew() {
 	brew install clang-format
 	brew install cmake
