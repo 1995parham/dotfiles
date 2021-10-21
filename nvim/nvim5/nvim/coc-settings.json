@@ -9,6 +9,7 @@
       }
     }
   },
+  "clangd.arguments": ["--enable-config"],
   "rust.clippy_preference": "on",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
