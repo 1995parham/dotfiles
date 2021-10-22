@@ -4,6 +4,9 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+include ~/.config/sway/config.d/*.conf
+include ~/.config/sway/hosts/`hostname`.conf
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -259,9 +262,6 @@ bindsym $mod+9 exec --no-startup-id swaylock
 
 # workspace on demand
 exec swaymsg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
-
-# provide support for en/fa layouts
-bindsym --to-code $mod+space exec "swaymsg input 1118:2496:Microsoft_Surface_Type_Cover_Keyboard xkb_switch_layout next"
 
 input "type:keyboard" {
   xkb_layout us,ir
