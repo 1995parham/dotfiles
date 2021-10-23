@@ -32,7 +32,7 @@ main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
 	msg 'sway'
-	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim xdg-user-dirs
+	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim xdg-user-dirs wl-clipboard
 	configfile sway "" sway
 	configfile waybar "" sway
 
