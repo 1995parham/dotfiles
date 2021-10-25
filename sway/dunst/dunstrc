@@ -271,10 +271,10 @@
 #    foreground = "#FFFFFF"
 #
 [irc]
-        appname = weechat
-        timeout = 0
-        background = "#0033bb"
-        foreground = "#dddddd"
+      appname = weechat
+      timeout = 0
+      background = "#0033bb"
+      foreground = "#dddddd"
 #
 [weechat hl]
      appname = weechat
