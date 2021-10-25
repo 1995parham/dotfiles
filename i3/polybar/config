@@ -30,10 +30,10 @@ alert = #bd2c40
 [bar/bottom]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 35
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = false
 bottom = true
 
@@ -43,18 +43,18 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
-border-color = #00000000
+border-size = 0
+# border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = "Tamsyn:pixelsize=12;0"
+font-1 = "Roboto:size=11:weight=bold;2"
+font-2 = "Noto Sans:size=11;1"
 
 modules-left = i3
 modules-center = couple-birthday couple-relationship
@@ -82,10 +82,10 @@ enable-ipc = true
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 35
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -94,18 +94,18 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
-border-color = #00000000
+border-size = 0
+# border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = "Tamsyn:pixelsize=12;0"
+font-1 = "Roboto:size=11:weight=bold;2"
+font-2 = "Noto Sans:size=11;1"
 
 modules-left = xwindow info-tmux-sessions
 modules-center = mpd
@@ -235,9 +235,9 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+; format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = #ff4d8c
 label = CPU %percentage%%
 
 [module/memory]
@@ -294,6 +294,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
+format-volume-underline = #ffa500
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
