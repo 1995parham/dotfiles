@@ -12,7 +12,7 @@ if sessionlist=$(tmux ls 2>/dev/null); then
 			status=""
 		fi
 
-		printf "| %s%s | " "$session" "$status"
+		printf "%s%s " "$session" "$status"
 	done
 
 	printf "\n"
