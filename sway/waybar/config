@@ -172,10 +172,12 @@
       "exec": "nmcli -f GENERAL.STATE connection show Baly | grep activated > /dev/null && echo 'Baly'"
     },
     "custom/date": {
+      "interval": 3600,
       "exec": "date +'%d %B %Y'",
       "exec-if": "which date"
     },
     "custom/jdate": {
+      "interval": 3600,
       "exec": "jdate +'%d %B %Y'",
       "exec-if": "which jdate"
     }
