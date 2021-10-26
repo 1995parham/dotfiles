@@ -79,7 +79,7 @@ module-margin-right = 1
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 ; See the Fonts wiki page for more details
-font-0 = TerminessTTF Nerd Font:style=Medium
+font-0 = JetBrainsMono Nerd Font:style=Regular:size=10
 
 ; The separator will be inserted between the output of each module
 separator =
