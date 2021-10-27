@@ -3,7 +3,8 @@ vim.g.coc_global_extensions = {
     'coc-snippets', 'coc-pyright',
     'coc-tslint-plugin', 'coc-rust-analyzer', 'coc-vimtex', 'coc-angular',
     'coc-toml', 'coc-java',
-    'coc-prettier', 'coc-texlab', 'coc-clangd'
+    'coc-prettier', 'coc-texlab', 'coc-clangd',
+    'coc-yaml'
 }
 
 vim.g.coc_filetype_map = {['yaml.docker-compose'] = 'yaml'}
