@@ -40,5 +40,6 @@ main() {
 	mkdir "$HOME/src" || true
 
 	# HACK until crosstool-ng has fixed its mirror for isl library
-	cd "$HOME/src" && wget ftp.halifax.rwth-aachen.de/gentoo/distfiles/isl-0.24.tar.xz
+	cd "$HOME/src" && aria2c https://libisl.sourceforge.io/isl-0.20.tar.gz
+	cd "$HOME/src" && aria2c https://github.com/libexpat/libexpat/releases/download/R_2_2_6/expat-2.2.6.tar.bz2
 }
