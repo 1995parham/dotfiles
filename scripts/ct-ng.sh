@@ -28,7 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	yay -Rsu crosstool-ng
+	yay -Syu crosstool-ng
 }
 
 main_brew() {
