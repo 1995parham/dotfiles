@@ -28,7 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	yay -Rsu --noconfirm --needed crosstool-ng
+	yay -Rsu crosstool-ng
 }
 
 main_brew() {
@@ -38,4 +38,7 @@ main_brew() {
 
 main() {
 	mkdir "$HOME/src"
+
+	# HACK until crosstool-ng has fixed its mirror for isl library
+	cd "$HOME/src" && wget ftp.halifax.rwth-aachen.de/gentoo/distfiles/isl-0.24.tar.xz
 }
