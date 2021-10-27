@@ -37,7 +37,7 @@ main_brew() {
 }
 
 main() {
-	mkdir "$HOME/src"
+	mkdir "$HOME/src" || true
 
 	# HACK until crosstool-ng has fixed its mirror for isl library
 	cd "$HOME/src" && wget ftp.halifax.rwth-aachen.de/gentoo/distfiles/isl-0.24.tar.xz
