@@ -3,6 +3,7 @@ sanitise tridactyllocal tridactylsync
 set theme dark
 
 blacklistadd krunker.io
+blacklistadd google.com
 
 bind / fillcmdline find
 bind ? fillcmdline find -?
