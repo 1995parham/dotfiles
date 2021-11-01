@@ -1,8 +1,10 @@
 sanitise tridactyllocal tridactylsync
 
 set theme dark
+set searchengine duckduckgo
 
-blacklistadd krunker.io
+autocmd DocStart krunker\\.io mode ignore
+autocmd DocStart .*\\.google\\.com mode ignore
 blacklistadd google.com
 
 bind / fillcmdline find
