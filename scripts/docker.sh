@@ -66,7 +66,7 @@ main_apt() {
 }
 
 main_brew() {
-	brew --cask install docker
+	brew install --cask docker
 	brew install docker-compose
 }
 
