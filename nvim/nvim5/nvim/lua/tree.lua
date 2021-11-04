@@ -1,6 +1,5 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
-vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
 vim.g.nvim_tree_gitignore = 1
 
 require'nvim-tree'.setup {
@@ -8,6 +7,7 @@ require'nvim-tree'.setup {
   auto_close = 1,
   ignore_ft_on_setup = { 'dashboard' },
   tab_open = 0,
+  tree_ignore = { '.git', 'node_modules', '.cache' },
 
   view = {
     mappings = {
