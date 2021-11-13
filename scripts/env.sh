@@ -26,7 +26,7 @@ packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 brew_packages=(coreutils k6 inetutils inxi fontconfig wget)
 apt_packages=(bmon atop)
 pacman_packages=(mtr atop github-cli inetutils websocat fuse2 dog yq man-pages usbutils exfat-utils)
-yay_packages=(jcal jwt-cli-bin actionlint-bin)
+yay_packages=(jcal jwt-cli-bin actionlint-bin act-bin)
 
 main_apt() {
 	sudo apt-get update -q
