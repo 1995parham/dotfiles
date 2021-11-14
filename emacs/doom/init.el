@@ -81,7 +81,7 @@
        :checkers
        syntax              ; tasing you for every semicolon you forget
        (spell +aspell)     ; tasing you for misspelling mispelling
-       grammar             ; tasing grammar mistake every you make
+       ;;grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
@@ -138,8 +138,7 @@
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       (:if (or IS-LINUX IS-MAC)
-        latex +latexmk)    ; writing papers in Emacs has never been so fun, add +lsp if you want slow lsp
+       (latex +latexmk)    ; writing papers in Emacs has never been so fun, add +lsp if you want slow lsp
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
