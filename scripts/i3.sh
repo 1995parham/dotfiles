@@ -88,9 +88,6 @@ main_pacman() {
 	mkdir -p "$HOME/.gnupg"
 	linker gnupg "$current_dir/i3/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
-	msg 'x11 resources'
-	dotfile i3 Xresources
-
 	msg 'pavucontrol, a panel for audio'
 	sudo pacman -Syu --noconfirm --needed pavucontrol
 
