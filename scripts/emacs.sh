@@ -22,13 +22,15 @@ usage() {
 
 main_brew() {
 	# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
-	brew install git ripgrep
+	# brew install git ripgrep
 
-	brew tap d12frosted/emacs-plus
-	msg 'installation takes time and cpu'
-	brew install emacs-plus@29
-	ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
+	# brew tap d12frosted/emacs-plus
+	# msg 'installation takes time and cpu'
+	# brew install emacs-plus@29
+	# ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
+	msg 'right now there is no way with emacs and doom on osx'
 }
+
 main_apt() {
 	msg "install emacs/ripgre with apt"
 
