@@ -26,8 +26,8 @@ main_brew() {
 
 	brew tap d12frosted/emacs-plus
 	msg 'installation takes time and cpu'
-	brew install --cask emacs-plus@28
-	ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications
+	brew install emacs-plus@29
+	ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
 }
 main_apt() {
 	msg "install emacs/ripgre with apt"
