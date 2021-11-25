@@ -64,7 +64,8 @@ wk.register({
 }, { prefix = "<leader>" })
 
 vim.api.nvim_set_keymap('n', '<C-w>n', ':tabnext<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-w>p', ':tabnext<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-w>p', ':tabprevious<CR>', {})
+vim.api.nvim_set_keymap('n', '<C-w>c', ':tabnew<CR>', {})
 
 -- terminal
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', {silent = true})
