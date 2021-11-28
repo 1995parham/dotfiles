@@ -1,10 +1,16 @@
 configuration {
+  drun-display-format: "{icon} {name}";
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
+  location: 2;
+  fake-transparency: false;
+  hide-scrollbar: true;
+  bw: 0;
 	modi: "combi";
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
 /*	font: "mono 12";*/
-/*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
 /*	yoffset: 0;*/
@@ -55,7 +61,6 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "~/.config/rofi/style_normal.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -150,3 +155,5 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+@theme "~/.config/rofi/style_normal.rasi"
