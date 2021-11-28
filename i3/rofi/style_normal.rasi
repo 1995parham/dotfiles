@@ -7,16 +7,6 @@
  *
  */
 
-configuration {
-  drun-display-format: "{icon} {name}";
-  show-icons: true;
-  icon-theme: "Papirus-Dark";
-  location: 2;
-  fake-transparency: false;
-  hide-scrollbar: true;
-  bw: 0;
-}
-
 // black version
 * {
   bg: #222222B0;
