@@ -41,11 +41,12 @@ fterm.setup({
   on_stderr = nil,
 })
 
+-- register useful tools/commands as floating terminal.
 local wk = require("which-key")
 
 local atop = fterm:new({
   ft = 'fterm_atop',
-  cmd = "atop",
+  cmd = 'atop',
   dimensions = {
     height = 0.3,
     width = 0.3,
@@ -58,9 +59,25 @@ function _G.__fterm_atop()
   atop:toggle()
 end
 
+local lazydocker = fterm:new({
+  ft = 'fterm_lazydocker',
+  cmd = 'lazydocker',
+  dimensions = {
+    height = 0.8,
+    width = 0.8,
+    x = 0.5,
+    y = 0.5
+  }
+})
+
+function _G.__fterm_lazydocker()
+  lazydocker:toggle()
+end
+
 wk.register({
   e = {
     name = "+execute",
     t = { "<cmd>lua _G.__fterm_atop()<cr>", "atop" },
+    d = { "<cmd>lua _G.__fterm_lazydocker()<cr>", "lazydocker" },
   }
 })
