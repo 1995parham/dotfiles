@@ -49,6 +49,12 @@ wk.register({
 		g = { "<cmd>Git<cr>", "git" },
 	},
 
+  e = {
+    name = "+execute",
+    t = { "<cmd>lua _G.__fterm_atop()<cr>", "atop" },
+    d = { "<cmd>lua _G.__fterm_lazydocker()<cr>", "lazydocker" },
+  },
+
 	c = {
 		name = "+code",
 		r = { '<plug>(coc-rename)', "rename" },
