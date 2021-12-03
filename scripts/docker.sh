@@ -80,6 +80,9 @@ main_pacman() {
 	msg "install dive with yay"
 	yay -Syu --needed --noconfirm dive-bin
 
+	msg "install lazydocker with yay"
+	yay -Syu --needed --noconfirm lazydocker-bin
+
 	msg "enable podman with snapp"
 	configfile dive "" podman
 	configfile containers "" podman
