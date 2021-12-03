@@ -150,13 +150,13 @@ return require('packer').startup(function()
   })
   --]]
 
+  -- No-nonsense floating terminal plugin for neovim
+  use {
+    'numToStr/FTerm.nvim',
+    config = function() require('fterm') end
+  }
+
   -- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
   -- possible keybindings of the command you started typing.
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-      }
-    end
-  }
+  use "folke/which-key.nvim"
 end)

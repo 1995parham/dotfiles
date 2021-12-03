@@ -3,7 +3,8 @@ vim.g.mapleader = ' '
 
 local wk = require("which-key")
 
--- tabs
+wk.setup({})
+
 wk.register({
 	w = {
 		name = "+windows",
@@ -31,7 +32,8 @@ wk.register({
 
 	o = {
 		name = "+open",
-		t = { "<cmd>terminal<cr>", "open terminal" },
+		e = { "<cmd>terminal<cr>", "terminal" },
+		t = { "<cmd>lua require('FTerm').toggle()<cr>", "floating terminal" },
 		p = { "<cmd>NvimTreeToggle<cr>", "project sidebar" }
 	},
 
