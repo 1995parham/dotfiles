@@ -9,7 +9,7 @@
 # =======================================
 
 usage() {
-	echo -n -e "crosstool-ng to compile what we needs as embedded developer"
+	echo -n -e "crosstool-ng to compile what we needs as an embedded developer"
 
 	# shellcheck disable=1004,2016
 	echo '
