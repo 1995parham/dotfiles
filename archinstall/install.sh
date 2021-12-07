@@ -12,14 +12,6 @@ sudo systemctl enable lightdm
 
 cd "$HOME/yay-bin" && makepkg -si
 
-read -r -p "do you want the minimal installation?[Y/n] " -n 1 accept
-echo
-if [[ $accept == "Y" ]]; then
-	echo "i3 minimal installation"
-	cd "$HOME/dotfiles/" && ./start.sh mini3
-	sudo pacman -Syu netsurf
-else
-	echo "i3 full installation"
-	cd "$HOME/dotfiles/" && ./start.sh i3
-	sudo pacman -Syu firefox
-fi
+echo "have fun with your i3"
+cd "$HOME/dotfiles/" && ./start.sh i3
+sudo pacman -Syu firefox
