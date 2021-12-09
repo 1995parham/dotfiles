@@ -153,7 +153,7 @@ return require('packer').startup(function()
   -- No-nonsense floating terminal plugin for neovim
   use {
     'numToStr/FTerm.nvim',
-    config = function() require('fterm') end
+    config = function() require('terminal') end
   }
 
   -- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
