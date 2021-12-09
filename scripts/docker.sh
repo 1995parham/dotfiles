@@ -67,7 +67,7 @@ main_apt() {
 
 main_brew() {
 	brew install --cask docker
-	brew install docker-compose
+	brew install docker-compose lazydocker
 }
 
 main_pacman() {
