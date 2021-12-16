@@ -28,7 +28,7 @@ main_brew() {
 	# msg 'installation takes time and cpu'
 	# brew install emacs-plus@29
 	# ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
-	msg 'right now there is no way with emacs and doom on osx'
+	msg "right now there isn't any suitable way with emacs and doom on osx"
 }
 
 main_apt() {
