@@ -150,11 +150,6 @@ return require('packer').startup(function()
   })
   --]]
 
-  use {
-    'norcalli/snippets.nvim',
-    config = function() require('config/snip') end
-  }
-
   -- No-nonsense floating terminal plugin for neovim
   use {
     'numToStr/FTerm.nvim',
