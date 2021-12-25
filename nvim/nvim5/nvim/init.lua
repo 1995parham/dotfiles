@@ -1,6 +1,6 @@
-require('setting')
+require('config/setting')
 require('plugin')
-require('key')
+require('config/key')
 
 vim.api.nvim_exec([[
 	" close the location window automatically when quitting parent window

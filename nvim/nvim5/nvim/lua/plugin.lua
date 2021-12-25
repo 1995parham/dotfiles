@@ -61,7 +61,7 @@ return require('packer').startup(function()
   -- nvim Treesitter configurations and abstraction layer
   use {
     'nvim-treesitter/nvim-treesitter',
-    config = function() require('treesitter') end
+    config = function() require('config/treesitter') end
   }
 
   -- find, filter, preview, pick. all lua, all the time.
@@ -73,13 +73,13 @@ return require('packer').startup(function()
   -- an extension for telescope.nvim that allows you to switch between projects.
   use {
     'nvim-telescope/telescope-project.nvim',
-    config = function() require'telescope'.load_extension'project' end,
+    config = function() require('telescope').load_extension('project') end,
   }
 
   -- check syntax in vim asynchronously and fix files, with language server protocol (lsp) support
   use {
     'w0rp/ale',
-    setup = function() require('ale') end
+    setup = function() require('config/ale') end
   }
 
   -- vim plugin for shfmt
@@ -90,12 +90,12 @@ return require('packer').startup(function()
   }
 
   -- vim dashboard
-  use {'glepnir/dashboard-nvim', config = function() require('dashboard') end}
+  use {'glepnir/dashboard-nvim', config = function() require('config/dashboard') end}
 
   -- neovim statusline plugin written in lua
   use {
     'romgrk/barbar.nvim',
-    config = function() require('tabline') end,
+    config = function() require('config/tabline') end,
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
@@ -106,7 +106,7 @@ return require('packer').startup(function()
   use {
     'neoclide/coc.nvim',
     branch = 'release',
-    config = function() require('coc') end
+    config = function() require('config/coc') end
   }
 
   -- go development plugin for vim
@@ -127,7 +127,7 @@ return require('packer').startup(function()
     'glepnir/galaxyline.nvim',
     branch = 'main',
     -- use statusline.lua to setup statusline
-    config = function() require('statusline') end,
+    config = function() require('config/statusline') end,
     requires = {'kyazdani42/nvim-web-devicons'},
     after = { 'coc.nvim', 'nvim-treesitter' },
   }
@@ -135,7 +135,7 @@ return require('packer').startup(function()
   -- a file explorer tree for neovim written in lua
   use {
     'kyazdani42/nvim-tree.lua',
-    config = function() require('tree') end,
+    config = function() require('config/tree') end,
     requires = {'kyazdani42/nvim-web-devicons'},
   }
 
@@ -152,13 +152,13 @@ return require('packer').startup(function()
 
   use {
     'norcalli/snippets.nvim',
-    config = function() require('snip') end
+    config = function() require('config/snip') end
   }
 
   -- No-nonsense floating terminal plugin for neovim
   use {
     'numToStr/FTerm.nvim',
-    config = function() require('terminal') end
+    config = function() require('config/terminal') end
   }
 
   -- whichkey is a lua plugin for Neovim 0.5 that displays a popup with
