@@ -48,8 +48,8 @@ main_apt() {
 }
 
 main_pacman() {
-	msg "okd-client-bin"
-	yay -Syu --noconfirm --needed okd-client-bin
+	msg "okd-client-bin kube-score-bin"
+	yay -Syu --noconfirm --needed okd-client-bin kube-score-bin
 
 	msg "kubectl, helm, argocd-cli and kubectx"
 	sudo pacman -Syu --noconfirm --needed kubectl helm argocd kubectx
