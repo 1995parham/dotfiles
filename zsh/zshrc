@@ -72,7 +72,7 @@ ZSH_CUSTOM=~/.zsh.plug
 plugins=(
 	vi-mode
 	golang
-	rust rustup cargo
+	rust
 	# oc helm kubectl
 	gnu-utils
 
