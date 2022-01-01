@@ -61,6 +61,13 @@ git config --global user.name "Parham Alvani"
 git config --global user.email "parham.alvani@gmail.com"
 ```
 
+**Also** don't forget to install neovim plugins:
+
+
+```vi
+:PacketSync
+```
+
 Then you can install other tools with `start.sh`, here are some examples:
 
 ```sh
