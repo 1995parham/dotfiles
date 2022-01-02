@@ -7,5 +7,5 @@
 pacman -Sy archinstall git
 git clone https://github.com/1995parham/dotfiles
 cd dotfiles/archinstall
-python3 install.py
+archinstall --config i3.json
 ```
