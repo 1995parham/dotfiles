@@ -161,6 +161,18 @@ bindkey '^h' _call_navi
 
 # }}}
 
+# kubernetes {{{
+
+_call_kubectx() {
+  kubectx </dev/tty
+}
+
+zle -N _call_kubectx
+
+bindkey '^t' _call_kubectx
+
+# }}}
+
 # conda {{{
 
 if [ -d "$HOME/miniconda3" ]; then
