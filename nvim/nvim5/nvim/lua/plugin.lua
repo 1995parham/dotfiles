@@ -67,6 +67,7 @@ return require('packer').startup(function()
   -- find, filter, preview, pick. all lua, all the time.
   use {
     'nvim-telescope/telescope.nvim',
+    config = function() require('config/telescope') end,
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
@@ -74,6 +75,14 @@ return require('packer').startup(function()
   use {
     'nvim-telescope/telescope-project.nvim',
     config = function() require('telescope').load_extension('project') end,
+    requires = {{'nvim-telescope/telescope.nvim'}}
+  }
+
+  -- File Browser extension for telescope.nvim
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+    config = function() require('telescope').load_extension('file_browser') end,
+    requires = {{'nvim-telescope/telescope.nvim'}}
   }
 
   -- check syntax in vim asynchronously and fix files, with language server protocol (lsp) support

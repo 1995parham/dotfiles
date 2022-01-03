@@ -39,7 +39,7 @@ wk.register({
 
 	f = {
 		name = "+files",
-		f = { "<cmd>lua require'telescope.builtin'.file_browser{}<cr>", "browser" },
+		f = { "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", "browser" },
 		g = { "<cmd>Telescope live_grep<cr>", "grep" },
 		n = { "<cmd>enew<cr>", "new file" }
 	},
