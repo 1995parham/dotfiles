@@ -67,7 +67,6 @@ return require('packer').startup(function()
   -- find, filter, preview, pick. all lua, all the time.
   use {
     'nvim-telescope/telescope.nvim',
-    config = function() require('config/telescope') end,
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 

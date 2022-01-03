@@ -8,6 +8,8 @@ require("telescope").setup {
           ["ma"] = fb_actions.create_file,
           ["mm"] = fb_actions.move_file,
           ["mr"] = fb_actions.rename_file,
+          ["my"] = fb_actions.copy_file,
+          ["mh"] = fb_actions.toggle_hidden,
         },
       },
     },
