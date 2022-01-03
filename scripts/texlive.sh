@@ -91,7 +91,7 @@ texlive-install-() {
 }
 
 texlive-init() {
-	msg "welcome to texlive initiation"
+	msg "welcome to texlive initiation, your texlive installation was successful"
 
 	local version
 	version=$(latest-install-texlive)
@@ -112,7 +112,8 @@ main_pacman() {
 
 	msg "install required packages for better latex/xetex experience in persian"
 	sudo pacman -Syu --noconfirm --needed texlab python-pygments graphviz
-	yay -Syu --noconfirm --needed texlive-upstream
+	# right now I don't know why we don't have texlive-upstream on aur anymore
+	# yay -Syu --noconfirm --needed texlive-upstream
 
 	for package in "${packages[@]}"; do
 		sudo tlmgr install "$package"
