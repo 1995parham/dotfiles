@@ -27,7 +27,8 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm git-lfs
+	msg 'i am using git-lfs to store my papers so pdfgrep is required to find the right paper'
+	sudo pacman -Syu --needed --noconfirm git-lfs pdfgrep
 }
 
 main_brew() {
