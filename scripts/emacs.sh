@@ -28,7 +28,8 @@ main_brew() {
 	msg 'installation based on emacs-plus'
 	msg 'installation takes time and cpu because it compiles emacs from source'
 	brew install emacs-plus@29 --with-native-comp --with-elrumo2-icon
-	ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
+
+	ln -s "$(brew --prefix)/opt/emacs-plus@29/Emacs.app" /Applications
 }
 
 main_apt() {

@@ -47,6 +47,5 @@ main_brew() {
 
 	current_dir=${current_dir:?"current_dir must be set"}
 
-	sudo mkdir -p /usr/local/etc/v2ray
-	sudo cp "$current_dir/ghermezi/config.json" /usr/local/etc/v2ray/config.json
+	cp "$current_dir/ghermezi/config.json" "$(brew --prefix)/etc/v2ray/config.json"
 }
