@@ -30,6 +30,8 @@ main_brew() {
 	brew install emacs-plus@29 --with-native-comp --with-elrumo2-icon
 
 	ln -s "$(brew --prefix)/opt/emacs-plus@29/Emacs.app" /Applications
+
+	msg 'installing doom on osx manually is better because there are many errors'
 }
 
 main_apt() {
