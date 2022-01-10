@@ -22,13 +22,13 @@ usage() {
 
 main_brew() {
 	# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
-	# brew install git ripgrep
+	brew install git ripgrep
 
-	# brew tap d12frosted/emacs-plus
-	# msg 'installation takes time and cpu'
-	# brew install emacs-plus@29
-	# ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
-	msg "right now there isn't any suitable way with emacs and doom on osx"
+	brew tap d12frosted/emacs-plus
+	msg 'installation based on emacs-plus'
+	msg 'installation takes time and cpu because it compiles emacs from source'
+	brew install emacs-plus@29 --with-native-comp --with-elrumo2-icon
+	ln -s /usr/local/opt/emacs-plus@29/Emacs.app /Applications
 }
 
 main_apt() {
