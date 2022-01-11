@@ -48,6 +48,9 @@ packages=(
 
 	# selectively in/exclude pieces of text
 	comment
+
+	# a new interface for environments in latex
+	environ
 )
 
 latest-install-texlive() {
