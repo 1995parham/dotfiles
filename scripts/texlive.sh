@@ -51,6 +51,9 @@ packages=(
 
 	# a new interface for environments in latex
 	environ
+
+	# document configuration with tags
+	tagging
 )
 
 latest-install-texlive() {
