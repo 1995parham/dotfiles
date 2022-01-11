@@ -45,6 +45,9 @@ packages=(
 
 	# more math
 	amsmath
+
+	# selectively in/exclude pieces of text
+	comment
 )
 
 latest-install-texlive() {
