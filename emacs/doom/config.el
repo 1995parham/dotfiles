@@ -20,6 +20,11 @@
 (setq user-full-name "Pahram Alvani"
       user-mail-address "parham.alvani@gmail.com")
 
+;; Increase navigation point speed
+;; https://emacs.stackexchange.com/questions/33510/unicode-txt-slowness
+;; https://github.com/purcell/emacs.d/issues/273
+(setq inhibit-compacting-font-caches t)
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
