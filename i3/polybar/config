@@ -94,7 +94,7 @@ bottom = true
 
 modules-left = i3
 modules-center = couple-birthday couple-relationship
-modules-right = jdate date snapp baly
+modules-right = jdate date snapp1 snapp2 baly
 
 tray-position = right
 tray-padding = 2
