@@ -65,7 +65,7 @@ git config --global user.email "parham.alvani@gmail.com"
 
 
 ```vi
-:PacketSync
+:PackerSync
 ```
 
 Then you can install other tools with `start.sh`, here are some examples:
