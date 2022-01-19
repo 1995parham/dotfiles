@@ -16,10 +16,11 @@
 ![GitHub](https://img.shields.io/github/license/1995parham/dotfiles?logo=gnu&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/Install%20dotfiles?label=install&logo=github&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/Shell%20Script%20Lint?label=sh-lint&logo=github&style=flat-square)
+![Ansible](https://img.shields.io/badge/ansible-ready-black?logo=ansible&style=flat-square)
 
 ## Introduction
 
-This repository contains my personal configurations for ubuntu, archlinux (with i3/sawy/gnome window manager) and apple osx, which was created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
+This repository contains my personal configurations for Ubuntu, Archlinux (with i3/sawy/gnome window manager) and apple osx, which was created in Fall 2013 when I was a lonely BSc' student at the Amirkabir University of Technology.
 First of all, thank you for your visiting, to find out more about how to use this configuration with neovim, oh-my-zsh, etc. please check the following sections.
 Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
 
