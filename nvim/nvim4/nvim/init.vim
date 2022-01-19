@@ -216,6 +216,9 @@ Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 " Naz Neovim Theme
 Plug '1995parham/naz.vim', { 'tag': 'v1.0.0' }
 
+" An up-to-date vim plugin for syntax highlighting HAproxy configuration file
+Plug 'Joorem/vim-haproxy'
+
 " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'jiangmiao/auto-pairs'
 
@@ -322,6 +325,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 
 " An alternative sudo.vim for Vim and Neovim
+" which works great in freeip based servers
 Plug 'lambdalisue/suda.vim'
 
 " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
