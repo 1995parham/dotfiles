@@ -35,10 +35,10 @@ floating_modifier $mod
 # start a terminal fullscreen and floating
 bindsym $mod+Return exec alacritty
 for_window [class=Alacritty instance="__termpad"] floating enable
-bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
+bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="window.opacity=0.8"
 
 # i3 configuration at you glance to review with bat
-bindsym $mod+F1 exec alacritty --class="__termpad" --option="background_opacity=0.8" --command "bat" "$HOME/.config/i3/config"
+bindsym $mod+F1 exec alacritty --class="__termpad" --option="window.opacity=0.8" --command "bat" "$HOME/.config/i3/config"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -54,7 +54,7 @@ bindsym XF86MonBrightnessUp exec "brightnessctl s 10%+ && notify-send 'brightnes
 bindsym XF86MonBrightnessDown exec "brightnessctl s 10%- && notify-send 'brightness down'"
 
 # bmenu
-bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu' --option="background_opacity=0.8"
+bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu' --option="window.opacity=0.8"
 
 # firefox
 bindsym $mod+F2 exec firefox
@@ -82,7 +82,7 @@ bindsym XF86AudioPlay exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
 bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
-bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="background_opacity=0.8"
+bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="window.opacity=0.8"
 
 # volume control
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
