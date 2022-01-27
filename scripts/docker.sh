@@ -9,16 +9,15 @@
 # =======================================
 
 usage() {
-	echo "install podman at snapp"
+	echo "install docker in iran🇮🇷"
 
 	# shellcheck disable=1004,2016
 	echo '
-                 _
- _ __   ___   __| |_ __ ___   __ _ _ __
-| |_ \ / _ \ / _` | |_ ` _ \ / _` | |_ \
-| |_) | (_) | (_| | | | | | | (_| | | | |
-| .__/ \___/ \__,_|_| |_| |_|\__,_|_| |_|
-|_|
+     _            _
+  __| | ___   ___| | _____ _ __
+ / _` |/ _ \ / __| |/ / _ \ |__|
+| (_| | (_) | (__|   <  __/ |
+ \__,_|\___/ \___|_|\_\___|_|
   '
 }
 
@@ -71,8 +70,8 @@ main_brew() {
 }
 
 main_pacman() {
-	msg "install podman-compose / podman with pacman"
-	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname
+	msg "install docker-compose / docker with pacman"
+	sudo pacman -Syu --noconfirm --needed docker docker-compose
 
 	msg "install hadolint/hadolint with yay"
 	yay -Syu --needed --noconfirm hadolint-bin
@@ -83,26 +82,13 @@ main_pacman() {
 	msg "install lazydocker with yay"
 	yay -Syu --needed --noconfirm lazydocker-bin
 
-	msg "enable podman with snapp"
-	configfile dive "" podman
-	configfile containers "" podman
+	msg 'podman service with systemd'
+	sudo systemctl enable --now docker.service
 
-	msg "rootless podman"
-	sudo touch /etc/subuid
-	sudo touch /etc/subgid
-	sudo usermod --add-subuids 200000-210000 --add-subgids 200000-210000 parham
-
-	msg 'podman service with systemd-user'
-	systemctl --user enable --now podman.service
-	systemctl --user enable --now podman.socket
-
-	msg 'remember arch has cgroup 2 by default'
-
-	msg 'check /etc/hosts to contain the localhost'
-	cat <<EOF
-127.0.0.1 localhost
-::1 localhost
-EOF
+	msg "manage docker as a non-root user"
+	sudo groupadd -f docker
+	sudo usermod -aG docker "$USER"
+	newgrp docker
 }
 
 main() {
