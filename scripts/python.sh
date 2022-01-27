@@ -45,7 +45,9 @@ main_apt() {
 }
 
 main_pacman() {
-	return 0
+	sudo pacman -Syu --needed --noconfirm python python-pip
+	# update pip to work with python 3.10
+	sudo python -mpip install -U pip
 }
 
 python-install-package() {
