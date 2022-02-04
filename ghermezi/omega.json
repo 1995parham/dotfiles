@@ -6,7 +6,7 @@
     "matchProfileName": "ghermezi",
     "name": "__ruleListOf_auto-ghermezi",
     "profileType": "RuleListProfile",
-    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/master/ghermezi/domains"
+    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains"
   },
   "+auto-ghermezi": {
     "color": "#ffaa88",
