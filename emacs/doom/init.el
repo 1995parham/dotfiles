@@ -20,10 +20,10 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company +childframe) ; the ultimate code completion backend
-       ;;helm                ; the *other* search engine for love and life
-       ;;ido                 ; the other *other* search engine...
-       ivy                   ; a search engine for love and life
+       ;; (company +childframe) ; the ultimate code completion backend
+       ;;helm                   ; the *other* search engine for love and life
+       ;;ido                    ; the other *other* search engine...
+       ivy                      ; a search engine for love and life
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -138,7 +138,7 @@
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
-       (latex +latexmk)    ; writing papers in Emacs has never been so fun, add +lsp if you want slow lsp
+       (latex )            ; writing papers in Emacs has never been so fun, add +lsp if you want slow lsp
        ;;lean
        ;;factor
        ;;ledger            ; an accounting system in Emacs
