@@ -16,6 +16,9 @@ return require('packer').startup(function()
   -- packer can manage itself
   use {'wbthomason/packer.nvim'}
 
+  -- a vim alignment plugin
+  use {'junegunn/vim-easy-align'}
+
   -- an alternative sudo.vim for vim and neovim
   use {'lambdalisue/suda.vim'}
 
