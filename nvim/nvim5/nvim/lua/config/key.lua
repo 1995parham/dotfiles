@@ -85,3 +85,8 @@ vim.api.nvim_set_keymap('n', 'gv', '<Plug>(coc-type-definition)',
 vim.api
 .nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {silent = true})
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', {silent = true})
+
+-- easy align
+
+-- start interactive EasyAlign for a motion/text object (e.g. gaip)
+vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {silent = true})
