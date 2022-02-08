@@ -2,11 +2,17 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 
 require'nvim-tree'.setup {
-  open_on_setup = 1,
-  auto_close = 1,
+  open_on_setup = false,
+  auto_close = true,
+  disable_netrw = true,
+  hijack_netrw = true,
   ignore_ft_on_setup = { 'dashboard' },
-  tab_open = 0,
-  ree_gitignore = 1,
+  open_on_tab = false,
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
   tree_ignore = { '.git', 'node_modules', '.cache' },
 
   view = {
