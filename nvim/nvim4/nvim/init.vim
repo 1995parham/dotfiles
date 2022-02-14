@@ -188,7 +188,7 @@ let g:polyglot_disabled = ['python', 'javascript']
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  execute '!git clone https://github.com/junegunn/vim-plug '.data_dir.'/autoload/plug.vim'
+  execute '!git clone https://github.com/junegunn/vim-plug '.data_dir.'/autoload'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
