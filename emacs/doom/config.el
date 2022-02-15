@@ -187,7 +187,7 @@
 
 ;; Use font Vazir for Arabic (Farsi)
 (after! unicode-fonts
-  (push "Vazir Thin" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
+  (push "Vazir" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
 
 ;; Telling bibtex-completion where your bibliographies can be found:
 (setq bibtex-completion-bibliography
