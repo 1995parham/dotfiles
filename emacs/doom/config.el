@@ -25,6 +25,12 @@
 ;; https://github.com/purcell/emacs.d/issues/273
 (setq inhibit-compacting-font-caches t)
 
+;; Turn off line numbers
+(setq display-line-numbers-type nil)
+
+;; Only parse LaTeX class and package information.
+(setq-default TeX-auto-regexp-list 'LaTeX-auto-minimal-regexp-list)
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
