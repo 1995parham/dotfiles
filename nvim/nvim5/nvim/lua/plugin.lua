@@ -40,6 +40,9 @@ return require('packer').startup(function()
   -- erlang indentation and syntax for vim
   use 'vim-erlang/vim-erlang-runtime'
 
+  -- vim plugin for c/c++/objc semantic highlighting using cquery, ccls, or clangd
+  use 'jackguo380/vim-lsp-cxx-highlight'
+
   -- naz neovim theme
   use {
     '1995parham/naz.vim',
