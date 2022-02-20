@@ -20,11 +20,8 @@
 (setq user-full-name "Pahram Alvani"
       user-mail-address "parham.alvani@gmail.com")
 
-;; Turn off line numbers
-(setq display-line-numbers-type nil)
-
-;; Only parse LaTeX class and package information.
-(setq-default TeX-auto-regexp-list 'LaTeX-auto-minimal-regexp-list)
+;; Only parse LaTeX class and package information. [auctex]
+;; (setq-default TeX-auto-regexp-list 'LaTeX-auto-minimal-regexp-list)
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -54,7 +51,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
 
 ;; Using delete-trailing-whitespaces or whitespace-cleanup to manage leftover whitespace
 (add-hook 'after-save-hook #'whitespace-cleanup)
@@ -93,12 +90,12 @@
 (add-to-list 'exec-path (concat (file-name-as-directory (getenv "GOPATH")) "bin") t)
 
 ;; Use pdf-tools to open PDF files
-(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-      TeX-source-correlate-start-server t)
+;;(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+;;      TeX-source-correlate-start-server t)
 
 ;; Update PDF buffers after successful LaTeX runs
-(add-hook 'TeX-after-compilation-finished-functions
-          #'TeX-revert-document-buffer)
+;;(add-hook 'TeX-after-compilation-finished-functions
+;;          #'TeX-revert-document-buffer)
 
 ;; The information to be shown is normally collected from all agenda files,
 ;; the files listed in the variable org-agenda-files.
@@ -194,23 +191,23 @@
   (push "Vazir" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
 
 ;; Telling bibtex-completion where your bibliographies can be found:
-(setq bibtex-completion-bibliography
-      '("~/org/research/main.bib"))
+;;(setq bibtex-completion-bibliography
+;;      '("~/org/research/main.bib"))
 
 ;; Specify where PDFs can be found
-(setq bibtex-completion-library-path '("~/Documents/Git/parham/citado/papers"))
+;;(setq bibtex-completion-library-path '("~/Documents/Git/parham/citado/papers"))
 
 ;; Bibtex-completion supports two methods for storing notes.
 ;; It can either store all notes in one file or store notes in multiple files, one file per publication.
 ;; one file per publication is preferred
-(setq bibtex-completion-notes-path "~/org/research/")
+;;(setq bibtex-completion-notes-path "~/org/research/")
 
 ;; switch default action to edit the pdf notes
-(setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
+;;(setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
 
-;; use evince to open research papers
-(setq bibtex-completion-pdf-open-function
-      (lambda (fpath)
-        (call-process "xdg-open" nil 0 nil fpath)))
+;; use xdg-open to open research papers
+;;(setq bibtex-completion-pdf-open-function
+;;      (lambda (fpath)
+;;        (call-process "xdg-open" nil 0 nil fpath)))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
