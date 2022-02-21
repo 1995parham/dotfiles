@@ -7,6 +7,7 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+
 packages=(
 	flake8
 	pep8-naming
@@ -19,12 +20,16 @@ packages=(
 	pylint
 	poetry
 	'isort[pipfile_deprecated_finder]'
+	ipython
+	numpy
+	matplotlib
+	pandas
 
 	pynvim
 )
 
 usage() {
-	echo -n "python with useful tools"
+	echo -n "python with useful tools for science and phd"
 	# shellcheck disable=1004
 	echo '
              _   _
