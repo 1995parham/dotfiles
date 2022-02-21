@@ -72,3 +72,18 @@ local lazydocker = fterm:new({
 function _G.__fterm_lazydocker()
   lazydocker:toggle()
 end
+
+local ipython = fterm:new({
+  ft = 'fterm_ipython',
+  cmd = 'ipython',
+  dimensions = {
+    height = 0.8,
+    width = 0.8,
+    x = 0.5,
+    y = 0.5
+  }
+})
+
+function _G.__fterm_ipython()
+  ipython:toggle()
+end

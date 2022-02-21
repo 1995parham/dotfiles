@@ -53,6 +53,7 @@ wk.register({
     name = "+execute",
     t = { "<cmd>lua _G.__fterm_atop()<cr>", "atop" },
     d = { "<cmd>lua _G.__fterm_lazydocker()<cr>", "lazydocker" },
+    i = { "<cmd>lua _G.__fterm_ipython()<cr>", "ipython" },
   },
 
 	c = {
