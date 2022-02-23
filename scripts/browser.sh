@@ -29,8 +29,8 @@ main_pacman() {
 
 	bash xdg-settings set default-web-browser firefox.desktop
 
-	# msg 'nyxt - the internet on your terms'
-	# yay -Syu --noconfirm --needed nyxt
+	msg 'nyxt - the internet on your terms'
+	yay -Syu --noconfirm --needed nyxt
 }
 
 main_apt() {
@@ -39,7 +39,7 @@ main_apt() {
 }
 
 main() {
-	# configfile nyxt
+	configfile nyxt
 	msg "please install the native tridactyl from its normal mode"
 
 	configfile tridactyl "" firefox
