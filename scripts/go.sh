@@ -58,6 +58,8 @@ go-install-packages() {
 	# Go Tools
 	msg "go tools"
 
+	go install github.com/yoheimuta/protolint/cmd/protolint@latest
+
 	msg "install binary requirements of vim-go"
 
 	hash nvim &>/dev/null && nvim +GoUpdateBinaries --headless +qall
