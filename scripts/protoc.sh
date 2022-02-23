@@ -31,8 +31,9 @@ main_apt() {
 }
 
 main_pacman() {
-	msg "installing protobuf from yay and pacman with go bindings"
+	msg "installing protobuf from pacman with go bindings"
 
 	sudo pacman -Syu --needed --noconfirm protobuf
-	yay -Syu --needed --noconfirm protoc-gen-go protoc-gen-go-grpc
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 }
