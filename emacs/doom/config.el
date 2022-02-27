@@ -34,10 +34,10 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "JetBrains Mono" :height 1.0)
-;;     doom-variable-pitch-font (font-spec :family "JetBrains Mono" :height 1.3))
+;;      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :height 1.3))
 (setq doom-font (font-spec :family "JetBrains Mono" :size 12))
 ;;
-;;(set-face-attribute 'default nil :font "JetBrains Mono" :height 90)
+;; (set-face-attribute 'default nil :font "JetBrains Mono" :height 90)
 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -51,7 +51,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type nil)
+(setq display-line-numbers-type t)
 
 ;; Using delete-trailing-whitespaces or whitespace-cleanup to manage leftover whitespace
 (add-hook 'after-save-hook #'whitespace-cleanup)
@@ -211,3 +211,7 @@
 ;;        (call-process "xdg-open" nil 0 nil fpath)))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+(after! gcmh
+        (setq gcmh-high-cons-threshold 100000000))
+(setq redisplay-dont-pause t)
