@@ -9,10 +9,10 @@ fi
 echo "install mesa-vdpau for better performance on ATI graphic cards"
 echo "https://wiki.archlinux.org/title/Improving_performance"
 
-echo "because of iran sanctions maybe you need ghermezi for downloading from github"
-echo "$HOME/dotfiles/" && ./start.sh v2ray
-sudo vim /etc/v2ray/config.json
-sudo systemctl enable --now v2ray
+# echo "because of iran sanctions maybe you need ghermezi for downloading from github"
+# cd "$HOME/dotfiles/" && ./start.sh v2ray
+# sudo vim /etc/v2ray/config.json
+# sudo systemctl enable --now v2ray
 
 sudo systemctl enable lightdm
 
