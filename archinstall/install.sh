@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [[ $USER != parham ]]; then
 	echo "you are not my master"
