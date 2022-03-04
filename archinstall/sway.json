@@ -14,7 +14,7 @@
     "xorg",
     "go",
     "alacritty",
-    "ssdm",
+    "sddm",
     "xdg-desktop-portal-wlr",
     "xdg-utils"
   ],
