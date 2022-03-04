@@ -221,16 +221,6 @@ bindsym $mod+Shift+r reload; exec "notify-send reloaded"
 # Lock screen
 bindsym $mod+9 exec --no-startup-id swaylock
 
-input "type:keyboard" {
-  xkb_layout us,ir
-}
-
-input "type:touchpad" {
-  natural_scroll enabled
-  tap enabled
-  dwt enabled
-}
-
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
 client.focused          #333333 #ffa500 #333333 #FDF6E3
