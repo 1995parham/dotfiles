@@ -221,9 +221,6 @@ bindsym $mod+Shift+r reload; exec "notify-send reloaded"
 # Lock screen
 bindsym $mod+9 exec --no-startup-id swaylock
 
-# workspace on demand
-exec swaymsg 'workspace $ws1; exec alacritty; workspace $ws4; exec firefox; exec telegram-desktop; workspace $ws3; exec emacs; workspace $ws1'
-
 input "type:keyboard" {
   xkb_layout us,ir
 }
