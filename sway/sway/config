@@ -148,7 +148,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
-# change background
+# change background on startup
 output * bg `find "$HOME/Pictures/GoSiMac" -maxdepth 1 -type f | shuf -n 1` fill
 
 # Workspace names
