@@ -236,6 +236,11 @@ label:focus {
   background-color: #006bff;
 }
 
+#custom-love {
+  background-color: green;
+  padding: 5px;
+}
+
 #language {
   background: #00b093;
   color: #740864;

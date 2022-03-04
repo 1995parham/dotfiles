@@ -24,28 +24,23 @@
       "tray"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "format": "{name}: {icon}",
+      "format-icons": {
+         "urgent": "",
+         "focused": "",
+         "default": ""
+      }
+    },
     "sway/mode": {
       "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
-      "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%",
-      "format-disconnected": "Disconnected",
-      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+      "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+      "format-disconnected": "Disconnected ",
+      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
       "unknown-tag": "N/A",
       "interval": 2,
       "consume-icons": {
@@ -78,7 +73,7 @@
       "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-      "format": "{usage}% CPU",
+      "format": "{usage}% {avg_frequency}GHz CPU",
       "tooltip": false
     },
     "memory": {
@@ -114,15 +109,18 @@
     "network#wifi": {
       "interface": "wl*",
       "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-disabled": "",
       "format-linked": "{ifname} (No IP) ",
-      "format-disconnected": "Disconnected ⚠",
+      "format-disconnected": "No WiFi ⚠",
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "network#eth": {
       "interface": "e*",
       "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+      "format-disabled": "",
       "format-linked": "{ifname} (No IP) ",
-      "format-disconnected": "Disconnected ⚠",
+      // "format-disconnected": "Disconnected ⚠",
+      "format-disconnected": "",
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "disk": {
@@ -153,7 +151,7 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-center": ["idle_inhibitor"],
+    "modules-center": ["idle_inhibitor", "custom/love#relationship", "custom/love#birthday"],
     "modules-left": ["custom/date", "custom/jdate"],
     "modules-right": ["custom/snapp", "custom/baly"],
     "idle_inhibitor": {
@@ -170,6 +168,14 @@
     "custom/baly": {
       "interval": 3,
       "exec": "nmcli -f GENERAL.STATE connection show Baly | grep activated > /dev/null && echo 'Baly'"
+    },
+    "custom/love#relationship": {
+      "interval": 3600,
+      "exec": "$HOME/.config/waybar/scripts/couple.sh relationship"
+    },
+    "custom/love#birthday": {
+      "interval": 3600,
+      "exec": "$HOME/.config/waybar/scripts/couple.sh birthday"
     },
     "custom/date": {
       "interval": 3600,
