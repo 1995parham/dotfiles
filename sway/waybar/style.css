@@ -237,7 +237,8 @@ label:focus {
 }
 
 #custom-love {
-  background-color: green;
+  background-color: #ff6c85;
+  color: #474747;
   padding: 5px;
 }
 
