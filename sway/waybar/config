@@ -151,7 +151,11 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "modules-center": ["idle_inhibitor", "custom/love#relationship", "custom/love#birthday"],
+    "modules-center": [
+      "custom/love#relationship",
+      "idle_inhibitor",
+      "custom/love#birthday"
+    ],
     "modules-left": ["custom/date", "custom/jdate"],
     "modules-right": ["custom/snapp#1", "custom/snapp#2", "custom/baly"],
     "idle_inhibitor": {
