@@ -26,7 +26,7 @@ bindsym $mod+n border normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 
 # termpad is a special application class which is floating for terminal.
 for_window [app_id="__termpad"] floating enable
@@ -216,7 +216,7 @@ assign [class="Emacs"] $ws3
 for_window [app_id="pavucontrol"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="Skype"] border none
-for_window [app_id="Alacritty"] opacity set 0.95
+for_window [app_id="foot"] opacity set 0.95
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
