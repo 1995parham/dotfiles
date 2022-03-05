@@ -16,6 +16,12 @@ echo "https://wiki.archlinux.org/title/Improving_performance"
 
 sudo systemctl enable sddm
 
+# global variable that points to dotfiles root directory
+current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+sudo cp "$current_dir/sway.d/sway.sh" /usr/local/bin/sway.sh
+sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desktop
+
 cd "$HOME/yay-bin" && makepkg -si
 
 #echo "have fun with your i3"
