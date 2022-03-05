@@ -45,10 +45,10 @@ bindsym $mod+d exec --no-startup-id rofi -show
 
 bindsym $mod+Ctrl+m exec pavucontrol
 
-bindsym $mod+Ctrl+b exec alacritty --app-id="__termpad" -e='bmenu'
+bindsym $mod+Ctrl+b exec foot --app-id="__termpad" -e='bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec alacritty --app-id="__termpad" -e='ncmpcpp'
+bindsym $mod+F5 exec foot --app-id="__termpad" -e='ncmpcpp'
 
 # dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
