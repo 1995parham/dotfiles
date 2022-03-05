@@ -39,6 +39,9 @@ main_pacman() {
 	msg 'better sway with more keys [brightnessctl]'
 	sudo pacman -Syu --noconfirm --needed brightnessctl
 
+	msg 'featurerich screenshot tool'
+	sudo pacman -Syu --noconfirm --needed flameshot
+
 	msg 'gtk theme'
 	yay -Syu --noconfirm --needed matcha-gtk-theme
 	configfile gtk-3.0 settings.ini sway
