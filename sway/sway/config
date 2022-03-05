@@ -27,12 +27,15 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+
 # termpad is a special application class which is floating for terminal.
 for_window [app_id="__termpad"] floating enable
-bindsym $mod+Shift+Return exec alacritty --class="__termpad" --option="background_opacity=0.8"
+for_window [app_id="__termpad"] opacity set 0.90
+
+bindsym $mod+Shift+Return exec alacritty --class="__termpad"
 
 # sway configuration at you glance to review
-bindsym $mod+F1 exec alacritty --class="__termpad" --option="background_opacity=0.8" --command "bat" "$HOME/.config/sway/config"
+bindsym $mod+F1 exec alacritty --class="__termpad" --command "bat" "$HOME/.config/sway/config"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -42,10 +45,10 @@ bindsym $mod+d exec --no-startup-id rofi -show
 
 bindsym $mod+Ctrl+m exec pavucontrol
 
-bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu' --option="background_opacity=0.8"
+bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp' --option="background_opacity=0.8"
+bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp'
 
 # dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
