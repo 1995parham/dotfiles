@@ -13,7 +13,7 @@
     "base-devel",
     "xorg",
     "go",
-    "alacritty",
+    "foot",
     "sddm",
     "xdg-desktop-portal-wlr",
     "xdg-utils"
