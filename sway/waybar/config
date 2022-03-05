@@ -163,11 +163,11 @@
     },
     "custom/snapp#1": {
       "interval": 3,
-      "exec": "nmcli -f GENERAL.STATE connection show Snapp1 | grep activated > /dev/null && echo 'Snapp1'"
+      "exec": "nmcli -f GENERAL.STATE connection show Snapp1 | grep activated > /dev/null && echo 'Snapp! 1'"
     },
     "custom/snapp#2": {
       "interval": 3,
-      "exec": "nmcli -f GENERAL.STATE connection show Snapp2 | grep activated > /dev/null && echo 'Snapp2'"
+      "exec": "nmcli -f GENERAL.STATE connection show Snapp2 | grep activated > /dev/null && echo 'Snapp! 2'"
     },
     "custom/baly": {
       "interval": 3,
