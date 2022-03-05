@@ -179,11 +179,13 @@
     },
     "custom/love#relationship": {
       "interval": 3600,
-      "exec": "$HOME/.config/waybar/scripts/couple.sh relationship"
+      "exec": "$HOME/.config/waybar/scripts/couple.sh relationship",
+      "format": " {}"
     },
     "custom/love#birthday": {
       "interval": 3600,
-      "exec": "$HOME/.config/waybar/scripts/couple.sh birthday"
+      "exec": "$HOME/.config/waybar/scripts/couple.sh birthday",
+      "format": " {}"
     },
     "custom/date": {
       "interval": 3600,
