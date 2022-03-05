@@ -39,8 +39,12 @@ main_pacman() {
 	msg 'better sway with more keys [brightnessctl]'
 	sudo pacman -Syu --noconfirm --needed brightnessctl
 
+	msg 'gtk theme'
 	yay -Syu --noconfirm --needed matcha-gtk-theme
 	configfile gtk-3.0 settings.ini sway
+
+	msg 'qt support'
+	sudo pacman -Syu --noconfirm --needed qt5-wayland
 
 	msg 'x11/wayland image viewer'
 	sudo pacman -Syu --noconfirm --needed imv
