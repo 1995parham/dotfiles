@@ -83,6 +83,9 @@ bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
 bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
 
+# disable touchpad
+bindsym XF86TouchpadToggle exec "swaymsg input type:touchpad events toggle enabled disabled"
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
