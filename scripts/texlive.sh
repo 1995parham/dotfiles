@@ -126,6 +126,7 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed texlab python-pygments graphviz
 	# right now I don't know why we don't have texlive-upstream on aur anymore
 	# yay -Syu --noconfirm --needed texlive-upstream
+	yay -Syu --noconfirm --needed libxcrypt-compat
 
 	for package in "${packages[@]}"; do
 		sudo tlmgr install "$package"
