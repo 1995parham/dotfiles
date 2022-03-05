@@ -32,10 +32,10 @@ bindsym $mod+Return exec foot
 for_window [app_id="__termpad"] floating enable
 for_window [app_id="__termpad"] opacity set 0.90
 
-bindsym $mod+Shift+Return exec alacritty --class="__termpad"
+bindsym $mod+Shift+Return exec foot --app-id="__termpad"
 
 # sway configuration at you glance to review
-bindsym $mod+F1 exec alacritty --class="__termpad" --command "bat" "$HOME/.config/sway/config"
+bindsym $mod+F1 exec foot --app-id="__termpad" --command "bat" "$HOME/.config/sway/config"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -45,10 +45,10 @@ bindsym $mod+d exec --no-startup-id rofi -show
 
 bindsym $mod+Ctrl+m exec pavucontrol
 
-bindsym $mod+Ctrl+b exec alacritty --class="__termpad" -e='bmenu'
+bindsym $mod+Ctrl+b exec alacritty --app-id="__termpad" -e='bmenu'
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec ranger
-bindsym $mod+F5 exec alacritty --class="__termpad" -e='ncmpcpp'
+bindsym $mod+F5 exec alacritty --app-id="__termpad" -e='ncmpcpp'
 
 # dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
