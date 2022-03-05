@@ -214,6 +214,7 @@ assign [class="Emacs"] $ws3
 
 # Open specific applications in floating mode
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="flameshot"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="Skype"] border none
 for_window [app_id="foot"] opacity set 0.95
