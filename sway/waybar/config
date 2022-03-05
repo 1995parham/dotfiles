@@ -153,7 +153,7 @@
     // "width": 1280, // Waybar width
     "modules-center": ["idle_inhibitor", "custom/love#relationship", "custom/love#birthday"],
     "modules-left": ["custom/date", "custom/jdate"],
-    "modules-right": ["custom/snapp", "custom/baly"],
+    "modules-right": ["custom/snapp#1", "custom/snapp#2", "custom/baly"],
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -161,9 +161,13 @@
         "deactivated": ""
       }
     },
-    "custom/snapp": {
+    "custom/snapp#1": {
       "interval": 3,
-      "exec": "nmcli -f GENERAL.STATE connection show Snapp | grep activated > /dev/null && echo 'Snapp'"
+      "exec": "nmcli -f GENERAL.STATE connection show Snapp1 | grep activated > /dev/null && echo 'Snapp1'"
+    },
+    "custom/snapp#2": {
+      "interval": 3,
+      "exec": "nmcli -f GENERAL.STATE connection show Snapp2 | grep activated > /dev/null && echo 'Snapp2'"
     },
     "custom/baly": {
       "interval": 3,
