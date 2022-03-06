@@ -14,6 +14,7 @@ echo "https://wiki.archlinux.org/title/Improving_performance"
 # sudo vim /etc/v2ray/config.json
 # sudo systemctl enable --now v2ray
 
+echo "enabling sddm which is great desktop manager for sway, you can set an icon for it too"
 sudo systemctl enable sddm
 
 # global variable that points to dotfiles root directory
