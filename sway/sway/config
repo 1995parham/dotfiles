@@ -215,9 +215,10 @@ assign [class="Emacs"] $ws3
 # Open specific applications in floating mode
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="flameshot"] floating enable
-for_window [class="Skype"] floating enable
-for_window [class="Skype"] border none
+for_window [class="Skype"] floating enable; border none
 for_window [app_id="foot"] opacity set 0.95
+for_window [title="Firefox — Sharing Indicator"] floating enable; sticky enable
+for_window [title="Firefox — Picture in Picture"] floating enable; sticky enable
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
