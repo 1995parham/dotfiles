@@ -10,4 +10,4 @@ export MOZ_ENABLE_WAYLAND=1
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
 
-exec sway --unsupported-gpu
+exec dbus-run-session sway --unsupported-gpu
