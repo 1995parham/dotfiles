@@ -217,8 +217,8 @@ for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="flameshot"] floating enable
 for_window [class="Skype"] floating enable; border none
 for_window [app_id="foot"] opacity set 0.95
-for_window [title="Firefox — Sharing Indicator"] floating enable; sticky enable
-for_window [title="Firefox — Picture in Picture"] floating enable; sticky enable
+for_window [title="Firefox — Sharing Indicator"] floating enable; sticky enable; move position 50ppt 0ppt
+for_window [title="Picture-in-Picture"] floating enable; sticky enable; move position 80ppt 5ppt; resize set 15ppt 15ppt
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
