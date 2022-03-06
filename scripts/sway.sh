@@ -39,6 +39,9 @@ main_pacman() {
 	msg 'better sway with more keys [brightnessctl]'
 	sudo pacman -Syu --noconfirm --needed brightnessctl
 
+	msg 'required freedesktop services'
+	sudo pacman -Syu --noconfirm --needed upower rkit
+
 	msg 'featurerich screenshot tool'
 	sudo pacman -Syu --noconfirm --needed flameshot
 
