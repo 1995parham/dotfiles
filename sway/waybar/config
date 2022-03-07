@@ -3,7 +3,7 @@
   {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 32, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
@@ -31,6 +31,9 @@
          "focused": "",
          "default": ""
       }
+    },
+    "sway/window": {
+      "icon": false
     },
     "sway/mode": {
       "format": "<span style=\"italic\">{}</span>"
@@ -67,8 +70,8 @@
     },
     "clock": {
       // "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+      // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
       "format": "{usage}% {avg_frequency}GHz CPU",
