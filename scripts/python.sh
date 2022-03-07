@@ -74,6 +74,7 @@ python-install-packages() {
 main() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
-	linker dmenu "$current_dir/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
+	mkdir -p "$HOME/.ipython/profile_default"
+	linker python3 "$current_dir/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
 	python-install-packages
 }
