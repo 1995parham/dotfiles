@@ -53,6 +53,9 @@ bindsym $mod+F5 exec foot --app-id="__termpad" 'ncmpcpp'
 # dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
+# hide mouse cursor after a period of inactivity
+seat seat0 hide_cursor 3000
+
 # screenshot
 # https://github.com/emersion/grim
 bindsym Print exec --no-startup-id grim
