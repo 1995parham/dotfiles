@@ -3,6 +3,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 include ~/.config/i3/config.d/*.conf
+include ~/.config/i3/hosts.d/`hostname`.conf
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
