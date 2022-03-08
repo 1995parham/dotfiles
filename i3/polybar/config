@@ -37,7 +37,7 @@ monitor-strict = false
 ; the percentage can optionally be extended with a pixel offset like so:
 ; 50%:-10, this will result in a width or height of 50% minus 10 pixels
 width = 100%
-height = 30
+height = 40
 
 ; Offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
 ; the percentage can optionally be extended with a pixel offset like so:
@@ -79,7 +79,7 @@ module-margin-right = 1
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 ; See the Fonts wiki page for more details
-font-0 = JetBrainsMono Nerd Font:style=Regular:size=10
+font-0 = JetBrainsMono Nerd Font:style=Regular:size=12
 
 ; The separator will be inserted between the output of each module
 separator =
