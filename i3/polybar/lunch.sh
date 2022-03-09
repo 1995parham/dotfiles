@@ -17,7 +17,7 @@ polybar-msg cmd quit
 # launch bars
 bars=('top' 'bottom')
 
-for bar in ${bars[*]}; do
+for bar in "${bars[@]}"; do
 	echo "---" | tee -a "/tmp/$bar.log"
 
 	polybar "$bar" 2>&1 | tee -a "/tmp/$bar.log" &
