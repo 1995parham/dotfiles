@@ -29,6 +29,11 @@ monitor =
 ; Use the specified monitor as a fallback if the main one is not found.
 monitor-fallback =
 
+; Set a DPI values used when rendering text
+; This only affects scalable fonts
+; Set this to 0 to let polybar calculate the dpi from the screen size.
+dpi = ${xrdb:Xft.dpi:96}
+
 ; Require the monitor to be in connected state
 ; XRandR sometimes reports my monitor as being disconnected (when in use)
 monitor-strict = false
@@ -79,7 +84,7 @@ module-margin-right = 1
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 ; See the Fonts wiki page for more details
-font-0 = JetBrainsMono Nerd Font:style=Regular:size=12
+font-0 = JetBrainsMono Nerd Font:style=Regular:size=10
 
 ; The separator will be inserted between the output of each module
 separator =
