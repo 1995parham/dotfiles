@@ -211,7 +211,8 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype"] floating enable border none
 for_window [class="Element"] floating enable
 for_window [class="firefox" title="Library"] floating enable, resize set 35ppt 35ppt
-for_window [class="firefox" title="Picture-in-Picture"] floating enable, sticky enable, resize set 30ppt 30ppt
+for_window [class="firefox" title="Picture-in-Picture"] floating enable, sticky enable, resize set 12ppt 30ppt
+for_window [class="Telegram"] resize set width 25ppt
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
