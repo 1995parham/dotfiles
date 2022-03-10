@@ -17,6 +17,9 @@ default_floating_border normal
 
 focus_follows_mouse no
 
+# show application icon on its titlebar
+for_window [all] title_window_icon yes
+
 # hide borders
 hide_edge_borders none
 
