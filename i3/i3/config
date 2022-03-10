@@ -198,26 +198,10 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# Open applications on specific workspaces
-# use `xporp` for finding about window classes and more
-assign [class="Telegram"] $ws4
-assign [class="firefox"] $ws4
-assign [class="Virt-manager"] $ws5
-assign [class="Skype"] $ws8
-assign [class="Emacs"] $ws3
-
-# Open specific applications in floating mode
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Skype"] floating enable border none
-for_window [class="Element"] floating enable
-for_window [class="firefox" title="Library"] floating enable, resize set 35ppt 35ppt
-for_window [class="firefox" title="Picture-in-Picture"] floating enable, sticky enable, resize set 12ppt 30ppt
-for_window [class="Telegram"] resize set width 25ppt
-
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
 
-# hide/unhide polybar with its ipc
+# hide/unhide polybar with its ipc service
 bindsym $mod+m exec polybar-msg cmd toggle
 
 # reload the configuration file
