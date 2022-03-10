@@ -28,7 +28,7 @@ bindsym $mod+n border normal
 # font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:DejaVu Serif 10
-font pango:Vazir 10
+font pango:Vazirmatn 10
 
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -210,6 +210,8 @@ assign [class="Emacs"] $ws3
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Skype"] floating enable border none
 for_window [class="Element"] floating enable
+for_window [class="firefox" title="Library"] floating enable, resize set 35ppt 35ppt
+for_window [class="firefox" title="Picture-in-Picture"] floating enable, sticky enable, resize set 30ppt 30ppt
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
