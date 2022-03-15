@@ -4,9 +4,6 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-include ~/.config/sway/config.d/*
-include ~/.config/sway/hosts/`hostname`.conf
-
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -229,4 +226,6 @@ bar {
   swaybar_command waybar
 }
 
+include ~/.config/sway/config.d/*
+include ~/.config/sway/hosts/`hostname`.conf
 include /etc/sway/config.d/*
