@@ -34,6 +34,7 @@ main_pacman() {
 	msg 'sway'
 	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim xdg-user-dirs wl-clipboard
 	configfile sway "" sway
+	configfile swaylock "" sway
 	configfile waybar "" sway
 
 	msg 'better sway with more keys [brightnessctl]'
