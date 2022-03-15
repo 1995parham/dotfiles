@@ -157,7 +157,7 @@
       "idle_inhibitor",
       "custom/love#birthday"
     ],
-    "modules-left": ["custom/date", "custom/jdate"],
+    "modules-left": ["custom/date", "custom/jdate", "bluetooth"],
     "modules-right": ["custom/snapp#1", "custom/snapp#2", "custom/baly"],
     "idle_inhibitor": {
       "format": "{icon}",
@@ -165,6 +165,15 @@
         "activated": "",
         "deactivated": ""
       }
+    },
+    "bluetooth": {
+      "format": "{icon}",
+      "format-alt": "bluetooth: {status}",
+      "format-icons": {
+           "enabled": "",
+           "disabled": ""
+      },
+      "tooltip-format": "{}"
     },
     "custom/snapp#1": {
       "interval": 3,
