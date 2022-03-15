@@ -26,7 +26,7 @@ in_relationship() {
 	diff=$((diff - hours * hour))
 	local minutes=$((diff / minute))
 
-	echo $days days $hours hours $minutes minutes
+	echo -e "$days days $hours hours $minutes minutes\nHow long we were together?"
 }
 
 to_birthday() {
@@ -56,7 +56,7 @@ to_birthday() {
 	diff=$((diff - hours * hour))
 	local minutes=$((diff / minute))
 
-	echo $days days $hours hours $minutes minutes
+	echo -e "$days days $hours hours $minutes minutes\nHow much left until to her birthday?"
 }
 
 main() {
