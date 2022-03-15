@@ -41,7 +41,7 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed brightnessctl
 
 	msg 'required freedesktop services'
-	sudo pacman -Syu --noconfirm --needed upower
+	sudo pacman -Syu --noconfirm --needed upower rtkit
 
 	msg 'featurerich screenshot tool'
 	sudo pacman -Syu --noconfirm --needed flameshot
