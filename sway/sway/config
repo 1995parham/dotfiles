@@ -157,6 +157,8 @@ bindsym $mod+Ctrl+Left workspace prev
 # change background on startup
 output * bg `find "$HOME/Pictures/GoSiMac" -maxdepth 1 -type f | shuf -n 1` fill
 
+for_window [title=".*"] title_format "%title (%app_id,%class)"
+
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
