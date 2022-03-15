@@ -67,9 +67,9 @@ main_pacman() {
 	msg 'setup a systemd timer to change background images each 5 minutes with swaybg'
 	sudo pacman -Syu --noconfirm --needed swaybg
 
-	msg 'configure rofi as an another application luncher'
-	sudo pacman -Syu --noconfirm --needed rofi
-	configfile rofi "" sway
+	msg 'configure wofi as an another application luncher'
+	sudo pacman -Syu --noconfirm --needed wofi
+	configfile wofi "" sway
 
 	msg 'configure the dmenu, default application luncher on manjaro i3'
 	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
