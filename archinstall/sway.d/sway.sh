@@ -9,7 +9,6 @@ export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 # to enable wayland on firefox
 export MOZ_ENABLE_WAYLAND=1
-export MOZ_DBUS_REMOTE=1
 
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
