@@ -32,7 +32,7 @@ main_brew() {
 
 main_pacman() {
 	msg "install podman-compose / podman with pacman"
-	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname
+	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname fuse-overlayfs
 
 	msg "install hadolint/hadolint with yay"
 	yay -Syu --needed --noconfirm hadolint-bin
