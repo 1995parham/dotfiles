@@ -74,24 +74,20 @@
       // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-      "format": "{usage}% {avg_frequency}GHz CPU",
+      "format": "{usage}% {avg_frequency}GHz {load} ",
       "tooltip": false
     },
     "memory": {
-      "format": "{}% Mem"
+      "format": "{percentage}% "
     },
     "temperature": {
       // "thermal-zone": 2,
-      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      "critical-threshold": 80,
-      // "format-critical": "{temperatureC}°C {icon}",
-      "format": "{temperatureC}°C"
-      // "format-icons": []
+      "critical-threshold": 55,
+      "format": "{temperatureC}°C "
     },
     "backlight": {
-      // "device": "acpi_video1",
-      "format": "{percent}% Light"
-      // "format-icons": []
+      "format": "{percent}% {icon}",
+      "format-icons": ["", ""]
     },
     "battery": {
       "states": {
@@ -170,8 +166,8 @@
       "format": "{icon}",
       "format-alt": "bluetooth: {status}",
       "format-icons": {
-           "enabled": "",
-           "disabled": ""
+        "enabled": "",
+        "disabled": ""
       },
       "tooltip-format": "{}"
     },
