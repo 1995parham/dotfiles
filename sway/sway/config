@@ -172,6 +172,7 @@ set $ws5 5:vm
 set $ws6 6:apps-1
 set $ws7 7:apps-2
 set $ws8 8:social
+set $ws9 9:chrome
 
 # switch to workspace
 bindsym --to-code {
@@ -183,6 +184,7 @@ bindsym --to-code {
   $mod+6 workspace $ws6
   $mod+7 workspace $ws7
   $mod+8 workspace $ws8
+  $mod+9 workspace $ws9
 }
 
 # Move focused container to workspace
@@ -210,9 +212,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # reload the configuration file
 bindsym $mod+Shift+r reload; exec "notify-send reloaded"
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id swaylock
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
