@@ -23,7 +23,7 @@ usage() {
 
 packages=(
 	# elsevier/ieee journals
-	elsarticle IEEEtran
+	elsarticle ieeetran
 
 	# presentation with beamer
 	beamer beamertheme-metropolis pgfopts
