@@ -22,8 +22,8 @@ usage() {
 }
 
 packages=(
-	# elsevier journals
-	elsarticle
+	# elsevier/ieee journals
+	elsarticle IEEEtran
 
 	# presentation with beamer
 	beamer beamertheme-metropolis pgfopts
