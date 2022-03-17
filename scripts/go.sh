@@ -29,6 +29,7 @@ main_apt() {
 
 main_pacman() {
 	sudo pacman -Syu --needed --noconfirm go
+	yay -Syu goreleaser-bin
 }
 
 main() {
