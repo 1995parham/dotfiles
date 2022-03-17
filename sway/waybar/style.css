@@ -236,6 +236,13 @@ label:focus {
   background-color: #006bff;
 }
 
+#custom-touchpad {
+  background-color: #ffa500;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+}
+
 #custom-love {
   background-color: #ff6c85;
   color: #474747;
