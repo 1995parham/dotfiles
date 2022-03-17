@@ -74,7 +74,7 @@
       // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-      "format": "{usage}% {avg_frequency}GHz {load} ",
+      "format": "{usage}% {avg_frequency}GHz ",
       "tooltip": false
     },
     "memory": {
