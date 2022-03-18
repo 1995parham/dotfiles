@@ -53,7 +53,7 @@
   "custom/love#birthday": {
     "interval": 3600,
     "exec": "$HOME/.config/waybar/scripts/couple.sh birthday",
-    "format": " {}"
+    "format": " {}"
   },
   "custom/date": {
     "interval": 3600,
