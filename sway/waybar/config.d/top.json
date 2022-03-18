@@ -89,7 +89,7 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
@@ -111,7 +111,7 @@
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "disk": {
-    "format": "{used} / {total}"
+    "format": "{path}: {used} / {total}"
   },
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
