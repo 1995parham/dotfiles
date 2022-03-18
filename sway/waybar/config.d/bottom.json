@@ -1,0 +1,68 @@
+{
+  "position": "bottom",
+  "height": 30,
+  "modules-center": [
+    "custom/love#relationship",
+    "idle_inhibitor",
+    "custom/love#birthday"
+  ],
+  "modules-left": ["custom/date", "custom/jdate", "bluetooth"],
+  "modules-right": [
+    "custom/snapp#1",
+    "custom/snapp#2",
+    "custom/baly",
+    "custom/touchpad"
+  ],
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-alt": "bluetooth: {status}",
+    "format-icons": {
+      "enabled": "",
+      "disabled": ""
+    },
+    "tooltip-format": "{}"
+  },
+  "custom/snapp#1": {
+    "interval": 3,
+    "exec": "nmcli -f GENERAL.STATE connection show Snapp1 | grep activated > /dev/null && echo 'Snapp! 1'"
+  },
+  "custom/snapp#2": {
+    "interval": 3,
+    "exec": "nmcli -f GENERAL.STATE connection show Snapp2 | grep activated > /dev/null && echo 'Snapp! 2'"
+  },
+  "custom/baly": {
+    "interval": 3,
+    "exec": "nmcli -f GENERAL.STATE connection show Baly | grep activated > /dev/null && echo 'Baly'"
+  },
+  "custom/touchpad": {
+    "interval": 3,
+    "exec": "$HOME/.config/waybar/scripts/touchpad.sh"
+  },
+  "custom/love#relationship": {
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/couple.sh relationship",
+    "format": " {}"
+  },
+  "custom/love#birthday": {
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/couple.sh birthday",
+    "format": " {}"
+  },
+  "custom/date": {
+    "interval": 3600,
+    "exec": "date +'%d %B %Y'",
+    "exec-if": "which date"
+  },
+  "custom/jdate": {
+    "interval": 3600,
+    "exec": "jdate +'%d %B %Y'",
+    "exec-if": "which jdate"
+  }
+}
