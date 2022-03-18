@@ -111,7 +111,7 @@
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "disk": {
-    "format": "{path}: {used} / {total}"
+    "format": "{path}: {used} / {total} "
   },
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
