@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif, "Font Awesome 6 Free";
   font-size: 12px;
   min-height: 0;
 }
