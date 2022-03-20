@@ -71,6 +71,9 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed wofi
 	configfile wofi "" sway
 
+	msg 'we are going to have sound'
+	sudo pacman -Syu --noconfirm --needed pulsemixer easyeffects
+
 	msg 'configure the dmenu, default application luncher on manjaro i3'
 	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
