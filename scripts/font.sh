@@ -83,7 +83,7 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts otf-font-awesome
+	sudo pacman -Syu --needed --noconfirm noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts otf-font-awesome ttf-liberation
 	yay -Syu --needed vazirmatn-fonts
 	yay -Syu --needed vazir-code-fonts
 	yay -Syu --needed nerd-fonts-jetbrains-mono
