@@ -158,6 +158,11 @@ bindsym $mod+Ctrl+Left workspace prev
 # change background on startup
 output * bg `find "$HOME/Pictures/GoSiMac" -maxdepth 1 -type f | shuf -n 1` fill
 
+# hide/show waybar
+bindsym $mod+m bar mode invisible
+bindsym $mod+Shift+m bar mode dock
+
+# set window title
 for_window [title=".*"] title_format "%title (%app_id,%class)"
 
 # Workspace names
