@@ -1,5 +1,7 @@
 {
   "position": "bottom",
+  "ipc": true,
+  "id": "bar-0",
   "height": 30,
   "modules-center": [
     "custom/love#relationship",

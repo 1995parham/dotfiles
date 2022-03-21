@@ -1,5 +1,6 @@
 {
   "position": "top",
+  "ipc": true,
   "height": 32,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["sway/window"],
