@@ -288,6 +288,10 @@
      background = "#D53B84"
      foreground = "#FFFFFF"
 #
+[telegram]
+      appname = "Telegram Desktop"
+      timeout = 0
+#
 #[CMUS]
 #    appname = CMUS
 #    category = cmus
