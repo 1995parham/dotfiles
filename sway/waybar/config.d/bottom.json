@@ -8,7 +8,7 @@
     "idle_inhibitor",
     "custom/love#birthday"
   ],
-  "modules-left": ["custom/date", "custom/jdate", "bluetooth"],
+  "modules-left": ["custom/date", "custom/jdate", "network#alvani"],
   "modules-right": [
     "custom/snapp#1",
     "custom/snapp#2",
@@ -30,6 +30,11 @@
       "disabled": ""
     },
     "tooltip-format": "{}"
+  },
+  "network#alvani": {
+    "interface": "alvani",
+    "format": "{ipaddr} ",
+    "format-disconnected": ""
   },
   "custom/snapp#1": {
     "interval": 3,
