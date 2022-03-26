@@ -1,19 +1,26 @@
 ; vim: set ft=gitconfig:
 [core]
-        excludesfile = ~/.config/git/gitignore
-        editor = nvim
+  excludesfile = ~/.config/git/gitignore
+  editor = nvim
 [pull]
-        rebase = true
+  rebase = true
 [credential]
-        helper = cache
+  helper = cache
 [merge]
-        tool = vimdiff
-        # conflictstyle = diff3
+  tool = vimdiff
+  # conflictstyle = diff3
 [mergetool]
-        prompt = true
+  prompt = true
 [mergetool "vimdiff"]
-        cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c 'wincmd w' -c 'wincmd J'
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c 'wincmd w' -c 'wincmd J'
 [alias]
 	ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
 [init]
 	defaultBranch = main
+[user]
+	name = Parham Alvani
+	email = parham.alvani@gmail.com
+[includeIf "gitdir:~/Documents/Git/raha/"]
+  path = ~/.config/git/elda.cfg
+[includeIf "gitdir:~/Documents/Git/raha/snapp/"]
+  path = ~/.config/git/elda.snapp.cfg
