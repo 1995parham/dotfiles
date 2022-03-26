@@ -54,16 +54,13 @@ Install useful fonts.
 ./start.sh font
 ```
 
-**Don't** forget the git credential setup:
+**Don't** forget the git credential change:
 
 ```sh
-touch $HOME/.gitconfig
-git config --global user.name "Parham Alvani"
-git config --global user.email "parham.alvani@gmail.com"
+touch $HOME/.config/git/config
 ```
 
 **Also** don't forget to install neovim plugins:
-
 
 ```vi
 :PackerSync
