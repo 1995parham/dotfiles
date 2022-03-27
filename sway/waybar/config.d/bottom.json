@@ -9,7 +9,7 @@
     "custom/love#birthday"
   ],
   "modules-left": ["custom/date", "custom/jdate", "network#alvani"],
-  "modules-right": ["network#snapp", "custom/baly", "custom/touchpad"],
+  "modules-right": ["network#snapp", "network#baly", "custom/touchpad"],
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -36,9 +36,10 @@
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },
-  "custom/baly": {
-    "interval": 3,
-    "exec": "nmcli -f GENERAL.STATE connection show Baly | grep activated > /dev/null && echo 'Baly'"
+  "network#baly": {
+    "interface": "baly",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
   },
   "custom/touchpad": {
     "interval": 3,
