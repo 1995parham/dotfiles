@@ -35,6 +35,14 @@ function prompt_kube() {
   fi
 }
 
+function prompt_argocd() {
+  if which argocd 2>/dev/null 1>&2; then
+    context=$(argocd context | grep '*' | cut -d' ' -f9)
+
+    echo %F{239}'['%f%F{216}$context%f%F{239}']'%f
+  fi
+}
+
 function kernel_version() {
   uname -rs
 }
@@ -80,6 +88,7 @@ typeset +H prompt_status=" %{$fg_bold[red]%}%(?..⍉)%f %F{cyan}%(1j.⚙.)%f"
 # %(x.true.false) Based on the evaluation of first term of the ternary, execute the correct statement.
 # '!' is true if the shell is privileged.
 PROMPT='
+%F{159}::%f $(prompt_argocd)%f
 %F{159}::%f $(prompt_venv) $(prompt_kube) %F{75}$CONDA_DEFAULT_ENV%f
 ┌ %K{235}${prompt_status} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}%M%f %k%K{214} ${prompt_dir} %k $(git_prompt_info) $(git_prompt_status) $(git_remote_status)
 └ %F{123}○%f $(prompt_proxy)'
