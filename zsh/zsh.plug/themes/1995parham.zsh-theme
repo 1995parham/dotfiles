@@ -37,7 +37,7 @@ function prompt_kube() {
 
 function prompt_argocd() {
   if which argocd 2>/dev/null 1>&2; then
-    context=$(argocd context | grep '*' | cut -d' ' -f9)
+    context=$(argocd context 2> /dev/null || true | grep '*' | cut -d' ' -f9)
 
     echo %F{239}'['%f%F{216}$context%f%F{239}']'%f
   fi
