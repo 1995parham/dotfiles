@@ -33,7 +33,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm jdk-openjdk gradle
+	sudo pacman -Syu --needed --noconfirm jdk-openjdk gradle maven
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
 }
