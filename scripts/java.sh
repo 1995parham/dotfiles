@@ -36,6 +36,7 @@ main_pacman() {
 	sudo pacman -Syu --needed --noconfirm jdk-openjdk gradle maven
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
+	msg "please note that coc.java works with invalud http.proxy format in coc configuration so remove the http prefix and it works"
 }
 
 main_brew() {
