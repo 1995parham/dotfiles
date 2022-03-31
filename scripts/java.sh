@@ -36,7 +36,9 @@ main_pacman() {
 	sudo pacman -Syu --needed --noconfirm jdk-openjdk gradle maven
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
-	msg "please note that coc.java works with invalud http.proxy format in coc configuration so remove the http prefix and it works"
+
+	proxy_start && curl -L http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz |
+		tar -C "$HOME/.config/coc/extensions/coc-java-data/server" -x -v -z -f - && proxy_stop
 }
 
 main_brew() {
