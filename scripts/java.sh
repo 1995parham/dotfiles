@@ -37,6 +37,8 @@ main_pacman() {
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
 
+	rm -Rf "$HOME/.config/coc/extensions/coc-java-data/server" || true
+	mkdir -p "$HOME/.config/coc/extensions/coc-java-data/server"
 	cd "$HOME/.config/coc/extensions/coc-java-data/server" || return
 	proxy_start && aria2c http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz && proxy_stop
 	tar xvfz jdt-language-server-latest.tar.gz
