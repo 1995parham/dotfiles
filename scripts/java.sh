@@ -36,6 +36,8 @@ main_pacman() {
 	sudo pacman -Syu --needed --noconfirm jdk-openjdk gradle maven
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
+	msg 'install eclipse jdt language server'
+	proxy_start && yay -Syu jdtls && proxy_stop
 }
 
 main_brew() {
