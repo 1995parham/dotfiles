@@ -36,6 +36,7 @@ main_pacman() {
 	sudo pacman -Syu --needed --noconfirm jdk11-openjdk gradle maven
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
+	yay -Syu --needed --noconfirm apache-spark
 
 	rm -Rf "$HOME/.config/coc/extensions/coc-java-data/server" || true
 	mkdir -p "$HOME/.config/coc/extensions/coc-java-data/server"
