@@ -2,16 +2,18 @@
 # Font configuration (changes require restart)
 font:
   # Point size
-  size: 7.0
+  size: 11.0
   normal:
-    family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Regular
   bold:
-    family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Bold
   italic:
-    family: JetBrains Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Italic
+
+  builtin_box_drawing: true
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
