@@ -3,7 +3,6 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 require'nvim-tree'.setup {
   open_on_setup = false,
-  auto_close = true,
   disable_netrw = true,
   hijack_netrw = true,
   ignore_ft_on_setup = { 'dashboard' },
