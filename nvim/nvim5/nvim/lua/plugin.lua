@@ -19,6 +19,9 @@ return require('packer').startup(function()
   -- a vim alignment plugin
   use {'junegunn/vim-easy-align'}
 
+  -- vim support for editing fish scripts
+  use {'dag/vim-fish'}
+
   -- an alternative sudo.vim for vim and neovim
   use {'lambdalisue/suda.vim'}
 
