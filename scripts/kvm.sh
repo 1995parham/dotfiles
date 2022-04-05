@@ -32,8 +32,9 @@ main_apt() {
 main_pacman() {
 	sudo pacman -Syu --needed --noconfirm qemu
 	sudo pacman -Syu --needed --noconfirm libvirt
-	sudo pacman -Syu --needed --noconfirm ebtables dnsmasq bridge-utils
-	sudo pacman -Syu --needed --noconfirm virt-manager x11-ssh-askpass
+	sudo pacman -Syu --needed --noconfirm dnsmasq bridge-utils
+	sudo pacman -Syu --needed --noconfirm virt-manager
+	# sudo pacman -Syu --needed --noconfirm ebtables
 
 	msg "create base images folder"
 	mkdir -p "$HOME/kvm/base"
@@ -49,4 +50,6 @@ main_pacman() {
 	msg "user access for kvm and libvirt"
 	sudo usermod -aG libvirt "$USER"
 	sudo usermod -aG kvm "$USER"
+
+	sudo systemctl enable libvirtd
 }
