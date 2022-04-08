@@ -25,6 +25,6 @@ sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desk
 
 cd "$HOME/yay-bin" && makepkg -si
 
-#echo "have fun with your i3"
-#cd "$HOME/dotfiles/" && ./start.sh i3
+echo "have fun with your sway"
+cd "$HOME/dotfiles/" && ./start.sh sway
 sudo pacman -Syu firefox
