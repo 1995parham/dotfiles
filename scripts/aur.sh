@@ -23,7 +23,7 @@ main() {
 		"dive-bin"
 		"actionlint-bin"
 		"jcal"
-		"litmusctl-bin"
+		#		"litmusctl-bin"
 	)
 
 	for pkg in "${pkgs[@]}"; do
