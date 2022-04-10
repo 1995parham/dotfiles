@@ -57,6 +57,9 @@ packages=(
 
 	# more flexible than makeindex and is able to sort extended Latin or non-Latin alphabets
 	xindy
+
+	# control sectional headers
+	sectsty
 )
 
 latest-install-texlive() {
