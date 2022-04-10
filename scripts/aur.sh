@@ -14,7 +14,17 @@ usage() {
 main() {
 	mkdir -p "$HOME/Documents/Git/parham/aur"
 
-	pkgs=("natscli" "natscli-bin" "okd-client-bin" "jwt-cli-bin" "gosimac-bin" "dive-bin" "actionlint-bin" "jcal")
+	pkgs=(
+		"natscli"
+		"natscli-bin"
+		"okd-client-bin"
+		"jwt-cli-bin"
+		"gosimac-bin"
+		"dive-bin"
+		"actionlint-bin"
+		"jcal"
+		"litmusctl-bin"
+	)
 
 	for pkg in "${pkgs[@]}"; do
 		if [ ! -d "$HOME/Documents/Git/parham/aur/$pkg" ]; then
