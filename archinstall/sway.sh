@@ -25,6 +25,7 @@ cd "$HOME/yay-bin" && makepkg -si
 echo "lets use greetd as dm, so wait for r...ust"
 cd "$HOME/dotfiles/" && ./start.sh rust
 yay -Syu --needed --noconfirm greetd greetd-tuigreet-bin
+sudo systemctl enable greetd.service
 
 echo "have fun with your sway"
 cd "$HOME/dotfiles/" && ./start.sh sway
