@@ -14,9 +14,6 @@ echo "https://wiki.archlinux.org/title/Improving_performance"
 # sudo vim /etc/v2ray/config.json
 # sudo systemctl enable --now v2ray
 
-echo "enabling sddm which is great desktop manager for sway, you can set an icon for it too"
-sudo systemctl enable sddm
-
 # global variable that points to dotfiles root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -25,6 +22,10 @@ sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desk
 
 cd "$HOME/yay-bin" && makepkg -si
 
+echo "lets use greetd as dm, so wait for r...ust"
+cd "$HOME/dotfiles/" && ./start.sh rust
+yay -Syu --needed --noconfirm greetd greetd-tuigreet-bin
+
 echo "have fun with your sway"
 cd "$HOME/dotfiles/" && ./start.sh sway
-sudo pacman -Syu firefox
+sudo pacman -Syu --needed --noconfirm firefox
