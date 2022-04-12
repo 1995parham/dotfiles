@@ -19,6 +19,7 @@ current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 sudo cp "$current_dir/sway.d/sway.sh" /usr/local/bin/sway.sh
 sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desktop
+sudo cp "$current_dir/sway.d/greetd" /etc/pam.d/greetd
 
 cd "$HOME/yay-bin" && makepkg -si
 
