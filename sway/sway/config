@@ -57,7 +57,8 @@ seat seat0 hide_cursor 3000
 # screenshot
 # https://github.com/emersion/grim
 bindsym Print exec --no-startup-id grim
-bindsym $mod+Print --release exec --no-startup-id grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+# bindsym $mod+Print --release exec --no-startup-id grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+bindsym $mod+Print --release exec --no-startup-id flameshot gui
 
 # kill a window with a cursor
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
