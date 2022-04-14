@@ -24,11 +24,11 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec foot
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 
 # termpad is a special application class which is floating for terminal.
 for_window [app_id="__termpad"] floating enable
-for_window [app_id="__termpad"] opacity set 0.90
+# for_window [app_id="__termpad"] opacity set 0.90
 
 bindsym $mod+Shift+Return exec foot --app-id="__termpad"
 
