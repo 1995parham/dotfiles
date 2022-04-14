@@ -67,9 +67,8 @@ main_pacman() {
 	msg 'setup a systemd timer to change background images each 5 minutes with swaybg'
 	sudo pacman -Syu --noconfirm --needed swaybg
 
-	msg 'configure wofi as an another application luncher'
-	sudo pacman -Syu --noconfirm --needed wofi
-	configfile wofi "" sway
+	msg 'configure fuzzel as an another application luncher'
+	sudo pacman -Syu --noconfirm --needed fuzzel
 
 	msg 'we are going to have sound'
 	sudo pacman -Syu --noconfirm --needed pulsemixer easyeffects
