@@ -28,32 +28,6 @@ return require('packer').startup(function()
   -- vim-kubernetes
   use {'andrewstuart/vim-kubernetes'}
 
-  --  modernity meets insane extensibility. the future of organizing your life in Neovim.
-  use {
-    "nvim-neorg/neorg",
-    config = function()
-        require('neorg').setup {
-            load = {
-          ["core.defaults"] = {},
-          ["core.norg.concealer"] = {},
-          ["core.gtd.base"] = {
-            config = {
-              workspace = "tasks"
-            }
-          },
-          ["core.norg.dirman"] = {
-            config = {
-              workspaces = {
-                tasks = "~/tasks/neorg",
-              }
-            }
-          }
-        }
-      }
-    end,
-    requires = "nvim-lua/plenary.nvim"
-  }
-
   -- vim syntax highlighting plugin for json with c-style line (//) and block (/* */) comments.
   use {'kevinoid/vim-jsonc'}
 
