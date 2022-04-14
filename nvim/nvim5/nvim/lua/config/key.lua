@@ -30,6 +30,13 @@ wk.register({
 		f = { "<cmd>Telescope find_files<cr>", "find file" },
   },
 
+  n = {
+    name = "+neorg",
+		v = { "<cmd>Neorg gtd view<cr>", "gtd view" },
+		t = { "<cmd>Neorg workspace tasks<cr>", "~/tasks workspace" },
+		t = { "<cmd>Neorg gtd edit<cr>", "gtd edit" },
+  },
+
 	o = {
 		name = "+open",
 		e = { "<cmd>terminal<cr>", "terminal" },
