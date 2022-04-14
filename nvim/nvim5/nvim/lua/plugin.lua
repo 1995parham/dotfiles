@@ -31,26 +31,7 @@ return require('packer').startup(function()
   --  modernity meets insane extensibility. the future of organizing your life in Neovim.
   use {
     "nvim-neorg/neorg",
-    config = function()
-        require('neorg').setup {
-            load = {
-          ["core.defaults"] = {},
-          ["core.norg.concealer"] = {},
-          ["core.gtd.base"] = {
-            config = {
-              workspace = "tasks"
-            }
-          },
-          ["core.norg.dirman"] = {
-            config = {
-              workspaces = {
-                tasks = "~/tasks/neorg",
-              }
-            }
-          }
-        }
-      }
-    end,
+    config = function() require('config/neorg') end,
     requires = "nvim-lua/plenary.nvim"
   }
 
