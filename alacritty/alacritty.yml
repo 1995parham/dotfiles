@@ -4,7 +4,7 @@
 # set by alacritty itself.
 env:
   WINIT_X11_SCALE_FACTOR: "1"
-  # WAYLAND_DISPLAY: ""
+  WAYLAND_DISPLAY: ""
 # Font configuration (changes require restart)
 font:
   # Point size
