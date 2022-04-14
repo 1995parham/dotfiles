@@ -32,9 +32,9 @@ wk.register({
 
   n = {
     name = "+neorg",
-		v = { "<cmd>Neorg gtd views<cr>", "gtd view" },
+		v = { "<cmd>Neorg gtd view<cr>", "gtd view" },
 		t = { "<cmd>Neorg workspace tasks<cr>", "~/tasks workspace" },
-		e = { "<cmd>Neorg gtd edit<cr>", "gtd edit" },
+		t = { "<cmd>Neorg gtd edit<cr>", "gtd edit" },
   },
 
 	o = {
