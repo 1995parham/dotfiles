@@ -78,6 +78,7 @@ install-conf() {
 
 # wakatime
 install-wakatime() {
+	mkdir "$HOME/.wakatime" || true
 	dotfile "wakatime" "wakatime.cfg"
 }
 
