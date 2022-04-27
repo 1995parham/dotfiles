@@ -12,7 +12,7 @@ require'nvim-tree'.setup {
     ignore = true,
     timeout = 500,
   },
-  tree_ignore = { '.git', 'node_modules', '.cache' },
+  -- tree_ignore = { '.git', 'node_modules', '.cache' },
 
   view = {
     mappings = {
