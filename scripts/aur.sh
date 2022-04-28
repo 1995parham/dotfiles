@@ -18,7 +18,6 @@ main() {
 		"natscli"
 		"natscli-bin"
 		"okd-client-bin"
-		"jwt-cli-bin"
 		"gosimac-bin"
 		"dive-bin"
 		"actionlint-bin"
