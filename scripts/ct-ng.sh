@@ -28,7 +28,7 @@ main_apt() {
 }
 
 main_pacman() {
-	yay -Syu crosstool-ng
+	sudo pacman -Syu --needed --noconfirm help2man
 }
 
 main_brew() {
@@ -37,9 +37,17 @@ main_brew() {
 }
 
 main() {
-	mkdir "$HOME/src" || true
+	mkdir "$HOME/.cache" || true
+	cd "$HOME/.cache" || exit
+	git clone https://github.com/crosstool-ng/crosstool-ng || true
+	cd crosstool-ng || exit
+	./bootstrap
+	./configure --prefix="/usr/local"
+	make
+	sudo make install
 
+	# mkdir "$HOME/src" || true
 	# HACK until crosstool-ng has fixed its mirror for isl library
-	cd "$HOME/src" && aria2c https://libisl.sourceforge.io/isl-0.20.tar.gz
-	cd "$HOME/src" && aria2c https://github.com/libexpat/libexpat/releases/download/R_2_2_6/expat-2.2.6.tar.bz2
+	# cd "$HOME/src" && aria2c https://libisl.sourceforge.io/isl-0.20.tar.gz
+	# cd "$HOME/src" && aria2c https://github.com/libexpat/libexpat/releases/download/R_2_2_6/expat-2.2.6.tar.bz2
 }
