@@ -21,7 +21,7 @@ usage() {
 
 main_pacman() {
 	msg 'install clang and clangd'
-	sudo pacman -Syu --needed --noconfirm clang cmake valgrind
+	sudo pacman -Syu --needed --noconfirm clang cmake valgrind meson
 }
 
 main_brew() {
