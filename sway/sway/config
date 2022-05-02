@@ -156,6 +156,8 @@ bindsym $mod+minus scratchpad show
 # navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+bindsym --whole-window button9 workspace next
+bindsym --whole-window button8 workspace prev
 
 # change background on startup
 output * bg `find "$HOME/Pictures/GoSiMac" -maxdepth 1 -type f | shuf -n 1` fill
