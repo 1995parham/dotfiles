@@ -46,6 +46,9 @@ main() {
 	make
 	sudo make install
 
+	echo "the workspace for using crosstool"
+	mkdir "$HOME/Documents/crosstool" || true
+
 	# mkdir "$HOME/src" || true
 	# HACK until crosstool-ng has fixed its mirror for isl library
 	# cd "$HOME/src" && aria2c https://libisl.sourceforge.io/isl-0.20.tar.gz
