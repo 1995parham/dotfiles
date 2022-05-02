@@ -9,8 +9,8 @@
       }
     }
   },
-  // "http.proxy": "http://127.0.0.1:1080",
-  // "http.proxyStrictSSL": false,
+  "http.proxy": "http://127.0.0.1:1080",
+  "http.proxyStrictSSL": false,
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": [".gitlab-ci.yml"],
