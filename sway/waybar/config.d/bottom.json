@@ -2,6 +2,7 @@
   "position": "bottom",
   "ipc": true,
   "id": "bar-0",
+  "output": "eDP-1",
   "height": 30,
   "modules-center": [
     "custom/love#relationship",
