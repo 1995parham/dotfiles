@@ -19,6 +19,7 @@
     "clock",
     "tray"
   ],
+  "output": "eDP-1",
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
