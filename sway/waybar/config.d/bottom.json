@@ -4,11 +4,7 @@
   "id": "bar-0",
   "output": "eDP-1",
   "height": 30,
-  "modules-center": [
-    "custom/love#relationship",
-    "idle_inhibitor",
-    "custom/love#birthday"
-  ],
+  "modules-center": ["idle_inhibitor"],
   "modules-left": ["custom/date", "custom/jdate", "network#alvani"],
   "modules-right": ["network#snapp", "network#baly", "custom/touchpad"],
   "idle_inhibitor": {
