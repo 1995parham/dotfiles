@@ -21,7 +21,7 @@ usage() {
 }
 
 main_brew() {
-	# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
+	# https://github.com/doomemacs/doomemacs/blob/develop/docs/getting_started.org#with-homebrew
 	brew install git ripgrep
 
 	brew tap d12frosted/emacs-plus
@@ -63,7 +63,7 @@ main() {
 		fi
 	fi
 
-	git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs || true
+	git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs || true
 
 	proxy_start
 	export no_proxy="github.com"
