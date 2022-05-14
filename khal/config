@@ -25,5 +25,6 @@ frame = color
 
 [default]
 default_calendar = home
+timedelta = 2d
 highlight_event_days = True
 show_all_days = False
