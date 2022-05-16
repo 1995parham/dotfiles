@@ -22,6 +22,7 @@ main() {
 		"dive-bin"
 		"actionlint-bin"
 		"jcal"
+		"wakatime-cli-bin"
 		#		"litmusctl-bin"
 	)
 
