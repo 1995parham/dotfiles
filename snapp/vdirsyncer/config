@@ -10,11 +10,11 @@ collections = ["from b", "from a"]
 type = "caldav"
 username = "parham.alvani"
 password.fetch = [ "command", "gopass", "show", "-o", "snapp/mail/parham.alvani@snapp.cab" ]
-url = "http://localhost:2080/users/parham.alvani@snapp.cab/calender"
+url = "http://localhost:2080/users/parham.alvani@snapp.cab/calendar"
 
 [storage local_calendar]
 type = "filesystem"
-path = "~/Snapp"
+path = "~/Snapp/calendars"
 fileext = ".ics"
 
 [pair work_contacts]
@@ -30,5 +30,5 @@ url = "http://localhost:2080/users/parham.alvani@snapp.cab/contacts"
 
 [storage local_contacts]
 type = "filesystem"
-path = "~/Snapp"
+path = "~/Snapp/contacts"
 fileext = ".vcf"
