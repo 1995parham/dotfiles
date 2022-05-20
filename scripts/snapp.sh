@@ -13,12 +13,12 @@ usage() {
 
 	# shellcheck disable=1004,2016
 	echo '
-                           _
- ___  __ _ _ __ ___  _ __ | | ___
-/ __|/ _` | |_ ` _ \| |_ \| |/ _ \
-\__ \ (_| | | | | | | |_) | |  __/
-|___/\__,_|_| |_| |_| .__/|_|\___|
-                    |_|
+                             _
+ ___ _ __   __ _ _ __  _ __ | |
+/ __| |_ \ / _` | |_ \| |_ \| |
+\__ \ | | | (_| | |_) | |_) |_|
+|___/_| |_|\__,_| .__/| .__/(_)
+                |_|   |_|
   '
 }
 
@@ -37,6 +37,9 @@ main_pacman() {
 
 	systemctl --user enable davmail@snapp
 	systemctl --user start davmail@snapp
+
+	msg "it is better to use thunderbird based on this awesome article from Elahe Dastan"
+	msg "https://confluence.snapp.ir/display/SEC/set+up+desktop+email+client"
 }
 
 main_brew() {
