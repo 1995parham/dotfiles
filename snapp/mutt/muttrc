@@ -1,4 +1,4 @@
-source "echo set my_gopass = \"$(gopass show -o snapp/mail/parham.alvani@snapp.cab)\"|"
+source "echo set my_gopass = \"$(gopass show -o snapp/mail/parham.alvani@snapp.cab)\" |"
 
 set folder      = imap://127.0.0.1:1143
 set imap_user   = parham.alvani
@@ -14,6 +14,8 @@ set header_cache = ~/.local/share/mutt
 # Can be the same folder as header_cache.
 # This will cost important disk usage according to your e-mail amount.
 set message_cachedir = ~/.local/share/mutt
+
+set ssl_force_tls = no
 
 # Specify where to save and/or look for postponed messages.
 # set postponed = +[Gmail]/Drafts
