@@ -3,7 +3,7 @@
 path = ~/Documents/Git/parham/parham-alvani/calendar
 
 [[work]]
-path = ~/Snapp/calender
+path = ~/Snapp/calendars/calendar
 readonly = True
 
 [sqlite]
