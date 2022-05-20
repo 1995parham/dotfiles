@@ -2,6 +2,10 @@
 [[home]]
 path = ~/Documents/Git/parham/parham-alvani/calendar
 
+[[work]]
+path = ~/Snapp/calender
+readonly = True
+
 [sqlite]
 
 [locale]
