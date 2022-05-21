@@ -50,7 +50,7 @@ main() {
 	rustup toolchain install stable
 	rustup default stable
 
-	cargo install cargo-edit
+	cargo install cargo-edit cargo-expand
 
 	rustup component add clippy
 	rustup component add rustfmt
