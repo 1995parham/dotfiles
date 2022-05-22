@@ -1,10 +1,4 @@
 ---
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
-env:
-  WINIT_X11_SCALE_FACTOR: "1"
-  WAYLAND_DISPLAY: ""
 # Font configuration (changes require restart)
 font:
   # Point size
