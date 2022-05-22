@@ -1,1 +1,1 @@
-export "$(gnome-keyring-daemon --start)"
+export "$(gnome-keyring-daemon --start 2>/dev/null)"
