@@ -23,6 +23,7 @@ main() {
 		"actionlint-bin"
 		"jcal"
 		"mprocs-bin"
+		"mprocs"
 		#		"litmusctl-bin"
 	)
 
