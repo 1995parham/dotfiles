@@ -1,0 +1,21 @@
+---
+session_name: Learning
+windows:
+  - window_name: learning
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/1995parham/Learning
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
+
+  - window_name: rust101
+    layout: main-horizontal
+    options:
+      main-pane-height: 60%
+    start_directory: ~/Documents/Git/parham/1995parham/rust101
+    panes:
+      - pane
+      - pane
+      - pane
