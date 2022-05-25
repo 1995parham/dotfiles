@@ -1,0 +1,21 @@
+---
+session_name: Sanpp!
+windows:
+  - window_name: ingiteg
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/snapp/dispatching/igniteg
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
+
+  - window_name: scratch
+    layout: main-horizontal
+    options:
+      main-pane-height: 60%
+    start_directory: ~/Downloads
+    panes:
+      - pane
+      - pane
+      - pane
