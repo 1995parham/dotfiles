@@ -1,0 +1,9 @@
+---
+session_name: 1995parham
+start_directory: ~/Documents/Git/parham/1995parham-me
+windows:
+  - window_name: 1995parham
+    layout: tiled
+    panes:
+      - pane
+      - pane
