@@ -85,6 +85,7 @@ install-wakatime() {
 # tmux
 install-tmux() {
 	dotfile "tmux" 'tmux.conf'
+	configfile "tmuxp" "" "tmux"
 
 	message "tmux" "installing tmux plugins"
 	if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
