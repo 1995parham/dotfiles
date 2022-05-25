@@ -1,0 +1,26 @@
+---
+session_name: University
+windows:
+  - window_name: ie-lecture
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/sbu-ce/ie-lecture
+    panes:
+      - pane
+      - pane
+
+  - window_name: c-lecture
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/cng-by-example/c-lecture
+    panes:
+      - pane
+      - pane
+
+  - window_name: scratch
+    layout: main-horizontal
+    options:
+      main-pane-height: 50%
+    start_directory: ~/Downloads
+    panes:
+      - pane
+      - pane
+      - pane

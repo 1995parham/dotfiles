@@ -1,0 +1,44 @@
+---
+session_name: Research
+windows:
+  - window_name: dict
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/dict
+    panes:
+      - pane
+      - pane
+
+  - window_name: RoadToPhD
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/RoadToPhD
+    panes:
+      - pane
+      - pane
+
+  - window_name: s1-gw-ns
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/s1-gw-ns
+    panes:
+      - pane
+      - pane
+
+  - window_name: papers
+    layout: even-horizontal
+    start_directory: ~/Sync/papers
+    panes:
+      - pane
+      - pane
+
+  - window_name: paper-0
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/paper-0
+    panes:
+      - pane
+      - pane
+
+  - window_name: iot-book
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/iot-book
+    panes:
+      - pane
+      - pane
