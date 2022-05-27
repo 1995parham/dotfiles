@@ -42,3 +42,11 @@ windows:
         start_directory: ~/.local/share/dijo
       -
         start_directory: ~/org
+
+  - window_name: raha
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/parham-alvani/raha
+    panes:
+      - pane
+      -
+        start_directory: ~/Documents/Git/parham/parham-alvani/raha
