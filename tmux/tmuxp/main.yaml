@@ -3,42 +3,42 @@ session_name: Main
 windows:
   - window_name: dotfiles
     layout: tiled
+    start_directory: ~/dotfiles
     panes:
-      - pane:
-          start_directory: ~/dotfiles
-      - pane:
-          start_directory: ~/dotfiles
-      - pane:
-          start_directory: ~/Documents/Git/parham/keys
-      - pane:
-          start_directory: ~/.local/share/navi/cheats/1995parham__cheats
+      - pane
+      -
+        start_directory: ~/dotfiles
+      -
+        start_directory: ~/Documents/Git/parham/keys
+      -
+        start_directory: ~/.local/share/navi/cheats/1995parham__cheats
 
   - window_name: personal
     layout: tiled
+    start_directory: ~/Downloads
     panes:
-      - pane:
-          start_directory: ~/Downloads
-      - pane:
-          start_directory: ~/Downloads
-      - pane:
-          start_directory: ~/Downloads
-      - pane:
-          start_directory: ~/Downloads
+      - pane
+      -
+        start_directory: ~/Downloads
+      -
+        start_directory: ~/Downloads
+      -
+        start_directory: ~/Downloads
 
   - window_name: personal
     layout: even-vertical
+    start_directory: ~/Documents/Git/parham/paralvan/zamaneh
     panes:
-      - pane:
-          start_directory: ~/Documents/Git/parham/paralvan/zamaneh
-      - pane:
-          start_directory: ~/Documents/Git/parham/paralvan/zamaneh
+      - pane
+      -
+        start_directory: ~/Documents/Git/parham/paralvan/zamaneh
 
   - window_name: tracking
     layout: main-vertical
+    start_directory: ~/tasks
     panes:
-      - pane:
-          start_directory: ~/tasks
-      - pane:
-          start_directory: ~/.local/share/dijo
-      - pane:
-          start_directory: ~/org
+      - pane
+      -
+        start_directory: ~/.local/share/dijo
+      -
+        start_directory: ~/org
