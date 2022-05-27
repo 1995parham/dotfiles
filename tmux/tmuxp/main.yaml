@@ -1,0 +1,44 @@
+---
+session_name: Main
+windows:
+  - window_name: dotfiles
+    layout: tiled
+    panes:
+      - pane:
+          start_directory: ~/dotfiles
+      - pane:
+          start_directory: ~/dotfiles
+      - pane:
+          start_directory: ~/Documents/Git/parham/keys
+      - pane:
+          start_directory: ~/.local/share/navi/cheats/1995parham__cheats
+
+  - window_name: personal
+    layout: tiled
+    panes:
+      - pane:
+          start_directory: ~/Downloads
+      - pane:
+          start_directory: ~/Downloads
+      - pane:
+          start_directory: ~/Downloads
+      - pane:
+          start_directory: ~/Downloads
+
+  - window_name: personal
+    layout: even-vertical
+    panes:
+      - pane:
+          start_directory: ~/Documents/Git/parham/paralvan/zamaneh
+      - pane:
+          start_directory: ~/Documents/Git/parham/paralvan/zamaneh
+
+  - window_name: tracking
+    layout: main-vertical
+    panes:
+      - pane:
+          start_directory: ~/tasks
+      - pane:
+          start_directory: ~/.local/share/dijo
+      - pane:
+          start_directory: ~/org
