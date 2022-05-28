@@ -37,6 +37,10 @@ main_pacman() {
 	configfile swaylock "" sway
 	configfile waybar "" sway
 
+	msg 'set background image with ease'
+	yay -Syu --noconfirm --needed wpaperd
+	configfile wpaperd "" sway
+
 	msg 'better sway with more keys [brightnessctl]'
 	sudo pacman -Syu --noconfirm --needed brightnessctl
 
