@@ -34,7 +34,7 @@ windows:
         start_directory: ~/Documents/Git/parham/paralvan/zamaneh
 
   - window_name: tracking
-    layout: main-vertical
+    layout: even-vertical
     start_directory: ~/tasks
     panes:
       - pane
