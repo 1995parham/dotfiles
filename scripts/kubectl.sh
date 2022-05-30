@@ -30,8 +30,8 @@ main_brew() {
 	msg "multi pod and container log tailing for Kubernetes"
 	brew install stern
 
-	msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
-	brew install instrumenta/instrumenta/kubeval
+	# msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
+	# brew install instrumenta/instrumenta/kubeval
 
 	msg "argocd cli"
 	brew install argocd
