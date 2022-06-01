@@ -8,8 +8,8 @@
 }
 
 window#waybar {
-  background-color: rgba(50, 50, 50, 0.5);
-  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+  background-color: rgba(36, 36, 36, 0.8);
+  /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
   color: #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -27,15 +27,6 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 */
-
-window#waybar.termite {
-  background-color: #3f3f3f;
-}
-
-window#waybar.chromium {
-  background-color: #000000;
-  border: none;
-}
 
 #workspaces button {
   padding: 0 5px;
