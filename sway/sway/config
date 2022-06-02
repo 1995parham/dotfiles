@@ -223,6 +223,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # bindswitch lid:on output * dpms off
 # bindswitch lid:off output * dpms on
 
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
 # reload the configuration file
 bindsym $mod+Shift+r reload; exec "notify-send reloaded"
 
