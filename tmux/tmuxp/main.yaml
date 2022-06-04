@@ -50,3 +50,11 @@ windows:
       - pane
       -
         start_directory: ~/Documents/Git/parham/parham-alvani/raha
+
+  - window_name: organized
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/parham-alvani/addressbook
+    panes:
+      - pane
+      -
+        start_directory: ~/Documents/Git/parham/parham-alvani/calendar
