@@ -22,12 +22,12 @@ windows:
       - pane
       - pane
 
-  - window_name: papers
-    layout: even-horizontal
-    start_directory: ~/Sync/papers
-    panes:
-      - pane
-      - pane
+  #  - window_name: papers
+  #  layout: even-horizontal
+  #  start_directory: ~/Sync/papers
+  #  panes:
+  #    - pane
+  #    - pane
 
   - window_name: paper-0
     layout: even-horizontal
