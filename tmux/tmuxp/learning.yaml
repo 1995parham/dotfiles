@@ -19,3 +19,10 @@ windows:
       - pane
       - pane
       - pane
+
+  - window_name: elipu
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/paralvan/elipu
+    panes:
+      - pane
+      - pane
