@@ -48,8 +48,7 @@ windows:
     start_directory: ~/Documents/Git/parham/parham-alvani/raha
     panes:
       - pane
-      -
-        start_directory: ~/Documents/Git/parham/parham-alvani/raha
+      - pane
 
   - window_name: organized
     layout: even-vertical
