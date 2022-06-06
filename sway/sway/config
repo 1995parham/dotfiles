@@ -39,7 +39,7 @@ bindsym $mod+F1 exec foot --app-id="__termpad" "bat" "$HOME/.config/sway/config"
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id fuzzel -b ffc04da0 -t 000000ff
+bindsym $mod+d exec --no-startup-id fuzzel -b ffc04da0 -t 000000ff -D no
 
 bindsym $mod+Ctrl+m exec pavucontrol
 
