@@ -26,3 +26,10 @@ windows:
     panes:
       - pane
       - pane
+
+  - window_name: fesghel
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/1995parham/fesghel
+    panes:
+      - pane
+      - pane
