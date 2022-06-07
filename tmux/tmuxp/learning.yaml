@@ -33,3 +33,10 @@ windows:
     panes:
       - pane
       - pane
+
+  - window_name: kernel
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/1995parham/kernel-training
+    panes:
+      - pane
+      - pane
