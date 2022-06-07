@@ -1,5 +1,5 @@
 ---
-session_name: University
+session_name: Teaching
 windows:
   - window_name: ie-lecture
     layout: even-horizontal
@@ -11,6 +11,13 @@ windows:
   - window_name: c-lecture
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/cng-by-example/c-lecture
+    panes:
+      - pane
+      - pane
+
+  - window_name: go-lecture
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/cng-by-example/go-lecture
     panes:
       - pane
       - pane
