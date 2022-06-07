@@ -3,7 +3,7 @@ session_name: University
 windows:
   - window_name: ie-lecture
     layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/sbu-ce/ie-lecture
+    start_directory: ~/Documents/Git/parham/cng-by-example/ie-lecture
     panes:
       - pane
       - pane
