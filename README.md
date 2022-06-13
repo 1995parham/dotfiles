@@ -80,3 +80,12 @@ Then you can install other tools with `start.sh`, here are some examples:
 ```
 
 Configuration of mentioned applications also is a part of this repository.
+
+## Scripts
+
+As mentioned before, `start.sh` can be used to run the installation/helper scripts. these scripts install and setup different tools as below:
+
+| Name  | Description                                                                                                                   |
+| :---: | :---------------------------------------------------------------------------------------------------------------------------- |
+| snapp | install snapp corporation mail/calender/contacts including davmail, vsyncdir and mutt. also recommends to install thunderbird |
+|  go   | install and configure go. configuration includes goproxy and running `GoInstallBinaries` on neovim                            |
