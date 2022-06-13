@@ -26,15 +26,15 @@ windows:
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/citado/papers
     panes:
-      - pane
-      - pane
+      - shell: bash
+      - shell: bash
 
   - window_name: paper-0
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/citado/paper-0
     panes:
-      - shell: bash
-      - shell: bash
+      - pane
+      - pane
 
   - window_name: iot-book
     layout: even-horizontal
