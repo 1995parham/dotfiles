@@ -22,19 +22,19 @@ windows:
       - pane
       - pane
 
-  #  - window_name: papers
-  #  layout: even-horizontal
-  #  start_directory: ~/Sync/papers
-  #  panes:
-  #    - pane
-  #    - pane
+  - window_name: papers
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/papers
+    panes:
+      - pane
+      - pane
 
   - window_name: paper-0
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/citado/paper-0
     panes:
-      - pane
-      - pane
+      - shell: bash
+      - shell: bash
 
   - window_name: iot-book
     layout: even-horizontal
