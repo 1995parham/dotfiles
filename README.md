@@ -85,7 +85,10 @@ Configuration of mentioned applications also is a part of this repository.
 
 As mentioned before, `start.sh` can be used to run the installation/helper scripts. these scripts install and setup different tools as below:
 
-| Name  | Description                                                                                                                   |
-| :---: | :---------------------------------------------------------------------------------------------------------------------------- |
-| snapp | install snapp corporation mail/calender/contacts including davmail, vsyncdir and mutt. also recommends to install thunderbird |
-|  go   | install and configure go. configuration includes goproxy and running `GoInstallBinaries` on neovim                            |
+|                        Name                         | Description                                                                                                                   |
+| :-------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------- |
+|                        snapp                        | install snapp corporation mail/calender/contacts including davmail, vsyncdir and mutt. also recommends to install thunderbird |
+|                [go](https://go.dev/)                | install and configure go. configuration includes goproxy and running `GoInstallBinaries` on neovim                            |
+|      [age](https://github.com/FiloSottile/age)      | install age                                                                                                                   |
+|                       awesome                       | clone awesome repositories like awesome-rust, awesome-go, etc from github                                                     |
+| [alacritty](https://github.com/alacritty/alacritty) | install and configure alacritty                                                                                               |
