@@ -10,6 +10,13 @@ windows:
       - pane
       - pane
 
+  - window_name: interview
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/snapp/dispatching/interview
+    panes:
+      - pane
+      - pane
+
   - window_name: scratch
     layout: main-horizontal
     options:
