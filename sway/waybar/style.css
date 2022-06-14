@@ -226,6 +226,11 @@ label:focus {
   background-color: #006bff;
 }
 
+#network.aut {
+  background-color: #00008b;
+  color: white;
+}
+
 #custom-touchpad {
   background-color: #ffa500;
   color: black;

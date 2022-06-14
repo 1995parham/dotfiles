@@ -10,7 +10,12 @@
     "custom/love#birthday"
   ],
   "modules-left": ["custom/date", "custom/jdate", "network#alvani"],
-  "modules-right": ["network#snapp", "network#baly", "custom/touchpad"],
+  "modules-right": [
+    "network#snapp",
+    "network#baly",
+    "network#aut",
+    "custom/touchpad"
+  ],
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -39,6 +44,11 @@
   },
   "network#baly": {
     "interface": "baly",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#aut": {
+    "interface": "aut",
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },
