@@ -2,6 +2,7 @@
 vim.g.mapleader = ' '
 
 local wk = require("which-key")
+local home = os.getenv('HOME')
 
 wk.setup({})
 
@@ -41,7 +42,11 @@ wk.register({
 		name = "+files",
 		f = { "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", "browser" },
 		g = { "<cmd>Telescope live_grep<cr>", "grep" },
-		n = { "<cmd>enew<cr>", "new file" }
+		n = { "<cmd>enew<cr>", "new file" },
+		d = {
+      '<cmd>Telescope file_browser path=' .. home .. '/dotfiles <cr>',
+      'new file'
+    }
 	},
 
 	g = {
