@@ -15,26 +15,12 @@ windows:
       - pane
       - pane
 
-  - window_name: s1-gw-ns
-    layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/citado/s1-gw-ns
-    panes:
-      - pane
-      - pane
-
   - window_name: papers
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/citado/papers
     panes:
       - shell: bash
       - shell: bash
-
-  - window_name: paper-0
-    layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/citado/paper-0
-    panes:
-      - pane
-      - pane
 
   - window_name: iot-book
     layout: even-horizontal
