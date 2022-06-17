@@ -38,7 +38,7 @@ main_pacman() {
 	configfile waybar "" sway
 
 	msg 'set background image with ease'
-	yay -Syu --noconfirm --needed wpaperd
+	yay -Syu --noconfirm --needed wpaperd-git
 	configfile wpaperd "" sway
 
 	msg 'better sway with more keys [brightnessctl]'
