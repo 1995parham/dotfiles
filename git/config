@@ -20,6 +20,8 @@
 [user]
 	name = Parham Alvani
 	email = parham.alvani@gmail.com
+[fetch]
+  parallel = 0
 [includeIf "gitdir:~/Documents/Git/raha/"]
   path = ~/.config/git/elda.cfg
 [includeIf "gitdir:~/Documents/Git/raha/snapp/"]
