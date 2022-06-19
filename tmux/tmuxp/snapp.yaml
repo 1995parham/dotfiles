@@ -8,7 +8,8 @@ windows:
       - pane
       - pane
       - pane
-      - pane
+      -
+        start_directory: ~/Documents/Git/parham/snapp/dispatching/nats/helm
 
   - window_name: interview
     layout: even-horizontal
