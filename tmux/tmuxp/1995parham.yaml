@@ -1,9 +1,23 @@
 ---
 session_name: 1995parham
-start_directory: ~/Documents/Git/parham/1995parham-me
 windows:
-  - window_name: 1995parham
-    layout: tiled
+  - window_name: ansible-role
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/1995parham-me/ansible-role
+    panes:
+      - pane
+      - pane
+
+  - window_name: home.infra
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/1995parham-me/home.infra
+    panes:
+      - pane
+      - pane
+
+  - window_name: outdoor.infra
+    layout: even-vertical
+    start_directory: ~/Documents/Git/parham/1995parham-me/outdoor.infra
     panes:
       - pane
       - pane
