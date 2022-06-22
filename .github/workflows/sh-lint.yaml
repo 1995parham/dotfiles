@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run the sh-checker
-        uses: luizm/action-sh-checker@v0.4.4
+        uses: luizm/action-sh-checker@v0.4.0
         with:
           sh_checker_comment: false
