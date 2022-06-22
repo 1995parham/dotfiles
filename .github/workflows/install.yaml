@@ -1,5 +1,5 @@
 ---
-name: Install dotfiles
+name: install
 on:
   push:
     paths:
@@ -9,9 +9,9 @@ on:
       - start.sh
 jobs:
   basic-ubuntu:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: start.sh env
         run: ./start.sh -y env
       - name: install.sh
@@ -25,9 +25,9 @@ jobs:
           zsh -c hash nvim batcat bmon
 
   basic-osx:
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: start.sh env
         run: ./start.sh -y env
       - name: validate installation of requirements on both shell
