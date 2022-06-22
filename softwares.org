@@ -2,15 +2,11 @@
 These are applications that I use in a daily manner.
 
 ** Package Managers
-+ Manjaro:
++ Archlinux:
   + [[https://archlinux.org/pacman/][Pacman]]
   + [[https://github.com/Jguer/yay][Yet another Yogurt]]
 + OSx
   - [[https://brew.sh][Brew]]
-+ Windows 10
-  - [[https://scoop.sh][Scoop]]
-  - [[https://docs.microsoft.com/en-us/windows/package-manager/winget/][Winget]]
-  - WSLg2
 
 ** Applications
 For each package I have mentioned the package manager that has it and also /+/ means two package are together but /// means you can select between packages.
