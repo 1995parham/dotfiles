@@ -43,7 +43,7 @@ while getopts "hy" argv; do
 	esac
 done
 
-requirements=(zsh tmux vim nvim)
+requirements=(zsh tmux vim nvim tmuxp)
 
 # check the existence of required softwares
 for cmd in "${requirements[@]}"; do
