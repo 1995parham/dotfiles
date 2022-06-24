@@ -66,8 +66,9 @@ bindsym $mod+Print exec --no-startup-id ( flameshot &; ) && ( sleep 0.5s && flam
 # idle configuration
 exec swayidle -w \
           timeout 300 'brightnessctl -s s 2% && swaylock -f' \
+            resume 'brightnessctl -r' \
           timeout 600 'swaymsg "output * dpms off"' \
-          resume 'swaymsg "output * dpms on" && brightnessctl -r' \
+            resume 'swaymsg "output * dpms on" && brightnessctl -r' \
           before-sleep 'swaylock -f'
 # this will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
