@@ -48,7 +48,7 @@ main_apt() {
 main_pacman() {
 	msg "install emacs/ripgre with pacman"
 	yay -Syu --noconfirm --needed aur/emacs-gcc-wayland-devel-bin
-	# sudo pacman -Syu --noconfirm --needed emacs ripgrep aspell aspell-en
+	sudo pacman -Syu --noconfirm --needed ripgrep aspell aspell-en fd
 }
 
 main() {
