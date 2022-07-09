@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name of God
 # ========================================
-# [] File Name : sway.sh
+# [] File Name : hyprland.sh
 #
 # [] Creation Date : 18-11-2020
 #
@@ -9,14 +9,15 @@
 # =======================================
 
 usage() {
-	echo "i3-compatible Wayland compositor"
+	echo "Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice on its looks."
 	# shellcheck disable=1004
 	echo '
- _____      ____ _ _   _
-/ __\ \ /\ / / _` | | | |
-\__ \\ V  V / (_| | |_| |
-|___/ \_/\_/ \__,_|\__, |
-                   |___/
+ _                      _                 _
+| |__  _   _ _ __  _ __| | __ _ _ __   __| |
+| |_ \| | | | |_ \| |__| |/ _| | |_ \ / _| |
+| | | | |_| | |_) | |  | | (_| | | | | (_| |
+|_| |_|\__, | .__/|_|  |_|\__,_|_| |_|\__,_|
+       |___/|_|
   '
 }
 
@@ -31,17 +32,13 @@ main_apt() {
 main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
-	msg 'sway'
-	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim xdg-user-dirs wl-clipboard
-	configfile sway "" sway
-	configfile swaylock "" sway
+	msg 'hyprland'
+	yay -Syu hyprland-git
+	sudo pacman -Syu --noconfirm --needed waybar grim xdg-user-dirs wl-clipboard
+	configfile hypr "" hyprland
 	configfile waybar "" sway
 
-	msg 'set background image with ease'
-	yay -Syu --noconfirm --needed wpaperd-git
-	configfile wpaperd "" sway
-
-	msg 'better sway with more keys [brightnessctl]'
+	msg 'better hyprland with more keys [brightnessctl]'
 	sudo pacman -Syu --noconfirm --needed brightnessctl
 
 	msg 'required freedesktop services'
@@ -66,9 +63,6 @@ main_pacman() {
 	msg 'notification with dunst'
 	sudo pacman -Syu --noconfirm --needed dunst libnotify
 	configfile dunst "" sway
-
-	msg 'backgrounds with swaybg'
-	sudo pacman -Syu --noconfirm --needed swaybg
 
 	msg 'configure fuzzel as an another application luncher'
 	sudo pacman -Syu --noconfirm --needed fuzzel
