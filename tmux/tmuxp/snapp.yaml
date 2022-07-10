@@ -7,7 +7,8 @@ windows:
     panes:
       - pane
       - pane
-      - pane
+      -
+        start_directory: ~/Documents/Git/parham/snapp/data-infra/ignite
       -
         start_directory: ~/Documents/Git/parham/snapp/dispatching/nats/helm
 
