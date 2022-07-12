@@ -39,8 +39,8 @@ window > box {
 }
 
 #workspaces button {
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
   background-color: transparent;
   color: #ffa500;
   /* Use box-shadow instead of border so the text isn't offset */
