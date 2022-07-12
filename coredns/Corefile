@@ -1,14 +1,11 @@
-docker.io:1053 {
-  forward . 178.22.122.100 185.51.200.2
-  cache 500
-  log
-}
-
-.:1053 {
-  forward . /etc/resolv.conf 8.8.8.8 8.4.4.8 {
+. {
+  bind 127.0.0.53
+  forward . 8.8.8.8 4.2.2.4 {
+    prefer_udp
     health_check 10s
 	  policy sequential
   }
+  errors
   log
-  cache 500
+  cache 600
 }
