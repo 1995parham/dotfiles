@@ -255,4 +255,5 @@ label:focus {
 
 #language {
   color: #740864;
+  min-width: 30px;
 }
