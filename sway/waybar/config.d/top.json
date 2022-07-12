@@ -42,14 +42,13 @@
   "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
     "format-disconnected": "",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "format-stopped": "Stopped ",
     "unknown-tag": "N/A",
     "interval": 2,
     "consume-icons": {
       "on": " "
     },
     "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
       "on": " "
     },
     "repeat-icons": {
