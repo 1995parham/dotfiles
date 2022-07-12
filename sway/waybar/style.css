@@ -27,8 +27,20 @@ window#waybar.solo {
 }
 */
 
+window > box {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 0.25px;
+  border-color: rgb(171, 233, 179);
+}
+
 #workspaces button {
-  padding: 0 5px;
+  padding-right: 5px;
+  padding-left: 5px;
   background-color: transparent;
   color: #ffa500;
   /* Use box-shadow instead of border so the text isn't offset */
