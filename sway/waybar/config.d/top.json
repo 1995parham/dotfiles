@@ -69,7 +69,9 @@
     "icon-size": 21,
     "spacing": 10
   },
-  "clock": {},
+  "clock": {
+    "format": "{:%H:%M} "
+  },
   "cpu": {
     "format": "{usage}% {avg_frequency}GHz ",
     "tooltip": false

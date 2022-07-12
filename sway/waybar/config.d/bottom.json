@@ -69,11 +69,13 @@
   "custom/date": {
     "interval": 3600,
     "exec": "date +'%d %B %Y'",
-    "exec-if": "which date"
+    "exec-if": "which date",
+    "format": "{} "
   },
   "custom/jdate": {
     "interval": 3600,
     "exec": "jdate +'%d %B %Y'",
-    "exec-if": "which jdate"
+    "exec-if": "which jdate",
+    "format": "{} "
   }
 }
