@@ -65,7 +65,7 @@
     "tooltip-format-disconnected": "MPD (disconnected)"
   },
   "tray": {
-    "icon-size": 21,
+    "icon-size": 15,
     "spacing": 10
   },
   "clock": {
