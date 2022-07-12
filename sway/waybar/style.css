@@ -1,18 +1,17 @@
 * {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
   border: none;
   border-radius: 0;
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: Helvetica, Arial, sans-serif, "Font Awesome 6 Free";
-  font-size: 12px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(36, 36, 36, 0.8);
+  background-color: rgba(36, 36, 36, 0.9);
   /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
   color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
@@ -31,7 +30,7 @@ window#waybar.solo {
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
-  color: #ffffff;
+  color: #ffa500;
   /* Use box-shadow instead of border so the text isn't offset */
   box-shadow: inset 0 -3px transparent;
 }
@@ -44,7 +43,7 @@ window#waybar.solo {
 
 #workspaces button.focused {
   background-color: #64727d;
-  box-shadow: inset 0 -3px #ffffff;
+  box-shadow: inset 0 -3px #ffa500;
 }
 
 #workspaces button.urgent {
@@ -54,6 +53,16 @@ window#waybar.solo {
 #mode {
   background-color: #64727d;
   border-bottom: 3px solid #ffffff;
+}
+
+.warning,
+.critical,
+.urgent {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #clock,
@@ -70,10 +79,12 @@ window#waybar.solo {
 #idle_inhibitor,
 #custom-date,
 #custom-jdate,
+#custom-touchpad,
+#custom-love,
+#language,
 #mpd {
-  padding: 0 10px;
-  margin: 0 4px;
-  color: #ffffff;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #window,
@@ -81,41 +92,37 @@ window#waybar.solo {
   margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
+/* if workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
+/* if workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
   margin-right: 0;
 }
 
 #clock {
-  background-color: #64727d;
+  color: #ffffff;
 }
 
 #battery {
-  background-color: #ffffff;
-  color: #000000;
+  color: #ffffff;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #ffffff;
-  background-color: #26a65b;
+  color: #26a65b;
 }
 
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    color: #ffffff;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
+  color: #f53c3c;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -123,55 +130,54 @@ window#waybar.solo {
   animation-direction: alternate;
 }
 
+/*
 label:focus {
   background-color: #000000;
 }
+*/
 
 #cpu {
-  background-color: #2ecc71;
-  color: #000000;
+  color: #2ecc71;
 }
 
 #memory {
-  background-color: #9b59b6;
+  color: #9b59b6;
 }
 
 #disk {
-  background-color: #964b00;
+  color: #c96500;
 }
 
 #backlight {
-  background-color: #90b1b1;
+  color: #90b1b1;
 }
 
 #network {
-  background-color: #2980b9;
+  color: #55d9cb;
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  color: #f53c3c;
 }
 
 #pulseaudio {
-  background-color: #f1c40f;
-  color: #000000;
+  color: #f1c40f;
 }
 
 #pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+  color: #90b1b1;
 }
 
 #temperature {
-  background-color: #f0932b;
+  color: #f0932b;
 }
 
 #temperature.critical {
-  background-color: #eb4d4b;
+  color: #eb4d4b;
 }
 
 #tray {
-  background-color: #2980b9;
+  padding-right: 15px;
 }
 
 #tray > .passive {
@@ -180,74 +186,61 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
 }
 
 #idle_inhibitor {
-  background-color: #2d3436;
+  color: #b5bec1;
 }
 
 #idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
+  color: #ecf0f1;
 }
 
 #mpd {
-  background-color: #66cc99;
-  color: #2a5c45;
+  color: #66cc99;
 }
 
 #mpd.disconnected {
-  background-color: #f53c3c;
+  color: #f53c3c;
 }
 
 #mpd.stopped {
-  background-color: #90b1b1;
+  color: #90b1b1;
 }
 
 #mpd.paused {
-  background-color: #51a37a;
+  color: #51a37a;
 }
 
 #custom-date {
-  background-color: #006bff;
+  color: #00abff;
 }
 
 #custom-jdate {
-  background-color: #006bff;
+  color: #00abff;
 }
 
 #network.snapp {
-  background-color: #03d873;
-  color: black;
+  color: #03d873;
 }
 
 #network.baly {
-  background-color: #006bff;
+  color: #006bff;
 }
 
 #network.aut {
-  background-color: #00008b;
-  color: white;
+  color: #00008b;
 }
 
 #custom-touchpad {
-  background-color: #ffa500;
-  color: black;
+  color: #ffa500;
   font-weight: bold;
-  padding: 5px;
 }
 
 #custom-love {
-  background-color: #ff6c85;
-  color: #474747;
-  padding: 5px;
+  color: #ff6c85;
 }
 
 #language {
-  background: #00b093;
   color: #740864;
-  padding: 0 5px;
-  margin: 0 5px;
-  min-width: 16px;
 }
