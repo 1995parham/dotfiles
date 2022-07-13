@@ -14,11 +14,12 @@ upstream:
     # - https://dns-family.adguard.com/dns-query
     - 94.140.14.15
     - 94.140.15.16
-    # - 8.8.8.8
-    # - 4.2.2.4
+    - 8.8.8.8
+    - 4.2.2.4
 
 # optional: use this DNS server to resolve blacklist urls and upstream DNS servers (DOH).
-# Useful if no DNS resolver is configured and blocky needs to resolve a host name. Format net:IP:port, net must be udp or tcp
+# Useful if no DNS resolver is configured and blocky needs to resolve a host name.
+# Format net:IP:port, net must be udp or tcp
 bootstrapDns:
   upstream: 8.8.8.8
 
@@ -37,7 +38,8 @@ bootstrapDns:
 #      fritz.box: udp:192.168.178.1
 #      lan.net: udp:192.168.178.1,udp:192.168.178.2
 
-# optional: use black and white lists to block queries (for example ads, trackers, adult pages etc.)
+# optional: use black and white lists to block queries
+# (for example ads, trackers, adult pages etc.)
 blocking:
   # definition of blacklist groups. Can be external link (http/https) or local file
   blackLists:
@@ -46,6 +48,9 @@ blocking:
       - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
     special:
       - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts
   # definition: which groups should be applied for which client
   clientGroupsBlock:
     # default will be used, if no special definition for a client name exists
