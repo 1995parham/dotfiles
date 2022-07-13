@@ -1,5 +1,6 @@
 ---
 ## Credit to erkexzcx
+# https://github.com/curl/curl/wiki/DNS-over-HTTPS#publicly-available-servers
 
 upstream:
   # these external DNS resolvers will be used.
