@@ -11,7 +11,7 @@ upstream:
   # If port is empty, default port will be used
   # (53 for udp and tcp, 853 for tcp-tls, 443 for https (Doh))
   default:
-    - https://dns-family.adguard.com/dns-query
+    # - https://dns-family.adguard.com/dns-query
     - 94.140.14.15
     - 94.140.15.16
     # - 8.8.8.8
@@ -68,17 +68,20 @@ caching:
   # amount in minutes, how long a response must be cached (min value).
   # If <=0, use response's TTL, if >0 use this value, if TTL is smaller
   # Default: 0
-  minTime: 10
+  minTime: 600
   # amount in minutes, how long a response must be cached (max value).
   # If <0, do not cache responses
   # If 0, use TTL
   # If > 0, use this value, if TTL is greater
   # Default: 0
-  maxTime: -1
-  # if true, will preload DNS results for often used queries (names queried more than 5 times in a 2 hour time window).
+  maxTime: 0
+  # if true, will preload DNS results for often used queries
+  # (names queried more than 5 times in a 2 hour time window).
   # Results in cache will be loaded again on their expire (Time-to-live).
-  # This improves the response time for often used queries, but significantly increases external traffic
-  # it is recommended to increase "minTime" to reduce the number of prefetch queries to external resolvers.
+  # This improves the response time for often used queries,
+  # but significantly increases external traffic
+  # it is recommended to increase "minTime" to reduce the number
+  # of prefetch queries to external resolvers.
   # default: false
   prefetching: true
 
