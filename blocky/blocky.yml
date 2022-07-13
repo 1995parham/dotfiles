@@ -11,7 +11,7 @@ upstream:
   # If port is empty, default port will be used
   # (53 for udp and tcp, 853 for tcp-tls, 443 for https (Doh))
   default:
-    # - https://dns-family.adguard.com/dns-query
+    - https://dns-family.adguard.com/dns-query
     - 94.140.14.15
     - 94.140.15.16
     # - 8.8.8.8
