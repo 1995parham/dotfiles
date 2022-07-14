@@ -54,8 +54,7 @@ blocking:
   whiteLists:
     special:
       - |
-        web.whatsapp.com
-        scontent.whatsapp.net
+        /whatsapp/
   # definition: which groups should be applied for which client
   clientGroupsBlock:
     # default will be used, if no special definition for a client name exists
