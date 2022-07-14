@@ -51,12 +51,18 @@ blocking:
       - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts
       - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
       - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts
+  whiteLists:
+    special:
+      - |
+        web.whatsapp.com
+        scontent.whatsapp.net
   # definition: which groups should be applied for which client
   clientGroupsBlock:
     # default will be used, if no special definition for a client name exists
     default:
       - ads
       - special
+
   # which response will be sent, if query is blocked:
   # zeroIp: 0.0.0.0 will be returned (default)
   # nxDomain: return NXDOMAIN as return code
