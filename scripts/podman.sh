@@ -33,6 +33,9 @@ main_brew() {
 	msg 'create and initialize podman machine'
 	podman machine init || true
 	podman machine start || true
+
+	msg "podman and dive configuration"
+	configfile containers "" podman
 }
 
 main_pacman() {
@@ -48,7 +51,7 @@ main_pacman() {
 	msg "install lazydocker with yay"
 	yay -Syu --needed --noconfirm lazydocker-bin
 
-	msg "enable podman with snapp"
+	msg "podman and dive configuration"
 	configfile dive "" podman
 	configfile containers "" podman
 
