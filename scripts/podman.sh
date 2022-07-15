@@ -27,7 +27,12 @@ main_apt() {
 }
 
 main_brew() {
-	return 1
+	msg 'install podman'
+	brew install podman
+
+	msg 'create and initialize podman machine'
+	podman machine init
+	podman machine start
 }
 
 main_pacman() {
