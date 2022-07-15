@@ -31,8 +31,8 @@ main_brew() {
 	brew install podman
 
 	msg 'create and initialize podman machine'
-	podman machine init
-	podman machine start
+	podman machine init || true
+	podman machine start || true
 }
 
 main_pacman() {
@@ -71,6 +71,6 @@ EOF
 }
 
 main() {
-	msg "$(docker version)"
+	msg "$(podman version)"
 	msg "$(hadolint --version)"
 }
