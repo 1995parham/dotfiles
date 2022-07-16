@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name of God
 # ========================================
-# [] File Name : khal.sh
+# [] File Name : gotz.sh
 #
 # [] Creation Date : 12-04-2021
 #
@@ -9,14 +9,15 @@
 # =======================================
 
 usage() {
-	echo "console carddav client"
+	echo "CLI timezone info"
 	# shellcheck disable=2016
 	echo '
- _    _           _
-| | _| |__   __ _| |
-| |/ / |_ \ / _| | |
-|   <| | | | (_| | |
-|_|\_\_| |_|\__,_|_|
+             _
+  __ _  ___ | |_ ____
+ / _` |/ _ \| __|_  /
+| (_| | (_) | |_ / /
+ \__, |\___/ \__/___|
+ |___/
   '
 }
 
@@ -29,10 +30,9 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed khal
+	yay -Syu --noconfirm --needed gotz
 }
 
 main() {
-	configfile khal config
-	git clone git@github.com:parham-alvani/calendar.git "$HOME/Documents/Git/parham/parham-alvani/calendar" || true
+	configfile gotz config.json
 }
