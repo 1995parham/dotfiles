@@ -35,7 +35,7 @@ main_brew() {
 	podman machine start || true
 
 	msg "podman and dive configuration"
-	configfile containers "" podman
+	configfile containers registries.conf podman
 }
 
 main_pacman() {
