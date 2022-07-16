@@ -1,0 +1,41 @@
+{
+  "config_version": "1.0",
+  "timezones": [
+    { "Name": "Home", "TZ": "Asia/Tehran" },
+    { "Name": "Snapp", "TZ": "Asia/Tehran" },
+    { "Name": "Offerland", "TZ": "America/Vancouver" }
+  ],
+  "style": {
+    "symbols": "mono",
+    "custom_symbols": [
+      { "Start": 6, "Symbol": "▓" },
+      { "Start": 8, "Symbol": "█" },
+      { "Start": 18, "Symbol": "▓" },
+      { "Start": 22, "Symbol": "░" }
+    ],
+    "colorize": true,
+    "day_segments": {
+      "morning": 6,
+      "day": 8,
+      "evening": 18,
+      "night": 22
+    },
+    "coloring": {
+      "StaticColorMorning": "#EC3620",
+      "StaticColorDay": "#F9C748",
+      "StaticColorEvening": "#EC3620",
+      "StaticColorNight": "#030D4D",
+      "StaticColorForeground": "",
+      "DynamicColorMorning": "#419AA8",
+      "DynamicColorDay": "#FFFFFF",
+      "DynamicColorEvening": "#419AA8",
+      "DynamicColorNight": "#09293F",
+      "DynamicColorForeground": "",
+      "DynamicColorBackground": ""
+    }
+  },
+  "tics": false,
+  "stretch": true,
+  "hours12": false,
+  "live": false
+}
