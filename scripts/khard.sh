@@ -1,7 +1,7 @@
 #!/bin/bash
 # In The Name of God
 # ========================================
-# [] File Name : mpd.sh
+# [] File Name : khard.sh
 #
 # [] Creation Date : 12-04-2021
 #
