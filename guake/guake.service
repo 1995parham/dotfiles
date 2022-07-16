@@ -1,8 +1,0 @@
-[Unit]
-Description=Start guake as a Service
-
-[Service]
-ExecStart=guake
-
-[Install]
-WantedBy=graphical.target
