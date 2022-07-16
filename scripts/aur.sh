@@ -24,6 +24,7 @@ main() {
 		"jcal"
 		"mprocs-bin"
 		"mprocs"
+		"gotz"
 		"scitopdf-git"
 		#		"litmusctl-bin"
 	)
