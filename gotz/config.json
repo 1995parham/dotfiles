@@ -7,12 +7,7 @@
   ],
   "style": {
     "symbols": "mono",
-    "custom_symbols": [
-      { "Start": 6, "Symbol": "▓" },
-      { "Start": 8, "Symbol": "█" },
-      { "Start": 18, "Symbol": "▓" },
-      { "Start": 22, "Symbol": "░" }
-    ],
+    "custom_symbols": [],
     "colorize": true,
     "day_segments": {
       "morning": 6,
@@ -21,11 +16,12 @@
       "night": 22
     },
     "coloring": {
-      "StaticColorMorning": "#EC3620",
-      "StaticColorDay": "#F9C748",
-      "StaticColorEvening": "#EC3620",
+      "StaticColorMorning": "#445cf8",
+      "StaticColorDay": "#ec9c20",
+      "StaticColorEvening": "#051686",
       "StaticColorNight": "#030D4D",
       "StaticColorForeground": "",
+
       "DynamicColorMorning": "#419AA8",
       "DynamicColorDay": "#FFFFFF",
       "DynamicColorEvening": "#419AA8",
