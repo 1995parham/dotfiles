@@ -20,7 +20,7 @@ from_github() {
 	mkdir -p "$path"
 	cd "$path/" || return
 
-	git clone "git@github.com:$repo" || true
+	git clone "git@github.com:$repo" || (cd "${repo#*/}" && git pull)
 }
 
 main() {
@@ -29,4 +29,5 @@ main() {
 	from_github rust-embedded/awesome-embedded-rust
 	from_github mpsq/arewewaylandyet
 	from_github natpen/awesome-wayland
+	from_github rockerBOO/awesome-neovim
 }
