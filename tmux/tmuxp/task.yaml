@@ -1,0 +1,11 @@
+---
+session_name: Task
+windows:
+  - window_name: p1
+    layout: tiled
+    start_directory: ~/Documents/Git/parham
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
