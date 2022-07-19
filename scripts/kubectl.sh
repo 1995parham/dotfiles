@@ -60,8 +60,8 @@ main_pacman() {
 	msg "validate your Kubernetes configuration files, supports multiple Kubernetes versions"
 	yay -Syu --noconfirm --needed kubeval-bin
 
-	msg "Command-Line tool to manage Litmuschaos's agent plane"
-	yay -Syu --noconfirm --needed litmusctl
+	# msg "Command-Line tool to manage Litmuschaos's agent plane"
+	# yay -Syu --noconfirm --needed litmusctl
 }
 
 main() {
