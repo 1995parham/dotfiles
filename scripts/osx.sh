@@ -35,6 +35,7 @@ main_brew() {
 
 	msg 'osx keyring'
 	brew install pinentry-mac
+	brew install --cask gpg-suite-no-mail
 	mkdir -p "$HOME/.gnupg"
 	linker gnupg "$current_dir/osx/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }
