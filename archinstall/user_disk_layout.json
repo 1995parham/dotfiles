@@ -1,0 +1,95 @@
+{
+    "/dev/nvme0n1": {
+        "partitions": [
+            {
+                "ESP": true,
+                "PARTUUID": "DD17-A041",
+                "boot": true,
+                "encrypted": false,
+                "filesystem": {
+                    "format": "vfat"
+                },
+                "mountpoint": "/boot",
+                "size": 1048576,
+                "start": 2048,
+                "type": "primary",
+                "wipe": false
+            },
+            {
+                "ESP": false,
+                "PARTUUID": "4a60679e-5dca-4d20-ac1b-eb25981f224e",
+                "boot": false,
+                "btrfs": {
+                    "subvolumes": {
+                        "@": {
+                            "mountpoint": "/"
+                        },
+                        "@.snapshots": {
+                            "mountpoint": "/.snapshots"
+                        },
+                        "@home": {
+                            "mountpoint": "/home"
+                        },
+                        "@log": {
+                            "mountpoint": "/var/log"
+                        },
+                        "@pkg": {
+                            "mountpoint": "/var/cache/pacman/pkg"
+                        }
+                    }
+                },
+                "encrypted": false,
+                "filesystem": {
+                    "format": "btrfs"
+                },
+                "mountpoint": null,
+                "size": 1331572736,
+                "start": 1050624,
+                "type": "primary",
+                "wipe": false
+            },
+            {
+                "ESP": false,
+                "PARTUUID": "a3d73312-10aa-4920-b4bd-9a6c68b7c9df",
+                "boot": false,
+                "encrypted": false,
+                "filesystem": {
+                    "format": "ext4"
+                },
+                "mountpoint": null,
+                "size": 32768,
+                "start": 1332623360,
+                "type": "primary",
+                "wipe": false
+            },
+            {
+                "ESP": false,
+                "PARTUUID": "EAEEDEF9EEDEBCCF",
+                "boot": false,
+                "encrypted": false,
+                "filesystem": {
+                    "format": "ntfs"
+                },
+                "mountpoint": null,
+                "size": 666343424,
+                "start": 1332656128,
+                "type": "primary",
+                "wipe": false
+            },
+            {
+                "ESP": false,
+                "PARTUUID": "8E32E03132E02047",
+                "boot": false,
+                "encrypted": false,
+                "filesystem": {
+                    "format": "ntfs"
+                },
+                "mountpoint": null,
+                "size": 1406976,
+                "start": 1998999552,
+                "type": "primary",
+                "wipe": false
+            }
+        ]
+    }
+}
