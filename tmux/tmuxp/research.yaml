@@ -17,7 +17,7 @@ windows:
 
   - window_name: papers
     layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/citado/papers
+    start_directory: ~/Sync/papers
     panes:
       - shell: bash
       - shell: bash
