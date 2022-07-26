@@ -14,6 +14,7 @@ main() {
 	doi=${1#"https://doi.org/"}
 
 	echo "sending request for $doi"
+	echo
 
 	curl -# -L -H "Accept: application/x-bibtex; charset=utf-8" "https://doi.org/$doi"
 }
