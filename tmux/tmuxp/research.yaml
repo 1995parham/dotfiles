@@ -28,3 +28,10 @@ windows:
     panes:
       - pane
       - pane
+
+  - window_name: aoi-optimization
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/citado/aoi-optimization
+    panes:
+      - pane
+      - pane
