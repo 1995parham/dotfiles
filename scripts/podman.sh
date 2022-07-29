@@ -23,7 +23,7 @@ usage() {
 }
 
 main_apt() {
-	return 1
+	sudo apt install podman podman-docker containers-storage
 }
 
 main_brew() {
