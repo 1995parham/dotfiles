@@ -22,6 +22,9 @@ return require('packer').startup(function()
   -- vim support for editing fish scripts
   use {'dag/vim-fish'}
 
+  -- jinja plugins for vim (syntax and indent)
+  use {'lepture/vim-jinja'}
+
   -- an alternative sudo.vim for vim and neovim
   use {'lambdalisue/suda.vim'}
 
