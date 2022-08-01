@@ -40,7 +40,7 @@ main_brew() {
 
 main_pacman() {
 	msg "install podman-compose / podman with pacman"
-	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname fuse-overlayfs netavark
+	sudo pacman -Syu --noconfirm --needed podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname fuse-overlayfs netavark aardvark-dns
 
 	msg "install hadolint/hadolint with yay"
 	yay -Syu --needed --noconfirm hadolint-bin
