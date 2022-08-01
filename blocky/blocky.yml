@@ -44,13 +44,9 @@ blocking:
   # definition of blacklist groups. Can be external link (http/https) or local file
   blackLists:
     ads:
-      - https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
-      - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+      - http://sbc.io/hosts/hosts
     special:
-      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts
-      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts
-      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
-      - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts
+      - http://sbc.io/hosts/alternates/fakenews-gambling-porn-social/hosts
   whiteLists:
     special:
       - |
