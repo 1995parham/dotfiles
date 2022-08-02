@@ -44,9 +44,9 @@ blocking:
   # definition of blacklist groups. Can be external link (http/https) or local file
   blackLists:
     ads:
-      - http://sbc.io/hosts/hosts
+      - /opt/hosts/hosts
     special:
-      - http://sbc.io/hosts/alternates/fakenews-gambling-porn-social/hosts
+      - /opt/hosts/alternates/fakenews-gambling-porn-social/hosts
   whiteLists:
     special:
       - |
