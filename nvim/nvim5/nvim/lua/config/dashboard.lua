@@ -9,7 +9,7 @@ db.custom_header = {
   '██░██▄▀▀░█▄▀▀░█▄▄▀█░▀▀░█░▀▀░█░▀▀▄█░▄▄░█░▀▀░█░█▄█░',
   '█▀░▀██▀▀▄██▀▀▄█▀▀▄█░████▄██▄█▄█▄▄█▄██▄█▄██▄█▄███▄',
   '▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀',
-  'neovim ' .. version.major .. '.' .. version.minor .. '.' .. version.patch,
+  string.format('neovim %d.%d.%d', version.major, version.minor, version.patch),
   vim.fn.strftime('%c') .. ' on ' .. vim.fn.hostname(),
   '',
   '',
