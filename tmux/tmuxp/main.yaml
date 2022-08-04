@@ -7,7 +7,7 @@ windows:
     panes:
       - pane
       -
-        start_directory: ~/dotfiles
+        start_directory: ~/.config/nvim/
       -
         start_directory: ~/Documents/Git/parham/keys
       -
