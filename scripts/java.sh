@@ -43,3 +43,7 @@ main_brew() {
 	msg "install scala because of the queen"
 	brew install openjdk sbt
 }
+
+main() {
+	proxy_start && nvim '+MasonInstall jdtls' --headless +qall && proxy_stop
+}
