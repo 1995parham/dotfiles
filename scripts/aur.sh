@@ -27,7 +27,7 @@ main() {
 		"mprocs"
 		"gotz"
 		"scitopdf-git"
-    "jira-cli"
+		"jira-cli"
 		#		"litmusctl-bin"
 	)
 
