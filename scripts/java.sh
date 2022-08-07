@@ -33,7 +33,8 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm jdk17-openjdk gradle maven
+	msg 'queen required java 11 for spark and scala'
+	sudo pacman -Syu --needed --noconfirm jdk11-openjdk gradle maven
 	msg "install scala because of the queen"
 	sudo pacman -Syu --needed --noconfirm sbt
 	# yay -Syu --needed --noconfirm apache-spark
