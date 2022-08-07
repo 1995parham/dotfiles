@@ -67,6 +67,7 @@ go-install-packages() {
 
 	# hash nvim &>/dev/null && nvim +GoUpdateBinaries --headless +qall
 	# echo
+	nvim '+MasonInstall gopls gofumpt' --headless +qall
 
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
