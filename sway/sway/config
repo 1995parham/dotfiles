@@ -226,8 +226,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # bindswitch lid:on output * dpms off
 # bindswitch lid:off output * dpms on
 
-# bindgesture swipe:right workspace prev
-# bindgesture swipe:left workspace next
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+r reload; exec "notify-send reloaded"
