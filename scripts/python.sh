@@ -13,12 +13,11 @@ packages=(
 	pep8-naming
 	pipenv
 	poetry
-	mypy
+	# mypy
 	black
 	'python-language-server[all]'
 	pyls-mypy
-	pylint
-	poetry
+	# pylint
 	'isort[pipfile_deprecated_finder]'
 	ipython
 	numpy
