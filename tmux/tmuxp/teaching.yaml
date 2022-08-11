@@ -3,21 +3,21 @@ session_name: Teaching
 windows:
   - window_name: ie-lecture
     layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/cng-by-example/ie-lecture
+    start_directory: ~/Documents/Git/parham/1995parham-teaching/ie-lecture
     panes:
       - pane
       - pane
 
   - window_name: c-lecture
     layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/cng-by-example/c-lecture
+    start_directory: ~/Documents/Git/parham/1995parham-teaching/c-lecture
     panes:
       - pane
       - pane
 
   - window_name: go-lecture
     layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/cng-by-example/go-lecture
+    start_directory: ~/Documents/Git/parham/1995parham-teaching/go-lecture
     panes:
       - pane
       - pane
