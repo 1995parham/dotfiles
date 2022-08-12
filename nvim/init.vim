@@ -328,11 +328,6 @@ Plug '1995parham/vim-header', { 'do': ':UpdateRemotePlugins' }
 " which works great in freeip based servers
 Plug 'lambdalisue/suda.vim'
 
-" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
-if executable('node')
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
-
 " Add plugins to &runtimepath
 call plug#end()
 
