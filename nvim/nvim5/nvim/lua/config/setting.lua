@@ -1,10 +1,10 @@
-vim.o.syntax = 'on'
+vim.o.syntax = "on"
 
 --- uft-8 encoding
-vim.o.encoding = 'utf-8'
+vim.o.encoding = "utf-8"
 
 -- Correct delete key in OSX
-vim.o.backspace = 'eol,start,indent'
+vim.o.backspace = "eol,start,indent"
 
 vim.o.autoindent = true
 vim.o.smartindent = true
@@ -24,7 +24,7 @@ vim.o.expandtab = true
 -- gives the end-of-line (<EOL>) formats that will be tried when
 -- starting to edit a new buffer and when reading a file into an existing
 -- buffer.
-vim.o.fileformats = 'unix,dos'
+vim.o.fileformats = "unix,dos"
 
 -- number of spaces that a <Tab> in the file counts for.
 vim.o.tabstop = 2
@@ -37,17 +37,19 @@ vim.o.shiftwidth = vim.bo.tabstop
 vim.bo.softtabstop = vim.bo.tabstop
 vim.o.softtabstop = vim.bo.tabstop
 
-if vim.fn.has('termguicolors') == 1 then vim.o.termguicolors = true end
+if vim.fn.has("termguicolors") == 1 then
+	vim.o.termguicolors = true
+end
 
 -- autoload files that have changed outside of vim
 vim.o.autoread = true
 
 -- highlight tailing whitespace
-vim.o.listchars = 'trail:·'
+vim.o.listchars = "trail:·"
 
 -- markers are used to specify folds by default
-vim.wo.foldmethod = 'marker'
+vim.wo.foldmethod = "marker"
 
 -- quickfix-window commands respect the switchbuf option when creating the buffer.
 -- http://vimdoc.sourceforge.net/htmldoc/options.html#%27switchbuf%27
-vim.o.switchbuf = vim.o.switchbuf .. ',usetab,newtab'
+vim.o.switchbuf = vim.o.switchbuf .. ",usetab,newtab"
