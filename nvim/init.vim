@@ -194,9 +194,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" vim dashboard
-Plug 'glepnir/dashboard-nvim'
-
 " wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 Plug 'tpope/vim-endwise'
 
