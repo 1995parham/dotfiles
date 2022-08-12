@@ -147,15 +147,6 @@ return require("packer").startup(function(use)
 		after = { "coc.nvim", "nvim-treesitter" },
 	})
 
-	-- a file explorer tree for neovim written in lua
-	use({
-		"kyazdani42/nvim-tree.lua",
-		config = function()
-			require("config/tree")
-		end,
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-
 	-- vimtex: a modern vim and neovim filetype plugin for latex files.
 	use("lervag/vimtex")
 
