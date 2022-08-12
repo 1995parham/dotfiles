@@ -27,9 +27,9 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using thi
 
 ## Installation
 
-![Compatibiliy](https://img.shields.io/badge/works%20on-macos-white?logo=macos&style=for-the-badge)
-![Compatibiliy](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge)
-![Compatibiliy](https://img.shields.io/badge/works%20on-arch-blue?logo=archlinux&style=for-the-badge)
+![Compatibility](https://img.shields.io/badge/works%20on-macos-white?logo=macos&style=for-the-badge)
+![Compatibility](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge)
+![Compatibility](https://img.shields.io/badge/works%20on-arch-blue?logo=archlinux&style=for-the-badge)
 
 The following command creates a basic directory structure and clones the _dotfiles_ repository:
 
@@ -37,13 +37,14 @@ The following command creates a basic directory structure and clones the _dotfil
 curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/main/over-the-air-installation.sh | bash
 ```
 
-Install required softwares with pacman/brew.
+Install required tools with `pacman`, `brew` or `apt`.
 
 ```sh
 ./start.sh env
 ```
 
-Install configuration files with soft-links. This script also sets the zsh as a default shell and installs plugins on neovim and vim.
+Install configuration files with soft-links and installs plugins on neovim and vim.
+This script don't set the `zsh` as a default shell.
 
 ```sh
 ./install.sh
