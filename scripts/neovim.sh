@@ -1,18 +1,10 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : sample.sh
-#
-# [] Creation Date : 17-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 # shellcheck disable=2034
 dependencies="node shell"
 
 usage() {
-	echo -n 'install edge version of neovim and general checkers/linters'
+	echo -n 'install edge version of neovim with nodejs, lua and pip'
 	# shellcheck disable=1004
 	echo '
                        _
@@ -29,10 +21,27 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed neovim python-pynvim
+	require_pacman python-pynvim
+	require_aur neovim-git
 }
 
 main_brew() {
 	brew install neovim
 	python3 -mpip install pynvim
+}
+
+main() {
+	if [ -d "$HOME/.config/nvim" ]; then
+		cd "$HOME/.config/nvim" || return
+
+		url=$(git remote get-url origin 2>/dev/null)
+		if [[ "$url" =~ .*github.com[:/]1995parham/elievim ]]; then
+			msg 'valid repository, so fetching it'
+			git pull origin main
+		else
+			msg "invalid repository $url"
+		fi
+	else
+		git clone git@github.com:1995parham/elievim ~/.config/nvim
+	fi
 }

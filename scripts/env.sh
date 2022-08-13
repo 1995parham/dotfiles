@@ -1,14 +1,7 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : env.sh
-#
-# [] Creation Date : 07-01-2017
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
+
 usage() {
-	echo -n "installs required packages"
+	echo -n "installs required packages for having a working system"
 	echo '
   ___ _ ____   __
  / _ \ |_ \ \ / /

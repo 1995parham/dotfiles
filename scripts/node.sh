@@ -1,14 +1,7 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : node.sh
-#
-# [] Creation Date : 22-11-2016
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
+
 usage() {
-	echo "install nodejs, remembers neovim-coc always needs nodejs"
+	echo "install nodejs, remembers language-servers must of the time needs nodejs"
 	# shellcheck disable=1004
 	echo '
                  _
@@ -34,7 +27,7 @@ main_apt() {
 
 main_pacman() {
 	message "node" "install node with pacman"
-	sudo pacman -Syu --noconfirm --needed nodejs npm
+	require_pacman nodejs npm
 }
 
 main() {
