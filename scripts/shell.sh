@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : shell.sh
-#
-# [] Creation Date : 14-04-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo -n "write shell scripts with confidence"
+	echo -n "write shell scripts with confidence using shfmt and shellcheck"
 	echo '
      _          _ _
  ___| |__   ___| | |
@@ -21,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm shfmt shellcheck
+	require_pacman shfmt shellcheck
 }
 
 main_brew() {

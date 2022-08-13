@@ -21,7 +21,7 @@ main_apt() {
 }
 
 main_pacman() {
-	require_pacman python-pynvim
+	require_pacman python-pynvim luarocks
 	require_aur neovim-git
 }
 
@@ -40,6 +40,14 @@ main() {
 			git pull origin main
 		else
 			msg "invalid repository $url"
+
+			read -r -p "[neovim] do you want to remove current neovim configuration?[Y/n] " -n 1 yes
+			echo
+			if [[ $yes == "Y" ]]; then
+				msg 'removing current configuration to replace it with new configuration'
+				rm -Rf ~/.config/nvim
+				git clone git@github.com:1995parham/elievim ~/.config/nvim
+			fi
 		fi
 	else
 		git clone git@github.com:1995parham/elievim ~/.config/nvim
