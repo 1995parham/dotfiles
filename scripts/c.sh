@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : c.sh
-#
-# [] Creation Date : 25-09-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "clang, cmake without prof.bakhshi :("
@@ -21,7 +13,7 @@ usage() {
 
 main_pacman() {
 	msg 'install clang and clangd'
-	sudo pacman -Syu --needed --noconfirm clang cmake valgrind meson bear
+	require_pacman clang cmake valgrind meson bear
 }
 
 main_brew() {

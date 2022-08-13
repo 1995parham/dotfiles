@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : conda.sh
-#
-# [] Creation Date : 25-05-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n -e "conda for machine learning"
@@ -22,8 +14,21 @@ usage() {
   '
 }
 
+main_pacman() {
+	return 0
+}
+
+main_apt() {
+	return 0
+}
+
+main_brew() {
+	return 0
+}
+
 install-miniconda() {
 	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+
 	bash "$HOME/miniconda3/miniconda.sh" -b -u -p "$HOME/miniconda3"
 	rm "$HOME/miniconda3/miniconda.sh"
 }
