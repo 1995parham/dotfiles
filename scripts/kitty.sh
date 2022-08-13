@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : kitty.sh
-#
-# [] Creation Date : 23-05-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n 'full-flagged terminal'
@@ -26,7 +18,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm kitty
+	require_pacman kitty
 }
 
 main_brew() {

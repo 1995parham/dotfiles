@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : khal.sh
-#
-# [] Creation Date : 12-04-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "console carddav client"
@@ -20,19 +12,12 @@ usage() {
   '
 }
 
-main_brew() {
-	return 1
-}
-
-main_apt() {
-	return 1
-}
-
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed khal
+	require_pacman khal
 }
 
 main() {
 	configfile khal config
+
 	git clone git@github.com:parham-alvani/calendar.git "$HOME/Documents/Git/parham/parham-alvani/calendar" || true
 }
