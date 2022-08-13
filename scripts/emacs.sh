@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : emacs.sh
-#
-# [] Creation Date : 06-12-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo "emacs with bidirectional support"
+	echo "emacs with doom and bidirectional support"
 	# shellcheck disable=2016,1004
 	echo '
   ___ _ __ ___   __ _  ___ ___
@@ -46,24 +38,26 @@ main_apt() {
 }
 
 main_pacman() {
-	msg "install emacs/ripgre with pacman"
-	sudo pacman -Syu --noconfirm --needed emacs-nativecomp ripgrep aspell aspell-en fd
+	require_pacman emacs-nativecomp ripgrep aspell aspell-en fd
 }
 
 main() {
 	configfile doom "" emacs
 
 	mkdir -p "$HOME/.config"
+
 	if [ -d "$HOME/.config/emacs" ]; then
 		read -r -p "[emacs] do you want to install doom emacs?[Y/n] " -n 1 install
 
 		if [[ $install == "Y" ]]; then
+			msg 'removing doom'
 			rm -Rf "$HOME/.config/emacs"
 		fi
 	fi
 
 	git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs || true
 
+	msg 'install, sync and upgrade doom with proxy'
 	proxy_start
 	export no_proxy="github.com"
 	"$HOME/.config/emacs/bin/doom" install
@@ -72,7 +66,8 @@ main() {
 	proxy_stop
 
 	if [[ "$USER" == "parham" ]]; then
-		msg "hello master parham"
+		msg "hello parham, clone your private repositories"
+
 		[ ! -d "$HOME/org" ] && git clone git@github.com:parham-alvani/notes "$HOME/org"
 		[ ! -d "$HOME/tasks" ] && git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
 	fi

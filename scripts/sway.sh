@@ -20,68 +20,62 @@ usage() {
   '
 }
 
-main_brew() {
-	return 1
-}
-
-main_apt() {
-	return 1
-}
-
 main_pacman() {
 	current_dir=${current_dir:?"current_dir must be set"}
 
-	msg 'sway'
-	sudo pacman -Syu --noconfirm --needed sway swaylock swayidle waybar grim xdg-user-dirs wl-clipboard
+	msg 'install and configure sway, swaylock and waybar'
+	require_pacman sway swaylock swayidle waybar grim xdg-user-dirs wl-clipboard
 	configfile sway "" sway
 	configfile swaylock "" sway
 	configfile waybar "" sway
 
-	msg 'set background image with ease'
-	yay -Syu --noconfirm --needed wpaperd-git
+	msg 'you can install sway-git with wlroots-git in the futureu'
+
+	msg 'set background image with wpaperd'
+	require_aur wpaperd-git
 	configfile wpaperd "" sway
 
 	msg 'better sway with more keys [brightnessctl]'
-	sudo pacman -Syu --noconfirm --needed brightnessctl
+	require_pacman brightnessctl
 
 	msg 'required freedesktop services'
-	sudo pacman -Syu --noconfirm --needed upower rtkit
+	require_pacman upower rtkit
 
-	msg 'featurerich screenshot tool'
-	sudo pacman -Syu --noconfirm --needed flameshot
+	msg 'feature rich screenshot tool'
+	require_pacman flameshot
 
-	msg 'gtk theme'
-	yay -Syu --noconfirm --needed matcha-gtk-theme
+	msg 'gtk3 theme'
+	require_aur matcha-gtk-theme
 	configfile gtk-3.0 settings.ini sway
 
 	msg 'qt support'
-	sudo pacman -Syu --noconfirm --needed qt5-wayland
+	require_pacman qt5-wayland
 
-	msg 'x11/wayland image viewer'
-	sudo pacman -Syu --noconfirm --needed imv
+	msg 'imv as image viewer (not working with sway-git)'
+	require_pacman imv
 
-	msg 'pdf viewer'
-	sudo pacman -Syu --noconfirm --needed mupdf
+	msg 'mupdf as pdf viewer'
+	require_pacman mupdf
 
 	msg 'notification with dunst'
-	sudo pacman -Syu --noconfirm --needed dunst libnotify
+	require_pacman dunst libnotify
 	configfile dunst "" sway
 
-	msg 'backgrounds with swaybg'
-	sudo pacman -Syu --noconfirm --needed swaybg
+	# msg 'backgrounds with swaybg'
+	# require_pacman swaybg
 
 	msg 'configure fuzzel as an another application luncher'
-	sudo pacman -Syu --noconfirm --needed fuzzel
+	require_pacman fuzzel
 
 	msg 'we are going to have sound'
-	sudo pacman -Syu --noconfirm --needed pulsemixer easyeffects
+	require_pacman pulsemixer easyeffects
 
-	msg 'configure the dmenu, default application luncher on manjaro i3 days'
+	msg 'configure the dmenu, default application luncher from manjaro i3 days'
 	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
-	sudo pacman -Syu --noconfirm --needed gnome-keyring seahorse
+	require_pacman gnome-keyring seahorse
 	dotfile sway profile
 	mkdir -p "$HOME/.gnupg"
 	linker gnupg "$current_dir/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
