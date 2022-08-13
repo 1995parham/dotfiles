@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : header.sh
-#
-# [] Creation Date : 24-03-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 # shellcheck disable=1004
 echo '

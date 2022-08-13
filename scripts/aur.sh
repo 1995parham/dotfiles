@@ -1,14 +1,19 @@
 #!/bin/bash
 
 usage() {
-	echo -n "1995parham's aur packages"
+	echo -n "aur's packages maintain by 1995parham"
 
 	echo '
   __ _ _   _ _ __
  / _| | | | | |__|
 | (_| | |_| | |
  \__,_|\__,_|_|
-'
+
+  '
+}
+
+main_pacman() {
+	return 0
 }
 
 main() {
@@ -35,7 +40,7 @@ main() {
 		if [ ! -d "$HOME/Documents/Git/parham/aur/$pkg" ]; then
 			git clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur/$pkg"
 		else
-			echo "$pkg is already exists"
+			msg "$pkg is already exists"
 		fi
 	done
 }

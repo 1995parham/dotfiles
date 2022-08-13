@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : linker.sh
-#
-# [] Creation Date : 24-03-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 current_dir=${current_dir:?"current_dir must be set"}
 yes_to_all=${yes_to_all:-false}
@@ -14,7 +6,7 @@ yes_to_all=${yes_to_all:-false}
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
 # parameter 2: file name - string
-# parameter 3 [default = true]: is hidden file (starts with dot) - bool
+# parameter 3 [default = true]: add dot into the destination file (consider it as hidden)
 dotfile() {
 	local module=$1
 	local file=$2
@@ -42,8 +34,8 @@ dotfile() {
 # parameter 3: directory - string - optional
 configfile() {
 	local module=$1
-	local src_file=$2
-	local src_dir=$3
+	local src_file=${2:-""}
+	local src_dir=${3:-""}
 
 	if [ ! -e "$HOME/.config" ]; then
 		mkdir "$HOME/.config"
@@ -93,7 +85,7 @@ linker() {
 
 		if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
 			rm -R "$dst_path"
-			message "$module" "$dst_path is removed successfully"
+			action "$module" "$dst_path is removed successfully"
 		else
 			create_link=false
 		fi
@@ -101,7 +93,7 @@ linker() {
 
 	if $create_link; then
 		ln -s "$src_path" "$dst_path"
-		message "$module" "Symbolic link created successfully from $src_path to $dst_path"
+		action "$module" "Symbolic link created successfully from $src_path to $dst_path"
 	fi
 }
 
@@ -114,7 +106,7 @@ linker() {
 configrootfile() {
 	local module=$1
 	local src_file=$2
-	local src_dir=$3
+	local src_dir=${3:-""}
 
 	if [ ! -e "$HOME/.config" ]; then
 		mkdir "$HOME/.config"
@@ -138,7 +130,7 @@ configrootfile() {
 configsystemd() {
 	local module=$1
 	local src_file=$2
-	local src_dir=$3
+	local src_dir=${3:-""}
 
 	if [ ! -e "$HOME/.config/systemd/user" ]; then
 		mkdir -p "$HOME/.config/systemd/user"
