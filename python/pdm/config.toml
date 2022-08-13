@@ -1,0 +1,7 @@
+[python]
+use_pyenv = true
+use_venv = false
+
+[vnev]
+backend = "virtualenv"
+in_project = true
