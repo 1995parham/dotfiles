@@ -4,7 +4,7 @@ packages=(
 	flake8
 	pep8-naming
 	pipenv
-	poetry
+	# poetry
 	pdm
 	black
 	ipython
