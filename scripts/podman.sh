@@ -40,7 +40,7 @@ main_pacman() {
 	configfile dive "" podman
 	configfile containers "" podman
 
-	msg "rootless podman"
+	msg "configure sub-gid and sub-uid"
 	sudo touch /etc/subuid
 	sudo touch /etc/subgid
 	sudo usermod --add-subuids 200000-210000 --add-subgids 200000-210000 parham
