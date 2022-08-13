@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : sample.sh
-#
-# [] Creation Date : 17-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo -n "rust programming language with rustup"
+	echo -n "rust programming language install by rustup"
 	echo '
                 _
  _ __ _   _ ___| |_
@@ -21,11 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm rustup
-}
-
-main_apt() {
-	return 1
+	require_pacman rustup
 }
 
 main_brew() {
@@ -46,12 +34,14 @@ main_brew() {
 }
 
 main() {
-	msg "install the stable toolchain as default"
+	msg "install the stable toolchain and select it as default"
 	rustup toolchain install stable
 	rustup default stable
 
+	msg 'install cargo plugins'
 	cargo install cargo-edit cargo-expand
 
+	msg 'install rustup plugins'
 	rustup component add clippy
 	rustup component add rustfmt
 	rustup component add rls rust-analysis rust-src
