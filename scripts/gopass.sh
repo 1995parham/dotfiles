@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : gopass.sh
-#
-# [] Creation Date : 05-08-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo "gopass is here"
+	echo "gopass for managing passwords"
 	# shellcheck disable=1004,2016
 	echo '
   __ _  ___  _ __   __ _ ___ ___
@@ -30,7 +22,7 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman --noconfirm --needed -Syu gopass gnupg rng-tools gopass-jsonapi
+	require_pacman gopass gnupg rng-tools gopass-jsonapi
 }
 
 gopass-upstall() {

@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : sample.sh
-#
-# [] Creation Date : 17-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo "def, a free dictionary in terminal"
+	echo "def, a free oxford dictionary (based on stardict) in terminal"
 	echo '
      _       __
   __| | ___ / _|
@@ -21,8 +13,8 @@ usage() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm sdcv
-	yay -Syu --needed --noconfirm stardict-oald
+	require_pacman sdcv
+	require_aur stardict-oald
 }
 
 main_brew() {
