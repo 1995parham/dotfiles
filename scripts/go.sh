@@ -1,12 +1,5 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : go.sh
-#
-# [] Creation Date : 07-01-2017
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
+
 usage() {
 	echo -n "setup working environment for go with neovim + fatih/vim-go"
 	# shellcheck disable=1004
@@ -28,14 +21,13 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm go
-	# yay -Syu goreleaser-bin
+	require_pacman go
 }
 
 main() {
 	msg "$(go version)"
 
-	msg "create go directory structure"
+	msg "create go directories structure"
 	local gopath
 	gopath=$HOME/.cache/go
 	[ -d "$gopath/pkg" ] || mkdir -p "$gopath/pkg"
@@ -52,24 +44,25 @@ main() {
 	go env -w GONOSUMDB="gitlab.snapp.ir"
 	go env -w GOPRIVATE="gitlab.snapp.ir"
 
+	go env
+
 	go-install-packages
+}
+
+go-install-package() {
+	local pkg=$1
+	msg "install latest version of $pkg"
+	go install "$pkg@latest"
 }
 
 go-install-packages() {
 	msg "fetch some good and useful go packages"
 
-	# Go Tools
-	msg "go tools"
+	go-install-package github.com/yoheimuta/protolint/cmd/protolint
+	go-install-package github.com/golangci/golangci-lint/cmd/golangci-lint
+	go-install-package mvdan.cc/gofumpt
+	go-install-package golang.org/x/tools/cmd/goimports
+	go-install-package golang.org/x/tools/gopls
 
-	go install github.com/yoheimuta/protolint/cmd/protolint@latest
-
-	# msg "install binary requirements of vim-go"
-
-	# hash nvim &>/dev/null && nvim +GoUpdateBinaries --headless +qall
-	# echo
-	nvim '+MasonInstall gopls gofumpt' --headless +qall
-
-	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-
-	msg "golangci-lint $(golangci-lint --version)"
+	msg "golangci-lint $(golangci-lint version)"
 }

@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : gotz.sh
-#
-# [] Creation Date : 12-04-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo "CLI timezone info"
+	echo "timezone info in cli for working remotely"
 	# shellcheck disable=2016
 	echo '
              _
@@ -21,18 +13,10 @@ usage() {
   '
 }
 
-main_brew() {
-	return 1
-}
-
-main_apt() {
-	return 1
-}
-
 main_pacman() {
-	yay -Syu --noconfirm --needed gotz
+	require_aur gotz
 }
 
 main() {
-	configfile gotz config.json
+	configfile gotz
 }
