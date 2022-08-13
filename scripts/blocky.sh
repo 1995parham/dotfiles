@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -e "Fast and lightweight DNS proxy as ad-blocker for local network with many features"
+	echo -e "fast and lightweight dns proxy as ad-blocker for local network with many features"
 
 	# shellcheck disable=1004,2016
 	echo '
@@ -11,27 +11,21 @@ usage() {
 | |_) | | (_) | (__|   <| |_| |
 |_.__/|_|\___/ \___|_|\_\\__, |
                          |___/
+
   '
 }
 
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
-}
-
 main_pacman() {
-	current_dir=${current_dir:?"current_dir must be set"}
-
-	yay -Syu blocky
-}
-
-main_brew() {
-	msg "there is nothing that we can do"
-	return 1
+	require_aur blocky
 }
 
 main() {
+	current_dir=${current_dir:?"current_dir must be set"}
+
+	msg 'create configuration on /etc/blocky.yml by copying it'
 	sudo cp "$current_dir/blocky/blocky.yml" /etc/blocky.yml
 
-	sudo git clone "https://github.com/StevenBlack/hosts.git" /opt/hosts || (cd "/opt/hosts" && sudo git pull)
+	msg 'clone StevenBlack hosts from github to start blocky fast'
+	sudo git clone "https://github.com/StevenBlack/hosts.git" /opt/hosts 2>/dev/null ||
+		(cd "/opt/hosts" && sudo git pull)
 }

@@ -11,7 +11,7 @@ function require_pacman() {
 }
 
 function require_aur() {
-	running "require" "pacman $1"
+	running "require" "arch users repository $1"
 	if ! pacman -Qi "$1" >/dev/null 2>&1; then
 		action "require" "yay -Sy $1"
 		yay -Sy --noconfirm "$pkg"

@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : browser.sh
-#
-# [] Creation Date : 01-12-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo "browsers for daily use, we believe in firefox"
+	echo "install firefox, firefox-developer-edition and tridactyl configuration"
 	echo '
  _
 | |__  _ __ _____      _____  ___ _ __
@@ -25,22 +17,18 @@ main_brew() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed firefox w3m firefox-developer-edition
+	require_pacman firefox w3m firefox-developer-edition
 
+	msg 'set default browser using xdg-settings'
 	bash xdg-settings set default-web-browser firefox.desktop
 
-	# msg 'nyxt - the internet on your terms'
-	# yay -Syu --noconfirm --needed nyxt
-}
-
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
+	msg 'nyxt - the internet on your terms'
+	require_pacman nyxt
 }
 
 main() {
-	# configfile nyxt
-	msg "please install the native tridactyl from its normal mode"
+	configfile nyxt
 
+	msg "install tridactyl by running :installnative in firefox normal mode"
 	configfile tridactyl "" firefox
 }
