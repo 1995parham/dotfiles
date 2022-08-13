@@ -13,7 +13,7 @@ function require_pacman() {
 function require_aur() {
 	for pkg in "$@"; do
 		running "require" "arch users repository $pkg"
-		if ! pacman -Qi "$pkg" >/dev/null 2>&1; then
+		if (! pacman -Qi "$pkg" >/dev/null 2>&1) || [[ "$pkg" =~ .*-git ]]; then
 			action "require" "yay -Sy $pkg"
 			yay -Sy --noconfirm "$pkg"
 		fi
