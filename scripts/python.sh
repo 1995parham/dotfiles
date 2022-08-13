@@ -1,30 +1,13 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : python.sh
-#
-# [] Creation Date : 22-11-2016
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
 
 packages=(
 	flake8
 	pep8-naming
 	pipenv
 	poetry
-	# mypy
+	pdm
 	black
-	'python-language-server[all]'
-	pyls-mypy
-	# pylint
-	'isort[pipfile_deprecated_finder]'
 	ipython
-	numpy
-	matplotlib
-	pandas
-
-	pynvim
 )
 
 usage() {
@@ -37,25 +20,27 @@ usage() {
 | |_) | |_| | |_| | | | (_) | | | |
 | .__/ \__, |\__|_| |_|\___/|_| |_|
 |_|    |___/
-  '
-}
 
-main_brew() {
-	return 0
+  '
 }
 
 main_apt() {
 	return 0
 }
 
+main_brew() {
+	return 0
+}
+
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm python python-pip
-	# update pip to work with python 3.10
-	sudo python -mpip install -U pip
+	require_pacman python python-pip
+
+	msg "update user-local version of pip"
+	python -mpip install --user -U pip
 }
 
 python-install-package() {
-	if python3 -mpip install -U "$1"; then
+	if python -mpip install --user -U "$1"; then
 		msg "$1 installation succeeded"
 	else
 		msg "$1 installation failed"
@@ -63,7 +48,8 @@ python-install-package() {
 }
 
 python-install-packages() {
-	message "python" "fetch some good and useful python packages"
+	msg "install user-local packages"
+	msg "these package generally are there for dependency management"
 
 	for package in "${packages[@]}"; do
 		python-install-package "$package"
@@ -71,9 +57,13 @@ python-install-packages() {
 }
 
 main() {
+	msg "configuration ipython for having better experience"
+
 	current_dir=${current_dir:?"current_dir must be set"}
 
 	mkdir -p "$HOME/.ipython/profile_default"
-	linker python3 "$current_dir/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
+	linker "python" "$current_dir/python/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
+	configfile pdm "" python
+
 	python-install-packages
 }
