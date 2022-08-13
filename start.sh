@@ -1,14 +1,8 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : start.sh
-#
-# [] Creation Date : 17-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
+
 # https://stackoverflow.com/questions/3822621/how-to-exit-if-a-command-failed
-set -e
+set -eu
+set -o pipefail
 
 # global variable that points to dotfiles root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -18,6 +12,8 @@ source "$current_dir/scripts/lib/message.sh"
 source "$current_dir/scripts/lib/proxy.sh"
 # shellcheck source=scripts/lib/linker.sh
 source "$current_dir/scripts/lib/linker.sh"
+# shellcheck source=scripts/lib/require.sh
+source "$current_dir/scripts/lib/require.sh"
 
 # start.sh
 program_name=$0
@@ -41,6 +37,7 @@ _usage() {
 
 _main() {
 	## global variables ##
+	######################
 
 	# global variable indicates force in specific script and runs script with root
 	local force=false
@@ -54,6 +51,8 @@ _main() {
 
 	# as_dependency shows that this start.sh is going to install a dependency
 	local as_dependency=false
+
+	######################
 
 	# parses options flags
 	while getopts 'fdhy' argv; do
@@ -166,29 +165,27 @@ _dependencies() {
 run() {
 	install
 
-	# run the script
 	if declare -f main >/dev/null; then
 		main "$@"
-	else
-		msg "main not found"
 	fi
 }
 
 install() {
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		msg "darwin with brew (osx?)"
+		msg "darwin, using brew"
 
 		if declare -f main_brew >/dev/null; then
 			main_brew
 		else
-			msg "main_brew not found"
+			msg "main_brew not found, there is nothing to do"
+			exit
 		fi
 
 		return
 	fi
 
 	if [[ "$(command -v brew)" ]]; then
-		msg "linux with brew (ubuntu?)"
+		msg "linux with brew installed, using brew"
 
 		if declare -f main_brew >/dev/null; then
 			if [ $yes_to_all = true ]; then
@@ -203,30 +200,30 @@ install() {
 				main_brew
 				return
 			fi
-		else
-			msg "main_brew not found"
 		fi
 	fi
 
 	if [[ "$(command -v apt)" ]]; then
-		msg "linux with apt (ubuntu?)"
+		msg "linux with apt installed, using apt"
 
 		if declare -f main_apt >/dev/null; then
 			main_apt
 		else
-			msg "main_apt not found"
+			msg "main_apt not found, there is nothing to do"
+			exit
 		fi
 
 		return
 	fi
 
 	if [[ "$(command -v pacman)" ]]; then
-		msg "linux with pacman (arch!)"
+		msg "linux with pacman installed, using pacman/yay"
 
 		if declare -f main_pacman >/dev/null; then
 			main_pacman
 		else
-			msg "main_pacman not found"
+			msg "main_pacman not found, there is nothing to do"
+			exit
 		fi
 
 		return

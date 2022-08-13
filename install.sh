@@ -124,6 +124,3 @@ for module in "${modules[@]}"; do
 	message "$module" "---"
 	echo
 done
-
-announce "post" "thank you for using Parham Alvani dotfiles ! :)"
-announce "post" "use *r* for reload your zshrc in place"
