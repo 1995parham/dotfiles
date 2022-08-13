@@ -1,15 +1,7 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : sample.sh
-#
-# [] Creation Date : 17-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
-	echo -n -e "sample for using ./start.sh\n"
+	echo -n -e "draw.io desktop application"
 
 	# shellcheck disable=1004,2016
 	echo '
@@ -22,13 +14,8 @@ usage() {
   '
 }
 
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
-}
-
 main_pacman() {
-	yay -Syu drawio-desktop-bin
+	require_aur drawio-desktop-bin
 }
 
 main_brew() {
