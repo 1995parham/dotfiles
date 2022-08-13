@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : java.sh
-#
-# [] Creation Date : 27-09-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n -e "queen needs spark, spark needs java"
@@ -33,10 +25,9 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm jdk17-openjdk gradle maven
+	require_pacman jdk17-openjdk gradle maven
 	msg "install scala because of the queen"
-	sudo pacman -Syu --needed --noconfirm sbt
-	# yay -Syu --needed --noconfirm apache-spark
+	require_pacman sbt
 }
 
 main_brew() {
