@@ -58,7 +58,7 @@ windows:
       -
         start_directory: ~/Documents/Git/parham/parham-alvani/calendar
 
-  - window_name: dotfiles
+  - window_name: howto
     layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-me/howto/sway
     panes:
