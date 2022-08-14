@@ -4,7 +4,7 @@ packages=(
 	flake8
 	pep8-naming
 	pipenv
-	# poetry
+	poetry
 	pdm
 	black
 	ipython
@@ -36,7 +36,7 @@ main_pacman() {
 	require_pacman python python-pip
 
 	msg "update user-local version of pip"
-	python -mpip install --user -U pip
+	python -mpip install --user --pre -U pip
 }
 
 python-install-package() {
