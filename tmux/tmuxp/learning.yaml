@@ -40,13 +40,6 @@ windows:
       - pane
       - pane
 
-  - window_name: elipu
-    layout: even-vertical
-    start_directory: ~/Documents/Git/parham/paralvan/elipu
-    panes:
-      - pane
-      - pane
-
   - window_name: fesghel
     layout: even-vertical
     start_directory: ~/Documents/Git/parham/1995parham/fesghel
