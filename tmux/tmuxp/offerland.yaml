@@ -1,0 +1,11 @@
+---
+session_name: Offerland
+windows:
+  - window_name: root
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/offerland/offerland/root
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
