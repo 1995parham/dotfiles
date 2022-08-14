@@ -6,13 +6,10 @@ set -o pipefail
 
 # global variable that points to dotfiles root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=scripts/lib/message.sh
+# shellcheck source-path=SCRIPTDIR/lib
 source "$current_dir/scripts/lib/message.sh"
-# shellcheck source=scripts/lib/proxy.sh
 source "$current_dir/scripts/lib/proxy.sh"
-# shellcheck source=scripts/lib/linker.sh
 source "$current_dir/scripts/lib/linker.sh"
-# shellcheck source=scripts/lib/require.sh
 source "$current_dir/scripts/lib/require.sh"
 
 # start.sh
