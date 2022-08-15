@@ -60,7 +60,7 @@ install-vim() {
 
 # nvim
 install-nvim() {
-	configfile "nvim"
+	# configfile "nvim"
 	message "nvim" "if you want to use the latest version of neovim checkout elievim"
 }
 
