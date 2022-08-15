@@ -46,10 +46,18 @@ main() {
 			if [[ $yes == "Y" ]]; then
 				msg 'removing current configuration to replace it with new configuration'
 				rm -Rf ~/.config/nvim
-				git clone git@github.com:1995parham/elievim ~/.config/nvim
+				if [ "$USER" = "parham" ]; then
+					git clone git@github.com:1995parham/elievim ~/.config/nvim
+				else
+					git clone https://github.com/1995parham/elievim ~/.config/nvim
+				fi
 			fi
 		fi
 	else
-		git clone git@github.com:1995parham/elievim ~/.config/nvim
+		if [ "$USER" = "parham" ]; then
+			git clone git@github.com:1995parham/elievim ~/.config/nvim
+		else
+			git clone https://github.com/1995parham/elievim ~/.config/nvim
+		fi
 	fi
 }
