@@ -1,13 +1,6 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : install.sh
-#
-# [] Creation Date : 09-07-2016
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
-set -e
+set -eu
+
 program_name=$0
 
 usage() {
@@ -56,12 +49,6 @@ done
 # vim
 install-vim() {
 	dotfile "vim" "vimrc"
-}
-
-# nvim
-install-nvim() {
-	# configfile "nvim"
-	message "nvim" "if you want to use the latest version of neovim checkout elievim"
 }
 
 # configurations
@@ -115,7 +102,7 @@ install-general() {
 }
 
 # calls each module's install function.
-modules=(conf tmux wakatime zsh git vim nvim bin general)
+modules=(conf tmux wakatime zsh git vim bin general)
 for module in "${modules[@]}"; do
 	message "$module" "---"
 	echo
