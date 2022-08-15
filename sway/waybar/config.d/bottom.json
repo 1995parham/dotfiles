@@ -9,7 +9,12 @@
     "idle_inhibitor",
     "custom/love#birthday"
   ],
-  "modules-left": ["custom/date", "custom/jdate", "network#alvani"],
+  "modules-left": [
+    "custom/date",
+    "custom/jdate",
+    "network#alvani",
+    "network#tg"
+  ],
   "modules-right": [
     "network#snapp",
     "network#baly",
@@ -31,6 +36,11 @@
       "disabled": ""
     },
     "tooltip-format": "{}"
+  },
+  "network#tg": {
+    "interface": "tg-*",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
   },
   "network#alvani": {
     "interface": "alvani",
