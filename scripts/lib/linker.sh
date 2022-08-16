@@ -1,6 +1,6 @@
 #!/bin/bash
 
-current_dir=${current_dir:?"current_dir must be set"}
+dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 yes_to_all=${yes_to_all:-false}
 
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
@@ -21,7 +21,7 @@ dotfile() {
 	local src_file="$file"
 
 	local dst_path="$HOME/$dst_file"
-	local src_path="$current_dir/$module/$src_file"
+	local src_path="$dotfiles_root/$module/$src_file"
 
 	linker "$module" "$src_path" "$dst_path"
 }
@@ -42,7 +42,7 @@ configfile() {
 	fi
 
 	if [ -n "$src_file" ]; then
-		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$module/$src_file"
 
 		if [ ! -d "$HOME/.config/$module" ]; then
@@ -50,7 +50,7 @@ configfile() {
 		fi
 	else
 		src_file=$module
-		local src_path="$current_dir${src_dir:+/$src_dir}/$module"
+		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module"
 		local dst_file="$module"
 	fi
 	local dst_path="$HOME/.config/$dst_file"
@@ -113,7 +113,7 @@ configrootfile() {
 	fi
 
 	if [ -n "$src_file" ]; then
-		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$src_file"
 	fi
 	local dst_path="$HOME/.config/$dst_file"
@@ -137,7 +137,7 @@ configsystemd() {
 	fi
 
 	if [ -n "$src_file" ]; then
-		local src_path="$current_dir${src_dir:+/$src_dir}/$module/$src_file"
+		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$src_file"
 	fi
 	local dst_path="$HOME/.config/systemd/user/$dst_file"

@@ -20,10 +20,10 @@ main_pacman() {
 }
 
 main() {
-	current_dir=${current_dir:?"current_dir must be set"}
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
 	msg 'create configuration on /etc/blocky.yml by copying it'
-	sudo cp "$current_dir/blocky/blocky.yml" /etc/blocky.yml
+	sudo cp "$dotfiles_root/blocky/blocky.yml" /etc/blocky.yml
 
 	msg 'clone StevenBlack hosts from github to start blocky fast'
 	sudo git clone "https://github.com/StevenBlack/hosts.git" /opt/hosts 2>/dev/null ||
