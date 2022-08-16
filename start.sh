@@ -4,13 +4,14 @@
 set -eu
 set -o pipefail
 
-# global variable that points to dotfiles root directory
-current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# a global variable that points to dotfiles root directory.
+# it used also in scripts/.
+dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source-path=SCRIPTDIR/lib
-source "$current_dir/scripts/lib/message.sh"
-source "$current_dir/scripts/lib/proxy.sh"
-source "$current_dir/scripts/lib/linker.sh"
-source "$current_dir/scripts/lib/require.sh"
+source "$dotfiles_root/scripts/lib/message.sh"
+source "$dotfiles_root/scripts/lib/proxy.sh"
+source "$dotfiles_root/scripts/lib/linker.sh"
+source "$dotfiles_root/scripts/lib/require.sh"
 
 # start.sh
 program_name=$0
@@ -78,7 +79,7 @@ _main() {
 
 	if [ $as_dependency = false ]; then
 		# shellcheck source=scripts/lib/header.sh
-		source "$current_dir/scripts/lib/header.sh"
+		source "$dotfiles_root/scripts/lib/header.sh"
 	fi
 
 	# handles root user
@@ -104,7 +105,7 @@ _main() {
 	start=$EPOCHSECONDS
 
 	# shellcheck disable=1090
-	source "$current_dir/scripts/$script.sh" 2>/dev/null || {
+	source "$dotfiles_root/scripts/$script.sh" 2>/dev/null || {
 		echo "404 script not found"
 		exit
 	}
@@ -154,7 +155,7 @@ _dependencies() {
 		fi
 
 		for dependency in $dependencies; do
-			"$current_dir/start.sh" "$options" "$dependency"
+			"$dotfiles_root/start.sh" "$options" "$dependency"
 		done
 	fi
 }

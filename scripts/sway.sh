@@ -21,7 +21,7 @@ usage() {
 }
 
 main_pacman() {
-	current_dir=${current_dir:?"current_dir must be set"}
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
 	msg 'install and configure sway, swaylock and waybar'
 	require_pacman sway swaylock swayidle waybar grim xdg-user-dirs wl-clipboard
@@ -71,12 +71,12 @@ main_pacman() {
 	require_pacman pulsemixer easyeffects
 
 	msg 'configure the dmenu, default application luncher from manjaro i3 days'
-	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
+	linker dmenu "$dotfiles_root/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
 	require_pacman gnome-keyring seahorse
 	dotfile sway profile
 	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$current_dir/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	linker gnupg "$dotfiles_root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }

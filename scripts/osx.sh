@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : i3.sh
-#
-# [] Creation Date : 18-11-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "apple osx"
@@ -29,7 +21,7 @@ main_apt() {
 }
 
 main_brew() {
-	current_dir=${current_dir:?"current_dir must be set"}
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
 	# brew install --cask iglance
 
@@ -37,5 +29,5 @@ main_brew() {
 	brew install pinentry-mac
 	brew install --cask gpg-suite-no-mail
 	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$current_dir/osx/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	linker gnupg "$dotfiles_root/osx/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }

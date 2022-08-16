@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : hyprland.sh
-#
-# [] Creation Date : 18-11-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice on its looks."
@@ -30,7 +22,7 @@ main_apt() {
 }
 
 main_pacman() {
-	current_dir=${current_dir:?"current_dir must be set"}
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
 	msg 'hyprland'
 	yay -Syu hyprland-git
@@ -71,12 +63,12 @@ main_pacman() {
 	sudo pacman -Syu --noconfirm --needed pulsemixer easyeffects
 
 	msg 'configure the dmenu, default application luncher on manjaro i3 days'
-	linker dmenu "$current_dir/sway/dmenurc" "$HOME/.dmenurc"
+	linker dmenu "$dotfiles_root/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
 	sudo pacman -Syu --noconfirm --needed gnome-keyring seahorse
 	dotfile sway profile
 	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$current_dir/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	linker gnupg "$dotfiles_root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }

@@ -59,10 +59,10 @@ python-install-packages() {
 main() {
 	msg "configuration ipython for having better experience"
 
-	current_dir=${current_dir:?"current_dir must be set"}
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
 	mkdir -p "$HOME/.ipython/profile_default"
-	linker "python" "$current_dir/python/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
+	linker "python" "$dotfiles_root/python/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
 	configfile pdm "" python
 
 	python-install-packages
