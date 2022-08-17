@@ -1,20 +1,12 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : scripts/lib/proxy.sh
-#
-# [] Creation Date : 24-06-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 proxy_start() {
 	if [[ "$(command -v tput)" ]]; then
 		echo "$(tput setaf 46)[proxy] $(tput setaf 202)setup proxy based on local http proxy which is setup by v2ray$(tput sgr 0)"
-		echo -n "$(tput setaf 46)[proxy] $(tput setaf 202)press enter to continue$(tput sgr 0)"
+		echo "$(tput setaf 46)[proxy] $(tput setaf 202)press enter to continue or anything else to disable it$(tput sgr 0)"
 	else
 		echo -e "\e[38;5;46m[proxy] \e[38;5;202msetup proxy based on local http proxy which is setup by v2ray\e[39m"
-		echo -n -e "\e[38;5;46m[proxy] \e[38;5;202mpress enter to continue\e[39m"
+		echo -e "\e[38;5;46m[proxy] \e[38;5;202mpress enter to continue or anything else to disable it\e[39m"
 	fi
 	read -r accept
 
