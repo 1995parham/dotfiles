@@ -19,7 +19,7 @@ packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 brew_packages=(coreutils k6 inetutils inxi fontconfig wget tmuxp)
 apt_packages=(bmon atop)
 pacman_packages=(mtr github-cli inetutils websocat fuse2 dog yq man-pages usbutils exfat-utils openbsd-netcat speedtest-cli cpupower reflector jwt-cli glow wakatime tmuxp arch-wiki-lite arch-wiki-docs glab)
-yay_packages=(jcal actionlint-bin act-bin mqttui-bin mprocs-bin)
+yay_packages=(jcal actionlint-bin act-bin mqttui-bin mprocs)
 
 main_apt() {
 	sudo apt-get update -q
@@ -30,10 +30,10 @@ main_apt() {
 
 main_pacman() {
 	msg "install ${pacman_packages[*]} + ${packages[*]} with pacman"
-	sudo pacman -Syu --noconfirm --needed "${pacman_packages[@]}" "${packages[@]}"
+	require_pacman "${pacman_packages[@]}" "${packages[@]}"
 
 	msg "install ${yay_packages[*]} with yay"
-	yay -Syu --needed "${yay_packages[@]}"
+	require_aur "${yay_packages[@]}"
 }
 
 main_brew() {
