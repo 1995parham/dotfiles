@@ -23,7 +23,7 @@ message "archinstall" "lets use greetd as desktop manager, so wait for rust"
 cd "$current_dir/.." && ./start.sh rust
 require_aur greetd greetd-tuigreet-bin
 
-sudo cp "$current_dir/hypr.d/hyer.sh" /usr/local/bin/hypr.sh
+sudo cp "$current_dir/hypr.d/hyprland.sh" /usr/local/bin/hyprland.sh
 sudo cp "$current_dir/hypr.d/hyprland.desktop" /usr/share/wayland-sessions/hyprland.desktop
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
 sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
@@ -32,4 +32,4 @@ message "archinstall" "enable greetd"
 sudo systemctl enable greetd.service
 
 message "archinstall" "setup hyper and required softwares"
-cd "$current_dir/.." && ./start.sh hyper
+cd "$current_dir/.." && ./start.sh hyprland
