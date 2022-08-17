@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : screen.sh
-#
-# [] Creation Date : 27-10-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n -e "serial console here, now and beautiful"
@@ -28,7 +20,7 @@ main_apt() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm screen
+	require_pacman screen
 
 	sudo usermod -aG uucp "$USER"
 	newgrp uucp
