@@ -26,8 +26,6 @@ message "archinstall" "lets use greetd as desktop manager, so wait for rust"
 cd "$current_dir/.." && ./start.sh rust
 require_aur greetd greetd-tuigreet-bin
 
-sudo cp "$current_dir/sway.d/sway.sh" /usr/local/bin/sway.sh
-sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desktop
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
 sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
 
@@ -36,3 +34,6 @@ sudo systemctl enable greetd.service
 
 message "archinstall" "setup sway and required softwares"
 cd "$current_dir/.." && ./start.sh sway
+
+sudo cp "$current_dir/sway.d/sway.sh" /usr/local/bin/sway.sh
+sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desktop
