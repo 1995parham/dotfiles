@@ -15,9 +15,6 @@ source "$current_dir/../scripts/lib/message.sh"
 source "$current_dir/../scripts/lib/require.sh"
 
 # install yay-bin to have yay for installing from
-if [ ! -d "$HOME/yay-bin" ]; then
-	git clone https://aur.archlinux.org/yay-bin "$HOME/yay-bin"
-fi
 if ! pacman -Qi yay >/dev/null 2>&2; then
 	cd "$HOME/yay-bin" && makepkg -si
 fi
@@ -26,13 +23,13 @@ message "archinstall" "lets use greetd as desktop manager, so wait for rust"
 cd "$current_dir/.." && ./start.sh rust
 require_aur greetd greetd-tuigreet-bin
 
-sudo cp "$current_dir/sway.d/sway.sh" /usr/local/bin/sway.sh
-sudo cp "$current_dir/sway.d/sway.desktop" /usr/share/wayland-sessions/sway.desktop
+sudo cp "$current_dir/hypr.d/hyer.sh" /usr/local/bin/hypr.sh
+sudo cp "$current_dir/hypr.d/hyprland.desktop" /usr/share/wayland-sessions/hyprland.desktop
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
 sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
 
 message "archinstall" "enable greetd"
 sudo systemctl enable greetd.service
 
-message "archinstall" "setup sway and required softwares"
-cd "$current_dir/.." && ./start.sh sway
+message "archinstall" "setup hyper and required softwares"
+cd "$current_dir/.." && ./start.sh hyper
