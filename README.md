@@ -82,6 +82,12 @@ Then you can install other tools with `start.sh`, here are some examples:
 
 Configuration of mentioned applications also is a part of this repository.
 
+## Window Managers
+
+I am using `sway` and `hyprland` as my primary window managers. This repository
+structured around creating soft-links and because of that the duplicate configurations
+between these window managers are gathered in `sway/`.
+
 ## Scripts
 
 As mentioned before, `start.sh` can be used to run the installation/helper scripts. these scripts install and setup different tools as below:
