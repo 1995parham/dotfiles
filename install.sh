@@ -10,18 +10,18 @@ usage() {
 }
 
 # global variable that points to dotfiles root directory
-current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck source=scripts/lib/message.sh
-source "$current_dir/scripts/lib/message.sh"
+source "$dotfiles_root/scripts/lib/message.sh"
 # shellcheck source=scripts/lib/linker.sh
-source "$current_dir/scripts/lib/linker.sh"
+source "$dotfiles_root/scripts/lib/linker.sh"
 # shellcheck source=scripts/lib/header.sh
-source "$current_dir/scripts/lib/header.sh"
+source "$dotfiles_root/scripts/lib/header.sh"
 
-message "pre" "Home directory found at $HOME"
+message "pre" "home directory found at $HOME"
 
-message "pre" "Current directory found at $current_dir"
+message "pre" "dotfiles found at $dotfiles_root"
 
 yes_to_all=0
 while getopts "hy" argv; do
