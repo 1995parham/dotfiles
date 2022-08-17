@@ -1,12 +1,7 @@
 {
   "audio": "pipewire",
   "config_version": "2.5.0",
-  "custom-commands": [
-    "cd /home/parham; git clone https://aur.archlinux.org/yay-bin.git",
-    "chown -R parham:parham /home/parham/yay-bin",
-    "cd /home/parham; git clone https://github.com/1995parham/dotfiles.git",
-    "chown -R parham:parham /home/parham/dotfiles"
-  ],
+  "custom-commands": [],
   "debug": false,
   "desktop-environment": "sway",
   "gfx_driver": "Nvidia (open kernel module for newer GPUs, Turing+)",
