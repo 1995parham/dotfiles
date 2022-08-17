@@ -18,7 +18,6 @@
     "memory",
     "temperature",
     "backlight",
-    "sway/language",
     "battery",
     "clock",
     "tray"
@@ -36,9 +35,6 @@
   },
   "wlr/taskbar": {
     "icon": false
-  },
-  "sway/language": {
-    "format": "{flag}"
   },
   "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
