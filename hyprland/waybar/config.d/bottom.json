@@ -1,0 +1,91 @@
+{
+  "position": "bottom",
+  "ipc": true,
+  "id": "bar-0",
+  "output": "eDP-1",
+  "height": 30,
+  "modules-center": [
+    "custom/love#relationship",
+    "idle_inhibitor",
+    "custom/love#birthday"
+  ],
+  "modules-left": [
+    "custom/date",
+    "custom/jdate",
+    "network#alvani",
+    "network#tg"
+  ],
+  "modules-right": [
+    "network#snapp",
+    "network#baly",
+    "network#aut",
+    "custom/touchpad"
+  ],
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-alt": "bluetooth: {status}",
+    "format-icons": {
+      "enabled": "",
+      "disabled": ""
+    },
+    "tooltip-format": "{}"
+  },
+  "network#tg": {
+    "interface": "tg-*",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#alvani": {
+    "interface": "alvani",
+    "format": "{ipaddr} ",
+    "format-disconnected": ""
+  },
+  "network#snapp": {
+    "interface": "snapp-*",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#baly": {
+    "interface": "baly",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#aut": {
+    "interface": "aut",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "custom/touchpad": {
+    "interval": 3,
+    "exec": "$HOME/.config/waybar/scripts/touchpad.sh"
+  },
+  "custom/love#relationship": {
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/couple.sh relationship",
+    "format": " {}"
+  },
+  "custom/love#birthday": {
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/couple.sh birthday",
+    "format": " {}"
+  },
+  "custom/date": {
+    "interval": 3600,
+    "exec": "date +'%d %B %Y'",
+    "exec-if": "which date",
+    "format": "{} "
+  },
+  "custom/jdate": {
+    "interval": 3600,
+    "exec": "jdate +'%d %B %Y'",
+    "exec-if": "which jdate",
+    "format": "{} "
+  }
+}
