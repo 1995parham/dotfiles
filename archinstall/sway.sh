@@ -15,6 +15,9 @@ source "$current_dir/../scripts/lib/message.sh"
 source "$current_dir/../scripts/lib/require.sh"
 
 # install yay-bin to have yay for installing from
+if [ ! -d "$HOME/yay-bin" ]; then
+	git clone https://aur.archlinux.org/yay-bin "$HOME/yay-bin"
+fi
 if ! pacman -Qi yay >/dev/null 2>&2; then
 	cd "$HOME/yay-bin" && makepkg -si
 fi
