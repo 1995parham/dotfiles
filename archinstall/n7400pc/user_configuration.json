@@ -1,0 +1,70 @@
+{
+  "audio": "pipewire",
+  "config_version": "2.5.0",
+  "custom-commands": [
+    "cd /home/parham; git clone https://aur.archlinux.org/yay-bin.git",
+    "chown -R parham:parham /home/parham/yay-bin",
+    "cd /home/parham; git clone https://github.com/1995parham/dotfiles.git",
+    "chown -R parham:parham /home/parham/dotfiles"
+  ],
+  "debug": false,
+  "desktop-environment": "sway",
+  "gfx_driver": "Nvidia (open kernel module for newer GPUs, Turing+)",
+  "harddrives": [
+    "/dev/nvme0n1"
+  ],
+  "hostname": "parham-n7400pc",
+  "kernels": [
+    "linux-zen"
+  ],
+  "keyboard-language": "us",
+  "mirror-region": {
+    "Iran": {
+      "http://mirror.arvancloud.com/archlinux/$repo/os/$arch": true,
+      "http://mirror.bardia.tech/archlinux/$repo/os/$arch": true,
+      "http://mirror.hostiran.ir/archlinux/$repo/os/$arch": true,
+      "http://repo.iut.ac.ir/repo/archlinux/$repo/os/$arch": true,
+      "https://mirror.arvancloud.com/archlinux/$repo/os/$arch": true,
+      "https://mirror.bardia.tech/archlinux/$repo/os/$arch": true,
+      "https://mirror.hostiran.ir/archlinux/$repo/os/$arch": true
+    }
+  },
+  "mount_point": null,
+  "nic": {
+    "dhcp": true,
+    "dns": null,
+    "gateway": null,
+    "iface": null,
+    "ip": null,
+    "type": "nm"
+  },
+  "ntp": true,
+  "packages": [
+    "git",
+    "wget",
+    "curl",
+    "v2ray",
+    "neovim",
+    "zsh",
+    "python-pynvim",
+    "python",
+    "python-pip",
+    "kitty",
+    "base-devel",
+    "xorg",
+    "foot",
+    "alacritty",
+    "xdg-desktop-portal-wlr",
+    "xdg-utils"
+  ],
+  "plugin": null,
+  "profile": {
+    "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
+  },
+  "script": "guided",
+  "silent": false,
+  "sys-encoding": "utf-8",
+  "sys-language": "en_US",
+  "timezone": "Asia/Tehran",
+  "version": "2.5.0"
+}
