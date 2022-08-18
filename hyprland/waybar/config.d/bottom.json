@@ -19,7 +19,6 @@
     "network#snapp",
     "network#baly",
     "network#aut",
-    "custom/touchpad"
   ],
   "idle_inhibitor": {
     "format": "{icon}",
@@ -61,10 +60,6 @@
     "interface": "aut",
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
-  },
-  "custom/touchpad": {
-    "interval": 3,
-    "exec": "$HOME/.config/waybar/scripts/touchpad.sh"
   },
   "custom/love#relationship": {
     "interval": 3600,
