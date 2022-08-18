@@ -122,8 +122,7 @@ window > box {
   color: #ffffff;
 }
 
-#battery.charging,
-#battery.plugged {
+#battery.charging {
   color: #26a65b;
 }
 
