@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : syncthing.sh
-#
-# [] Creation Date : 11-01-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo 'synthing is awesome'
@@ -21,7 +13,8 @@ usage() {
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm syncthing
+	require_pacman syncthing
+
 	sudo systemctl enable syncthing@parham
 	sudo systemctl start syncthing@parham
 }
