@@ -28,8 +28,8 @@ proxy_start() {
 }
 
 proxy_stop() {
-	unset {http,https,ftp}_proxy
-	unalias sudo 2>/dev/null
+	unset {http,https,ftp}_proxy || true
+	unalias sudo 2>/dev/null || true
 
 	if [[ "$(command -v tput)" ]]; then
 		echo "$(tput setaf 46)[proxy] $(tput setaf 202)all proxy script configurations are removed$(tput sgr 0)"
