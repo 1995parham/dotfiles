@@ -1,12 +1,5 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : over-the-air-installation.sh
-#
-# [] Creation Date : 13-09-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
+
 if ! [ -x "$(command -v git)" ]; then
 	echo "git is not installed. please install it first"
 	exit 1
