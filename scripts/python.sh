@@ -40,7 +40,7 @@ main_pacman() {
 }
 
 python-install-package() {
-	if python -mpip install --user -U "$1"; then
+	if python -mpip install --user --pre -U "$1"; then
 		msg "$1 installation succeeded"
 	else
 		msg "$1 installation failed"
