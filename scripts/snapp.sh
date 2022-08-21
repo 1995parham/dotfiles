@@ -14,14 +14,11 @@ usage() {
   '
 }
 
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
-}
+export dependencies=(java)
 
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed mutt vdirsyncer khal
-	yay davmail
+	require_pacman mutt vdirsyncer thunderbird
+	require_aur davmail
 
 	configfile davmail "" snapp
 	configfile vdirsyncer "" snapp
@@ -32,11 +29,6 @@ main_pacman() {
 
 	msg "it is better to use thunderbird based on this awesome article from Elahe Dastan"
 	msg "https://confluence.snapp.ir/display/SEC/set+up+desktop+email+client"
-}
-
-main_brew() {
-	msg "there is nothing that we can do"
-	return 1
 }
 
 main() {
