@@ -1,4 +1,4 @@
-# vim: ft=i3config
+# vim: ft=swayconfig
 # sway config file
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -24,46 +24,43 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec foot
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
-# termpad is a special application class which is floating for terminal.
+# termpad is a special application class which is floating and used for terminals.
 for_window [app_id="__termpad"] floating enable
-# for_window [app_id="__termpad"] opacity set 0.90
 
+# floating terminal in the middle of screen
 bindsym $mod+Shift+Return exec foot --app-id="__termpad"
 
-# sway configuration at you glance to review
+# sway configuration at you glance to review and findout the key binding
 bindsym $mod+F1 exec foot --app-id="__termpad" "bat" "$HOME/.config/sway/config"
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start program launcher
+# start program launcher with fuzzel
 bindsym $mod+d exec --no-startup-id fuzzel -b ffc04da0 -t 000000ff -D no
 
+# pulseaudio mixer
 bindsym $mod+Ctrl+m exec pavucontrol
 
-bindsym $mod+Ctrl+b exec foot --app-id="__termpad" 'bmenu'
-bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec ranger
+# mpd client in the moddle of screen
 bindsym $mod+F5 exec foot --app-id="__termpad" 'ncmpcpp'
 
-# dunst
+# dunst notification
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 # hide mouse cursor after a period of inactivity
 seat seat0 hide_cursor 3000
 
-# screenshot
+# screenshot with grim
 # https://github.com/emersion/grim
 bindsym Print exec --no-startup-id grim
-# bindsym $mod+Print --release exec --no-startup-id grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
+
+# screenshot with flameshot
 bindsym $mod+Print exec --no-startup-id ( flameshot &; ) && ( sleep 0.5s && flameshot gui )
 
-# kill a window with a cursor
-# bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-# idle configuration
+# idle configuration for when system is being idle
 exec swayidle -w \
           timeout 300 'brightnessctl -s s 2% && swaylock -f' \
             resume 'brightnessctl -r' \
@@ -74,7 +71,7 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. it will also lock your screen before your computer goes to sleep.
 
-# brightness and volume
+# brightness and volume buttons of keyboard
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -82,18 +79,19 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
+# change window focus only by keyboards
 focus_follows_mouse no
 
-# music player
+# music buttons of keyboard
 bindsym XF86AudioPlay exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
 bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
 bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
 
-# disable touchpad
+# disable touchpad button of keyboard
 bindsym XF86TouchpadToggle exec "swaymsg input type:touchpad events toggle enabled disabled"
 
-# change focus
+# change focus with vim-like keybinding
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -141,7 +139,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+Ctrl+space focus mode_toggle
 
-# toggle sticky
+# toggle sticky for the active window
 bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
@@ -159,9 +157,6 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 bindsym --whole-window button9 workspace next
 bindsym --whole-window button8 workspace prev
-
-# change background on startup
-# output * bg `find "$HOME/Pictures/GoSiMac" -maxdepth 1 -type f | shuf -n 1` fill
 
 # hide/show waybar
 bindsym $mod+m bar mode invisible
