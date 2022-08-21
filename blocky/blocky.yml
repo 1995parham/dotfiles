@@ -28,7 +28,7 @@ bootstrapDns:
 customDNS:
   mapping:
     internet.aut.ac.ir: 172.25.154.54
-    live.internet.aut.ac.ir: 172.25.154.54
+    tv2.aut.ac.ir: 172.16.4.252
 
 # optional: definition, which DNS resolver(s) should be used for queries to the domain (with all sub-domains).
 # Multiple resolvers must be separated by comma
