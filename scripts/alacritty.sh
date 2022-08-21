@@ -13,12 +13,14 @@ usage() {
 	'
 }
 
+export dependencies=('rust')
+
 main_brew() {
 	brew install --cask alacritty
 }
 
 main_pacman() {
-	require_pacman alacritty
+	require_aur alacritty-git
 }
 
 main() {
