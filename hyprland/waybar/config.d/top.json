@@ -18,6 +18,7 @@
     "memory",
     "temperature",
     "backlight",
+    "hyprland/language",
     "battery",
     "clock",
     "tray"
@@ -120,6 +121,11 @@
   },
   "disk": {
     "format": "{path}: {used} / {total} "
+  },
+  "hyprland/language": {
+    "format": "Lang: {}",
+    "format-us": "us",
+    "format-tr": "فا"
   },
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
