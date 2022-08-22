@@ -1,0 +1,23 @@
+#!/bin/bash
+
+export dependencies=("go")
+
+usage() {
+	echo -n "Yet another Yogurt - An AUR Helper written in Go"
+	# shellcheck disable=2016
+	echo '
+ _   _  __ _ _   _ 
+| | | |/ _` | | | |
+| |_| | (_| | |_| |
+ \__, |\__,_|\__, |
+ |___/       |___/ 
+	'
+}
+
+main_pacman() {
+	if ! pacman -Qi "yay" >/dev/null 2>&1; then
+		action "require" "make -si yay from aur source"
+		git clone https://aur.archlinux.org/yay.git "$HOME/yay"
+		cd "$HOME/yay" && make -si
+	fi
+}
