@@ -132,6 +132,9 @@ call plug#begin('~/.vim/plugged')
 " Naz Neovim Theme
 Plug '1995parham/naz.vim', { 'tag': 'v1.0.0' }
 
+" An up-to-date vim plugin for syntax highlighting HAproxy configuration file
+Plug 'Joorem/vim-haproxy'
+
 " git
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'cohama/agit.vim'        " A powerful Git log viewer
@@ -152,6 +155,12 @@ Plug 'wakatime/vim-wakatime'
 
 " A solid language pack for Vim.
 Plug 'sheerun/vim-polyglot'
+
+" A vim plugin for syntax highlighting Ansible's common filetypes
+Plug 'pearofducks/ansible-vim'
+
+" vim syntax for helm templates (yaml + gotmpl + sprig + custom)
+Plug 'towolf/vim-helm'
 
 " lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
