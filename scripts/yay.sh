@@ -16,8 +16,8 @@ usage() {
 
 main_pacman() {
 	if ! pacman -Qi "yay" >/dev/null 2>&1; then
-		action "require" "make -si yay from aur source"
-		git clone https://aur.archlinux.org/yay.git "$HOME/yay"
-		cd "$HOME/yay" && make -si
+		action "require" "makepkg -si yay from aur source"
+		git clone https://aur.archlinux.org/yay.git "$HOME/yay" 2>/dev/null || true
+		cd "$HOME/yay" && makepkg -si
 	fi
 }
