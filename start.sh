@@ -120,9 +120,9 @@ _main() {
 		msg "$(usage)"
 
 		# handle dependencies by executing the start.sh
-		# multiple times
+		# for each of them separately
 		dependencies=${dependencies:-""}
-		_dependencies "$dependencies"
+		_dependencies "${dependencies[@]}"
 
 		run "$@"
 	fi
@@ -133,7 +133,7 @@ _main() {
 }
 
 _dependencies() {
-	dependencies=$1
+	dependencies=$*
 
 	if [ -z "$dependencies" ]; then
 		return

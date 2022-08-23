@@ -1,15 +1,6 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : ts.sh
-#
-# [] Creation Date : 18-05-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
-# shellcheck disable=2034
-dependencies="node"
+export dependencies=("node")
 
 usage() {
 	echo -n "typescript at you door"
