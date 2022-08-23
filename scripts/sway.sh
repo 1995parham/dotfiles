@@ -41,9 +41,6 @@ main_pacman() {
 	msg 'required freedesktop services'
 	require_pacman upower rtkit
 
-	msg 'feature rich screenshot tool'
-	require_pacman flameshot
-
 	msg 'gtk3 theme'
 	require_aur matcha-gtk-theme
 	configfile gtk-3.0 settings.ini sway
