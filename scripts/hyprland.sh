@@ -26,7 +26,7 @@ main_pacman() {
 
 	msg 'hyprland'
 	require_aur hyprland-git
-	require_pacman grim xdg-user-dirs wl-clipboard
+	require_pacman grim xdg-user-dirs wl-clipboard swayidle
 	require_aur waybar-hyprland-git
 	configfile hypr "" hyprland
 	configfile waybar "" hyprland
