@@ -55,10 +55,8 @@ seat seat0 hide_cursor 3000
 
 # screenshot with grim
 # https://github.com/emersion/grim
-bindsym Print exec --no-startup-id grim
-
-# screenshot with flameshot
-# bindsym $mod+Print exec --no-startup-id ( flameshot &; ) && ( sleep 0.5s && flameshot gui )
+bindsym Print exec --no-startup-id grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
+bindsym $mod+Print exec --no-startup-id grim $(xdg-user-dir PICTURES)/$(date +'%s_grim.png') -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
 
 # idle configuration for when system is being idle
 exec swayidle -w \
