@@ -14,13 +14,9 @@ source "$current_dir/../scripts/lib/message.sh"
 # shellcheck source=scripts/lib/require.sh
 source "$current_dir/../scripts/lib/require.sh"
 
-# install yay-bin to have yay for installing from
-if [ ! -d "$HOME/yay-bin" ]; then
-	git clone https://aur.archlinux.org/yay-bin "$HOME/yay-bin"
-fi
-if ! pacman -Qi yay >/dev/null 2>&2; then
-	cd "$HOME/yay-bin" && makepkg -si
-fi
+# install yay to have yay for installing from
+cd "$current_dir/.." && ./start.sh go
+cd "$current_dir/.." && ./start.sh yay
 
 message "archinstall" "lets use greetd as desktop manager, so wait for rust"
 cd "$current_dir/.." && ./start.sh rust
