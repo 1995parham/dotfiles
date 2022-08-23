@@ -15,7 +15,6 @@ source "$current_dir/../scripts/lib/message.sh"
 source "$current_dir/../scripts/lib/require.sh"
 
 # install yay to have yay for installing from
-cd "$current_dir/.." && ./start.sh go
 cd "$current_dir/.." && ./start.sh yay
 
 message "archinstall" "lets use greetd as desktop manager, so wait for rust"
