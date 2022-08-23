@@ -61,8 +61,9 @@ main_pacman() {
 	# msg 'backgrounds with swaybg'
 	# require_pacman swaybg
 
-	msg 'configure fuzzel as an another application luncher'
-	require_pacman fuzzel
+	msg 'a window switcher, application launcher and dmenu replacement (fork with Wayland support)'
+	require_aur rofi-lbonn-wayland-git
+	configfile rofi "" sway
 
 	msg 'we are going to have sound'
 	require_pacman pulsemixer easyeffects
