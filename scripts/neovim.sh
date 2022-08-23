@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=2034
-dependencies="node shell"
+export dependencies=("node" "shell" "java")
 
 usage() {
 	echo -n 'install edge version of neovim with nodejs, lua and pip'

@@ -1,15 +1,6 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : stm32.sh
-#
-# [] Creation Date : 25-05-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
-# shellcheck disable=2034
-dependencies="rust"
+export dependencies=("rust")
 
 usage() {
 	echo -n -e "have fun with stm32 discovery board and the lovely rust and c"
