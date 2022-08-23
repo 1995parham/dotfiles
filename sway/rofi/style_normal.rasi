@@ -1,11 +1,16 @@
-/*
- *
- * Author : Aditya Shakya (adi1090x)
- * Mail : adi1090x@gmail.com
- * Github : @adi1090x
- * Reddit : @adi1090x
- *
- */
+inputbar {
+  children: [entry];
+  padding: 4 8 4 8;
+  background-color: @bg;
+  border: 0 0 1 0;
+  border-color: #ffffff0A;
+}
+
+entry {
+  placeholder: "May the force be with you";
+  text-color: @txt;
+  padding: 8 12 8 12;
+}
 
 configuration {
   drun-display-format: "{icon} {name}";
@@ -17,30 +22,18 @@ configuration {
   bw: 0;
 }
 
-// black version
+/* black version */
 * {
-  bg: #222222B0;
-  ac: #869fa214;
-  ac-txt: #869fa2;
-  item: #bdc3c3;
-  txt: #d1d5da;
+  bg: #222222B0; // inputbar background-color
+  ac: #869fa214; // selected element background-color
+  ac-txt: #dca34c; // selected element color
+  item: #bdc3c3; // element color
+  txt: #ffdc9d;
 }
-
-// white version
-
-/* * {
-  bg: #ffffff;
-  ac: #e5e5e5;
-  ac-txt: #101010;
-  item: #454545;
-  txt: #252525;
-}
-*/
-
 
 * {
   background-color: rgba(0,0,0,0);
-  font: "Iosevka Etoile 12";
+  font: "JetBrainsMono Nerd Font Mono 12";
 }
 
 window {
@@ -49,10 +42,10 @@ window {
 }
 
 mainbox {
-  children: [ inputbar, listview ];
+  children: [ inputbar, listview, mode-switcher ];
   margin: 25% 30% 25% 30%;
   background-color: @bg;
-  border-radius: 12;
+  border-radius: 15;
   border: 2;
   border-color: #ffffff0A;
 }
@@ -64,6 +57,9 @@ listview {
 }
 
 element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
   border: 1;
   text-color: @item;
   orientation: horizontal;
@@ -90,19 +86,18 @@ element-text {
   padding: 8 12 8 12;
 }
 
-inputbar {
-  children: [entry];
-  padding: 4 8 4 8;
-  background-color: @bg;
-  border: 0 0 1 0;
-  border-color: #ffffff0A;
+mode-switcher {
+  padding: 0 0 20 0;
+}
+
+button {
+  text-color: #4cdca3;
+}
+
+button selected {
+  text-color: #e1c0b1;
 }
 
 prompt {
   enabled: false;
-}
-
-entry {
-  text-color: @txt;
-  padding: 8 12 8 12;
 }
