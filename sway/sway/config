@@ -58,7 +58,7 @@ seat seat0 hide_cursor 3000
 bindsym Print exec --no-startup-id grim
 
 # screenshot with flameshot
-bindsym $mod+Print exec --no-startup-id ( flameshot &; ) && ( sleep 0.5s && flameshot gui )
+# bindsym $mod+Print exec --no-startup-id ( flameshot &; ) && ( sleep 0.5s && flameshot gui )
 
 # idle configuration for when system is being idle
 exec swayidle -w \
