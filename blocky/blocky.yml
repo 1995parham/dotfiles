@@ -37,9 +37,10 @@ customDNS:
 # Multiple resolvers must be separated by comma
 # Example: Query client.fritz.box will ask DNS server 192.168.178.1.
 # This is necessary for local network, to resolve clients by host name
+# ProShecan is only works on home local network.
 conditional:
   mapping:
-    galaxy.ansible.com: 178.22.122.100
+    galaxy.ansible.com: https://pro.shecan.ir/dns-query
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
