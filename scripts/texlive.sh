@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : texlive.sh
-#
-# [] Creation Date : 14-05-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n "install texlive with ease without any package manager"
@@ -126,10 +118,10 @@ main_pacman() {
 	texlive-init
 
 	msg "install required packages for better latex/xetex experience in persian"
-	sudo pacman -Syu --noconfirm --needed texlab python-pygments graphviz
+	require_pacman texlab python-pygments graphviz
 	# right now I don't know why we don't have texlive-upstream on aur anymore
 	# yay -Syu --noconfirm --needed texlive-upstream
-	yay -Syu --noconfirm --needed libxcrypt-compat
+	require_aur libxcrypt-compat
 
 	for package in "${packages[@]}"; do
 		sudo tlmgr install "$package"
