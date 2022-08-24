@@ -63,7 +63,7 @@ element {
   border: 1;
   text-color: @item;
   orientation: horizontal;
-  padding: 8 12 8 12;
+  padding: 4 4 4 4;
   border-radius: 6;
 }
 

@@ -9,7 +9,7 @@ configuration {
   run-shell-command: "{terminal} -e {cmd}";
   sidebar-mode: true;
   combi-modes: "drun,ssh";
-  run,drun {
+  drun {
     fallback-icon: "application-x-addon";
   }
   // switch to the next mode.
