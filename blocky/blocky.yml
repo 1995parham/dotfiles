@@ -40,7 +40,7 @@ customDNS:
 # ProShecan is only works on home local network.
 conditional:
   mapping:
-    galaxy.ansible.com: https://pro.shecan.ir/dns-query
+    galaxy.ansible.com: pro.shecan.ir
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
