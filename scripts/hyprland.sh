@@ -54,8 +54,9 @@ main_pacman() {
 	require_pacman dunst libnotify
 	configfile dunst "" sway
 
-	msg 'configure fuzzel as an another application luncher'
-	require_pacman fuzzel
+	msg 'a window switcher, application launcher and dmenu replacement (fork with Wayland support)'
+	require_aur rofi-lbonn-wayland-git
+	configfile rofi "" sway
 
 	msg 'we are going to have sound'
 	require_pacman pulsemixer easyeffects
