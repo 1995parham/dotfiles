@@ -4,7 +4,7 @@ declare -A muxes
 
 muxes=(
 	["Learning"]="learning"
-	["Snapp"]="snapp"
+	["Snapp!"]="snapp"
 	["Offerland"]="offerland"
 	["1995parham-me"]="1995parham"
 	["Teaching"]="teaching"
