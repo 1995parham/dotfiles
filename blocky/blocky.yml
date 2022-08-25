@@ -44,6 +44,7 @@ conditional:
     k8s.gcr.io: pro.shecan.ir
     registry.access.redhat.com: pro.shecan.ir
     gcr.io: pro.shecan.ir
+    docker.io: pro.shecan.ir
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
