@@ -19,7 +19,7 @@ cd "$current_dir/.." && ./start.sh yay
 
 message "archinstall" "lets use greetd as desktop manager, so wait for rust"
 cd "$current_dir/.." && ./start.sh rust
-require_aur greetd greetd-tuigreet-bin
+require_aur greetd greetd-tuigreet
 
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
 sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
