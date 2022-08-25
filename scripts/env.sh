@@ -22,7 +22,7 @@ apt_packages=(bmon atop)
 pacman_packages=(mtr github-cli inetutils websocat fuse2 dog yq man-pages usbutils exfat-utils
 	openbsd-netcat speedtest-cli cpupower reflector jwt-cli glow wakatime tmuxp arch-wiki-lite
 	arch-wiki-docs glab neofetch onefetch)
-yay_packages=(jcal actionlint-bin act-bin mqttui-bin mprocs)
+yay_packages=(jcal actionlint-bin act-bin mqttui mprocs)
 
 main_apt() {
 	sudo apt-get update -q
