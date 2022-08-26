@@ -102,7 +102,7 @@ _main() {
 	script=$1
 	shift
 
-	start=$EPOCHSECONDS
+	start=$(date +%s)
 
 	# shellcheck disable=1090
 	source "$dotfiles_root/scripts/$script.sh" 2>/dev/null || {
@@ -133,7 +133,7 @@ _main() {
 	fi
 
 	echo
-	took=$((EPOCHSECONDS - start))
+	took=$(($(date +%s) - start))
 	printf "done. it took %d seconds.\n" $took
 }
 
