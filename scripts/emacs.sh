@@ -38,7 +38,9 @@ main_apt() {
 }
 
 main_pacman() {
-	require_pacman emacs-nativecomp ripgrep aspell aspell-en fd
+	require_pacman ripgrep aspell aspell-en fd
+	# require_pacman emacs-nativecomp
+	require_aur emacs-native-comp-git-enhanced
 }
 
 main() {
