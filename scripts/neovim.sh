@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export dependencies=("node" "shell" "java")
+export dependencies=("node")
+export additionals=("shell" "java")
 
 usage() {
 	echo -n 'install edge version of neovim with nodejs, lua and pip'
