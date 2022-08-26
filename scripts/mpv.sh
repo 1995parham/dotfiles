@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : mpv.sh
-#
-# [] Creation Date : 18-11-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "usage: mpv"
@@ -23,13 +15,8 @@ main_brew() {
 	brew install --cask mpv
 }
 
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
-}
-
 main_pacman() {
-	sudo pacman -Syu --noconfirm --needed mpv
+	require_aur mpv-git
 }
 
 main() {
