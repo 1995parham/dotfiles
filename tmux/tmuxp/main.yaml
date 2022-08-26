@@ -63,7 +63,7 @@ windows:
     start_directory: ~/Documents/Git/parham/1995parham-me/howto/sway
     panes:
       - pane
-      - pand
+      - pane
       -
         start_directory: ~/Documents/Git/parham/1995parham-me/howto/android
       -
