@@ -125,11 +125,44 @@ _main() {
 		_dependencies "${dependencies[@]}"
 
 		run "$@"
+
+		# handle additional packages by executing the start.sh
+		# for each of them separately
+		additionals=${additionals:-""}
+		_additionals "${additionals[@]}"
 	fi
 
 	echo
 	took=$((EPOCHSECONDS - start))
 	printf "done. it took %d seconds.\n" $took
+}
+
+_additionals() {
+	additionals=$*
+
+	if [ -z "$additionals" ]; then
+		return
+	fi
+
+	msg "additionals: $additionals"
+
+	for additional in $additionals; do
+		if [ $yes_to_all = true ]; then
+			accept="Y"
+		else
+			read -r -p "[$script] do you want to install $additional as an additional package? [Y/n] " -n 1 accept
+			echo
+		fi
+
+		if [[ $accept == "Y" ]]; then
+			local options="-d"
+			if [ $yes_to_all = true ]; then
+				options="$options -y"
+			fi
+
+			"$dotfiles_root/start.sh" "$options" "$additional"
+		fi
+	done
 }
 
 _dependencies() {
