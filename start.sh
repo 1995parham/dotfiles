@@ -203,7 +203,7 @@ run() {
 
 install() {
 	if [[ "$OSTYPE" == "darwin"* ]]; then
-		msg "darwin, using brew"
+		msg " darwin, using brew"
 
 		if declare -f main_brew >/dev/null; then
 			main_brew
@@ -216,7 +216,7 @@ install() {
 	fi
 
 	if [[ "$(command -v brew)" ]]; then
-		msg "linux with brew installed, using brew"
+		msg "  linux with brew installed, using brew"
 
 		if declare -f main_brew >/dev/null; then
 			if [ $yes_to_all = true ]; then
@@ -235,7 +235,7 @@ install() {
 	fi
 
 	if [[ "$(command -v apt)" ]]; then
-		msg "linux with apt installed, using apt"
+		msg " linux with apt installed, using apt"
 
 		if declare -f main_apt >/dev/null; then
 			main_apt
@@ -248,7 +248,7 @@ install() {
 	fi
 
 	if [[ "$(command -v pacman)" ]]; then
-		msg "linux with pacman installed, using pacman/yay"
+		msg " linux with pacman installed, using pacman/yay"
 
 		if declare -f main_pacman >/dev/null; then
 			main_pacman
