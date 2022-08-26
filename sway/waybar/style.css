@@ -4,13 +4,14 @@
   transition-property: background-color;
   transition-duration: 0.5s;
   border: none;
+  padding: 0;
+  margin: 0;
   border-radius: 0;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(36, 36, 36, 0.9);
-  /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+  background-color: transparent;
   color: #ffffff;
 }
 
@@ -27,15 +28,23 @@ window#waybar.solo {
 }
 */
 
-window > box {
+window.top > box {
+  background-color: rgba(36, 36, 36, 0.9);
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+}
+
+window > box > box {
+  background-color: rgba(36, 36, 36, 0.9);
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
 
   border-style: solid;
-  border-width: 0.5px;
-  border-radius: 0.25px;
-  border-color: rgb(171, 233, 179);
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: rgba(36, 36, 36, 0.9);
 }
 
 #workspaces button {
