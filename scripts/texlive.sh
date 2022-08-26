@@ -75,7 +75,7 @@ texlive-install() {
 		echo
 
 		if [[ $confirm == "Y" ]]; then
-			sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path add
+			sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path add || true
 			sudo rm -Rf /usr/local/texlive
 
 			texlive-install-
