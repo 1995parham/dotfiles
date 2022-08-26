@@ -96,6 +96,5 @@ As mentioned before, `start.sh` can be used to run the installation/helper scrip
 | :-------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------- |
 |                        snapp                        | install snapp corporation mail/calender/contacts including davmail, vsyncdir and mutt. also recommends to install thunderbird |
 |                [go](https://go.dev/)                | install and configure go. configuration includes goproxy and running `GoInstallBinaries` on neovim                            |
-|      [age](https://github.com/FiloSottile/age)      | install age                                                                                                                   |
 |                       awesome                       | clone awesome repositories like awesome-rust, awesome-go, etc from github                                                     |
 | [alacritty](https://github.com/alacritty/alacritty) | install and configure alacritty                                                                                               |
