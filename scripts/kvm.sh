@@ -24,7 +24,7 @@ main_pacman() {
 	mkdir -p "$HOME/kvm/base"
 
 	msg "create virtual machine disk folder"
-	mkdir -p "$HOME/kvm/vm"
+	mkdir -p "$HOME/kvm/pool"
 
 	msg "cloud-init is awesome for preconfigured vm"
 	require_pacman cloud-image-utils
