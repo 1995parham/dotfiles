@@ -34,5 +34,5 @@ main_pacman() {
 	sudo usermod -aG libvirt "$USER"
 	sudo usermod -aG kvm "$USER"
 
-	sudo systemctl enable libvirtd
+	sudo systemctl enable --now libvirtd.service
 }
