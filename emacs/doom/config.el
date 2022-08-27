@@ -146,7 +146,7 @@
            ((agenda "" (
                         (org-agenda-span 'day)
                         (org-agenda-overriding-header "Calendar")
-                        (org-agenda-prefix-format "   %i %?-2 t%s %b")
+                        (org-agenda-prefix-format "   %i %?-2 t%s %?-12c:  %b")
                         (org-agenda-skip-scheduled-if-done nil)
                         (org-agenda-time-leading-zero nil)
                         (org-agenda-timegrid-use-ampm nil)
