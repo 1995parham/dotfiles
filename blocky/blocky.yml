@@ -45,6 +45,7 @@ conditional:
     registry.access.redhat.com: pro.shecan.ir
     gcr.io: pro.shecan.ir
     docker.io: pro.shecan.ir
+    gitlab.com: pro.shecan.ir
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
