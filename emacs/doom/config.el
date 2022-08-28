@@ -39,7 +39,6 @@
 ;;
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :height 90)
 
-
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -186,10 +185,6 @@
         )
   )
 
-;; Use font Vazir for Arabic (Farsi)
-(after! unicode-fonts
-  (push "Vazirmatn" (cadr (assoc "Arabic" unicode-fonts-block-font-mapping))))
-
 ;; Telling bibtex-completion where your bibliographies can be found:
 ;;(setq bibtex-completion-bibliography
 ;;      '("~/org/research/main.bib"))
@@ -209,6 +204,10 @@
 ;;(setq bibtex-completion-pdf-open-function
 ;;      (lambda (fpath)
 ;;        (call-process "xdg-open" nil 0 nil fpath)))
+
+
+(add-hook! 'after-setting-font-hook :append
+  (set-fontset-font t 'arabic (font-spec :family "Vazirmatn")))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
