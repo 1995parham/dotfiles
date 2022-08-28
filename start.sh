@@ -147,14 +147,7 @@ _additionals() {
 	msg "additionals: $additionals"
 
 	for additional in $additionals; do
-		if [ $yes_to_all = true ]; then
-			accept="Y"
-		else
-			read -r -p "[$script] do you want to install $additional as an additional package? [Y/n] " -n 1 accept
-			echo
-		fi
-
-		if [[ $accept == "Y" ]]; then
+		if yes_or_no "[$script] do you want to install $additional as an additional package?"; then
 			local options="-d"
 			if [ $yes_to_all = true ]; then
 				options="$options -y"
@@ -174,14 +167,7 @@ _dependencies() {
 
 	msg "dependencies: $dependencies"
 
-	if [ $yes_to_all = true ]; then
-		accept="Y"
-	else
-		read -r -p "[$script] do you want to install dependencies?[Y/n] " -n 1 accept
-		echo
-	fi
-
-	if [[ $accept == "Y" ]]; then
+	if yes_or_no "[$script] do you want to install dependencies?"; then
 		local options="-d"
 		if [ $yes_to_all = true ]; then
 			options="$options -y"
@@ -219,14 +205,7 @@ install() {
 		msg "  linux with brew installed, using brew"
 
 		if declare -f main_brew >/dev/null; then
-			if [ $yes_to_all = true ]; then
-				install_with_brew="n"
-			else
-				read -r -p "[$script] do you want to install with brew?[Y/n] " -n 1 install_with_brew
-				echo
-			fi
-
-			if [[ $install_with_brew == "Y" ]]; then
+			if yes_or_no "[$script] do you want to install with brew?"; then
 				# brew installation on linux is optional
 				main_brew
 				return

@@ -1,5 +1,23 @@
 #!/bin/bash
 
+function yes_or_no {
+	yes_to_all=${yes_to_all:-0}
+	if $yes_to_all; then
+		return 0
+	fi
+
+	while true; do
+		read -r -p "$* [y/n]: " yn
+		case $yn in
+		[Yy]*) return 0 ;;
+		[Nn]*)
+			echo "Aborted"
+			return 1
+			;;
+		esac
+	done
+}
+
 function message() {
 	local module=$1
 	shift
