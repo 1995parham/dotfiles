@@ -78,12 +78,7 @@ linker() {
 			return
 		fi
 
-		if [[ $yes_to_all != 1 ]]; then
-			read -r -p "[$module] do you want to remove $dst_path?[Y/n] " -n 1 delete_confirm
-			echo
-		fi
-
-		if [[ $delete_confirm == "Y" ]] || [[ $yes_to_all == 1 ]]; then
+		if yes_or_no "[$module] do you want to remove $dst_path?"; then
 			rm -R "$dst_path"
 			action "$module" "$dst_path is removed successfully"
 		else
