@@ -32,7 +32,7 @@ main_brew() {
 }
 
 main() {
-	if [ -d "$HOME/.config/nvim" ]; then
+	if [ -e "$HOME/.config/nvim" ]; then
 		cd "$HOME/.config/nvim" || return
 
 		url=$(git remote get-url origin 2>/dev/null)
