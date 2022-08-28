@@ -32,7 +32,7 @@ main_brew() {
 }
 
 main() {
-	if [ -e "$HOME/.config/nvim" ]; then
+	if [ -d "$HOME/.config/nvim" ]; then
 		cd "$HOME/.config/nvim" || return
 
 		url=$(git remote get-url origin 2>/dev/null)
@@ -47,6 +47,12 @@ main() {
 				rm -Rf ~/.config/nvim
 				git clone https://github.com/1995parham/elievim ~/.config/nvim
 			fi
+		fi
+	elif [ -e "$HOME/.config/nvim" ] || [ -L "$HOME/.config/nvim" ]; then
+		if yes_or_no "[neovim] do you want to remove current neovim configuration?"; then
+			msg 'removing current configuration to replace it with new configuration'
+			rm -Rf ~/.config/nvim
+			git clone https://github.com/1995parham/elievim ~/.config/nvim
 		fi
 	else
 		git clone https://github.com/1995parham/elievim ~/.config/nvim
