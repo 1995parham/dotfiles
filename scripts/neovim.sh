@@ -42,9 +42,7 @@ main() {
 		else
 			msg "invalid repository $url"
 
-			read -r -p "[neovim] do you want to remove current neovim configuration?[Y/n] " -n 1 yes
-			echo
-			if [[ $yes == "Y" ]]; then
+			if yes_or_no "[neovim] do you want to remove current neovim configuration?"; then
 				msg 'removing current configuration to replace it with new configuration'
 				rm -Rf ~/.config/nvim
 				git clone https://github.com/1995parham/elievim ~/.config/nvim
