@@ -78,7 +78,7 @@ linker() {
 			return
 		fi
 
-		if yes_or_no "[$module] do you want to remove $dst_path?"; then
+		if yes_or_no "$module" "do you want to remove $dst_path?"; then
 			rm -R "$dst_path"
 			action "$module" "$dst_path is removed successfully"
 		else
