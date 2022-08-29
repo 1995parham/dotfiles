@@ -1,5 +1,15 @@
 #!/bin/bash
 
+function require_brew() {
+	for pkg in "$@"; do
+		running "require" " brew $pkg"
+		if ! brew list --versions "$pkg" >/dev/null 2>&1; then
+			action "require" "勒brew install $pkg"
+			brew install "$pkg"
+		fi
+	done
+}
+
 function require_pacman() {
 	for pkg in "$@"; do
 		running "require" " pacman $pkg"
