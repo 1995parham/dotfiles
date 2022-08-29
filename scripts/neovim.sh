@@ -44,7 +44,7 @@ main() {
 		else
 			msg "invalid repository $url"
 
-			if yes_or_no "[neovim] do you want to remove current neovim configuration?"; then
+			if yes_or_no "neovim" "do you want to remove current neovim configuration?"; then
 				msg 'removing current configuration to replace it with new configuration'
 				rm -Rf ~/.config/nvim
 			else
@@ -54,7 +54,7 @@ main() {
 	fi
 
 	if [ -e "$HOME/.config/nvim" ] || [ -L "$HOME/.config/nvim" ]; then
-		if yes_or_no "[neovim] do you want to remove current neovim configuration?"; then
+		if yes_or_no "neovim" "do you want to remove current neovim configuration?"; then
 			msg 'removing current configuration to replace it with new configuration'
 			rm -Rf ~/.config/nvim
 		else
