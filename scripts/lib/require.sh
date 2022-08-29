@@ -10,6 +10,19 @@ function require_brew() {
 	done
 }
 
+function require_brew_head() {
+	for pkg in "$@"; do
+		running "require" " brew head $pkg"
+		if ! brew list --versions "$pkg" >/dev/null 2>&1; then
+			action "require" "勒brew install --HEAD $pkg"
+			brew install --HEAD "$pkg"
+		else
+			action "require" " brew upgrade --fetch-HEAD $pkg"
+			brew upgrade --fetch-HEAD "$pkg"
+		fi
+	done
+}
+
 function require_pacman() {
 	for pkg in "$@"; do
 		running "require" " pacman $pkg"
