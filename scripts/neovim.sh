@@ -26,8 +26,8 @@ main_pacman() {
 }
 
 main_brew() {
-	brew install luarocks
-	brew install --HEAD neovim
+	require_brew luarocks
+	require_brew_head neovim
 	python3 -mpip install pynvim
 }
 
