@@ -49,15 +49,13 @@ main() {
 	mkdir -p "$HOME/.config"
 
 	if [ -d "$HOME/.config/emacs" ]; then
-		read -r -p "[emacs] do you want to install doom emacs?[Y/n] " -n 1 install
-
-		if [[ $install == "Y" ]]; then
+		if yes_or_no "emacs" "do you want to install doom emacs?"; then
 			msg 'removing doom'
 			rm -Rf "$HOME/.config/emacs"
 		fi
 	fi
 
-	git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs || true
+	git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs 2>/dev/null || true
 
 	msg 'install, sync and upgrade doom with proxy'
 	proxy_start
