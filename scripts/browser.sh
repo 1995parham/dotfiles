@@ -26,8 +26,8 @@ main_pacman() {
 	require_pacman nyxt
 
 	if yes_or_no 'browser' 'do you want to install vivaldi?'; then
-		require_aur vivaldi-snapshot
-		require_aur vivaldi-snapshot-ffmpeg-codecs
+		require_pacman vivaldi
+		require_pacman vivaldi-ffmpeg-codecs
 	fi
 }
 
