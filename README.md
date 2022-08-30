@@ -33,44 +33,44 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using thi
 
 The following command creates a basic directory structure and clones the _dotfiles_ repository:
 
-```sh
+```bash
 curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/main/over-the-air-installation.sh | bash
 ```
 
 Install required tools with `pacman`, `brew` or `apt`.
 
-```sh
+```bash
 ./start.sh env
 ```
 
-Install configuration files with soft-links and installs plugins on neovim and vim.
-This script don't set the `zsh` as a default shell.
+Install configuration files with soft-links and installs plugins on vim.
+This script don't set the `zsh` as a default shell, so you need to set it manually.
 
-```sh
+```bash
 ./install.sh
 ```
 
 Install useful fonts.
 
-```sh
+```bash
 ./start.sh font
 ```
 
-**Don't** forget the git credential change:
+**Don't** forget changing the git username and email:
 
-```sh
+```bash
 touch $HOME/.config/git/config
 ```
 
 **Also** don't forget to install neovim plugins:
 
-```vi
+```vim
 :PackerSync
 ```
 
 Then you can install other tools with `start.sh`, here are some examples:
 
-```sh
+```bash
 # install docker with proxy (see <Breaking Sanctions> section for more details)
 ./start.sh docker
 # install golang
@@ -90,11 +90,11 @@ between these window managers are gathered in `sway/`.
 
 ## Scripts
 
-As mentioned before, `start.sh` can be used to run the installation/helper scripts. these scripts install and setup different tools as below:
+aS mentioned before, `start.sh` can be used to run the installation/helper scripts. These scripts install and setup different tools as below:
 
 |                        Name                         | Description                                                                                                                   |
 | :-------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------- |
-|                        snapp                        | install snapp corporation mail/calender/contacts including davmail, vsyncdir and mutt. also recommends to install thunderbird |
+|                        snapp                        | install snapp corporation mail/calender/contacts including davmail, vsyncdir and mutt. Also, it is recommended to install thunderbird |
 |                [go](https://go.dev/)                | install and configure go. configuration includes goproxy and running `GoInstallBinaries` on neovim                            |
 |                       awesome                       | clone awesome repositories like awesome-rust, awesome-go, etc from github                                                     |
 | [alacritty](https://github.com/alacritty/alacritty) | install and configure alacritty                                                                                               |
