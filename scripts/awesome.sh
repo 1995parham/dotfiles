@@ -44,4 +44,5 @@ main() {
 	from_github mpsq/arewewaylandyet
 	from_github natpen/awesome-wayland
 	from_github rockerBOO/awesome-neovim
+	from_github mzlogin/awesome-adb
 }
