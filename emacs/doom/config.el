@@ -185,27 +185,6 @@
         )
   )
 
-;; Telling bibtex-completion where your bibliographies can be found:
-;;(setq bibtex-completion-bibliography
-;;      '("~/org/research/main.bib"))
-
-;; Specify where PDFs can be found
-;;(setq bibtex-completion-library-path '("~/Documents/Git/parham/citado/papers"))
-
-;; Bibtex-completion supports two methods for storing notes.
-;; It can either store all notes in one file or store notes in multiple files, one file per publication.
-;; one file per publication is preferred
-;;(setq bibtex-completion-notes-path "~/org/research/")
-
-;; switch default action to edit the pdf notes
-;;(setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
-
-;; use xdg-open to open research papers
-;;(setq bibtex-completion-pdf-open-function
-;;      (lambda (fpath)
-;;        (call-process "xdg-open" nil 0 nil fpath)))
-
-
 (add-hook! 'after-setting-font-hook :append
   (set-fontset-font t 'arabic (font-spec :family "Vazirmatn")))
 
