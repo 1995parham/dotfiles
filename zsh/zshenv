@@ -27,11 +27,6 @@ fi
 # Currently OCI support is considered experimental.
 export HELM_EXPERIMENTAL_OCI=1
 
-# use https://github.com/danielfoehrKn/kubeswitch
-if [ -f /usr/bin/switch.sh ]; then
-  source /usr/bin/switch.sh
-fi
-
 # }}}
 
 # home-made paths {{{
