@@ -9,13 +9,13 @@ yes_to_all=${yes_to_all:-false}
 # parameter 3 [default = true]: add dot into the destination file (consider it as hidden)
 dotfile() {
 	local module=$1
-	local file=$2
+	local file=${2:-""}
 	local is_hidden=${3:-true}
 
 	if $is_hidden; then
-		local dst_file=".$file"
+		local dst_file=".${file:-$module}"
 	else
-		local dst_file="$file"
+		local dst_file="${file:-$module}"
 	fi
 
 	local src_file="$file"
