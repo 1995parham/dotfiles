@@ -11,7 +11,6 @@ muxes=(
 	["Main"]="main"
 	["Raha"]="raha"
 	["Task"]="task"
-	["Research"]="research"
 )
 
 if [ $# = 1 ]; then
