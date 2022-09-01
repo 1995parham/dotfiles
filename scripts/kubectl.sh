@@ -31,7 +31,7 @@ main_brew() {
 main_pacman() {
 	require_pacman kubectl helm argocd kubectx
 
-	require_aur stern-bin kubeval-bin okd-client-bin kube-score-bin kubeswitch
+	require_aur stern-bin kubeval-bin okd-client-bin kube-score-bin
 
 	# msg "Command-Line tool to manage Litmuschaos's agent plane"
 	# yay -Syu --noconfirm --needed litmusctl
