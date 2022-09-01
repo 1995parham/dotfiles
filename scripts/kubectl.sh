@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export dependencies=('go')
+
 usage() {
 	echo "k8s and openshift command line tools (kubectl, oc, stern, kubeval, etc.)"
 	echo '
@@ -29,7 +31,7 @@ main_brew() {
 main_pacman() {
 	require_pacman kubectl helm argocd kubectx
 
-	require_aur stern-bin kubeval-bin okd-client-bin kube-score-bin
+	require_aur stern-bin kubeval-bin okd-client-bin kube-score-bin kubeswitch
 
 	# msg "Command-Line tool to manage Litmuschaos's agent plane"
 	# yay -Syu --noconfirm --needed litmusctl
