@@ -23,6 +23,16 @@ function require_brew_head() {
 	done
 }
 
+function require_brew_cask() {
+	for pkg in "$@"; do
+		running "require" " brew cask $pkg"
+		if ! brew list --cask --versions "$pkg" >/dev/null 2>&1; then
+			action "require" "勒brew install --cask $pkg"
+			brew install --cask "$pkg"
+		fi
+	done
+}
+
 function require_pacman() {
 	for pkg in "$@"; do
 		running "require" " pacman $pkg"
