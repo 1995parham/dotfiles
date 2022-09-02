@@ -13,7 +13,7 @@ usage() {
 }
 
 main_brew() {
-	brew install go
+	require_brew go
 }
 
 main_apt() {
