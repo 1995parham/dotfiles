@@ -22,7 +22,7 @@ main_pacman() {
 }
 
 main_brew() {
-	brew install --cask kitty
+	require_brew_cask kitty
 }
 
 main() {
