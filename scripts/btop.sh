@@ -14,7 +14,7 @@ usage() {
 }
 
 main_brew() {
-	brew install btop
+	require_brew btop
 }
 
 main_pacman() {
