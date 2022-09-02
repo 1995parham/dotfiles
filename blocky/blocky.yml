@@ -46,6 +46,7 @@ conditional:
     gcr.io: pro.shecan.ir
     docker.io: pro.shecan.ir
     gitlab.com: pro.shecan.ir
+    eclipse.org: pro.shecan.ir
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
