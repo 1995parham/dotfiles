@@ -15,17 +15,7 @@ usage() {
 }
 
 main_brew() {
-	brew install kubernetes-cli
-
-	brew install helm
-
-	brew install stern
-
-	brew install argocd
-
-	brew install openshift-cli
-
-	brew install kubectx
+	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx
 }
 
 main_pacman() {
