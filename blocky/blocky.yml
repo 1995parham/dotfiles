@@ -40,15 +40,15 @@ customDNS:
 # ProShecan is only works on home local network.
 conditional:
   mapping:
-    galaxy.ansible.com: pro.shecan.ir
-    k8s.gcr.io: pro.shecan.ir
-    registry.access.redhat.com: pro.shecan.ir
-    gcr.io: pro.shecan.ir
-    docker.io: pro.shecan.ir
-    gitlab.com: pro.shecan.ir
-    eclipse.org: pro.shecan.ir
-    anaconda.com: pro.shecan.ir
-    conda.io: pro.shecan.ir
+    galaxy.ansible.com: 178.22.122.101
+    k8s.gcr.io: 178.22.122.101
+    registry.access.redhat.com: 178.22.122.101
+    gcr.io: 178.22.122.101
+    docker.io: 178.22.122.101
+    gitlab.com: 178.22.122.101
+    eclipse.org: 178.22.122.101
+    anaconda.com: 178.22.122.101
+    conda.io: 178.22.122.101
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
