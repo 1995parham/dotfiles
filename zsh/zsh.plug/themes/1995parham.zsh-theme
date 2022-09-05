@@ -31,7 +31,7 @@ function prompt_kube() {
     cluster=${cluster%%:*}
     cluster=${cluster:-n/a}
 
-    echo %F{239}'['%f %F{blue}'\u2388'%f%F{239} $user@%F{216}$cluster%f/%F{216}$namespace%f%F{239}']'%f
+    echo %F{239}'['%f %F{blue}'ﴱ'%f%F{239} $user@%F{216}$cluster%f/%F{216}$namespace%f%F{239}']'%f
   fi
 }
 
@@ -39,7 +39,7 @@ function prompt_argocd() {
   if which argocd 2>/dev/null 1>&2; then
     context=$(argocd context 2> /dev/null | grep '*' | cut -d' ' -f9)
 
-    echo %F{239}'['%f%F{216}$context%f%F{239}']'%f
+    echo %F{239}'['%f%F{216}$context%f%F{239}']'%f
   fi
 }
 
