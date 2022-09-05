@@ -48,6 +48,7 @@ conditional:
     gitlab.com: pro.shecan.ir
     eclipse.org: pro.shecan.ir
     anaconda.com: pro.shecan.ir
+    conda.io: pro.shecan.ir
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
