@@ -20,7 +20,7 @@ windows:
 
   - window_name: agri-scrapper
     layout: tiled
-    start_directory: ~/Documents/Git/parham/1995parham/agri-scrapper/
+    start_directory: ~/Documents/Git/parham/offerland/offerland/apollo/Agriculture
     panes:
       - pane
       - pane
