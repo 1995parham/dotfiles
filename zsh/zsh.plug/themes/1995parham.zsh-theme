@@ -39,7 +39,7 @@ function prompt_argocd() {
   if which argocd 2>/dev/null 1>&2; then
     context=$(argocd context 2> /dev/null | grep '*' | cut -d' ' -f9)
 
-    echo %F{239}'['%f%F{216}$context%f%F{239}']'%f
+    echo %F{239}'['%f%F{216} $context%f%F{239}']'%f
   fi
 }
 
