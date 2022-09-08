@@ -21,6 +21,8 @@ windows:
   - window_name: agri-scrapper
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/offerland/apollo/Agriculture
+    shell_command_before:
+      - conda activate agri-scrapper
     panes:
       - pane
       - pane
