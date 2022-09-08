@@ -8,26 +8,12 @@ windows:
       - pane
       - pane
 
-  - window_name: c-lecture
-    layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/1995parham-teaching/c-lecture
-    panes:
-      - pane
-      - pane
-
-  - window_name: go-lecture
-    layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/1995parham-teaching/go-lecture
-    panes:
-      - pane
-      - pane
-
   - window_name: scratch
     layout: main-horizontal
-    options:
-      main-pane-height: 50%
-    start_directory: ~/Downloads
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/1995parham-teaching/
     panes:
+      - pane
       - pane
       - pane
       - pane
