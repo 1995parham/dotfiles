@@ -18,7 +18,7 @@ windows:
       - pane
       - pane
 
-  - window_name: agri-scrapper
+  - window_name: gaia
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/offerland/apollo/Agriculture
     shell_command_before:
