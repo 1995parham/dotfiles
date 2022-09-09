@@ -50,7 +50,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type nil)
+;; (setq display-line-numbers-type nil)
 
 ;; Using delete-trailing-whitespaces or whitespace-cleanup to manage leftover whitespace
 (add-hook 'after-save-hook #'whitespace-cleanup)
