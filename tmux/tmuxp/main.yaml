@@ -60,11 +60,9 @@ windows:
 
   - window_name: howto
     layout: tiled
-    start_directory: ~/Documents/Git/parham/1995parham-me/howto/sway
+    start_directory: ~/Documents/Git/parham/1995parham-me/howto
     panes:
       - pane
       - pane
-      -
-        start_directory: ~/Documents/Git/parham/1995parham-me/howto/android
-      -
-        start_directory: ~/Documents/Git/parham/1995parham-me/howto/android
+      - pane
+      - pane
