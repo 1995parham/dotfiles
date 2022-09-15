@@ -20,9 +20,9 @@ windows:
 
   - window_name: gaia
     layout: tiled
-    start_directory: ~/Documents/Git/parham/offerland/offerland/apollo/Agriculture
+    start_directory: ~/Documents/Git/parham/offerland/1995parham/gaia/
     shell_command_before:
-      - conda activate agri-scrapper
+      - conda activate gaia
     panes:
       - pane
       - pane
