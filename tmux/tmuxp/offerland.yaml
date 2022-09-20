@@ -28,6 +28,15 @@ windows:
       - pane
       - pane
 
+  - window_name: demeter
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/offerland/offerland/demeter
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
+
   - window_name: gaia
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/1995parham/gaia/
