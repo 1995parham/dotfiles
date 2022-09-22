@@ -16,7 +16,8 @@ main_brew() {
 }
 
 main_pacman() {
-	require_aur mpv-git
+	# require_aur mpv-git
+	require_pacman mpv
 }
 
 main() {
