@@ -84,7 +84,7 @@ texlive-install-() {
 	msg "download the installer from tug.org"
 	if [ ! -d texlive-installer ]; then
 		mkdir texlive-installer
-		curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
+		curl --tlsv1.3 -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
 	else
 		msg "there is a failed installation of texlive"
 	fi
@@ -104,7 +104,7 @@ texlive-init() {
 	sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path add
 
 	msg "tlmgr repositories are ready"
-	sudo tlmgr option repository ctan
+	sudo tlmgr option repository https://ctan.asis.sh/systems/texlive/tlnet/
 
 	msg "update tlmgr itself"
 	sudo tlmgr update --self
@@ -135,7 +135,7 @@ main_brew() {
 	eval "$(/usr/libexec/path_helper)"
 
 	msg "tlmgr repositories are ready"
-	tlmgr option repository ctan
+	tlmgr option repository https://ctan.asis.sh/systems/texlive/tlnet/
 
 	msg "install required packages for better latex/xetex experience in persian"
 	for package in "${packages[@]}"; do
