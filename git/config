@@ -32,7 +32,7 @@
 [fetch]
   parallel = 0
 
-[http]
+[http "https://github.com"]
   version = HTTP/2
   sslVersion = tlsv1.3
   # userAgent = Mozilla/4.0
