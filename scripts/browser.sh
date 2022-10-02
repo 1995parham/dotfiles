@@ -29,6 +29,15 @@ main_pacman() {
 		require_pacman vivaldi
 		require_pacman vivaldi-ffmpeg-codecs
 	fi
+
+	if yes_or_no 'browser' 'do you want to install chrome?'; then
+		msg 'chrome, the worst browser ever but sometime we need that shit'
+		require_aur google-chrome-beta
+
+		msg 'please set following flags in _chrome://flags_ to use it in wayland:'
+		mgs '_WebRTC PipeWire support_ to _enabled_'
+		mgs '_Preferred Ozone platform_ to _auto_'
+	fi
 }
 
 main() {
