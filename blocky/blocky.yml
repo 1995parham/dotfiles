@@ -62,7 +62,6 @@ blocking:
   whiteLists:
     special:
       - |
-        /whatsapp/
         /webengage/
         /reddit/
         /redditstatic/
