@@ -245,6 +245,10 @@ label:focus {
   color: #03d873;
 }
 
+#network.spn {
+  color: #63666a;
+}
+
 #network.baly {
   color: #006bff;
 }

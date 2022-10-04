@@ -13,6 +13,7 @@
     "custom/date",
     "custom/jdate",
     "network#alvani",
+    "network#spn",
     "network#tg"
   ],
   "modules-right": [
@@ -50,6 +51,11 @@
   "network#snapp": {
     "interface": "snapp-*",
     "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#spn": {
+    "interface": "spn",
+    "format": "{ifname}: {ipaddr} ",
     "format-disconnected": ""
   },
   "network#baly": {
