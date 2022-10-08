@@ -34,9 +34,10 @@ main_pacman() {
 		msg 'chrome, the worst browser ever but sometime we need that shit'
 		require_aur google-chrome-beta
 
-		msg 'please set following flags in _chrome://flags_ to use it in wayland:'
-		msg '_WebRTC PipeWire support_ to _enabled_'
-		msg '_Preferred Ozone platform_ to _auto_'
+		dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+		msg 'providing chrome-beta-flags.conf'
+		msg "cp $dotfiles_root/chrome/chrome-beta-flags.conf $HOME/.config/chrome-beta-flags.conf"
+		cp "$dotfiles_root/chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf"
 	fi
 }
 
