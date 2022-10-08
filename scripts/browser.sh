@@ -35,8 +35,8 @@ main_pacman() {
 		require_aur google-chrome-beta
 
 		msg 'please set following flags in _chrome://flags_ to use it in wayland:'
-		mgs '_WebRTC PipeWire support_ to _enabled_'
-		mgs '_Preferred Ozone platform_ to _auto_'
+		msg '_WebRTC PipeWire support_ to _enabled_'
+		msg '_Preferred Ozone platform_ to _auto_'
 	fi
 }
 
