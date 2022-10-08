@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo "install snapp corporation mail/calender/contacts"
+	echo "install snapp corporation mail/calender/contacts + chat"
 
 	# shellcheck disable=1004,2016
 	echo '
@@ -18,6 +18,7 @@ export dependencies=(java)
 
 main_pacman() {
 	require_pacman mutt vdirsyncer thunderbird
+	require_pacman element-web element-desktop
 	require_aur davmail
 
 	configfile davmail "" snapp
