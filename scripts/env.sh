@@ -23,6 +23,7 @@ pacman_packages=(
 	mtr github-cli inetutils websocat fuse2 dog yq man-pages usbutils exfat-utils
 	openbsd-netcat speedtest-cli cpupower reflector jwt-cli glow wakatime tmuxp arch-wiki-lite
 	arch-wiki-docs glab neofetch onefetch pastel
+	man-db
 )
 yay_packages=(jcal actionlint-bin act-bin mqttui mprocs)
 
