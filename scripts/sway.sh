@@ -27,6 +27,7 @@ main_pacman() {
 	require_pacman swaylock swayidle waybar grim xdg-user-dirs wl-clipboard noto-fonts
 	require_pacman sway
 	# require_aur sway-git wlroots-git
+	require_pacman xorg-xwayland
 	configfile sway "" sway
 	configfile swaylock "" sway
 	configfile waybar "" sway
