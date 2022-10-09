@@ -35,7 +35,7 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "JetBrains Mono" :height 1.0)
 ;;      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :height 1.3))
-(setq doom-font (font-spec :family "JetBrains Mono" :size 14))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 12))
 ;;
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :height 90)
 
