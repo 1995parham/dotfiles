@@ -8,6 +8,13 @@ windows:
       - pane
       - pane
 
+  - window_name: hello-go
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/1995parham-teaching/hello-go
+    panes:
+      - pane
+      - pane
+
   - window_name: scratch
     layout: main-horizontal
     layout: tiled
