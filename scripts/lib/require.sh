@@ -55,3 +55,10 @@ function require_aur() {
 		fi
 	done
 }
+
+function require_mason() {
+	for pkg in "$@"; do
+		action "require" " neovim + mason $pkg"
+		nvim "+MasonInstall $pkg" --headless +qall 2>/dev/null
+	done
+}
