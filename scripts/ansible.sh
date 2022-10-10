@@ -18,5 +18,5 @@ main_pacman() {
 }
 
 main() {
-	nvim '+MasonInstall ansible-language-server' --headless +qall
+	require_mason 'ansible-language-server'
 }

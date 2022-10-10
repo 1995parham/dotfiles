@@ -36,5 +36,7 @@ main_brew() {
 }
 
 main() {
-	proxy_start && nvim '+MasonInstall jdtls' --headless +qall && proxy_stop
+	proxy_start &&
+		require_mason 'jdtls' &&
+		proxy_stop
 }
