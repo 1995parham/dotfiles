@@ -25,6 +25,7 @@ main_pacman() {
 
 	msg 'install and configure sway, swaylock and waybar'
 	require_pacman swaylock swayidle waybar grim xdg-user-dirs wl-clipboard noto-fonts
+	require_pacman xdg-desktop-portal-wlr xdg-utils
 	require_pacman sway
 	# require_aur sway-git wlroots-git
 	require_pacman xorg-xwayland
