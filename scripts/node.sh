@@ -32,4 +32,6 @@ main_pacman() {
 
 main() {
 	msg "$(node -v)"
+
+	dotfile "npm" "npmrc"
 }
