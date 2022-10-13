@@ -33,6 +33,7 @@ main() {
 	helm repo add nats https://nats-io.github.io/k8s/helm/charts || true
 	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart || true
 	helm repo add benthos https://benthosdev.github.io/benthos-helm-chart || true
+	helm repo add emqx https://repos.emqx.io/charts || true
 
 	helm repo update
 }
