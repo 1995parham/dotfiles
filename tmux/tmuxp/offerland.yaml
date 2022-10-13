@@ -37,6 +37,13 @@ windows:
       - pane
       - pane
 
+  - window_name: demeter.wiki
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/offerland/offerland/demeter.wiki
+    panes:
+      - pane
+      - pane
+
   - window_name: gaia
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/1995parham/gaia/
