@@ -58,6 +58,9 @@ main() {
 
 	git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs 2>/dev/null || true
 
+	msg "if you want to force straight to use your git config, set DOOMGITCONFIG to the path of your git config file!"
+	export DOOMGITCONFIG=~/.config/git/config
+
 	msg 'install, sync and upgrade doom with proxy'
 	proxy_start
 	export no_proxy="github.com"
