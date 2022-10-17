@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : protoc.sh
-#
-# [] Creation Date : 11-04-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "protocol buffer from google"
@@ -26,14 +18,10 @@ main_brew() {
 	brew install protoc-gen-go
 }
 
-main_apt() {
-	return 1
-}
-
 main_pacman() {
 	msg "installing protobuf from pacman with go bindings"
 
-	sudo pacman -Syu --needed --noconfirm protobuf
+	require_pacman protobuf
 	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 }
