@@ -21,7 +21,7 @@ main_apt() {
 }
 
 main_pacman() {
-	require_pacman go
+	require_pacman go operator-sdk
 }
 
 main() {
