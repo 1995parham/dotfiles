@@ -38,6 +38,12 @@
   # userAgent = Mozilla/4.0
   maxRequests = 15
 
+[http "https://gitlab.freedesktop.org"]
+  version = HTTP/2
+  sslVersion = tlsv1.3
+  # userAgent = Mozilla/4.0
+  maxRequests = 15
+
 [includeIf "gitdir:~/Documents/Git/raha/"]
   path = ~/.config/git/elda.cfg
 
