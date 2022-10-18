@@ -14,6 +14,9 @@ source "$current_dir/../scripts/lib/message.sh"
 # shellcheck source=scripts/lib/require.sh
 source "$current_dir/../scripts/lib/require.sh"
 
+# configure makepkg to use tlsv1.3 because we are in iran
+cd "$current_dir/.." && ./start.sh pacman
+
 # install yay to have yay for installing from
 cd "$current_dir/.." && ./start.sh yay
 
