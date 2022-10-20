@@ -15,4 +15,6 @@ usage() {
 main_pacman() {
 	require_pacman android-tools android-udev scrcpy
 	require_aur sidequest-bin
+
+	msg 'https://github.com/skrimix/QLoaderFiles'
 }
