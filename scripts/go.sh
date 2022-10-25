@@ -63,6 +63,7 @@ go-install-packages() {
 	go-install-package mvdan.cc/gofumpt
 	go-install-package golang.org/x/tools/cmd/goimports
 	go-install-package golang.org/x/tools/gopls
+	go-install-package golang.org/dl/gotip
 
 	msg "golangci-lint $(golangci-lint version)"
 }
