@@ -14,14 +14,15 @@ usage() {
 
 main_brew() {
 	msg "installing protobuf from brew with go bindings"
-	brew install protobuf
-	brew install protoc-gen-go
+	require_brew protobuf
+	require_brew protoc-gen-go
 }
 
 main_pacman() {
 	msg "installing protobuf from pacman with go bindings"
 
 	require_pacman protobuf
-	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+	require_go google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	require_go google.golang.org/protobuf/cmd/protoc-gen-go
+	require_go github.com/yoheimuta/protolint/cmd/protolint
 }

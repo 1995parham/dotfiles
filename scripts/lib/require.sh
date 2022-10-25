@@ -62,3 +62,10 @@ function require_mason() {
 		nvim "+MasonInstall $pkg" --headless +qall 2>/dev/null
 	done
 }
+
+function require_go() {
+	for pkg in "$@"; do
+		action "require" "ﳑ go $pkg"
+		go install "$pkg@latest" 2>/dev/null
+	done
+}

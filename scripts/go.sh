@@ -49,21 +49,14 @@ main() {
 	go-install-packages
 }
 
-go-install-package() {
-	local pkg=$1
-	msg "install latest version of $pkg"
-	go install "$pkg@latest"
-}
-
 go-install-packages() {
 	msg "fetch some good and useful go packages"
 
-	go-install-package github.com/yoheimuta/protolint/cmd/protolint
-	go-install-package github.com/golangci/golangci-lint/cmd/golangci-lint
-	go-install-package mvdan.cc/gofumpt
-	go-install-package golang.org/x/tools/cmd/goimports
-	go-install-package golang.org/x/tools/gopls
-	go-install-package golang.org/dl/gotip
+	require_go github.com/golangci/golangci-lint/cmd/golangci-lint
+	require_go mvdan.cc/gofumpt
+	require_go golang.org/x/tools/cmd/goimports
+	require_go golang.org/x/tools/gopls
+	require_go golang.org/dl/gotip
 
 	msg "golangci-lint $(golangci-lint version)"
 }
