@@ -24,22 +24,29 @@ let mongoTuning = {};
 mongoTuning.profileQuery = () => {
   const profileQuery = db.system.profile.aggregate([
     {
-      $group: {
-        _id: { cursorid: "$cursorid" },
-        count: { $sum: 1 },
-        "queryHash-max": { $max: "$queryHash" },
-        "millis-sum": { $sum: "$millis" },
-        "ns-max": { $max: "$ns" },
+      $match: {
+        queryHash: { $exists: true },
       },
     },
     {
       $group: {
         _id: {
-          queryHash: "$queryHash-max",
-          collection: "$ns-max",
+          cursorid: "$cursorid",
+          queryHash: "$queryHash",
+          ns: "$ns",
         },
         count: { $sum: 1 },
-        millis: { $sum: "$millis-sum" },
+        millis: { $sum: "$millis" },
+      },
+    },
+    {
+      $group: {
+        _id: {
+          queryHash: "$_id.queryHash",
+          collection: "$_id.ns",
+        },
+        count: { $sum: "$count" },
+        millis: { $sum: "$millis" },
       },
     },
     { $sort: { millis: -1 } },
