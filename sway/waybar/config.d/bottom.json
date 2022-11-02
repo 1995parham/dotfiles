@@ -3,7 +3,7 @@
   "ipc": true,
   "id": "bar-0",
   "output": "eDP-1",
-  "height": 30,
+  "height": 33,
   "modules-center": [
     "custom/love#relationship",
     "idle_inhibitor",
