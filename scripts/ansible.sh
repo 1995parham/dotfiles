@@ -14,7 +14,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman ansible ansible-lint
+	require_pacman ansible ansible-lint cowsay
 }
 
 main() {
