@@ -36,7 +36,12 @@
     }
   },
   "sway/window": {
-    "icon": false
+    "icon": true,
+    "format": "{title}",
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "$1",
+      "(.*) : (.*)": " $2 ﬀ $1"
+    }
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
