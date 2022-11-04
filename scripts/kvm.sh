@@ -17,6 +17,7 @@ main_pacman() {
 	require_pacman libvirt
 	require_pacman dnsmasq bridge-utils
 	require_pacman virt-manager
+	require_pacman vagrant
 	# require_pacman ebtables
 
 	msg "create base images folder"
@@ -34,4 +35,6 @@ main_pacman() {
 	sudo usermod -aG kvm "$USER"
 
 	sudo systemctl enable --now libvirtd.service
+
+	vagrant plugin install vagrant-libvirt
 }
