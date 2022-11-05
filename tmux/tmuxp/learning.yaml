@@ -40,6 +40,16 @@ windows:
       - pane
       - pane
 
+  - window_name: go101
+    layout: main-horizontal
+    options:
+      main-pane-height: 60%
+    start_directory: ~/Documents/Git/parham/1995parham-learning/go101
+    panes:
+      - pane
+      - pane
+      - pane
+
   - window_name: fesghel
     layout: even-vertical
     start_directory: ~/Documents/Git/parham/1995parham/fesghel
