@@ -71,7 +71,7 @@ texlive-install() {
 
 		msg "texlive: $version"
 
-		if yes_or_no "[texlive]" "do you want to remove texlives?"; then
+		if yes_or_no "texlive" "do you want to remove texlives?"; then
 			sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path remove || true
 			sudo rm -Rf /usr/local/texlive
 
