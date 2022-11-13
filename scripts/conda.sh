@@ -38,10 +38,7 @@ main() {
 		mkdir -p "$HOME/miniconda3"
 		install-miniconda
 	else
-		read -r -p "[conda] do you want to remove miniconda?[Y/n] " -n 1 confirm
-		echo
-
-		if [[ $confirm == "Y" ]]; then
+		if yes_or_no "conda" "do you want to remove miniconda?"; then
 			install-miniconda
 		fi
 	fi
@@ -49,4 +46,12 @@ main() {
 	msg 'there is a proxy on conda, be careful'
 
 	dotfile conda condarc
+
+	msg 'configuring ipython'
+
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+
+	python -mpip install --user --pre -U ipython
+	mkdir -p "$HOME/.ipython/profile_default"
+	linker "python" "$dotfiles_root/python/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
 }
