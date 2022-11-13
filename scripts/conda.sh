@@ -51,7 +51,8 @@ main() {
 
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
-	python -mpip install --user --pre -U ipython
+	"$HOME/miniconda3/bin/conda" install ipython
+
 	mkdir -p "$HOME/.ipython/profile_default"
 	linker "python" "$dotfiles_root/python/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
 }
