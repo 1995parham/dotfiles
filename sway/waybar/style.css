@@ -245,10 +245,6 @@ label:focus {
   color: #03d873;
 }
 
-#network.spn {
-  color: #63666a;
-}
-
 #network.baly {
   color: #006bff;
 }
@@ -257,8 +253,8 @@ label:focus {
   color: #1e90ff;
 }
 
-#network.tg {
-  color: #fa8d03;
+#network.offerland {
+  color: #1e90ff;
 }
 
 #custom-touchpad {
