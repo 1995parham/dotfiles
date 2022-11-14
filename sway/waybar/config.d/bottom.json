@@ -13,13 +13,12 @@
     "custom/date",
     "custom/jdate",
     "network#alvani",
-    "network#spn",
-    "network#tg"
   ],
   "modules-right": [
     "network#snapp",
     "network#baly",
     "network#aut",
+    "network#offerland",
     "custom/touchpad"
   ],
   "idle_inhibitor": {
@@ -38,11 +37,6 @@
     },
     "tooltip-format": "{}"
   },
-  "network#tg": {
-    "interface": "tg-*",
-    "format": "{ifname}: {ipaddr}",
-    "format-disconnected": ""
-  },
   "network#alvani": {
     "interface": "alvani",
     "format": "{ipaddr} ",
@@ -53,11 +47,6 @@
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },
-  "network#spn": {
-    "interface": "spn",
-    "format": "{ifname}: {ipaddr} ",
-    "format-disconnected": ""
-  },
   "network#baly": {
     "interface": "baly",
     "format": "{ifname}: {ipaddr}",
@@ -65,6 +54,11 @@
   },
   "network#aut": {
     "interface": "aut",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#offerland": {
+    "interface": "offerland",
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },
