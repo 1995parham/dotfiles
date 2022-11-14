@@ -30,8 +30,14 @@ bootstrapDns:
 # example: query "printer.lan" or "my.printer.lan" will return 192.168.178.3
 customDNS:
   mapping:
+    # aut.ac.ir
     internet.aut.ac.ir: 172.25.154.54
     tv2.aut.ac.ir: 172.16.4.252
+    # offerland.ca
+    internal.staging.offerland.ca: 10.10.5.98
+    external.staging.offerland.ca: 10.10.120.96
+    internal.production.offerland.ca: 10.10.205.54
+    external.production.offerland.ca: 10.10.64.118
 
 # optional: definition, which DNS resolver(s) should be used for queries to the domain (with all sub-domains).
 # Multiple resolvers must be separated by comma
