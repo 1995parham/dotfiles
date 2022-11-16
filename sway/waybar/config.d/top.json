@@ -10,6 +10,7 @@
     "sway/window"
   ],
   "modules-right": [
+    "keyboard-state",
     "disk",
     "mpd",
     "pulseaudio",
@@ -25,6 +26,18 @@
     "tray"
   ],
   "output": "eDP-1",
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": {
+      "numlock": "NUM {icon}",
+      "capslock": "CAP {icon}"
+    },
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
