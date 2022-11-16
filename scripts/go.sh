@@ -57,6 +57,7 @@ go-install-packages() {
 	require_go golang.org/x/tools/cmd/goimports
 	require_go golang.org/x/tools/gopls
 	require_go golang.org/dl/gotip
+	require_go github.com/go-delve/delve/cmd/dlv
 
 	msg "golangci-lint $(golangci-lint version)"
 }
