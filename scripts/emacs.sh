@@ -38,10 +38,10 @@ main_apt() {
 }
 
 main_pacman() {
-	require_pacman ripgrep aspell aspell-en fd
-	require_pacman emacs-nativecomp
+	require_pacman ripgrep aspell aspell-en fd webkit2gtk
+	# require_pacman emacs-nativecomp
 	# -git version has issue switch-key
-	# require_aur emacs-native-comp-git-enhanced
+	require_aur emacs-pgtk-native-comp-git
 }
 
 main() {
