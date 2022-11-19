@@ -5,13 +5,13 @@ font:
   size: 8.0
   normal:
     family: JetBrainsMono Nerd Font Mono
-    style: Regular
+    style: ExtraLight
   bold:
     family: JetBrainsMono Nerd Font Mono
-    style: Bold
+    style: SemiBold
   italic:
     family: JetBrainsMono Nerd Font Mono
-    style: Italic
+    style: ExtraLight Italic
 
   builtin_box_drawing: true
 
