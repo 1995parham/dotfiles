@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : zig.sh
-#
-# [] Creation Date : 06-08-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n -e "Zig is a general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software."
@@ -22,15 +14,10 @@ usage() {
   '
 }
 
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
-}
-
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm zig
+	require_pacman zig
 }
 
 main_brew() {
-	brew install zig
+	require_brew zig
 }
