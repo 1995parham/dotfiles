@@ -1,1 +1,2 @@
-plugins/buffalo
+plugins/*
+!plugins/proxy
