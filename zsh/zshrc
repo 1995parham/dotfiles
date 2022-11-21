@@ -65,12 +65,6 @@ ZSH_THEME="1995parham"
 # would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.zsh.plug
 
-[ -d $ZSH_CUSTOM/plugins/nix-zsh-completions ] || git clone https://github.com/spwhitt/nix-zsh-completions \
-  $ZSH_CUSTOM/plugins/nix-zsh-completions
-
-[ -d $ZSH_CUSTOM/plugins/nix-shell ] || git clone https://github.com/chisui/zsh-nix-shell.git \
-  $ZSH_CUSTOM/plugins/nix-shell
-
 # which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # example format: plugins=(rails git textmate ruby lighthouse)
@@ -81,9 +75,6 @@ plugins=(
 	rust
 	# oc helm kubectl
 	gnu-utils
-
-  nix-zsh-completions
-  nix-shell
 
 	proxy
 )
