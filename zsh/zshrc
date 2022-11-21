@@ -12,6 +12,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 [ -d $ZSH ] || git clone https://github.com/ohmyzsh/ohmyzsh $ZSH
 
+[ -d ~/.zsh.plug/plugins/nix-zsh-completions ] || git clone git@github.com:spwhitt/nix-zsh-completions \
+  ~/.zsh.plug/plugins/nix-zsh-completions
+
 # if you come from bash you might have to change your $PATH.
 path=('/usr/local/bin' $path)
 
@@ -75,6 +78,8 @@ plugins=(
 	rust
 	# oc helm kubectl
 	gnu-utils
+
+  nix-zsh-completions
 
 	proxy
 )
