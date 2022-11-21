@@ -53,3 +53,10 @@ windows:
       - pane
       - pane
       - pane
+
+  - window_name: kvm
+    layout: even-vertical
+    start_directory: ~/kvm
+    panes:
+      - pane
+      - pane
