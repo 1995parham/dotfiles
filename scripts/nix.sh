@@ -25,6 +25,11 @@ main_pacman() {
 
 	msg 'manually add current user into nix-users group'
 	# newgrp nix-users
+
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+
+	msg 'create configuration on /etc/nix/nix.conf by copying it'
+	sudo cp "$dotfiles_root/nix/nix.conf" /etc/nix/nix.conf
 }
 
 main() {
