@@ -51,7 +51,7 @@ main() {
 
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
-	"$HOME/miniconda3/bin/conda" install ipython matplotlib pandas numpy nbformat
+	"$HOME/miniconda3/bin/conda" install ipython matplotlib pandas numpy nbformat pyarrow fastparquet
 
 	mkdir -p "$HOME/.ipython/profile_default"
 	linker "python" "$dotfiles_root/python/ipython/ipython_config.py" "$HOME/.ipython/profile_default/ipython_config.py"
