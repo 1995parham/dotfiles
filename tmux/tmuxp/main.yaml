@@ -26,11 +26,12 @@ windows:
       - pane
 
   - window_name: tracking
-    layout: even-vertical
+    layout: tiled
     panes:
       - start_directory: ~/tasks
       - start_directory: ~/.local/share/dijo
       - start_directory: ~/org
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/.github
 
   - window_name: raha
     layout: even-vertical
