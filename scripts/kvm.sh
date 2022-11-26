@@ -36,5 +36,5 @@ main_pacman() {
 
 	sudo systemctl enable --now libvirtd.service
 
-	vagrant plugin install vagrant-libvirt
+	proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
 }
