@@ -1,3 +1,2 @@
 - [tips and tricks :monocle_face:](https://github.com/1995parham/dotfiles/wiki/tips-and-tricks)
 - [softwares :computer:](https://github.com/1995parham/dotfiles/wiki/softwares)
-- [firefox :fox_face:](https://github.com/1995parham/dotfiles/wiki/firefox)
