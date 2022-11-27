@@ -31,7 +31,7 @@ windows:
       - start_directory: ~/tasks
       - start_directory: ~/.local/share/dijo
       - start_directory: ~/org
-      - start_directory: ~/Documents/Git/parham/1995parham-learning/.github
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
 
   - window_name: raha
     layout: even-vertical
