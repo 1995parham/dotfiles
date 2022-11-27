@@ -8,9 +8,9 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 
-in_relationship() {
+since-() {
 	local since
-	since=$(date -d "13 feb 2020 22:26:00" "+%s")
+	since=$(date -d "$1" "+%s")
 	local now
 	now=$(date -d "now" "+%s")
 
@@ -26,7 +26,12 @@ in_relationship() {
 	diff=$((diff - hours * hour))
 	local minutes=$((diff / minute))
 
-	echo -e "$days days $hours hours $minutes minutes\nHow long we were together?"
+	echo "$days days $hours hours $minutes minutes"
+}
+
+in_relationship() {
+	since- "13 feb 2020 22:26:00"
+	echo "How long we were together?"
 }
 
 to_birthday() {
@@ -59,6 +64,11 @@ to_birthday() {
 	echo -e "$days days $hours hours $minutes minutes\nHow much left until to her birthday?"
 }
 
+since_first_family_meeting() {
+	since- "18 nov 2022 15:30:00"
+	echo "How much since our first family meeting"
+}
+
 main() {
 	echo "We are in relatioship for:"
 	in_relationship
@@ -78,6 +88,9 @@ else
 		;;
 	'relationship')
 		in_relationship
+		;;
+	'fist_family_meeting')
+		since_first_family_meeting
 		;;
 	esac
 fi
