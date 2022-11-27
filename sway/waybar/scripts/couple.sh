@@ -70,13 +70,15 @@ since_first_family_meeting() {
 }
 
 main() {
-	echo "We are in relatioship for:"
 	in_relationship
 
 	echo
 
-	echo "To Raha birthday:"
 	to_birthday
+
+	echo
+
+	since_first_family_meeting
 }
 
 if [ $# -ne 1 ]; then
@@ -89,7 +91,7 @@ else
 	'relationship')
 		in_relationship
 		;;
-	'fist_family_meeting')
+	'first_family_meeting')
 		since_first_family_meeting
 		;;
 	esac
