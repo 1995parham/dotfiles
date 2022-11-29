@@ -5,6 +5,7 @@ set searchengine duckduckgo
 
 autocmd DocStart krunker\\.io mode ignore
 autocmd DocStart .*\\.google\\.com mode ignore
+autocmd DocStart .*\\.bonk\.io mode ignore
 blacklistadd google.com
 
 bind / fillcmdline find
