@@ -56,6 +56,9 @@
   process = git-lfs filter-process
   required = true
 
+[alias]
+  prune-branches = "!git remote prune origin && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D"
+
 # [url "git@github.com:"]
 #	insteadOf = https://github.com/
 
