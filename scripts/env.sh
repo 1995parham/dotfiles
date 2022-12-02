@@ -29,6 +29,7 @@ pacman_packages=(
 	cpupower
 	reflector
 	jwt-cli
+	tokei
 	glow
 	wakatime
 	tmuxp
