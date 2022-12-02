@@ -20,10 +20,23 @@ packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 brew_packages=(coreutils k6 inetutils inxi fontconfig wget tmuxp)
 apt_packages=(bmon atop)
 pacman_packages=(
-	mtr github-cli inetutils websocat fuse2 dog yq man-pages usbutils exfat-utils
-	openbsd-netcat speedtest-cli cpupower reflector jwt-cli glow wakatime tmuxp arch-wiki-lite
-	arch-wiki-docs glab neofetch onefetch pastel
+	mtr
+	github-cli glab
+	inetutils websocat fuse2
+	dog yq man-pages usbutils exfat-utils
+	openbsd-netcat
+	speedtest-cli
+	cpupower
+	reflector
+	jwt-cli
+	glow
+	wakatime
+	tmuxp
+	arch-wiki-lite arch-wiki-docs
+	neofetch onefetch
+	pastel
 	man-db
+	bandwhich
 )
 yay_packages=(jcal actionlint-bin act-bin mqttui mprocs)
 
