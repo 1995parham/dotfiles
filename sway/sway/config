@@ -223,8 +223,8 @@ bindsym $mod+Shift+grave move container to workspace $wsf; workspace $wsf
 # bindswitch lid:on output * power off
 # bindswitch lid:off output * power on
 
-bindgesture swipe:right workspace prev
-bindgesture swipe:left workspace next
+# bindgesture swipe:right workspace prev
+# bindgesture swipe:left workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+r reload; exec "notify-send reloaded"
