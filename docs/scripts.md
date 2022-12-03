@@ -16,7 +16,7 @@ The following operating systems and their package managers are supported:
 
 For each package, I mentioned its *script*:
 
-| Role                  | Archlinux                                         | OSx                                        | Windows 10                        |
+| Role                  | Install                                         | Archlinux                                        | OSx                       |
 |:---------------------:|:--------------------------------------------------|:-------------------------------------------|:----------------------------------|
 | Anydesk               | anydesk-bin (yay)                                 | Anydesk (brew)                             | -                                 |
 | Browser               | firefox + firefox-developer-edition (pacman)      | firefox + firefox-developer-edition (brew) | firefox (winget)                  |
