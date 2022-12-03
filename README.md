@@ -89,3 +89,5 @@ Configuration of mentioned applications also is a part of this repository.
 I am using `sway` and `hyprland` as my primary window managers. This repository
 structured around creating soft-links and because of that the duplicate configurations
 between these window managers are gathered in `sway/`.
+
+> Checkout [Wiki](https://github.com/1995parham/dotfiles/wiki) for more information
