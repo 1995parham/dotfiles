@@ -34,7 +34,6 @@ pacman_packages=(
 	wakatime
 	tmuxp
 	arch-wiki-lite arch-wiki-docs
-	neofetch onefetch
 	pastel
 	man-db
 	bandwhich
