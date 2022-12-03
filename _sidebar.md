@@ -1,2 +1,3 @@
-- [tips and tricks :monocle_face:](https://github.com/1995parham/dotfiles/wiki/tips-and-tricks)
-- [softwares :computer:](https://github.com/1995parham/dotfiles/wiki/softwares)
+### Table of Contents
+
+- [Scripts](https://github.com/1995parham/dotfiles/wiki/Scripts)
