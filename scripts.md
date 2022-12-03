@@ -1,18 +1,23 @@
-* Software
-These are applications that I use in a daily manner.
+# Scripts
 
-** Package Managers
-+ Archlinux:
-  + [[https://archlinux.org/pacman/][Pacman]]
-  + [[https://github.com/Jguer/yay][Yet another Yogurt]]
-+ OSx
-  - [[https://brew.sh][Brew]]
+These are applications that I use in a daily manner, so I created a nice and easy way to install them.
 
-** Applications
-For each package I have mentioned the package manager that has it and also /+/ means two package are together but /// means you can select between packages.
+## Package Managers
 
-| Role                  | Manjaro                                           | OSx                                        | Windows 10                        |
-|-----------------------+---------------------------------------------------+--------------------------------------------+-----------------------------------|
+The following operating systems and their package managers are supported:
+
+- Archlinux:
+  - [Pacman](https://archlinux.org/pacman/)
+  - [Yet another Yogurt](https://github.com/Jguer/yay)
+- OSx
+  - [Brew](https://brew.sh)
+
+## Applications
+
+For each package, I mentioned its *script*:
+
+| Role                  | Archlinux                                         | OSx                                        | Windows 10                        |
+|:---------------------:|:--------------------------------------------------|:-------------------------------------------|:----------------------------------|
 | Anydesk               | anydesk-bin (yay)                                 | Anydesk (brew)                             | -                                 |
 | Browser               | firefox + firefox-developer-edition (pacman)      | firefox + firefox-developer-edition (brew) | firefox (winget)                  |
 | Calendar              | cal (pacman)                                      | cal (brew)                                 | -                                 |
