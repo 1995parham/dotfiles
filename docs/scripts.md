@@ -25,8 +25,8 @@ For each package, I mentioned its *script*:
 | cat clone with wings  | bat (pacman)                                      | bat (brew)                                 | bat (scoop)                       |
 | Container             | docker (pacman)                                   | docker (brew)                              | -                                 |
 | Desktop Manager       | lightdm + lightdm-slick-greeter (pacman)          | -                                          | -                                 |
-| Dictionary            | ./start.sh emacs | emacs | -                                 |
-| Download Manager      | ./start.sh env   | aria2 |
+| Dictionary            | ./start.sh def                                    | def                                        | def                               |
+| Download Manager      | ./start.sh env                                    | aria2c                                     | aria2c
 | Drawing Diagram       | drawio-desktop-bin (yay)                          | drawio (brew)                              | -                                 |
 | Emacs                 | emacs (pacman)                                    | vscode (brew)                              | emacs (wsl) / vscode (winget)     |
 | GNU Privacy Guard     | gnupg (pacman)                                    | gpg + gpg-suite-no-email (brew)            | gpg4win (winget)                  |
