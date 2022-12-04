@@ -14,50 +14,52 @@ The following operating systems and their package managers are supported:
 
 ## Applications
 
-For each package, I mentioned its *script*:
+For each package, I mentioned its _script_ and how you can run it. Application that has their command in all lower case
+means you can run them from CLI, but those have title case are the one you need to lunch them from your luncher.
+`(?)` means the application did cause good experience for me on that OS.
 
-| Role                  | Install                                         | Archlinux                                        | OSx                       |
-|:---------------------:|:--------------------------------------------------|:-------------------------------------------|:----------------------------------|
-| Anydesk               | anydesk-bin (yay)                                 | Anydesk (brew)                             | -                                 |
-| Browser               | firefox + firefox-developer-edition (pacman)      | firefox + firefox-developer-edition (brew) | firefox (winget)                  |
-| Calendar              | cal (pacman)                                      | cal (brew)                                 | -                                 |
-| Camera                | guvcview (pacman)                                 | Photo Booth                                | Camera                            |
-| cat clone with wings  | bat (pacman)                                      | bat (brew)                                 | bat (scoop)                       |
-| Container             | docker (pacman)                                   | docker (brew)                              | -                                 |
-| Desktop Manager       | lightdm + lightdm-slick-greeter (pacman)          | -                                          | -                                 |
-| Dictionary            | ./start.sh def                                    | def                                        | def                               |
-| Download Manager      | ./start.sh env                                    | aria2c                                     | aria2c
-| Drawing Diagram       | drawio-desktop-bin (yay)                          | drawio (brew)                              | -                                 |
-| Emacs                 | emacs (pacman)                                    | vscode (brew)                              | emacs (wsl) / vscode (winget)     |
-| GNU Privacy Guard     | gnupg (pacman)                                    | gpg + gpg-suite-no-email (brew)            | gpg4win (winget)                  |
-| Habit Manager         | dijo-bin (yay)                                    | dijo (brew)                                | -                                 |
-| HTTP/gRPC Load Test   | k6-bin (yay)                                      | k6 (brew)                                  | -                                 |
-| Image Editor          | gimp (pacman)                                     | Preview                                    | -                                 |
-| Image Viewer          | viewnior (pacman)                                 | Preview                                    | -                                 |
-| Jalali Calendar       | jcal-git (yay)                                    | jcal (brew)                                | -                                 |
-| Luncher               | rofi / dmenu (pacman)                             | -                                          | -                                 |
-| mp3 Tags              | clementine (pacman)                               | -                                          | -                                 |
-| Music Player          | mpd + ncmpcpp (pacman)                            | cmus (brew)                                | -                                 |
-| neovim                | nvim (pacman)                                     | nvim (brew)                                | nvim (wsl)                        |
-| Networking            | NetworkManager[nmcli/nmtui] / netplan (pacman)    | -                                          | -                                 |
-| Network Time Protocol | chrony (pacman)                                   | -                                          | -                                 |
-| Note Keeping          | xournalpp (pacman)                                | xournalpp (brew)                           | xournalpp (scoop)                 |
-| Office Suite          | libreoffice-fresh + libreoffice-fresh-fa (pacman) | -                                          | Microsoft Office                  |
-| Packet Sniffer        | wireshark-qt (pacman)                             | Wireshark (brew)                           | -                                 |
-| Password Manager      | gopass (pacman) + gopass-jsonapi-bin (yay)        | gopass + gopass-jsonapi-bin (brew)         | gopass (scoop)                    |
-| PDF Viewer            | epdfview (pacman)                                 | Preview                                    | sumatrapdf (scoop) / evince (wsl) |
-| Power Manager         | xfce-power-manager (pacman)                       | -                                          | -                                 |
-| Skype                 | skypeforlinux-preview-bin (yay)                   | Skype (brew)                               | Skype                             |
-| Speedtest             | speedtest-cli (pacman)                            | -                                          | -                                 |
-| Status Bar            | polybar (pacman)                                  | iglance (brew)                             | -                                 |
-| sudo                  | sudo                                              | sudo                                       | sudo (scoop)                      |
-| Syncthing             | syncthing (pacman)                                | syncthing (brew)                           | SyncTrayzor (winget)              |
-| Terminal Emulator     | alacritty + kitty (pacman)                        | alacritty (brew)                           | Windows Terminal Preview (winget) |
-| Terminal Multiplexer  | tmux (pacman)                                     | tmux (brew)                                | tmux (wsl)                        |
-| Time Manager          | timew (pacman)                                    | timew (brew)                               | -                                 |
-| Video Editor          | ffmpeg (pacman)                                   | ffmpeg (brew)                              | ffmpeg (scoop)                    |
-| Video Player          | mpv (pacman)                                      | mpv (brew)                                 | vlc (winget)                      |
-| vim                   | vim (pacman)                                      | vim (brew)                                 | vim (wsl)                         |
-| Wallpaper             | nitrogen (pacman)                                 | -                                          | -                                 |
-| Window Manager        | i3 (pacman)                                       | -                                          | -                                 |
-| Youtube Downloader    | youtube-dl (pacman)                               | youtube-dl (brew)                          | youtube-dl (scoop)                |
+|         Role          | Install                                           | Archlinux                                 | OSx                               |
+| :-------------------: | :------------------------------------------------ | :---------------------------------------- | :-------------------------------- |
+|        Anydesk        | anydesk-bin (yay)                                 | Anydesk                                   | -                                 |
+|        Browser        | ./start.sh browser                                | Firefox, Firefox Developer Edition        | Firefox                           |
+|       Calendar        | ./start.sh env                                    | `cal`, `jcal`                             | -                                 |
+|        Camera         | guvcview (pacman)                                 | `guvcview`                                | Photo Booth                       |
+| cat clone with wings  | ./start.sh env                                    | `bat`                                     | `bat`                             |
+|   Container Engine    | ./start.sh docker                                 | `docker`                                  | Docker Desktop                    |
+|   Container Engine    | ./start.sh podman                                 | `podman`                                  | `podman`                          |
+|    Desktop Manager    | ./archinstall/sway.sh                             | `greetd`, `greetd-tuigreet`               | -                                 |
+|      Dictionary       | ./start.sh def                                    | `def`                                     | `def`                             |
+|   Download Manager    | ./start.sh env                                    | `aria2c`                                  | `aria2c`                          |
+|    Drawing Diagram    | ./start.sh drawio                                 | `drawio`                                  | `drawio`                          |
+|         Emacs         | ./start.sh emacs                                  | `emacs`                                   | `emacs` (?)                       |
+|   GNU Privacy Guard   | ./start.sh env                                    | `gpg`                                     | -                                 |
+|     Habit Tracker     | ./start.sh dijo                                   | `dijo`                                    | -                                 |
+|  HTTP/gRPC Load Test  | ./start.sh env                                    | `k6`                                      | `k6`                              |
+|     Image Editor      | ./start.sh image                                  | GNU Image Manipulation Program, `convert` | Preview                           |
+|     Image Viewer      | ./start.sh sway                                   | `imv`                                     | Preview                           |
+|        Luncher        | ./start.sh sway                                   | `rofi`                                    | -                                 |
+|       mp3 Tags        | strawberry (pacman)                               | Strawberry                                | iTunes                            |
+|     Music Player      | ./start.sh mpd                                    | `mpc`, `ncmpcpp`                          | -                                 |
+|        neovim         | ./start.sh neovim                                 | `nvim`                                    | `nvim`                            |
+|      Networking       | NetworkManager with `archinstall`                 | `nmtui`, `nmcli`                          | -                                 |
+| Network Time Protocol | chrony (pacman)                                   | -                                         | -                                 |
+|     Note Keeping      | xournalpp (pacman)                                | Xournalpp                                 | Xournalpp                         |
+|     Office Suite      | libreoffice-fresh + libreoffice-fresh-fa (pacman) | LibreOffice                               | Office                            |
+|    Packet Sniffer     | wireshark-qt (pacman)                             | Wireshark                                 | -                                 |
+|   Password Manager    | ./start.sh gopass                                 | `gopass`                                  | `gopass`                          |
+|      PDF Viewer       | ./start.sh sway                                   | `mupdf`                                   | Preview                           |
+|     Power Manager     | xfce-power-manager (pacman)                       | -                                         | -                                 |
+|         Skype         | skypeforlinux-preview-bin (yay)                   | Skype Preview                             | Skype                             |
+|       Speedtest       | speedtest-cli (pacman)                            | -                                         | -                                 |
+|      Status Bar       | polybar (pacman)                                  | iglance (brew)                            | -                                 |
+|         sudo          | sudo                                              | sudo                                      | sudo (scoop)                      |
+|       Syncthing       | syncthing (pacman)                                | syncthing (brew)                          | SyncTrayzor (winget)              |
+|   Terminal Emulator   | alacritty + kitty (pacman)                        | alacritty (brew)                          | Windows Terminal Preview (winget) |
+| Terminal Multiplexer  | tmux (pacman)                                     | tmux (brew)                               | tmux (wsl)                        |
+|     Time Manager      | timew (pacman)                                    | timew (brew)                              | -                                 |
+|     Video Editor      | ffmpeg (pacman)                                   | ffmpeg (brew)                             | ffmpeg (scoop)                    |
+|     Video Player      | mpv (pacman)                                      | mpv (brew)                                | vlc (winget)                      |
+|          vim          | vim (pacman)                                      | vim (brew)                                | vim (wsl)                         |
+|       Wallpaper       | nitrogen (pacman)                                 | -                                         | -                                 |
+|    Window Manager     | i3 (pacman)                                       | -                                         | -                                 |
+|  Youtube Downloader   | youtube-dl (pacman)                               | youtube-dl (brew)                         | youtube-dl (scoop)                |
