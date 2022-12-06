@@ -11,41 +11,37 @@ windows:
       - pane
 
   - window_name: rust101
-    layout: main-horizontal
-    options:
-      main-pane-height: 60%
+    layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/rust101
     panes:
       - pane
       - pane
       - pane
+      - pane
 
   - window_name: java101
-    layout: main-horizontal
-    options:
-      main-pane-height: 60%
+    layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/java101
     panes:
       - pane
       - pane
       - pane
+      - pane
 
   - window_name: python101
-    layout: main-horizontal
-    options:
-      main-pane-height: 60%
+    layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/python101
     panes:
       - pane
       - pane
       - pane
+      - pane
 
   - window_name: go101
-    layout: main-horizontal
-    options:
-      main-pane-height: 60%
+    layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/go101
     panes:
+      - pane
       - pane
       - pane
       - pane
