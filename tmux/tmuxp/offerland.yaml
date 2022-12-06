@@ -31,6 +31,9 @@ windows:
   - window_name: demeter
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/offerland/demeter
+    before_script: pipenv install --dev --skip-lock
+    shell_command_before:
+      - '[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset'
     panes:
       - pane
       - pane
