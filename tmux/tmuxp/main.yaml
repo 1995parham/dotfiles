@@ -5,6 +5,9 @@ windows:
     layout: tiled
     panes:
       - start_directory: ~/dotfiles
+        focus: true
+        shell_command:
+          - neofetch
       - start_directory: ~/.config/nvim/
       - start_directory: ~/Documents/Git/parham/keys
       - start_directory: ~/.local/share/navi/cheats/1995parham__cheats
