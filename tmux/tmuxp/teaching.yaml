@@ -12,7 +12,7 @@ windows:
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/1995parham-teaching/hello-go
     panes:
-      - shell_commands:
+      - shell_command:
           - git project
       - pane
 
