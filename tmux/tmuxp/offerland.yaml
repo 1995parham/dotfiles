@@ -36,7 +36,8 @@ windows:
       - '[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset'
     panes:
       - pane
-      - pane
+      - shell_command:
+          - git project
       - pane
       - pane
 
@@ -47,13 +48,21 @@ windows:
       - pane
       - pane
 
+  - window_name: root.wiki
+    layout: even-horizontal
+    start_directory: ~/Documents/Git/parham/offerland/offerland/root.wiki
+    panes:
+      - pane
+      - pane
+
   - window_name: gaia
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/1995parham/gaia/
     shell_command_before:
       - conda activate gaia
     panes:
-      - pane
+      - shell_command:
+          - git project
       - pane
       - pane
       - pane
