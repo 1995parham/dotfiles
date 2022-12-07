@@ -14,7 +14,8 @@ windows:
     layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/rust101
     panes:
-      - pane
+      - shell_commands:
+          - git project
       - pane
       - pane
       - pane
@@ -23,7 +24,8 @@ windows:
     layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/java101
     panes:
-      - pane
+      - shell_commands:
+          - git project
       - pane
       - pane
       - pane
@@ -32,7 +34,8 @@ windows:
     layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/python101
     panes:
-      - pane
+      - shell_commands:
+          - git project
       - pane
       - pane
       - pane
@@ -41,7 +44,8 @@ windows:
     layout: tiled
     start_directory: ~/Documents/Git/parham/1995parham-learning/go101
     panes:
-      - pane
+      - shell_commands:
+          - git project
       - pane
       - pane
       - pane
@@ -50,7 +54,8 @@ windows:
     layout: even-vertical
     start_directory: ~/Documents/Git/parham/1995parham/fesghel
     panes:
-      - pane
+      - shell_commands:
+          - git project
       - pane
 
   - window_name: kernel
@@ -58,4 +63,5 @@ windows:
     start_directory: ~/Documents/Git/parham/1995parham/kernel-training
     panes:
       - shell: bash
-      - pane
+      - shell_commands:
+          - git project
