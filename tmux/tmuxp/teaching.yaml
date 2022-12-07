@@ -12,7 +12,8 @@ windows:
     layout: even-horizontal
     start_directory: ~/Documents/Git/parham/1995parham-teaching/hello-go
     panes:
-      - pane
+      - shell_commands:
+          - git project
       - pane
 
   - window_name: scratch
