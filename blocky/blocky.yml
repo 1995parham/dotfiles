@@ -55,6 +55,8 @@ conditional:
     # eclipse.org: 178.22.122.101
     # anaconda.com: 178.22.122.101
     # conda.io: 178.22.122.101
+    recruitee.com: 178.22.122.101
+    recruitee-main.s3.eu-central-1.amazonaws.com: 178.22.122.101
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
