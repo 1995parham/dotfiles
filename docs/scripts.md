@@ -57,6 +57,7 @@ means you can run them from CLI, but those have title case are the one you need 
 |       Syncthing        | ./start.sh syncthing              | `syncthing`                               | `syncthing`    |
 |   Terminal Emulator    | ./start.sh alacritty              | `alacritty`                               | Alacritty (?)  |
 |   Terminal Emulator    | ./start.sh kitty                  | `kitty`                                   | Kitty          |
+|   Terminal Emulator    | ./start.sh foot                   | `foot`                                    | -              |
 |  Terminal Multiplexer  | ./start.sh env                    | `tmux`                                    | `tmux`         |
 |      Video Editor      | ffmpeg (pacman)                   | `ffmpeg`                                  | `ffmpeg`       |
 |      Video Player      | ./start.sh mpv                    | `mpv`                                     | `mpv`          |
