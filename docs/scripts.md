@@ -25,6 +25,8 @@ means you can run them from CLI, but those have title case are the one you need 
 |        Calendar        | ./start.sh env                    | `cal`, `jcal`                             | -              |
 |         Camera         | guvcview (pacman)                 | `guvcview`                                | Photo Booth    |
 |  cat clone with wings  | ./start.sh env                    | `bat`                                     | `bat`          |
+|         Fetch          | ./start.sh fetch                  | `neofetch`, `onefetch`                    | `              |
+|          BTop          | ./start.sh btop                   | `btop`                                    | `              |
 |    Container Engine    | ./start.sh docker                 | `docker`                                  | Docker Desktop |
 |    Container Engine    | ./start.sh podman                 | `podman`                                  | `podman`       |
 |    Desktop Manager     | ./archinstall/sway.sh             | `greetd`, `greetd-tuigreet`               | -              |
@@ -68,3 +70,5 @@ means you can run them from CLI, but those have title case are the one you need 
 | Multi-OS Bootable Disk | ./start.sh ventoy                 | `ventoy`                                  | -              |
 |  LaTex/XeTex/Texlive   | ./start.sh texlive                | `tlmgr`, `xelatex`, `latexmk`, etc.       | -              |
 |     Android, Quest     | ./start.sh android                | `adb`, SideQuest                          | -              |
+|    Bandwidth Usage     | ./start.sh env                    | `bandwhich`                               | -              |
+|          TLDR          | ./start.sh tealdeer               | `tldr`                                    | -              |
