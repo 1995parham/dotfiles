@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman neofetch onefetch
+	require_pacman neofetch onefetch tokei
 }
 
 main() {
