@@ -25,7 +25,7 @@ means you can run them from CLI, but those have title case are the one you need 
 |        Calendar        | ./start.sh env                    | `cal`, `jcal`                             | -              |
 |         Camera         | guvcview (pacman)                 | `guvcview`                                | Photo Booth    |
 |  cat clone with wings  | ./start.sh env                    | `bat`                                     | `bat`          |
-|         Fetch          | ./start.sh fetch                  | `neofetch`, `onefetch`                    | `              |
+|         Fetch          | ./start.sh fetch                  | `neofetch`, `onefetch`, `tokei`           | `              |
 |          BTop          | ./start.sh btop                   | `btop`                                    | `              |
 |    Container Engine    | ./start.sh docker                 | `docker`                                  | Docker Desktop |
 |    Container Engine    | ./start.sh podman                 | `podman`                                  | `podman`       |
