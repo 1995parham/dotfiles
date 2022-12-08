@@ -36,8 +36,7 @@ main_pacman() {
 
 		dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 		msg 'providing chrome-beta-flags.conf'
-		msg "cp $dotfiles_root/chrome/chrome-beta-flags.conf $HOME/.config/chrome-beta-flags.conf"
-		cp "$dotfiles_root/chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf"
+		linker "browser" "$dotfiles_root/chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf"
 	fi
 }
 
