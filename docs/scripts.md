@@ -67,3 +67,4 @@ means you can run them from CLI, but those have title case are the one you need 
 |      Google Cloud      | ./start.sh gcloud                 | `gcloud`                                  | -              |
 | Multi-OS Bootable Disk | ./start.sh ventoy                 | `ventoy`                                  | -              |
 |  LaTex/XeTex/Texlive   | ./start.sh texlive                | `tlmgr`, `xelatex`, `latexmk`, etc.       | -              |
+|     Android, Quest     | ./start.sh android                | `adb`, SideQuest                          | -              |
