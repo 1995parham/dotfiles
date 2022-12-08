@@ -63,3 +63,4 @@ means you can run them from CLI, but those have title case are the one you need 
 |       Wallpaper       | ./start.sh sway                                   | `wpaperd`                                 | -              |
 |  Youtube Downloader   | ./start.sh yt-dlp                                 | `yt-dlp`                                  | `yt-dlp`       |
 |       Timezone        | ./start.sh gotz                                   | `gotz`                                    | -              |
+|     Google Cloud      | ./start.sh gcloud                                 | `gcloud`                                  | -              |
