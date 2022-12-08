@@ -1,9 +1,18 @@
 {
   "config_version": "1.0",
   "timezones": [
-    { "Name": "Home", "TZ": "Asia/Tehran" },
-    { "Name": "Snapp", "TZ": "Asia/Tehran" },
-    { "Name": "Offerland", "TZ": "America/Vancouver" }
+    {
+      "Name": "Home",
+      "TZ": "Asia/Tehran"
+    },
+    {
+      "Name": "Snapp",
+      "TZ": "Asia/Tehran"
+    },
+    {
+      "Name": "Offerland",
+      "TZ": "America/Vancouver"
+    }
   ],
   "style": {
     "symbols": "mono",
@@ -21,7 +30,6 @@
       "StaticColorEvening": "#051686",
       "StaticColorNight": "#030D4D",
       "StaticColorForeground": "",
-
       "DynamicColorMorning": "#419AA8",
       "DynamicColorDay": "#FFFFFF",
       "DynamicColorEvening": "#419AA8",
