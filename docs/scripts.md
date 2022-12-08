@@ -15,10 +15,10 @@ The following operating systems and their package managers are supported:
 ## Applications
 
 For each package, I mentioned its _script_ and how you can run it. Application that has their command in all lower case
-means you can run them from CLI, but those have title case are the one you need to lunch them from your luncher.
+means you can run them from CLI, but those have title case are the one you need to lunch them from your launcher.
 `(?)` means the application did cause good experience for me on that OS.
 
-|         Role          | Install                                           | Archlinux                                 | OSx            |
+|         Role          | How to Install?                                   | Archlinux                                 | OSx            |
 | :-------------------: | :------------------------------------------------ | :---------------------------------------- | :------------- |
 |        Anydesk        | anydesk-bin (yay)                                 | Anydesk                                   | -              |
 |        Browser        | ./start.sh browser                                | Firefox, Firefox Developer Edition        | Firefox        |
@@ -38,8 +38,8 @@ means you can run them from CLI, but those have title case are the one you need 
 |  HTTP/gRPC Load Test  | ./start.sh env                                    | `k6`                                      | `k6`           |
 |     Image Editor      | ./start.sh image                                  | GNU Image Manipulation Program, `convert` | Preview        |
 |     Image Viewer      | ./start.sh sway                                   | `imv`                                     | Preview        |
-|        Luncher        | ./start.sh sway                                   | `rofi`                                    | -              |
-|       mp3 Tags        | strawberry (pacman)                               | Strawberry                                | iTunes         |
+|       Launcher        | ./start.sh sway                                   | `rofi`                                    | -              |
+|       MP3 Tags        | strawberry (pacman)                               | Strawberry                                | iTunes         |
 |     Music Player      | ./start.sh mpd                                    | `mpc`, `ncmpcpp`                          | -              |
 |        neovim         | ./start.sh neovim                                 | `nvim`                                    | `nvim`         |
 |          vim          | ./start.sh env                                    | `vim`                                     | `vim`          |
@@ -62,3 +62,4 @@ means you can run them from CLI, but those have title case are the one you need 
 |     Video Player      | ./start.sh mpv                                    | `mpv`                                     | `mpv`          |
 |       Wallpaper       | ./start.sh sway                                   | `wpaperd`                                 | -              |
 |  Youtube Downloader   | ./start.sh yt-dlp                                 | `yt-dlp`                                  | `yt-dlp`       |
+|       Timezone        | ./start.sh gotz                                   | `gotz`                                    | -              |
