@@ -54,7 +54,7 @@ means you can run them from CLI, but those have title case are the one you need 
 |       PDF Viewer       | ./start.sh sway                   | `mupdf`                                   | Preview        |
 |     Power Manager      | -                                 | -                                         | -              |
 |         Skype          | skypeforlinux-preview-bin (yay)   | Skype Preview                             | Skype          |
-|       Speedtest        | ./start.sh env                    | `speedtest-cli`                           | -              |
+|     Network Speed      | ./start.sh env                    | `speedtest-cli`                           | -              |
 |       Status Bar       | ./start.sh sway                   | `waybar`                                  | -              |
 |       Syncthing        | ./start.sh syncthing              | `syncthing`                               | `syncthing`    |
 |   Terminal Emulator    | ./start.sh alacritty              | `alacritty`                               | Alacritty (?)  |
@@ -72,3 +72,4 @@ means you can run them from CLI, but those have title case are the one you need 
 |     Android, Quest     | ./start.sh android                | `adb`, SideQuest                          | -              |
 |    Bandwidth Usage     | ./start.sh env                    | `bandwhich`                               | -              |
 |          TLDR          | ./start.sh tealdeer               | `tldr`                                    | -              |
+|          DNS           | ./start.sh blocky                 | `blocky`                                  | -              |
