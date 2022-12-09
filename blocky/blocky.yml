@@ -46,17 +46,9 @@ customDNS:
 # ProShecan is only works on home local network.
 conditional:
   mapping:
-    # galaxy.ansible.com: 178.22.122.101
-    # k8s.gcr.io: 178.22.122.101
-    # registry.access.redhat.com: 178.22.122.101
-    # gcr.io: 178.22.122.101
-    # docker.io: 178.22.122.101
-    # gitlab.com: 178.22.122.101
-    # eclipse.org: 178.22.122.101
-    # anaconda.com: 178.22.122.101
-    # conda.io: 178.22.122.101
     recruitee.com: 178.22.122.101
     recruitee-main.s3.eu-central-1.amazonaws.com: 178.22.122.101
+    go.dev: 178.22.122.101
 
 # optional: use black and white lists to block queries
 # (for example ads, trackers, adult pages etc.)
