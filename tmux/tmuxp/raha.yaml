@@ -11,11 +11,10 @@ windows:
       - pane
 
   - window_name: snapp
-    layout: main-horizontal
-    options:
-      main-pane-height: 60%
+    layout: tiled
     start_directory: ~/Documents/Git/raha/snapp
     panes:
+      - pane
       - pane
       - pane
       - pane
