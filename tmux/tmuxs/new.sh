@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e
 
-project=$(fd -tdirectory -H ^\.git$ ~/Documents/Git -x dirname | fzf)
+project=$(
+	fd -tdirectory -H ^\.git$ ~/Documents/Git -x dirname |
+		fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+			--preview="onefetch {}; tokei {}"
+)
 
 echo "$project"
 
