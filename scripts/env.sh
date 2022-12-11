@@ -21,6 +21,7 @@ brew_packages=(coreutils k6 inetutils inxi fontconfig wget tmuxp)
 apt_packages=(bmon atop)
 pacman_packages=(
 	mtr
+	fd
 	github-cli glab
 	inetutils websocat fuse2
 	dog yq man-pages usbutils exfat-utils
