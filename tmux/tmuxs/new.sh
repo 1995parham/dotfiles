@@ -7,12 +7,25 @@ project=$(
 			--preview="onefetch {}; tokei {}"
 )
 
-echo "$project"
+name="$(basename "$project")"
 
-tmux new-window -k -c "$project" -t "$(basename "$project")" -n "$(basename "$project")" ||
-	tmux new-window -c "$project" -n "$(basename "$project")"
-tmux split-window -c "$project"
-tmux split-window -c "$project"
-tmux split-window -c "$project" "git project && $SHELL"
+cd "$project" || exit
+
+if [ -f Pipfile ]; then
+	if [[ "$(command -v pipenv)" ]]; then
+		pipenv install --dev --skip-lock
+		# shellcheck disable=2016
+		commands=('[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset' "${commands[@]}")
+	fi
+fi
+
+cd -
+
+tmux kill-window -t "$name" || true
+tmux new-window -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+commands+=("git project")
+tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 tmux select-layout -t "$(basename "$project")" tiled
 tmux select-pane -t 0
