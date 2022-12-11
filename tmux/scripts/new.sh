@@ -11,3 +11,4 @@ tmux split-window -c "$project"
 tmux split-window -c "$project"
 tmux split-window -c "$project" "git project && $SHELL"
 tmux select-layout -t "$(basename "$project")" tiled
+tmux select-pane -t 0
