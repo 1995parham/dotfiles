@@ -66,7 +66,8 @@ install-wakatime() {
 
 # tmux
 install-tmux() {
-	dotfile "tmux" 'tmux.conf'
+	dotfile "tmux" "tmux.conf"
+	configfile "tmuxs" "" "tmux"
 	configfile "tmuxp" "" "tmux"
 
 	message "tmux" "installing tmux plugins"
