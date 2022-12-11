@@ -1,0 +1,13 @@
+---
+session_name: Sanpp! Dispatching Internal LB
+windows:
+  - window_name: ssh
+    layout: tiled
+    start_directory: ~/Downloads
+    focus: true
+    options_after:
+      synchronize-panes: on
+    panes:
+      - ssh internal-lb-01.lb.afra.snapp.infra
+      - ssh internal-lb-02.lb.afra.snapp.infra
+      - ssh internal-lb-03.lb.afra.snapp.infra
