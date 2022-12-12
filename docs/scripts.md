@@ -77,3 +77,4 @@ Always check [are we Wayland yet](https://arewewaylandyet.com/) to find your sof
 |    Bandwidth Usage     | ./start.sh env                    | `bandwhich`                               | -              |
 |          TLDR          | ./start.sh tealdeer               | `tldr`                                    | -              |
 |          DNS           | ./start.sh blocky                 | `blocky`                                  | -              |
+|          JSON          | ./start.sh env                    | `jq`, `jless`                             | -              |
