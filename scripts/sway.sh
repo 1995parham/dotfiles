@@ -77,8 +77,8 @@ main_pacman() {
 	linker dmenu "$dotfiles_root/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
-	msg 'allow run gui application with sudo (e.g. gparted)'
-	xhost +SI:localuser:root
+	# msg 'allow run gui application with sudo (e.g. gparted)'
+	# xhost +SI:localuser:root
 
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
 	require_pacman gnome-keyring seahorse
