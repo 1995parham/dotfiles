@@ -40,7 +40,8 @@ windows:
     layout: even-vertical
     start_directory: ~/Documents/Git/parham/parham-alvani/raha
     panes:
-      - pane
+      - shell_command:
+        - chafa ~/Sync/Pictures/36500888.jpg
       - pane
 
   - window_name: organized
