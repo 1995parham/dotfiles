@@ -41,7 +41,7 @@ Always check [arewewaylandyet](https://arewewaylandyet.com/) to find your softwa
 |  HTTP/gRPC Load Test   | ./start.sh env                    | `k6`                                      | `k6`           |
 |      Image Editor      | ./start.sh image                  | GNU Image Manipulation Program, `convert` | Preview        |
 |      Image Viewer      | ./start.sh sway                   | `imv`                                     | Preview        |
-| Terminal Image Viewer  | ./start.sh chafa                  | `chafa`                                   | -              |
+| Terminal Image Viewer  | ./start.sh env                    | `chafa`                                   | -              |
 |        Launcher        | ./start.sh sway                   | `rofi`                                    | -              |
 |        MP3 Tags        | strawberry (pacman)               | Strawberry                                | iTunes         |
 |      Music Player      | ./start.sh mpd                    | `mpc`, `ncmpcpp`                          | -              |
