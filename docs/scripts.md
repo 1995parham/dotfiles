@@ -17,7 +17,7 @@ The following operating systems and their package managers are supported:
 For each package, I mentioned its _script_ and how you can run it. Application that has their command in all lower case
 means you can run them from CLI, but those have title case are the one you need to lunch them from your launcher.
 `(?)` means the application did cause good experience for me on that OS.
-Always check [arewewaylandyet](https://arewewaylandyet.com/) to find your software on sway.
+Always check [are we Wayland yet](https://arewewaylandyet.com/) to find your software on sway.
 
 |          Role          | How to Install?                   | Archlinux                                 | OSx            |
 | :--------------------: | :-------------------------------- | :---------------------------------------- | :------------- |
@@ -56,6 +56,8 @@ Always check [arewewaylandyet](https://arewewaylandyet.com/) to find your softwa
 |       PDF Viewer       | ./start.sh sway                   | `mupdf`                                   | Preview        |
 |     Power Manager      | -                                 | -                                         | -              |
 |         Skype          | skypeforlinux-preview-bin (yay)   | Skype Preview                             | Skype          |
+|       Clipboard        | ./start.sh sway                   | `wl-copy`, `wl-paste`                     | -              |
+|     Wayland Evnets     | wev (yay)                         | `wev`                                     | -              |
 |     Network Speed      | ./start.sh env                    | `speedtest-cli`                           | -              |
 |       Status Bar       | ./start.sh sway                   | `waybar`                                  | -              |
 |       Syncthing        | ./start.sh syncthing              | `syncthing`                               | `syncthing`    |
