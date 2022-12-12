@@ -22,6 +22,7 @@ apt_packages=(bmon atop)
 pacman_packages=(
 	mtr
 	fd
+	jless
 	chafa
 	github-cli glab
 	inetutils websocat fuse2
