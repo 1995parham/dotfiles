@@ -24,6 +24,7 @@ pacman_packages=(
 	fd
 	jless
 	chafa
+	dua-cli
 	github-cli glab
 	inetutils websocat fuse2
 	dog yq man-pages usbutils exfat-utils
