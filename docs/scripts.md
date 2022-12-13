@@ -78,3 +78,4 @@ Always check [are we Wayland yet](https://arewewaylandyet.com/) to find your sof
 |          TLDR          | ./start.sh tealdeer               | `tldr`                                    | -              |
 |          DNS           | ./start.sh blocky                 | `blocky`                                  | -              |
 |          JSON          | ./start.sh env                    | `jq`, `jless`                             | -              |
+|  Disk Usage Analyzer   | ./start.sh env                    | `dua`                                     | -              |
