@@ -23,7 +23,7 @@ windows:
 
   - window_name: zamaneh
     layout: even-vertical
-    start_directory: ~/Documents/Git/parham/paralvan/zamaneh
+    start_directory: ~/Documents/Git/parham/1995parham/zamaneh
     panes:
       - pane
       - pane
