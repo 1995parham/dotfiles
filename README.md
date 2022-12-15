@@ -14,8 +14,8 @@
 ```
 
 ![GitHub](https://img.shields.io/github/license/1995parham/dotfiles?logo=gnu&style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/install?label=install&logo=github&style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/dotfiles/lint?label=lint&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham/dotfiles/install.yaml?label=install&logo=github&style=flat-square&branch=main)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham/dotfiles/sh-lint.yaml?label=lint&logo=github&style=flat-square&branch=main)
 [![Ansible](https://img.shields.io/badge/ansible-ready-black?logo=ansible&style=flat-square)](https://github.com/1995parham-me/ansible-role)
 ![GitHub repo size](https://img.shields.io/github/repo-size/1995parham/dotfiles?style=flat-square)
 
