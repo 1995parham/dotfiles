@@ -3,21 +3,6 @@
 # 1995parham's Theme
 # Parham Alvani theme for ZSH
 
-function prompt_nix_shell {
-  if [[ -n ${IN_NIX_SHELL} && ${IN_NIX_SHELL} != "0" || ${IN_NIX_RUN} && ${IN_NIX_RUN} != "0" ]]; then
-    if [[ -n ${IN_WHICH_NIX_SHELL} ]] then
-      NIX_SHELL_NAME=": ${IN_WHICH_NIX_SHELL}"
-    fi
-    if [[ -n ${IN_NIX_SHELL} && ${IN_NIX_SHELL} != "0" ]]; then
-      NAME="nix-shell"
-    else
-      NAME="nix-run"
-    fi
-    echo " %F{8}[%F{3}${NAME}${NIX_SHELL_NAME}%F{8}]%f "
-  fi
-}
-
-
 # Setup python virtual environment prompt settings
 VIRTUAL_ENV_DISABLE_PROMPT=true
 function virtualenv_info() {
@@ -104,7 +89,7 @@ typeset +H prompt_status=" %{$fg_bold[red]%}%(?..⍉)%f %F{cyan}%(1j.⚙.)%f"
 # '!' is true if the shell is privileged.
 PROMPT='
 %F{159}::%f $(prompt_argocd)%f
-%F{159}::%f$(prompt_nix_shell)$(prompt_venv) $(prompt_kube) %F{75}${CONDA_DEFAULT_ENV:+ $CONDA_DEFAULT_ENV}%f
+%F{159}::%f$(prompt_venv) $(prompt_kube) %F{75}${CONDA_DEFAULT_ENV:+ $CONDA_DEFAULT_ENV}%f
 ┌ %K{235}${prompt_status} %(!.%F{199}%n%f.%F{83}%n%f) %F{208}$(local_remote_prompt)%f %F{38}%M%f %k%K{214} ${prompt_dir} %k $(git_prompt_info) $(git_prompt_status) $(git_remote_status)
 └ %F{123}○%f $(prompt_proxy)'
 
