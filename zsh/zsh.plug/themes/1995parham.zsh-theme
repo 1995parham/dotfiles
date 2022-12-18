@@ -6,7 +6,7 @@
 # Setup python virtual environment prompt settings
 VIRTUAL_ENV_DISABLE_PROMPT=true
 function virtualenv_info() {
-  [ $VIRTUAL_ENV ] && echo '['`python3 --version` `basename $VIRTUAL_ENV`'] '
+  [ $VIRTUAL_ENV ] && echo "[  $(python3 --version) $(basename $VIRTUAL_ENV)] "
 }
 
 function prompt_venv() {
