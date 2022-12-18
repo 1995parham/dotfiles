@@ -11,13 +11,6 @@ name="$(basename "$project")"
 
 cd "$project" || exit
 
-if [ -f flake.nix ]; then
-	if [[ "$(command -v nix)" ]]; then
-		nix flake check
-		commands=("nix develop -c zsh && reset" "${commands[@]}")
-	fi
-fi
-
 if [ -f Pipfile ]; then
 	if [[ "$(command -v pipenv)" ]]; then
 		pipenv install --dev --skip-lock
