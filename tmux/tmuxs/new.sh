@@ -10,6 +10,7 @@ project=$(
 # . character has special meaning for tmux, it uses
 # it for separating window from pane.
 name="$(basename "$project" | tr '.' '_')"
+current_session="$(tmux display-message -p '#S')"
 
 cd "$project" || exit
 
@@ -23,11 +24,11 @@ fi
 
 cd -
 
-tmux kill-window -t "$name" || true
-tmux new-window -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux kill-window -t "$current_session:$name" || true
+tmux new-window -t "$current_session" -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 commands+=("git project")
-tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux select-layout -t "$name" tiled
+tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux select-layout -t "$current_session:$name" tiled
 tmux select-pane -t 0
