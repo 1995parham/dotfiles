@@ -7,7 +7,9 @@ project=$(
 			--preview="onefetch {}; tokei {}"
 )
 
-name="$(basename "$project")"
+# . character has special meaning for tmux, it uses
+# it for separating window from pane.
+name="$(basename "$project" | tr '.' '_')"
 
 cd "$project" || exit
 
@@ -27,5 +29,5 @@ tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 commands+=("git project")
 tmux split-window -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux select-layout -t "$(basename "$project")" tiled
+tmux select-layout -t "$name" tiled
 tmux select-pane -t 0
