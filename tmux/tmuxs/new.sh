@@ -25,7 +25,7 @@ current_session=$(
 if [ "$current_session" == "[new]" ]; then
 	read -r -p "please enter the new session name: " new_session
 	if [ -n "$new_session" ]; then
-		tmux new-session "$new_session"
+		tmux new-session -s "$new_session" -d -n 'scratch' -c "$HOME/Downloads"
 		current_session="$new_session"
 	else
 		return 0
