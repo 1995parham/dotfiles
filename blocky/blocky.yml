@@ -38,7 +38,6 @@ customDNS:
     external.staging.offerland.ca: 10.10.120.96
     internal.production.offerland.ca: 10.10.205.54
     external.production.offerland.ca: 10.10.64.118
-    gitlab.offerland.ca: 44.231.81.29
 
 # optional: definition, which DNS resolver(s) should be used for queries to the domain (with all sub-domains).
 # Multiple resolvers must be separated by comma
