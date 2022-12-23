@@ -1,9 +1,9 @@
 ---
 session_name: Task
 windows:
-  - window_name: p1
+  - window_name: scratch
     layout: tiled
-    start_directory: ~/Documents/Git/parham
+    start_directory: ~/Downloads
     panes:
       - pane
       - pane
