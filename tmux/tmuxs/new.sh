@@ -12,6 +12,26 @@ project=$(
 name="$(basename "$project" | tr '.' '_')"
 current_session="$(tmux display-message -p '#S')"
 
+sessions=$(tmux list-sessions | sed 's/: .*$//')
+
+current_session=$(
+	printf "%s\n[new]" "$sessions" |
+		fzf \
+			--color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+			--query "$current_session" \
+			--preview="tmux capture-pane -ep -t {}"
+)
+
+if [ "$current_session" == "[new]" ]; then
+	read -r -p "please enter the new session name: " new_session
+	if [ -n "$new_session" ]; then
+		tmux new-session "$new_session"
+		current_session="$new_session"
+	else
+		return 0
+	fi
+fi
+
 cd "$project" || exit
 
 if [ -f Pipfile ]; then
