@@ -1,0 +1,76 @@
+{
+  "data/81824a8b-930c-46d8-9ff6-139beb63df3a": {
+    "name": "Parham"
+  },
+  "widget/default-time": null,
+  "widget/default-greeting": null,
+  "focus": false,
+  "timeZone": null,
+  "data/Zacn7Ad9tM6o": {
+    "username": "1995parham",
+    "showSummary": false
+  },
+  "widget/81824a8b-930c-46d8-9ff6-139beb63df3a": {
+    "active": true,
+    "display": {
+      "position": "middleCentre"
+    },
+    "id": "81824a8b-930c-46d8-9ff6-139beb63df3a",
+    "key": "widget/greeting",
+    "order": 0
+  },
+  "widget/Zacn7Ad9tM6o": {
+    "id": "Zacn7Ad9tM6o",
+    "key": "widget/github",
+    "order": 2,
+    "display": {
+      "position": "middleCentre"
+    }
+  },
+  "data/0087d631-7867-45a9-850f-eb5dcf76564b": {
+    "category": "inspire"
+  },
+  "data/da4c94c1-4de9-4118-876a-b9e1ecdbf367": {
+    "hour12": true,
+    "mode": "digital",
+    "showDate": true,
+    "showMinutes": true,
+    "showSeconds": true
+  },
+  "background": {
+    "id": "jH1E6dvgtXPU",
+    "key": "background/gradient",
+    "display": {
+      "blur": 0,
+      "luminosity": -0.2
+    }
+  },
+  "data/jH1E6dvgtXPU": {
+    "angle": 0,
+    "from": "#000000",
+    "to": "#77767b",
+    "type": "linear-gradient"
+  },
+  "widget/-FAp6wSQdzwU": null,
+  "widget/da4c94c1-4de9-4118-876a-b9e1ecdbf367": {
+    "active": true,
+    "display": {
+      "fontSize": 8,
+      "position": "topRight"
+    },
+    "id": "da4c94c1-4de9-4118-876a-b9e1ecdbf367",
+    "key": "widget/time",
+    "order": 1
+  },
+  "widget/0087d631-7867-45a9-850f-eb5dcf76564b": {
+    "active": true,
+    "display": {
+      "position": "middleCentre"
+    },
+    "id": "0087d631-7867-45a9-850f-eb5dcf76564b",
+    "key": "widget/quote",
+    "order": 3
+  },
+  "locale": "en",
+  "version": 3
+}
