@@ -206,6 +206,15 @@ bindkey "^[OB" history-beginning-search-forward-end
 
 # }}}
 
+# tmux {{{
+
+# start tmux server if tmux is installed
+if command -v tmux &>/dev/null; then
+  tmux start
+fi
+
+# }}}
+
 # vim-mode {{{
 
 # edit command in vim
