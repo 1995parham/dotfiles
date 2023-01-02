@@ -4,7 +4,7 @@
 pkill swaybg
 
 while true; do
-	swaybg -i "$(find "$HOME/Pictures/GoSiMac" -type f -name '*.jpg' -or -name '*.png' -not -name lock.jpg | shuf -n1)" -m fill &
+	swaybg -i "$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf -n1)" -m fill &
 	NEW_PID=$!
 	sleep 5
 	if [ -e "$OLD_PID" ]; then
