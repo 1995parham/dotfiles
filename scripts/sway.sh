@@ -1,21 +1,13 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : sway.sh
-#
-# [] Creation Date : 18-11-2020
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo "i3-compatible Wayland compositor"
-	# shellcheck disable=1004
+	# shellcheck disable=1004,2028
 	echo '
  _____      ____ _ _   _
-/ __\ \ /\ / / _` | | | |
+/ __\ \ /\ / / _| | | | |
 \__ \\ V  V / (_| | |_| |
-|___/ \_/\_/ \__,_|\__, |
+|___/ \_/\_/ \____|\___ |
                    |___/
   '
 }
