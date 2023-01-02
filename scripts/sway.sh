@@ -24,7 +24,7 @@ main_pacman() {
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
 	msg 'install and configure sway, swaylock and waybar'
-	require_pacman swaylock swayidle grim xdg-user-dirs wl-clipboard noto-fonts
+	require_pacman swaylock swayidle grim xdg-user-dirs wl-clipboard noto-fonts swaybg
 	require_aur waybar-git
 	require_pacman xdg-desktop-portal-wlr xdg-utils
 	require_pacman sway
@@ -35,10 +35,6 @@ main_pacman() {
 	configfile waybar "" sway
 
 	msg 'you can install sway-git with wlroots-git in the futureu'
-
-	msg 'set background image with wpaperd'
-	require_aur wpaperd-git
-	configfile wpaperd "" sway
 
 	msg 'better sway with more keys [brightnessctl]'
 	require_pacman brightnessctl
