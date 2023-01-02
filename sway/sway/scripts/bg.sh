@@ -11,5 +11,5 @@ while true; do
 		kill "$OLD_PID"
 	fi
 	OLD_PID=$NEW_PID
-	sleep 120
+	sleep 50
 done
