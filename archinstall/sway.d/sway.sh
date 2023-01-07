@@ -10,7 +10,7 @@ export XDG_SESSION_DESKTOP=sway
 # to enable wayland on firefox
 export MOZ_ENABLE_WAYLAND=1
 
-eval "$(gnome-keyring-daemon --start)"
-export SSH_AUTH_SOCK
+# eval "$(gnome-keyring-daemon --start)"
+# export SSH_AUTH_SOCK
 
 exec sway --unsupported-gpu
