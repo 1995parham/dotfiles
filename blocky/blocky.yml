@@ -48,6 +48,7 @@ conditional:
   mapping:
     recruitee.com: 178.22.122.101
     recruitee-main.s3.eu-central-1.amazonaws.com: 178.22.122.101
+    vagrantup.com: 178.22.122.101
     go.dev: 178.22.122.101
 
 # optional: use black and white lists to block queries
