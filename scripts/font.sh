@@ -19,6 +19,7 @@ main_brew() {
 }
 
 main_pacman() {
-	require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts otf-font-awesome ttf-liberation
-	require_aur vazirmatn-fonts nerd-fonts-jetbrains-mono
+	require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts \
+		otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd
+	require_aur vazirmatn-fonts
 }
