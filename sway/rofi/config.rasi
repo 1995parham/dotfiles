@@ -1,5 +1,5 @@
 configuration {
-  modes: "drun,ssh,run,tmux:~/.config/rofi/tmuxp.sh";
+  modes: "drun,ssh,run,tmuxp:~/.config/rofi/tmuxp.sh,tmuxs:~/.config/rofi/tmuxs.sh";
   combi-display-format: "<i>{mode}</i> {text}";
   show-icons: true;
   terminal: "alacritty";
