@@ -51,7 +51,7 @@ Always check [are we Wayland yet](https://arewewaylandyet.com/) to find your sof
 | Network Time Protocol  | chrony (pacman)                   | -                                         | -              |
 |      Note Keeping      | xournalpp (pacman)                | Xournalpp                                 | Xournalpp      |
 |      Office Suite      | ./start.sh office                 | LibreOffice                               | Office         |
-|     Packet Sniffer     | wireshark-qt (pacman)             | Wireshark                                 | -              |
+|     Packet Sniffer     | ./start.sh wireshark              | Wireshark                                 | -              |
 |     Packet Sniffer     | termshark (pacman)                | `termshark`                               | -              |
 |    Password Manager    | ./start.sh gopass                 | `gopass`                                  | `gopass`       |
 |       PDF Viewer       | ./start.sh sway                   | `mupdf`                                   | Preview        |
