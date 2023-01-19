@@ -13,8 +13,9 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman android-tools android-udev scrcpy
+	require_pacman android-tools android-udev scrcpy android-file-transfer
 	require_aur sidequest-bin
 
 	msg 'https://github.com/skrimix/QLoaderFiles'
+	msg 'https://wiki.archlinux.org/title/Media_Transfer_Protocol'
 }
