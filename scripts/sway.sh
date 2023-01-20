@@ -75,4 +75,8 @@ main_pacman() {
 	dotfile sway profile
 	mkdir -p "$HOME/.gnupg"
 	linker gnupg "$dotfiles_root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+
+	# some GTK themes contain a dark theme variant,
+	# but it is only used by default when the application requests it explicitly.
+	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 }
