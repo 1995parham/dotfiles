@@ -7,6 +7,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
+export GTK_THEME=Adwaita:dark
 # to enable wayland on firefox
 export MOZ_ENABLE_WAYLAND=1
 
