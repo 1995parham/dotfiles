@@ -79,4 +79,8 @@ main_pacman() {
 	# some GTK themes contain a dark theme variant,
 	# but it is only used by default when the application requests it explicitly.
 	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+	# nautilus file manager (a.k.a files)
+	# https://wiki.archlinux.org/title/GNOME/Files
+	require_pacman ffmpegthumbnailer gst-libav gst-plugins-ugly nautilus
 }
