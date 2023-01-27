@@ -94,33 +94,27 @@ between these window managers are gathered in `sway/`.
 
 I am using Emacs for the followings:
 
-- research notes
 - latex documents (specially in Persian)
 - org-mode
 
-### Manual
+### Searching
 
 Ivy is a plugin for searching in buffers, notes, etc.
-Almost everything in doom emacs works with ivy. It is simple and will show you a popup for everything.
+Almost everything in doom Emacs works with ivy. It is simple and will show you a popup for everything.
 
-#### Configuration (based on doom)
+### Configuration (based on doom)
 
-I use Emacs based on doom and I found following configurations are useful to update my configurations based on them.
+I use Emacs based on doom, and I found following configurations are useful to update my configurations based on them.
 
 1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
    - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
 2. [acdemic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
 3. [elenapan dotfiles](https://github.com/elenapan/dotfiles)
 
-#### Workspace
+### Workspace
 
-never close emacs, just use workspace to manage your work.
-to work with workspace just start with /SPACE-TAB/.
-
-#### Terminal
-
-one of my problem when I am on windows is that I don't have a good terminal but with emacs
-you will have /eshell/ in every operating systems by simply use /SPACE-o-e/ which means open /eshell/.
+Never close emacs, just use workspace to manage your work.
+To work with workspace just start with _SPACE-TAB_.
 
 ## More
 
