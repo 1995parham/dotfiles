@@ -110,6 +110,7 @@ I use Emacs based on doom and I found following configurations are useful to upd
 1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
    - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
 2. [acdemic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
+3. [elenapan dotfiles](https://github.com/elenapan/dotfiles)
 
 #### Workspace
 
