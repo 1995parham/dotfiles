@@ -41,7 +41,7 @@ windows:
     start_directory: ~/Documents/Git/parham/parham-alvani/raha
     panes:
       - shell_command:
-        - chafa --clear --center=on ~/Sync/Pictures/36500888.jpg
+        - chafa --clear --center=on ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg
       - pane
 
   - window_name: organized
