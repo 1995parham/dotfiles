@@ -42,7 +42,7 @@ main() {
 	# go env -w GOPROXY="https://goproxy.io,goproxy.cn,direct"
 	go env -w GOPROXY="https://goproxy.io,direct"
 	# go env -w GONOSUMDB="gitlab.snapp.ir"
-	go env -w GONOSUMDB="gitlab.snapp.ir,golang.org,mvdan.cc"
+	go env -w GOSUMDB="off"
 	go env -w GOPRIVATE="gitlab.snapp.ir"
 
 	go env
