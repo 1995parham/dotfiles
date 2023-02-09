@@ -41,7 +41,7 @@ main_pacman() {
 	configfile gtk-3.0 settings.ini sway
 
 	msg 'qt support'
-	require_pacman qt5-wayland
+	require_pacman qt5-wayland qt6-wayland
 
 	msg 'imv as image viewer (not working with sway-git)'
 	require_pacman imv
