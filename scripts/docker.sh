@@ -27,9 +27,9 @@ main_brew() {
 }
 
 main_pacman() {
-	require_pacman docker docker-compose
+	require_pacman docker docker-compose dive docker-buildx docker-scan
 
-	require_aur hadolint-bin dive-bin lazydocker-bin
+	require_aur hadolint-bin lazydocker-bin
 
 	msg 'docker service with systemd'
 	sudo systemctl enable --now docker.service
