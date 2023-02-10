@@ -30,12 +30,12 @@
     "numlock": true,
     "capslock": true,
     "format": {
-      "numlock": "NUM {icon}",
-      "capslock": "CAP {icon}"
+      "numlock": "N {icon}",
+      "capslock": "C {icon}"
     },
     "format-icons": {
-      "locked": "",
-      "unlocked": ""
+      "locked": " ",
+      "unlocked": " "
     }
   },
   "sway/workspaces": {

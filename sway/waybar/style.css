@@ -157,6 +157,14 @@ label:focus {
 }
 */
 
+#keyboard-state label {
+  color: #ff9d9d;
+}
+
+#keyboard-state label.locked {
+  color: #9dffce;
+}
+
 #cpu {
   color: #2ecc71;
 }
