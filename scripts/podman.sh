@@ -32,9 +32,9 @@ main_brew() {
 
 main_pacman() {
 	msg "install podman-compose / podman with pacman"
-	require_pacman podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname fuse-overlayfs netavark aardvark-dns
+	require_pacman podman podman-docker podman-compose docker-compose slirp4netns podman-dnsname fuse-overlayfs netavark aardvark-dns dive
 
-	require_aur hadolint-bin dive-bin lazydocker-bin
+	require_aur hadolint-bin lazydocker-bin
 
 	msg "podman and dive configuration"
 	configfile dive "" podman
