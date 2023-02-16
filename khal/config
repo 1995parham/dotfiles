@@ -1,14 +1,19 @@
 [calendars]
+
 [[home]]
+
 path = ~/Documents/Git/parham/parham-alvani/calendar
+color = "#ffa500"
 
 [[work]]
+
 path = ~/Snapp/calendars/calendar
 readonly = True
 
 [sqlite]
 
 [locale]
+
 local_timezone = Asia/Tehran
 default_timezone = Asia/Tehran
 
@@ -28,6 +33,7 @@ theme = dark
 frame = color
 
 [default]
+
 default_calendar = home
 timedelta = 2d
 highlight_event_days = True
