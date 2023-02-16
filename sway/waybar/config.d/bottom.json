@@ -12,6 +12,7 @@
   "modules-left": [
     "custom/date",
     "custom/jdate",
+    "custom/khal",
     "network#alvani",
   ],
   "modules-right": [
@@ -87,5 +88,15 @@
     "exec": "jdate +'%d %B %Y'",
     "exec-if": "which jdate",
     "format": "{} "
+  },
+  "custom/khal": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 300,
+    "format-icons": {
+      "default": " "
+    },
+    "exec": "$HOME/.config/waybar/scripts/khal.py",
+    "return-type": "json"
   }
 }
