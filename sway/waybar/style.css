@@ -101,6 +101,7 @@ window.bottom > box > box {
 #idle_inhibitor,
 #custom-date,
 #custom-jdate,
+#custom-khal,
 #custom-touchpad,
 #custom-love,
 #language,
@@ -246,6 +247,10 @@ label:focus {
 }
 
 #custom-jdate {
+  color: #00abff;
+}
+
+#custom-khal {
   color: #00abff;
 }
 
