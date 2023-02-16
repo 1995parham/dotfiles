@@ -11,7 +11,9 @@ data: dict[str, str] = {"text": "", "tooltip": ""}
 
 # getting the next 7 days events from khal
 khal_output = subprocess.check_output(
-    'khal list now 7days --format "{start-end-time-style} {title}"', shell=True
+    "khal list now 7days --format "
+    '"{start-end-time-style} {title} ({categories})"',
+    shell=True,
 ).decode("utf-8")
 
 # khal output has the following form:
