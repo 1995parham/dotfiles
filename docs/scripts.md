@@ -1,12 +1,13 @@
 # Scripts
 
-These are applications that I use in a daily manner, so I created a nice and easy way to install them.
+These are applications that I use in a daily manner, so I created the following document about their usage
+and the way of installation.
 
 ## Package Managers
 
 The following operating systems and their package managers are supported:
 
-- Archlinux:
+- ArchLinux:
   - [Pacman](https://archlinux.org/pacman/)
   - [Yet another Yogurt](https://github.com/Jguer/yay)
 - OSx
