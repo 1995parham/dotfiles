@@ -42,7 +42,7 @@ pacman_packages=(
 	man-db
 	bandwhich
 )
-yay_packages=(jcal actionlint-bin act-bin mqttui mprocs)
+yay_packages=(jcal actionlint-bin mqttui mprocs)
 
 main_apt() {
 	sudo apt-get update -q
