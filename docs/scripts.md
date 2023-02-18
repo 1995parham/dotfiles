@@ -15,9 +15,10 @@ The following operating systems and their package managers are supported:
 
 ## Applications
 
-For each package, I mentioned its _script_ and how you can run it. Application that has their command in all lower case
-means you can run them from CLI, but those have title case are the one you need to lunch them from your launcher.
-`(?)` means the application did cause good experience for me on that OS.
+For each package, I mentioned its _script_ or the way of installation and how you can run it in each operating system.
+Application that has their command in all lower case
+means you can run them from CLI, but those have title case are the one you need to lunch them with your launcher.
+`(?)` means the application didn't cause good experience for me on that OS.
 Always check [are we Wayland yet](https://arewewaylandyet.com/) to find your software on sway.
 
 |          Role          | How to Install?                   | Archlinux                                 | OSx            |
