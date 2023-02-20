@@ -1,6 +1,6 @@
 profile {
+	output "ChangHong Electric Co.,Ltd GDM-245LN 0000000000001" scale 0.8
 	output eDP-1 disable
-	output HDMI-A-1
 }
 
 profile {
