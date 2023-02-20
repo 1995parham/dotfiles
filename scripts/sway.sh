@@ -34,6 +34,7 @@ main_pacman() {
 
 	msg 'dynamic display configuration'
 	require_pacman kanshi
+	configfile kanshi "" sway
 
 	msg 'you can install sway-git with wlroots-git in the futureu'
 
