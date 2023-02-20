@@ -1,4 +1,5 @@
 profile {
+  # Snapp monitor (setup on 20 Feb 2023)
 	output "ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"
 	output eDP-1 disable
 }
