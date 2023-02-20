@@ -32,6 +32,9 @@ main_pacman() {
 	msg 'utilities for handling monitors, resolutions, wallpapers and timed wallpapers'
 	require_pacman wallutils
 
+	msg 'dynamic display configuration'
+	require_pacman kanshi
+
 	msg 'you can install sway-git with wlroots-git in the futureu'
 
 	msg 'better sway with more keys [brightnessctl]'
