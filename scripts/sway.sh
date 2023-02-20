@@ -29,6 +29,9 @@ main_pacman() {
 	configfile waybar "" sway
 	sudo usermod -aG input "$USER"
 
+	msg 'utilities for handling monitors, resolutions, wallpapers and timed wallpapers'
+	require_pacman wallutils
+
 	msg 'you can install sway-git with wlroots-git in the futureu'
 
 	msg 'better sway with more keys [brightnessctl]'
