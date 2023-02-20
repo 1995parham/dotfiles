@@ -25,7 +25,6 @@
     "clock",
     "tray"
   ],
-  "output": "eDP-1",
   "keyboard-state": {
     "numlock": true,
     "capslock": true,
