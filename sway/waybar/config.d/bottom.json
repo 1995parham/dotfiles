@@ -2,7 +2,6 @@
   "position": "bottom",
   "ipc": true,
   "id": "bar-0",
-  "output": "eDP-1",
   "height": 33,
   "modules-center": [
     "custom/love#relationship",
@@ -13,7 +12,7 @@
     "custom/date",
     "custom/jdate",
     "custom/khal",
-    "network#alvani",
+    "network#alvani"
   ],
   "modules-right": [
     "network#snapp",
