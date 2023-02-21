@@ -28,6 +28,16 @@ window#waybar.solo {
 }
 */
 
+window.left > box {
+  background-color: rgba(36, 36, 36, 0.9);
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-right: 2px;
+  border-radius: 0px 5px 5px 0px;
+}
+
 window.top > box {
   background-color: rgba(36, 36, 36, 0.9);
   margin-left: 0px;
@@ -180,6 +190,10 @@ label:focus {
 
 #backlight {
   color: #90b1b1;
+}
+
+#image {
+  padding: 5px;
 }
 
 #network {
