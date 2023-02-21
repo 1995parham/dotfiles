@@ -4,7 +4,8 @@
   "width": 50,
   "output": "HDMI-A-1",
   "modules-left": [
-    "image#arch"
+    "image#arch",
+    "image#me"
   ],
   "modules-center": [
     "clock"
@@ -18,6 +19,10 @@
   },
   "image#arch": {
     "path": "/home/parham/.config/waybar/img/archlinux-vert-light.svg",
+    "size": 32
+  },
+  "image#me": {
+    "path": "/home/parham/.config/waybar/img/1995parham-logo.svg",
     "size": 32
   },
   "image#snapp": {
