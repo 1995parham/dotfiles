@@ -116,7 +116,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
+    "format": "{capacity}% ({power}) {icon}",
     "format-charging": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-icons": [
