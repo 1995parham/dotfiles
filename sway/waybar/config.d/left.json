@@ -1,0 +1,28 @@
+{
+  "position": "left",
+  "ipc": true,
+  "width": 50,
+  "output": "HDMI-A-1",
+  "modules-left": [
+    "image#arch"
+  ],
+  "modules-center": [
+    "user"
+  ],
+  "modules-right": [
+    "image#snapp"
+  ],
+  "image#arch": {
+    "path": "/home/parham/.config/waybar/img/archlinux-vert-light.svg",
+    "size": 32
+  },
+  "image#snapp": {
+    "path": "/home/parham/.config/waybar/img/snapp.svg",
+    "size": 32
+  },
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "icon": false
+  }
+}
