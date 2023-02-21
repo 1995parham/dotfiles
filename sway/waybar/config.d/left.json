@@ -7,11 +7,15 @@
     "image#arch"
   ],
   "modules-center": [
-    "user"
+    "clock"
   ],
   "modules-right": [
+    "image#offerland",
     "image#snapp"
   ],
+  "clock": {
+    "format": "{:%H:%M}\nIRST"
+  },
   "image#arch": {
     "path": "/home/parham/.config/waybar/img/archlinux-vert-light.svg",
     "size": 32
@@ -20,9 +24,8 @@
     "path": "/home/parham/.config/waybar/img/snapp.svg",
     "size": 32
   },
-  "user": {
-    "format": "{user}",
-    "interval": 60,
-    "icon": false
+  "image#offerland": {
+    "path": "/home/parham/.config/waybar/img/offerland.svg",
+    "size": 32
   }
 }
