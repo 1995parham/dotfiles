@@ -68,7 +68,7 @@ main_pacman() {
 	require_aur rofi-lbonn-wayland-git
 	configfile rofi "" sway
 
-	msg 'we are going to have sound'
+	msg 'we are going to have sound with the awesome pipewire/wireplumber'
 	require_pacman pulsemixer easyeffects
 
 	msg 'configure the dmenu, default application luncher from manjaro i3 days'
