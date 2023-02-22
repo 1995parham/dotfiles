@@ -21,13 +21,6 @@ windows:
       - pane
       - pane
 
-  - window_name: zamaneh
-    layout: even-vertical
-    start_directory: ~/Documents/Git/parham/1995parham/zamaneh
-    panes:
-      - pane
-      - pane
-
   - window_name: tracking
     layout: tiled
     panes:
@@ -50,7 +43,7 @@ windows:
       - start_directory: ~/Documents/Git/parham/parham-alvani/addressbook
       - start_directory: ~/Documents/Git/parham/parham-alvani/calendar
       - start_directory: ~/Documents/Git/parham/parham-alvani/buying
-      - start_directory: ~/Documents/Git/parham/parham-alvani/documents
+      - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
 
   - window_name: howto
     layout: tiled
