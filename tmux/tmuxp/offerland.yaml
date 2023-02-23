@@ -10,63 +10,13 @@ windows:
       - pane
       - pane
 
-  - window_name: easy-ci
+  - window_name: scratch
     layout: tiled
-    start_directory: ~/Documents/Git/parham/offerland/offerland/easy-ci
+    start_directory: ~/Downloads
     panes:
-      - pane
-      - pane
-      - pane
-      - pane
-
-  - window_name: sapphire
-    layout: tiled
-    start_directory: ~/Documents/Git/parham/offerland/offerland/sapphire
-    before_script: pipenv install --dev --skip-lock
-    shell_command_before:
-      - '[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset'
-    panes:
-      - pane
-      - shell_command:
-          - git project
-      - pane
-      - pane
-
-  - window_name: demeter
-    layout: tiled
-    start_directory: ~/Documents/Git/parham/offerland/offerland/demeter
-    before_script: pipenv install --dev --skip-lock
-    shell_command_before:
-      - '[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset'
-    panes:
-      - pane
-      - shell_command:
-          - git project
-      - pane
-      - pane
-
-  - window_name: demeter.wiki
-    layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/offerland/offerland/demeter.wiki
-    panes:
-      - pane
-      - pane
-
-  - window_name: root.wiki
-    layout: even-horizontal
-    start_directory: ~/Documents/Git/parham/offerland/offerland/root.wiki
-    panes:
-      - pane
-      - pane
-
-  - window_name: gaia
-    layout: tiled
-    start_directory: ~/Documents/Git/parham/offerland/1995parham/gaia/
-    shell_command_before:
-      - conda activate gaia
-    panes:
-      - shell_command:
-          - git project
+      - focus: true
+        shell_command:
+          - chafa ~/.config/waybar/img/offerland.svg
       - pane
       - pane
       - pane
