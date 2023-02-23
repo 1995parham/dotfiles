@@ -21,13 +21,21 @@ windows:
       - pane
       - pane
 
-  - window_name: tracking
+  - window_name: life-1
     layout: tiled
     panes:
       - start_directory: ~/tasks
       - start_directory: ~/.local/share/dijo
       - start_directory: ~/org
-      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
+      - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
+
+  - window_name: life-2
+    layout: tiled
+    panes:
+      - start_directory: ~/Documents/Git/parham/parham-alvani/addressbook
+      - start_directory: ~/Documents/Git/parham/parham-alvani/calendar
+      - start_directory: ~/Documents/Git/parham/parham-alvani/buying
+      - start_directory: ~/Documents/Git/parham/parham-alvani/tabs
 
   - window_name: raha
     layout: even-vertical
@@ -37,22 +45,11 @@ windows:
           - chafa --clear ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg
       - pane
 
-  - window_name: organized
+  - window_name: manuals
     layout: tiled
     panes:
-      - start_directory: ~/Documents/Git/parham/parham-alvani/addressbook
-      - start_directory: ~/Documents/Git/parham/parham-alvani/calendar
-      - start_directory: ~/Documents/Git/parham/parham-alvani/buying
-      - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
-
-  - window_name: howto
-    layout: tiled
-    start_directory: ~/Documents/Git/parham/parham-alvani/howto
-    panes:
-      - pane
-      - pane
-      - pane
-      - pane
+      - start_directory: ~/Documents/Git/parham/parham-alvani/howto
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io/
 
   - window_name: kvm
     layout: even-vertical
