@@ -17,7 +17,7 @@ main_pacman() {
 }
 
 main_brew() {
-	brew install shfmt
+	require_brew shfmt shellcheck
 }
 
 main_apt() {
