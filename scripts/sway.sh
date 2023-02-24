@@ -69,7 +69,7 @@ main_pacman() {
 	configfile rofi "" sway
 
 	msg 'we are going to have sound with the awesome pipewire/wireplumber'
-	require_pacman pulsemixer easyeffects
+	require_pacman pulsemixer easyeffects pavucontrol
 
 	msg 'configure the dmenu, default application luncher from manjaro i3 days'
 	linker dmenu "$dotfiles_root/sway/dmenurc" "$HOME/.dmenurc"
