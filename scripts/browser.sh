@@ -43,6 +43,7 @@ main_pacman() {
 main() {
 	configfile nyxt
 
-	msg "install tridactyl by running :installnative in firefox normal mode"
-	configfile tridactyl "" firefox
+	# actually it is not useful as I think so I disable it.
+	# msg "install tridactyl by running :installnative in firefox normal mode"
+	# configfile tridactyl "" firefox
 }
