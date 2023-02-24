@@ -51,11 +51,16 @@ install-vim() {
 	dotfile "vim" "vimrc"
 }
 
-# configurations
+# configurations on different tools
+# which are installed by ./start.sh env
 install-conf() {
 	dotfile "conf" "dircolors"
 	dotfile "conf" "aria2"
+
 	configfile "htop" "" "conf"
+
+	dotfile "curl" "curlrc"
+	dotfile "wget" "wgetrc"
 }
 
 # wakatime
