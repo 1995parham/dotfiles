@@ -13,6 +13,7 @@ windows:
   - window_name: scratch
     layout: tiled
     start_directory: ~/Downloads
+    focus: true
     panes:
       - focus: true
         shell_command:
