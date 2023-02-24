@@ -8,7 +8,7 @@ F_YELLOW="\033[38;2;255;255;25m"
 F_RESET="\033[39m"
 
 function yes_or_no() {
-	yes_to_all=${yes_to_all:-0}
+	yes_to_all=${yes_to_all:-false}
 	if $yes_to_all; then
 		return 0
 	fi
