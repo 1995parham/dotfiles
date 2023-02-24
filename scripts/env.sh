@@ -41,6 +41,7 @@ pacman_packages=(
 	pastel
 	man-db
 	bandwhich
+	lsof
 )
 yay_packages=(jcal actionlint-bin mqttui mprocs cbonsai)
 
