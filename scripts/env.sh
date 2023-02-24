@@ -14,6 +14,7 @@ usage() {
 # neovim right now has very high cpu/memory usage and it is not suitable
 # for every system.
 # export dependencies=("neovim")
+export dependencies=("fetch")
 
 packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 
