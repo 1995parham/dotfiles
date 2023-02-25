@@ -17,7 +17,7 @@ windows:
     panes:
       - focus: true
         shell_command:
-          - chafa ~/.config/waybar/img/offerland.svg
+          - chafa ~/.config/waybar/img/offerland.svg --size 80
       - pane
       - pane
       - pane
