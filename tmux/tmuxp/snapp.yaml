@@ -23,7 +23,7 @@ windows:
     panes:
       - focus: true
         shell_command:
-          - chafa ~/.config/waybar/img/snapp.svg --size 80
+          - chafa ~/.config/waybar/img/snapp.svg --size 80 --clear | less
       - pane
       - pane
       - pane
