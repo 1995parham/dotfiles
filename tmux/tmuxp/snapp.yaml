@@ -21,10 +21,9 @@ windows:
     start_directory: ~/Downloads
     focus: true
     panes:
-      - focus: true
-        shell_command:
+      - shell_command:
           - chafa ~/.config/waybar/img/snapp.svg --size 80 --clear | less
-      - pane
+      - focus: true
       - pane
       - pane
 
