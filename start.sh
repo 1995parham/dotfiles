@@ -45,7 +45,7 @@ _main() {
 	local show_help=false
 
 	# ask no questions, use sane defaults
-	local yes_to_all=false
+	local yes_to_all=0
 
 	# as_dependency shows that this start.sh is going to install a dependency
 	local as_dependency=false
@@ -65,7 +65,7 @@ _main() {
 			as_dependency=true
 			;;
 		y)
-			yes_to_all=true
+			yes_to_all=1
 			;;
 		*)
 			_usage
@@ -149,8 +149,8 @@ _additionals() {
 	for additional in $additionals; do
 		if yes_or_no "$script" "do you want to install $additional as an additional package?"; then
 			local options="-d"
-			if [ $yes_to_all = true ]; then
-				options="$options -y"
+			if [ $yes_to_all = 1 ]; then
+				options="${options}y"
 			fi
 
 			"$dotfiles_root/start.sh" "$options" "$additional"
@@ -169,8 +169,8 @@ _dependencies() {
 
 	if yes_or_no "$script" "do you want to install dependencies?"; then
 		local options="-d"
-		if [ $yes_to_all = true ]; then
-			options="$options -y"
+		if [ $yes_to_all = 1 ]; then
+			options="${options}y"
 		fi
 
 		for dependency in $dependencies; do
