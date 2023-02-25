@@ -38,6 +38,9 @@ main_pacman() {
 	msg 'GDAL is a translator library for raster and vector geospatial data formats'
 	require_pacman gdal
 
+	msg 'MySQL/MariaDB client library'
+	require_pacman mariadb-clients
+
 	msg "update user-local version of pip"
 	python -mpip install --user --pre -U pip
 }
