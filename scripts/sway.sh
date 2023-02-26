@@ -15,7 +15,7 @@ usage() {
 main_pacman() {
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
-	require_pacman llvm14
+	require_pacman llvm
 
 	msg 'install and configure sway, swaylock and waybar'
 	require_pacman swaylock swayidle grim xdg-user-dirs wl-clipboard noto-fonts swaybg
