@@ -62,7 +62,7 @@
     "format": "{flag}"
   },
   "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ",
     "format-disconnected": "",
     "format-stopped": "Stopped ",
     "unknown-tag": "N/A",
@@ -84,7 +84,7 @@
       "playing": ""
     },
     "on-click": "mpc toggle",
-    "tooltip-format": "MPD (connected)",
+    "tooltip-format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%",
     "tooltip-format-disconnected": "MPD (disconnected)"
   },
   "tray": {
