@@ -72,7 +72,15 @@ main() {
 	if [[ "$USER" == "parham" ]]; then
 		msg "hello parham, clone your private repositories"
 
-		[ ! -d "$HOME/org" ] && git clone git@github.com:parham-alvani/notes "$HOME/org"
-		[ ! -d "$HOME/tasks" ] && git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
+		if [ ! -d "$HOME/org" ]; then
+			git clone git@github.com:parham-alvani/notes "$HOME/org"
+		fi
+
+		if [ ! -d "$HOME/tasks" ]; then
+			git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
+		fi
+
+		dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+		mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" && cp "$dotfiles_root/emacs/sessions/main" "$_"
 	fi
 }
