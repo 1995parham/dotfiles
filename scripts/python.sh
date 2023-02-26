@@ -45,20 +45,12 @@ main_pacman() {
 	python -mpip install --user --pre -U pip
 }
 
-python-install-package() {
-	if python -mpip install --user --pre -U "$1"; then
-		msg "$1 installation succeeded"
-	else
-		msg "$1 installation failed"
-	fi
-}
-
 python-install-packages() {
 	msg "install user-local packages"
 	msg "these package generally are there for dependency management"
 
 	for package in "${packages[@]}"; do
-		python-install-package "$package"
+		require_pip "$package"
 	done
 }
 
