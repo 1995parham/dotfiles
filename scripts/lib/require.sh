@@ -69,3 +69,10 @@ function require_go() {
 		go install "$pkg@latest" 2>/dev/null
 	done
 }
+
+function require_pip() {
+	for pkg in "$@"; do
+		action "require" " python $pkg"
+		python -mpip install --user --pre -U "$pkg" 2>/dev/null
+	done
+}
