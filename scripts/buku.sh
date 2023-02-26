@@ -20,4 +20,6 @@ main_pacman() {
 
 main() {
 	require_pip buku
+
+	msg 'refer to the tabs repository for further instruactions'
 }
