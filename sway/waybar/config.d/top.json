@@ -83,6 +83,7 @@
       "paused": "",
       "playing": ""
     },
+    "on-click": "mpc toggle",
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)"
   },
