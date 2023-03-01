@@ -1,0 +1,23 @@
+---
+session_name: AUT-CIC
+windows:
+  - window_name: scratch
+    layout: tiled
+    start_directory: ~/Downloads
+    focus: true
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
+
+  - window_name: ansible
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/aut-cic/ansible
+    focus: true
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
+
