@@ -11,6 +11,7 @@ muxes=(
 	["Main"]="main"
 	["Raha"]="raha"
 	["Task"]="task"
+	["AUT-CIC"]="aut"
 )
 
 if [ $# = 1 ]; then
