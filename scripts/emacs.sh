@@ -82,5 +82,7 @@ main() {
 
 		dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 		mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" && cp "$dotfiles_root/emacs/sessions/main" "$_"
+		mkdir -p "$HOME/.config/emacs/.local/cache/projectile.projects" && cp "$dotfiles_root/emacs/sessions/projectile.projects" "$_"
+
 	fi
 }
