@@ -4,7 +4,7 @@ configuration {
   show-icons: true;
   terminal: "alacritty";
   sh-client: "ssh";
-  ssh-command: "{terminal} --hold -e zsh -c \"{ssh-client} {host} [-p {port}]\"";
+  ssh-command: "{terminal} -e zsh -c \"{ssh-client} {host} [-p {port}]\"";
   run-command: "{cmd}";
   run-shell-command: "{terminal} -e {cmd}";
   sidebar-mode: true;
