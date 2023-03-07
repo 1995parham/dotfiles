@@ -3,7 +3,7 @@
 usage() {
 	echo -e "fast and lightweight dns proxy as ad-blocker for local network with many features"
 
-	# shellcheck disable=1004,2016
+	# shellcheck disable=1004,2016,2028
 	echo '
  _     _            _
 | |__ | | ___   ___| | ___   _

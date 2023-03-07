@@ -4,6 +4,7 @@ export dependencies=('go')
 
 usage() {
 	echo "k8s and openshift command line tools (kubectl, oc, stern, kubeval, etc.)"
+	# shellcheck disable=2028
 	echo '
  _          _               _   _
 | | ___   _| |__   ___  ___| |_| |
