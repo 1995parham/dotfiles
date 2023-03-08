@@ -18,3 +18,12 @@ windows:
       - pane
       - pane
       - pane
+
+  - window_name: scratch
+    layout: tiled
+    start_directory: ~/Downloads
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
