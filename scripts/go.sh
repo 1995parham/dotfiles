@@ -39,8 +39,8 @@ main() {
 	go env -w GOPATH="$HOME/.cache/go"
 	go env -w GOBIN="$HOME/.local/bin"
 	# right now goproxy.cn isn't stable
-	# go env -w GOPROXY="https://goproxy.io,goproxy.cn,direct"
-	go env -w GOPROXY="https://goproxy.cn,direct"
+	go env -w GOPROXY="https://goproxy.io,goproxy.cn,direct"
+	# go env -w GOPROXY="https://goproxy.cn,direct"
 	# go env -w GONOSUMDB="gitlab.snapp.ir"
 	go env -w GOSUMDB="off"
 	go env -w GOPRIVATE="gitlab.snapp.ir"
