@@ -6,15 +6,29 @@ using the waybar json-based custom scripts.
 
 import json
 import subprocess
+import dataclasses
 
-data: dict[str, str] = {"text": "", "tooltip": ""}
 
-# getting the next 7 days events from khal
-khal_output = subprocess.check_output(
-    "khal list now 7days --format "
-    '"{start-end-time-style} {title} ({categories})"',
-    shell=True,
-).decode("utf-8")
+@dataclasses.dataclass
+class WaybarResponse:
+    text: str = ""
+    tooltip: str = ""
+
+    def json(self) -> str:
+        return json.dumps(dataclasses.asdict(self))
+
+
+data = WaybarResponse()
+
+try:
+    # getting the next 7 days events from khal
+    khal_output = subprocess.check_output(
+        "khal list now 7days --format "
+        '"{start-end-time-style} {title} ({categories})"',
+        shell=True,
+    ).decode("utf-8")
+except FileNotFoundError:
+    exit(1)
 
 # khal output has the following form:
 # Today, 16.02.2023
@@ -35,9 +49,9 @@ output = "\n".join(lines).strip()
 
 # shows the first today event in the status line
 if "Today" in output:
-    data["text"] = output.split("\n")[1] + " "
+    data.text = output.split("\n")[1] + " "
 else:
-    data["text"] = ""
-data["tooltip"] = output
+    data.text = ""
+data.tooltip = output
 
-print(json.dumps(data))
+print(data.json())
