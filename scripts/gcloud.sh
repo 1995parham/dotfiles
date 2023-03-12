@@ -17,7 +17,7 @@ usage() {
 
 main_pacman() {
 	proxy_start
-	require_aur google-cloud-sdk
+	require_aur google-cloud-cli
 	proxy_stop
 }
 
