@@ -43,6 +43,7 @@ pacman_packages=(
 	man-db
 	bandwhich
 	lsof
+	vhs
 )
 yay_packages=(jcal actionlint-bin mqttui mprocs cbonsai)
 
