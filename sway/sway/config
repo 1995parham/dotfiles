@@ -30,7 +30,7 @@ bindsym $mod+Return exec alacritty
 for_window [app_id="__termpad"] floating enable
 
 # floating terminal in the middle of screen
-bindsym $mod+Shift+Return exec alacritty --app-id="__termpad"
+bindsym $mod+Shift+Return exec alacritty --class "__termpad"
 
 # sway configuration at you glance to review and findout the key binding
 bindsym $mod+F1 exec foot --app-id="__termpad" "bat" "$HOME/.config/sway/config"
