@@ -24,10 +24,10 @@ main() {
 	if [[ "$USER" == "parham" ]]; then
 		msg "hello parham, clone your private repositories"
 
-		if [ ! -d "$HOME/Documents/Git/parham-alvani/tabs" ]; then
-			mkdir "$HOME/Documents/Git/parham-alvani" || true
-			git clone git@github.com:parham-alvani/tabs "$HOME/Documents/Git/parham-alvani/tabs"
-			cd "$HOME/Documents/Git/parham-alvani/tabs" || return
+		if [ ! -d "$HOME/Documents/Git/parham/parham-alvani/tabs" ]; then
+			mkdir "$HOME/Documents/Git/parham/parham-alvani" || true
+			git clone git@github.com:parham-alvani/tabs "$HOME/Documents/Git/parham/parham-alvani/tabs"
+			cd "$HOME/Documents/Git/parham/parham-alvani/tabs" || return
 			mkdir -p "$HOME/.local/share/buku" && ln -s "$(pwd)/bookmarks.db" "$_/bookmarks.db"
 			cd - || return
 		fi
