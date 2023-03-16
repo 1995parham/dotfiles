@@ -61,8 +61,8 @@
 [url "git@github.com:parham-alvani/"]
   insteadOf = https://github.com/parham-alvani/
 
-[url "git@github.com:1995parham/"]
-  insteadOf = https://github.com/1995parham/
+# [url "git@github.com:1995parham/"]
+#  insteadOf = https://github.com/1995parham/
 
 # [url "git@github.com:"]
 #	insteadOf = https://github.com/
