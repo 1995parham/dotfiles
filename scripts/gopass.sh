@@ -44,10 +44,8 @@ gopass-upstall() {
 	msg "$(gopass version)"
 }
 
-main() {
-	if [[ "$USER" == "parham" ]]; then
-		msg "hello parham, clone your private repositories"
+main_parham() {
+	msg "hello parham, clone your password repository"
 
-		gopass clone git@github.com:parham-alvani/passwords
-	fi
+	gopass clone git@github.com:parham-alvani/passwords
 }
