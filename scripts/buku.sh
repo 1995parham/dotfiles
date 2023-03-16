@@ -20,16 +20,17 @@ main_pacman() {
 
 main() {
 	require_pip buku
+}
 
-	if [[ "$USER" == "parham" ]]; then
-		msg "hello parham, clone your private repositories"
+main_parham() {
+	msg "hello parham, clone your bookmarks private repository"
 
-		if [ ! -d "$HOME/Documents/Git/parham/parham-alvani/tabs" ]; then
-			mkdir "$HOME/Documents/Git/parham/parham-alvani" || true
-			git clone git@github.com:parham-alvani/tabs "$HOME/Documents/Git/parham/parham-alvani/tabs"
-			cd "$HOME/Documents/Git/parham/parham-alvani/tabs" || return
-			mkdir -p "$HOME/.local/share/buku" && ln -s "$(pwd)/bookmarks.db" "$_/bookmarks.db"
-			cd - || return
-		fi
+	if [ ! -d "$HOME/Documents/Git/parham/parham-alvani/tabs" ]; then
+		mkdir "$HOME/Documents/Git/parham/parham-alvani" || true
+		git clone git@github.com:parham-alvani/tabs "$HOME/Documents/Git/parham/parham-alvani/tabs"
 	fi
+
+	cd "$HOME/Documents/Git/parham/parham-alvani/tabs" || return
+	mkdir -p "$HOME/.local/share/buku" && linker "buku" "$(pwd)/bookmarks.db" "$_/bookmarks.db"
+	cd - || return
 }
