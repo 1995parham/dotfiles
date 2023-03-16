@@ -68,21 +68,20 @@ main() {
 	"$HOME/.config/emacs/bin/doom" sync
 	"$HOME/.config/emacs/bin/doom" upgrade
 	proxy_stop
+}
 
-	if [[ "$USER" == "parham" ]]; then
-		msg "hello parham, clone your private repositories"
+main_parham() {
+	msg "hello parham, clone your private repositories"
 
-		if [ ! -d "$HOME/org" ]; then
-			git clone git@github.com:parham-alvani/notes "$HOME/org"
-		fi
-
-		if [ ! -d "$HOME/tasks" ]; then
-			git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
-		fi
-
-		dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
-		mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" && cp "$dotfiles_root/emacs/sessions/main" "$_"
-		mkdir -p "$HOME/.config/emacs/.local/cache" && cp "$dotfiles_root/emacs/sessions/projectile.projects" "$_"
-
+	if [ ! -d "$HOME/org" ]; then
+		git clone git@github.com:parham-alvani/notes "$HOME/org"
 	fi
+
+	if [ ! -d "$HOME/tasks" ]; then
+		git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
+	fi
+
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	(mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" || true) && cp "$dotfiles_root/emacs/sessions/main" "$HOME/.config/emacs/.local/etc/workspaces/"
+	(mkdir -p "$HOME/.config/emacs/.local/cache/" || true) && cp "$dotfiles_root/emacs/sessions/projectile.projects" "$HOME/.config/emacs/.local/cache/"
 }
