@@ -21,6 +21,7 @@ packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 brew_packages=(coreutils k6 inetutils inxi fontconfig wget tmuxp dua-cli)
 apt_packages=(bmon atop)
 pacman_packages=(
+	perl-image-exiftool
 	mtr
 	fd
 	jless
