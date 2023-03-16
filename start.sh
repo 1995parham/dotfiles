@@ -185,6 +185,12 @@ run() {
 	if declare -f main >/dev/null; then
 		main "$@"
 	fi
+
+	if declare -f main_parham >/dev/null; then
+		if [[ "$USER" == "parham" ]]; then
+			main_parham "$@"
+		fi
+	fi
 }
 
 install() {
