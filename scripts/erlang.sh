@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : erlang.sh
-#
-# [] Creation Date : 21-08-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n "install erlang and remembers the good old days with dr.bakhshi"
