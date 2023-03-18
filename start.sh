@@ -188,6 +188,7 @@ run() {
 
 	if declare -f main_parham >/dev/null; then
 		if [[ "$USER" == "parham" ]]; then
+			msg ' hello master'
 			main_parham "$@"
 		fi
 	fi
