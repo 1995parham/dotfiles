@@ -20,16 +20,6 @@ main_pacman() {
 	require_pacman vagrant
 	# require_pacman ebtables
 
-	msg "create base images folder"
-	mkdir -p "$HOME/kvm/base"
-
-	msg "create virtual machine disk folder"
-	mkdir -p "$HOME/kvm/pool"
-
-	msg "cloud-init is awesome for preconfigured vm"
-	require_pacman cloud-image-utils
-	[ -d "$HOME/kvm/seed" ] || git clone git@github.com:1995parham-me/kvm "$HOME/kvm/seed"
-
 	msg "user access for kvm and libvirt"
 	sudo usermod -aG libvirt "$USER"
 	sudo usermod -aG kvm "$USER"
@@ -37,4 +27,17 @@ main_pacman() {
 	sudo systemctl enable --now libvirtd.service
 
 	proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
+}
+
+main() {
+	msg "create base images folder"
+	mkdir -p "$HOME/kvm/base"
+
+	msg "create virtual machine disk folder"
+	mkdir -p "$HOME/kvm/pool"
+}
+
+main_parham() {
+	msg "vagrant is awesome for preconfigured vm"
+	[ -d "$HOME/kvm/seed" ] || git clone git@github.com:1995parham-me/kvm "$HOME/kvm/seed"
 }
