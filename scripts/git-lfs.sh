@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : git-lfs.sh
-#
-# [] Creation Date : 18-05-2021
-#
-# [] Created By : Elahe Dastan <elahe.dstn@gmail.com>
-# =======================================
 
 usage() {
 	echo -n 'manage large files on git'
