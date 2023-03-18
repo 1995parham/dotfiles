@@ -12,14 +12,6 @@ usage() {
   '
 }
 
-main_pacman() {
-	return 1
-}
-
-main_apt() {
-	return 1
-}
-
 main_brew() {
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 
