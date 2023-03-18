@@ -18,6 +18,8 @@ main_pacman() {
 
 main() {
 	configfile khard khard.conf
+}
 
+main_parham() {
 	git clone git@github.com:parham-alvani/addressbook.git "$HOME/Documents/Git/parham/parham-alvani/addressbook" || true
 }

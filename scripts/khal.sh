@@ -18,6 +18,8 @@ main_pacman() {
 
 main() {
 	configfile khal config
+}
 
+main_parham() {
 	git clone git@github.com:parham-alvani/calendar.git "$HOME/Documents/Git/parham/parham-alvani/calendar" || true
 }
