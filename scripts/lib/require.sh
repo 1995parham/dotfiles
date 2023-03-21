@@ -93,7 +93,7 @@ function clone() {
 	dir=${3:-$(basename "$repo")}
 
 	if [ ! -d "$dir" ]; then
-		if git clone "$url$repo" 2>/dev/null; then
+		if git clone "$url$repo" &>/dev/null; then
 			action git "$repo ${F_GREEN}󰄲${F_RESET}"
 		else
 			action git "$repo ${F_RED}󱋭${F_RESET}"
