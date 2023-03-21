@@ -4,7 +4,7 @@ set -e
 # a global variable that points to tmuxs root directory.
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=../../scripts/lib/proxy.sh
+# shellcheck source=./scripts/lib/proxy.sh
 source "$tmuxs_root/../../scripts/lib/proxy.sh"
 
 project=$(
