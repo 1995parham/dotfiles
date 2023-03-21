@@ -4,7 +4,7 @@ set -e
 # a global variable that points to tmuxs root directory.
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source-path=../../scripts/lib
+# shellcheck source=../../scripts/lib/proxy.sh
 source "$tmuxs_root/../../scripts/lib/proxy.sh"
 
 project=$(
@@ -42,7 +42,7 @@ cd "$project" || exit
 
 if [ -f Pipfile ]; then
 	if [[ "$(command -v pipenv)" ]]; then
-		proxy_start && pipenv install --dev --skip-lock && proxy_stop
+		proxy_start && pipenv install --verbose --dev --skip-lock && proxy_stop
 
 		# shellcheck disable=2016
 		commands=('[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset' "${commands[@]}")
