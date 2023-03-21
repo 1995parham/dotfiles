@@ -3,7 +3,7 @@
 function require_brew() {
 	for pkg in "$@"; do
 		running "require" " brew $pkg"
-		if ! brew list --versions "$pkg" >/dev/null 2>&1; then
+		if ! brew list --versions "$pkg" &>/dev/null; then
 			action "require" "勒brew install $pkg"
 			brew install "$pkg"
 		fi
@@ -13,7 +13,7 @@ function require_brew() {
 function require_brew_head() {
 	for pkg in "$@"; do
 		running "require" " brew head $pkg"
-		if ! brew list --versions "$pkg" >/dev/null 2>&1; then
+		if ! brew list --versions "$pkg" &>/dev/null; then
 			action "require" "勒brew install --HEAD $pkg"
 			brew install --HEAD "$pkg"
 		else
@@ -26,9 +26,19 @@ function require_brew_head() {
 function require_brew_cask() {
 	for pkg in "$@"; do
 		running "require" " brew cask $pkg"
-		if ! brew list --cask --versions "$pkg" >/dev/null 2>&1; then
+		if ! brew list --cask --versions "$pkg" &>/dev/null; then
 			action "require" "勒brew install --cask $pkg"
 			brew install --cask "$pkg"
+		fi
+	done
+}
+
+function require_apt() {
+	for pkg in "$@"; do
+		running "require" " apt $pkg"
+		if ! dpkg -s "$pkg" &>/dev/null; then
+			action "require" "勒apt install $pkg"
+			sudo apt install "$pkg"
 		fi
 	done
 }
@@ -36,7 +46,7 @@ function require_brew_cask() {
 function require_pacman() {
 	for pkg in "$@"; do
 		running "require" " pacman $pkg"
-		if ! pacman -Qi "$pkg" >/dev/null 2>&1; then
+		if ! pacman -Qi "$pkg" &>/dev/null; then
 			action "require" "勒pacman -Sy $pkg"
 			sudo pacman -Sy --noconfirm "$pkg"
 		fi
@@ -46,7 +56,7 @@ function require_pacman() {
 function require_aur() {
 	for pkg in "$@"; do
 		running "require" " arch users repository $pkg"
-		if (! pacman -Qi "$pkg" >/dev/null 2>&1); then
+		if (! pacman -Qi "$pkg" &>/dev/null); then
 			action "require" "勒yay -Sy $pkg"
 			yay -Sy --sudoloop --noconfirm "$pkg"
 		elif [[ "$pkg" =~ .*-git ]]; then
