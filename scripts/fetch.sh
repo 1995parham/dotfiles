@@ -16,6 +16,10 @@ main_pacman() {
 	require_pacman neofetch onefetch tokei
 }
 
+main_apt() {
+	require_apt neofetch
+}
+
 main() {
 	configfile neofetch
 }
