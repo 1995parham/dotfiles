@@ -7,10 +7,13 @@ set -o pipefail
 # a global variable that points to dotfiles root directory.
 # it used also in scripts/.
 dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source-path=SCRIPTDIR/lib
+# shellcheck source=scripts/lib/message.sh
 source "$dotfiles_root/scripts/lib/message.sh"
+# shellcheck source=scripts/lib/proxy.sh
 source "$dotfiles_root/scripts/lib/proxy.sh"
+# shellcheck source=scripts/lib/linker.sh
 source "$dotfiles_root/scripts/lib/linker.sh"
+# shellcheck source=scripts/lib/require.sh
 source "$dotfiles_root/scripts/lib/require.sh"
 
 # start.sh
