@@ -38,7 +38,7 @@ function require_apt() {
 		running "require" " apt $pkg"
 		if ! dpkg -s "$pkg" &>/dev/null; then
 			action "require" "勒apt install $pkg"
-			sudo apt install "$pkg"
+			sudo apt install -y "$pkg"
 		fi
 	done
 }

@@ -49,10 +49,10 @@ pacman_packages=(
 yay_packages=(jcal actionlint-bin mqttui mprocs cbonsai)
 
 main_apt() {
-	sudo apt-get update -q
+	sudo apt update -yq
 
 	msg "install ${apt_packages[*]} + ${packages[*]} with apt"
-	sudo apt-get install "${apt_packages[@]}" "${packages[@]}"
+	require_apt "${apt_packages[@]}" "${packages[@]}"
 }
 
 main_pacman() {
