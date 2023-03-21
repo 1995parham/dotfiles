@@ -21,5 +21,11 @@ main() {
 }
 
 main_parham() {
-	git clone git@github.com:parham-alvani/calendar.git "$HOME/Documents/Git/parham/parham-alvani/calendar" || true
+	if [ ! -d "$HOME/Documents/Git/parham/parham-alvani/" ]; then
+		mkdir -p "$HOME/Documents/Git/parham/parham-alvani/"
+	fi
+
+	cd "$HOME/Documents/Git/parham/parham-alvani/" || return
+	clone parham-alvani/calendar git@github.com:
+	cd - &>/dev/null || return
 }
