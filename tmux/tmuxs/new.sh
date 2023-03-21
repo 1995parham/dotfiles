@@ -36,7 +36,7 @@ cd "$project" || exit
 
 if [ -f Pipfile ]; then
 	if [[ "$(command -v pipenv)" ]]; then
-		pipenv install --dev --skip-lock
+		proxy_start && pipenv install --dev --skip-lock && proxy_stop
 		# shellcheck disable=2016
 		commands=('[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset' "${commands[@]}")
 	fi
