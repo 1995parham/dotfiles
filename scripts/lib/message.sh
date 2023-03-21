@@ -1,11 +1,12 @@
 #!/bin/bash
 
-F_CYAN="\033[38;2;0;255;255m"
-F_GREEN="\033[38;2;127;230;127m"
-F_RED="\033[38;2;255;127;127m"
-F_ORANGE="\033[38;2;255;165;0m"
-F_YELLOW="\033[38;2;255;255;25m"
-F_RESET="\033[39m"
+export F_CYAN="\033[38;2;0;255;255m"
+export F_GREEN="\033[38;2;127;230;127m"
+export F_RED="\033[38;2;255;127;127m"
+export F_ORANGE="\033[38;2;255;165;0m"
+export F_YELLOW="\033[38;2;255;255;25m"
+export F_GRAY="\033[38;2;90;90;90m"
+export F_RESET="\033[39m"
 
 function yes_or_no() {
 	yes_to_all=${yes_to_all:-0}

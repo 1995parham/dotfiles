@@ -76,3 +76,29 @@ function require_pip() {
 		python -mpip install --user --pre -U "$pkg" 2>/dev/null
 	done
 }
+
+function clone() {
+	repo=$1
+	url=$2
+	dir=${3:-$(basename "$repo")}
+
+	if [ ! -d "$dir" ]; then
+		if git clone "$url$repo" 2>/dev/null; then
+			action git "$repo ${F_GREEN}󰄲${F_RESET}"
+		else
+			action git "$repo ${F_RED}󱋭${F_RESET}"
+		fi
+	else
+		cd "$dir" || return
+
+		origin_url=$(git remote get-url origin 2>/dev/null)
+
+		if [[ "$url$repo" == "${origin_url%.git}" ]]; then
+			action git "$repo ${F_GRAY}${F_RESET}"
+		else
+			action git "$repo ($url$repo != $origin_url) ${F_RED}󱋭${F_RESET}"
+		fi
+
+		cd - &>/dev/null || return
+	fi
+}
