@@ -96,7 +96,9 @@ main_pacman() {
 main_parham() {
 	msg 'the wallpapers that we love'
 
-	if [ ! -d "$HOME/Pictures/GoSiMac" ]; then
-		git clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures/GoSiMac"
+	if [ ! -d "$HOME/Pictures/" ]; then
+		mkdir -p "$HOME/Pictures/"
 	fi
+
+	clone parham-alvani/wallpapers https://github.com/ "$HOME/Pictures/GoSiMac"
 }
