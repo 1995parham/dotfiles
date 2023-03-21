@@ -26,7 +26,9 @@ main_pacman() {
 
 	sudo systemctl enable --now libvirtd.service
 
-	proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
+	if ! vagrant plugin list | grep vagrant-libvirt; then
+		proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
+	fi
 }
 
 main() {
@@ -39,5 +41,8 @@ main() {
 
 main_parham() {
 	msg "vagrant is awesome for preconfigured vm"
-	[ -d "$HOME/kvm/seed" ] || git clone git@github.com:1995parham-me/kvm "$HOME/kvm/seed"
+
+	cd "$HOME/kvm" || return
+	clone 1995parham-me/kvm git@github.com: seed
+	cd - || return
 }
