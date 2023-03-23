@@ -204,7 +204,7 @@ install() {
 		if declare -f main_brew >/dev/null; then
 			main_brew
 		else
-			msg "main_brew not found, there is nothing to do"
+			msg "main_brew not found, there is nothing to do" "error"
 			exit
 		fi
 
@@ -229,7 +229,7 @@ install() {
 		if declare -f main_apt >/dev/null; then
 			main_apt
 		else
-			msg "main_apt not found, there is nothing to do"
+			msg "main_apt not found, there is nothing to do" "error"
 			exit
 		fi
 
@@ -242,7 +242,7 @@ install() {
 		if declare -f main_pacman >/dev/null; then
 			main_pacman
 		else
-			msg "main_pacman not found, there is nothing to do"
+			msg "main_pacman not found, there is nothing to do" "error"
 			exit
 		fi
 
