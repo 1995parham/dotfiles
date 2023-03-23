@@ -15,8 +15,18 @@ usage() {
 	'
 }
 
-main() {
-	sudo npm install -g typescript
+main_brew() {
+	return 0
+}
 
-	msg "$(tsc --version)"
+main_pacman() {
+	return 0
+}
+
+main() {
+	# sudo npm install -g typescript
+	# msg "$(tsc --version)"
+
+	msg 'you can setup typescript in a project basis, so this script only installs ts-language-server'
+	require_mason typescript-language-server
 }
