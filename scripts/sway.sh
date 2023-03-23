@@ -100,5 +100,7 @@ main_parham() {
 		mkdir -p "$HOME/Pictures/"
 	fi
 
-	clone parham-alvani/wallpapers https://github.com/ "$HOME/Pictures/GoSiMac"
+	cd "$HOME/Pictures" || return
+
+	clone parham-alvani/wallpapers https://github.com/ "GoSiMac"
 }
