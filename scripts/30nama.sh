@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.9.7"
+version="0.10.0"
 
 usage() {
 	echo -n "You will not get bored with 30nama ($version)"
@@ -22,7 +22,7 @@ main() {
 	if [ ! -d /opt/30nama ]; then
 		sudo mkdir /opt/30nama
 		sudo chown "$USER:$USER" /opt/30nama
-		aria2c "https://github.com/Mr30nama/30nama/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
+		aria2c "https://github.com/Mr30nama/30nama-desktop/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
 		aria2c "https://github.com/Mr30nama/30nama/raw/main/logo.png" -d /opt/30nama
 		chmod +x "/opt/30nama/30nama-$version.AppImage"
 	fi
