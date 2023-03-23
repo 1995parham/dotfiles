@@ -6,6 +6,9 @@ export F_RED="\033[38;2;255;127;127m"
 export F_ORANGE="\033[38;2;255;165;0m"
 export F_YELLOW="\033[38;2;255;255;25m"
 export F_GRAY="\033[38;2;90;90;90m"
+export F_BLUE="\033[38;2;0;191;255m"
+export BOLD_ON="\033[1m"
+export BOLD_OFF="\033[0m"
 export F_RESET="\033[39m"
 
 function yes_or_no() {
@@ -31,9 +34,22 @@ function yes_or_no() {
 
 function message() {
 	local module=$1
-	shift
+	local message=$2
+	local servity=${3:-"info"}
 
-	echo -e "${F_CYAN}[$module] ${F_ORANGE}$* $F_RESET"
+	case $servity in
+	info)
+		servity=""
+		;;
+	error)
+		servity="${F_RED}${BOLD_ON} (error) ${F_RESET}${BOLD_OFF}"
+		;;
+	*)
+		servity=""
+		;;
+	esac
+
+	echo -e "$servity${F_CYAN}[$module] ${F_ORANGE}$message $F_RESET"
 }
 
 function running() {
