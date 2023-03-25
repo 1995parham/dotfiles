@@ -45,7 +45,7 @@ if [ -f Pipfile ]; then
 		proxy_start && pipenv install --verbose --dev --skip-lock && proxy_stop
 
 		# shellcheck disable=2016
-		commands=('[ -d $(pipenv --venv) ] && source $(pipenv --venv)/bin/activate && reset' "${commands[@]}")
+		commands=('pipenv shell --fancy' "${commands[@]}")
 	fi
 fi
 
