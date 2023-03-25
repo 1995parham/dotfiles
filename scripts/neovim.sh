@@ -22,8 +22,7 @@ main_apt() {
 
 main_pacman() {
 	# require_aur neovim-git
-	require_pacman neovim libvterm
-	require_pacman python-pynvim luarocks
+	require_pacman neovim libvterm python-pynvim luarocks
 }
 
 main_brew() {
