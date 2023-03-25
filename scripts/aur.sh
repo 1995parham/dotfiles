@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	return 0
+	require_pacman pacman-contrib
 }
 
 main() {
