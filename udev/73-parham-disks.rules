@@ -1,2 +1,3 @@
-KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ATTRS{manufacturer}=="ADATA",  ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a83a", ATTRS{serial}=="41B247164024", ACTION=="add", RUN+="/bin/systemctl --no-block start usb-mount@%k.service"
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ATTRS{manufacturer}=="ADATA",  ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a83a", ATTRS{serial}=="41B247164024", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ATTRS{manufacturer}=="ADATA",  ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a83a", ATTRS{serial}=="41B247164024", ACTION=="unbind", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ATTRS{manufacturer}=="ADATA",  ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a83a", ATTRS{serial}=="41B247164024", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
