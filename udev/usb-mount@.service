@@ -1,8 +1,8 @@
 [Unit]
-Description=Mount USB Drive on %i
+Description=Mount USB Drive on %I
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
-ExecStart=/usr/local/bin/usb-mount.sh mount %i
-ExecStop=/usr/local/bin/usb-mount.sh umount %i
+ExecStart=/usr/local/bin/usb-mount.sh mount %I
+ExecStop=/usr/local/bin/usb-mount.sh umount %I
