@@ -30,7 +30,8 @@ _mount() {
 		labels=("${main_labels[@]}")
 		;;
 	*)
-		exit
+		echo "device is not configured $name"
+		exit 1
 		;;
 	esac
 
@@ -48,11 +49,15 @@ _mount() {
 	# Figure out a mount point to use
 	label=${ID_FS_LABEL}
 	if [[ -z "${label}" ]]; then
-		exit
+		echo "device with empty label is not acceptable"
+
+		exit 1
 	fi
 
 	if [[ ! " ${labels[*]} " == *" $label "* ]]; then
-		exit
+		echo "patition is not configured $label (${labels[*]})"
+
+		exit 1
 	fi
 
 	mount_point="/media/${label}"
@@ -113,6 +118,11 @@ main() {
 		;;
 	umount)
 		_umount "$2" "$3"
+		;;
+	*)
+		echo "invalid command $1"
+
+		exit 1
 		;;
 	esac
 }
