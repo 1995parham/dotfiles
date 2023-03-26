@@ -14,7 +14,10 @@
 # sudo btrfs filesystem label /dev/sda2 parham-main
 
 declare -a labels
-labels=("parham-main")
+labels=(
+	"parham-main"
+	"parham-secret"
+)
 
 me="parham"
 
