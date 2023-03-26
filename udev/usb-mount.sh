@@ -109,7 +109,9 @@ _umount() {
 
 main() {
 	if [ $# != 3 ]; then
-		return
+		echo "invalid number of arguments $# != 3"
+
+		exit 1
 	fi
 
 	case $1 in
