@@ -13,27 +13,14 @@
 #
 # sudo btrfs filesystem label /dev/sda2 parham-main
 
-declare -a main_labels
-main_labels=("parham-main")
+declare -a labels
+labels=("parham-main")
 
 me="parham"
 
 _mount() {
 	local devbase=$1
-	local name=$2
 	local device="/dev/$devbase"
-
-	declare -a labels
-
-	case $name in
-	main)
-		labels=("${main_labels[@]}")
-		;;
-	*)
-		echo "device is not configured $name"
-		exit 1
-		;;
-	esac
 
 	# see if this drive is already mounted
 	mount_point="$(/bin/mount | /bin/grep "${device}" | /usr/bin/awk '{ print $3 }')"
@@ -79,12 +66,11 @@ _mount() {
 	fi
 
 	# send desktop notification to user
-	sudo -u "$me" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "device ${name}/${label} mounted"
+	sudo -u "$me" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "device ${label} mounted"
 }
 
 _umount() {
 	local devbase=$1
-	local name=$2
 	local device="/dev/$devbase"
 
 	# see if this drive is already mounted
@@ -93,8 +79,6 @@ _umount() {
 	if [[ -n ${mount_point} ]]; then
 		/bin/umount -l "${device}"
 	fi
-
-	declare -a labels
 
 	# delete all empty dirs in /media that aren't being used as mount points.
 	# the list of current mounted disks exists in /etc/mtab
@@ -108,18 +92,18 @@ _umount() {
 }
 
 main() {
-	if [ $# != 3 ]; then
-		echo "invalid number of arguments $# != 3"
+	if [ $# != 2 ]; then
+		echo "invalid number of arguments $# != 2"
 
 		exit 1
 	fi
 
 	case $1 in
 	mount)
-		_mount "$2" "$3"
+		_mount "$2"
 		;;
 	umount)
-		_umount "$2" "$3"
+		_umount "$2"
 		;;
 	*)
 		echo "invalid command $1"
