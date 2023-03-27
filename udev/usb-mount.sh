@@ -17,6 +17,8 @@ declare -a labels
 labels=(
 	"parham-main"
 	"parham-secret"
+	"PARHAM-KEYS"
+	"Ventoy"
 )
 
 me="parham"
@@ -59,7 +61,9 @@ _mount() {
 
 	# file system type specific mount options
 	if [[ ${ID_FS_TYPE} == "vfat" ]]; then
-		opts+=",users,grou=1000,user=1000,umask=000,shortname=mixed,utf8=1,flush"
+		opts+=",users,uid=1000,gid=1000,umask=000,shortname=mixed,utf8=1,flush"
+	elif [[ ${ID_FS_TYPE} == "exfat" ]]; then
+		opts+=",users,uid=1000,gid=1000,umask=000,shortname=mixed,utf8=1,flush"
 	fi
 
 	if ! /bin/mount -o "${opts}" "${device}" "${mount_point}"; then
