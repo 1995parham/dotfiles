@@ -84,9 +84,9 @@ texlive-install-() {
 	msg "download the installer from tug.org"
 	if [ ! -d texlive-installer ]; then
 		mkdir texlive-installer
-		curl --tlsv1.3 -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
+		curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar -x -v -z -f - -C texlive-installer
 	else
-		msg "there is a failed installation of texlive"
+		msg "there is a failed installation of texlive, you need to remove the installer first"
 	fi
 
 	msg "install with the installer -- default scheme is small"
