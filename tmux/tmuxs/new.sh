@@ -40,7 +40,10 @@ fi
 
 cd "$project" || exit
 
-git project
+which onefetch && onefetch
+read -n 1 -s -r -p "press any key to continue"
+echo
+which tokei && tokei
 read -n 1 -s -r -p "press any key to continue"
 echo
 
