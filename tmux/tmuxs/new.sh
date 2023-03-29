@@ -40,10 +40,10 @@ fi
 
 cd "$project" || exit
 
-which onefetch && onefetch
+(which onefetch && onefetch) || true
 read -n 1 -s -r -p "press any key to continue"
 echo
-which tokei && tokei
+(which tokei && tokei) || true
 read -n 1 -s -r -p "press any key to continue"
 echo
 
