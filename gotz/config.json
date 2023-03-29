@@ -16,7 +16,6 @@
   ],
   "style": {
     "symbols": "mono",
-    "custom_symbols": [],
     "colorize": true,
     "day_segments": {
       "morning": 6,
@@ -40,6 +39,7 @@
   },
   "tics": false,
   "stretch": true,
+  "inline": false,
   "hours12": false,
   "live": false
 }
