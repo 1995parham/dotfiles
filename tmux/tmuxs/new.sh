@@ -64,7 +64,7 @@ tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${c
 tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 # show project information on the last pane. this doesn't work with pipenv shell
 # so we don't have information on pythonic projects.
-commands+=("git project")
+# commands+=("git project")
 tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 tmux select-layout -t "$current_session:$name" tiled
 tmux select-pane -t 0
