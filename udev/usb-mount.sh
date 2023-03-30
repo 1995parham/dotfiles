@@ -19,6 +19,7 @@ labels=(
 	"parham-secret"
 	"PARHAM-KEYS"
 	"Ventoy"
+	"parham-movies"
 )
 
 me="parham"
