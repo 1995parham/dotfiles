@@ -41,7 +41,7 @@ requirements=(zsh tmux vim)
 # check the existence of required softwares
 for cmd in "${requirements[@]}"; do
 	if ! hash "$cmd" 2>/dev/null; then
-		message "pre" "Please install $cmd before using this script"
+		message "pre" "Please install $cmd before using this script" "error"
 		exit 1
 	fi
 done
@@ -80,7 +80,7 @@ install-tmux() {
 		mkdir -p ~/.tmux/plugins
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	fi
-	~/.tmux/plugins/tpm/bin/install_plugins
+	"$HOME/.tmux/plugins/tpm/bin/install_plugins"
 }
 
 # zsh
