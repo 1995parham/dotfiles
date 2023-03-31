@@ -29,7 +29,7 @@ pacman_packages=(
 	dua-cli
 	github-cli glab
 	inetutils websocat fuse2
-	dog yq man-pages usbutils exfat-utils
+	dog go-yq man-pages usbutils exfat-utils
 	openbsd-netcat
 	speedtest-cli
 	cpupower
