@@ -12,8 +12,8 @@ function require_brew() {
 	done
 
 	if [ ${#to_install_pkg[@]} -ne 0 ]; then
-		action "require" "勒brew install $pkg"
-		brew install "$pkg"
+		action "require" "勒brew install ${to_install_pkg[*]}"
+		brew install "${to_install_pkg[@]}"
 	fi
 }
 
@@ -52,8 +52,8 @@ function require_apt() {
 	done
 
 	if [ ${#to_install_pkg[@]} -ne 0 ]; then
-		action "require" "勒apt install $pkg"
-		sudo apt install -y "$pkg"
+		action "require" "勒apt install ${to_install_pkg[*]}"
+		sudo apt install -y "${to_install_pkg[@]}"
 	fi
 }
 
