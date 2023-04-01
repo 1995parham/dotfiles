@@ -66,7 +66,12 @@ to_birthday() {
 
 since_first_family_meeting() {
 	since- "18 nov 2022 15:30:00"
-	echo "How much since our first family meeting"
+	echo "How much since our first family meeting?"
+}
+
+since_first_family_dinner() {
+	since- "31 mar 2023 19:00:00"
+	echo "How much since our first family dinner?"
 }
 
 main() {
@@ -79,6 +84,10 @@ main() {
 	echo
 
 	since_first_family_meeting
+
+	echo
+
+	since_first_family_dinner
 }
 
 if [ $# -ne 1 ]; then
