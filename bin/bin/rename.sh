@@ -1,15 +1,9 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : rename.sh
-#
-# [] Creation Date : 05-01-2021
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 echo "structure your tv-series, at least trying to"
-echo "please note that only .mp4 and .mkv are supported"
+echo "please note that only .mp4/.mkv are supported"
+
+formats="*.mkv|*.mp4"
 
 rename() {
 	local name=$1   # name of the series
@@ -17,9 +11,7 @@ rename() {
 	local index=$3  # base episode index
 	local dry_run=${4:-"true"}
 
-	echo "$name $season $dry_run"
-
-	movies=$(find . -maxdepth 1 -name '*.mkv' -type f -printf %P\\n -o -name '*.mp4' -type f -printf %P\\n | sort)
+	movies=$(find . -maxdepth 1 -name "$formats" -type f -printf %P\\n | sort)
 
 	# https://unix.stackexchange.com/questions/9496/looping-through-files-with-spaces-in-the-names
 	OIFS="$IFS"
@@ -56,19 +48,23 @@ rename() {
 	IFS="$OIFS"
 }
 
-sample=$(find . -maxdepth 1 -name '*.mkv' -type f -printf %P\\n -o -name '*.mp4' -type f -printf %P\\n | sort | head -1)
+main() {
+	sample=$(find . -maxdepth 1 -name "$formats" -type f -printf %P\\n | sort | head -1)
 
-read -r -p "TV Series Name: " -i "$sample" -e name
+	read -r -p "TV Series Name: " -i "$sample" -e name
 
-read -r -p "TV Series Season: " season
+	read -r -p "TV Series Season: " season
 
-read -r -p "Base Episode Index: " -i "1" -e index
+	read -r -p "Base Episode Index: " -i "1" -e index
 
-rename "$name" "$season" $((index - 1)) true
+	rename "$name" "$season" $((index - 1)) true
 
-read -r -p "are you ready ?[Y/n] " -n 1 delete_confirm
-echo
+	read -r -p "Are you ready ?[Y/n] " -n 1 delete_confirm
+	echo
 
-if [[ $delete_confirm == "Y" ]]; then
-	rename "$name" "$season" $((index - 1)) false
-fi
+	if [[ $delete_confirm == "Y" ]]; then
+		rename "$name" "$season" $((index - 1)) false
+	fi
+}
+
+main "$@"
