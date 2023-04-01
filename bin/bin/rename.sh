@@ -3,7 +3,7 @@
 echo "structure your tv-series, at least trying to"
 echo "please note that only .mp4/.mkv are supported"
 
-formats="*.mkv|*.mp4"
+formats=".*\.mkv|.*\.mp4"
 
 rename() {
 	local name=$1   # name of the series
@@ -11,7 +11,7 @@ rename() {
 	local index=$3  # base episode index
 	local dry_run=${4:-"true"}
 
-	movies=$(find . -maxdepth 1 -name "$formats" -type f -printf %P\\n | sort)
+	movies=$(find . -maxdepth 1 -regextype posix-extended -regex "$formats" -type f -printf %P\\n | sort)
 
 	# https://unix.stackexchange.com/questions/9496/looping-through-files-with-spaces-in-the-names
 	OIFS="$IFS"
@@ -49,7 +49,7 @@ rename() {
 }
 
 main() {
-	sample=$(find . -maxdepth 1 -name "$formats" -type f -printf %P\\n | sort | head -1)
+	sample=$(find . -maxdepth 1 -regextype posix-extended -regex "$formats" -type f -printf %P\\n | sort | head -1)
 
 	read -r -p "TV Series Name: " -i "$sample" -e name
 
