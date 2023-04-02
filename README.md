@@ -110,3 +110,4 @@ To work with workspace just start with _SPACE-TAB_.
 ## More
 
 - [scripts](./docs/scripts.md)
+- [archinstall](./archinstall/README.md)
