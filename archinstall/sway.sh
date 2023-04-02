@@ -20,8 +20,7 @@ cd "$current_dir/.." && ./start.sh pacman
 # install yay to have yay for installing from
 cd "$current_dir/.." && ./start.sh yay
 
-message "archinstall" "lets use greetd as desktop manager, so wait for rust"
-cd "$current_dir/.." && ./start.sh rust
+message "archinstall" "lets use greetd as desktop manager"
 require_pacman greetd greetd-tuigreet greetd-agreety
 
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
