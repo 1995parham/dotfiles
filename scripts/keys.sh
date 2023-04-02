@@ -43,7 +43,7 @@ public() {
 
 main() {
 	if [ $# -lt 1 ]; then
-		usage
+		msg "./start.sh keys <username>" "error"
 		return
 	fi
 

@@ -59,7 +59,9 @@ LimitNOFILE=1048576
     ' | sudo tee /etc/systemd/system/containerd.service.d/override.conf
 	sudo systemctl daemon-reload
 
-	newgrp docker
+	# the following command create a new shell which is not
+	# good to run in a script.
+	# newgrp docker
 }
 
 main() {
