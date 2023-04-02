@@ -33,7 +33,7 @@ main_pacman() {
 
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 	sudo mkdir /etc/docker || true
-	sudo cp "$dotfiles_root/docker/daemon.json /etc/docker/"
+	sudo cp "$dotfiles_root/docker/daemon.json" "/etc/docker/"
 
 	msg 'docker service with systemd'
 	sudo systemctl enable --now docker.service
