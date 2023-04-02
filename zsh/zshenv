@@ -19,11 +19,6 @@ fi
 
 # podman, helm, etc. {{{
 
-# rootless docker daemon but with podman
-if [ -e "$XDG_RUNTIME_DIR/podman/podman.sock" ]; then
-  export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-fi
-
 # Currently OCI support is considered experimental.
 export HELM_EXPERIMENTAL_OCI=1
 
