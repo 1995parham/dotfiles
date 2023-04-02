@@ -2,6 +2,14 @@
 
 usage() {
 	echo -n "install public keys as authorized keys ⚠️"
+	echo '
+ _
+| | _____ _   _ ___
+| |/ / _ \ | | / __|
+|   <  __/ |_| \__ \
+|_|\_\___|\__, |___/
+          |___/
+	'
 }
 
 main_pacman() {
