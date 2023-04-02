@@ -81,8 +81,10 @@ _mount() {
 		exit 1
 	fi
 
-	# send desktop notification to user
-	sudo -u "$me" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "device ${label} mounted"
+	# send desktop notification to user, if notify-send exists
+	if hash "notify-send" 2>/dev/null; then
+		sudo -u "$me" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "device ${label} mounted"
+	fi
 }
 
 _umount() {
