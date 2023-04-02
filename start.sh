@@ -81,6 +81,7 @@ _main() {
 	# handles root user
 	if [[ $EUID -eq 0 ]]; then
 		message "pre" "it must run without the root permissions with a regular user." "error"
+		return 1
 	fi
 
 	# handles given script run and result
