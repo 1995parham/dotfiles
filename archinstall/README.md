@@ -1,29 +1,30 @@
 # Archinstall
 
-Install arch (i3) with `archinstall` helper. first of all you need to enable internet connection using `iwctl` or `nmcli` then you can continue.
+Install Archlinux with sway, server or hyprland profile using `archinstall` helper.
+First, you need to enable internet connection using `iwctl` or `nmcli` then you can continue.
 
 ## How to
 
 - clone this repository
 
-```sh
+```bash
 pacman -Sy archinstall git
 git clone https://github.com/1995parham/dotfiles
 cd dotfiles/archinstall
 ```
 
-- partioning using `fstab`. (please remeber to create boot partion with _EFI System_ label.
+- Partitioning using `fstab`. (please remember to create boot partition with _EFI System_ label).
 
-- file system with `mkfs.fat -F32`, `mkfs.btrfs`
+- File system with `mkfs.fat -F32`, `mkfs.btrfs`
 
-- enable ntp
+- Enable ntp
 
-```sh
+```bash
 datetimectl set-ntp true
 ```
 
-- ignite
+- Ignite
 
-```sh
-archinstall --config i3.json
+```bash
+archinstall --config config.json
 ```
