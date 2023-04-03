@@ -12,7 +12,8 @@
     "custom/date",
     "custom/jdate",
     "custom/khal",
-    "network#alvani"
+    "network#alvani",
+    "network#home"
   ],
   "modules-right": [
     "network#snapp",
@@ -39,7 +40,12 @@
   },
   "network#alvani": {
     "interface": "alvani",
-    "format": "{ipaddr} ",
+    "format": "{ipaddr} 󰋒",
+    "format-disconnected": ""
+  },
+  "network#home": {
+    "interface": "home",
+    "format": "{ipaddr} ",
     "format-disconnected": ""
   },
   "network#snapp": {
