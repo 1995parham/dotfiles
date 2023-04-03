@@ -1,0 +1,4 @@
+# vim: ft=yaml
+channels:
+  - conda-forge
+always_yes: false
