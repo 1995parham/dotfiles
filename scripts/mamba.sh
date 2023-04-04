@@ -27,5 +27,5 @@ main_brew() {
 }
 
 main() {
-	dotfile mamba condarc
+	dotfile mamba mambarc
 }
