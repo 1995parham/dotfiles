@@ -53,7 +53,7 @@ function require_apt() {
 
 	if [ ${#to_install_pkg[@]} -ne 0 ]; then
 		action "require" "勒apt install ${to_install_pkg[*]}"
-		sudo apt-get -y install "${to_install_pkg[@]}"
+		sudo apt -qy install "${to_install_pkg[@]}"
 	fi
 }
 
