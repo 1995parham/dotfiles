@@ -49,7 +49,7 @@ echo
 
 if [ -f Pipfile ]; then
 	if [[ "$(command -v pipenv)" ]]; then
-		proxy_start && pipenv install --verbose --dev --skip-lock && proxy_stop
+		pipenv install --verbose --dev --skip-lock
 
 		# shellcheck disable=2016
 		commands+=('pipenv shell --fancy' "${commands[@]}")
