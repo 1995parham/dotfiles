@@ -3,3 +3,6 @@ channels:
   - conda-forge
 always_yes: false
 changeps1: false
+proxy_servers:
+  http: http://127.0.0.1:1080
+  https: https://127.0.0.1:1080
