@@ -55,9 +55,10 @@ python-install-packages() {
 }
 
 main() {
-	msg "configuration ipython for having better experience"
-
 	configfile pdm "" python
+
+	msg 'python pypi start dropping iran traffic, so we need to use a proxy'
+	configfile pip "" python
 
 	python-install-packages
 }
