@@ -17,7 +17,7 @@ main_brew() {
 
 	# brew install --cask iglance
 
-	msg 'osx keyring'
+	msg 'use osx-keychain for gpg passphase'
 	brew install pinentry-mac
 	brew install --cask gpg-suite-no-mail
 	mkdir -p "$HOME/.gnupg"
