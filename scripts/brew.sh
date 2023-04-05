@@ -13,7 +13,7 @@ usage() {
 }
 
 main_brew() {
-	xcode-select --install
+	# xcode-select --install
 
 	msg "use pre-4.0.0 behaviour by cloning the Homebrew/homebrew-core tap during installation
 this will make Homebrew install formulae and casks from the homebrew/core and homebrew/cask
