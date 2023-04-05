@@ -12,7 +12,25 @@ usage() {
   '
 }
 
-main() {
+main_brew() {
+	xcode-select --install
+
+	msg "use pre-4.0.0 behaviour by cloning the Homebrew/homebrew-core tap during installation
+this will make Homebrew install formulae and casks from the homebrew/core and homebrew/cask
+taps using local checkouts of these repositories instead of Homebrew’s API."
+
+	export HOMEBREW_NO_INSTALL_FROM_API=1
+
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+main_pacman() {
+	return 1
+}
+
+main_apt() {
+	require_apt build-essential procps curl file git
+
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	msg "add homebrew to your profile"
