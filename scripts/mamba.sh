@@ -28,4 +28,6 @@ main_brew() {
 
 main() {
 	dotfile mamba mambarc
+
+	micromamba shell init --shell=zsh --prefix="$HOME/micromamba"
 }
