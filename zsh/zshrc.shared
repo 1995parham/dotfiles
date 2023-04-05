@@ -81,11 +81,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# local configuration
-if [ -f $HOME/.zshrc.local ]; then
-	source $HOME/.zshrc.local
-fi
-
 # }}}
 
 # on-my-zsh-plugins {{{
