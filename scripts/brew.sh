@@ -29,7 +29,7 @@ taps using local checkouts of these repositories instead of Homebrew’s API."
 	) >>/Users/parham/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	echo 'export PATH="/opt/homebrew/opt/curl/bin:$PATH"' >>~/.zshrc
+	echo 'export PATH="/opt/homebrew/bin:$PATH"' >>~/.zshrc
 }
 
 main_pacman() {
