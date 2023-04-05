@@ -2,11 +2,7 @@
 name: install
 on:
   push:
-    paths:
-      - .github/workflows/install.yaml
-      - install.sh
-      - scripts/env.sh
-      - start.sh
+
 jobs:
   basic-ubuntu:
     runs-on: ubuntu-22.04
@@ -18,11 +14,11 @@ jobs:
         run: ./install.sh -y
       - name: validate symbolic links
         run: |
-          test "$(readlink -f ~/.zshrc)" = "$(pwd)/zsh/zshrc"
+          test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
       - name: validate installation of requirements on both shell
         run: |
-          bash -c hash nvim batcat bmon
-          zsh -c hash nvim batcat bmon
+          bash -c hash vim batcat bmon
+          zsh -c hash vim batcat bmon
 
   basic-osx:
     runs-on: macos-latest
@@ -30,7 +26,12 @@ jobs:
       - uses: actions/checkout@v3
       - name: start.sh env
         run: ./start.sh -y env
+      - name: install.sh
+        run: ./install.sh -y
+      - name: validate symbolic links
+        run: |
+          test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
       - name: validate installation of requirements on both shell
         run: |
-          bash -c hash nvim batcat bmon
-          zsh -c hash nvim batcat bmon
+          bash -c hash vim batcat bmon
+          zsh -c hash vim batcat bmon

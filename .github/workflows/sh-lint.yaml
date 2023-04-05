@@ -2,9 +2,7 @@
 name: lint
 on:
   push:
-    paths:
-      - .github/workflows/sh-lint.yaml
-      - '**.sh'
+
 jobs:
   sh-checker:
     runs-on: ubuntu-latest
