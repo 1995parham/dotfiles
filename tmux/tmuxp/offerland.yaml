@@ -16,7 +16,7 @@ windows:
     focus: true
     panes:
       - shell_command:
-          - chafa ~/.config/waybar/img/offerland.svg --size 80 --clear | less
+          - chafa $DOOTFILES_ROOT/sway/waybar/img/offerland.svg --size 80 --clear | less
       - focus: true
       - pane
       - pane
