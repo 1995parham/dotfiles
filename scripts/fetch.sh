@@ -20,6 +20,10 @@ main_apt() {
 	require_apt neofetch
 }
 
+main_brew() {
+	require_brew neofetch onefetch tokei
+}
+
 main() {
 	configfile neofetch
 }
