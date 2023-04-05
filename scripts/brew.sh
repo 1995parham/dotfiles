@@ -22,6 +22,14 @@ taps using local checkouts of these repositories instead of Homebrew’s API."
 	export HOMEBREW_NO_INSTALL_FROM_API=1
 
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+	(
+		echo
+		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+	) >>/Users/parham/.zprofile
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+
+	echo 'export PATH="/opt/homebrew/opt/curl/bin:$PATH"' >>~/.zshrc
 }
 
 main_pacman() {
