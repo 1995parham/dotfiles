@@ -24,5 +24,6 @@ main_pacman() {
 main() {
 	proxy_start
 	gcloud auth list
+	gcloud auth login
 	proxy_stop
 }
