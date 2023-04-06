@@ -51,7 +51,7 @@ output = "\n".join(lines).strip()
 if "Today" in output:
     data.text = output.split("\n")[1] + " "
 else:
-    data.text = ""
+    data.text = ""
 data.tooltip = output
 
 print(data.json())
