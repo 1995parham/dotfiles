@@ -2,6 +2,14 @@
 
 usage() {
 	echo -n 'have temporary directories at your home'
+	echo '
+ _
+| |_ _ __ ___  _ __
+| __| |_ | _ \| |_ \
+| |_| | | | | | |_) |
+ \__|_| |_| |_| .__/
+              |_|
+  '
 }
 
 main_pacman() {
