@@ -23,7 +23,7 @@ apt_packages=(bmon atop)
 pacman_packages=(
 	perl-image-exiftool
 	mtr
-	fd
+	fd ripgrep
 	jless
 	chafa
 	dua-cli
