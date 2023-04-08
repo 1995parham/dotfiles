@@ -19,7 +19,7 @@ main_pacman() {
 
 	sudo mkdir -p "/etc/systemd/resolved.conf.d/" || true
 
-	PS3="select emacs installation kind:"
+	PS3="select shecan installation kind:"
 
 	kinds=(
 		"shecan: public and free version of shecan accessible from everywhere"
@@ -33,4 +33,8 @@ main_pacman() {
 	done
 
 	sudo cp "$dotfiles_root/dns/$kind.conf" "/etc/systemd/resolved.conf.d/$kind.conf"
+
+	if [ "$(curl -s check.shecan.ir)" = '0' ]; then
+		msg "shecan is ready"
+	fi
 }
