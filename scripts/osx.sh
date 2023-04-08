@@ -17,6 +17,9 @@ main_brew() {
 
 	# brew install --cask iglance
 
+	# use rosetta to run intel applications on apple silicon.
+	softwareupdate --install-rosetta --agree-to-license
+
 	msg 'use osx-keychain for gpg passphase'
 	brew install pinentry-mac
 	brew install --cask gpg-suite-no-mail
