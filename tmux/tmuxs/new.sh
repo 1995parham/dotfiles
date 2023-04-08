@@ -58,7 +58,7 @@ fi
 
 cd -
 
-tmux kill-window -t "$current_session:=$name" || true
+tmux kill-window -t "$current_session:=$name" &>/dev/null || true
 tmux new-window -t "$current_session" -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
 tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
