@@ -38,10 +38,38 @@ main_apt() {
 }
 
 main_pacman() {
-	require_pacman ripgrep aspell aspell-en fd webkit2gtk
-	# require_pacman emacs-nativecomp
-	# -git version has issue switch-key
-	require_aur emacs-pgtk-native-comp-git
+	require_pacman ripgrep aspell aspell-en fd
+
+	PS3="select emacs installation kind:"
+
+	kinds=(
+		"emacs-nativecomp: The extensible, customizable, self-documenting real-time display editor with native compilation enabled"
+		"emacs-nox: The extensible, customizable, self-documenting real-time display editor without X11 support"
+		"emacs-pgtk-native-comp-git: GNU Emacs. Development master branch"
+		"emacs-gcc-wayland-devel-bin: GNU Emacs. Development native-comp branch and pgtk branch combined, served as a binary."
+	)
+
+	select kind in "${kinds[@]}"; do
+		kind=${kind%%:*}
+		msg "installing $kind..."
+		break
+	done
+
+	case $kind in
+	emacs-nativecomp)
+		require_pacman emacs-nativecomp
+		;;
+	emacs-nox)
+		require_pacman emacs-nox
+		;;
+	emacs-gcc-wayland-devel-bin)
+		require_aur emacs-gcc-wayland-devel-bin
+		;;
+	emacs-pgtk-native-comp-git)
+		require_pacman webkit2gtk
+		require_aur emacs-pgtk-native-comp-git
+		;;
+	esac
 }
 
 main() {
