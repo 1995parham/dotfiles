@@ -23,12 +23,14 @@ taps using local checkouts of these repositories instead of Homebrew’s API."
 
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+	# shellcheck disable=2016
 	(
 		echo
 		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 	) >>/Users/parham/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
+	# shellcheck disable=2016
 	echo 'export PATH="/opt/homebrew/bin:$PATH"' >>~/.zshrc
 }
 
