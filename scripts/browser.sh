@@ -24,9 +24,6 @@ main_pacman() {
 	msg 'set default browser using xdg-settings'
 	bash xdg-settings set default-web-browser firefox.desktop
 
-	msg 'nyxt - the internet on your terms'
-	require_pacman nyxt
-
 	if yes_or_no 'browser' 'do you want to install vivaldi?'; then
 		require_pacman vivaldi vivaldi-ffmpeg-codecs
 	fi
@@ -41,12 +38,4 @@ main_pacman() {
 
 		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
 	fi
-}
-
-main() {
-	configfile nyxt
-
-	# actually it is not useful as I think so I disable it.
-	# msg "install tridactyl by running :installnative in firefox normal mode"
-	# configfile tridactyl "" firefox
 }
