@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -n 'my dns, my rules'
+	echo -n 'my dns, my rules (remember systemd is the best)'
 	echo '
      _
   __| |_ __  ___
@@ -18,5 +18,19 @@ main_pacman() {
 	sudo systemctl enable --now systemd-resolved
 
 	sudo mkdir -p "/etc/systemd/resolved.conf.d/" || true
-	sudo cp "$dotfiles_root/dns/shecan.conf" "/etc/systemd/resolved.conf.d/shecan.conf"
+
+	PS3="select emacs installation kind:"
+
+	kinds=(
+		"shecan: public and free version of shecan accessible from everywhere"
+		"shecan-pro: private and pro version of shecan accessible from home only"
+	)
+
+	select kind in "${kinds[@]}"; do
+		kind=${kind%%:*}
+		msg "installing $kind..."
+		break
+	done
+
+	sudo cp "$dotfiles_root/dns/$kind.conf" "/etc/systemd/resolved.conf.d/$kind.conf"
 }
