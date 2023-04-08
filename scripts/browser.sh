@@ -14,6 +14,8 @@ usage() {
 
 main_brew() {
 	brew install --cask firefox
+
+	gopass-jsonapi configure --browser firefox
 }
 
 main_pacman() {
