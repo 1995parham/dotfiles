@@ -32,6 +32,9 @@ taps using local checkouts of these repositories instead of Homebrew’s API."
 
 	# shellcheck disable=2016
 	echo 'export PATH="/opt/homebrew/bin:$PATH"' >>~/.zshrc
+
+	msg 'add cask-versions for finding alternative versions of Casks'
+	brew tap homebrew/cask-versions
 }
 
 main_pacman() {
@@ -57,9 +60,4 @@ main_apt() {
 		grep -i "$brew_eval" "$HOME/.bash_profile" || echo "$brew_eval" >>"$HOME/.bash_profile"
 	fi
 	grep -i "$brew_eval" "$HOME/.profile" || echo "$brew_eval" >>"$HOME/.profile"
-}
-
-main() {
-	msg 'add cask-versions for finding alternative versions of Casks'
-	brew tap homebrew/cask-versions
 }
