@@ -29,6 +29,6 @@ main_pacman() {
 }
 
 main() {
-	python -mpip install --user --pre -U lovesay
+	require_pip lovesay
 	configfile lovesay
 }
