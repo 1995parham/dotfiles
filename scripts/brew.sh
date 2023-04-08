@@ -58,3 +58,8 @@ main_apt() {
 	fi
 	grep -i "$brew_eval" "$HOME/.profile" || echo "$brew_eval" >>"$HOME/.profile"
 }
+
+main() {
+	msg 'add cask-versions for finding alternative versions of Casks'
+	brew tap homebrew/cask-versions
+}
