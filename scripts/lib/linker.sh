@@ -15,8 +15,14 @@ copycat() {
 	message "$module" "difference between $dotfiles_root/$src and $dest:"
 	echo
 	echo
-	if ! diff -yNs "$dotfiles_root/$src" "$dest"; then
-		ask=1
+	if [ "$sudo" == 1 ]; then
+		if ! sudo diff -1yNs "$dotfiles_root/$src" "$dest"; then
+			ask=1
+		fi
+	else
+		if ! diff -1yNs "$dotfiles_root/$src" "$dest"; then
+			ask=1
+		fi
 	fi
 	echo
 	echo
