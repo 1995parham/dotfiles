@@ -16,11 +16,11 @@ copycat() {
 	echo
 	echo
 	if [ "$sudo" == 1 ]; then
-		if ! sudo diff -1yNs "$dotfiles_root/$src" "$dest"; then
+		if ! sudo diff -yNs --suppress-common-lines "$dotfiles_root/$src" "$dest"; then
 			ask=1
 		fi
 	else
-		if ! diff -1yNs "$dotfiles_root/$src" "$dest"; then
+		if ! diff -yNs --suppress-common-lines "$dotfiles_root/$src" "$dest"; then
 			ask=1
 		fi
 	fi
