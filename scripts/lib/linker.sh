@@ -3,6 +3,37 @@
 dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 yes_to_all=${yes_to_all:-false}
 
+# copy a file into destination. it only works on files and shows
+# the difference before doing the copy. it useful for setup files in /etc, /usr, etc.
+copycat() {
+	module=$1
+	src=${2:?"copycat requires source"}
+	dest=${3:?"copycat requires destination"}
+	sudo=${4:-1}
+	ask=0
+
+	message "$module" "difference between $dotfiles_root/$src and $dest:"
+	echo
+	echo
+	if ! diff -yNs "$dotfiles_root/$src" "$dest"; then
+		ask=1
+	fi
+	echo
+	echo
+
+	if [ "$ask" == 1 ]; then
+		if ! yes_or_no "$module" "do you want to replease $dest?"; then
+			return 1
+		fi
+	fi
+
+	if [ "$sudo" == 1 ]; then
+		sudo cp "$dotfiles_root/$src" "$dest"
+	else
+		cp "$dotfiles_root/$src" "$dest"
+	fi
+}
+
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
 # parameter 1: module name - string
 # parameter 2: file name - string
