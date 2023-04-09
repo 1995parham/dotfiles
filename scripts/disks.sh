@@ -18,12 +18,13 @@ main_pacman() {
 }
 
 main() {
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	copycat "disks" "udev/usb-mount.sh" /usr/local/bin/
 
-	sudo cp "$dotfiles_root/udev/usb-mount.sh" /usr/local/bin/
 	sudo chmod +x /usr/local/bin/usb-mount.sh
-	sudo cp "$dotfiles_root/udev/73-parham-disks.rules" /etc/udev/rules.d
-	sudo cp "$dotfiles_root/udev/usb-mount@.service" /etc/systemd/system/
+
+	copycat "disks" "udev/73-parham-disks.rules" /etc/udev/rules.d
+	copycat "disks" "udev/usb-mount@.service" /etc/systemd/system/
+
 	sudo udevadm control --reload-rules
 	sudo systemctl daemon-reload
 }
