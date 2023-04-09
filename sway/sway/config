@@ -33,7 +33,7 @@ for_window [app_id="__termpad"] floating enable
 bindsym $mod+Shift+Return exec alacritty --class "__termpad"
 
 # sway configuration at you glance to review and findout the key binding
-bindsym $mod+F1 exec foot --app-id="__termpad" "bat" "$HOME/.config/sway/config"
+bindsym $mod+F1 exec alacritty --class "__termpad" --command "bat" "$HOME/.config/sway/config"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -45,7 +45,7 @@ bindsym $mod+d exec --no-startup-id rofi -show
 bindsym $mod+Ctrl+m exec pavucontrol
 
 # mpd client in the moddle of screen
-bindsym $mod+F5 exec foot --app-id="__termpad" 'ncmpcpp'
+bindsym $mod+F5 exec alacritty --class "__termpad" --command 'ncmpcpp'
 
 # dunst notification
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
