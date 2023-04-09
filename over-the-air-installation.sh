@@ -12,7 +12,7 @@ mkdir -p "$HOME/Documents/Git/$USER"
 mkdir -p "$HOME/Documents/Git/others"
 
 echo "clone https://github.com/1995parham/dotfiles"
-cd "$HOME/Documents/Git/$USER" || exit
+cd "$HOME" || exit
 git clone https://github.com/1995parham/dotfiles
 cd dotfiles || exit
 
