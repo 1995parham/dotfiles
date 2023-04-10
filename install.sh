@@ -105,11 +105,6 @@ install-zsh() {
 	fi
 }
 
-# git
-install-git() {
-	configfile "git"
-}
-
 # bin
 install-bin() {
 	dotfile "bin" "bin" false
