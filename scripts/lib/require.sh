@@ -109,8 +109,8 @@ function require_pip() {
 }
 
 function clone() {
-	repo=$1
-	url=$2
+	repo=${1:?"clone requires repository name"}
+	url=${2:?"clone requires repository url"}
 	dir=${3:-$(basename "$repo")}
 
 	if [ ! -d "$dir" ]; then
