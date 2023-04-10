@@ -118,7 +118,7 @@ install-general() {
 }
 
 # calls each module's install function.
-modules=(conf tmux wakatime zsh git vim bin general)
+modules=(conf tmux wakatime zsh vim bin general)
 for module in "${modules[@]}"; do
 	message "$module" "---"
 	echo
