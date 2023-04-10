@@ -39,11 +39,11 @@ windows:
 
   - window_name: raha
     layout: even-vertical
-    start_directory: ~/Documents/Git/parham/parham-alvani/raha
     panes:
       - shell_command:
           - chafa --clear ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg
-      - pane
+        start_directory: ~/Documents/Git/parham/parham-alvani/raha
+      - start_directory: ~/Documents/Git/parham/parham-alvani/dishes
 
   - window_name: manuals
     layout: tiled
