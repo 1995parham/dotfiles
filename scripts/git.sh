@@ -24,6 +24,6 @@ main_apt() {
 	return 0
 }
 
-main() {
-	configfile "git" "" "git"
+main_parham() {
+	configfile "git"
 }
