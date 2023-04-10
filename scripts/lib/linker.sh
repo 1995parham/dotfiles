@@ -6,11 +6,11 @@ yes_to_all=${yes_to_all:-false}
 # copy a file into destination. it only works on files and shows
 # the difference before doing the copy. it useful for setup files in /etc, /usr, etc.
 copycat() {
-	module=$1
-	src=${2:?"copycat requires source"}
-	dest=${3:?"copycat requires destination"}
-	sudo=${4:-1}
-	ask=0
+	local module=${1:?"module name required"}
+	local src=${2:?"copycat requires source"}
+	local dest=${3:?"copycat requires destination"}
+	local sudo=${4:-1}
+	local ask=0
 
 	message "$module" "difference between $dotfiles_root/$src and $dest:"
 	echo
@@ -45,7 +45,7 @@ copycat() {
 # parameter 2: file name - string
 # parameter 3 [default = true]: add dot into the destination file (consider it as hidden)
 dotfile() {
-	local module=$1
+	local module=${1:?"module name required"}
 	local file=${2:-""}
 	local is_hidden=${3:-true}
 
@@ -70,7 +70,7 @@ dotfile() {
 # parameter 2: file name - string - optional
 # parameter 3: directory - string - optional
 configfile() {
-	local module=$1
+	local module=${1:?"module name required"}
 	local src_file=${2:-""}
 	local src_dir=${3:-""}
 
@@ -100,9 +100,9 @@ configfile() {
 # parameter 2: source path - string
 # parameter 3: destination path - string
 linker() {
-	local module=$1
-	local src_path=$2
-	local dst_path=$3
+	local module=${1:?"module name required"}
+	local src_path=${2:?"linker requires src_path"}
+	local dst_path=${3:?"linker requires dst_path"}
 
 	local create_link=true
 
@@ -125,7 +125,7 @@ linker() {
 
 	if $create_link; then
 		ln -s "$src_path" "$dst_path"
-		action "$module" "Symbolic link created successfully from $src_path to $dst_path"
+		action "$module" "symbolic link created successfully from $src_path to $dst_path"
 	fi
 }
 
@@ -136,8 +136,8 @@ linker() {
 # parameter 2: file name - string
 # parameter 3: directory - string - optional
 configrootfile() {
-	local module=$1
-	local src_file=$2
+	local module=${1:?"module name required"}
+	local src_file=${2:?"configrootfile requires src_file"}
 	local src_dir=${3:-""}
 
 	if [ ! -e "$HOME/.config" ]; then
@@ -160,8 +160,8 @@ configrootfile() {
 # parameter 2: file name - string
 # parameter 3: directory - string - optional
 configsystemd() {
-	local module=$1
-	local src_file=$2
+	local module=${1:?"module name required"}
+	local src_file=${2:?"configsystemd requires src_file"}
 	local src_dir=${3:-""}
 
 	if [ ! -e "$HOME/.config/systemd/user" ]; then
