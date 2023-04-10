@@ -13,11 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
 
-	msg 'update /etc/pacman.conf'
-	sudo cp "$dotfiles_root/pacman/pacman.conf" /etc/pacman.conf
-
-	msg 'update /etc/makepkg.conf'
-	sudo cp "$dotfiles_root/pacman/makepkg.conf" /etc/makepkg.conf
+	copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
 }
