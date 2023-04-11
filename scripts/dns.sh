@@ -35,4 +35,13 @@ main_pacman() {
 	if [ "$(curl -s check.shecan.ir)" = '0' ]; then
 		msg "shecan is ready"
 	fi
+
+	if [ -d "/etc/docker" ]; then
+		sudo touch /etc/docker/daemon.json
+		dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+
+		msg 'merge dns configuration for docker with system current configuration'
+		r=$(jq -s '.[0] * (.[1] // {})' "$dotfiles_root/dns/$kind-docker.json" "/etc/docker/daemon.json")
+		echo "$r" | sudo tee "/etc/docker/daemon.json"
+	fi
 }
