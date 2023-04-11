@@ -31,8 +31,10 @@ main_pacman() {
 
 	require_aur hadolint-bin lazydocker-bin
 
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 	sudo mkdir /etc/docker || true
-	copycat "docker" "docker/daemon.json" "/etc/docker/"
+	msg 'merge provided configuration with the one that is available on system'
+	jq -s '.[0] * (.[1] // {})' "$dotfiles_root/docker/daemon.json" "/etc/docker/daemon.json" | sudo tee "/etc/docker/daemon.json"
 
 	msg 'docker service with systemd'
 	sudo systemctl enable --now docker.service
