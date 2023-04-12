@@ -31,11 +31,13 @@ main_pacman() {
 	done
 
 	copycat "dns" "dns/$kind.conf" "/etc/systemd/resolved.conf.d/shecan.conf"
+	sudo systemctl restart systemd-resolved
 
 	if [ "$(curl -s check.shecan.ir)" = '0' ]; then
 		msg "shecan is ready"
 	else
 		msg 'shecan is not working' 'error'
+		return 1
 	fi
 
 	if [ -d "/etc/docker" ]; then
