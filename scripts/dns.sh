@@ -34,6 +34,8 @@ main_pacman() {
 
 	if [ "$(curl -s check.shecan.ir)" = '0' ]; then
 		msg "shecan is ready"
+	else
+		msg 'shecan is not working' 'error'
 	fi
 
 	if [ -d "/etc/docker" ]; then
