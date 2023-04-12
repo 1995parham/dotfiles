@@ -12,7 +12,7 @@ _end() {
 }
 
 main() {
-	trap '_end' INT
+	trap '_end' INT TERM
 	shift
 
 	local old_pid=""
