@@ -54,3 +54,4 @@
 [include]
   path = ~/.config/git/elahe.cfg
   path = ~/.config/git/alias.cfg
+  path = ~/.config/git-private/secret.cfg
