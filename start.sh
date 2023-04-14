@@ -202,18 +202,6 @@ install() {
 		return
 	fi
 
-	if [[ "$(command -v brew)" ]]; then
-		msg "  linux with brew installed, using brew"
-
-		if declare -f main_brew >/dev/null; then
-			if yes_or_no "$script" "do you want to install with brew?"; then
-				# brew installation on linux is optional
-				main_brew
-				return
-			fi
-		fi
-	fi
-
 	if [[ "$(command -v apt)" ]]; then
 		msg " linux with apt installed, using apt"
 
