@@ -21,6 +21,10 @@ main_pacman() {
 	require_pacman btop
 }
 
+main_apt() {
+	require_apt btop
+}
+
 main() {
 	configfile btop
 }
