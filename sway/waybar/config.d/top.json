@@ -92,7 +92,9 @@
     "spacing": 10
   },
   "clock": {
-    "format": "{:%H:%M} "
+    "format": "{:%H:%M %Z} ",
+    "format-alt": "{:%A, %B %d, %Y (%R) %Z}  ",
+    "timezones": ["Asia/Tehran", "US/Eastern", "America/Vancouver"]
   },
   "cpu": {
     "format": "{usage}% {avg_frequency}GHz ",
