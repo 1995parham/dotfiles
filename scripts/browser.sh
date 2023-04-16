@@ -26,6 +26,9 @@ main_pacman() {
 	msg 'set default browser using xdg-settings'
 	bash xdg-settings set default-web-browser firefox.desktop
 
+	copycat "browser" "firefox/autoconfig.js" "/usr/lib/firefox/defaults/pref/autoconfig.js"
+	copycat "browser" "firefox/firefox.cfg" "/usr/lib/firefox/firefox.cfg"
+
 	if yes_or_no 'browser' 'do you want to install vivaldi?'; then
 		require_pacman vivaldi vivaldi-ffmpeg-codecs
 	fi
