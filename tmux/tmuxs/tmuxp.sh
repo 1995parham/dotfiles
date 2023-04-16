@@ -5,7 +5,7 @@ set -e
 layout=$(
 	grep 'session_name:' $(fd .\.yaml "$HOME/.config/tmuxp") | cut -d':' -f3 |
 		fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
-			--preview='cat $(grep -l {} $(fd .\.yaml "$HOME/.config/tmuxp"))'
+			--preview='bat -f $(grep -l {} $(fd .\.yaml "$HOME/.config/tmuxp"))'
 )
 
 if [ -z "$layout" ]; then
