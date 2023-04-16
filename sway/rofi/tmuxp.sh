@@ -1,25 +1,22 @@
 #!/bin/bash
 
-declare -A muxes
+layout_yamls="$(fd .\.yaml "$HOME/.config/tmuxp")"
 
-muxes=(
-	["Learning"]="learning"
-	["Snapp!"]="snapp"
-	["Offerland"]="offerland"
-	["1995parham-me"]="1995parham"
-	["Teaching"]="teaching"
-	["Main"]="main"
-	["Raha"]="raha"
-	["Task"]="task"
-	["AUT-CIC"]="aut"
-)
+if [ $# -gt 0 ]; then
+	# shellcheck disable=2086
+	layout_yaml=$(grep "^session_name: $*\$" $layout_yamls -l)
 
-if [ $# = 1 ]; then
-	coproc alacritty -e tmuxp load "${muxes[$1]}" >/dev/null 2>&1
+	layout_yaml=$(basename "$layout_yaml")
+	layout_name=${layout_yaml%.*}
+
+	coproc alacritty --hold -e tmuxp load "$layout_name" >/dev/null 2>&1
 elif [ $# = 0 ]; then
 	# rofi first calls script without arguments to have the
 	# entries.
-	for mux in "${!muxes[@]}"; do
-		echo "$mux"
+	# shellcheck disable=2086
+	layouts=$(grep 'session_name:' $layout_yamls | cut -d':' -f3)
+	IFS=$'\n'
+	for layout in $layouts; do
+		echo "$layout"
 	done
 fi
