@@ -1,5 +1,5 @@
 ---
-session_name: Sanpp! Dispatching Internal LB
+session_name: Snapp! Dispatching Internal LB
 windows:
   - window_name: ssh
     layout: tiled
