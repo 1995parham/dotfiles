@@ -1,0 +1,13 @@
+---
+session_name: Sanpp! Dispatching NATS Streaming
+windows:
+  - window_name: ssh
+    layout: tiled
+    start_directory: ~/Downloads
+    focus: true
+    options_after:
+      synchronize-panes: on
+    panes:
+      - ssh nats-streaming-01.tool.afra.snapp.infra
+      - ssh nats-streaming-02.tool.afra.snapp.infra
+      - ssh nats-streaming-03.tool.afra.snapp.infra
