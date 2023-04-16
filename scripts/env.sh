@@ -47,7 +47,7 @@ pacman_packages=(
 	lsof
 	vhs
 )
-yay_packages=(jcal actionlint-bin mqttui mprocs cbonsai)
+yay_packages=(jcal actionlint-bin cbonsai)
 
 main_apt() {
 	sudo apt update -yq
