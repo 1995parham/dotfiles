@@ -9,6 +9,7 @@ configuration {
   run-shell-command: "{terminal} -e {cmd}";
   sidebar-mode: true;
   combi-modes: "drun,ssh";
+  parse-known-hosts: false;
   drun {
     fallback-icon: "application-x-addon";
   }
