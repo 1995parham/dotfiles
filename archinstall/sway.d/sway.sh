@@ -10,8 +10,7 @@ export XDG_SESSION_DESKTOP=sway
 export GTK_THEME=Adwaita:dark
 export NVD_BACKEND=direct
 # to enable wayland on firefox
-# after ugprading nvidia-open-dkms firefox has issues with wayland.
-export MOZ_ENABLE_WAYLAND=0
+export MOZ_ENABLE_WAYLAND=1
 
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
