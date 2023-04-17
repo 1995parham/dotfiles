@@ -59,7 +59,9 @@ BTRFS sub-volumes are awesome and you can use the following layout (comming from
 
 Please note that, you need to set the wipe flag of the BTRFS partition to true for sub-volume creation to work.
 
-### Encrypting an entire system
+## Issues
+
+### Encrypting an entire system [Fixed](https://github.com/archlinux/archinstall/issues/1716)
 
 In release _2023.04.01_ disk encryption ([read more](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition)
 leads to invalid boot configuration and you need to mount root
