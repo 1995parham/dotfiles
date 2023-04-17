@@ -12,6 +12,8 @@ usage() {
 }
 
 main_pacman() {
+	require_pacman dnsmasq
+
 	copycat "dns" "dns/dns.conf" "/etc/NetworkManager/conf.d/dns.conf"
 	msg 'NetworkManager will automatically start dnsmasq and add 127.0.0.1 to /etc/resolv.conf'
 	sudo nmcli general reload
