@@ -12,10 +12,9 @@ usage() {
 }
 
 main_pacman() {
-	msg "systemd-resolved will work out of the box with a network manager using /etc/resolv.conf."
-	sudo systemctl enable --now systemd-resolved
-
-	sudo mkdir -p "/etc/systemd/resolved.conf.d/" || true
+	copycat "dns" "dns/dns.conf" "/etc/NetworkManager/conf.d/dns.conf"
+	msg 'NetworkManager will automatically start dnsmasq and add 127.0.0.1 to /etc/resolv.conf'
+	sudo nmcli general reload
 
 	PS3="select shecan installation kind:"
 
@@ -30,8 +29,9 @@ main_pacman() {
 		break
 	done
 
-	copycat "dns" "dns/$kind.conf" "/etc/systemd/resolved.conf.d/shecan.conf"
-	sudo systemctl restart systemd-resolved
+	copycat "dns" "dns/$kind.conf" "/etc/NetworkManager/dnsmasq.d/shecan.conf"
+	dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
+	sudo nmcli general reload
 
 	if [ "$(curl -s check.shecan.ir)" = '0' ]; then
 		msg "shecan is ready"
