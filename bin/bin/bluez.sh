@@ -9,4 +9,8 @@ case "$HOSTNAME" in
 	echo "Redmi Buds 3 Pro:"
 	bluetoothctl info 6C:D3:EE:28:D8:A5
 	;;
+"parham-r528e")
+	echo "CX 7.00BT:"
+	bluetoothctl info 00:1B:66:86:3A:A7
+	;;
 esac
