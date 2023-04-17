@@ -8,8 +8,6 @@
 .bintray.com
 .docker.com
 .docker.io
-.developers.google.com
-.code.google.com
 .firebase.google.com
 .firebaseio.com
 .mbed.com
@@ -26,7 +24,6 @@
 .ytimg.com
 .t.co
 .googleusercontent.com
-.cloud.google.com
 .datastax.com
 .atlassian.com
 .atlassian.net
@@ -43,7 +40,6 @@
 .gns3.com
 .amazonaws.com
 .googlevideo.com
-.googleapis.com
 .gstatic.com
 .ggpht.com
 .mxpnl.com
