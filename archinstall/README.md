@@ -35,7 +35,8 @@ datetimectl set-ntp true
 ```
 
 - Ignite the installation. It first shows the an interactive menu in which you can setup the disk layout, disk
-  encryption, user(s) and hostname.
+  encryption, user(s) and hostname ([read
+  more](https://archinstall.readthedocs.io/installing/guided.html#guided-installation)).
 
 ```bash
 archinstall --config desktop.json # Desktop installation
