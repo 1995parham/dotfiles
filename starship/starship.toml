@@ -1,0 +1,161 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = """
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$python\
+$scala
+$kubernetes
+[  ](bg:#1f1f1f)\
+$username\
+$hostname\
+[ ](bg:#1f1f1f)\
+$directory\
+[ ](bg:#ffae1a)\
+$git_branch\
+$git_status\
+$docker_context
+$character
+"""
+
+right_format = """
+$os
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+style_user = "bg:#1f1f1f fg:#45ff2f bold"
+style_root = "bg:#1f1f1f"
+format = '[$user ]($style)'
+disabled = false
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:#9A348E"
+disabled = true      # Disabled by default
+
+[directory]
+style = "bg:#ffae1a fg:#1f1f1f bold"
+format = "[ $path ]($style)"
+truncation_length = 0
+truncate_to_repo = false
+home_symbol = "~"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[c]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+always_show_remote = false
+format = '[ $symbol $branch](fg:#b299e5)[ (\[ $remote_name/$remote_branch \]) ](fg:#ff7f50)'
+
+[git_status]
+style = ""
+up_to_date = '[✔](fg:#adff2f)'
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ \[ $symbol ($version) \] ]($style)'
+
+[gradle]
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"             # Hour:Minute Format
+style = "bg:#33658A"
+format = '[ ♥ $time ]($style)'
+
+[kubernetes]
+disabled = false
+style = 'fg:#1e90ff'
+format = '[ \[ $symbol$context \] ]($style)'
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](fg:#ffae1a bg:#1f1f1f)[$hostname](fg:#00bfff bg:#1f1f1f bold)'
+disabled = false
+
+[python]
+style = 'fg:#00bfff'
+format = '[ \[ $symbol $version \($virtualenv\) \] ]($style)'
