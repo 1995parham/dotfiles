@@ -25,7 +25,8 @@ $docker_context
 """
 
 right_format = """
-$os
+$time\
+${custom.uname}
 """
 
 # Disable the blank line at the start of the prompt
@@ -101,9 +102,9 @@ format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R"             # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ ♥ $time ]($style)'
+time_format = "%R"
+style = "fg:#7cfc00 bold"
+format = '[ $time ]($style)'
 
 [kubernetes]
 disabled = false
@@ -124,3 +125,10 @@ disabled = false
 [python]
 style = 'fg:#00bfff'
 format = '[ \[ $symbol $version \($virtualenv\) \] ]($style)'
+
+[custom.uname]
+command = 'uname -rs'
+when = true
+style = 'fg:#ff0080'
+symbol = '  '
+description = 'kernel version'
