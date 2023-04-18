@@ -6,18 +6,11 @@ add_newline = true
 
 format = """
 :: $c\
-$elixir\
-$elm\
 $golang\
-$gradle\
-$haskell\
 $java\
-$julia\
 $nodejs\
-$nim\
 $rust\
-$python\
-$scala
+$python
 :: $kubernetes
 ┌ [  ](bg:#1f1f1f)\
 $username\
@@ -76,16 +69,6 @@ symbol = " "
 style = "bg:#06969A"
 format = '[ $symbol $context ]($style) $path'
 
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
 symbol = ""
 always_show_remote = false
@@ -101,22 +84,8 @@ symbol = " "
 style = "bg:#86BBD8"
 format = '[ \[ $symbol ($version) \] ]($style)'
 
-[gradle]
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [java]
 symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
@@ -125,18 +94,8 @@ symbol = ""
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[nim]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
@@ -149,7 +108,13 @@ format = '[ ♥ $time ]($style)'
 [kubernetes]
 disabled = false
 style = 'fg:#1e90ff'
-format = '[ \[ $symbol$context \] ]($style)'
+format = '[ \[ $symbol$user in $namespace \] ]($style)'
+
+[kubernetes.user_aliases]
+"parham.alvani/api-okd4-teh-1-snappcloud-io:6443" = "parham.alvani @ teh-1"
+"parham.alvani/api-okd4-teh-2-snappcloud-io:6443" = "parham.alvani @ teh-2"
+"elahe.dastan/api-okd4-teh-1-snappcloud-io:6443" = "elahe.dastan @ teh-1"
+"elahe.dastan/api-okd4-teh-2-snappcloud-io:6443" = "elahe.dastan @ teh-2"
 
 [hostname]
 ssh_only = false
