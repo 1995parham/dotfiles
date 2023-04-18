@@ -54,10 +54,10 @@ truncate_to_repo = false
 home_symbol = "~"
 
 [directory.substitutions]
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Documents/Git" = " 󰌢 "
+"Downloads" = "  "
+"Music" = "  "
+"Pictures" = "  "
 
 [c]
 symbol = " "
