@@ -18,7 +18,11 @@ path=('/usr/local/bin' $path)
 # set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # see https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="1995parham"
+if [ "$(command -v starship)" ]; then
+  eval "$(starship init zsh)"
+else
+  ZSH_THEME="1995parham"
+fi
 
 # set list of themes to load
 # setting this variable when ZSH_THEME=random
