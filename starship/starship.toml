@@ -78,6 +78,7 @@ format = '[ $symbol $branch](fg:#b299e5)[ (\[ $remote_name/$remote_branch \]) ](
 [git_status]
 style = ""
 up_to_date = '[✔](fg:#adff2f)'
+diverged = '[${ahead_count}A](fg:#adff2f)[${behind_count}B](fg:#ff2fad)'
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
