@@ -41,12 +41,6 @@ style_root = "bg:#1f1f1f"
 format = '[$user ]($style)'
 disabled = false
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
-[os]
-style = "bg:#9A348E"
-disabled = true      # Disabled by default
-
 [directory]
 style = "bg:#ffae1a fg:#1f1f1f bold"
 format = "[ $path ]($style)"
@@ -78,8 +72,10 @@ format = '[ $symbol $branch](fg:#b299e5)[ (\[ $remote_name/$remote_branch \]) ](
 [git_status]
 style = ""
 up_to_date = '[✔](fg:#adff2f)'
-diverged = '[${ahead_count}A](fg:#adff2f)[${behind_count}B](fg:#ff2fad)'
-format = '[$all_status$ahead_behind ]($style)'
+diverged = '[$ahead_count A](fg:#adff2f) [$behind_count B](fg:#ff2fad)'
+ahead = '[${count}A](fg:#adff2f)'
+behind = '[${count}B](fg:#adff2f)'
+format = '[$ahead_behind (\[$all_status\])]($style)'
 
 [golang]
 symbol = " "
