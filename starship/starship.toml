@@ -5,7 +5,7 @@
 add_newline = true
 
 format = """
-$c\
+:: $c\
 $elixir\
 $elm\
 $golang\
@@ -18,8 +18,8 @@ $nim\
 $rust\
 $python\
 $scala
-$kubernetes
-[  ](bg:#1f1f1f)\
+:: $kubernetes
+┌ [  ](bg:#1f1f1f)\
 $username\
 $hostname\
 [ ](bg:#1f1f1f)\
@@ -28,7 +28,7 @@ $directory\
 $git_branch\
 $git_status\
 $docker_context
-$character
+└ $character
 """
 
 right_format = """
