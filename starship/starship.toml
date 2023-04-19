@@ -11,6 +11,7 @@ $java\
 $nodejs\
 $rust\
 $conda\
+$helm\
 $python
 :: $kubernetes
 ┌ [  ](bg:#1f1f1f)\
@@ -54,12 +55,16 @@ home_symbol = "~"
 
 [c]
 symbol = " "
-style = "bg:#86BBD8"
+style = "fd:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[helm]
+style = "fd:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "bg:#06969A"
+style = "fd:#06969A"
 format = '[ $symbol $context ]($style) $path'
 
 [git_branch]
