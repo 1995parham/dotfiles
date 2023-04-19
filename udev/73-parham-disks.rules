@@ -10,3 +10,6 @@ KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="ADATA",  ENV{ID
 # parham-movies (1)
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="WD",  ENV{ID_USB_VENDOR_ID}=="1058", ENV{ID_USB_MODEL_ID}=="10a8", ENV{ID_USB_SERIAL_SHORT}=="57584D3145383357434B3736", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="WD",  ENV{ID_USB_VENDOR_ID}=="1058", ENV{ID_USB_MODEL_ID}=="10a8", ENV{ID_USB_SERIAL_SHORT}=="57584D3145383357434B3736", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
+# parham-movies (2)
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="Transcend",  ENV{ID_USB_VENDOR_ID}=="174c", ENV{ID_USB_MODEL_ID}=="5106", ENV{ID_USB_SERIAL_SHORT}=="WD-WX61AC311137", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="Transcend",  ENV{ID_USB_VENDOR_ID}=="174c", ENV{ID_USB_MODEL_ID}=="5106", ENV{ID_USB_SERIAL_SHORT}=="WD-WX61AC311137", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
