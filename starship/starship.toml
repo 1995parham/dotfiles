@@ -30,11 +30,8 @@ $time\
 ${custom.uname}
 """
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+continuation_prompt = '▶▶ '
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
 [username]
 show_always = true
 style_user = "bg:#1f1f1f fg:#45ff2f bold"
