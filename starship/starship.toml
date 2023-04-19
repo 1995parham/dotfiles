@@ -30,7 +30,7 @@ $time\
 ${custom.uname}
 """
 
-continuation_prompt = '▶▶ '
+continuation_prompt = '[∙](bright-black) '
 
 [username]
 show_always = true
