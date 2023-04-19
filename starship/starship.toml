@@ -22,7 +22,7 @@ $directory\
 $git_branch\
 $git_status\
 $docker_context
-└ $character$jobs
+└ $character$jobs${env_var.http_proxy}
 """
 
 right_format = """
@@ -134,3 +134,8 @@ when = true
 style = 'fg:#ff0080'
 symbol = '  '
 description = 'kernel version'
+
+[env_var.http_proxy]
+variable = "http_proxy"
+format = " 󰞇 "
+disabled = false
