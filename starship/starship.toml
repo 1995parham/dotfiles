@@ -42,7 +42,7 @@ disabled = false
 [directory]
 style = "bg:#ffae1a fg:#1f1f1f bold"
 format = "[ $path ]($style)"
-truncation_length = 0
+truncation_length = 3
 truncate_to_repo = false
 home_symbol = "~"
 
@@ -103,8 +103,7 @@ format = '[ $time ]($style)'
 
 [kubernetes]
 disabled = false
-style = 'fg:#1e90ff'
-format = '[ \[ $symbol$user in $namespace \] ]($style)'
+format = '[ \[ $symbol](fg:#1e90ff)[$user](fg:#ff7f50)[ in ](fg:#ff50d0)[$namespace](#50ff7f)[ \]](fg:#1e90ff)'
 
 [kubernetes.user_aliases]
 "parham.alvani/api-okd4-teh-1-snappcloud-io:6443" = "parham.alvani @ teh-1"
