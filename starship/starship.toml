@@ -10,6 +10,7 @@ $golang\
 $java\
 $nodejs\
 $rust\
+$conda\
 $python
 :: $kubernetes
 ┌ [  ](bg:#1f1f1f)\
@@ -21,7 +22,7 @@ $directory\
 $git_branch\
 $git_status\
 $docker_context
-└ $character
+└ $character$jobs
 """
 
 right_format = """
@@ -122,6 +123,14 @@ disabled = false
 [python]
 style = 'fg:#00bfff'
 format = '[ \[ $symbol $version \($virtualenv\) \] ]($style)'
+
+[conda]
+ignore_base = false
+format = '[$symbol$environment]($style) '
+
+[jobs]
+style = 'fg:#ff3333'
+format = "[$symbol$number ]($style)"
 
 [custom.uname]
 command = 'uname -rs'
