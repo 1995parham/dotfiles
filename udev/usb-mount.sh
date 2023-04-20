@@ -21,6 +21,7 @@ labels=(
 	"parham-secret"
 	"PARHAM-KEYS"
 	"Ventoy"
+	"PARHAM-SHARED"
 	"parham-movies"
 )
 
