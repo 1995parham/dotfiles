@@ -25,6 +25,10 @@ main_pacman() {
 	require_pacman navi
 }
 
+main() {
+	configfile navi
+}
+
 main_parham() {
 	user=1995parham
 	repo=cheats
