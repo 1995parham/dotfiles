@@ -34,7 +34,7 @@ cd dotfiles/archinstall
 datetimectl set-ntp true
 ```
 
-- Ignite the installation. It first shows the an interactive menu in which you can setup the disk layout, disk
+- Ignite the installation. It first shows an interactive menu in which you can set up the disk layout, disk
   encryption, user(s) and hostname ([read
   more](https://archinstall.readthedocs.io/installing/guided.html#guided-installation)).
 
@@ -47,9 +47,9 @@ archinstall --config server.json # Server installation
 
 ### BTRFS Sub-Volumes
 
-BTRFS sub-volumes are awesome and you can use the following layout (comming from Ubuntu):
+BTRFS sub-volumes are awesome, and you can use the following layout (coming from Ubuntu):
 
-| Name        | Mountpoint            |
+| Name        | Mount Point           |
 | ----------- | --------------------- |
 | @           | /                     |
 | @home       | /home                 |
@@ -63,8 +63,8 @@ Please note that, you need to set the wipe flag of the BTRFS partition to true f
 
 ### Encrypting an entire system [Fixed](https://github.com/archlinux/archinstall/issues/1716)
 
-In release _2023.04.01_ disk encryption ([read more](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition)
-leads to invalid boot configuration and you need to mount root
+In release _2023.04.01_ disk encryption ([read more](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition))
+leads to invalid boot configuration, and you need to mount root
 directory manually in `initramfs` e.g.:
 
 ```bash
@@ -74,7 +74,7 @@ mount /dev/mapper/root /mnt
 
 For fixing it you must change the loader configuration in `/boot/loader/entries/` as follows:
 
-- The encrypted disk PARTUUID is correct so you may not changing it or you can replace it
+- The encrypted disk PARTUUID is correct, so you may not change it, or you can replace it
   with your partition UUID (e.g. `lsblk -dno UUID /dev/nvme0n1p2`)
 
 - The root disk PARTUUID is not correct (this is the actual problem) and you need to replace
