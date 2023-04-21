@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman qemu libvirt dnsmasq bridge-utils virt-manager vagrant
+	require_pacman qemu libvirt dnsmasq bridge-utils virt-manager vagrant edk2-ovmf
 	# require_pacman ebtables
 
 	msg "user access for kvm and libvirt"
