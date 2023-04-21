@@ -153,11 +153,11 @@ _navi_widget() {
    local replacement="$last_command"
 
    if [ -z "$last_command" ]; then
-      replacement="$(_navi_call)"
+      replacement="$(_navi_call --print)"
    elif [ "$LASTWIDGET" = "_navi_widget" ] && [ "$input" = "$previous_output" ]; then
-      replacement="$(_navi_call --query "$last_command")"
+      replacement="$(_navi_call --print --query "$last_command")"
    else
-      replacement="$(_navi_call --best-match --query "$last_command")"
+      replacement="$(_navi_call --print --best-match --query "$last_command")"
    fi
 
    if [ -n "$replacement" ]; then
