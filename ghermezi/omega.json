@@ -6,23 +6,45 @@
     "matchProfileName": "ghermezi",
     "name": "__ruleListOf_auto-ghermezi",
     "profileType": "RuleListProfile",
-    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains"
+    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains",
   },
   "+auto-ghermezi": {
     "color": "#ffaa88",
     "defaultProfileName": "__ruleListOf_auto-ghermezi",
     "name": "auto-ghermezi",
     "profileType": "SwitchProfile",
-    "rules": []
+    "rules": [
+      {
+        "condition": {
+          "conditionType": "HostWildcardCondition",
+          "pattern": ".docker.com"
+        },
+        "profileName": "direct"
+      }
+    ],
+    "revision": "187902301ca"
   },
   "+ghermezi": {
     "bypassList": [
-      { "conditionType": "BypassCondition", "pattern": "127.0.0.1" },
-      { "conditionType": "BypassCondition", "pattern": "::1" },
-      { "conditionType": "BypassCondition", "pattern": "localhost" }
+      {
+        "conditionType": "BypassCondition",
+        "pattern": "127.0.0.1"
+      },
+      {
+        "conditionType": "BypassCondition",
+        "pattern": "::1"
+      },
+      {
+        "conditionType": "BypassCondition",
+        "pattern": "localhost"
+      }
     ],
     "color": "#ffaa88",
-    "fallbackProxy": { "host": "127.0.0.1", "port": 1086, "scheme": "socks5" },
+    "fallbackProxy": {
+      "host": "127.0.0.1",
+      "port": 1086,
+      "scheme": "socks5"
+    },
     "name": "ghermezi",
     "profileType": "FixedProfile"
   },
@@ -37,5 +59,23 @@
   "-showExternalProfile": true,
   "-showInspectMenu": true,
   "-startupProfileName": "",
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "+shecan-ghermezi": {
+    "profileType": "SwitchProfile",
+    "name": "shecan-ghermezi",
+    "defaultProfileName": "__ruleListOf_shecan-ghermezi",
+    "rules": [],
+    "color": "#99dd99",
+    "revision": "187a8613920"
+  },
+  "+__ruleListOf_shecan-ghermezi": {
+    "name": "__ruleListOf_shecan-ghermezi",
+    "defaultProfileName": "direct",
+    "profileType": "RuleListProfile",
+    "color": "#99dd99",
+    "format": "Switchy",
+    "matchProfileName": "ghermezi",
+    "revision": "187a8616a5c",
+    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/shecan"
+  }
 }
