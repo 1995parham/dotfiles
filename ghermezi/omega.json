@@ -6,23 +6,14 @@
     "matchProfileName": "ghermezi",
     "name": "__ruleListOf_auto-ghermezi",
     "profileType": "RuleListProfile",
-    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains",
+    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains"
   },
   "+auto-ghermezi": {
     "color": "#ffaa88",
     "defaultProfileName": "__ruleListOf_auto-ghermezi",
     "name": "auto-ghermezi",
     "profileType": "SwitchProfile",
-    "rules": [
-      {
-        "condition": {
-          "conditionType": "HostWildcardCondition",
-          "pattern": ".docker.com"
-        },
-        "profileName": "direct"
-      }
-    ],
-    "revision": "187902301ca"
+    "rules": []
   },
   "+ghermezi": {
     "bypassList": [
