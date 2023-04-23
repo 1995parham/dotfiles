@@ -51,6 +51,10 @@
 [diff "exif"]
 	textconv = exiftool
 
+[diff "sqlite3"]
+    binary = true
+    textconv = "echo .dump | sqlite3"
+
 [include]
   path = ~/.config/git/elahe.cfg
   path = ~/.config/git/alias.cfg
