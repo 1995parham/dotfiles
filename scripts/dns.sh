@@ -31,7 +31,11 @@ main_pacman() {
 		break
 	done
 
-	copycat "dns" "dns/$kind.conf" "/etc/NetworkManager/dnsmasq.d/shecan.conf"
+	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	mapfile -t domains <<<"$(cat "$dotfiles_root/dns/domains-$kind")"
+	domains_dnsmasq="$(printf '/%s' "${domains[@]}")"
+	echo -e "server=$domains_dnsmasq/178.22.122.101\nserver=$domains_dnsmasq/185.51.200.1" | sudo tee /etc/NetworkManager/dnsmasq.d/shecan.conf
+
 	dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
 	sudo nmcli general reload
 
