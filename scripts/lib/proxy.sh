@@ -11,7 +11,7 @@ proxy_start() {
 	fi
 
 	echo
-	curl --max-time 10 ifconfig.io/country_code || return 1
+	curl --max-time 10 ipconfig.io/country || return 1
 
 	export ftp_proxy="http://127.0.0.1:1080"
 	export http_proxy="http://127.0.0.1:1080"
@@ -19,7 +19,7 @@ proxy_start() {
 	alias sudo='sudo -E'
 
 	echo
-	curl --max-time 10 ifconfig.io/country_code || proxy_stop
+	curl --max-time 10 ipconfig.io/country || proxy_stop
 	echo
 }
 
