@@ -40,7 +40,9 @@ main_apt() {
 main_pacman() {
 	require_pacman ripgrep aspell aspell-en fd
 
-	PS3="select emacs installation kind:"
+	installed=$(pacman -Qqs "emacs" || echo "there is no installed emacs")
+
+	PS3="select emacs installation kind ($installed):"
 
 	kinds=(
 		"emacs-nativecomp: The extensible, customizable, self-documenting real-time display editor with native compilation enabled"
