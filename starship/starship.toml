@@ -80,6 +80,10 @@ ahead = '[${count}A](fg:#adff2f)'
 behind = '[${count}B](fg:#adff2f)'
 format = '[$ahead_behind (\[$all_status\])]($style)'
 
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
 [golang]
 symbol = " "
 style = "fg:#86BBD8"
