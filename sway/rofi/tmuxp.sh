@@ -1,6 +1,6 @@
 #!/bin/bash
 
-layout_yamls="$(fd .\.yaml "$HOME/.config/tmuxp")"
+layout_yamls="$(fd .\.yaml "$HOME/.config/tmuxp" | sort -r)"
 
 if [ $# -gt 0 ]; then
 	# shellcheck disable=2086
