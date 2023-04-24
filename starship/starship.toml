@@ -22,6 +22,7 @@ $directory\
 [ ](bg:#ffae1a)\
 $git_branch\
 $git_status\
+$git_state\
 $docker_context
 └ $character$jobs${env_var.http_proxy}
 """
