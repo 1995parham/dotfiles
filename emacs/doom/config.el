@@ -126,11 +126,11 @@
   (setq org-todo-keywords
         '(
           ;; Tasks
-          (sequence "TODO(t)" "PROG(p)" "DONE(d)")
+          (sequence "TODO(t)" "IN-PROGRESS(i)" "UNDER-REVIEW(r)" "BLOCKED(b)" "|" "DONE(d)")
           ;; Books
-          (sequence "TOREAD(t)" "READ(d)")
+          (sequence "TOREAD(t)" "|" "READ(d)")
           ;; Goals
-          (sequence "GOAL(t)" "ACCOMPL(d)")
+          (sequence "GOAL(t)" "|" "ACCOMPL(d)")
           (type "BOOK" "PROJ")
           ))
   (setq org-agenda-start-day ".")
