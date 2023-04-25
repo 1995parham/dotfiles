@@ -133,6 +133,14 @@
           (sequence "GOAL(t)" "|" "ACCOMPL(d)")
           (type "BOOK" "PROJ")
           ))
+  (setq org-todo-keyword-faces
+    '(
+      ("TODO" . (:foreground "orange"))
+      ("IN-PROGRESS" . (:foreground "yellow"))
+      ("UNDER-REVIEW" . (:foreground "cyan"))
+      ("BLOCKED" . (:foreground "red"))
+      )
+    )
   (setq org-agenda-start-day ".")
   (setq org-agenda-span 'week)
   (setq org-agenda-todo-ignore-scheduled 'future)
