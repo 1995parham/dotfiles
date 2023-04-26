@@ -2,7 +2,7 @@
 # https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/
 
 proxy_start() {
-	if ! ss -tunl | grep :1080; then
+	if ! ss -tunl | grep :1080 &>/dev/null; then
 		return 0
 	fi
 
