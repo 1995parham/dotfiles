@@ -4,9 +4,18 @@
     "defaultProfileName": "direct",
     "format": "Switchy",
     "matchProfileName": "ghermezi",
-    "name": "__ruleListOf_auto-ghermezi",
+    "name": "RuleListProfile",
     "profileType": "RuleListProfile",
     "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains"
+  },
+  "+__ruleListOf_shecan-ghermezi": {
+    "name": "__ruleListOf_shecan-ghermezi",
+    "defaultProfileName": "direct",
+    "profileType": "RuleListProfile",
+    "color": "#99dd99",
+    "format": "Switchy",
+    "matchProfileName": "ghermezi",
+    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/shecan"
   },
   "+auto-ghermezi": {
     "color": "#ffaa88",
@@ -39,6 +48,13 @@
     "name": "ghermezi",
     "profileType": "FixedProfile"
   },
+  "+shecan-ghermezi": {
+    "profileType": "SwitchProfile",
+    "name": "shecan-ghermezi",
+    "defaultProfileName": "__ruleListOf_shecan-ghermezi",
+    "rules": [],
+    "color": "#ffee99"
+  },
   "-addConditionsToBottom": false,
   "-confirmDeletion": true,
   "-downloadInterval": 1440,
@@ -50,23 +66,5 @@
   "-showExternalProfile": true,
   "-showInspectMenu": true,
   "-startupProfileName": "",
-  "schemaVersion": 2,
-  "+shecan-ghermezi": {
-    "profileType": "SwitchProfile",
-    "name": "shecan-ghermezi",
-    "defaultProfileName": "__ruleListOf_shecan-ghermezi",
-    "rules": [],
-    "color": "#99dd99",
-    "revision": "187a8613920"
-  },
-  "+__ruleListOf_shecan-ghermezi": {
-    "name": "__ruleListOf_shecan-ghermezi",
-    "defaultProfileName": "direct",
-    "profileType": "RuleListProfile",
-    "color": "#99dd99",
-    "format": "Switchy",
-    "matchProfileName": "ghermezi",
-    "revision": "187a8616a5c",
-    "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/shecan"
-  }
+  "schemaVersion": 2
 }
