@@ -120,6 +120,7 @@ format = '[ \[ $symbol](fg:#1e90ff)[$user](fg:#ff7f50)[ in ](fg:#ff50d0)[$namesp
 "parham.alvani/api-okd4-teh-2-snappcloud-io:6443" = "parham.alvani @ teh-2"
 "elahe.dastan/api-okd4-teh-1-snappcloud-io:6443" = "elahe.dastan @ teh-1"
 "elahe.dastan/api-okd4-teh-2-snappcloud-io:6443" = "elahe.dastan @ teh-2"
+"parham.alvani/api-okd-eu-central-1-cloud-baly-app:6443" = "parham.alvani @ baly"
 
 [hostname]
 ssh_only = false
