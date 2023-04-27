@@ -45,6 +45,8 @@ main_pacman() {
 	echo -e "server=$domains_dnsmasq/${primary_shecan_dns[$kind]}\nserver=$domains_dnsmasq/${secondary_shecan_dns[$kind]}" |
 		sudo tee /etc/NetworkManager/dnsmasq.d/shecan.conf
 
+	copycat "dns" dns/1995parham.conf /etc/NetworkManager/dnsmasq.d/1995parham.conf
+
 	dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
 	sudo nmcli general reload
 
