@@ -34,6 +34,8 @@ public() {
 		return
 	fi
 
+	mkdir "$HOME/.ssh" || true
+
 	# print the source of information in comment format
 	echo | tee -a "$HOME/.ssh/authorized_keys"
 	echo "# $url" | tee -a "$HOME/.ssh/authorized_keys"
