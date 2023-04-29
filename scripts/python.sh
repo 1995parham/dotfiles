@@ -58,7 +58,7 @@ main() {
 	msg 'a modern python package and dependency manager supporting the latest pep standards'
 	configfile pdm "" python
 
-	if yes_or_no "docker" "do you want to use v2ray as a docker proxy?"; then
+	if yes_or_no "python" "do you want to use v2ray as a python-pip proxy?"; then
 		msg 'python pypi start dropping iran traffic, so we need to use a proxy'
 		configfile pip "" python
 	fi
