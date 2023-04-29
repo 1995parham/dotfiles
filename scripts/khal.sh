@@ -21,11 +21,5 @@ main() {
 }
 
 main_parham() {
-	if [ ! -d "$HOME/Documents/Git/parham/parham-alvani/" ]; then
-		mkdir -p "$HOME/Documents/Git/parham/parham-alvani/"
-	fi
-
-	cd "$HOME/Documents/Git/parham/parham-alvani/" || return
-	clone parham-alvani/calendar git@github.com:
-	cd - &>/dev/null || return
+	clone git@github.com:parham-alvani/calendar "$HOME/Documents/Git/parham/parham-alvani/"
 }
