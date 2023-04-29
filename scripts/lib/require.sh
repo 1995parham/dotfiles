@@ -104,7 +104,7 @@ function require_go() {
 function require_pip() {
 	for pkg in "$@"; do
 		action "require" " python $pkg"
-		python -mpip install --user --pre -U "$pkg" 2>/dev/null
+		pipx install "$pkg" 2>/dev/null
 	done
 }
 
