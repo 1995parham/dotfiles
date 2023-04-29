@@ -4,7 +4,7 @@
     "defaultProfileName": "direct",
     "format": "Switchy",
     "matchProfileName": "ghermezi",
-    "name": "RuleListProfile",
+    "name": "__ruleListOf_auto-ghermezi",
     "profileType": "RuleListProfile",
     "sourceUrl": "https://raw.githubusercontent.com/1995parham/dotfiles/main/ghermezi/domains"
   },
