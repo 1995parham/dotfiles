@@ -121,7 +121,7 @@ function clone() {
 	repo_name=${repo_name:1}
 
 	if [ "$dir" = "" ]; then
-		dir="$(repo_name "$repo_name")"
+		dir="$(basename "$repo_name")"
 	fi
 
 	if [ ! -d "$path/$dir" ]; then
