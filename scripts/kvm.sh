@@ -38,7 +38,5 @@ main() {
 main_parham() {
 	msg "vagrant is awesome for preconfigured vm"
 
-	cd "$HOME/kvm" || return
-	clone 1995parham-me/kvm git@github.com: seed
-	cd - || return
+	clone git@github.com:1995parham-me/kvm "$HOME/kvm" seed
 }
