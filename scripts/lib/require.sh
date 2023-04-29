@@ -111,7 +111,7 @@ function require_pip() {
 function clone() {
 	repo=${1:?"clone requires repository"}
 	path=${2:-"."}
-	dir=${3:-$(basename "$repo")}
+	dir=${3:-""}
 
 	if [ ! -d "$path" ]; then
 		mkdir -p "$path"
@@ -119,6 +119,10 @@ function clone() {
 
 	repo_name="$(rg -o '\w([:/]\w+[^?]+)' -r '$1' <<<"$repo")"
 	repo_name=${repo_name:1}
+
+	if [ "$dir" = "" ]; then
+		dir="$(repo_name "$repo_name")"
+	fi
 
 	if [ ! -d "$path/$dir" ]; then
 		if git clone "$repo" "$path/$dir" &>/dev/null; then

@@ -17,8 +17,6 @@ main_pacman() {
 }
 
 main() {
-	mkdir -p "$HOME/Documents/Git/parham/aur"
-
 	pkgs=(
 		"natscli"
 		"natscli-bin"
@@ -37,11 +35,6 @@ main() {
 	)
 
 	for pkg in "${pkgs[@]}"; do
-		if [ ! -d "$HOME/Documents/Git/parham/aur/$pkg" ]; then
-			msg "clone $pkg from aur"
-			git clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur/$pkg"
-		else
-			msg "$pkg is already exists"
-		fi
+		clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur"
 	done
 }
