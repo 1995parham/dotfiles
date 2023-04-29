@@ -103,13 +103,9 @@ main() {
 main_parham() {
 	msg "hello parham, clone your private repositories"
 
-	if [ ! -d "$HOME/org" ]; then
-		git clone git@github.com:parham-alvani/notes "$HOME/org"
-	fi
+	clone git@github.com:parham-alvani/notes "$HOME" "org"
 
-	if [ ! -d "$HOME/tasks" ]; then
-		git clone git@github.com:parham-alvani/tasks "$HOME/tasks"
-	fi
+	clone git@github.com:parham-alvani/tasks "$HOME" "tasks"
 
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
 	(mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" || true) && cp "$dotfiles_root/emacs/sessions/main" "$HOME/.config/emacs/.local/etc/workspaces/"
