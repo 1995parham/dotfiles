@@ -24,13 +24,7 @@ main() {
 main_parham() {
 	msg "hello parham, clone your accounting private repository"
 
-	if [ ! -d "$HOME/Documents/Git/parham/parham-alvani" ]; then
-		mkdir "$HOME/Documents/Git/parham/parham-alvani"
-	fi
-
-	cd "$HOME/Documents/Git/parham/parham-alvani" || return
-	clone parham-alvani/ledger git@github.com:
-	cd - || return
+	clone git@github.com:parham-alvani/ledger "$HOME/Documents/Git/parham/parham-alvani"
 
 	cd "$HOME/Documents/Git/parham/parham-alvani/ledger" || return
 	linker "hledger" "$(pwd)/2023.journal" "$HOME/.hledger.journal"
