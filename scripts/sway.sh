@@ -95,11 +95,5 @@ main_pacman() {
 main_parham() {
 	msg 'the wallpapers that we love'
 
-	if [ ! -d "$HOME/Pictures/" ]; then
-		mkdir -p "$HOME/Pictures/"
-	fi
-
-	cd "$HOME/Pictures" || return
-
-	clone parham-alvani/wallpapers https://github.com/ "GoSiMac"
+	clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "GoSiMac"
 }
