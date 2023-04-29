@@ -25,13 +25,7 @@ main() {
 main_parham() {
 	msg "hello parham, clone your bookmarks private repository"
 
-	if [ ! -d "$HOME/Documents/Git/parham/parham-alvani" ]; then
-		mkdir "$HOME/Documents/Git/parham/parham-alvani"
-	fi
-
-	cd "$HOME/Documents/Git/parham/parham-alvani" || return
-	clone parham-alvani/tabs git@github.com:
-	cd - || return
+	clone git@github.com:parham-alvani/tabs "$HOME/Documents/Git/parham/parham-alvani"
 
 	cd "$HOME/Documents/Git/parham/parham-alvani/tabs" || return
 	mkdir -p "$HOME/.local/share/buku" && linker "buku" "$(pwd)/bookmarks.db" "$_/bookmarks.db"
