@@ -13,7 +13,7 @@
 # Font configuration (changes require restart)
 font:
   # Point size
-  size: 7.0
+  size: 8.0
   normal:
     family: JetBrainsMono Nerd Font Mono
     style: ExtraLight
