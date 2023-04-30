@@ -126,9 +126,9 @@ function clone() {
 
 	if [ ! -d "$path/$dir" ]; then
 		if git clone "$repo" "$path/$dir" &>/dev/null; then
-			action git "$repo ${F_GREEN}󰄲${F_RESET}"
+			action git "$repo_name ${F_GREEN}󰄲${F_RESET}"
 		else
-			action git "$repo ${F_RED}󱋭${F_RESET}"
+			action git "$repo_name ${F_RED}󱋭${F_RESET}"
 		fi
 	else
 		cd "$path/$dir" || return
