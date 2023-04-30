@@ -28,7 +28,7 @@ copycat() {
 	echo
 
 	if [ "$ask" == 1 ]; then
-		if ! yes_or_no "$module" "do you want to replease $dest?"; then
+		if ! yes_or_no "$module" "do you want to replace $dest?"; then
 			return 1
 		fi
 	fi
