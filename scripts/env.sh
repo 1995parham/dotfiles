@@ -22,7 +22,7 @@ brew_packages=(coreutils k6 inetutils inxi fontconfig wget tmuxp dua-cli git bas
 apt_packages=(bmon atop)
 pacman_packages=(
 	perl-image-exiftool
-	rg
+	ripgrep
 	mtr
 	git-delta
 	fd ripgrep
