@@ -15,7 +15,7 @@ main_pacman() {
 }
 
 main() {
-	if ! grep -q "source /usr/share/nvm/init-nvm.sh"; then
-		echo 'source /usr/share/nvm/init-nvm.sh' >>~/.zshrc
+	if ! grep -q "source /usr/share/nvm/init-nvm.sh" "$HOME/.zshrc"; then
+		echo 'source /usr/share/nvm/init-nvm.sh' >>"$HOME/.zshrc"
 	fi
 }
