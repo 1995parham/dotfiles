@@ -25,6 +25,8 @@ windows:
     layout: tiled
     panes:
       - start_directory: ~/tasks
+        shell_command:
+          - emacs -nw --funcall org-agenda-list
       - start_directory: ~/.local/share/dijo
       - start_directory: ~/org
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
