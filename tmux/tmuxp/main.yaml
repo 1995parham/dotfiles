@@ -27,7 +27,7 @@ windows:
       - start_directory: ~/tasks
         shell_command:
           - git pull origin main
-          - emacs -nw --funcall org-agenda-list
+          - emacs -nw --funcall (org-agenda nil "n")
       - start_directory: ~/.local/share/dijo
       - start_directory: ~/org
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
