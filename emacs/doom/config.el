@@ -4,8 +4,8 @@
 ;; sync' after modifying this file!
 
 (setq-default
- tab-width 4
- )
+  tab-width 4
+  )
 
 (map! :map evil-window-map
       "SPC"        #'rotate-layout
@@ -84,10 +84,6 @@
 ;; they are implemented.
 ;;
 
-;; Setup go development environment
-(setenv "GOPATH" (expand-file-name "~/Documents/Go"))
-(add-to-list 'exec-path (concat (file-name-as-directory (getenv "GOPATH")) "bin") t)
-
 ;; Use pdf-tools to open PDF files
 ;;(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
 ;;      TeX-source-correlate-start-server t)
@@ -103,98 +99,89 @@
 
 ;; Better planing for future with org-mode
 (after! org
-  (setq org-agenda-format-date 'org-agenda-format-date-persian)
-  (setq org-cycle-emulate-tab 'never)
+        (setq org-agenda-format-date 'org-agenda-format-date-persian)
+        (setq org-cycle-emulate-tab 'never)
 
-  (pushnew! org-link-abbrev-alist
-            '("archwiki"      . "https://wiki.archlinux.org/title/%s"))
+        (pushnew! org-link-abbrev-alist
+                  '("archwiki"      . "https://wiki.archlinux.org/title/%s"))
 
-  (defun org-agenda-format-date-persian (date)
-    "format a date string for display in the daily/weekly agenda, or timeline.
-        this function makes sure that dates are aligned for easy reading."
-    (require 'cal-iso)
-    (let* ((dayname (calendar-day-name date 1 nil))
-           (day (cadr date))
-           (persian-date (substring (calendar-persian-date-string date) 0 -6))
-           (month (car date))
-           (monthname (calendar-month-name month 1))
-           (year (nth 2 date)))
-      (format " %-2s. %s %2d %2d, %s"
-              dayname monthname day year persian-date)
-      )
-    )
-  (setq org-todo-keywords
-        '(
-          ;; Tasks
-          (sequence "TODO(t)" "IN-PROGRESS(i)" "UNDER-REVIEW(r)" "BLOCKED(b)" "|" "DONE(d)")
-          ;; Books
-          (sequence "TOREAD(t)" "|" "READ(d)")
-          ;; Goals
-          (sequence "GOAL(t)" "|" "ACCOMPL(d)")
-          (type "BOOK" "PROJ")
-          ))
-  (setq org-todo-keyword-faces
-    '(
-      ("TODO" . (:foreground "orange"))
-      ("IN-PROGRESS" . (:foreground "yellow"))
-      ("UNDER-REVIEW" . (:foreground "cyan"))
-      ("BLOCKED" . (:foreground "red"))
-      )
-    )
-  (setq org-agenda-start-day ".")
-  (setq org-agenda-span 'week)
-  (setq org-agenda-todo-ignore-scheduled 'future)
-  (setq org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
-  (setq org-agenda-block-separator nil)
-  ;; Personal agenda views
-  (setq org-agenda-custom-commands
-        '(
-          ("n" "Life of Pi"
-           ((agenda "" (
-                        (org-agenda-span 'day)
-                        (org-agenda-overriding-header "Calendar")
-                        (org-agenda-prefix-format "   %i %?-2 t%s %?-12c:  %b")
-                        (org-agenda-skip-scheduled-if-done nil)
-                        (org-agenda-time-leading-zero nil)
-                        (org-agenda-timegrid-use-ampm nil)
-                        (org-agenda-skip-timestamp-if-done t)
-                        (org-agenda-skip-deadline-if-done t)
-                        (org-agenda-start-day "+0d")
-                        (org-agenda-span 2)
-                        (org-agenda-repeating-timestamp-show-all nil)
-                        (org-agenda-remove-tags t)
-                        (org-agenda-todo-keyword-format "")
-                        (org-agenda-time)
-                        (org-agenda-current-time-string "ᐊ┈┈┈┈┈┈┈ Now")
-                        )
-                    )
-            (todo "TODO" (
-                          (org-agenda-overriding-header "\nTo Do")
-                          (org-agenda-todo-keyword-format "")
-                          (org-agenda-prefix-format " %i %-12:c %b ")
-                          )
-                  )
-            (todo "GOAL" (
-                          (org-agenda-overriding-header "\nGoals")
-                          (org-agenda-todo-keyword-format "")
-                          (org-agenda-prefix-format " %i %-12:c %b ")
-                          )
-                  )
-            (todo "BOOK" (
-                          (org-agenda-overriding-header "\nBooks")
-                          (org-agenda-todo-keyword-format "")
-                          (org-agenda-entry-types '(:scheduled))
-                          )
-                  )
+        (defun org-agenda-format-date-persian (date)
+          "format a date string for display in the daily/weekly agenda, or timeline.
+          this function makes sure that dates are aligned for easy reading."
+          (require 'cal-iso)
+          (let* ((dayname (calendar-day-name date 1 nil))
+                 (day (cadr date))
+                 (persian-date (substring (calendar-persian-date-string date) 0 -6))
+                 (month (car date))
+                 (monthname (calendar-month-name month 1))
+                 (year (nth 2 date)))
+            (format " %-2s. %s %2d %2d, %s"
+                    dayname monthname day year persian-date)
             )
-           () )
-          ("b" "Books" ((todo "BOOK")) nil)
           )
+        (setq org-todo-keywords
+              '(
+                ;; Tasks
+                (sequence "TODO(t)" "IN-PROGRESS(i)" "UNDER-REVIEW(r)" "BLOCKED(b)" "|" "DONE(d)")
+                ;; Books
+                (sequence "TOREAD(t)" "|" "READ(d)")
+                ;; Goals
+                (sequence "GOAL(t)" "|" "ACCOMPL(d)")
+                (type "BOOK" "PROJ")
+                )
+              )
+        (setq org-todo-keyword-faces
+              '(
+                ("TODO" . (:foreground "orange"))
+                ("IN-PROGRESS" . (:foreground "yellow"))
+                ("UNDER-REVIEW" . (:foreground "cyan"))
+                ("BLOCKED" . (:foreground "red"))
+                )
+              )
+        (setq org-agenda-start-day ".")
+        (setq org-agenda-span 'week)
+        (setq org-agenda-todo-ignore-scheduled 'future)
+        (setq org-agenda-skip-deadline-prewarning-if-scheduled 'pre-scheduled)
+        (setq org-agenda-block-separator nil)
+        ;; Personal agenda views
+        (setq org-agenda-custom-commands
+              '(
+                ("n" "Life of Pi"
+                 ((agenda "" (
+                              (org-agenda-span 'day)
+                              (org-agenda-overriding-header "⚡ Calendar")
+                              (org-agenda-prefix-format "   %i %?-2t %s %-60(concat \" [ \" (org-get-category) \"\/\" (org-format-outline-path (org-get-outline-path)) \" ] \")")
+                              (org-agenda-skip-scheduled-if-done nil)
+                              (org-agenda-time-leading-zero nil)
+                              (org-agenda-timegrid-use-ampm nil)
+                              (org-agenda-skip-timestamp-if-done t)
+                              (org-agenda-skip-deadline-if-done t)
+                              (org-agenda-start-day "+0d")
+                              (org-agenda-span 2)
+                              (org-agenda-repeating-timestamp-show-all nil)
+                              (org-agenda-remove-tags t)
+                              )
+                          )
+                  (todo "TODO" (
+                                (org-agenda-overriding-header "\nTo Do")
+                                (org-agenda-prefix-format " %i %-12:c %b ")
+                                )
+                        )
+                  (todo "GOAL" (
+                                (org-agenda-overriding-header "\nGoals")
+                                (org-agenda-todo-keyword-format "")
+                                (org-agenda-prefix-format " %i %-12:c %b ")
+                                )
+                        )
+                  )
+                 () )
+                ("b" "Books" ((todo "BOOK")) nil)
+                )
+              )
         )
-  )
 
 (add-hook! 'after-setting-font-hook :append
-  (set-fontset-font t 'arabic (font-spec :family "Vazirmatn")))
+           (set-fontset-font t 'arabic (font-spec :family "Vazirmatn")))
 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
