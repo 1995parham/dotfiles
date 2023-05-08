@@ -138,6 +138,17 @@
                 ("BLOCKED" . (:foreground "red"))
                 )
               )
+        (setq org-agenda-category-icon-alist
+          '(
+            ("secret" "~/.config/doom/icons/computer.svg" nil nil :ascent center :mask heuristic)
+            ("snapp" "~/.config/doom/icons/computer.svg" nil nil :ascent center :mask heuristic)
+            ("offerland" "~/.config/doom/icons/computer.svg" nil nil :ascent center :mask heuristic)
+            ("book" "~/.config/doom/icons/book.svg" nil nil :ascent center :mask heuristic)
+            ("raha" "~/.config/doom/icons/heart.svg" nil nil :ascent center :mask heuristic)
+            ("teaching" "~/.config/doom/icons/school.svg" nil nil :ascent center :mask heuristic)
+            ("task" "~/.config/doom/icons/task.svg" nil nil :ascent center :mask heuristic)
+            )
+          )
         (setq org-agenda-start-day ".")
         (setq org-agenda-span 'week)
         (setq org-agenda-todo-ignore-scheduled 'future)
@@ -162,15 +173,24 @@
                               (org-agenda-remove-tags t)
                               )
                           )
-                  (todo "TODO" (
-                                (org-agenda-overriding-header "\nTo Do")
-                                (org-agenda-prefix-format " %i %-12:c %b ")
-                                )
+                  (todo "IN-PROGRESS" (
+                                       (org-agenda-overriding-header "\nIn Progress ⚙️")
+                                       (org-agenda-prefix-format "   %i %-60(concat \" [ \" (org-get-category) \"\/\" (org-format-outline-path (org-get-outline-path)) \" ] \")")
+                                       )
                         )
-                  (todo "GOAL" (
-                                (org-agenda-overriding-header "\nGoals")
-                                (org-agenda-todo-keyword-format "")
-                                (org-agenda-prefix-format " %i %-12:c %b ")
+                  (todo "BLOCKED" (
+                                   (org-agenda-overriding-header "\nBlocked 🚧")
+                                   (org-agenda-prefix-format "   %i %-60(concat \" [ \" (org-get-category) \"\/\" (org-format-outline-path (org-get-outline-path)) \" ] \")")
+                                   )
+                        )
+                  (todo "UNDER-REVIEW" (
+                                        (org-agenda-overriding-header "\nUnder Review 📝")
+                                        (org-agenda-prefix-format "   %i %-60(concat \" [ \" (org-get-category) \"\/\" (org-format-outline-path (org-get-outline-path)) \" ] \")")
+                                        )
+                        )
+                  (todo "TODO" (
+                                (org-agenda-overriding-header "\nTo Do 📦")
+                                (org-agenda-prefix-format "   %i %-60(concat \" [ \" (org-get-category) \"\/\" (org-format-outline-path (org-get-outline-path)) \" ] \")")
                                 )
                         )
                   )
