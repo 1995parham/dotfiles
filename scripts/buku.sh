@@ -12,7 +12,7 @@ usage() {
 	'
 }
 
-export dependencies=('python')
+export dependencies=('python' 'rust')
 
 main_pacman() {
 	return 0
@@ -20,6 +20,7 @@ main_pacman() {
 
 main() {
 	require_pip buku
+	require_aur bukubrow
 }
 
 main_parham() {

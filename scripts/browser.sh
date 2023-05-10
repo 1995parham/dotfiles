@@ -21,7 +21,13 @@ main_brew() {
 main_pacman() {
 	require_pacman firefox w3m firefox-developer-edition
 
-	gopass-jsonapi configure --browser firefox
+	if [[ "$(command -v gopass-jsonapi)" ]]; then
+		gopass-jsonapi configure --browser firefox
+	fi
+
+	if [[ "$(command -v bukubrow)" ]]; then
+		bukubrow --install-firefox
+	fi
 
 	msg 'set default browser using xdg-settings'
 	bash xdg-settings set default-web-browser firefox.desktop
@@ -37,6 +43,12 @@ main_pacman() {
 		msg 'chrome, the worst browser ever but sometime we need that shit'
 		require_aur google-chrome-beta
 
-		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
+		if [[ "$(command -v gopass-jsonapi)" ]]; then
+			gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
+		fi
+
+		if [[ "$(command -v bukubrow)" ]]; then
+			bukubrow --install-chrome --install-dir ~/.config/google-chrome-beta/NativeMessagingHosts/
+		fi
 	fi
 }
