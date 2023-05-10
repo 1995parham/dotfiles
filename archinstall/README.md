@@ -3,7 +3,7 @@
 [`archinstall`](https://github.com/archlinux/archinstall) is a guided/automated ArchLinux installer.
 This repository contains scripts and configuration that I use with `archinstall` to setup ArchLinux on desktop or
 server.
-For desktop, I prefer sway but I have scripts for hyperland too.
+For desktop, I prefer [sway](https://wiki.archlinux.org/title/Sway) but I have scripts for hyperland too.
 
 ## How to
 
@@ -44,6 +44,17 @@ archinstall --config server.json # Server installation
 ```
 
 ## Notes
+
+### Seat
+
+On Arch Linux, Sway can get access to your seat using either
+
+- systemd-logind(8) and polkit
+- seatd, which will be installed alongside Sway as a dependency of wlroots
+
+If polkit is already installed on your system, Sway should automatically get access to your seat.
+Alternatively, if polkit is not installed on your system and you want to use seatd instead,
+add yourself to the `seat` user group and enable/start `seatd.service`, re-log.
 
 ### BTRFS Sub-Volumes
 
