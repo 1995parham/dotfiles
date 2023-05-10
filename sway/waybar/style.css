@@ -115,6 +115,7 @@ window.bottom > box > box {
 #custom-touchpad,
 #custom-love,
 #language,
+#bluetooth,
 #mpd {
   padding-right: 10px;
   padding-left: 10px;
@@ -296,4 +297,8 @@ label:focus {
 #language {
   color: #740864;
   min-width: 30px;
+}
+
+#bluetooth {
+  color: #cc3399;
 }
