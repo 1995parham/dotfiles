@@ -56,14 +56,6 @@ _mount() {
 		exit 1
 	fi
 
-	case $label in
-	"parham-secret")
-		if [ "$(systemctl list-unit-files "smb*" | wc -l)" -gt 3 ]; then
-			systemctl start smb.service nmb.service
-		fi
-		;;
-	esac
-
 	mount_point="/media/${label}"
 
 	/bin/mkdir -p "${mount_point}"
