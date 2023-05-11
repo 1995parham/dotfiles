@@ -50,12 +50,12 @@ main_pacman() {
 	dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
 	sudo nmcli general reload
 
-	# if [ "$(curl -s check.shecan.ir)" = '0' ]; then
-	# msg "shecan is ready"
-	# else
-	# msg 'shecan is not working' 'error'
-	# return 1
-	# fi
+	if [ "$(curl -s check.shecan.ir)" = '0' ]; then
+		msg "shecan is ready"
+	else
+		msg 'shecan is not working' 'error'
+		return 1
+	fi
 
 	if [ -d "/etc/docker" ]; then
 		sudo touch /etc/docker/daemon.json
