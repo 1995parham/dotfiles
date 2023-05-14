@@ -20,15 +20,15 @@ main() {
 
 	while true; do
 		for output in $(swaymsg -t get_outputs -r | jq '.[].name ' -r); do
-			swaybg -i "$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf -n1)" -m fill &
+			swaybg -o "$output" -i "$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf --random-source=/dev/random -n1)" -m fill &
 			new_pid[$output]=$!
 			sleep 5
-			if [ -n "${old_pid[$output]}" ]; then
+			if [ "${old_pid[$output]+abc}" ]; then
 				kill "${old_pid[$output]}"
 			fi
 			old_pid[$output]=${new_pid[$output]}
-			sleep 10
 		done
+		sleep 5
 	done
 }
 
@@ -47,7 +47,7 @@ fork() {
 	nohup setsid "$0" daemon "$@" &>/dev/null &
 }
 
-if [ $# -ge 1 ] && [ "$1" == "daemon" ]; then
+if [ $# -ge 1 ] && [ "$1" = "daemon" ]; then
 	main "$@"
 else
 	fork "$@"
