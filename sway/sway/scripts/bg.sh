@@ -15,18 +15,20 @@ main() {
 	trap '_end' INT TERM
 	shift
 
-	local old_pid=""
-	local new_pid=""
+	local -A old_pid
+	local -A new_pid
 
 	while true; do
-		swaybg -i "$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf -n1)" -m fill &
-		new_pid=$!
-		sleep 5
-		if [ -n "$old_pid" ]; then
-			kill "$old_pid"
-		fi
-		old_pid=$new_pid
-		sleep 10
+		for output in $(swaymsg -t get_outputs -r | jq '.[].name ' -r); do
+			swaybg -i "$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf -n1)" -m fill &
+			new_pid[$output]=$!
+			sleep 5
+			if [ -n "${old_pid[$output]}" ]; then
+				kill "${old_pid[$output]}"
+			fi
+			old_pid[$output]=${new_pid[$output]}
+			sleep 10
+		done
 	done
 }
 
