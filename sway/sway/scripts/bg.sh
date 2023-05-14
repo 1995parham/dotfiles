@@ -26,12 +26,12 @@ main() {
 			kill "$old_pid"
 		fi
 		old_pid=$new_pid
-		sleep 50
+		sleep 10
 	done
 }
 
 fork() {
-	echo 'is there anyother bg living there?'
+	echo 'is there any other bg.sh living there?'
 	bg_process_count=$(pgrep -c bg.sh)
 	while [ "$bg_process_count" -gt 1 ]; do
 		echo "there are more that 1 bg process is living there, lets killing them"
