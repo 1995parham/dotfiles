@@ -24,26 +24,22 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using th
 ![Compatibility](https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge)
 ![Compatibility](https://img.shields.io/badge/works%20on-arch-blue?logo=archlinux&style=for-the-badge)
 
-The following command creates a basic directory structure and clones the _dotfiles_ repository:
+To install these dotfiles on a new system, run the following command:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/1995parham/dotfiles/main/over-the-air-installation.sh | bash
+git clone https://github.com/1995parham/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./start.sh env && ./install.sh
 ```
 
-Install required tools with `pacman`, `brew` or `apt`.
+This will clone the repository into your home directory (`~/.dotfiles`), and run the `start.sh env` script to install required tools and then run `install.sh` script to
+to create symbolic links between the dotfiles and their expected locations in your home directory.
 
-```bash
-./start.sh env
+After that, you set `zsh` as your default terminal:
+
+```
+sudo chsh $USER -s /bin/zsh
 ```
 
-Install configuration files with soft-links and installs plugins on vim.
-This script don't set the `zsh` as a default shell, so you need to set it manually.
-
-```bash
-./install.sh
-```
-
-Install useful fonts.
+Run `start.sh font` script to install useful fonts:
 
 ```bash
 ./start.sh font
@@ -55,14 +51,10 @@ Install useful fonts.
 touch $HOME/.config/git/config
 ```
 
-**Also** don't forget to install neovim and its plugins:
+Run `start.sh neovim` script to install neovim with [ElieVIM](https://github.com/1995parham/elievim) configurations:
 
 ```bash
 ./start.sh neovim
-```
-
-```vim
-:PlugInstall
 ```
 
 Then you can install other tools with `start.sh`, here are some examples:
