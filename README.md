@@ -55,7 +55,11 @@ Install useful fonts.
 touch $HOME/.config/git/config
 ```
 
-**Also** don't forget to install neovim plugins:
+**Also** don't forget to install neovim and its plugins:
+
+```bash
+./start.sh neovim
+```
 
 ```vim
 :PlugInstall
@@ -64,7 +68,7 @@ touch $HOME/.config/git/config
 Then you can install other tools with `start.sh`, here are some examples:
 
 ```bash
-# install docker with proxy
+# install docker (optionally using proxy)
 ./start.sh docker
 # install golang
 ./start.sh go
@@ -77,7 +81,7 @@ Configuration of mentioned applications also is a part of this repository.
 
 ## Window Managers
 
-I am using `sway` and `hyprland` as my primary window managers. This repository
+I am using [`sway`](https://github.com/swaywm/) and [`hyprland`](https://github.com/hyprwm) as my primary window managers. This repository
 structured around creating soft-links and because of that the duplicate configurations
 between these window managers are gathered in `sway/`.
 
