@@ -193,6 +193,12 @@
                                 (org-agenda-prefix-format "   %i %-60(concat \" [ \" (org-get-category) \": \" (org-format-outline-path (org-get-outline-path)) \" ] \")")
                                 )
                         )
+                  (tags "LEVEL>1+CATEGORY=\"Vow\"" (
+                                (org-agenda-overriding-header "\nVow with God 🕌")
+                                (org-agenda-prefix-format "   %i %-60(concat \" [ \" (org-format-outline-path (org-get-outline-path)) \" ] \")")
+                                (setq org-agenda-skip-function-global nil)
+                                )
+                        )
                   )
                  () )
                 )
