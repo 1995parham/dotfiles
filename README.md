@@ -57,19 +57,20 @@ Run `start.sh neovim` script to install neovim with [ElieVIM](https://github.com
 ./start.sh neovim
 ```
 
-Then you can install other tools with `start.sh`, here are some examples:
+## Usage
+
+These dotfiles configure various tools and applications, including:
+
+- Docker
+- yt-dlp
+- Alacritty
+- [...](./docs/scripts.md)
+
+You can install them by running the following script:
 
 ```bash
-# install docker (optionally using proxy)
-./start.sh docker
-# install golang
-./start.sh go
-# install python
-./start.sh python
-# and many many more...
+./start.sh <name>
 ```
-
-Configuration of mentioned applications also is a part of this repository.
 
 ## Window Managers
 
@@ -105,5 +106,4 @@ To work with workspace just start with _SPACE-TAB_.
 
 ## More
 
-- [scripts](./docs/scripts.md)
 - [archinstall](./archinstall/README.md)
