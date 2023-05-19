@@ -64,13 +64,15 @@ These dotfiles configure various tools and applications, including:
 - Docker
 - yt-dlp
 - Alacritty
-- [...](./docs/scripts.md)
+- ...
 
-You can install them by running the following script:
+You can install most of them by running the following script:
 
 ```bash
 ./start.sh <name>
 ```
+
+- [Read More...](./docs/scripts.md)
 
 ## Window Managers
 
