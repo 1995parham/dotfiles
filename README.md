@@ -11,12 +11,9 @@
 </p>
 
 ## Introduction
-
-This repository contains my personal configurations for Ubuntu, Arch Linux (with sway window manager) and apple OSX,
-which was created in Fall 2013 when I was a lonely B.Sc.' student at the Amirkabir University of Technology.
-First, thank you for your visiting. A dotfiles repository is a personal repository, with it,
-you can manage your configuration between your systems, so I make this repository, a template repository, so you can easily start your personal one from it.
-Special thanks to [@elahe-dastan](https://github.com/elahe-dastan) for using this project and reporting its issues. Her unique contribution to this repository and my life is unforgettable.
+This repository contains my personal configurations for Ubuntu, Arch Linux (with sway window manager) and apple OSX, which was created in Fall 2013 when I was a lonely B.Sc. student at the Amirkabir University of Technology. First, thank you for visiting.
+A dotfiles repository is a personal repository, and with it, you can manage your configuration between your systems. So I made this repository a template repository, so you can easily start your personal one from it.
+Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using this project and reporting its issues. Her unique contributions to this repository and my life are unforgettable.
 
 ## Installation
 
