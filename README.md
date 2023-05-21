@@ -25,7 +25,7 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using th
      <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge">
      <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-arch-blue?logo=archlinux&style=for-the-badge">
 </p>
-     
+
 To install these dotfiles on a new system, run the following command:
 
 ```bash
