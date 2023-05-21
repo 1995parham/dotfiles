@@ -14,6 +14,6 @@ usage() {
 
 main_pacman() {
 	copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
-
+	copycat "pacman" "pacman/mirrorlist" /etc/pacman.d/mirrorlist
 	copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
 }
