@@ -16,6 +16,7 @@ usage() {
 
 main_pacman() {
 	require_pacman bluez bluez-utils bluez-tools
+	require_aur galaxybudsclient-bin
 }
 
 main() {
