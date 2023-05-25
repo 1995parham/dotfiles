@@ -64,4 +64,6 @@ main() {
 	fi
 
 	python-install-packages
+
+	msg 'pyenv configured in zsh'
 }
