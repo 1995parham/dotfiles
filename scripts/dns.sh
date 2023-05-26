@@ -39,11 +39,17 @@ main_pacman() {
 		break
 	done
 
+	if [ -f "/etc/NetworkManager/dnsmasq.d/shecan.conf" ]; then
+		sudo rm '/etc/NetworkManager/dnsmasq.d/shecan.conf'
+	fi
+
 	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
-	mapfile -t domains <<<"$(cat "$dotfiles_root/dns/domains-$kind")"
-	domains_dnsmasq="$(printf '/%s' "${domains[@]}")"
-	echo -e "server=$domains_dnsmasq/${primary_shecan_dns[$kind]}\nserver=$domains_dnsmasq/${secondary_shecan_dns[$kind]}" |
-		sudo tee /etc/NetworkManager/dnsmasq.d/shecan.conf
+	for f in "$dotfiles_root/dns/domains-$kind".*; do
+		mapfile -t domains <<<"$(cat "$f")"
+		domains_dnsmasq="$(printf '/%s' "${domains[@]}")"
+		echo -e "server=$domains_dnsmasq/${primary_shecan_dns[$kind]}\nserver=$domains_dnsmasq/${secondary_shecan_dns[$kind]}" |
+			sudo tee -a /etc/NetworkManager/dnsmasq.d/shecan.conf
+	done
 
 	copycat "dns" dns/1995parham.conf /etc/NetworkManager/dnsmasq.d/1995parham.conf
 
