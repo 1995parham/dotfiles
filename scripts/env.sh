@@ -48,7 +48,7 @@ pacman_packages=(
 	lsof
 	vhs
 )
-yay_packages=(jcal actionlint-bin cbonsai)
+yay_packages=(jcal actionlint-bin cbonsai k6)
 
 main_apt() {
 	sudo apt update -yq
