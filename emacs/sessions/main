@@ -18,7 +18,7 @@
               (pixel-width . 2560)
               (pixel-height . 1520)
               (total-width . 426)
-              (total-height . 108)
+              (total-height . 109)
               (normal-height . 1.0)
               (normal-width . 1.0)
               (parameters
@@ -43,55 +43,6 @@
                ("*scratch*" 1 1))))
             (def-params
              ((last-project-root . "/home/parham/tasks/")))
-            nil nil nil)
- (def-persp "howto"
-            ((def-buffer "keys.tex" "/home/parham/Documents/Git/parham/parham-alvani/howto/archlinux/sections/keys.tex" latex-mode)
-             (def-buffer "hello-world.tex" "/home/parham/Documents/Git/parham/parham-alvani/howto/archlinux/sections/hello-world.tex" latex-mode))
-            (def-wconf
-             (((min-height . 4)
-               (min-width . 10)
-               (min-height-ignore . 4)
-               (min-width-ignore . 5)
-               (min-height-safe . 1)
-               (min-width-safe . 2)
-               (min-pixel-height . 56)
-               (min-pixel-width . 60)
-               (min-pixel-height-ignore . 56)
-               (min-pixel-width-ignore . 30)
-               (min-pixel-height-safe . 14)
-               (min-pixel-width-safe . 12))
-              leaf
-              (pixel-width . 2560)
-              (pixel-height . 1520)
-              (total-width . 426)
-              (total-height . 109)
-              (normal-height . 1.0)
-              (normal-width . 1.0)
-              (parameters
-               (better-jumper-struct . #s(better-jumper-jump-list-struct
-                                          (0 2 .
-                                             [("/home/parham/Documents/Git/parham/parham-alvani/howto/archlinux/sections/hello-world.tex" 169 "7lhljn")
-                                              ("/home/parham/Documents/Git/parham/parham-alvani/howto/archlinux/sections/keys.tex" 393 "9rxd9k")
-                                              nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil])
-                                          -1)))
-              (buffer "keys.tex"
-                      (selected . t)
-                      (hscroll . 0)
-                      (fringes 8 8 t nil)
-                      (margins nil)
-                      (scroll-bars nil 0 t nil 0 t nil)
-                      (vscroll . 0)
-                      (dedicated)
-                      (point . 1200)
-                      (start . 1))
-              (prev-buffers
-               ("*doom*" 1 1567)
-               ("keys.tex" 1 1200)
-               ("hello-world.tex" 1 566)
-               ("plan.org" 1 6304)
-               ("*scratch*" 1 1))))
-            (def-params
-             ((last-project-root . "/home/parham/Documents/Git/parham/parham-alvani/howto/")))
             nil nil nil)
  (def-persp "org"
             ((def-buffer "remember-me.md" "/home/parham/org/remember-me.md" markdown-mode))
