@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export dependencies=('buku')
+
 usage() {
 	echo "install firefox, firefox-developer-edition and tridactyl configuration"
 	echo '
