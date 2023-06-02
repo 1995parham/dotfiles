@@ -104,7 +104,11 @@ function require_go() {
 function require_pip() {
 	for pkg in "$@"; do
 		action "require" " python $pkg"
-		pipx install --include-deps --pip-args pre "$pkg"
+		if (pipx list | grep "$pkg" &>/dev/null); then
+			pipx upgrade --pip-args pre "$pkg"
+		else
+			pipx install --include-deps --pip-args pre "$pkg"
+		fi
 	done
 }
 
