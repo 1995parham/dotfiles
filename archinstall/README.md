@@ -59,15 +59,16 @@ add yourself to the `seat` user group and enable/start `seatd.service`, re-log.
 
 ### BTRFS Sub-Volumes
 
-BTRFS sub-volumes are awesome, and you can use the following layout (coming from Ubuntu):
+BTRFS sub-volumes are awesome, and you can use the following layout (coming from Ubuntu and Fedora):
 
-| Name        | Mount Point           |
-| ----------- | --------------------- |
-| @           | /                     |
-| @home       | /home                 |
-| @log        | /var/log              |
-| @pkg        | /var/cache/pacman/pkg |
-| @.snapshots | /.snapshots           |
+| Name        | Mount Point             |
+| ----------- | ----------------------- |
+| @           | /                       |
+| @home       | /home                   |
+| @log        | /var/log                |
+| @pkg        | /var/cache/pacman/pkg   |
+| @.snapshots | /.snapshots             |
+| @images     | /var/lib/libvirt/images |
 
 Please note that, you need to set the wipe flag of the BTRFS partition to true for sub-volume creation to work.
 
