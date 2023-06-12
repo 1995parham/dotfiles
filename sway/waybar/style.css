@@ -285,6 +285,10 @@ label:focus {
   color: #1e90ff;
 }
 
+#network.speedify {
+  color: #ff005a;
+}
+
 #custom-touchpad {
   color: #ffa500;
   font-weight: bold;
