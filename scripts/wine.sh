@@ -17,7 +17,6 @@ main_pacman() {
 	sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
 	sudo pacman -Syu
-	require_pacman lib32-glibc lib32-zlib lib32-libstdc++5
 
 	msg "multilib has been enabled and required packages have been installed"
 
@@ -28,8 +27,4 @@ main_pacman() {
 	require_pacman lib32-gnutls
 	msg 'winetricks is a script to allow one to install base requirements needed to run Windows programs'
 	require_pacman winetricks
-}
-
-main() {
-	echo
 }
