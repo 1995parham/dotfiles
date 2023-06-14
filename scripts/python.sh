@@ -41,8 +41,8 @@ main_pacman() {
 	msg 'MySQL/MariaDB client library'
 	require_pacman mariadb-clients
 
-	msg "update user-local version of pip"
-	python -mpip install --user --pre -U pip
+	# msg "update user-local version of pip"
+	# python -mpip install --user --pre -U pip
 }
 
 python-install-packages() {
