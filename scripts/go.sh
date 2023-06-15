@@ -58,6 +58,7 @@ go-install-packages() {
 	require_go golang.org/x/tools/gopls
 	require_go golang.org/dl/gotip
 	require_go github.com/go-delve/delve/cmd/dlv
+	require_go github.com/google/wire/cmd/wire
 
 	msg "golangci-lint $(golangci-lint version)"
 }
