@@ -47,6 +47,9 @@ function message() {
 	notice)
 		servity="${F_ORANGE}${BOLD_ON} (notice) ${F_RESET}${BOLD_OFF}"
 		;;
+	warn)
+		servity="${F_YELLOW}${BOLD_ON} (warn) ${F_RESET}${BOLD_OFF}"
+		;;
 	*)
 		servity=""
 		;;
