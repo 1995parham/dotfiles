@@ -157,7 +157,7 @@ To find software compatible with sway, always check the [are we wayland yet](htt
 |      Image Viewer      | ./start.sh sway                   | `imv`                                     | Preview        |
 | Terminal Image Viewer  | ./start.sh env                    | `chafa`                                   | -              |
 |        Launcher        | ./start.sh sway                   | `rofi`                                    | -              |
-|        MP3 Tags        | strawberry (pacman)               | Strawberry                                | iTunes         |
+|        MP3 Tags        | ./start.sh mpd                    | Strawberry                                | iTunes         |
 |      Music Player      | ./start.sh mpd                    | `mpc`, `ncmpcpp`                          | -              |
 |         neovim         | ./start.sh neovim                 | `nvim`                                    | `nvim`         |
 |          vim           | ./start.sh env                    | `vim`                                     | `vim`          |
