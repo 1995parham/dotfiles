@@ -5,8 +5,5 @@
   },
   {
     "include": "$HOME/.config/waybar/config.d/bottom.json"
-  },
-  {
-    "include": "$HOME/.config/waybar/config.d/left.json"
   }
 ]
