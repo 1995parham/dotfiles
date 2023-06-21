@@ -41,6 +41,10 @@ main_pacman() {
 		require_pacman vivaldi vivaldi-ffmpeg-codecs
 	fi
 
+	if yes_or_no 'browser' 'do you want to install edge?'; then
+		require_aur microsoft-edge-dev-bin
+	fi
+
 	if yes_or_no 'browser' 'do you want to install chrome?'; then
 		msg 'chrome, the worst browser ever but sometime we need that shit'
 		require_aur google-chrome-beta
