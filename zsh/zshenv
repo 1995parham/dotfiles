@@ -17,10 +17,9 @@ fi
 
 # }}}
 
-# podman, helm, etc. {{{
+# podman, helm, everything that is related to clouds. {{{
 
-# Currently OCI support is considered experimental.
-export HELM_EXPERIMENTAL_OCI=1
+export AWS_VAULT_BACKEND=file
 
 # }}}
 
@@ -40,7 +39,7 @@ fi
 
 # languages {{{
 
-# You may need to manually set your language environment
+# you may need to manually set your language environment
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -49,7 +48,6 @@ export LC_ALL="en_US.UTF-8"
 
 # editors and terminals {{{
 
-# export MANPATH="/usr/local/man:$MANPATH"
 EDITOR="$(which nvim)"
 export EDITOR
 
