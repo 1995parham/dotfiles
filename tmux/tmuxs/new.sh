@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+mono_repositories=(
+	"petropower/trex"
+	"offerland/root"
+)
+
 # a global variable that points to tmuxs root directory.
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -13,9 +18,29 @@ project=$(
 			--preview="onefetch {}; tokei {}"
 )
 
+# check the repository is monorepo or not.
+# in case of being mono repo we need to ask again for the sub-project.
+project_name="$(basename "$project")"
+org_name="$(basename "$(dirname "$project")")"
+sub_project=""
+if [[ " ${mono_repositories[*]} " == *"$org_name/$project_name"* ]]; then
+	sub_project=$(
+		fd -tdirectory . "$project" -d 1 -x basename | cat - <(echo ".") |
+			fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+				--preview="onefetch $project/{}; tokei $project/{}"
+	)
+	if [ "$sub_project" == "." ]; then
+		sub_project=""
+	fi
+fi
+
 # . character has special meaning for tmux, it uses
 # it for separating window from pane.
 name="$(basename "$project" | tr '.' '_')"
+if [ -n "$sub_project" ]; then
+	name="${name}_${sub_project}"
+	project="$project/$sub_project"
+fi
 current_session="$(tmux display-message -p '#S')"
 
 sessions=$(tmux list-sessions | sed 's/: .*$//')
