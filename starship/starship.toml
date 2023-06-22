@@ -152,7 +152,7 @@ format = " 󰞇 "
 disabled = false
 
 [aws]
-format = 'on [$symbol($profile )(\($region\) )]($style)'
+format = '[$symbol($profile )(\($region\) )]($style)'
 style = 'bold blue'
 symbol = '🅰 '
 disabled = false
