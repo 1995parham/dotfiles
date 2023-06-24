@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name of God
-# ========================================
-# [] File Name : sample.sh
-#
-# [] Creation Date : 17-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
 
 usage() {
 	echo -n -e "sample for using ./start.sh\n" \
@@ -27,21 +19,17 @@ usage() {
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
 	return 1
 }
 
 main_pacman() {
-	msg "there is nothing that we can do"
 	return 1
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
 	return 1
 }
 
 main() {
-	msg "there is nothing that we can do"
-	return 1
+	return 0
 }
