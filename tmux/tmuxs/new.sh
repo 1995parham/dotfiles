@@ -73,8 +73,8 @@ read -n 1 -s -r -p "press any key to continue"
 echo
 
 if [ -f Pipfile ]; then
-	if [[ "$(command -v pipenv)" ]]; then
-		pipenv install --verbose --dev --skip-lock
+	if [[ "$(command -v pipx)" ]]; then
+		pipx run pipenv install --verbose --dev
 
 		# shellcheck disable=2016
 		commands+=('pipenv shell --fancy' "${commands[@]}")
