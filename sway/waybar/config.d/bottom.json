@@ -20,6 +20,7 @@
     "network#baly",
     "network#aut",
     "network#offerland",
+    "network#petropower",
     "network#speedify",
     "custom/touchpad"
   ],
@@ -66,6 +67,11 @@
   },
   "network#offerland": {
     "interface": "offerland",
+    "format": "{ifname}: {ipaddr}",
+    "format-disconnected": ""
+  },
+  "network#petropower": {
+    "interface": "petropower-*",
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },

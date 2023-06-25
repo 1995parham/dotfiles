@@ -285,6 +285,10 @@ label:focus {
   color: #1e90ff;
 }
 
+#network.petropower {
+  color: #525252;
+}
+
 #network.speedify {
   color: #ff005a;
 }
