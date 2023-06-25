@@ -9,8 +9,8 @@ mono_repositories=(
 # a global variable that points to tmuxs root directory.
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=./scripts/lib/proxy.sh
-source "$tmuxs_root/../../scripts/lib/proxy.sh"
+# shellcheck source=./scripts/lib/message.sh
+source "$tmuxs_root/../../scripts/lib/message.sh"
 
 project=$(
 	fd -tdirectory -H ^\.git$ ~/Documents/Git -x dirname |
@@ -73,8 +73,20 @@ read -n 1 -s -r -p "press any key to continue"
 echo
 
 if [ -f Pipfile ]; then
+	pipenv=""
+
 	if [[ "$(command -v pipx)" ]]; then
-		pipx run pipenv install --verbose --dev
+		message 'tmux' 'pipx is installed and we are using it to run pipenv' 'warn' && sleep 5
+		pipenv="pipx run pipenv"
+	fi
+
+	if [[ "$(command -v pipenv)" ]]; then
+		pipenv="pipenv"
+	fi
+
+	if [ -n "$pipenv" ]; then
+		message 'tmux' "setup project base on pipenv ($pipenv)" 'warn' && sleep 5
+		"$pipenv" install --verbose --dev
 
 		# shellcheck disable=2016
 		commands+=('pipenv shell --fancy' "${commands[@]}")
