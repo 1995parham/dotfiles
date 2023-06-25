@@ -78,9 +78,7 @@ if [ -f Pipfile ]; then
 	if [[ "$(command -v pipx)" ]]; then
 		message 'tmux' 'pipx is installed and we are using it to run pipenv' 'warn' && sleep 5
 		pipenv="pipx run pipenv"
-	fi
-
-	if [[ "$(command -v pipenv)" ]]; then
+	elif [[ "$(command -v pipenv)" ]]; then
 		pipenv="pipenv"
 	fi
 
