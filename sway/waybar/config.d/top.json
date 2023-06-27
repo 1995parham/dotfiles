@@ -104,7 +104,7 @@
   },
   "clock": {
     "format": "{:%H:%M %Z} ",
-    "format-alt": "{:%A, %B %d, %Y (%R) %Z}  ",
+    "format-alt": "{:%A, %B %d, %Y (%R) %Z}  ",
     "timezones": ["Asia/Tehran", "US/Eastern", "America/Vancouver"],
     "actions": {
       "on-click-right": "tz_up"
