@@ -41,9 +41,18 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "format": "{index}: {icon}",
+    "format": "{index} {icon}",
     "format-icons": {
-      "main-1": "",
+      "main-1": "",
+      "main-2": "",
+      "emacs": "",
+      "www": "",
+      "vm": "󰢔",
+      "apps-1": "󰀻",
+      "apps-2": "󰀻",
+      "social": "",
+      "chrome": "",
+      "focus": "",
       "urgent": "",
       "focused": "",
       "default": ""
