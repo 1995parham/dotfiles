@@ -41,8 +41,9 @@
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
-    "format": "{name}: {icon}",
+    "format": "{index}: {icon}",
     "format-icons": {
+      "main-1": "",
       "urgent": "",
       "focused": "",
       "default": ""
@@ -139,12 +140,13 @@
     "format-wifi": "{essid} ({signalStrength}%) ",
     "format-disabled": "",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "No WiFi ⚠",
+    // "format-disconnected": "No WiFi ⚠",
+    "format-disconnected": "",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "network#eth": {
     "interface": "e*",
-    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "format-ethernet": "{ifname}: ",
     "format-disabled": "",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "",
