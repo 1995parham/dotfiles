@@ -1,14 +1,14 @@
 profile snapp {
   # Snapp monitor (setup on 20 Feb 2023)
   # output "ChangHong Electric Co.,Ltd GDM-245LN 0000000000001" scale 0.9
-  output DP-2 enable
+  output HDMI-A-1 enable
   output eDP-1 enable
 
-  exec swaymsg workspace 1:main-1, move workspace to DP-2
-  exec swaymsg workspace 2:main-2, move workspace to DP-2
-  exec swaymsg workspace 3:emacs, move workspace to DP-2
-  exec swaymsg workspace 4:www, move workspace to DP-2
-  exec swaymsg workspace 8:social, move workspace to DP-2
+  exec swaymsg workspace 1:main-1, move workspace to HDMI-A-1
+  exec swaymsg workspace 2:main-2, move workspace to HDMI-A-1
+  exec swaymsg workspace 3:emacs, move workspace to HDMI-A-1
+  exec swaymsg workspace 4:www, move workspace to HDMI-A-1
+  exec swaymsg workspace 8:social, move workspace to HDMI-A-1
   exec swaymsg workspace 10:focus, move workspace to eDP-1
 }
 
