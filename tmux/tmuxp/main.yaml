@@ -51,7 +51,6 @@ windows:
   - window_name: manuals
     layout: tiled
     panes:
-      - start_directory: ~/Documents/Git/parham/parham-alvani/howto
       - start_directory: ~/Documents/Git/parham/1995parham/dotdroid
       - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io/
 
