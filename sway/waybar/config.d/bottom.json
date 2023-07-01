@@ -21,8 +21,7 @@
     "network#aut",
     "network#offerland",
     "network#petropower",
-    "network#speedify",
-    "custom/touchpad"
+    "network#speedify"
   ],
   "idle_inhibitor": {
     "format": "{icon}",
@@ -79,10 +78,6 @@
     "interface": "connectify0",
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
-  },
-  "custom/touchpad": {
-    "interval": 3,
-    "exec": "$HOME/.config/waybar/scripts/touchpad.sh"
   },
   "custom/love#relationship": {
     "interval": 3600,
