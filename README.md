@@ -97,7 +97,7 @@ The following operating systems and their package managers are supported:
 
 For each package, I provided information on its installation script and how to run it on different operating systems.
 Applications with command names in all lowercase can be run from the command line interface, while those with title case need to be launched using your application launcher.
-If an application is marked with a (?), it means I had a negative experience with it on that particular operating system.
+If an application is marked with a (?), it means I had a negative experience with that application on that particular operating system.
 
 To find software compatible with sway, always check the [are we wayland yet](https://arewewaylandyet.com/) website.
 
