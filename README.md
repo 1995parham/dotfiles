@@ -20,15 +20,16 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using th
 
 ## Installation
 
-> For installing arch itself, please check [here](./archinstall)
-
 <p align="center">
      <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-macos-white?logo=macos&style=for-the-badge">
      <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-ubuntu-orange?logo=ubuntu&style=for-the-badge">
      <img alt="Compatibility" src="https://img.shields.io/badge/works%20on-arch-blue?logo=archlinux&style=for-the-badge">
 </p>
 
-To install these dotfiles on a new system, run the following command:
+You need to first install an operating system to use these dotfiles,
+For installing [ArchLinux](https://archlinux.org/), please check [here](./archinstall)
+
+To install these dotfiles on a fresh system, run the following command:
 
 ```bash
 git clone https://github.com/1995parham/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./start.sh env && ./install.sh
@@ -39,7 +40,7 @@ to create symbolic links between the dotfiles and their expected locations in yo
 
 After that, you set `zsh` as your default terminal:
 
-```
+```bash
 sudo chsh $USER -s /bin/zsh
 ```
 
@@ -49,10 +50,16 @@ Run `start.sh font` script to install useful fonts:
 ./start.sh font
 ```
 
-**Don't** forget changing the git username and email:
+**Don't** forget setting the git username and email:
 
 ```bash
 touch $HOME/.config/git/config
+```
+
+or you can use mine:
+
+```bash
+./start.sh git
 ```
 
 Run `start.sh neovim` script to install neovim with [ElieVIM](https://github.com/1995parham/elievim) configurations:
@@ -75,45 +82,6 @@ You can install most of them by running the following script:
 ```bash
 ./start.sh <name>
 ```
-
-- [Read More...](./docs/scripts.md)
-
-## Window Managers
-
-I am using [`sway`](https://github.com/swaywm/) and [`hyprland`](https://github.com/hyprwm) as my primary window managers. This repository
-structured around creating soft-links and because of that the duplicate configurations
-between these window managers are gathered in `sway/`.
-
-## Emacs
-
-I am using Emacs for the followings:
-
-- latex documents (specially in Persian)
-- org-mode
-
-### Searching
-
-Ivy is a plugin for searching in buffers, notes, etc.
-Almost everything in doom Emacs works with ivy. It is simple and will show you a popup for everything.
-
-### Configuration (based on doom)
-
-I use Emacs based on doom, and I found following configurations are useful to update my configurations based on them.
-
-1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
-   - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
-2. [acdemic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
-3. [elenapan dotfiles](https://github.com/elenapan/dotfiles)
-
-### Workspace
-
-Never close emacs, just use workspace to manage your work.
-To work with workspace just start with _SPACE-TAB_.
-
-## Scripts
-
-These are applications that I use in a daily manner, so I created the following document about their usage
-and the way of installation.
 
 ### Package Managers
 
@@ -194,3 +162,35 @@ To find software compatible with sway, always check the [are we wayland yet](htt
 |          DNS           | ./start.sh blocky                 | `blocky`                                  | -              |
 |          JSON          | ./start.sh env                    | `jq`, `jless`                             | -              |
 |  Disk Usage Analyzer   | ./start.sh env                    | `dua`                                     | `dua`          |
+
+## [Window Managers](https://wiki.archlinux.org/title/Window_manager) (on ArchLinux)
+
+I am using [`sway`](https://github.com/swaywm/) or [`hyprland`](https://github.com/hyprwm) as my primary window managers. This repository
+structured around creating soft-links and because of that the duplicate configurations
+between these window managers are gathered in `sway/`.
+
+## [Emacs](https://www.gnu.org/software/emacs/)
+
+I am using Emacs for the followings:
+
+- latex documents (specially when writing them in Persian)
+- org-mode (for managing my daily life)
+
+### Searching
+
+[Ivy](https://github.com/abo-abo/swiper) is a plugin for searching in buffers, notes, etc.
+Almost everything in doom Emacs works with ivy. It is simple and will show you a popup for everything.
+
+### Configuration (based on doom)
+
+I use Emacs based on [doom](https://github.com/doomemacs), and I found following configurations are useful to update my configurations based on them.
+
+1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
+   - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
+2. [acdemic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
+3. [elenapan dotfiles](https://github.com/elenapan/dotfiles)
+
+### Workspace
+
+Never close emacs, just use workspace to manage your work.
+To work with workspace just start with `SPACE-TAB`.
