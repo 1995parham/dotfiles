@@ -194,3 +194,23 @@ I use Emacs based on [doom](https://github.com/doomemacs), and I found following
 
 Never close emacs, just use workspace to manage your work.
 To work with workspace just start with `SPACE-TAB`.
+
+## Windows as Virtual Machine
+
+Windows has some softwares that you don't have on linux, software likes [JumpDesktop](https://jumpdesktop.com/), [Microsoft Office](https://www.office.com/), etc.
+I need to use these softwares and because of that, I always install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on host machine.
+
+### What we need to do after installation?
+
+During installation you need to provide your outlook account and then you have up and running system in no time.
+These are the software that I need on my system:
+
+|         Name          | How to Install?                                        |
+| :-------------------: | :----------------------------------------------------- |
+| Microsoft office 2021 | [p30download](https://p30download.ir/fa/entry/101362/) |
+|      JumpDesktop      | [JumpDesktop](https://jumpdesktop.com/)                |
+|    Github Desktop     | `winget install 'github desktop'`                      |
+|        VSCode         | `winget install vscode`                                |
+|       Anaconda        | `winget install anaconda3`                             |
+|   Adobe Acrobat Pro   | [p30download](https://p30download.ir/fa/entry/58302/)  |
+|          Git          | `winget install Git.Git`                               |
