@@ -214,3 +214,4 @@ These are the software that I need on my system:
 |       Anaconda        | `winget install anaconda3`                             |
 |   Adobe Acrobat Pro   | [p30download](https://p30download.ir/fa/entry/58302/)  |
 |          Git          | `winget install Git.Git`                               |
+|         Skype         | `winget install 'Skype Insiders'`                      |
