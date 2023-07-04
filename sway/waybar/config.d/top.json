@@ -155,7 +155,7 @@
   },
   "network#eth": {
     "interface": "e*",
-    "format-ethernet": "{ifname}: ",
+    "format-ethernet": "{ifname} ",
     "format-disabled": "",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "",
