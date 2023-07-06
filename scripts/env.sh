@@ -47,6 +47,7 @@ pacman_packages=(
 	bandwhich
 	lsof
 	vhs
+	just
 )
 yay_packages=(jcal actionlint-bin cbonsai k6)
 
