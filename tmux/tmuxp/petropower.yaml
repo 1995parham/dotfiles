@@ -15,7 +15,8 @@ windows:
     start_directory: ~/Downloads
     focus: true
     panes:
-      - pane
-      - pane
+      - shell_command:
+          - chafa $DOTFILES_ROOT/sway/waybar/img/snapp.svg --size 80 --clear | less
+      - focus: true
       - pane
       - pane
