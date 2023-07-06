@@ -16,7 +16,7 @@ windows:
     focus: true
     panes:
       - shell_command:
-          - chafa $DOTFILES_ROOT/sway/waybar/img/snapp.svg --size 80 --clear | less
+          - chafa $DOTFILES_ROOT/sway/waybar/img/trex.png --size 80 --clear | less
       - focus: true
       - pane
       - pane
