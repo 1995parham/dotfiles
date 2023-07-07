@@ -15,7 +15,7 @@ usage() {
 }
 
 main_pacman() {
-	require_aur micromamba
+	require_aur micromamba-bin
 }
 
 main_apt() {
