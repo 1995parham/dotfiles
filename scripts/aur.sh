@@ -23,7 +23,6 @@ main() {
 		"okd-client-bin"
 		"gosimac-bin"
 		"gosimac"
-		"dive-bin"
 		"actionlint-bin"
 		"jcal"
 		"mprocs-bin"
