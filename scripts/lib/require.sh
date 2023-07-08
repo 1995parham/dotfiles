@@ -12,7 +12,7 @@ function require_brew() {
 	done
 
 	if [ ${#to_install_pkg[@]} -ne 0 ]; then
-		action "require" "勒brew install ${to_install_pkg[*]}"
+		action "require" " brew install ${to_install_pkg[*]}"
 		brew install "${to_install_pkg[@]}"
 	fi
 }
@@ -21,7 +21,7 @@ function require_brew_head() {
 	for pkg in "$@"; do
 		running "require" " brew head $pkg"
 		if ! brew list --versions "$pkg" &>/dev/null; then
-			action "require" "勒brew install --HEAD $pkg"
+			action "require" " brew install --HEAD $pkg"
 			brew install --HEAD "$pkg"
 		else
 			action "require" " brew upgrade --fetch-HEAD $pkg"
@@ -34,7 +34,7 @@ function require_brew_cask() {
 	for pkg in "$@"; do
 		running "require" " brew cask $pkg"
 		if ! brew list --cask --versions "$pkg" &>/dev/null; then
-			action "require" "勒brew install --cask $pkg"
+			action "require" " brew install --cask $pkg"
 			brew install --cask "$pkg"
 		fi
 	done
@@ -52,7 +52,7 @@ function require_apt() {
 	done
 
 	if [ ${#to_install_pkg[@]} -ne 0 ]; then
-		action "require" "勒apt install ${to_install_pkg[*]}"
+		action "require" " apt install ${to_install_pkg[*]}"
 		sudo apt -qy install "${to_install_pkg[@]}"
 	fi
 }
@@ -69,7 +69,7 @@ function require_pacman() {
 	done
 
 	if [ ${#to_install_pkg[@]} -ne 0 ]; then
-		action "require" "勒pacman -Sy ${to_install_pkg[*]}"
+		action "require" " pacman -Sy ${to_install_pkg[*]}"
 		sudo pacman -Sy --noconfirm "${to_install_pkg[@]}"
 	fi
 }
@@ -78,7 +78,7 @@ function require_aur() {
 	for pkg in "$@"; do
 		running "require" " arch users repository $pkg"
 		if (! pacman -Qi "$pkg" &>/dev/null); then
-			action "require" "勒yay -Sy $pkg"
+			action "require" " yay -Sy $pkg"
 			yay -Sy --sudoloop --noconfirm "$pkg"
 		elif [[ "$pkg" =~ .*-git ]]; then
 			action "require" " yay -Sy $pkg to upgrade -git package"
@@ -96,7 +96,7 @@ function require_mason() {
 
 function require_go() {
 	for pkg in "$@"; do
-		action "require" "ﳑ go $pkg"
+		action "require" " go $pkg"
 		go install "$pkg@latest" 2>/dev/null
 	done
 }
