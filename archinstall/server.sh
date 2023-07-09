@@ -19,3 +19,6 @@ cd "$current_dir/.." && ./start.sh pacman
 
 # install yay to have yay for installing from
 cd "$current_dir/.." && ./start.sh yay
+
+# install required packages using pacman and yay
+cd "$current_dir/.." && ./start.sh env

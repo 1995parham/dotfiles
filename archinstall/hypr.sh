@@ -17,9 +17,11 @@ source "$current_dir/../scripts/lib/require.sh"
 # install yay to have yay for installing from
 cd "$current_dir/.." && ./start.sh yay
 
-message "archinstall" "lets use greetd as desktop manager, so wait for rust"
-cd "$current_dir/.." && ./start.sh rust
-require_aur greetd greetd-tuigreet
+# install required packages using pacman and yay
+cd "$current_dir/.." && ./start.sh env
+
+message "archinstall" "lets use greetd as desktop manager"
+require_pacman greetd greetd-tuigreet greetd-agreety
 
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
 sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
