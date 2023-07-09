@@ -33,6 +33,9 @@ _usage() {
 	echo "  -d   as dependency (internal usage)"
 	echo "  -y   yes to all"
 	echo ""
+	echo " $program_name new for creating a new script"
+	echo " $program_name list for see available scripts"
+	echo ""
 }
 
 _main() {
@@ -89,11 +92,13 @@ _main() {
 	local start
 	local took
 
-	if [ -z "$1" ]; then
+	# https://stackoverflow.com/questions/7832080/test-if-a-variable-is-set-in-bash-when-using-set-o-nounset
+	if [ "${1:+defined}" = "defined" ]; then
+		script=$1
+	else
 		_usage
-		exit
+		script="list"
 	fi
-	script=$1
 	shift
 
 	start=$(date +%s)

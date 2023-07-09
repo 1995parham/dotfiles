@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -n "install public keys as authorized keys ⚠️"
+	echo -n "install registered public keys on github <username> as authorized keys ⚠️"
 	echo '
  _
 | | _____ _   _ ___
