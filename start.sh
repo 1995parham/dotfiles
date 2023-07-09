@@ -95,11 +95,11 @@ _main() {
 	# https://stackoverflow.com/questions/7832080/test-if-a-variable-is-set-in-bash-when-using-set-o-nounset
 	if [ "${1:+defined}" = "defined" ]; then
 		script=$1
+		shift
 	else
 		_usage
 		script="list"
 	fi
-	shift
 
 	start=$(date +%s)
 
