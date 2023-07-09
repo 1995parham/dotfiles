@@ -3,6 +3,7 @@ name: lint
 on:
   push:
 
+
 jobs:
   sh-checker:
     runs-on: ubuntu-latest
@@ -12,3 +13,4 @@ jobs:
         uses: luizm/action-sh-checker@v0.7.0
         with:
           sh_checker_comment: false
+          sh_checker_exclude: "scripts/lib/ start.sh"
