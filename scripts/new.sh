@@ -12,6 +12,8 @@ usage() {
   '
 }
 
+dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+
 main_pacman() {
 	return 0
 }
@@ -25,8 +27,6 @@ main_apt() {
 }
 
 main() {
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
-
 	read -r -p "name: " name
 	if [[ "$name" =~ [[:space:]]+ ]]; then
 		msg "$name cotains one or more spaces" "error"
@@ -41,6 +41,14 @@ main() {
 
 	read -r -p 'dscription: ' description
 
+	local dotfiles_root_env
+	if yes_or_no 'do you need dotfiles_root? '; then
+		# shellcheck disable=2016
+		dotfiles_root_env='dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}'
+	else
+		dotfiles_root_env=''
+	fi
+
 	cat >>"$dotfiles_root/scripts/$name.sh" <<EOF
 #!/bin/bash
 usage() {
@@ -51,6 +59,8 @@ usage() {
 $(figlet "$name" | tr "'" "|" | sed -e 's/[[:space:]]*$//')
   '
 }
+
+$dotfiles_root_env
 
 main_pacman() {
   return 1
