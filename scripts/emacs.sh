@@ -107,7 +107,7 @@ main_parham() {
 
 	clone git@github.com:parham-alvani/tasks "$HOME" "tasks"
 
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
-	(mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" || true) && cp "$dotfiles_root/emacs/sessions/main" "$HOME/.config/emacs/.local/etc/workspaces/"
-	(mkdir -p "$HOME/.config/emacs/.local/cache/" || true) && cp "$dotfiles_root/emacs/sessions/projectile.projects" "$HOME/.config/emacs/.local/cache/"
+	root=${root:?"root must be set"}
+	(mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" || true) && cp "$root/emacs/sessions/main" "$HOME/.config/emacs/.local/etc/workspaces/"
+	(mkdir -p "$HOME/.config/emacs/.local/cache/" || true) && cp "$root/emacs/sessions/projectile.projects" "$HOME/.config/emacs/.local/cache/"
 }

@@ -22,7 +22,7 @@ main_apt() {
 }
 
 main_pacman() {
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	root=${root:?"root must be set"}
 
 	msg 'hyprland'
 	require_aur hyprland-git
@@ -62,12 +62,12 @@ main_pacman() {
 	require_pacman pulsemixer easyeffects
 
 	msg 'configure the dmenu, default application luncher on manjaro i3 days'
-	linker dmenu "$dotfiles_root/sway/dmenurc" "$HOME/.dmenurc"
+	linker dmenu "$root/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
 	require_pacman gnome-keyring seahorse
 	dotfile sway profile
 	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$dotfiles_root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	linker gnupg "$root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }

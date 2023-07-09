@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	root=${root:?"root must be set"}
 
 	require_pacman llvm
 
@@ -72,7 +72,7 @@ main_pacman() {
 	require_pacman pulsemixer easyeffects pavucontrol
 
 	msg 'configure the dmenu, default application luncher from manjaro i3 days'
-	linker dmenu "$dotfiles_root/sway/dmenurc" "$HOME/.dmenurc"
+	linker dmenu "$root/sway/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
 	# msg 'allow run gui application with sudo (e.g. gparted)'
@@ -81,7 +81,7 @@ main_pacman() {
 	msg 'gnome-keyring/seahorse setup'
 	require_pacman gnome-keyring seahorse
 	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$dotfiles_root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	linker gnupg "$root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
 	# some GTK themes contain a dark theme variant,
 	# but it is only used by default when the application requests it explicitly.

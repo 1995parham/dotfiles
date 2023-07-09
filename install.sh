@@ -10,18 +10,18 @@ usage() {
 }
 
 # global variable that points to dotfiles root directory
-dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck source=scripts/lib/message.sh
-source "$dotfiles_root/scripts/lib/message.sh"
+source "$root/scripts/lib/message.sh"
 # shellcheck source=scripts/lib/linker.sh
-source "$dotfiles_root/scripts/lib/linker.sh"
+source "$root/scripts/lib/linker.sh"
 # shellcheck source=scripts/lib/header.sh
-source "$dotfiles_root/scripts/lib/header.sh"
+source "$root/scripts/lib/header.sh"
 
 message "pre" "home directory found at $HOME"
 
-message "pre" "dotfiles found at $dotfiles_root"
+message "pre" "dotfiles found at $root"
 
 yes_to_all=0
 while getopts "hy" argv; do
@@ -101,7 +101,7 @@ install-zsh() {
 
 	# provide dotfile home variable
 	if ! grep -q -F "export DOTFILES_ROOT=" "$HOME/.zshrc"; then
-		echo "export DOTFILES_ROOT=\"$dotfiles_root\"" | tee -a "$HOME/.zshrc"
+		echo "export DOTFILES_ROOT=\"$root\"" | tee -a "$HOME/.zshrc"
 	fi
 }
 

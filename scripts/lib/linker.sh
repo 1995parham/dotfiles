@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+root=${root:?"root must be set"}
 yes_to_all=${yes_to_all:-false}
 
 # copy a file into destination. it only works on files and shows
@@ -12,15 +12,15 @@ copycat() {
 	local sudo=${4:-1}
 	local ask=0
 
-	message "$module" "difference between $dotfiles_root/$src and $dest:"
+	message "$module" "difference between $root/$src and $dest:"
 	echo
 	echo
 	if [ "$sudo" == 1 ]; then
-		if ! sudo diff -yNs --suppress-common-lines "$dotfiles_root/$src" "$dest"; then
+		if ! sudo diff -yNs --suppress-common-lines "$root/$src" "$dest"; then
 			ask=1
 		fi
 	else
-		if ! diff -yNs --suppress-common-lines "$dotfiles_root/$src" "$dest"; then
+		if ! diff -yNs --suppress-common-lines "$root/$src" "$dest"; then
 			ask=1
 		fi
 	fi
@@ -34,9 +34,9 @@ copycat() {
 	fi
 
 	if [ "$sudo" == 1 ]; then
-		sudo cp "$dotfiles_root/$src" "$dest"
+		sudo cp "$root/$src" "$dest"
 	else
-		cp "$dotfiles_root/$src" "$dest"
+		cp "$root/$src" "$dest"
 	fi
 }
 
@@ -58,7 +58,7 @@ dotfile() {
 	local src_file="$file"
 
 	local dst_path="$HOME/$dst_file"
-	local src_path="$dotfiles_root/$module/$src_file"
+	local src_path="$root/$module/$src_file"
 
 	linker "$module" "$src_path" "$dst_path"
 }
@@ -79,7 +79,7 @@ configfile() {
 	fi
 
 	if [ -n "$src_file" ]; then
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
+		local src_path="$root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$module/$src_file"
 
 		if [ ! -d "$HOME/.config/$module" ]; then
@@ -87,7 +87,7 @@ configfile() {
 		fi
 	else
 		src_file=$module
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module"
+		local src_path="$root${src_dir:+/$src_dir}/$module"
 		local dst_file="$module"
 	fi
 	local dst_path="$HOME/.config/$dst_file"
@@ -145,7 +145,7 @@ configrootfile() {
 	fi
 
 	if [ -n "$src_file" ]; then
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
+		local src_path="$root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$src_file"
 	fi
 	local dst_path="$HOME/.config/$dst_file"
@@ -169,7 +169,7 @@ configsystemd() {
 	fi
 
 	if [ -n "$src_file" ]; then
-		local src_path="$dotfiles_root${src_dir:+/$src_dir}/$module/$src_file"
+		local src_path="$root${src_dir:+/$src_dir}/$module/$src_file"
 		local dst_file="$src_file"
 	fi
 	local dst_path="$HOME/.config/systemd/user/$dst_file"

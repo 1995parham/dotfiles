@@ -6,15 +6,15 @@ set -o pipefail
 
 # a global variable that points to dotfiles root directory.
 # it used also in scripts/.
-dotfiles_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=scripts/lib/message.sh
-source "$dotfiles_root/scripts/lib/message.sh"
+source "$root/scripts/lib/message.sh"
 # shellcheck source=scripts/lib/proxy.sh
-source "$dotfiles_root/scripts/lib/proxy.sh"
+source "$root/scripts/lib/proxy.sh"
 # shellcheck source=scripts/lib/linker.sh
-source "$dotfiles_root/scripts/lib/linker.sh"
+source "$root/scripts/lib/linker.sh"
 # shellcheck source=scripts/lib/require.sh
-source "$dotfiles_root/scripts/lib/require.sh"
+source "$root/scripts/lib/require.sh"
 
 # start.sh
 program_name=$0
@@ -78,7 +78,7 @@ _main() {
 
 	if [ $as_dependency = false ]; then
 		# shellcheck source=scripts/lib/header.sh
-		source "$dotfiles_root/scripts/lib/header.sh"
+		source "$root/scripts/lib/header.sh"
 	fi
 
 	# handles root user
@@ -104,7 +104,7 @@ _main() {
 	start=$(date +%s)
 
 	# shellcheck disable=1090
-	source "$dotfiles_root/scripts/$script.sh" 2>/dev/null || {
+	source "$root/scripts/$script.sh" 2>/dev/null || {
 		echo "404 script not found"
 		exit
 	}
@@ -152,7 +152,7 @@ _additionals() {
 				options="${options}y"
 			fi
 
-			"$dotfiles_root/start.sh" "$options" "$additional"
+			"$root/start.sh" "$options" "$additional"
 		fi
 	done
 }
@@ -173,7 +173,7 @@ _dependencies() {
 		fi
 
 		for dependency in $dependencies; do
-			"$dotfiles_root/start.sh" "$options" "$dependency"
+			"$root/start.sh" "$options" "$dependency"
 		done
 	fi
 }

@@ -43,8 +43,8 @@ main_pacman() {
 		sudo rm '/etc/NetworkManager/dnsmasq.d/shecan.conf'
 	fi
 
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
-	for f in "$dotfiles_root/dns/domains-$kind".*; do
+	root=${root:?"root must be set"}
+	for f in "$root/dns/domains-$kind".*; do
 		mapfile -t domains <<<"$(cat "$f")"
 		domains_dnsmasq="$(printf '/%s' "${domains[@]}")"
 		echo -e "server=$domains_dnsmasq/${primary_shecan_dns[$kind]}\nserver=$domains_dnsmasq/${secondary_shecan_dns[$kind]}" |
@@ -67,7 +67,7 @@ main_pacman() {
 		sudo touch /etc/docker/daemon.json
 
 		msg 'merge dns configuration for docker with system current configuration'
-		r=$(jq -s '.[0] * (.[1] // {})' "$dotfiles_root/dns/$kind-docker.json" "/etc/docker/daemon.json")
+		r=$(jq -s '.[0] * (.[1] // {})' "$root/dns/$kind-docker.json" "/etc/docker/daemon.json")
 		echo "$r" | sudo tee "/etc/docker/daemon.json"
 	fi
 }

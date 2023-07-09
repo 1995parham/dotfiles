@@ -12,7 +12,7 @@ usage() {
   '
 }
 
-dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+root=${root:?"root must be set"}
 
 main_pacman() {
 	return 0
@@ -28,9 +28,9 @@ main_brew() {
 
 main() {
 	local script
-	for script in $(fd -e .sh -d 1 . "$dotfiles_root/scripts" -x basename | sed -e "s/.sh$//"); do
+	for script in $(fd -e .sh -d 1 . "$root/scripts" -x basename | sed -e "s/.sh$//"); do
 		# shellcheck disable=1090
-		description=$(source "$dotfiles_root/scripts/$script.sh" && usage | head -1)
+		description=$(source "$root/scripts/$script.sh" && usage | head -1)
 		msg "$script: $description"
 	done
 }
