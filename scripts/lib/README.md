@@ -11,7 +11,7 @@ Clone this repository into your dotfiles folder:
 
 ```bash
 mkdir scripts
-git clone https://github.com/1995parham/dotfiles.lib.git scripts/lib
+git subtree add --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
 ```
 
 Then link the `start.sh` into your root's dotfiles:

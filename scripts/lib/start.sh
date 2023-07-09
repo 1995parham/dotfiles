@@ -101,6 +101,19 @@ _main() {
 		script="list"
 	fi
 
+	case $script in
+	"list")
+		script="lib/list"
+		;;
+	"new")
+		script="lib/new"
+		;;
+	"update")
+		git subtree pull --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
+		return 0
+		;;
+	esac
+
 	start=$(date +%s)
 
 	# shellcheck disable=1090
