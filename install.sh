@@ -4,7 +4,7 @@ set -eu
 program_name=$0
 
 usage() {
-	echo "usage: $program_name [-h] [-y]"
+	echo "usage: $program_name [-h]"
 	echo "  -h   display help"
 }
 
