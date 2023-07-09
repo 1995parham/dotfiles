@@ -5,7 +5,6 @@ program_name=$0
 
 usage() {
 	echo "usage: $program_name [-h] [-y]"
-	echo "  -y   yes to all"
 	echo "  -h   display help"
 }
 
@@ -23,12 +22,8 @@ message "pre" "home directory found at $HOME"
 
 message "pre" "dotfiles found at $root"
 
-yes_to_all=0
-while getopts "hy" argv; do
+while getopts "h" argv; do
 	case $argv in
-	y)
-		yes_to_all=1
-		;;
 	*)
 		usage
 		exit
