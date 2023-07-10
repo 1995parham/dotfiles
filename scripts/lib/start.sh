@@ -118,9 +118,20 @@ _main() {
 
 	# shellcheck disable=1090
 	source "$root/scripts/$script.sh" 2>/dev/null || {
-		echo "404 script not found"
-		exit
+		message "pre ""404 script not found" "notice"
+
+		local host
+		host="$(hostname)"
+		host="${host%.*}"
+		source "$root/$host/scripts/$script.sh" 2>/dev/null || {
+			message "pre ""404 script not found for $host" "notice"
+			_usage
+			return 1
+		}
+
+		root="$root/$host"
 	}
+
 	if [ $show_help = true ]; then
 		# prints the start.sh and the script helps
 		_usage
