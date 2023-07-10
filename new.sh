@@ -33,6 +33,13 @@ main() {
 		return 1
 	fi
 
+	local host
+	host="$(hostname)"
+	host="${host%.*}"
+	if yes_or_no "do you want to be $host specific? "; then
+		root="$root/$host"
+	fi
+
 	if [ -f "$root/scripts/$name.sh" ]; then
 		msg "$name already exists" "error"
 		return 1
