@@ -10,7 +10,8 @@ For desktop, I prefer [Sway](https://wiki.archlinux.org/title/Sway), but I have 
 
 - Boot from [ArchLinux ISO](https://archlinux.org/download/)
 
-- Install `git`
+- Install `git` and `archinstall`. You can also uses the latest version of `archinstall`
+  by cloning it.
 
 ```bash
 pacman -Sy archinstall git
