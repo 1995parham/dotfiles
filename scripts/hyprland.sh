@@ -18,9 +18,9 @@ usage() {
 root=${root:?"root must be set"}
 
 main_pacman() {
-	msg 'install and configure hyperland and waybar'
-	require_pacman hyprland
-	require_pacman grim xdg-user-dirs wl-clipboard swayidle
+	msg 'install and configure hyperland, hyprpaper and waybar'
+	require_pacman hyprland hyprpaper
+	require_pacman xdg-desktop-portal-hyprland
 	require_aur waybar-git
 	configfile hypr "" hyprland
 	configfile waybar "" hyprland

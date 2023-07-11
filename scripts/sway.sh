@@ -20,6 +20,7 @@ main_pacman() {
 	msg 'install and configure sway, swaylock and waybar'
 	require_pacman swaylock swayidle swaybg
 	require_aur waybar-git
+	require_pacman xdg-desktop-portal-wlr
 	require_pacman sway
 	configfile sway "" sway
 	configfile swaylock "" sway
