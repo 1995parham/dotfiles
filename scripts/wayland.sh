@@ -37,7 +37,7 @@ main_pacman() {
 
 	msg 'dynamic display configuration'
 	require_pacman kanshi
-	configfile kanshi "" sway
+	configfile kanshi "" wayland
 
 	msg 'better sway with more keys [brightnessctl]'
 	require_pacman brightnessctl
@@ -47,7 +47,7 @@ main_pacman() {
 
 	msg 'gtk3 theme'
 	require_aur matcha-gtk-theme
-	configfile gtk-3.0 settings.ini sway
+	configfile gtk-3.0 settings.ini wayland
 
 	msg 'qt support'
 	require_pacman qt5-wayland qt6-wayland
@@ -60,20 +60,20 @@ main_pacman() {
 
 	msg 'notification with dunst'
 	require_pacman dunst libnotify
-	configfile dunst "" sway
+	configfile dunst "" wayland
 
 	# msg 'backgrounds with swaybg'
 	# require_pacman swaybg
 
 	msg 'a window switcher, application launcher and dmenu replacement (fork with Wayland support)'
 	require_aur rofi-lbonn-wayland-git
-	configfile rofi "" sway
+	configfile rofi "" wayland
 
 	msg 'we are going to have sound with the awesome pipewire/wireplumber'
 	require_pacman pulsemixer easyeffects pavucontrol
 
 	msg 'configure the dmenu, default application luncher from manjaro i3 days'
-	linker dmenu "$root/sway/dmenurc" "$HOME/.dmenurc"
+	linker dmenu "$root/wayland/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
 	# msg 'allow run gui application with sudo (e.g. gparted)'
@@ -82,7 +82,7 @@ main_pacman() {
 	msg 'gnome-keyring/seahorse setup'
 	require_pacman gnome-keyring seahorse
 	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+	linker gnupg "$root/wayland/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
 	# some GTK themes contain a dark theme variant,
 	# but it is only used by default when the application requests it explicitly.
