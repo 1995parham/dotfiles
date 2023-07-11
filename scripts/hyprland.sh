@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export additionals=(wayland)
+
 usage() {
 	echo "Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice on its looks."
 	# shellcheck disable=1004
@@ -14,14 +16,6 @@ usage() {
 }
 
 root=${root:?"root must be set"}
-
-main_brew() {
-	return 1
-}
-
-main_apt() {
-	return 1
-}
 
 main_pacman() {
 	msg 'install and configure hyperland and waybar'
