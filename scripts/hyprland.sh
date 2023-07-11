@@ -13,6 +13,8 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 main_brew() {
 	return 1
 }
@@ -22,8 +24,6 @@ main_apt() {
 }
 
 main_pacman() {
-	root=${root:?"root must be set"}
-
 	msg 'hyprland'
 	require_aur hyprland-git
 	require_pacman grim xdg-user-dirs wl-clipboard swayidle

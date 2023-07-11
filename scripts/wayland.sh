@@ -1,32 +1,35 @@
 #!/bin/bash
-
 usage() {
-	echo "i3-compatible Wayland compositor"
-	# shellcheck disable=1004,2028
+	echo "Wayland is communication protocol that specifies the communication between a display server and its clients."
+
+	# shellcheck disable=1004,2016
 	echo '
- _____      ____ _ _   _
-/ __\ \ /\ / / _| | | | |
-\__ \\ V  V / (_| | |_| |
-|___/ \_/\_/ \____|\___ |
-                   |___/
+                     _                 _
+__      ____ _ _   _| | __ _ _ __   __| |
+\ \ /\ / / _` | | | | |/ _` | |_ \ / _` |
+ \ V  V / (_| | |_| | | (_| | | | | (_| |
+  \_/\_/ \__,_|\__, |_|\__,_|_| |_|\__,_|
+               |___/
   '
 }
 
 root=${root:?"root must be set"}
 
+main_apt() {
+	return 1
+}
+
+main_brew() {
+	return 1
+}
+
 main_pacman() {
 	require_pacman llvm
 
-	msg 'install and configure sway, swaylock and waybar'
-	require_pacman swaylock swayidle grim xdg-user-dirs wl-clipboard noto-fonts swaybg
-	require_aur waybar-git
+	msg 'install required wayland and xdg packages'
+	require_pacman xdg-user-dirs wl-clipboard noto-fonts
 	require_pacman xdg-desktop-portal-wlr xdg-utils
-	require_pacman sway
-	# require_aur wlroots-git sway-git
 	require_pacman xorg-xwayland
-	configfile sway "" sway
-	configfile swaylock "" sway
-	configfile waybar "" sway
 	sudo usermod -aG input "$USER"
 
 	msg 'utilities for handling monitors, resolutions, wallpapers and timed wallpapers'
@@ -35,8 +38,6 @@ main_pacman() {
 	msg 'dynamic display configuration'
 	require_pacman kanshi
 	configfile kanshi "" sway
-
-	msg 'you can install sway-git with wlroots-git in the future'
 
 	msg 'better sway with more keys [brightnessctl]'
 	require_pacman brightnessctl
