@@ -19,8 +19,10 @@ root=${root:?"root must be set"}
 
 main_pacman() {
 	msg 'install and configure hyperland, hyprpaper and swaylock'
-	require_pacman hyprland hyprpaper
+	# https://www.reddit.com/r/hyprland/comments/14mx8rj/screen_lock/
+	require_pacman hyprland hyprpaper swaylock
 	require_pacman xdg-desktop-portal-hyprland
 	configfile hypr "" hyprland
 	configfile waybar "" hyprland
+	configfile swaylock "" hyprland
 }
