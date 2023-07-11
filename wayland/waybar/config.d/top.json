@@ -22,6 +22,7 @@
     "temperature",
     "backlight",
     "sway/language",
+    "hyprland/language",
     "battery",
     "clock",
     "tray"
@@ -70,6 +71,9 @@
     "format": "<span style=\"italic\">{}</span>"
   },
   "sway/language": {
+    "format": "{flag}"
+  },
+  "hyprland/language": {
     "format": "{flag}"
   },
   "mpd": {
