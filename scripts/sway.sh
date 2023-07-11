@@ -17,14 +17,12 @@ usage() {
 root=${root:?"root must be set"}
 
 main_pacman() {
-	msg 'install and configure sway, swaylock and waybar'
+	msg 'install and configure sway and swaylock'
 	require_pacman swaylock swayidle swaybg
-	require_aur waybar-git
 	require_pacman xdg-desktop-portal-wlr
 	require_pacman sway
 	configfile sway "" sway
 	configfile swaylock "" sway
-	configfile waybar "" sway
 	sudo usermod -aG input "$USER"
 
 	msg 'you can install sway-git with wlroots-git in the future'

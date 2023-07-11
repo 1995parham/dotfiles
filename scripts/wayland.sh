@@ -26,6 +26,10 @@ main_brew() {
 main_pacman() {
 	require_pacman llvm
 
+	msg 'setup waybar'
+	require_aur waybar-git
+	configfile waybar "" wayland
+
 	msg 'install required wayland and xdg packages'
 	require_pacman grim xdg-user-dirs wl-clipboard noto-fonts
 	require_pacman xdg-utils

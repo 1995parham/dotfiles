@@ -1,9 +1,0 @@
-// vim: ft=jsonc
-[
-  {
-    "include": "$HOME/.config/waybar/config.d/top.json"
-  },
-  {
-    "include": "$HOME/.config/waybar/config.d/bottom.json"
-  }
-]
