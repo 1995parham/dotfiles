@@ -17,13 +17,10 @@ usage() {
 root=${root:?"root must be set"}
 
 main_pacman() {
-	require_pacman llvm
-
 	msg 'install and configure sway, swaylock and waybar'
-	require_pacman swaylock swayidle grim xdg-user-dirs wl-clipboard noto-fonts swaybg
+	require_pacman swaylock swayidle swaybg
 	require_aur waybar-git
 	require_pacman sway
-	require_pacman xorg-xwayland
 	configfile sway "" sway
 	configfile swaylock "" sway
 	configfile waybar "" sway

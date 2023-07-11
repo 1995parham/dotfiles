@@ -27,7 +27,7 @@ main_pacman() {
 	require_pacman llvm
 
 	msg 'install required wayland and xdg packages'
-	require_pacman xdg-user-dirs wl-clipboard noto-fonts
+	require_pacman grim xdg-user-dirs wl-clipboard noto-fonts
 	require_pacman xdg-desktop-portal-wlr xdg-utils
 	require_pacman xorg-xwayland
 	sudo usermod -aG input "$USER"

@@ -24,50 +24,10 @@ main_apt() {
 }
 
 main_pacman() {
-	msg 'hyprland'
-	require_aur hyprland-git
+	msg 'install and configure hyperland and waybar'
+	require_pacman hyprland
 	require_pacman grim xdg-user-dirs wl-clipboard swayidle
-	require_aur waybar-hyprland-git
+	require_aur waybar-git
 	configfile hypr "" hyprland
 	configfile waybar "" hyprland
-
-	msg 'better hyprland with more keys [brightnessctl]'
-	require_pacman brightnessctl
-
-	msg 'required freedesktop services'
-	require_pacman upower rtkit
-
-	msg 'gtk theme'
-	require_aur matcha-gtk-theme
-	configfile gtk-3.0 settings.ini sway
-
-	msg 'qt support'
-	require_pacman qt5-wayland
-
-	msg 'x11/wayland image viewer'
-	require_pacman imv
-
-	msg 'pdf viewer'
-	require_pacman mupdf
-
-	msg 'notification with dunst'
-	require_pacman dunst libnotify
-	configfile dunst "" sway
-
-	msg 'a window switcher, application launcher and dmenu replacement (fork with Wayland support)'
-	require_aur rofi-lbonn-wayland-git
-	configfile rofi "" sway
-
-	msg 'we are going to have sound'
-	require_pacman pulsemixer easyeffects
-
-	msg 'configure the dmenu, default application luncher on manjaro i3 days'
-	linker dmenu "$root/sway/dmenurc" "$HOME/.dmenurc"
-	chmod +x "$HOME/.dmenurc"
-
-	msg 'gnome-keyring/seahorse setup with ~/.profile'
-	require_pacman gnome-keyring seahorse
-	dotfile sway profile
-	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$root/sway/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 }
