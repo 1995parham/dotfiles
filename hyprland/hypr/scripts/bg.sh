@@ -10,14 +10,22 @@ _end() {
 main() {
 	trap '_end' INT TERM
 	shift
+	local pic=""
+	local old_pic=""
 
 	while true; do
 		for output in $(hyprctl monitors -j | jq '.[].name ' -r); do
-			old_pic="$pic"
+			echo "setting wallpaper on $output"
+			if [ -n "$pic" ]; then
+				old_pic="$pic"
+			fi
 			pic="$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf --random-source=/dev/random -n1)"
+			echo "$pic is selected as the new wallpaper"
 			hyprctl hyprpaper preload "$pic"
 			hyprctl hyprpaper wallpaper "$output,$pic"
-			hyprctl hyprpaper uload "$old_pic"
+			if [ -n "$old_pic" ]; then
+				hyprctl hyprpaper unload "$old_pic"
+			fi
 			sleep 5
 		done
 	done
