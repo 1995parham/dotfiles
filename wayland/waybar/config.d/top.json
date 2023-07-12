@@ -21,6 +21,7 @@
     "memory",
     "temperature",
     "backlight",
+    "sway/language",
     "hyprland/language",
     "battery",
     "clock",
