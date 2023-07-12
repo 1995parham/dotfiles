@@ -4,6 +4,7 @@
   "height": 33,
   "modules-left": [
     "wlr/workspaces",
+    "sway/workspaces",
     "hyprland/submap"
   ],
   "modules-center": [
