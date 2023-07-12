@@ -17,6 +17,11 @@ For desktop, I prefer [Sway](https://wiki.archlinux.org/title/Sway), but I have 
 pacman -Sy archinstall git
 ```
 
+```bash
+pacman -Sy git
+git clone https://github.com/archlinux/archinstall
+```
+
 - Clone dotfiles repository:
 
 ```bash
@@ -39,6 +44,11 @@ datetimectl set-ntp true
 - Ignite the installation. It first shows an interactive menu in which you can set up the disk layout, disk
   encryption, user(s) and hostname ([read
   more](https://archinstall.readthedocs.io/installing/guided.html#guided-installation)).
+
+```bash
+cd archinstall/archinstall && python __main__.py --config desktop.json # Desktop installation
+cd archinstall/archinstall && python __main__.py --config server.json # Server installation
+```
 
 ```bash
 archinstall --config desktop.json # Desktop installation
