@@ -22,7 +22,7 @@ main() {
 			pic="$(find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf --random-source=/dev/random -n1)"
 			echo "$pic is selected as the new wallpaper"
 			hyprctl hyprpaper preload "$pic"
-			hyprctl hyprpaper wallpaper "$output,$pic"
+			hyprctl hyprpaper wallpaper "$output,contain:$pic"
 			if [ -n "$old_pic" ]; then
 				hyprctl hyprpaper unload "$old_pic"
 			fi
