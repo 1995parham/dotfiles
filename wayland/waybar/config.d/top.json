@@ -4,7 +4,7 @@
   "height": 33,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/mode"
+    "hyprland/submap"
   ],
   "modules-center": [
     "hyprland/window"
@@ -36,6 +36,24 @@
     "format-icons": {
       "locked": " ",
       "unlocked": " "
+    }
+  },
+  "hyprland/workspaces": {
+    "format": "{id} {icon}",
+    "format-icons": {
+      "1:main-1": "",
+      "2:main-2": "",
+      "3:emacs": "",
+      "4:www": "",
+      "5:vm": "󰢔",
+      "6:apps-1": "󰀻",
+      "7:apps-2": "󰀻",
+      "8:social": "",
+      "9:chrome": "",
+      "focus": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
     }
   },
   "sway/workspaces": {
