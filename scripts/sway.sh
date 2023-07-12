@@ -26,4 +26,8 @@ main_pacman() {
 	sudo usermod -aG input "$USER"
 
 	msg 'you can install sway-git with wlroots-git in the future'
+
+	msg 'dynamic display configuration'
+	require_pacman kanshi
+	configfile kanshi "" sway
 }

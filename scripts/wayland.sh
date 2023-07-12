@@ -39,10 +39,6 @@ main_pacman() {
 	msg 'utilities for handling monitors, resolutions, wallpapers and timed wallpapers'
 	require_pacman wallutils
 
-	msg 'dynamic display configuration'
-	require_pacman kanshi
-	configfile kanshi "" wayland
-
 	msg 'better sway with more keys [brightnessctl]'
 	require_pacman brightnessctl
 
