@@ -3,11 +3,11 @@
   "ipc": true,
   "height": 33,
   "modules-left": [
-    "sway/workspaces",
-    "sway/mode"
+    "hyprland/workspaces",
+    "hyprland/mode"
   ],
   "modules-center": [
-    "sway/window"
+    "hyprland/window"
   ],
   "modules-right": [
     "keyboard-state",
@@ -21,7 +21,7 @@
     "memory",
     "temperature",
     "backlight",
-    "sway/language",
+    "hyprland/language",
     "battery",
     "clock",
     "tray"
