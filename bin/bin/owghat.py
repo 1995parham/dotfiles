@@ -72,9 +72,11 @@ class PrayTimes:
         "Tehran": PrayTimeMethod(
             name="Institute of Geophysics, University of Tehran",
             params={
-                "fajr": 17.7,
+                # use 18 instead of 17.7 to make it compatible with time.ir.
+                "fajr": 18,
                 "isha": 14,
-                "maghrib": 4.5,
+                # use 4.3 instead of 4.5 to make it compatible with time.ir.
+                "maghrib": 4.3,
                 "midnight": "Jafari",
             },
         ),  # isha is not explicitly specified in this method
@@ -460,7 +462,10 @@ class PrayTimes:
 if __name__ == "__main__":
     pray_times = PrayTimes("Tehran")
 
-    print("Prayer Times for today in Iran/Tehran\n" + ("=" * 41))
+    print(
+        f"Prayer Times for today ({datetime.date.today()}) in Iran/Tehran\n"
+        + ("=" * 41)
+    )
     times = pray_times.get_times(
         datetime.date.today(),
         (35.69439, 51.42151, 0),
