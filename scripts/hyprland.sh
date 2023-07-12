@@ -23,6 +23,5 @@ main_pacman() {
 	require_pacman hyprland hyprpaper swaylock
 	require_pacman xdg-desktop-portal-hyprland
 	configfile hypr "" hyprland
-	configfile waybar "" hyprland
 	configfile swaylock "" hyprland
 }
