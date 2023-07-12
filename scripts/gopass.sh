@@ -47,5 +47,5 @@ gopass-upstall() {
 main_parham() {
 	msg "hello parham, clone your password repository"
 
-	gopass clone git@github.com:parham-alvani/passwords
+	gopass clone --check-keys=false git@github.com:parham-alvani/passwords
 }
