@@ -48,6 +48,7 @@ pacman_packages=(
 	lsof
 	vhs
 	just
+	bat-extras
 )
 yay_packages=(jcal actionlint-bin cbonsai k6)
 
