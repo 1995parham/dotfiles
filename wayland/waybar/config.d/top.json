@@ -5,10 +5,12 @@
   "modules-left": [
     "wlr/workspaces",
     "sway/workspaces",
-    "hyprland/submap"
+    "hyprland/submap",
+    "sway/mode"
   ],
   "modules-center": [
-    "hyprland/window"
+    "hyprland/window",
+    "sway/window"
   ],
   "modules-right": [
     "keyboard-state",
@@ -23,7 +25,6 @@
     "temperature",
     "backlight",
     "sway/language",
-    "hyprland/language",
     "battery",
     "clock",
     "tray"
