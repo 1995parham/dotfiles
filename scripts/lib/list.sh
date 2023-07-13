@@ -44,6 +44,10 @@ main() {
 	host="$(hostname)"
 	host="${host%.*}"
 
+	if [ ! -d "$root/$host/scripts" ]; then
+		return 0
+	fi
+
 	local script
 	for script in $(fd -e .sh -d 1 . "$root/$host/scripts" -x basename | sed -e "s/.sh$//" | sort); do
 		# shellcheck disable=1090
