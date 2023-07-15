@@ -18,9 +18,25 @@ root=${root:?"root must be set"}
 
 main_pacman() {
 	msg 'install and configure sway and swaylock'
-	require_pacman swaylock swayidle swaybg
+	if yes_or_no 'do you want to use stable release?'; then
+		pkgs=(swaylock-git wlroots-git swayidle-git swaybg-git)
+		for pkg in "${pkgs[@]}"; do
+			sudo pacman -Rsu "$pkg" || true
+		done
+
+		require_pacman sway wlroots swaylock swayidle swaybg
+	else
+		pkgs=(swaylock wlroots swayidle swaybg)
+		for pkg in "${pkgs[@]}"; do
+			sudo pacman -Rsu "$pkg" || true
+		done
+
+		require_aur sway-git wlroots-git swaylock-git swayidle-git swaybg-git
+		copycat "sway" archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
+		copycat "sway" archinstall/sway.d/sway.sh /usr/local/bin/sway.sh
+	fi
 	require_pacman xdg-desktop-portal-wlr
-	require_pacman sway
+
 	configfile sway "" sway
 	configfile swaylock "" sway
 	sudo usermod -aG input "$USER"
