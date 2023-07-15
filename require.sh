@@ -1,5 +1,21 @@
 #!/bin/bash
 
+function require_country() {
+	country=$1
+	current_country="$(curl -s ipconfig.io/country)"
+	if [ "$current_country" != "$country" ]; then
+		message "country" "󰈻 please be in $country instead of $current_country" "error"
+		return 1
+	fi
+
+	return 0
+}
+
+function require_host() {
+	host=$1
+	ping -q -c 1 "$host" || (message "host" "󰈂 please make sure you have access to $host" 'error' && return 1)
+}
+
 function require_brew() {
 	declare -a to_install_pkg
 	to_install_pkg=()
