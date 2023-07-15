@@ -28,7 +28,7 @@ _end() {
 
 _usage() {
 	echo ""
-	echo "usage: $program_name [-y] [-h] [-f] script [script options]"
+	echo "usage: $program_name [-y] [-h] script [script options]"
 	echo "  -h   display help"
 	echo "  -d   as dependency (internal usage)"
 	echo "  -y   yes to all"
@@ -55,7 +55,7 @@ _main() {
 	######################
 
 	# parses options flags
-	while getopts 'fdhy' argv; do
+	while getopts 'dhy' argv; do
 		case $argv in
 		h)
 			show_help=true
@@ -161,14 +161,18 @@ _run() {
 
 		# handle dependencies by executing the start.sh
 		# for each of them separately
-		dependencies=${dependencies:-""}
+		if ! [[ "$(declare -p dependencies 2>/dev/null)" =~ "declare -a" ]]; then
+			declare -a dependencies=()
+		fi
 		_dependencies "${dependencies[@]}"
 
 		run "$@"
 
 		# handle additional packages by executing the start.sh
 		# for each of them separately
-		additionals=${additionals:-""}
+		if ! [[ "$(declare -p additionals 2>/dev/null)" =~ "declare -a" ]]; then
+			declare -a additionals=()
+		fi
 		_additionals "${additionals[@]}"
 	fi
 
@@ -178,34 +182,42 @@ _run() {
 }
 
 _additionals() {
-	additionals=$*
+	declare -a additionals
+	additionals=("$@")
 
-	if [ -z "$additionals" ]; then
+	if [ "${#additionals[@]}" -eq 0 ]; then
 		return
 	fi
 
-	msg "additionals: $additionals"
+	output=$(echo -n "additionals: |")
+	output="$output"$(printf "%s|" "${additionals[@]}")
+	msg "$output"
 
-	for additional in $additionals; do
-		if yes_or_no "$script" "do you want to install $additional as an additional package?"; then
+	for additional in "${additionals[@]}"; do
+		read -ra additional <<<"$additional"
+
+		if yes_or_no "$script" "do you want to install ${additional[0]} as an additional package?"; then
 			local options="-d"
 			if [ $yes_to_all = 1 ]; then
 				options="${options}y"
 			fi
 
-			"$root/start.sh" "$options" "$additional"
+			"$root/start.sh" "$options" "${additional[@]}"
 		fi
 	done
 }
 
 _dependencies() {
-	dependencies=$*
+	declare -a dependencies
+	dependencies=("$@")
 
-	if [ -z "$dependencies" ]; then
+	if [ "${#dependencies[@]}" -eq 0 ]; then
 		return
 	fi
 
-	msg "dependencies: $dependencies"
+	output=$(echo -n "dependencies: |")
+	output="$output"$(printf "%s|" "${dependencies[@]}")
+	msg "$output"
 
 	if yes_or_no "$script" "do you want to install dependencies?"; then
 		local options="-d"
@@ -213,8 +225,9 @@ _dependencies() {
 			options="${options}y"
 		fi
 
-		for dependency in $dependencies; do
-			"$root/start.sh" "$options" "$dependency"
+		for dependency in "${dependencies[@]}"; do
+			read -ra dependency <<<"$dependency"
+			"$root/start.sh" "$options" "${dependency[@]}"
 		done
 	fi
 }
