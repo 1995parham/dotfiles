@@ -1,0 +1,123 @@
+[[colors.indexed_colors]]
+color = "0xd18616"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xf97583"
+index = 17
+
+[colors.bright]
+black = "0x959da5"
+blue = "0x79b8ff"
+cyan = "0x56d4dd"
+green = "0x85e89d"
+magenta = "0xb392f0"
+red = "0xf97583"
+white = "0xfafbfc"
+yellow = "0xffea7f"
+
+[colors.normal]
+black = "0x586069"
+blue = "0x2188ff"
+cyan = "0x39c5cf"
+green = "0x34d058"
+magenta = "0xb392f0"
+red = "0xea4a5a"
+white = "0xd1d5da"
+yellow = "0xffea7f"
+
+[colors.primary]
+background = "0x24292e"
+foreground = "0xd1d5da"
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Beam"
+
+[font]
+builtin_box_drawing = true
+size = 8
+
+[font.bold]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "SemiBold"
+
+[font.italic]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "ExtraLight Italic"
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font Propo"
+style = "ExtraLight"
+
+[font.offset]
+x = 0
+y = 1
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Command"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+opacity = 0.95
