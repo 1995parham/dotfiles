@@ -119,7 +119,7 @@ _main() {
 		message "pre ""404 script not found" "notice"
 
 		local host
-		host="$(hostname)"
+		host="$HOSTNAME"
 		host="${host%.*}"
 		source "$root/$host/scripts/$script.sh" 2>/dev/null || {
 			message "pre ""404 script not found for $host" "notice"
@@ -134,7 +134,7 @@ _main() {
 	_run "$@"
 
 	local host
-	host="$(hostname)"
+	host="$HOSTNAME"
 	host="${host%.*}"
 	# shellcheck disable=1090
 	source "$root/$host/scripts/$script.sh" 2>/dev/null || {
