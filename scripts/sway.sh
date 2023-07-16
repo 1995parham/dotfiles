@@ -19,14 +19,14 @@ root=${root:?"root must be set"}
 main_pacman() {
 	msg 'install and configure sway and swaylock'
 	if yes_or_no 'do you want to use stable release?'; then
-		pkgs=(swaylock-git wlroots-git swayidle-git swaybg-git)
+		pkgs=(sway-git swaylock-git wlroots-git swayidle-git swaybg-git)
 		for pkg in "${pkgs[@]}"; do
 			sudo pacman -Rsu "$pkg" || true
 		done
 
 		require_pacman sway wlroots swaylock swayidle swaybg
 	else
-		pkgs=(swaylock wlroots swayidle swaybg)
+		pkgs=(sway swaylock wlroots swayidle swaybg)
 		for pkg in "${pkgs[@]}"; do
 			sudo pacman -Rsu "$pkg" || true
 		done
