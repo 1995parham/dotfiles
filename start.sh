@@ -164,7 +164,7 @@ _run() {
 		if ! [[ "$(declare -p dependencies 2>/dev/null)" =~ "declare -a" ]]; then
 			declare -a dependencies=()
 		fi
-		_dependencies "${dependencies[@]:-''}"
+		_dependencies "${dependencies[@]}"
 
 		run "$@"
 
@@ -173,7 +173,7 @@ _run() {
 		if ! [[ "$(declare -p additionals 2>/dev/null)" =~ "declare -a" ]]; then
 			declare -a additionals=()
 		fi
-		_additionals "${additionals[@]:-''}"
+		_additionals "${additionals[@]}"
 	fi
 
 	echo
