@@ -19,8 +19,16 @@ main_brew() {
 
 main_pacman() {
 	if yes_or_no 'do you want to use stable release?'; then
+		pkgs=(alacritty-git)
+		for pkg in "${pkgs[@]}"; do
+			sudo pacman -Rsu "$pkg" || true
+		done
 		require_pacman alacritty
 	else
+		pkgs=(alacritty)
+		for pkg in "${pkgs[@]}"; do
+			sudo pacman -Rsu "$pkg" || true
+		done
 		require_aur alacritty-git
 	fi
 }
