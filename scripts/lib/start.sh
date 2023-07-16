@@ -161,19 +161,17 @@ _run() {
 
 		# handle dependencies by executing the start.sh
 		# for each of them separately
-		if ! [[ "$(declare -p dependencies 2>/dev/null)" =~ "declare -a" ]]; then
-			declare -a dependencies=()
+		if [[ "$(declare -p dependencies 2>/dev/null)" =~ "declare -a" ]]; then
+			_dependencies "${dependencies[@]}"
 		fi
-		_dependencies "${dependencies[@]}"
 
 		run "$@"
 
 		# handle additional packages by executing the start.sh
 		# for each of them separately
-		if ! [[ "$(declare -p additionals 2>/dev/null)" =~ "declare -a" ]]; then
-			declare -a additionals=()
+		if [[ "$(declare -p additionals 2>/dev/null)" =~ "declare -a" ]]; then
+			_additionals "${additionals[@]}"
 		fi
-		_additionals "${additionals[@]}"
 	fi
 
 	echo
