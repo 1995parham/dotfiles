@@ -21,14 +21,14 @@ function not_require_pacman() {
 	to_remove_pkg=()
 
 	for pkg in "$@"; do
-		running "require" " pacman $pkg"
+		running "not require" " pacman $pkg"
 		if [ "$(pacman -Qq "$pkg" 2>/dev/null)" = "$pkg" ]; then
 			to_remove_pkg+=("$pkg")
 		fi
 	done
 
 	if [ ${#to_remove_pkg[@]} -ne 0 ]; then
-		action "require" " pacman uninstall ${to_remove_pkg[*]}"
+		action "not require" " pacman uninstall ${to_remove_pkg[*]}"
 		sudo pacman -Rsu "${to_remove_pkg[@]}"
 	fi
 }
