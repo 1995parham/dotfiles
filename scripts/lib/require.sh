@@ -16,6 +16,23 @@ function require_host() {
 	ping -q -c 1 "$host" || (message "host" "󰈂 please make sure you have access to $host" 'error' && return 1)
 }
 
+function not_require_pacman() {
+	declare -a to_remove_pkg
+	to_remove_pkg=()
+
+	for pkg in "$@"; do
+		running "require" " pacman $pkg"
+		if [ "$(pacman -Qq "$pkg" 2>/dev/null)" = "$pkg" ]; then
+			to_remove_pkg+=("$pkg")
+		fi
+	done
+
+	if [ ${#to_remove_pkg[@]} -ne 0 ]; then
+		action "require" " pacman uninstall ${to_remove_pkg[*]}"
+		sudo pacman -Rsu "${to_remove_pkg[@]}"
+	fi
+}
+
 function require_brew() {
 	declare -a to_install_pkg
 	to_install_pkg=()
