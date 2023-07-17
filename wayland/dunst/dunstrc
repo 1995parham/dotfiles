@@ -179,7 +179,7 @@
 [telegram]
       appname = "Telegram Desktop"
       timeout = 0
-      default_icon = "/usr/share/icons/hicolor/32x32/apps/telegram.png"
+      new_icon = "/usr/share/icons/hicolor/32x32/apps/telegram.png"
 
 [volume]
       highlight = "#ffa500"
