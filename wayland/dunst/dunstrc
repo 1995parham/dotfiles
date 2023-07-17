@@ -179,5 +179,12 @@
 [telegram]
       appname = "Telegram Desktop"
       timeout = 0
+      default_icon = "/usr/share/icons/hicolor/32x32/apps/telegram.png"
+
+[volume]
+      highlight = "#ffa500"
+      stack_tag = "audio"
+      default_icon = "/usr/share/icons/Adwaita/32x32/devices/audio-speakers-symbolic.symbolic.png"
+      timeout = 5
 
 # vim: ft=cfg
