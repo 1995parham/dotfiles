@@ -115,13 +115,13 @@ _main() {
 	esac
 
 	# shellcheck disable=1090
-	if ! source "$root/scripts/$script.sh" 2>/dev/null; then
+	if ! [ -f "$root/scripts/$script.sh" ] || ! source "$root/scripts/$script.sh" 2>/dev/null; then
 		message "pre ""404 script not found" "notice"
 
 		local host
 		host="$HOSTNAME"
 		host="${host%.*}"
-		if ! source "$root/$host/scripts/$script.sh" 2>/dev/null; then
+		if ! [ -f "$root/$host/scripts/$script.sh" ] || ! source "$root/$host/scripts/$script.sh" 2>/dev/null; then
 			message "pre ""404 script not found for $host" "notice"
 			_usage
 			return 1
@@ -137,7 +137,7 @@ _main() {
 	host="$HOSTNAME"
 	host="${host%.*}"
 	# shellcheck disable=1090
-	if ! source "$root/$host/scripts/$script.sh" 2>/dev/null; then
+	if ! [ -f "$root/$host/scripts/$script.sh" ] || ! source "$root/$host/scripts/$script.sh" 2>/dev/null; then
 		return 0
 	fi
 
