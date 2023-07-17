@@ -48,6 +48,7 @@ main_pacman() {
 	if yes_or_no 'browser' 'do you want to install chrome?'; then
 		msg 'chrome, the worst browser ever but sometime we need that shit'
 		require_aur google-chrome-beta
+		copycat "browser" "chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf"
 
 		if [[ "$(command -v gopass-jsonapi)" ]]; then
 			gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
