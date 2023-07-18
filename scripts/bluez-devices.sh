@@ -29,6 +29,7 @@ main_brew() {
 main_parham() {
 	devices=(
 		"wh-1000xm5: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE."
+		"redmi-buds-3-pro: 35dB Smart noise cancellation | Dual-device connectivity | Wireless charging | 28h long battery life, The sound you want"
 	)
 
 	local device
@@ -49,6 +50,11 @@ main_parham() {
 		bluetoothctl connect 'AC:80:0A:0D:A3:AB'
 		bluetoothctl trust 'AC:80:0A:0D:A3:AB'
 		bluetoothctl info 'AC:80:0A:0D:A3:AB'
+		;;
+	"redmi-buds-3-pro")
+		bluetoothctl connect '6C:D3:EE:28:D8:A5'
+		bluetoothctl trust '6C:D3:EE:28:D8:A5'
+		bluetoothctl info '6C:D3:EE:28:D8:A5'
 		;;
 	esac
 }
