@@ -29,8 +29,14 @@ windows:
           - git pull origin main
           - emacs -nw --eval '(org-agenda nil "n")'
       - start_directory: ~/.local/share/dijo
+        shell_command:
+          - git pull origin main
       - start_directory: ~/org
+        shell_command:
+          - git pull origin main
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
+        shell_command:
+          - git pull origin main
 
   - window_name: life-2
     layout: tiled
