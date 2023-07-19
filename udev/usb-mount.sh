@@ -79,7 +79,7 @@ _mount() {
 
 	# send desktop notification to user, if notify-send exists
 	if hash "notify-send" 2>/dev/null; then
-		sudo -u "$me" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "device ${label} mounted"
+		sudo -u "$me" DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send -a 'devices' "device ${label} mounted" "${label}:${device} in ${mount_point}"
 	fi
 }
 
