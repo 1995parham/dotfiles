@@ -7,10 +7,20 @@ windows:
       - start_directory: ~/dotfiles
         focus: true
         shell_command:
+          - git pull origin main
           - neofetch
       - start_directory: ~/.config/nvim/
+        shell_command:
+          - git pull origin main
+          - figlet 'I ♥  neovim'
       - start_directory: ~/Documents/Git/parham/keys
+        shell_command:
+          - git pull origin main
+          - figlet 'keep your love life private'
       - start_directory: ~/.local/share/navi/cheats/1995parham__cheats
+        shell_command:
+          - git pull origin main
+          - figlet 'i cannot remember anything'
 
   - window_name: personal
     layout: tiled
