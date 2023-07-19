@@ -81,10 +81,10 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 focus_follows_mouse no
 
 # music buttons of keyboard
-bindsym XF86AudioPlay exec notify-send "$(mpc toggle | head -2)"
-bindsym XF86AudioPause exec notify-send "$(mpc toggle | head -2)"
-bindsym XF86AudioNext exec notify-send  "$(mpc next | head -2)"
-bindsym XF86AudioPrev exec notify-send "$(mpc prev | head -2)"
+bindsym XF86AudioPlay exec notify-send -i '/usr/share/icons/Adwaita/32x32/actions/media-playback-start-symbolic.symbolic.png' "$(mpc toggle | head -2)"
+bindsym XF86AudioPause exec notify-send -i '/usr/share/icons/Adwaita/32x32/actions/media-playback-pause-symbolic.symbolic.png' "$(mpc toggle | head -2)"
+bindsym XF86AudioNext exec notify-send -i '/usr/share/icons/Adwaita/32x32/actions/media-skip-forward-symbolic.symbolic.png' "$(mpc next | head -2)"
+bindsym XF86AudioPrev exec notify-send -i '/usr/share/icons/Adwaita/32x32/actions/media-skip-backward-symbolic.symbolic.png' "$(mpc prev | head -2)"
 
 # disable touchpad button of keyboard
 bindsym XF86TouchpadToggle exec "swaymsg input type:touchpad events toggle enabled disabled"
