@@ -55,7 +55,6 @@ main_pacman() {
 	fi
 
 	copycat "dns" dns/1995parham.conf /etc/NetworkManager/dnsmasq.d/1995parham.conf
-	copycat "dns" dns/etc.conf /etc/NetworkManager/dnsmasq.d/etc.conf
 
 	dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
 	sudo nmcli general reload
