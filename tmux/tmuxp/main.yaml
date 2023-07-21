@@ -7,19 +7,19 @@ windows:
       - start_directory: ~/dotfiles
         focus: true
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
           - neofetch
       - start_directory: ~/.config/nvim/
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
           - figlet 'i love neovim'
       - start_directory: ~/Documents/Git/parham/keys
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
           - figlet 'keep your love life private'
       - start_directory: ~/.local/share/navi/cheats/1995parham__cheats
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
           - figlet 'i cannot remember anything'
 
   - window_name: personal
@@ -36,17 +36,17 @@ windows:
     panes:
       - start_directory: ~/tasks
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
           - emacs -nw --eval '(org-agenda nil "n")'
       - start_directory: ~/.local/share/dijo
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
       - start_directory: ~/org
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
         shell_command:
-          - git pull origin main
+          - git pull origin main &> /dev/null
 
   - window_name: life-2
     layout: tiled
@@ -60,6 +60,7 @@ windows:
     layout: even-vertical
     panes:
       - shell_command:
+          - git pull origin main &> /dev/null
           - chafa --clear ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg
         start_directory: ~/Documents/Git/parham/parham-alvani/raha
       - start_directory: ~/Documents/Git/parham/parham-alvani/dishes
