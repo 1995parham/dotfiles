@@ -237,11 +237,9 @@ run() {
 		main "$@"
 	fi
 
-	if declare -f main_parham >/dev/null; then
-		if [[ "$USER" == "parham" ]]; then
-			msg ' hello master'
-			main_parham "$@"
-		fi
+	if declare -f "main_$USER" >/dev/null; then
+		msg " hello master $USER"
+		"main_$USER" "$@"
 	fi
 }
 
