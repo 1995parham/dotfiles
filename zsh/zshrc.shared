@@ -189,3 +189,15 @@ if [[ "$(command -v pyenv)" ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 fi
+
+# git
+
+# you cannot provide alias for git default command but I need to disable commit sub-coomand.
+git(){
+  if [[ "$1" == "commit" ]]; then
+    echo "commit is not good for me"
+    return 1
+  fi
+  =git "$@"
+}
+
