@@ -23,12 +23,12 @@ main_pacman() {
 	require_pacman kubectl helm argocd kubectx stern
 
 	require_aur kubeval-bin okd-client-bin kube-score-bin
-
-	# msg "Command-Line tool to manage Litmuschaos's agent plane"
-	# yay -Syu --noconfirm --needed litmusctl
 }
 
 main() {
+	msg 'install helm-ls on neovim'
+	require_mason 'helm-ls'
+
 	msg "awesome chart repositories for helm"
 	helm repo add bitnami https://charts.bitnami.com/bitnami || true
 	helm repo add nats https://nats-io.github.io/k8s/helm/charts || true

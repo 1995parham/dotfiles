@@ -19,5 +19,6 @@ main_pacman() {
 }
 
 main() {
+	msg 'install terraform-ls on neovim'
 	require_mason 'terraform-ls'
 }
