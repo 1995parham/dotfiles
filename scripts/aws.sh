@@ -19,7 +19,5 @@ main_pacman() {
 }
 
 main() {
-
 	require_mason 'terraform-ls'
-	return 0
 }
