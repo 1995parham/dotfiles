@@ -95,11 +95,12 @@ cd -
 
 tmux kill-window -t "$current_session:=$name" &>/dev/null || true
 tmux new-window -t "$current_session" -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
 # show project information on the last pane. this doesn't work with pipenv shell
 # so we don't have information on pythonic projects.
 # commands+=("git project")
 tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux select-layout -t "$current_session:$name" tiled
+tmux split-window -h -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+# I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
+# tmux select-layout -t "$current_session:$name" tiled
+tmux send-keys -t "$current_session:$name.0" C-z 'nvim' Enter
 tmux select-pane -t 0
