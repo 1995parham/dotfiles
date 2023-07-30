@@ -29,9 +29,6 @@ packages=(
 	# linters
 	lacheck chktex
 
-	# formatter
-	latexindent
-
 	# make with latexmk
 	latexmk
 
