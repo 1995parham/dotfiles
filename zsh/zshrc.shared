@@ -198,6 +198,10 @@ fi
 # we can use nvr.
 if [ ! -z "$NVIM" ]; then
   alias nvim=nvr
+
+  excl_plugins=(vi-mode)
+
+  plugins=${plugins:|excl_plugins}
 fi
 
 # git
