@@ -19,14 +19,15 @@ fi
 # shellcheck disable=2016
 printf '%s' '
 #!/bin/sh
-ORIG_MSG_FILE="$1"                # Grab the current template
-TEMP=$(mktemp /tmp/git-msg-XXXXX) # Create a temp file
-trap "rm -f $TEMP" exit           # Remove temp file on exit
 
-MSG=$(git log -5 --pretty=%s) # Grab the first line of the last commit message
+ORIG_MSG_FILE="$1"
+TEMP=$(mktemp /tmp/git-msg-XXXXX)
+trap "rm -f $TEMP" exit
 
 (
-  printf "\n\n# Last Commit: %s \n\n" "$MSG"
+  printf "# ---------- \n"
+  git log -5 --pretty=%s | xargs -I{} printf "# %s\n" {}
+  printf "# ---------- \n"
   cat "$ORIG_MSG_FILE"
 ) >"$TEMP"                    # print all to temp file
 cat "$TEMP" >"$ORIG_MSG_FILE" # Move temp file to commit message
