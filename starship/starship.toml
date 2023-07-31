@@ -67,6 +67,8 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "fd:#06969A"
 format = '[ $symbol $context ]($style) $path'
+only_with_files = false
+disabled = false
 
 [git_branch]
 symbol = ""
