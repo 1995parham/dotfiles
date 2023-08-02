@@ -1,12 +1,4 @@
 #!/bin/bash
-# In The Name Of God
-# ========================================
-# [] File Name : platformio.sh
-#
-# [] Creation Date : 13-12-2016
-#
-# [] Created By : Parham Alvani (parham.alvani@gmail.com)
-# =======================================
 
 usage() {
 	echo -n -e "platformio, professional collaborative platform for embedded development"
@@ -22,16 +14,10 @@ usage() {
   '
 }
 
-main_apt() {
-	msg "there is nothing that we can do"
-	return 1
-}
-
 main_pacman() {
 	yay -Syu --needed --noconfirm platformio
 }
 
-main_brew() {
-	msg "there is nothing that we can do"
-	return 1
+main() {
+	return 0
 }
