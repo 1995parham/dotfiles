@@ -26,6 +26,7 @@ try:
         "khal list now 7days --format "
         '"{start-end-time-style} {title} ({categories})"',
         shell=True,
+        env={"TZ": "Asia/Tehran"},
     ).decode("utf-8")
 except FileNotFoundError:
     exit(1)
