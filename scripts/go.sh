@@ -62,6 +62,7 @@ go-install-packages() {
 	require_go github.com/abice/go-enum
 	require_go github.com/swaggo/swag/cmd/swag
 	require_go github.com/99designs/gqlgen
+	require_go golang.org/x/tools/cmd/gonew
 
 	msg "golangci-lint $(golangci-lint version)"
 }
