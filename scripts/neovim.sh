@@ -21,8 +21,14 @@ main_apt() {
 }
 
 main_pacman() {
-	# require_aur neovim-git
-	require_pacman neovim libvterm python-pynvim luarocks
+	if yes_or_no 'do you want to use stable release?'; then
+		not_require_pacman neovim-git
+		require_pacman neovim
+	else
+		not_require_pacman neovim
+		require_aur neovim-git
+	fi
+	require_pacman libvterm python-pynvim luarocks
 	require_pip neovim-remote
 }
 
