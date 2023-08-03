@@ -104,3 +104,4 @@ tmux split-window -h -t "$current_session:$name" -c "$project" "$(printf "%s;" "
 # tmux select-layout -t "$current_session:$name" tiled
 tmux send-keys -t "$current_session:$name.0" 'nvim' Enter
 tmux select-pane -t 0
+tmux resize-pane -Z -t 0
