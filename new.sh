@@ -40,6 +40,8 @@ main() {
 		root="$root/$host"
 	fi
 
+	mkdir -p "$root/scripts" || true
+
 	if [ -f "$root/scripts/$name.sh" ]; then
 		msg "$name already exists" "error"
 		return 1
