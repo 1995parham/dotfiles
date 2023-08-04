@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo 'synthing is awesome'
+	echo 'Open Source Continuous File Synchronization'
 	echo '
                       _   _     _
  ___ _   _ _ __   ___| |_| |__ (_)_ __   __ _
@@ -15,8 +15,8 @@ usage() {
 main_pacman() {
 	require_pacman syncthing
 
-	sudo systemctl enable syncthing@parham
-	sudo systemctl start syncthing@parham
+	sudo systemctl enable "syncthing@$USER"
+	sudo systemctl start "syncthing@$USER"
 }
 
 main_brew() {
@@ -24,11 +24,6 @@ main_brew() {
 	brew services start syncthing
 }
 
-main_apt() {
-	return 1
-}
-
 main() {
-	msg "systems can connect to each other, in parham architecture all of them connect to one main server"
-	msg "disable [Enable Relaying] [Global Discovery] [Enable NAT traversal] in [Connections] tab to reduce overhead."
+	return 0
 }
