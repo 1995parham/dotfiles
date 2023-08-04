@@ -180,6 +180,9 @@ _run() {
 }
 
 _additionals() {
+	local start_home
+	start_home="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 	declare -a additionals
 	additionals=("$@")
 
@@ -200,12 +203,15 @@ _additionals() {
 				options="${options}y"
 			fi
 
-			"$0" "$options" "${additional[@]}"
+			"$start_home/start.sh" "$options" "${additional[@]}"
 		fi
 	done
 }
 
 _dependencies() {
+	local start_home
+	start_home="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 	declare -a dependencies
 	dependencies=("$@")
 
@@ -225,7 +231,7 @@ _dependencies() {
 
 		for dependency in "${dependencies[@]}"; do
 			read -ra dependency <<<"$dependency"
-			"$0" "$options" "${dependency[@]}"
+			"$start_home/start.sh" "$options" "${dependency[@]}"
 		done
 	fi
 }
