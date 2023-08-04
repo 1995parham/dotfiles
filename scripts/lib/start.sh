@@ -200,7 +200,7 @@ _additionals() {
 				options="${options}y"
 			fi
 
-			"$root/start.sh" "$options" "${additional[@]}"
+			"$0" "$options" "${additional[@]}"
 		fi
 	done
 }
@@ -225,7 +225,7 @@ _dependencies() {
 
 		for dependency in "${dependencies[@]}"; do
 			read -ra dependency <<<"$dependency"
-			"$root/start.sh" "$options" "${dependency[@]}"
+			"$0" "$options" "${dependency[@]}"
 		done
 	fi
 }
