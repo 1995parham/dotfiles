@@ -114,8 +114,10 @@ function require_aur() {
 			action "require" " yay -Sy $pkg"
 			yay -Sy --sudoloop --noconfirm "$pkg"
 		elif [[ "$pkg" =~ .*-git ]]; then
-			action "require" " yay -Sy $pkg to upgrade -git package"
-			yay -Sy --sudoloop --noconfirm "$pkg" || true
+			if sudo -l; then
+				action "require" " yay -Sy $pkg to upgrade -git package"
+				yay -Sy --sudoloop --noconfirm "$pkg" || true
+			fi
 		fi
 	done
 }

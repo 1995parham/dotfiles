@@ -58,6 +58,8 @@ main() {
 		root_env=''
 	fi
 
+	read -r -p 'user: ' -i "$USER" user
+
 	cat >>"$root/scripts/$name.sh" <<EOF
 #!/bin/bash
 usage() {
@@ -87,7 +89,7 @@ main() {
   return 0
 }
 
-main_parham() {
+main_$user() {
   return 0
 }
 EOF
