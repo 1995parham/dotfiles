@@ -7,6 +7,7 @@ set -o pipefail
 # a global variable that points to dotfiles root directory.
 # it used also in scripts/.
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+main_root="$root"
 # shellcheck source=message.sh
 source "$root/scripts/lib/message.sh"
 # shellcheck source=proxy.sh
@@ -180,9 +181,6 @@ _run() {
 }
 
 _additionals() {
-	local start_home
-	start_home="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 	declare -a additionals
 	additionals=("$@")
 
@@ -203,15 +201,12 @@ _additionals() {
 				options="${options}y"
 			fi
 
-			"$start_home/start.sh" "$options" "${additional[@]}"
+			"$main_root/start.sh" "$options" "${additional[@]}"
 		fi
 	done
 }
 
 _dependencies() {
-	local start_home
-	start_home="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 	declare -a dependencies
 	dependencies=("$@")
 
@@ -231,7 +226,7 @@ _dependencies() {
 
 		for dependency in "${dependencies[@]}"; do
 			read -ra dependency <<<"$dependency"
-			"$start_home/start.sh" "$options" "${dependency[@]}"
+			"$main_root/start.sh" "$options" "${dependency[@]}"
 		done
 	fi
 }
