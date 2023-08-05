@@ -20,9 +20,10 @@ function group() {
 }
 
 from_github() {
-	repo=$1
+	label=$1
+	repo=$2
 
-	path="$HOME/Documents/Git/others/${repo%/*}"
+	path="$HOME/Documents/Git/others/$label/${repo%/*}"
 
 	clone "git@github.com:$repo" "$path"
 }
@@ -30,13 +31,14 @@ from_github() {
 group_learning() {
 	group "learn new things from github"
 
-	from_github "rlabbe/Kalman-and-Bayesian-Filters-in-Python"
+	from_github "learning" "rlabbe/Kalman-and-Bayesian-Filters-in-Python"
+	from_github "learning" 'teivah/100-go-mistakes'
 }
 
 group_nice_to_have() {
-	group "learn new things from github"
+	group "good to have these projects from github"
 
-	from_github "nats-io/k8s"
+	from_github "helm" "nats-io/k8s"
 }
 
 main_pacman() {
