@@ -33,6 +33,12 @@ group_learning() {
 	from_github "rlabbe/Kalman-and-Bayesian-Filters-in-Python"
 }
 
+group_nice_to_have() {
+	group "learn new things from github"
+
+	from_github "nats-io/k8s"
+}
+
 main_pacman() {
 	return 0
 }
@@ -43,4 +49,5 @@ main_brew() {
 
 main() {
 	group_learning
+	group_nice_to_have
 }
