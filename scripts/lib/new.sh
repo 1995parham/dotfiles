@@ -58,7 +58,7 @@ main() {
 		root_env=''
 	fi
 
-	read -r -p 'user: ' -i "$USER" user
+	read -r -p 'user: ' -i "$USER" -e user
 
 	cat >>"$root/scripts/$name.sh" <<EOF
 #!/bin/bash
