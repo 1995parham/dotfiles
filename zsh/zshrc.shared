@@ -200,6 +200,10 @@ if [ ! -z "$NVIM" ]; then
   alias nvim=nvr
   export EDITOR="nvr -cc split +'set bufhidden=delete' --remote-wait"
 
+  man(){
+    =nvr -c "Man $*"
+  }
+
   excl_plugins=(vi-mode)
 
   plugins=${plugins:|excl_plugins}
