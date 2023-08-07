@@ -24,7 +24,7 @@ $git_branch\
 $git_status\
 $git_state\
 $docker_context
-└ $character$jobs${env_var.http_proxy}
+└ ${custom.neovim}$character$jobs${env_var.http_proxy}
 """
 
 right_format = """
@@ -147,6 +147,13 @@ when = true
 style = 'fg:#ff0080'
 symbol = '  '
 description = 'kernel version'
+
+[custom.neovim]
+command = ''
+when = 'test -n "$NVIM"'
+style = 'fg:#32cd32'
+symbol = '  '
+description = 'are we in neovim?'
 
 [env_var.http_proxy]
 variable = "http_proxy"
