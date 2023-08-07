@@ -179,12 +179,6 @@ bindkey "^[OB" history-beginning-search-forward-end
 # edit command in vim
 bindkey -M vicmd v edit-command-line
 
-# man pages with batman
-
-if [[ "$(command -v batman)" ]]; then
-  alias man=batman
-fi
-
 # pyenv
 
 if [[ "$(command -v pyenv)" ]]; then
@@ -200,14 +194,27 @@ if [ ! -z "$NVIM" ]; then
   alias nvim=nvr
   export EDITOR="nvr -cc split +'set bufhidden=delete' --remote-wait"
 
-  man(){
-    =nvr -c "Man $*"
-  }
-
   excl_plugins=(vi-mode)
 
   plugins=${plugins:|excl_plugins}
 fi
+
+# use man page with different pagers in different environments
+man(){
+  if [ -n "$NVIM" ]; then
+    =nvr -c "Man $*"
+
+    return 0
+  fi
+
+  # man pages with batman
+  if [[ "$(command -v batman)" ]]; then
+    =batman "$@"
+    return 0
+  fi
+
+  man "$@"
+}
 
 # git
 
