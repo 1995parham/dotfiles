@@ -32,3 +32,18 @@ Then you can start creating your setup scripts using:
 ```bash
 ./start.sh new
 ```
+
+```text
+├── start.sh -> scripts/lib/start.sh
+├── 📂 scripts
+│   ├── 📂 lib              dotfiles.lib
+│   │   ├── start.sh
+│   │   ├── require.sh
+│   │   ├── message.sh
+│   │   └── ...
+│   │
+│   ├── neovim.sh           user defined scripts for configuring and setup applications
+│   ├── git.sh
+│   │
+│
+```
