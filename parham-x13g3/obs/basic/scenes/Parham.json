@@ -61,8 +61,8 @@
     "monitoring_type": 0,
     "private_settings": {}
   },
-  "current_scene": "normal",
-  "current_program_scene": "normal",
+  "current_scene": "teaching",
+  "current_program_scene": "teaching",
   "scene_order": [
     {
       "name": "normal"
@@ -80,7 +80,7 @@
       "id": "pipewire-desktop-capture-source",
       "versioned_id": "pipewire-desktop-capture-source",
       "settings": {
-        "RestoreToken": "3eaf42b9-dcba-4c92-bcb3-ef7e0e8c3104"
+        "RestoreToken": "34d302ac-236f-40b4-9e54-8db344092c80"
       },
       "mixers": 0,
       "sync": 0,
@@ -203,8 +203,8 @@
             "bounds_type": 2,
             "bounds_align": 0,
             "bounds": {
-              "x": 2560,
-              "y": 1600
+              "x": 1920,
+              "y": 1080
             },
             "crop_left": 0,
             "crop_top": 0,
@@ -351,11 +351,11 @@
               "y": 1
             },
             "align": 5,
-            "bounds_type": 0,
+            "bounds_type": 2,
             "bounds_align": 0,
             "bounds": {
-              "x": 0,
-              "y": 0
+              "x": 1920,
+              "y": 1080
             },
             "crop_left": 0,
             "crop_top": 0,
@@ -382,18 +382,18 @@
             "rot": 0,
             "pos": {
               "x": 0,
-              "y": 0
+              "y": 927
             },
             "scale": {
               "x": 1,
               "y": 1
             },
             "align": 5,
-            "bounds_type": 0,
+            "bounds_type": 2,
             "bounds_align": 0,
             "bounds": {
-              "x": 0,
-              "y": 0
+              "x": 258,
+              "y": 153
             },
             "crop_left": 0,
             "crop_top": 0,
