@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export dependencies=("node" "go" "rust")
+export dependencies=("node" "go" "rust" "python")
 export additionals=("shell" "java")
 
 usage() {
