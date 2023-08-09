@@ -30,7 +30,8 @@ main() {
 	require_mason 'helm-ls'
 
 	msg "awesome chart repositories for helm"
-	helm repo add bitnami https://charts.bitnami.com/bitnami || true
+	# Bitnami has migrated into OCI registry, which can be used directly.
+	# helm repo add bitnami https://charts.bitnami.com/bitnami || true
 	helm repo add nats https://nats-io.github.io/k8s/helm/charts || true
 	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart || true
 	helm repo add benthos https://benthosdev.github.io/benthos-helm-chart || true
