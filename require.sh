@@ -147,6 +147,15 @@ function require_pip() {
 	done
 }
 
+function require_npm() {
+	for pkg in "$@"; do
+		action "require" "󰎙 node $pkg"
+		if ! (node -g list "$pkg" &>/dev/null); then
+			sudo npm install -g "$pkg"
+		fi
+	done
+}
+
 function clone() {
 	repo=${1:?"clone requires repository"}
 	path=${2:-"."}
