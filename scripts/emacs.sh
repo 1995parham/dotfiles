@@ -12,6 +12,8 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 main_brew() {
 	# https://github.com/doomemacs/doomemacs/blob/develop/docs/getting_started.org#with-homebrew
 	brew install git ripgrep
@@ -98,6 +100,8 @@ main() {
 	"$HOME/.config/emacs/bin/doom" sync
 	"$HOME/.config/emacs/bin/doom" upgrade
 	proxy_stop
+
+	require_npm "marked" "prettier"
 }
 
 main_parham() {
@@ -107,7 +111,6 @@ main_parham() {
 
 	clone git@github.com:parham-alvani/tasks "$HOME" "tasks"
 
-	root=${root:?"root must be set"}
 	(mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" || true) && cp "$root/emacs/sessions/main" "$HOME/.config/emacs/.local/etc/workspaces/"
 	(mkdir -p "$HOME/.config/emacs/.local/cache/" || true) && cp "$root/emacs/sessions/projectile.projects" "$HOME/.config/emacs/.local/cache/"
 }
