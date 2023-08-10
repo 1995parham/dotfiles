@@ -37,12 +37,8 @@ main_pacman() {
 	copycat "browser" "firefox/autoconfig.js" "/usr/lib/firefox/defaults/pref/autoconfig.js"
 	copycat "browser" "firefox/firefox.cfg" "/usr/lib/firefox/firefox.cfg"
 
-	if yes_or_no 'browser' 'do you want to install vivaldi?'; then
+	if yes_or_no 'browser' 'do you want to install vivaldi (parham use it over SM-P610)?'; then
 		require_pacman vivaldi vivaldi-ffmpeg-codecs
-	fi
-
-	if yes_or_no 'browser' 'do you want to install edge?'; then
-		require_aur microsoft-edge-dev-bin
 	fi
 
 	if yes_or_no 'browser' 'do you want to install chrome?'; then
