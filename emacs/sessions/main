@@ -1,7 +1,6 @@
 ;; -*- mode: emacs-lisp; eval: (progn (pp-buffer) (indent-buffer)) -*-
 ((def-persp "tasks"
-            ((def-buffer "README.org" "/home/parham/tasks/README.org" org-mode)
-             (def-buffer "plan.org" nil org-mode))
+            ((def-buffer "README.org" "/home/parham/tasks/README.org" org-mode))
             (def-wconf
              (((min-height . 4) (min-width . 10) (min-height-ignore . 4)
                (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2)
@@ -9,16 +8,14 @@
                (min-pixel-height-ignore . 56) (min-pixel-width-ignore . 30)
                (min-pixel-height-safe . 14) (min-pixel-width-safe . 12))
               leaf (pixel-width . 2560) (pixel-height . 1520)
-              (total-width . 426) (total-height . 109) (normal-height . 1.0)
+              (total-width . 426) (total-height . 108) (normal-height . 1.0)
               (normal-width . 1.0)
               (parameters
                (better-jumper-struct .
                                      #s(better-jumper-jump-list-struct
-                                        (0 2 .
-                                           [("/home/parham/tasks/readme.org"
-                                             6304 "50btiz")
-                                            ("/home/parham/tasks/README.org"
-                                             1374 "9vsgi1")
+                                        (0 1 .
+                                           [("/home/parham/tasks/README.org"
+                                             2313 "rpsjas")
                                             nil nil nil nil nil nil nil nil nil
                                             nil nil nil nil nil nil nil nil nil
                                             nil nil nil nil nil nil nil nil nil
@@ -29,12 +26,52 @@
                                             nil nil nil nil nil nil nil nil nil
                                             nil nil nil nil nil nil nil nil nil
                                             nil nil nil nil nil nil nil nil nil
-                                            nil nil nil nil nil nil nil nil])
+                                            nil nil nil nil nil nil nil nil nil])
                                         -1)))
               (buffer "README.org" (selected . t) (hscroll . 0)
                       (fringes 8 8 t nil) (margins nil)
                       (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
                       (dedicated) (point . 2313) (start . 1))
-              (prev-buffers ("plan.org" 1 1) ("*doom*" 1 348))))
+              (prev-buffers ("*doom*" 1 1567) ("README.org" 1 2313))))
             (def-params ((last-project-root . "/home/parham/tasks/"))) nil nil
-            nil))
+            nil)
+ (def-persp "english101"
+            ((def-buffer "words.org"
+                         "/home/parham/Documents/Git/parham/1995parham-learning/english101/words.org"
+                         org-mode))
+            (def-wconf
+             (((min-height . 4) (min-width . 10) (min-height-ignore . 4)
+               (min-width-ignore . 5) (min-height-safe . 1) (min-width-safe . 2)
+               (min-pixel-height . 56) (min-pixel-width . 60)
+               (min-pixel-height-ignore . 56) (min-pixel-width-ignore . 30)
+               (min-pixel-height-safe . 14) (min-pixel-width-safe . 12))
+              leaf (pixel-width . 2560) (pixel-height . 1520)
+              (total-width . 426) (total-height . 108) (normal-height . 1.0)
+              (normal-width . 1.0)
+              (parameters
+               (better-jumper-struct .
+                                     #s(better-jumper-jump-list-struct
+                                        (0 1 .
+                                           [("/home/parham/Documents/Git/parham/1995parham-learning/english101/words.org"
+                                             1 "lgij46")
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil
+                                            nil nil nil nil nil nil nil nil nil])
+                                        -1)))
+              (buffer "words.org" (selected . t) (hscroll . 0)
+                      (fringes 8 8 t nil) (margins nil)
+                      (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0)
+                      (dedicated) (point . 24) (start . 1))
+              (prev-buffers ("*doom*" 1 1567) ("README.org" 1 2313))))
+            (def-params
+             ((last-project-root .
+                                 "/home/parham/Documents/Git/parham/1995parham-learning/english101/")))
+            nil nil nil))
