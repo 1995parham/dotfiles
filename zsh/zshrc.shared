@@ -213,7 +213,7 @@ man(){
     return 0
   fi
 
-  man "$@"
+  =man "$@"
 }
 
 # git
