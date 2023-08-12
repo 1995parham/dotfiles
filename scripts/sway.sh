@@ -21,16 +21,14 @@ main_pacman() {
 	if yes_or_no 'do you want to use stable release?'; then
 		not_require_pacman sway-git swaylock-git wlroots-git swayidle-git swaybg-git
 		require_pacman sway wlroots swaylock swayidle swaybg
-
-		copycat "sway" archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
-		copycat "sway" archinstall/sway.d/sway.sh /usr/local/bin/sway.sh
 	else
 		not_require_pacman sway swaylock wlroots swayidle swaybg
 		require_aur sway-git wlroots-git swaylock-git swayidle-git swaybg-git
-
-		copycat "sway" archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
-		copycat "sway" archinstall/sway.d/sway.sh /usr/local/bin/sway.sh
 	fi
+
+	copycat "sway" archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
+	copycat "sway" archinstall/sway.d/sway.sh /usr/local/bin/sway.sh
+
 	require_pacman xdg-desktop-portal-wlr
 
 	configfile sway "" sway
