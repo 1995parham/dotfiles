@@ -181,7 +181,8 @@ function clone() {
 	else
 		cd "$path/$dir" || return
 
-		origin_url=$(git remote get-url origin 2>/dev/null)
+		# origin_url=$(git remote get-url origin 2>/dev/null)
+		origin_url=$(git config --get remote.origin.url)
 
 		if [[ "$repo" == "${origin_url%.git}" ]]; then
 			action git "$repo_name ${F_GRAY}${F_RESET}"
