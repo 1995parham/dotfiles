@@ -36,7 +36,5 @@ main_brew() {
 }
 
 main() {
-	proxy_start &&
-		require_mason 'jdtls' &&
-		proxy_stop
+	return 0
 }
