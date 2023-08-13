@@ -91,6 +91,20 @@ if [ -f Pipfile ]; then
 	fi
 fi
 
+if [ -f requirements.txt ]; then
+	if [ ! -d '.venv' ]; then
+		if [[ "$(command -v pyvenv)" ]]; then
+			pyenv run python -mvenv .venv
+		else
+			python -mvenv .venv
+		fi
+	fi
+
+	if [ -d '.venv' ]; then
+		commands+=('source .venv/bin/activate')
+	fi
+fi
+
 cd -
 
 tmux kill-window -t "$current_session:=$name" &>/dev/null || true
