@@ -25,7 +25,7 @@ org_name="$(basename "$(dirname "$project")")"
 sub_project=""
 if [[ " ${mono_repositories[*]} " == *"$org_name/$project_name"* ]]; then
 	sub_project=$(
-		fd -tdirectory . "$project" -d 1 -x basename | cat - <(echo ".") |
+		fd -tdirectory . "$project" -I -d 1 -x basename | cat - <(echo ".") |
 			fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
 				--preview="onefetch $project/{}; tokei $project/{}"
 	)
