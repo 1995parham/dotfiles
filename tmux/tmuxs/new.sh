@@ -84,7 +84,7 @@ if [ -f Pipfile ]; then
 
 	if [ -n "$pipenv" ]; then
 		message 'tmux' "setup project base on pipenv ($pipenv)" 'warn' && sleep 5
-		bash -c "$pipenv install --verbose --dev"
+		bash -c "$pipenv install --verbose --dev" || msg 'tmux' 'pipenv requirement installation failed' 'error'
 
 		# shellcheck disable=2016
 		commands+=('pipenv shell --fancy' "${commands[@]}")
@@ -102,6 +102,9 @@ if [ -f requirements.txt ]; then
 
 	if [ -d '.venv' ]; then
 		commands+=('source .venv/bin/activate')
+
+		# shellcheck disable=1091
+		source '.venv/bin/activate' && pip install -r requirements.txt && deactivate
 	fi
 fi
 
