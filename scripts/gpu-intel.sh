@@ -13,6 +13,8 @@ usage() {
   '
 }
 
+export dependencies=('gpu')
+
 main_pacman() {
 	require_pacman intel-media-driver
 }
@@ -26,5 +28,6 @@ main_brew() {
 }
 
 main() {
-	return 0
+	vainfo
+	vdpauinfo
 }

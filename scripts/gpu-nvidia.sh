@@ -22,3 +22,8 @@ main_pacman() {
 
 	msg 'please set the nvidia-drm.modeset=1 as kernel parameter in /boot/loader/entries/*.conf' 'notice'
 }
+
+main() {
+	vainfo
+	vdpauinfo
+}
