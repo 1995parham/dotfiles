@@ -16,7 +16,7 @@ usage() {
 main_pacman() {
 	require_pacman linux-headers linux-zen-headers
 	require_pacman nvidia-open-dkms libva-vdpau-driver
-	require_pacman nvidia-prime nvtop
+	require_pacman nvidia-prime
 
 	msg 'please set the nvidia-drm.modeset=1 as kernel parameter in /boot/loader/entries/*.conf' 'notice'
 }

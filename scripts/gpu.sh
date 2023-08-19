@@ -14,7 +14,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman libva-utils vdpauinfo
+	require_pacman libva-utils vdpauinfo nvtop
 }
 
 main_apt() {
