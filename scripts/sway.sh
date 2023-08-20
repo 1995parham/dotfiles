@@ -40,4 +40,10 @@ main_pacman() {
 	msg 'dynamic display configuration'
 	require_pacman kanshi
 	configfile kanshi "" sway
+
+	msg 'setup user-systemd services'
+	configsystemd services kanshi.service sway
+	configsystemd services swaybg.service sway
+	configsystemd services swaybg.timer sway
+	configsystemd services workspaces.service sway
 }
