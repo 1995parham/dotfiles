@@ -1,0 +1,8 @@
+# vim: ft=systemd
+[Unit]
+Description=kanshi (dynamic display configuration) daemon
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/kanshi
+Restart=on-failure
