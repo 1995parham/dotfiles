@@ -3,12 +3,12 @@ profile snapp {
   output "ChangHong Electric Co.,Ltd GDM-245LN 0000000000001" enable
   output eDP-1 enable
 
-  exec swaymsg workspace 1:main-1, move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
-  exec swaymsg workspace 2:main-2, move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
-  exec swaymsg workspace 3:emacs, move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
-  exec swaymsg workspace 4:www, move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
-  exec swaymsg workspace 8:social, move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
-  exec swaymsg workspace 10:focus, move workspace to eDP-1
+  exec swaymsg 'workspace --no-auto-back-and-forth $ws1', move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
+  exec swaymsg 'workspace --no-auto-back-and-forth $ws2', move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
+  exec swaymsg 'workspace --no-auto-back-and-forth $ws3', move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
+  exec swaymsg 'workspace --no-auto-back-and-forth $ws4', move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
+  exec swaymsg 'workspace --no-auto-back-and-forth $ws8', move workspace to output '"ChangHong Electric Co.,Ltd GDM-245LN 0000000000001"'
+  exec swaymsg 'workspace --no-auto-back-and-forth $wsf', move workspace to eDP-1
 }
 
 profile presentation {
