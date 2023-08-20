@@ -27,7 +27,7 @@ main_pacman() {
 	require_pacman llvm
 
 	msg 'setup waybar'
-	require_aur waybar-git
+	require_pacman waybar
 	configfile waybar "" wayland
 
 	msg 'install required wayland and xdg packages'
