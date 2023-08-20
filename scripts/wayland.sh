@@ -92,9 +92,3 @@ main_pacman() {
 	# https://wiki.archlinux.org/title/GNOME/Files
 	require_pacman ffmpegthumbnailer gst-libav gst-plugins-ugly nautilus
 }
-
-main_parham() {
-	msg 'the wallpapers that we love'
-
-	clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "GoSiMac"
-}

@@ -43,7 +43,5 @@ main_pacman() {
 
 	msg 'setup user-systemd services'
 	configsystemd services kanshi.service sway
-	configsystemd services swaybg.service sway
-	configsystemd services swaybg.timer sway
 	configsystemd services workspaces.service sway
 }
