@@ -1,0 +1,7 @@
+# vim: ft=systemd
+[Unit]
+Description=Set background using swaybg
+
+[Service]
+Type=exec
+ExecStart=/bin/bash -c 'swaybg -i "$(find "%h/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg | shuf --random-source=/dev/random -n1)" -m fill'
