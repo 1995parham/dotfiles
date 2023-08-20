@@ -1,0 +1,12 @@
+# vim: ft=systemd
+[Unit]
+Description="Daily workspace setup"
+Before="kanshi.service"
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws1; exec alacritty'
+ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws4; exec firefox'
+ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws3; exec emacs; exec obsidian'
+ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws1'
