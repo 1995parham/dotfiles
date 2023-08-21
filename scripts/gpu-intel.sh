@@ -17,6 +17,8 @@ export dependencies=('gpu')
 
 main_pacman() {
 	require_pacman intel-media-driver
+
+	msg 'please set the "i915.enable_psr=0" as kernel parameter in /boot/loader/entries/*.conf' 'notice'
 }
 
 main_apt() {
