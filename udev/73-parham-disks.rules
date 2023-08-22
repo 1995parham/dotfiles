@@ -22,3 +22,6 @@ KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_MODEL}=="Patriot_Memory",  EN
 # PARHAM-SHARED (2)
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_MODEL}=="Patriot_Memory",  ENV{ID_USB_VENDOR_ID}=="13fe", ENV{ID_USB_MODEL_ID}=="5500", ENV{ID_USB_SERIAL_SHORT}=="07017B6B30EAA806", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_MODEL}=="Patriot_Memory",  ENV{ID_USB_VENDOR_ID}=="13fe", ENV{ID_USB_MODEL_ID}=="5500", ENV{ID_USB_SERIAL_SHORT}=="07017B6B30EAA806", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
+# PARHAM-NO2
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ATTRS{manufacturer}=="ADATA",  ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a51a", ATTRS{serial}=="47623015602E", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="ADATA",  ENV{ID_USB_VENDOR_ID}=="125f", ENV{ID_USB_MODEL_ID}=="a51a", ENV{ID_USB_SERIAL_SHORT}=="47623015602E", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
