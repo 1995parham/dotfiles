@@ -93,8 +93,9 @@ fi
 
 if [ -f requirements.txt ]; then
 	if [ ! -d '.venv' ]; then
-		if [[ "$(command -v pyvenv)" ]]; then
-			pyenv run python -mvenv .venv
+		if [[ "$(command -v pyenv)" ]]; then
+			pyenv install
+			pyenv exec python -mvenv .venv
 		else
 			python -mvenv .venv
 		fi
