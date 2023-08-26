@@ -16,6 +16,10 @@ main_pacman() {
 	require_pacman starship
 }
 
+main_brew() {
+	require_brew starship
+}
+
 main() {
 	configrootfile starship starship.toml ""
 }
