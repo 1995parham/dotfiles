@@ -29,7 +29,7 @@ main_apt() {
 }
 
 main_brew() {
-	return 0
+	require_brew python@3.11 pipx
 }
 
 main_pacman() {
