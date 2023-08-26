@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -eu
+set -o pipefail
+
 echo "structure your tv-series, at least trying to"
 echo "please note that only .mp4/.mkv are supported"
 
