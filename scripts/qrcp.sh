@@ -22,7 +22,7 @@ main_apt() {
 }
 
 main_brew() {
-	return 1
+	require_brew qrcp
 }
 
 main() {
