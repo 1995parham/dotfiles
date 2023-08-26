@@ -35,7 +35,7 @@ main_pacman() {
 main_brew() {
 	require_brew luarocks
 	require_brew_head neovim
-	python3 -mpip install pynvim
+	require_pip neovim-remote
 }
 
 main() {
