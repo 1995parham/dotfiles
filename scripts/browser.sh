@@ -16,8 +16,12 @@ usage() {
 
 main_brew() {
 	require_brew_cask firefox
+	require_brew_cask google-chrome-beta
 
-	gopass-jsonapi configure --browser firefox
+	if [[ "$(command -v gopass-jsonapi)" ]]; then
+		gopass-jsonapi configure --browser firefox
+		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
+	fi
 }
 
 main_pacman() {
