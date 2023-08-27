@@ -33,6 +33,9 @@ brew_packages=(
 	fd
 	glab
 	gh
+	just
+	bat-extras
+	wakatime-cli
 )
 apt_packages=(bmon atop)
 pacman_packages=(
