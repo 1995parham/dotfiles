@@ -121,5 +121,5 @@ tmux split-window -h -t "$current_session:$name" -c "$project" "$(printf "%s;" "
 # I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
 # tmux select-layout -t "$current_session:$name" tiled
 tmux send-keys -t "$current_session:$name.0" 'nvim' Enter
-tmux select-pane -t 0
-tmux resize-pane -Z -t 0
+tmux select-pane -t "$current_session:$name.0"
+tmux resize-pane -Z -t "$current_session:$name.0"
