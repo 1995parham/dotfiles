@@ -81,8 +81,6 @@ main_pacman() {
 
 	msg 'gnome-keyring/seahorse setup'
 	require_pacman gnome-keyring seahorse
-	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$root/wayland/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
 	# some GTK themes contain a dark theme variant,
 	# but it is only used by default when the application requests it explicitly.

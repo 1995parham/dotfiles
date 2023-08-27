@@ -12,17 +12,19 @@ usage() {
   '
 }
 
+export dependencies=("gpg")
+
 main_apt() {
-	sudo apt-get install gnupg2 git rng-tools
 	gopass-upstall
 }
 
 main_brew() {
-	brew install gopass gopass-jsonapi gnupg
+	require_brew gopass gopass-jsonapi
+	require_cask gpg-suite-nightly
 }
 
 main_pacman() {
-	require_pacman gopass gnupg rng-tools gopass-jsonapi
+	require_pacman gopass gopass-jsonapi
 }
 
 gopass-upstall() {
