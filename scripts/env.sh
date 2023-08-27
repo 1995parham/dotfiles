@@ -18,14 +18,29 @@ export dependencies=("fetch")
 
 packages=(zsh tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
 
-brew_packages=(coreutils k6 inetutils inxi fontconfig wget tmuxp dua-cli git bash)
+brew_packages=(
+	coreutils
+	k6
+	inetutils
+	inxi
+	fontconfig
+	wget
+	tmuxp
+	dua-cli
+	git
+	bash
+	ripgrep
+	fd
+	glab
+	gh
+)
 apt_packages=(bmon atop)
 pacman_packages=(
 	perl-image-exiftool
 	ripgrep
 	mtr
 	git-delta
-	fd ripgrep
+	fd
 	jless
 	chafa
 	dua-cli
