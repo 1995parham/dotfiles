@@ -31,7 +31,8 @@ taps using local checkouts of these repositories instead of Homebrew’s API."
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
 	# shellcheck disable=2016
-	echo 'export PATH="/opt/homebrew/bin:$PATH"' >>~/.zshrc
+	echo 'path=("/opt/homebrew/bin" $path)' >>~/.zshrc
+	echo 'export PATH' >>~/.zshrc
 
 	msg 'add cask-versions for finding alternative versions of Casks'
 	brew tap homebrew/cask-versions
