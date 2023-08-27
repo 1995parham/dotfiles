@@ -20,7 +20,6 @@ main_apt() {
 
 main_brew() {
 	require_brew gopass gopass-jsonapi
-	require_cask gpg-suite-nightly
 }
 
 main_pacman() {
