@@ -107,8 +107,6 @@ main() {
 main_parham() {
 	msg "hello parham, clone your private repositories"
 
-	clone git@github.com:parham-alvani/notes "$HOME" "org"
-
 	clone git@github.com:parham-alvani/tasks "$HOME" "tasks"
 
 	(mkdir -p "$HOME/.config/emacs/.local/etc/workspaces/" || true) && cp "$root/emacs/sessions/main" "$HOME/.config/emacs/.local/etc/workspaces/"

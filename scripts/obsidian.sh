@@ -18,6 +18,16 @@ main_pacman() {
 	require_pacman obsidian
 }
 
+main_brew() {
+	require_brew_cask obsidian
+}
+
 main() {
 	return 0
+}
+
+main_parham() {
+	msg "hello parham, clone your private repositories"
+
+	clone git@github.com:parham-alvani/notes "$HOME" "org"
 }
