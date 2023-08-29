@@ -17,8 +17,8 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'keep your love life private'
-      - start_directory: ~/.local/share/navi/cheats/1995parham__cheats
-        shell_command:
+      - shell_command:
+          - cd "$(navi info cheats-path)/1995parham__cheats"
           - git pull origin main &> /dev/null
           - figlet 'i cannot remember anything'
 
