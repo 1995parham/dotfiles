@@ -54,7 +54,7 @@ function require_brew_head() {
 	for pkg in "$@"; do
 		running "require" " brew head $pkg"
 		if ! brew list --versions "$pkg" &>/dev/null; then
-			action "require" " brew install --HEAD $pkg"
+			action "require" " brew install --fetch $pkg"
 			brew install --HEAD "$pkg"
 		else
 			action "require" " brew upgrade --fetch-HEAD $pkg"
@@ -69,6 +69,19 @@ function require_brew_cask() {
 		if ! brew list --cask --versions "$pkg" &>/dev/null; then
 			action "require" " brew install --cask $pkg"
 			brew install --cask "$pkg"
+		fi
+	done
+}
+
+function require_brew_cask_head() {
+	for pkg in "$@"; do
+		running "require" " brew cask head $pkg"
+		if ! brew list --cask --versions "$pkg" &>/dev/null; then
+			action "require" " brew install --cask --fetch $pkg"
+			brew install --cask --fetch "$pkg"
+		else
+			action "require" " brew upgrade --cask --fetch-HEAD $pkg"
+			brew upgrade --cask --fetch-HEAD "$pkg"
 		fi
 	done
 }
