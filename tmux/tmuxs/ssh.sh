@@ -41,4 +41,4 @@ fi
 tmux kill-window -t "$current_session:=$name" &>/dev/null || true
 tmux new-window -t "$current_session" -c "$HOME/Downloads" -n "$name" "ssh $host"
 tmux split-window -t "$current_session:=$name" -c "$HOME/Downloads" "ssh $host"
-tmux select-pane -t 0
+tmux select-pane -t "$current_session:=$name.0"
