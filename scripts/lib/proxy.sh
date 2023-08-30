@@ -2,8 +2,14 @@
 # https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/
 
 proxy_start() {
-	if ! ss -tunl | grep :1080 &>/dev/null; then
-		return 0
+	if [[ $(command -v ss) ]]; then
+		if ss -tunl | grep :1080 &>/dev/null; then
+			return 0
+		fi
+	elif [[ $(command -v netstat) ]]; then
+		if netstat -an | grep LISTEN | grep 1080 &>/dev/null; then
+			return 0
+		fi
 	fi
 
 	echo -e "\033[38;5;46m[proxy] \033[38;5;202msetup proxy based on local http proxy which is setup by v2ray\033[39m"
