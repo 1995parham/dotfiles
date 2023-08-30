@@ -50,6 +50,10 @@ bindsym $mod+F5 exec alacritty --class "__termpad" --command 'ncmpcpp'
 # dunst notification
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
+# start recording using obs normal scene, it required to have carefully configured
+# obs installed on the system.
+bindsym $mod+Ctrl+r exec "obs --scene normal --startrecording --minimize-to-tray"
+
 # hide mouse cursor after a period of inactivity
 seat seat0 hide_cursor 3000
 
