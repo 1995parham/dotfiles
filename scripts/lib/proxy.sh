@@ -3,11 +3,11 @@
 
 proxy_start() {
 	if [[ $(command -v ss) ]]; then
-		if ss -tunl | grep :1080 &>/dev/null; then
+		if ! (ss -tunl | grep :1080 &>/dev/null); then
 			return 0
 		fi
 	elif [[ $(command -v netstat) ]]; then
-		if netstat -an | grep LISTEN | grep 1080 &>/dev/null; then
+		if ! (netstat -an | grep LISTEN | grep 1080 &>/dev/null); then
 			return 0
 		fi
 	fi
