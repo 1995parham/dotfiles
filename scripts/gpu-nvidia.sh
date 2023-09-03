@@ -13,8 +13,13 @@ usage() {
   '
 }
 
+export dependencies=("gpu")
+
 main_pacman() {
+	msg 'linux-zen does not have a matching nvidia-zen package it should be treated as a custom kernel.'
+
 	require_pacman linux-headers linux-zen-headers
+	not_require_pacman nvidia-open
 	require_pacman nvidia-open-dkms libva-vdpau-driver
 	require_pacman nvidia-prime
 
