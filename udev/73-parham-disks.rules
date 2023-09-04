@@ -25,3 +25,6 @@ KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_MODEL}=="Patriot_Memory",  EN
 # PARHAM-NO2
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ATTRS{manufacturer}=="ADATA",  ATTRS{idVendor}=="125f", ATTRS{idProduct}=="a51a", ATTRS{serial}=="47623015602E", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
 KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_USB_VENDOR}=="ADATA",  ENV{ID_USB_VENDOR_ID}=="125f", ENV{ID_USB_MODEL_ID}=="a51a", ENV{ID_USB_SERIAL_SHORT}=="47623015602E", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"
+# PARHAM-DRFT (draftee,  a person who has been ordered by law to join the armed forces)
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_MODEL}=="USB_Flash_Drive",  ENV{ID_USB_VENDOR_ID}=="125f", ENV{ID_USB_MODEL_ID}=="dc1a", ENV{ID_USB_SERIAL_SHORT}=="13C2707112240055", ACTION=="add", RUN+="/bin/systemctl --no-block restart usb-mount@%k.service"
+KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", ENV{ID_MODEL}=="USB_Flash_Drive",  ENV{ID_USB_VENDOR_ID}=="125f", ENV{ID_USB_MODEL_ID}=="dc1a", ENV{ID_USB_SERIAL_SHORT}=="13C2707112240055", ACTION=="remove", RUN+="/bin/systemctl --no-block stop usb-mount@%k.service"

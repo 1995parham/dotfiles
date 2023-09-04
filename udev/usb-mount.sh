@@ -23,6 +23,7 @@ labels=(
 	"Ventoy"
 	"PARHAM-SHRD"
 	"PARHAM-NO1"
+	"PARHAM-DRFT"
 	"parham-no2"
 	"parham-movies"
 )
