@@ -98,11 +98,11 @@
     "format-fa": "فا"
   },
   "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ",
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ",
     "format-disconnected": "",
     "format-stopped": "Stopped ",
     "unknown-tag": "N/A",
-    "interval": 2,
+    "interval": 10,
     "consume-icons": {
       "on": " "
     },
