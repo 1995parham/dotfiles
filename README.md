@@ -79,7 +79,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 - `tie-fighter`: Asus Zephyrus G14 GA401Q Laptop is a gift from Queen, and it stays at Snapp!.
   Last `ArchLinux` installation happened on 31 Aug 2023 using `archlinux-2023.08.01-x86_64.iso`. 🚧
 
-- `death-star`: Tower server based on ROG STRIX X399-E GAMING Motherboard. It's always home and ready for duties. ✅
+- [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard. It's always home and ready for duties. ✅
 
 ## Usage
 
