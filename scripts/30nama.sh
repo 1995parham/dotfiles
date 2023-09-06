@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="1.0.0"
+version="1.0.3"
 
 usage() {
 	echo -n "You will not get bored with 30nama ($version)"
@@ -30,7 +30,7 @@ main() {
 
 	current_version="$(find /opt/30nama -iname "30nama-*.AppImage" -exec sh -c 'basename $1 .AppImage | cut -d- -f2' sh {} \;)"
 	if [ -n "$current_version" ]; then
-		if [ "$(semver_compare "$current_version" "$version")" == "2" ]; then
+		if [ "$(semver_compare "$current_version" "$version")" = "lt" ]; then
 			rm "/opt/30nama/30nama-$current_version.AppImage"
 
 			aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
