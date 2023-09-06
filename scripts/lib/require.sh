@@ -208,9 +208,9 @@ function clone() {
 }
 
 function semver_compare() {
-	# version1 > version2 -> 0
-	# version1 == version2 -> 1
-	# version1 < version2 -> 2
+	# version1 > version2 -> gt
+	# version1 == version2 -> eq
+	# version1 < version2 -> lt
 
 	version1=${1:?"version-1 required"}
 	version2=${2:?"version-2 required"}
@@ -234,22 +234,28 @@ function semver_compare() {
 	major2="$(echo "$version2" | awk '{print $1}')"
 
 	if [ "$major1" -gt "$major2" ]; then
-		return 0
+		echo -n "gt"
+		return
 	elif [ "$major1" -lt "$major2" ]; then
-		return 2
+		echo -n "lt"
+		return
 	fi
 
 	if [ "$minor1" -gt "$minor2" ]; then
-		return 0
+		echo -n "gt"
+		return
 	elif [ "$minor1" -lt "$minor2" ]; then
-		return 2
+		echo -n "lt"
+		return
 	fi
 
 	if [ "$patch1" -gt "$patch2" ]; then
-		return 0
+		echo -n "gt"
+		return
 	elif [ "$patch1" -lt "$patch2" ]; then
-		return 2
+		echo -n "lt"
+		return
 	fi
 
-	return 1
+	echo -n "eq"
 }

@@ -3,7 +3,7 @@
 root=${root:?"root must be set"}
 yes_to_all=${yes_to_all:-false}
 
-# copy a file into destination. it only works on files and shows
+# copy a file from root into the given destination. it only works on files and shows
 # the difference before doing the copy. it useful for setup files in /etc, /usr, etc.
 copycat() {
 	local module=${1:?"module name required"}
@@ -41,6 +41,9 @@ copycat() {
 }
 
 # creates a config file that resides in the `home` directory, and provides a soft link to it.
+# it can handle two following cases:
+# link $root/$module/$file to ~/.$file
+# link $root/$module to ~/.$module
 # parameter 1: module name - string
 # parameter 2: file name - string
 # parameter 3 [default = true]: add dot into the destination file (consider it as hidden)
