@@ -15,7 +15,4 @@ usage() {
 main_pacman() {
 	copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
 	copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
-	if yes_or_no 'do you want to update mirrorlist'; then
-		copycat "pacman" "pacman/mirrorlist" /etc/pacman.d/mirrorlist
-	fi
 }
