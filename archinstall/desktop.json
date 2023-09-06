@@ -1,56 +1,62 @@
 {
-  "audio": "pipewire",
-  "config_version": "2.5.0",
-  "custom-commands": [],
+  "additional-repositories": [
+    "testing"
+  ],
+  "archinstall-language": "English",
+  "audio_config": {
+    "audio": "pipewire"
+  },
+  "bootloader": "Systemd-boot",
+  "config_version": "2.6.0",
   "debug": false,
   "kernels": [
-    "linux-zen",
-    "linux"
+    "linux",
+    "linux-zen"
   ],
-  "keyboard-language": "us",
-  "mirror-region": {
-    "Iran": {
-      "http://mirror.arvancloud.com/archlinux/$repo/os/$arch": true,
-      "http://mirror.bardia.tech/archlinux/$repo/os/$arch": true,
-      "http://mirror.hostiran.ir/archlinux/$repo/os/$arch": true,
-      "http://repo.iut.ac.ir/repo/archlinux/$repo/os/$arch": true,
-      "https://mirror.arvancloud.com/archlinux/$repo/os/$arch": true,
-      "https://mirror.bardia.tech/archlinux/$repo/os/$arch": true,
-      "https://mirror.hostiran.ir/archlinux/$repo/os/$arch": true
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "mirror_config": {
+    "custom_mirrors": [],
+    "mirror_regions": {
+      "Iran": [
+        "https://mirror.hostiran.ir/archlinux/$repo/os/$arch",
+        "https://mirror.bardia.tech/archlinux/$repo/os/$arch",
+        "https://mirror.arvancloud.ir/archlinux/$repo/os/$arch",
+        "http://repo.iut.ac.ir/repo/archlinux/$repo/os/$arch",
+        "http://mirror.hostiran.ir/archlinux/$repo/os/$arch",
+        "http://mirror.bardia.tech/archlinux/$repo/os/$arch",
+        "http://mirror.arvancloud.ir/archlinux/$repo/os/$arch"
+      ]
     }
   },
-  "nic": {
-    "dhcp": true,
-    "dns": null,
-    "gateway": null,
-    "iface": null,
-    "ip": null,
+  "network_config": {
     "type": "nm"
   },
+  "no_pkg_lookups": false,
   "ntp": true,
-  "packages": [
-    "git",
-    "wget",
-    "curl",
-    "v2ray",
-    "neovim",
-    "zsh",
-    "python-pynvim",
-    "python",
-    "python-pip",
-    "kitty",
-    "base-devel",
-    "xorg",
-    "foot",
-    "alacritty",
-    "xdg-desktop-portal-wlr",
-    "xdg-utils"
-  ],
-  "plugin": null,
+  "offline": false,
+  "packages": [],
+  "parallel downloads": 0,
+  "profile_config": {
+    "greeter": "",
+    "profile": {
+      "custom_settings": {
+        "Sway": {
+          "seat_access": "polkit"
+        }
+      },
+      "details": [
+        "Sway"
+      ],
+      "main": "Desktop"
+    }
+  },
   "script": "guided",
   "silent": false,
-  "sys-encoding": "utf-8",
-  "sys-language": "en_US",
-  "timezone": "Asia/Tehran",
-  "version": "2.5.0"
+  "swap": true,
+  "timezone": "UTC",
+  "version": "2.6.0"
 }
