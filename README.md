@@ -68,7 +68,7 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 ./start.sh neovim
 ```
 
-## Hosts
+## Hosts (naming based on Star Wars and Battlestar Galactica)
 
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
