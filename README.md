@@ -78,8 +78,12 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   Last `ArchLinux` installation happened. 🚧
 - [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen, and it stays at Snapp!.
   Last `ArchLinux` installation happened on 31 Aug 2023 using `archlinux-2023.08.01-x86_64.iso`. 🚧
+- [`a-wing`](https://en.wikipedia.org/wiki/A-wing):
 
-- [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard. It's always home and ready for duties. ✅
+- [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard.
+  It's always home and ready for duties. ✅
+- [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on Z10PE-D16 WS Motherboard. It's
+  always home and ready for duties. ✅
 
 ## Usage
 
