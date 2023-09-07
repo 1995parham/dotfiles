@@ -18,7 +18,7 @@ main_pacman() {
 		edk2-ovmf swtpm dmidecode \
 		qemu-hw-display-virtio-gpu qemu-hw-display-virtio-gpu-pci \
 		qemu-hw-display-virtio-gpu-gl qemu-hw-display-virtio-gpu-pci-gl \
-		qemu-ui-spice-core qemu-ui-spice-app
+		qemu-ui-spice-core qemu-ui-spice-app qemu-audio-spice
 
 	# require_pacman ebtables
 
