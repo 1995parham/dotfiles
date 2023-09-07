@@ -19,7 +19,8 @@ main_pacman() {
 		qemu-hw-display-virtio-gpu qemu-hw-display-virtio-gpu-pci \
 		qemu-hw-display-virtio-gpu-gl qemu-hw-display-virtio-gpu-pci-gl \
 		qemu-ui-spice-core qemu-ui-spice-app qemu-audio-spice \
-		qemu-hw-display-virtio-vga qemu-hw-display-virtio-vga-gl
+		qemu-hw-display-virtio-vga qemu-hw-display-virtio-vga-gl \
+		qemu-hw-usb-redirect qemu-hw-usb-host
 
 	# require_pacman ebtables
 
