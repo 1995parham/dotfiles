@@ -13,7 +13,12 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman qemu libvirt dnsmasq bridge-utils virt-manager vagrant edk2-ovmf swtpm dmidecode
+	require_pacman \
+		qemu libvirt dnsmasq bridge-utils virt-manager vagrant \
+		edk2-ovmf swtpm dmidecode \
+		qemu-hw-display-virtio-gpu qemu-hw-display-virtio-gpu-pci \
+		qemu-hw-display-virtio-gpu-gl qemu-hw-display-virtio-gpu-pci-gl
+
 	# require_pacman ebtables
 
 	msg "user access for kvm and libvirt"
