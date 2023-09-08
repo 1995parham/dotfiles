@@ -15,8 +15,11 @@ usage() {
 
 main_pacman() {
 	require_pacman plymouth
+
 	require_systemd_kernel_parameter +splash
 	require_systemd_kernel_parameter +quiet
+
+	copycat plymouth plymouth/plymouth.conf /etc/mkinitcpio.conf.d/plymouth.conf
 }
 
 main_apt() {
