@@ -68,21 +68,33 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 ./start.sh neovim
 ```
 
-## Hosts (naming based on Star Wars and Battlestar Galactica)
+## Hosts (naming based on Star Wars and Battlestar Galactica movies)
 
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
-- [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop which is huge and always stays at home. Last `ArchLinux`
-  installation happened on 06 Sep 2023 using `archlinux-2023.09.01-x86_64.iso`. ✅
-- [`x-wing`](https://en.wikipedia.org/wiki/X-wing_fighter): Lenovo ThinkPad X13 Generation 3 Laptop is lightweight and always with me in travel.
-  Last `ArchLinux` installation happened. 🚧
+- [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
+  which is huge and always stays at home. Last `ArchLinux` installation happened
+  on 06 Sep 2023 using `archlinux-2023.09.01-x86_64.iso`. ✅
+
+  |    Type    |                  Value                  |
+  | :--------: | :-------------------------------------: |
+  |   System   |    `LENOVO 82TD Legion Y9000K IAX7`     |
+  | Processor  | `12th Gen Intel(R) Core(TM) i9-12900HX` |
+  | Memory (1) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
+  | Memory (2) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
+
+- [`x-wing`](https://en.wikipedia.org/wiki/X-wing_fighter): Lenovo ThinkPad X13 Generation 3 Laptop is lightweight
+  and always with me in travel. Last `ArchLinux` installation happened. 🚧
+
 - [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen, and it stays at Snapp!.
   Last `ArchLinux` installation happened on 31 Aug 2023 using `archlinux-2023.08.01-x86_64.iso`. 🚧
+
 - [`a-wing`](https://en.wikipedia.org/wiki/A-wing): Intel NUC system attached to my TV which is very old and not capable
-  of doing anything.
+  of doing anything. Last `LinuxMint` installation happened on 07 Sep 2023. 🚧
 
 - [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard.
   It's always home and ready for duties. ✅
+
 - [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on Z10PE-D16 WS Motherboard. It's
   always home and ready for duties. ✅
 
