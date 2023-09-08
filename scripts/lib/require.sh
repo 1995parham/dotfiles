@@ -259,3 +259,76 @@ function semver_compare() {
 
 	echo -n "eq"
 }
+
+function require_systemd_kernel_parameter() {
+	local new_option=${1:?"new paramter required"}
+
+	for configuration in /boot/loader/entries/*.conf; do
+		message 'systemd-boot' "updating $configuration"
+		message 'systemd-boot' "$(grep options "$configuration")"
+
+		case "$new_option" in
+		+*)
+			_add_systemd_kernel_parameter "$configuration" "${new_option:1}"
+			;;
+		-*)
+			_remove_systemd_kernel_parameter "$configuration" "${new_option:1}"
+			;;
+		*)
+			_add_systemd_kernel_parameter "$configuration" "$new_option"
+			;;
+		esac
+
+		message 'systemd-boot' "$(grep options "$configuration")"
+	done
+}
+
+function _add_systemd_kernel_parameter() {
+	local configuration=${1:?"systemd-boot loader configuration required"}
+	local new_option=${2:?"new paramter required"}
+
+	local options
+	declare -a options
+	IFS=' ' read -ra options <<<"$(grep options "$configuration")"
+
+	local output
+	output=$(echo -n "current options: |")
+	output="$output"$(printf "%s|" "${options[@]}")
+	message 'systemd-boot' "$output"
+
+	for option in "${options[@]}"; do
+		if [ "$option" == "$new_option" ]; then
+			message "systemd-boot" "option $new_option already exists"
+			return 0
+		fi
+	done
+	options+=("$new_option")
+
+	sudo sed -i -e "s|^options.*$|${options[*]}|" "$configuration"
+}
+
+function _remove_systemd_kernel_parameter() {
+	local configuration=${1:?"systemd-boot loader configuration required"}
+	local new_option=${2:?"new paramter required"}
+
+	local options
+	declare -a options
+	IFS=' ' read -ra options <<<"$(grep options "$configuration")"
+
+	local output
+	output=$(echo -n "current options: |")
+	output="$output"$(printf "%s|" "${options[@]}")
+	message 'systemd-boot' "$output"
+
+	local found=0
+	for index in "${!options[@]}"; do
+		if [ "${options[$index]}" == "$new_option" ]; then
+			unset "options[$index]"
+			found=1
+		fi
+	done
+
+	if [ "$found" -eq 1 ]; then
+		sudo sed -i -e "s|^options.*$|${options[*]}|" "$configuration"
+	fi
+}
