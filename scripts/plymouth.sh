@@ -15,7 +15,8 @@ usage() {
 
 main_pacman() {
 	require_pacman plymouth
-	msg 'add _splash_ and _quiet_ into as kernel parameters' 'notice'
+	require_systemd_kernel_parameter +splash
+	require_systemd_kernel_parameter +quiet
 }
 
 main_apt() {
