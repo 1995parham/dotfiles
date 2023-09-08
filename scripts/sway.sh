@@ -18,7 +18,7 @@ root=${root:?"root must be set"}
 
 main_pacman() {
 	msg 'install and configure sway and swaylock'
-	if yes_or_no 'do you want to use stable release?'; then
+	if yes_or_no 'sway' 'do you want to use stable release?'; then
 		not_require_pacman sway-git swaylock-git wlroots-git swayidle-git swaybg-git sway-git-debug wlroots-git-debug
 		require_pacman sway wlroots swaylock swayidle swaybg
 	else

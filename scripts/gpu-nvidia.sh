@@ -25,6 +25,9 @@ main_pacman() {
 	require_pacman nvidia-prime
 
 	require_systemd_kernel_parameter +nvidia_drm.modeset=1
+
+	copycat gpu-nvidia nvidia/nvidia.conf /etc/mkinitcpio.conf.d/nvidia.conf
+	sudo mkinitcpio -P
 }
 
 main() {

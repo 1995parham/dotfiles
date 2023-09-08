@@ -36,7 +36,7 @@ main() {
 	local host
 	host="$(hostname)"
 	host="${host%.*}"
-	if yes_or_no "do you want to be $host specific? "; then
+	if yes_or_no 'new' "do you want to be $host specific? "; then
 		root="$root/$host"
 	fi
 
@@ -51,7 +51,7 @@ main() {
 	read -r -p 'dscription: ' description
 
 	local root_env
-	if yes_or_no 'do you need root? '; then
+	if yes_or_no 'new' 'do you need root? '; then
 		# shellcheck disable=2016
 		root_env='root=${root:?"root must be set"}'
 	else

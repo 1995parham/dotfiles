@@ -18,7 +18,7 @@ main_brew() {
 }
 
 main_pacman() {
-	if yes_or_no 'do you want to use stable release?'; then
+	if yes_or_no 'alacritty' 'do you want to use stable release?'; then
 		not_require_pacman alacritty-git
 		require_pacman alacritty
 	else
