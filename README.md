@@ -96,7 +96,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   It's always home and ready for duties. ✅
 
 - [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on Z10PE-D16 WS Motherboard. It's
-  always home and ready for duties. ✅
+  always home and ready for duties. Last `ArchLinux` installation happened on 06 Apr 2023. ✅
 
   |     Type      |                      Value                       |
   | :-----------: | :----------------------------------------------: |
