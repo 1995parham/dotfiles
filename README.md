@@ -108,6 +108,8 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   |  Memory (3)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
   |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
 
+Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
+
 ## Usage
 
 These `dotfiles` configure various tools and applications, including:
