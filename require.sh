@@ -261,74 +261,74 @@ function semver_compare() {
 }
 
 function require_systemd_kernel_parameter() {
-	local new_option=${1:?"new paramter required"}
+	local new_kernel_parameter=${1:?"new parameter required"}
 
 	for configuration in /boot/loader/entries/*.conf; do
 		message 'systemd-boot' "updating $configuration"
-		message 'systemd-boot' "$(grep options "$configuration")"
+		message 'systemd-boot' "$(grep kernel_parameters "$configuration")"
 
-		case "$new_option" in
+		case "$new_kernel_parameter" in
 		+*)
-			_add_systemd_kernel_parameter "$configuration" "${new_option:1}"
+			_add_systemd_kernel_parameter "$configuration" "${new_kernel_parameter:1}"
 			;;
 		-*)
-			_remove_systemd_kernel_parameter "$configuration" "${new_option:1}"
+			_remove_systemd_kernel_parameter "$configuration" "${new_kernel_parameter:1}"
 			;;
 		*)
-			_add_systemd_kernel_parameter "$configuration" "$new_option"
+			_add_systemd_kernel_parameter "$configuration" "$new_kernel_parameter"
 			;;
 		esac
 
-		message 'systemd-boot' "$(grep options "$configuration")"
+		message 'systemd-boot' "$(grep kernel_parameters "$configuration")"
 	done
 }
 
 function _add_systemd_kernel_parameter() {
 	local configuration=${1:?"systemd-boot loader configuration required"}
-	local new_option=${2:?"new paramter required"}
+	local new_kernel_parameter=${2:?"new parameter required"}
 
-	local options
-	declare -a options
-	IFS=' ' read -ra options <<<"$(grep options "$configuration")"
+	local kernel_paramters
+	declare -a kernel_paramters
+	IFS=' ' read -ra kernel_paramters <<<"$(grep kernel_paramters "$configuration")"
 
 	local output
-	output=$(echo -n "current options: |")
-	output="$output"$(printf "%s|" "${options[@]}")
+	output=$(echo -n "current kernel_paramters: |")
+	output="$output"$(printf "%s|" "${kernel_paramters[@]}")
 	message 'systemd-boot' "$output"
 
-	for option in "${options[@]}"; do
-		if [ "$option" == "$new_option" ]; then
-			message "systemd-boot" "option $new_option already exists"
+	for kernel_parameter in "${kernel_paramters[@]}"; do
+		if [ "$kernel_parameter" == "$new_kernel_parameter" ]; then
+			message "systemd-boot" "kernel_parameter $new_kernel_parameter already exists"
 			return 0
 		fi
 	done
-	options+=("$new_option")
+	kernel_paramters+=("$new_kernel_parameter")
 
-	sudo sed -i -e "s|^options.*$|${options[*]}|" "$configuration"
+	sudo sed -i -e "s|^kernel_paramters.*$|${kernel_paramters[*]}|" "$configuration"
 }
 
 function _remove_systemd_kernel_parameter() {
 	local configuration=${1:?"systemd-boot loader configuration required"}
-	local new_option=${2:?"new paramter required"}
+	local new_kernel_parameter=${2:?"new parameter required"}
 
-	local options
-	declare -a options
-	IFS=' ' read -ra options <<<"$(grep options "$configuration")"
+	local kernel_paramters
+	declare -a kernel_paramters
+	IFS=' ' read -ra kernel_paramters <<<"$(grep kernel_paramters "$configuration")"
 
 	local output
-	output=$(echo -n "current options: |")
-	output="$output"$(printf "%s|" "${options[@]}")
+	output=$(echo -n "current kernel_paramters: |")
+	output="$output"$(printf "%s|" "${kernel_paramters[@]}")
 	message 'systemd-boot' "$output"
 
 	local found=0
-	for index in "${!options[@]}"; do
-		if [ "${options[$index]}" == "$new_option" ]; then
-			unset "options[$index]"
+	for index in "${!kernel_paramters[@]}"; do
+		if [ "${kernel_paramters[$index]}" == "$new_kernel_parameter" ]; then
+			unset "kernel_paramters[$index]"
 			found=1
 		fi
 	done
 
 	if [ "$found" -eq 1 ]; then
-		sudo sed -i -e "s|^options.*$|${options[*]}|" "$configuration"
+		sudo sed -i -e "s|^kernel_paramters.*$|${kernel_paramters[*]}|" "$configuration"
 	fi
 }
