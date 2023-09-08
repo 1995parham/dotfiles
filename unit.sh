@@ -17,11 +17,27 @@ assert_equals() {
 	return 0
 }
 
+assert_retval() {
+	expect="${*: -1}"
+	args=("$@")
+	unset "args[${#args[@]}-1]"
+	"${args[@]}"
+	value="$?"
+
+	if [ "$value" -ne "$expect" ]; then
+		message "assert" "expects $expect but found $value" "error"
+		return 1
+	fi
+
+	return 0
+}
+
 set -eu
 set -o pipefail
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# shellcheck source=message.sh
 source "$root/message.sh"
 
 declare -F | while read -r unit_test; do
