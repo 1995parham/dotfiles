@@ -72,6 +72,8 @@ echo
 read -n 1 -s -r -p "press any key to continue"
 echo
 
+# install python requirements using Pipenv
+# and it automatically use pyenv for python version management.
 if [ -f Pipfile ]; then
 	pipenv=""
 
@@ -91,9 +93,11 @@ if [ -f Pipfile ]; then
 	fi
 fi
 
+# install python requirements using requirements.txt
+# and using pyenv manually to install required python version.
 if [ -f requirements.txt ]; then
 	if [ ! -d '.venv' ]; then
-		if [[ "$(command -v pyenv)" ]]; then
+		if [[ "$(command -v pyenv)" ]] && [ -f .python-version ]; then
 			pyenv install
 			pyenv exec python -mvenv .venv
 		else
