@@ -24,7 +24,7 @@ main_pacman() {
 	require_aur envycontrol
 	require_pacman nvidia-prime
 
-	msg 'please set the nvidia-drm.modeset=1 as kernel parameter in /boot/loader/entries/*.conf' 'notice'
+	require_systemd_kernel_parameter +nvidia_drm.modeset=1
 }
 
 main() {
