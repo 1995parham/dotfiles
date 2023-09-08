@@ -98,6 +98,16 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 - [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on Z10PE-D16 WS Motherboard. It's
   always home and ready for duties. ✅
 
+  |     Type      |                      Value                       |
+  | :-----------: | :----------------------------------------------: |
+  |    System     |       `ASUSTeK COMPUTER INC. Z10PE-D16 WS`       |
+  | Processor (1) |   `Intel(R) Xeon(R) CPU E5-2683 v3 @ 2.00GHz`    |
+  | Processor (2) |   `Intel(R) Xeon(R) CPU E5-2683 v3 @ 2.00GHz`    |
+  |  Memory (1)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
+  |  Memory (2)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
+  |  Memory (3)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
+  |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
+
 ## Usage
 
 These `dotfiles` configure various tools and applications, including:
