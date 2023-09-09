@@ -31,7 +31,7 @@
         "https://mirrors.xtom.de/archlinux/$repo/os/$arch",
         "http://ftp.tu-chemnitz.de/pub/linux/archlinux/$repo/os/$arch",
         "http://ftp.hosteurope.de/mirror/ftp.archlinux.org/$repo/os/$arch",
-        "http://ftp.gwdg.de/pub/linux/archlinux/$repo/os/$arch",
+        "http://ftp.gwdg.de/pub/linux/archlinux/$repo/os/$arch"
       ]
     }
   },
