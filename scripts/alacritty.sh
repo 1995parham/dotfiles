@@ -13,6 +13,8 @@ usage() {
 	'
 }
 
+export dependencies=("rust")
+
 main_brew() {
 	require_brew_cask alacritty
 }
