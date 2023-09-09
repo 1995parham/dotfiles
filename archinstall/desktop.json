@@ -21,14 +21,17 @@
   "mirror_config": {
     "custom_mirrors": [],
     "mirror_regions": {
-      "Iran": [
-        "https://mirror.hostiran.ir/archlinux/$repo/os/$arch",
-        "https://mirror.bardia.tech/archlinux/$repo/os/$arch",
-        "https://mirror.arvancloud.ir/archlinux/$repo/os/$arch",
-        "http://repo.iut.ac.ir/repo/archlinux/$repo/os/$arch",
-        "http://mirror.hostiran.ir/archlinux/$repo/os/$arch",
-        "http://mirror.bardia.tech/archlinux/$repo/os/$arch",
-        "http://mirror.arvancloud.ir/archlinux/$repo/os/$arch"
+      "Germany": [
+        "http://mirror.23m.com/archlinux/$repo/os/$arch",
+        "http://mirror.united-gameserver.de/archlinux/$repo/os/$arch",
+        "http://mirror.mikrogravitation.org/archlinux/$repo/os/$arch",
+        "http://os.codefionn.eu/archlinux/$repo/os/$arch",
+        "http://mirrors.xtom.de/archlinux/$repo/os/$arch",
+        "http://archlinux.mirror.iphh.net/$repo/os/$arch",
+        "https://mirrors.xtom.de/archlinux/$repo/os/$arch",
+        "http://ftp.tu-chemnitz.de/pub/linux/archlinux/$repo/os/$arch",
+        "http://ftp.hosteurope.de/mirror/ftp.archlinux.org/$repo/os/$arch",
+        "http://ftp.gwdg.de/pub/linux/archlinux/$repo/os/$arch",
       ]
     }
   },
