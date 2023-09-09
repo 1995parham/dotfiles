@@ -1,16 +1,18 @@
-# Archinstall
+# Arch Installation Procedure
 
-[`archinstall`](https://github.com/archlinux/archinstall) is a guided/automated ArchLinux installer.
-This repository contains scripts and configuration that I use with `archinstall` to setup ArchLinux on desktop or
+## Introduction
+
+[`archinstall`](https://github.com/archlinux/archinstall) is a guided/automated `ArchLinux` installer.
+This repository contains scripts and configuration that I use with `archinstall` to set up `ArchLinux` on desktop or
 server.
-For desktop, I prefer [Sway](https://wiki.archlinux.org/title/Sway), but I have scripts for
-[Hyprland](https://github.com/hyprwm) too.
+For desktop, I prefer [`Sway`](https://wiki.archlinux.org/title/Sway), but I have scripts for
+[`Hyprland`](https://github.com/hyprwm) too.
 
 ## How to
 
-- Boot from [ArchLinux ISO](https://archlinux.org/download/)
+- Boot from [`ArchLinux` ISO](https://archlinux.org/download/)
 
-- Install `git` and `archinstall`. You can also uses the latest version of `archinstall`
+- Install `git` and `archinstall`. You can also use the latest version of `archinstall`
   by cloning it.
 
 ```bash
@@ -22,7 +24,7 @@ pacman -Sy git
 git clone https://github.com/archlinux/archinstall
 ```
 
-- Clone dotfiles repository:
+- Clone `dotfiles` repository:
 
 ```bash
 git clone https://github.com/1995parham/dotfiles
@@ -30,7 +32,7 @@ cd dotfiles/archinstall
 ```
 
 - Partitioning using `fstab`. (please remember to create boot partition with _EFI System_ label).
-  You can also skip this step and then do it in `archinstall` tui.
+  You can also skip this step and then do it in `archinstall` TUI.
 
 - Create Filesystems using e.g. `mkfs.fat -F32`, `mkfs.btrfs`. Again you can skip this step and then do it in `archinstall`
   TUI.
@@ -62,7 +64,7 @@ archinstall --config server.json # Server installation
 On Arch Linux, Sway can get access to your seat using either
 
 - `systemd-logind(8)` and `polkit`
-- `seatd`, which will be installed alongside Sway as a dependency of wlroots
+- `seatd`, which will be installed alongside Sway as a dependency of `wlroots`.
 
 If `polkit` is already installed on your system, Sway should automatically get access to your seat.
 Alternatively, if `polkit` is not installed on your system, and you want to use `seatd` instead,
@@ -98,8 +100,14 @@ mount /dev/mapper/root /mnt
 
 For fixing it you must change the loader configuration in `/boot/loader/entries/` as follows:
 
-- The encrypted disk PARTUUID is correct, so you may not change it, or you can replace it
+- The encrypted disk `PARTUUID` is correct, so you may not change it, or you can replace it
   with your partition UUID (e.g. `lsblk -dno UUID /dev/nvme0n1p2`)
 
-- The root disk PARTUUID is not correct (this is the actual problem) and you need to replace
+- The root disk `PARTUUID` is not correct (this is the actual problem) and you need to replace
   it with your decrypted disk UUID (e.g. `lsblk -dno UUID /dev/mapper/luksdev`)
+
+### `Systemd` 254.2 Bug
+
+This bug causes issue in user creation and `systemd-boot` installation. During
+the fix procedure you cannot do anything, but after fix you can upgrade `systemd` on both ISO
+and installation (using testing repositories) and have successful installation.
