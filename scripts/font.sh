@@ -22,4 +22,6 @@ main_pacman() {
 	require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts \
 		otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd
 	require_aur vazirmatn-fonts
+
+	configfile fontconfig
 }
