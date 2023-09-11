@@ -20,6 +20,7 @@ main_pacman() {
 	require_systemd_kernel_parameter +quiet
 
 	copycat plymouth plymouth/plymouth.conf /etc/mkinitcpio.conf.d/plymouth.conf
+	copycat plymouth plymouth/plymouthd.conf /etc/plymouth/plymouthd.conf
 	sudo mkinitcpio -P
 }
 
