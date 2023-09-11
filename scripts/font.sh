@@ -24,4 +24,5 @@ main_pacman() {
 	require_aur vazirmatn-fonts
 
 	configfile fontconfig
+	fc-cache -f
 }
