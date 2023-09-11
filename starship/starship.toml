@@ -115,6 +115,7 @@ format = '[ $time ]($style)'
 
 [kubernetes]
 disabled = false
+symbol = ' 󱃾 '
 format = '[ \[ $symbol](fg:#1e90ff)[$user](fg:#ff7f50)[ in ](fg:#ff50d0)[$namespace](#50ff7f)[ \]](fg:#1e90ff)'
 
 [kubernetes.user_aliases]
@@ -163,5 +164,5 @@ disabled = false
 [aws]
 format = '[$symbol($profile )(\($region\) )]($style)'
 style = 'bold blue'
-symbol = '󰸏'
+symbol = ' 󰸏 '
 disabled = false
