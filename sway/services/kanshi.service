@@ -1,6 +1,7 @@
 # vim: ft=systemd
 [Unit]
-Description=kanshi (dynamic display configuration) daemon
+Description=kanshi allows you to define output profiles that are automatically enabled and disabled on hotplug.
+Documentation=https://man.archlinux.org/listing/extra/kanshi/
 PartOf=graphical-session.target
 
 [Service]

@@ -1,6 +1,6 @@
 # vim: ft=systemd
 [Unit]
-Description="Daily workspace setup"
+Description=Daily workspace setup
 PartOf=graphical-session.target
 Before=kanshi.service
 
