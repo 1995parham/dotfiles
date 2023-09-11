@@ -15,4 +15,4 @@ export MOZ_ENABLE_WAYLAND=1
 eval "$(gnome-keyring-daemon --start)"
 export SSH_AUTH_SOCK
 
-exec sway --unsupported-gpu
+exec systemd-cat --identifier=sway sway --unsupported-gpu
