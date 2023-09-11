@@ -1,6 +1,6 @@
 # vim: ft=systemd
 [Unit]
-Description=bg.sh daemon which updates background using swaybg
+Description=The bg.sh daemon which updates background using swaybg
 PartOf=graphical-session.target
 
 [Service]
