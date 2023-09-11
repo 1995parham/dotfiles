@@ -77,7 +77,7 @@ format = '[ $symbol $branch](fg:#b299e5)[ (\[ $remote_name/$remote_branch \]) ](
 
 [git_status]
 style = ""
-up_to_date = '[✔](fg:#adff2f)'
+up_to_date = '[](fg:#adff2f)'
 diverged = '[$ahead_count A](fg:#adff2f) [$behind_count B](fg:#ff2fad)'
 ahead = '[${count}A](fg:#adff2f)'
 behind = '[${count}B](fg:#adff2f)'
@@ -85,7 +85,7 @@ format = '[$ahead_behind (\[$all_status\])]($style)'
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = '[🍒 PICKING](bold red)'
+cherry_pick = '[ PICKING](bold red)'
 
 [golang]
 symbol = " "
@@ -163,5 +163,5 @@ disabled = false
 [aws]
 format = '[$symbol($profile )(\($region\) )]($style)'
 style = 'bold blue'
-symbol = '🅰 '
+symbol = '󰸏'
 disabled = false
