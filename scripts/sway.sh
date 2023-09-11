@@ -45,8 +45,10 @@ main_pacman() {
 	configsystemd services kanshi.service sway
 	configsystemd services workspaces.service sway
 	configsystemd services bg.service sway
+	configsystemd services swayidle.service sway
 	configsystemd services sway-session.target sway
 	systemctl --user enable bg.service
 	systemctl --user enable kanshi.service
 	systemctl --user enable workspaces.service
+	systemctl --user enable swayidle.service
 }
