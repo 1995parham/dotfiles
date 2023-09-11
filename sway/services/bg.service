@@ -1,8 +1,12 @@
 # vim: ft=systemd
 [Unit]
 Description=bg.sh daemon which updates background using swaybg
+PartOf=graphical-session.target
 
 [Service]
 Type=exec
 ExecStart=%h/.config/sway/scripts/bg.sh
 Restart=on-failure
+
+[Install]
+WantedBy=sway-session.target

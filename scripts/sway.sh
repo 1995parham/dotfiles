@@ -41,9 +41,10 @@ main_pacman() {
 	require_pacman kanshi
 	configfile kanshi "" sway
 
-	msg 'setup user-systemd services'
+	msg 'setup user-level systemd services for sway and enable them'
 	configsystemd services kanshi.service sway
 	configsystemd services workspaces.service sway
 	configsystemd services bg.service sway
 	configsystemd services sway-session.target sway
+	systemctl --user enable bg.service
 }
