@@ -1,7 +1,7 @@
 # vim: ft=systemd
 [Unit]
 Description=kanshi allows you to define output profiles that are automatically enabled and disabled on hotplug.
-Documentation=https://man.archlinux.org/listing/extra/kanshi/
+Documentation=man:kanshi(5)
 PartOf=graphical-session.target
 
 [Service]
