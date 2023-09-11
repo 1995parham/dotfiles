@@ -45,4 +45,5 @@ main_pacman() {
 	configsystemd services kanshi.service sway
 	configsystemd services workspaces.service sway
 	configsystemd services bg.service sway
+	configsystemd services sway-session.target sway
 }
