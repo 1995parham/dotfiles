@@ -86,6 +86,15 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 - [`x-wing`](https://en.wikipedia.org/wiki/X-wing_fighter): Lenovo ThinkPad X13 Generation 3 Laptop is lightweight
   and always with me in travel. Last `ArchLinux` installation happened. 🚧
 
+  |    Type    |                     Value                     |
+  | :--------: | :-------------------------------------------: |
+  |   System   |    `LENOVO 21CMA001CD ThinkPad X13 Gen 3`     |
+  | Processor  | `AMD Ryzen 7 PRO 6850U with Radeon Graphics`  |
+  | Memory (1) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
+  | Memory (2) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
+  | Memory (3) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
+  | Memory (4) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
+
 - [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen, and it stays at Snapp!.
   Last `ArchLinux` installation happened on 31 Aug 2023 using `archlinux-2023.08.01-x86_64.iso`. 🚧
 
