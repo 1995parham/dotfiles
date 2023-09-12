@@ -95,6 +95,17 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 - [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard.
   It's always home and ready for duties. ✅
 
+  |    Type    |                      Value                       |
+  | :--------: | :----------------------------------------------: |
+  |   System   | `ASUSTeK COMPUTER INC. ROG STRIX X399-E GAMING`  |
+  | Processor  | `AMD Ryzen Threadripper 1950X 16-Core Processor` |
+  | Memory (1) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
+  | Memory (2) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
+  | Memory (3) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
+  | Memory (4) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
+  | Memory (5) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
+  | Memory (6) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
+
 - [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on Z10PE-D16 WS Motherboard. It's
   always home and ready for duties. Last `ArchLinux` installation happened on 06 Apr 2023. ✅
 
