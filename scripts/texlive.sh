@@ -104,7 +104,7 @@ texlive-init() {
 	sudo "/usr/local/texlive/$version/bin/x86_64-linux/tlmgr" path add
 
 	msg "tlmgr repositories are ready"
-	sudo tlmgr option repository https://ctan.asis.sh/systems/texlive/tlnet/
+	sudo tlmgr option repository ctan
 
 	msg "update tlmgr itself"
 	sudo tlmgr update --self
@@ -135,7 +135,7 @@ main_brew() {
 	eval "$(/usr/libexec/path_helper)"
 
 	msg "tlmgr repositories are ready"
-	tlmgr option repository https://ctan.asis.sh/systems/texlive/tlnet/
+	tlmgr option repository ctan
 
 	msg "install required packages for better latex/xetex experience in persian"
 	for package in "${packages[@]}"; do
