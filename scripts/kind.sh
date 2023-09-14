@@ -13,6 +13,8 @@ usage() {
   '
 }
 
+export dependencies=("kubectl")
+
 main_apt() {
 	return 1
 }
@@ -28,8 +30,11 @@ main_brew() {
 main() {
 	root=${root:?"root must be set"}
 
-	msg '1995parham cluster'
+	msg 'create 1995parham cluster (delete if it exists) and set the kubeconfig'
+	kind delete cluster 1995parham || true
 	kind create cluster --config "$root/kind/cluster.yaml" --name 1995parham
+	msg 'ingress using contour'
+	kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 	msg 'networking with calico'
 	kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml
 
