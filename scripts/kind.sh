@@ -14,38 +14,22 @@ usage() {
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
 	return 1
 }
 
 main_pacman() {
-	yay -Syu kind-bin
-
-	sudo mkdir /etc/systemd/system/user@.service.d || true
-	echo "
-[Service]
-Delegate=yes
-" | sudo tee /etc/systemd/system/user@.service.d/delegate.conf
-	sudo systemctl daemon-reload
-
-	echo "
-ip6_tables
-ip6table_nat
-ip_tables
-iptable_nat
-" | sudo tee /etc/modules-load.d/iptables.conf
+	require_aur kind
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
 	return 1
 }
 
 main() {
-	dotfiles_root=${dotfiles_root:?"dotfiles_root must be set"}
+	root=${root:?"root must be set"}
 
 	msg '1995parham cluster'
-	kind create cluster --config "$dotfiles_root/kind/cluster.yaml" --name 1995parham
+	kind create cluster --config "$root/kind/cluster.yaml" --name 1995parham
 	msg 'networking with calico'
 	kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml
 
