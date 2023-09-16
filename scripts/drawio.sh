@@ -19,5 +19,5 @@ main_pacman() {
 }
 
 main_brew() {
-	brew install --cask drawio
+	require_brew_cask drawio
 }
