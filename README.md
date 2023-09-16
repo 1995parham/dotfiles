@@ -101,6 +101,15 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 - [`a-wing`](https://en.wikipedia.org/wiki/A-wing): Intel NUC system attached to my TV which is very old and not capable
   of doing anything. Last `LinuxMint` installation happened on 07 Sep 2023. 🚧
 
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp! and it should
+  return back to them when I decide to leave. ✅
+
+  |   Type    |                     Value                     |
+  | :-------: | :-------------------------------------------: |
+  |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
+  | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
+  |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
+
 - [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard.
   It's always home and ready for duties. ✅
 
