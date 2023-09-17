@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	require_aur natscli
+	require_aur natscli-git
 }
 
 main_apt() {
