@@ -16,6 +16,7 @@ usage() {
 
 main_brew() {
 	require_brew_cask firefox
+	require_brew_cask firefox-developer-edition
 	require_brew_cask google-chrome-beta
 
 	if [[ "$(command -v gopass-jsonapi)" ]]; then
