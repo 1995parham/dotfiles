@@ -20,6 +20,7 @@ main() {
 	pkgs=(
 		"natscli"
 		"natscli-bin"
+		"natscli-git"
 		"okd-client-bin"
 		"gosimac-bin"
 		"gosimac"
