@@ -100,8 +100,6 @@ main() {
 	"$HOME/.config/emacs/bin/doom" sync
 	"$HOME/.config/emacs/bin/doom" upgrade
 	proxy_stop
-
-	require_npm "marked" "prettier"
 }
 
 main_parham() {
