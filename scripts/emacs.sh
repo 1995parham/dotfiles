@@ -61,15 +61,19 @@ main_pacman() {
 
 	case $kind in
 	emacs-nativecomp)
+		not_require_pacman emacs-nox emacs-gcc-wayland-devel-bin emacs-pgtk-native-comp-git
 		require_pacman emacs-nativecomp
 		;;
 	emacs-nox)
+		not_require_pacman emacs-gcc-wayland-devel-bin emacs-pgtk-native-comp-git emacs-nativecomp
 		require_pacman emacs-nox
 		;;
 	emacs-gcc-wayland-devel-bin)
+		not_require_pacman emacs-nox emacs-pgtk-native-comp-git emacs-nativecomp
 		require_aur emacs-gcc-wayland-devel-bin
 		;;
 	emacs-pgtk-native-comp-git)
+		not_require_pacman emacs-nox emacs-nativecomp emacs-gcc-wayland-devel-bin
 		require_pacman webkit2gtk
 		require_aur emacs-pgtk-native-comp-git
 		;;
