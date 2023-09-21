@@ -189,7 +189,8 @@ fi
 
 # using zsh in neovim terminal mode.
 # neovim defines $NVIM in terminal mode and based on it
-# we can use nvr.
+# we can detect we are running inside neovim and use nvr
+# instead of neovim, etc.
 if [ ! -z "$NVIM" ]; then
   alias nvim=nvr
   export EDITOR="nvr -cc split +'set bufhidden=delete' --remote-wait"
