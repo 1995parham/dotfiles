@@ -26,6 +26,7 @@ main_pacman() {
 		require_pacman neovim
 	else
 		not_require_pacman neovim
+		rm -rf ~/.cache/yay/neovim-git || true
 		require_aur neovim-git
 	fi
 	require_pacman libvterm python-pynvim luarocks
