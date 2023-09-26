@@ -14,7 +14,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau
+	require_pacman xf86-video-amdgpu
 }
 
 main_apt() {
