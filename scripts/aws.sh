@@ -15,7 +15,7 @@ usage() {
 
 main_pacman() {
 	require_pacman aws-cli-v2 aws-vault terraform
-	require_aur cw-cloudwatch awc-ecs-cli
+	require_aur cw-cloudwatch aws-ecs-cli
 }
 
 main() {
