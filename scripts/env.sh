@@ -67,6 +67,7 @@ pacman_packages=(
 	vhs
 	just
 	bat-extras
+	tcpdump
 )
 yay_packages=(jcal actionlint-bin cbonsai k6)
 
