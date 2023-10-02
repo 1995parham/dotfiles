@@ -35,7 +35,7 @@ ${custom.uname}
 continuation_prompt = '[∙](bright-black) '
 
 [username]
-show_always = true
+show_always = false
 style_user = "bg:#1f1f1f fg:#45ff2f bold"
 style_root = "bg:#1f1f1f"
 format = '[$user ]($style)'
