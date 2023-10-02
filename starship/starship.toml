@@ -46,7 +46,7 @@ style = "bg:#ffae1a fg:#1f1f1f bold"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncate_to_repo = true
-truncation_symbol = '...'
+truncation_symbol = ''
 home_symbol = "~"
 
 [directory.substitutions]
