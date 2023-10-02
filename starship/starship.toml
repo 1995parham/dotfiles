@@ -119,11 +119,11 @@ symbol = ' 󱃾 '
 format = '[ \[ $symbol](fg:#1e90ff)[$user](fg:#ff7f50)[ in ](fg:#ff50d0)[$namespace](#50ff7f)[ \]](fg:#1e90ff)'
 
 [kubernetes.user_aliases]
-"parham.alvani/api-okd4-teh-1-snappcloud-io:6443" = "parham @ teh-1"
-"parham.alvani/api-okd4-teh-2-snappcloud-io:6443" = "parham @ teh-2"
-"elahe.dastan/api-okd4-teh-1-snappcloud-io:6443" = "elahe @ teh-1"
-"elahe.dastan/api-okd4-teh-2-snappcloud-io:6443" = "elahe @ teh-2"
-"parham.alvani/api-okd-eu-central-1-cloud-baly-app:6443" = "parham @ baly"
+"parham.alvani/api-okd4-teh-1-snappcloud-io:6443" = "me @ site-1"
+"parham.alvani/api-okd4-teh-2-snappcloud-io:6443" = "me @ site-2"
+"elahe.dastan/api-okd4-teh-1-snappcloud-io:6443" = "her @ site-1"
+"elahe.dastan/api-okd4-teh-2-snappcloud-io:6443" = "her @ site-2"
+"parham.alvani/api-okd-eu-central-1-cloud-baly-app:6443" = "me @ baly"
 
 [hostname]
 ssh_only = false
