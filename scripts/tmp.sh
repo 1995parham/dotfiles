@@ -17,7 +17,9 @@ main_pacman() {
 }
 
 main() {
-	configfile user-tmpfiles.d
+	configfile user-tmpfiles.d '' 'tmpfiles'
+	configsystemd 'tmpfiles' systemd-tmpfiles-clean.timer.d
+
 	systemctl --user enable --now systemd-tmpfiles-setup.service
 	systemctl --user enable --now systemd-tmpfiles-clean.timer
 
