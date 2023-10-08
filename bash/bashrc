@@ -1,0 +1,102 @@
+#!/bin/bash
+#
+# ~/.bashrc
+#
+test -f /etc/profile && source /etc/profile
+test -f "$HOME/.profile" && source "$HOME/.profile"
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias emacs="emacs -nw"
+PS1='[\u@\h \W]\$ '
+
+# show possibilities if tab ambigious
+set show-all-if-ambiguous on
+# ignore case when completing, lets see how it works
+set completion-ignore-case on
+
+# bash history
+# https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups
+# by default, bash writes its history at the end of each session, overwriting the existing file with an updated version.
+# this means that if you are logged in with multiple bash sessions, only the last one to exit will have its history saved.
+# you can work around this by setting the histappend setting, which will append instead of overwriting the history.
+# this may be set already, but if it is not, you can enable this by adding this line:
+shopt -s histappend
+
+# reload bash by sourcing bashrc
+
+alias r="source ~/.bashrc"
+
+# starship, the minimal, blazing-fast, and infinitely customizable prompt for any shell!
+
+if [ "$(command -v starship)" ]; then
+	eval "$(starship init bash)"
+fi
+
+# using zsh in neovim terminal mode.
+# neovim defines $NVIM in terminal mode and based on it
+# we can detect we are running inside neovim and use nvr
+# instead of neovim, etc.
+
+if [ -n "$NVIM" ]; then
+	alias nvim=nvr
+	export EDITOR="nvr -cc split +'set bufhidden=delete' --remote-wait"
+	export MANPAGER="nvr -c 'Man!' -o -"
+fi
+
+# set PATH so it includes user's private bin if it exists
+
+if [ -d "$HOME/bin" ]; then
+	path+=("$HOME/bin")
+fi
+
+# set PATH so it includes user's local private bin if it exists
+
+if [ -d "$HOME/.local/bin" ]; then
+	path+=("$HOME/.local/bin")
+fi
+
+# pyenv, simple python version management
+
+if [[ "$(command -v pyenv)" ]]; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+fi
+
+# navi, an interactive cheatsheet tool for the command-line
+
+_navi_call() {
+	local result
+	result="$(navi "$@" </dev/tty)"
+	printf "%s" "$result"
+}
+
+_navi_widget() {
+	local -r input="${READLINE_LINE}"
+	local -r last_command="$(echo "${input}" | navi fn widget::last_command)"
+
+	if [ -z "${last_command}" ]; then
+		local -r output="$(_navi_call --print)"
+	else
+		local -r find="${last_command}_NAVIEND"
+		local -r replacement="$(_navi_call --print --query "$last_command")"
+		local output="$input"
+		if [ -n "$replacement" ]; then
+			output="${input}_NAVIEND"
+			output="${output//$find/$replacement}"
+		fi
+	fi
+
+	READLINE_LINE="$output"
+	READLINE_POINT=${#READLINE_LINE}
+}
+
+bind -x '"\C-h": _navi_widget'
