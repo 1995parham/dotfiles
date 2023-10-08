@@ -1,17 +1,11 @@
 #!/bin/bash
-#
-# ~/.bashrc
-#
+
+alias emacs="emacs -nw"
+
+# source profiles in home and etc directories
+
 test -f /etc/profile && source /etc/profile
 test -f "$HOME/.profile" && source "$HOME/.profile"
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias emacs="emacs -nw"
-PS1='[\u@\h \W]\$ '
 
 # show possibilities if tab ambigious
 set show-all-if-ambiguous on
