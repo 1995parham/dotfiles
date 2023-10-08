@@ -12,6 +12,11 @@ set show-all-if-ambiguous on
 # ignore case when completing, lets see how it works
 set completion-ignore-case on
 
+# change bash history completion to complete what's already on the line.
+# https://stackoverflow.com/questions/1030182/how-do-i-change-bash-history-completion-to-complete-whats-already-on-the-line
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
 # bash history
 # https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
