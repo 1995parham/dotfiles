@@ -31,7 +31,7 @@ while getopts "h" argv; do
 	esac
 done
 
-requirements=(zsh tmux vim)
+requirements=(bash zsh tmux vim)
 
 # check the existence of required softwares
 for cmd in "${requirements[@]}"; do
@@ -78,28 +78,6 @@ install-tmux() {
 	"$HOME/.tmux/plugins/tpm/bin/install_plugins"
 }
 
-# zsh
-install-zsh() {
-	dotfile "zsh" "zshrc.shared"
-	dotfile "zsh" "zshenv"
-	dotfile "zsh" "zsh.plug"
-
-	# create zshrc if it doesn't exists
-	if [ ! -f "$HOME/.zshrc" ]; then
-		touch "$HOME/.zshrc"
-	fi
-
-	# source zshrc.shared
-	if ! grep -q -F "source \$HOME/.zshrc.shared" "$HOME/.zshrc"; then
-		echo "source \$HOME/.zshrc.shared" | tee -a "$HOME/.zshrc"
-	fi
-
-	# provide dotfile home variable
-	if ! grep -q -F "export DOTFILES_ROOT=" "$HOME/.zshrc"; then
-		echo "export DOTFILES_ROOT=\"$root\"" | tee -a "$HOME/.zshrc"
-	fi
-}
-
 # bin
 install-bin() {
 	dotfile "bin" "bin" false
@@ -113,7 +91,7 @@ install-general() {
 }
 
 # calls each module's install function.
-modules=(conf tmux wakatime zsh vim bin general)
+modules=(conf tmux wakatime vim bin general)
 for module in "${modules[@]}"; do
 	message "$module" "---"
 	echo
