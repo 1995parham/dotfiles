@@ -7,6 +7,9 @@ alias emacs="emacs -nw"
 test -f /etc/profile && source /etc/profile
 test -f "$HOME/.profile" && source "$HOME/.profile"
 
+bind 'TAB: menu-complete'
+bind '"\e[Z": menu-complete-backward'
+
 # show possibilities if tab ambigious
 bind "set show-all-if-ambiguous on"
 # ignore case when completing, lets see how it works
