@@ -8,9 +8,9 @@ test -f /etc/profile && source /etc/profile
 test -f "$HOME/.profile" && source "$HOME/.profile"
 
 # show possibilities if tab ambigious
-set show-all-if-ambiguous on
+bind "set show-all-if-ambiguous on"
 # ignore case when completing, lets see how it works
-set completion-ignore-case on
+bind "set completion-ignore-case on"
 
 # change bash history completion to complete what's already on the line.
 # https://stackoverflow.com/questions/1030182/how-do-i-change-bash-history-completion-to-complete-whats-already-on-the-line
