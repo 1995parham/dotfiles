@@ -115,7 +115,7 @@ main_pacman() {
 	texlive-init
 
 	msg "install required packages for better latex/xetex experience in persian"
-	require_pacman texlab python-pygments graphviz
+	require_pacman texlab python-pygments graphviz tectonic
 	# right now I don't know why we don't have texlive-upstream on aur anymore
 	# yay -Syu --noconfirm --needed texlive-upstream
 	require_aur libxcrypt-compat
