@@ -19,11 +19,11 @@ main_pacman() {
 }
 
 main_apt() {
-	return 1
+	require_apt bash
 }
 
 main_brew() {
-	return 1
+	require_brew bash
 }
 
 main() {
