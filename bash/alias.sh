@@ -13,3 +13,6 @@ alias wea1='curl -s "wttr.in/{Miami,Austin,Tehran}?format=3&m"'
 alias weac='curl -s "wttr.in/Tehran?F0m"'
 # 3 day forecast in tehran
 alias weaf='curl -s "wttr.in/Tehran?Fqm"'
+
+# watch network connection
+alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
