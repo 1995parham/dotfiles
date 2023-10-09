@@ -36,7 +36,7 @@ brew_packages=(
 	just
 	bat-extras
 	wakatime-cli
- 	muzzle
+	muzzle
 )
 apt_packages=(bmon atop)
 pacman_packages=(
