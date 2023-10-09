@@ -1,5 +1,8 @@
 #!/bin/bash
 
+dotfiles_bash_source="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd)"
+source "$dotfiles_bash_source/alias.sh"
+
 # run emacs tui on terminal instead of emacs itself.
 alias emacs="emacs -nw"
 
