@@ -21,7 +21,7 @@ main_apt() {
 }
 
 main_brew() {
-	return 1
+	require_brew nats-io/nats-tools/nats
 }
 
 main() {
