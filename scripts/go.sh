@@ -12,6 +12,8 @@ usage() {
   '
 }
 
+export additionals=("atlas")
+
 main_brew() {
 	require_brew go
 }
