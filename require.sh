@@ -145,7 +145,7 @@ function require_mason() {
 function require_go() {
 	pkg=${1}
 	version=${2:-"latest"}
-	action "require" " go $pkg"
+	action "require" " go $pkg @ $version"
 	go install "$pkg@$version" 2>/dev/null
 }
 
