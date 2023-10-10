@@ -63,7 +63,7 @@ go-install-packages() {
 	require_go github.com/swaggo/swag/cmd/swag
 	require_go github.com/99designs/gqlgen
 	require_go golang.org/x/tools/cmd/gonew
-	require_go ariga.io/atlas/cmd/atlas
+	require_go ariga.io/atlas/cmd/atlas 'v0.14.0'
 
 	msg "golangci-lint $(golangci-lint version)"
 }
