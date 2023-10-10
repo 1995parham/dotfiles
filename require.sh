@@ -143,10 +143,10 @@ function require_mason() {
 }
 
 function require_go() {
-	for pkg in "$@"; do
-		action "require" " go $pkg"
-		go install "$pkg@latest" 2>/dev/null
-	done
+	pkg=${1}
+	version=${2:-"latest"}
+	action "require" " go $pkg"
+	go install "$pkg@$version" 2>/dev/null
 }
 
 function require_pip() {
