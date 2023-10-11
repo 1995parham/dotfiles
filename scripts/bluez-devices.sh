@@ -46,7 +46,12 @@ main_parham() {
 	fi
 
 	case $device in
-	"wh-1000xm5")
+	"wh-1000xm5-parham")
+		bluetoothctl connect 'AC:80:0A:45:A3:1F'
+		bluetoothctl trust 'AC:80:0A:0D:A3:1F'
+		bluetoothctl info 'AC:80:0A:0D:A3:1F'
+		;;
+	"wh-1000xm5-elahe")
 		bluetoothctl connect 'AC:80:0A:0D:A3:AB'
 		bluetoothctl trust 'AC:80:0A:0D:A3:AB'
 		bluetoothctl info 'AC:80:0A:0D:A3:AB'
