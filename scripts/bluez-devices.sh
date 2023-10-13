@@ -28,7 +28,8 @@ main_brew() {
 
 main_parham() {
 	devices=(
-		"wh-1000xm5: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE."
+		"wh-1000xm5-parham: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE. 🐼"
+		"wh-1000xm5-elahe: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE. 🌰"
 		"redmi-buds-3-pro: 35dB Smart noise cancellation | Dual-device connectivity | Wireless charging | 28h long battery life, The sound you want"
 	)
 
