@@ -304,3 +304,7 @@ These are the software that I need on my system:
 |   Adobe Acrobat Pro   | [p30download](https://p30download.ir/fa/entry/58302/)  |
 |          Git          | `winget install Git.Git`                               |
 |         Skype         | `winget install 'Skype Insiders'`                      |
+
+## References
+
+- <https://github.com/Ruixi-rebirth/sway-dotfiles>
