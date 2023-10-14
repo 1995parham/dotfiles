@@ -66,12 +66,6 @@ windows:
         start_directory: ~/Documents/Git/parham/parham-alvani/raha
       - start_directory: ~/Documents/Git/parham/parham-alvani/dishes
 
-  - window_name: manuals
-    layout: tiled
-    panes:
-      - start_directory: ~/Documents/Git/parham/1995parham/dotdroid
-      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io/
-
   - window_name: kvm
     layout: even-vertical
     start_directory: ~/kvm
