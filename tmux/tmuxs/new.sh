@@ -115,7 +115,12 @@ fi
 
 cd -
 
-tmux kill-window -t "$current_session:=$name" &>/dev/null || true
+prefix=0
+while tmux has-session -t "$current_session:=$name" &>/dev/null; do
+	name="${name}_${prefix}"
+	prefix=$((prefix + 1))
+done
+
 tmux new-window -t "$current_session" -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
 # show project information on the last pane. this doesn't work with pipenv shell
 # so we don't have information on pythonic projects.
