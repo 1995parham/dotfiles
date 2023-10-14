@@ -128,7 +128,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 
 - [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on `ROG STRIX X399-E GAMING` Motherboard.
   It's always home and ready for duties.
-  Last `ArchLinux` installation happened on 06 Apr 2023. ✅
+  Last `ArchLinux` installation happened on 02 Apr 2023. ✅
 
   |    Type    |                      Value                       |
   | :--------: | :----------------------------------------------: |
