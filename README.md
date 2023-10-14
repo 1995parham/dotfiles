@@ -12,11 +12,17 @@
 
 ## Introduction
 
-This repository contains Parham Alvani's personal `dotfiles` for configuring various tools in his development environment. These `dotfiles` are intended to be used on macOS and Linux systems.
+This repository contains Parham Alvani's personal `dotfiles` for configuring various tools in
+his development/living environment.
+These `dotfiles` are intended to be used on macOS and Linux systems (not Windows or WSL).
 
-A `dotfiles` repository is a personal repository, and with it, you can manage your configuration between your systems. So I made this repository a template repository, so you can easily start your personal one from it.
+A `dotfiles` repository is a personal repository, and with it, you can manage your configuration between your systems.
+So I made this repository a template repository, so you can easily start your personal one from it.
+Learn more about `dotfiles` [here](https://virgool.io/@rsharifnasab/dotfiles-emhmfto0nijw).
 
-Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using this project and reporting its issues. Her unique contributions to this repository and my life are unforgettable.
+Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using this project and reporting its issues
+specially on macOS.
+Her unique contributions to this repository and my life are unforgettable.
 
 ## Installation
 
@@ -27,7 +33,8 @@ Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using th
 </p>
 
 You need to first install an operating system to use these `dotfiles`,
-For installing [`ArchLinux`](https://archlinux.org/) from scratch, please check [here](./archinstall)
+For installing [`ArchLinux`](https://archlinux.org/) from scratch with [`archinstall`](https://github.com/archlinux/archinstall/),
+please check [here](./archinstall)
 
 To install these `dotfiles` on a fresh system, run the following command:
 
@@ -35,16 +42,17 @@ To install these `dotfiles` on a fresh system, run the following command:
 git clone https://github.com/1995parham/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./start.sh env && ./install.sh
 ```
 
-This will clone the repository into your home directory (`~/.dotfiles`), and run the `start.sh env` script to install required tools and then run `install.sh` script to
+This will clone the repository into your home directory (`~/.dotfiles`), and run the `start.sh env` script to install
+required tools and then run `install.sh` script to
 create symbolic links between the `dotfiles` and their expected locations in your home directory.
 
-After that, you set `zsh` as your default terminal:
+After that, you can set `zsh` as your default terminal (you can use bash too, there is no hard requirement to use `zsh`):
 
 ```bash
 sudo chsh $USER -s /bin/zsh
 ```
 
-Run `start.sh font` script to install useful fonts:
+Run `start.sh font` script to install useful fonts (obviously on a desktop system):
 
 ```bash
 ./start.sh font
@@ -56,7 +64,7 @@ Run `start.sh font` script to install useful fonts:
 touch $HOME/.config/git/config
 ```
 
-or you can use mine:
+or you can use mine (it's crystal clear these values is useful only for me):
 
 ```bash
 ./start.sh git
@@ -95,14 +103,22 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (3) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
   | Memory (4) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
 
-- [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen, and it stays at Snapp!.
+- [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen,
+  and it's used at Snapp's office mainly.
   Last `ArchLinux` installation happened on 10 Sep 2023 using `archlinux-2023.09.01-x86_64.iso`. ✅
+
+  |    Type    |                      Value                      |
+  | :--------: | :---------------------------------------------: |
+  |   System   | `ASUSTeK COMPUTER INC GA401QM ROG Zephyrus G14` |
+  | Processor  |    `AMD Ryzen 9 5900HS with Radeon Graphics`    |
+  | Memory (1) |  `DDR4 - Micron Technology - 8 GB - 3200 MT/s`  |
+  | Memory (2) | `DDR4 - Micron Technology - 16 GB - 3200 MT/s`  |
 
 - [`a-wing`](https://en.wikipedia.org/wiki/A-wing): Intel NUC system attached to my TV which is very old and not capable
   of doing anything. Last `LinuxMint` installation happened on 07 Sep 2023. 🚧
 
-- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp! and it should
-  return back to them when I decide to leave. ✅
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp, and it should
+  return to them when I decide to leave. ✅
 
   |   Type    |                     Value                     |
   | :-------: | :-------------------------------------------: |
@@ -110,8 +126,9 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
-- [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on ROG STRIX X399-E GAMING Motherboard.
-  It's always home and ready for duties. ✅
+- [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on `ROG STRIX X399-E GAMING` Motherboard.
+  It's always home and ready for duties.
+  Last `ArchLinux` installation happened on 06 Apr 2023. ✅
 
   |    Type    |                      Value                       |
   | :--------: | :----------------------------------------------: |
@@ -124,8 +141,9 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (5) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
   | Memory (6) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
 
-- [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on Z10PE-D16 WS Motherboard. It's
-  always home and ready for duties. Last `ArchLinux` installation happened on 06 Apr 2023. ✅
+- [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on `Z10PE-D16 WS` Motherboard.
+  It's always home and ready for duties.
+  Last `ArchLinux` installation happened on 06 Apr 2023. ✅
 
   |     Type      |                      Value                       |
   | :-----------: | :----------------------------------------------: |
