@@ -115,6 +115,7 @@ alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source ~/.zshenv && source ~/.zshrc"
 alias emacs="emacs -nw"
+alias ls-la="ls -la"
 
 # set up navi
 
