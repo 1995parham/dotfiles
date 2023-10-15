@@ -30,13 +30,13 @@ main_pacman() {
 		require_aur neovim-git
 	fi
 	require_pacman libvterm python-pynvim luarocks
-	require_pip neovim-remote
+	require_pip nvim-remote
 }
 
 main_brew() {
 	require_brew luarocks
 	require_brew_head neovim
-	require_pip neovim-remote
+	require_pip nvim-remote
 }
 
 main() {
