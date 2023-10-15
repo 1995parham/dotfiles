@@ -65,5 +65,10 @@ main() {
 
 	python-install-packages
 
-	msg 'pyenv configured in zsh'
+	msg 'pyenv already configured in zsh (zshrc.shared)'
+}
+
+main_parham() {
+	msg 'setting pypi token on poetry'
+	poetry config pypi-token.pypi "$(gopass show -o token/pypi/publish)"
 }
