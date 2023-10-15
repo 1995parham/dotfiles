@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# set personal aliases
+# for a full list of active aliases, run `alias`.
+
 # check the weather using wttr.in
 function wea() {
 	local request="wttr.in/${1-Tehran}?Fqm"
@@ -16,3 +19,10 @@ alias weaf='curl -s "wttr.in/Tehran?Fqm"'
 
 # watch network connection
 alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
+
+alias grep="grep --color=auto"
+alias vi="vim"
+alias ls-la="ls -la"
+
+# run emacs tui on terminal instead of emacs itself.
+alias emacs="emacs -nw"
