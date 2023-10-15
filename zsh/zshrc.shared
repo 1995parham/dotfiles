@@ -80,6 +80,7 @@ plugins=(
 	gnu-utils
 
 	proxy
+  alias
 )
 
 source $ZSH/oh-my-zsh.sh
