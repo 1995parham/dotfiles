@@ -46,21 +46,30 @@ main_parham() {
 		done
 	fi
 
+	local mac_address
 	case $device in
 	"wh-1000xm5-parham")
-		bluetoothctl connect 'AC:80:0A:45:A3:1F'
-		bluetoothctl trust 'AC:80:0A:0D:A3:1F'
-		bluetoothctl info 'AC:80:0A:0D:A3:1F'
+		mac_address="AC:80:0A:45:A3:1F"
 		;;
 	"wh-1000xm5-elahe")
-		bluetoothctl connect 'AC:80:0A:0D:A3:AB'
-		bluetoothctl trust 'AC:80:0A:0D:A3:AB'
-		bluetoothctl info 'AC:80:0A:0D:A3:AB'
+		mac_address="AC:80:0A:0D:A3:AB"
 		;;
 	"redmi-buds-3-pro")
-		bluetoothctl connect '6C:D3:EE:28:D8:A5'
-		bluetoothctl trust '6C:D3:EE:28:D8:A5'
-		bluetoothctl info '6C:D3:EE:28:D8:A5'
+		mac_address="6C:D3:EE:28:D8:A5"
+		;;
+	*)
+		return
 		;;
 	esac
+
+	bluetoothctl disconnect "$mac_address" || true
+	bluetoothctl untrust "$mac_address" || true
+	bluetoothctl remove "$mac_address" || true
+
+	bluetoothctl --timeout 12 scan on
+
+	bluetoothctl info "$mac_address"
+	bluetoothctl connect "$mac_address"
+	bluetoothctl pair "$mac_address"
+	bluetoothctl trust "$mac_address"
 }
