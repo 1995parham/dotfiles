@@ -38,6 +38,7 @@ brew_packages=(
 	wakatime-cli
 	muzzle
 	jcal
+	speedtest-cli
 )
 apt_packages=(bmon atop)
 pacman_packages=(
