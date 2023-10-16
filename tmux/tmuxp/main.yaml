@@ -37,7 +37,7 @@ windows:
       - start_directory: ~/tasks
         shell_command:
           - git pull origin main &> /dev/null
-          - emacs -nw --eval '(org-agenda nil "n")'
+          - figlet 'plan your day and stick to it'
       - start_directory: ~/.local/share/dijo
         shell_command:
           - git pull origin main &> /dev/null
