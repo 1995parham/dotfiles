@@ -47,7 +47,7 @@ fi
 # instead of neovim, etc.
 if [ -n "$NVIM" ]; then
 	alias nvim=nvr
-	export VISUAL="nvr -cc split --bufdelete --remote-wait"
+	export EDITOR="nvr -cc split --bufdelete --remote-wait"
 	export MANPAGER="nvr -c 'Man!' -o -"
 else
 	set -o vi
