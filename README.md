@@ -221,7 +221,7 @@ To find software compatible with sway, always check the [`are we wayland yet`](h
 |         Skype          | `skypeforlinux-preview-bin (yay)` | Skype Preview                                  | Skype                           |
 |       Clipboard        | `./start.sh sway`                 | `wl-copy`, `wl-paste`                          | -                               |
 |     Wayland Evnets     | `wev (yay)`                       | `wev`                                          | -                               |
-|     Network Speed      | `./start.sh env`                  | `speedtest-cli`                                | -                               |
+|     Network Speed      | `./start.sh env`                  | `speedtest-cli`                                | `speedtest-cli`                 |
 |       Status Bar       | `./start.sh sway`                 | `waybar`                                       | -                               |
 |       Syncthing        | `./start.sh syncthing`            | `syncthing`                                    | `syncthing`                     |
 |   Terminal Emulator    | `./start.sh alacritty`            | `alacritty`                                    | Alacritty (?)                   |
