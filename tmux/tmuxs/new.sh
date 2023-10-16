@@ -93,6 +93,25 @@ if [ -f Pipfile ]; then
 	fi
 fi
 
+if [ -f poetry.lock ]; then
+	poetry=""
+
+	if [[ "$(command -v pipx)" ]]; then
+		message 'tmux' 'pipx is installed and we are using it to run poetry' 'warn' && sleep 5
+		poetry="pipx run poetry"
+	elif [[ "$(command -v poetry)" ]]; then
+		poetry="poetry"
+	fi
+
+	if [ -n "$poetry" ]; then
+		message 'tmux' "setup project base on poetry ($poetry)" 'warn' && sleep 5
+		bash -c "$poetry install --verbose" || msg 'tmux' 'poetry requirement installation failed' 'error'
+
+		# shellcheck disable=2016
+		commands+=('source "$(poetry env info --path)/bin/activate"' "${commands[@]}")
+	fi
+fi
+
 # install python requirements using requirements.txt
 # and using pyenv manually to install required python version.
 if [ -f requirements.txt ]; then
