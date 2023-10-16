@@ -141,6 +141,8 @@ main_brew() {
 	for package in "${packages[@]}"; do
 		tlmgr install "$package"
 	done
+
+	require_brew tectonnic
 }
 
 main_apt() {
