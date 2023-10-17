@@ -7,7 +7,7 @@ prompt = () => {
   if (!db[hostnameSymbol]) db[hostnameSymbol] = db.serverStatus().host;
   if (!db[uptimeSymbol]) db[uptimeSymbol] = db.serverStatus().uptime;
 
-  return `${db.getName()}@${db[hostnameSymbol]} [${db[uptimeSymbol]}]> `;
+  return `${db.getName()}@${db[hostnameSymbol]} [${db[uptimeSymbol]}s]> `;
 };
 
 let mongoTuning = {};
@@ -66,7 +66,7 @@ mongoTuning.profileQuery = () => {
 mongoTuning.getQueryByHash = function (queryHash) {
   return db.system.profile.findOne(
     { queryHash },
-    { ns: 1, command: 1, docsExamined: 1, millis: 1, planSummary: 1 }
+    { ns: 1, command: 1, docsExamined: 1, millis: 1, planSummary: 1 },
   );
 };
 
