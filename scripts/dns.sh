@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-	echo -n 'my dns, my rules (remember systemd is the best)'
+	echo -n 'my dns, my rules (based on dnsmasq)'
 	echo '
      _
   __| |_ __  ___
@@ -60,6 +60,8 @@ main_pacman() {
 	sudo nmcli general reload
 
 	if [ "$kind" != none ]; then
+		msg 'validate your access to the shecan infrastructure'
+
 		if [ "$(curl -s check.shecan.ir)" = '0' ]; then
 			msg "shecan is ready"
 		else
@@ -67,6 +69,7 @@ main_pacman() {
 			return 1
 		fi
 
+		msg 'use shecan to in the docker containers'
 		if [ -d "/etc/docker" ]; then
 			sudo touch /etc/docker/daemon.json
 
