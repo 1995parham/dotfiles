@@ -4,7 +4,7 @@
   editor = vim
 
 [pull]
-  merge = true
+  rebase = false
 
 [credential]
   helper = cache
