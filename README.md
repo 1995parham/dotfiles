@@ -78,6 +78,8 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 
 ## Hosts (naming based on Star Wars and Battlestar Galactica movies)
 
+### Parham
+
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
 - [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
@@ -147,6 +149,19 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
 
 Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
+
+### Elahe
+
+Elahe has the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
+
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp, and it should
+  return to them when I decide to leave. Last OSx installation happened on 14 Oct 2023. ✅
+
+  |   Type    |                     Value                     |
+  | :-------: | :-------------------------------------------: |
+  |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
+  | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
+  |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
 ## Usage
 
