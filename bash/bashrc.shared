@@ -4,10 +4,6 @@ dotfiles_bash_source="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd
 source "$dotfiles_bash_source/alias.sh"
 source "$dotfiles_bash_source/proxy.sh"
 
-# source profiles in home and etc directories
-test -f /etc/profile && source /etc/profile
-test -f "$HOME/.profile" && source "$HOME/.profile"
-
 bind 'TAB: menu-complete'
 bind '"\e[Z": menu-complete-backward'
 
