@@ -12,6 +12,10 @@ usage() {
   '
 }
 
+main_apt() {
+	curl -sS https://starship.rs/install.sh | sh
+}
+
 main_pacman() {
 	require_pacman starship
 }
