@@ -148,6 +148,10 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   |  Memory (3)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
   |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
 
+- [`escape-pod`](https://starwars.fandom.com/wiki/Escape_pod): Raspberry Pi bought to me by my queen.
+  I am going to use it for Speedify connectivity.
+  Last `Ubuntu 23.04` installation happened on 25 Oct 2023. ✅
+
 Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
 ### Elahe
