@@ -17,6 +17,9 @@ bind "set completion-ignore-case on"
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
+# use ctrl+l for screen cleanup
+bind -x '"\C-l": clear;'
+
 # bash history
 # https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
