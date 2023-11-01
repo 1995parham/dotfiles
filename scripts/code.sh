@@ -16,12 +16,8 @@ main_pacman() {
 	require_aur visual-studio-code-insiders-bin
 }
 
-main_apt() {
-	return 1
-}
-
 main_brew() {
-	return 1
+	require_brew_cask visual-studio-code
 }
 
 main() {
