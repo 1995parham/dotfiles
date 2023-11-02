@@ -13,7 +13,8 @@ usage() {
 }
 
 main_pacman() {
-	require_aur visual-studio-code-insiders-bin
+	msg 'insider belongs to parham and stable belongs to michael'
+	require_aur visual-studio-code-insiders-bin visual-studio-code-bin
 }
 
 main_brew() {
