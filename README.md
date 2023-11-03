@@ -12,17 +12,18 @@
 
 ## Introduction
 
-This repository contains Parham Alvani's personal `dotfiles` for configuring various tools in
-his development/living environment.
-These `dotfiles` are intended to be used on macOS and Linux systems (not Windows or WSL).
+This repository houses Parham Alvani's personal `dotfiles`,
+which serve as configuration files for various tools in his development and living environment.
+These `dotfiles` are designed specifically for use on macOS and Linux systems, excluding Windows or WSL.
 
-A `dotfiles` repository is a personal repository, and with it, you can manage your configuration between your systems.
-So I made this repository a template repository, so you can easily start your personal one from it.
-Learn more about `dotfiles` [here](https://virgool.io/@rsharifnasab/dotfiles-emhmfto0nijw).
+`Dotfiles` repositories are personal repositories that facilitate the management of configurations across different systems.
+To make the process easier for others, I have made this repository a template that can be used as a starting point
+for creating personal `dotfiles` repositories.
+You can find more information about `dotfiles` and their significance [here](https://virgool.io/@rsharifnasab/dotfiles-emhmfto0nijw).
 
-Special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for using this project and reporting its issues
-specially on macOS.
-Her unique contributions to this repository and my life are unforgettable.
+I would like to express my special thanks to [@elahe-dastan](https://github.com/elahe-dastan/) for not only utilizing this project
+but also providing valuable feedback, particularly regarding macOS compatibility.
+Her remarkable contributions to both this repository and my personal life are truly unforgettable.
 
 ## Installation
 
