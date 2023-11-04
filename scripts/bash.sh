@@ -23,7 +23,21 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew bash
+	require_brew bash bash-completion@2
+
+	# create bashrc if it doesn't exists
+	if [ ! -f "$HOME/.bashrc" ]; then
+		touch "$HOME/.bashrc"
+	fi
+
+	# bash-completion caveats
+	if ! grep -q -F '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' \
+		"$HOME/.bashrc"; then
+
+		echo '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' |
+			tee -a "$HOME/.bashrc"
+
+	fi
 }
 
 main() {
