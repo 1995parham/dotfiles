@@ -29,7 +29,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew python@3.11 pipx
+	require_brew python@3.11 pipx pyenv
 }
 
 main_pacman() {
