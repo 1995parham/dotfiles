@@ -44,7 +44,7 @@ Just run the following script to have the setup:
 
 ```bash
 # install brew with default configuration.
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+./start.sh brew
 # configure osx with Parham's preferences.
 ./start.sh osx
 ```
