@@ -37,6 +37,15 @@ You need to first install an operating system to use these `dotfiles`,
 For installing [`ArchLinux`](https://archlinux.org/) from scratch with [`archinstall`](https://github.com/archlinux/archinstall/),
 please check [here](./archinstall)
 
+In case of using macOS, you already have the installed macOS.
+(Use recovery mode by Press and hold the power button on your Mac until the system volume and the Options button appear)
+So, there is no need to install the operating system, and you cannot customize anything about it.
+Just run the following script to have the setup:
+
+```bash
+./start.sh osx
+```
+
 To install these `dotfiles` on a fresh system, run the following command:
 
 ```bash
