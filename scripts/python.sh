@@ -70,5 +70,7 @@ main() {
 
 main_parham() {
 	msg 'setting pypi token on poetry'
-	poetry config pypi-token.pypi "$(gopass show -o token/pypi/publish)"
+	if [[ "$(command -v gopass)" ]]; then
+		pipx run poetry config pypi-token.pypi "$(gopass show -o token/pypi/publish)"
+	fi
 }
