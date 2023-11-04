@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n -e "u-mamba for machine learning and data science"

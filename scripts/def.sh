@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo "def, a free oxford dictionary (based on stardict) in terminal"

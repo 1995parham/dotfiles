@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "A youtube-dl fork with additional features and fixes"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "The world’s fastest framework for building websites"
 

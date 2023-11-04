@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "alacritty terminal with jetbrains mono font and configuration"

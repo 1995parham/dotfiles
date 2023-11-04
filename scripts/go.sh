@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "setup working environment for go with neovim + fatih/vim-go"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "The NATS Command Line Interface"
 

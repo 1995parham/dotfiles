@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n -e "Zig is a general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software."

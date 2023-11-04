@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "The easy way to design, debug, and test APIs"
 

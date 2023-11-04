@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # this script is written to works with its custom udev rules.
 # to add a new disk you must first run the following command:

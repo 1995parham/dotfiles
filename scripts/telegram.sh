@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n -e "free and open source, cross-platform, cloud-based instant messaging software"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "image manipulation tools including: imagemagick (convert), gimp"

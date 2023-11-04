@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "Intel GPU based on its open-source kernel module, for desktop environments"
 

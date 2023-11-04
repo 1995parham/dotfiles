@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "Postman is an API platform for building and using APIs"
 

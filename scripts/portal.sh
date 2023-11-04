@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "Portal is a quick and easy command-line file transfer utility from any computer to another"
 

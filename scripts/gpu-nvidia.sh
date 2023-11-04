@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n 'Nvidia GPU based on its open-source kernel module, for desktop environments and also remembering Iman Tabrizian'

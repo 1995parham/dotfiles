@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo "Wireshark is the world’s foremost and widely-used network protocol analyzer. Go Deep"

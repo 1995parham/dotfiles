@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "the minimal, blazing-fast, and infinitely customizable prompt for any shell!"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "Tools required for having fun with your GPU without knowing its brand"
 

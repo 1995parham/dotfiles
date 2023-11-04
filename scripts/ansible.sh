@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n -e "ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy and maintain."

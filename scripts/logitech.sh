@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "Logitech International S.A. is a Swiss-American multinational manufacturer of computer peripherals and software, with headquarters in Lausanne, Switzerland, and Newark, California."
 

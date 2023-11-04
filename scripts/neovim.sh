@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export dependencies=("node" "go" "rust" "python")
 export additionals=("shell" "java")

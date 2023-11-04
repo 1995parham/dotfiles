@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "Wayland is communication protocol that specifies the communication between a display server and its clients."
 

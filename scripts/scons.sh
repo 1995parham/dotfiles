@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "SCons is an Open Source software construction tool. Think of SCons as an improved, cross-platform substitute
   for the classic Make utility with integrated functionality similar to autoconf/automake

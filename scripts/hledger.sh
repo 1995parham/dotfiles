@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "Robust, fast, intuitive plain text accounting tool with CLI, TUI and web interfaces."

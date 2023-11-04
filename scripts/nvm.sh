@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo 'Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions'

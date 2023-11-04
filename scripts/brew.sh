@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo "The missing package manager for macOS (or Linux)"
@@ -15,7 +15,7 @@ usage() {
 main_brew() {
 	xcode-select --install
 
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	/usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	# shellcheck disable=2016
 	(
@@ -39,7 +39,7 @@ main_pacman() {
 main_apt() {
 	require_apt build-essential procps curl file git
 
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	/usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	msg "add homebrew to your profile"
 

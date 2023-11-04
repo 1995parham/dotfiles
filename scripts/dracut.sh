@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
 	echo "dracut is a highly modular tool for generating initramfs images"
 

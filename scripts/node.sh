@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo "install nodejs, remembers language-servers must of the time needs nodejs"

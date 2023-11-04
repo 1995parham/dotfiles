@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # In The Name Of God
 # ========================================
 # [] File Name : exercism.sh

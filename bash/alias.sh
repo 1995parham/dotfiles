@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # set personal aliases
 # for a full list of active aliases, run `alias`.

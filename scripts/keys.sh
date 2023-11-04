@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n "install registered public keys on github <username> as authorized keys ⚠️"

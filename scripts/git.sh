@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n 'git configuration useful on systems with ssh keys and are used by @1995parham/@elahe-dastan'
