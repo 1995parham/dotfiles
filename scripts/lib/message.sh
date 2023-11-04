@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export F_CYAN="\033[38;2;0;255;255m"
 export F_GREEN="\033[38;2;127;230;127m"

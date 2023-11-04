@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo "create a new script just for you"
@@ -61,7 +61,7 @@ main() {
 	read -r -p 'user: ' -i "$USER" -e user
 
 	cat >>"$root/scripts/$name.sh" <<EOF
-#!/bin/bash
+#!/usr/bin/env bash
 usage() {
   echo "$description"
 

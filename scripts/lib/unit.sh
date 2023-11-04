@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 assert_equals() {
 	if [ "$#" -ne 2 ]; then

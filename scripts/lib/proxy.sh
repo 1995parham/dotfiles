@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/
 
 proxy_start() {
