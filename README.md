@@ -43,6 +43,9 @@ So, there is no need to install the operating system, and you cannot customize a
 Just run the following script to have the setup:
 
 ```bash
+# install brew with default configuration.
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# configure osx with Parham's preferences.
 ./start.sh osx
 ```
 
