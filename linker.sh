@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 root=${root:?"root must be set"}
 yes_to_all=${yes_to_all:-false}

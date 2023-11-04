@@ -8,12 +8,12 @@
 
 ## Introduction
 
-These are scripts that help you maintain your dotfiles easier with having more fun.
+These are scripts that help you maintain your `dotfiles` easier with having more fun.
 The library contains bash scripts for installing requirements, printing colorful messages, set-up proxy, etc.
 
 ## How to use it?
 
-Clone this repository into your dotfiles's folder under `./scripts/lib`
+Clone this repository into your `dotfiless` folder under `./scripts/lib`
 (here we are using [git-subtree](https://www.atlassian.com/git/tutorials/git-subtree)):
 
 ```bash
@@ -21,7 +21,7 @@ mkdir scripts
 git subtree add --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
 ```
 
-Then link the `start.sh` into your root's dotfiles as follows:
+Then link the `start.sh` into your root's `dotfiles` as follows:
 
 ```bash
 ln -s scripts/lib/start.sh start.sh
