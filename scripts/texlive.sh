@@ -129,20 +129,7 @@ main_pacman() {
 }
 
 main_brew() {
-	msg "install basictex with brew"
-	brew cask install basictex
-
-	eval "$(/usr/libexec/path_helper)"
-
-	msg "tlmgr repositories are ready"
-	tlmgr option repository ctan
-
-	msg "install required packages for better latex/xetex experience in persian"
-	for package in "${packages[@]}"; do
-		tlmgr install "$package"
-	done
-
-	require_brew tectonnic
+	require_brew tectonic
 }
 
 main_apt() {
