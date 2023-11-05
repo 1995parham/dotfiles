@@ -34,7 +34,7 @@ main_pacman() {
 }
 
 main_brew() {
-	require_brew luarocks
+	require_brew luarocks gcc@11
 	require_brew_head neovim
 	require_pip 'nvim-remote @ git+https://github.com/1995parham/nvim-remote'
 }
