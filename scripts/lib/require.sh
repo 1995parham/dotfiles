@@ -151,8 +151,13 @@ function require_go() {
 
 function require_pip() {
 	for pkg in "$@"; do
-		action "require" " python $pkg"
-		if (pipx list | grep "$pkg" &>/dev/null); then
+		# remove version specification and remaining
+		# spaces
+		name=${pkg%%@*}
+		name=$(echo "$name" | xargs)
+
+		action "require" " python $name"
+		if (pipx list | grep "$name" &>/dev/null); then
 			pipx upgrade --pip-args pre "$pkg"
 		else
 			pipx install --include-deps --pip-args pre "$pkg"
