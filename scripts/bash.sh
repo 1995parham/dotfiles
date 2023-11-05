@@ -14,6 +14,13 @@ usage() {
 
 root=${root:?"root must be set"}
 
+pre_main() {
+	msg "create bashrc if it doesn't exist"
+	if [ ! -f "$HOME/.bashrc" ]; then
+		touch "$HOME/.bashrc"
+	fi
+}
+
 main_pacman() {
 	require_pacman bash bash-completion
 }
@@ -25,12 +32,7 @@ main_apt() {
 main_brew() {
 	require_brew bash bash-completion@2
 
-	# create bashrc if it doesn't exists
-	if [ ! -f "$HOME/.bashrc" ]; then
-		touch "$HOME/.bashrc"
-	fi
-
-	# bash-completion caveats
+	msg "bash-completion caveats"
 	if ! grep -q -F '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' \
 		"$HOME/.bashrc"; then
 
@@ -43,17 +45,12 @@ main_brew() {
 main() {
 	dotfile "bash" "bashrc.shared"
 
-	# create bashrc if it doesn't exists
-	if [ ! -f "$HOME/.bashrc" ]; then
-		touch "$HOME/.bashrc"
-	fi
-
-	# source bashrc.shared
+	msg "source bashrc.shared in bashrc"
 	if ! grep -q -F "source \$HOME/.bashrc.shared" "$HOME/.bashrc"; then
 		echo "source \$HOME/.bashrc.shared" | tee -a "$HOME/.bashrc"
 	fi
 
-	# provide dotfile home variable
+	msg "provide dotfile home variable in bashrc"
 	if ! grep -q -F "export DOTFILES_ROOT=" "$HOME/.bashrc"; then
 		echo "export DOTFILES_ROOT=\"$root\"" | tee -a "$HOME/.bashrc"
 	fi
