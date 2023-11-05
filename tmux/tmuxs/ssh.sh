@@ -13,32 +13,37 @@ host=$(
 		fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec
 )
 
-# . character has special meaning for tmux, it uses
-# it for separating window from pane.
-name="-|-$(basename "$host" | tr '.' '_')"
-current_session="$(tmux display-message -p '#S')"
+if [[ "$OSTYPE" == "darwin"* ]] &&
+	[[ "$(command -v kitty)" ]]; then
+	kitty @ launch --type=tab kitten ssh "$host"
+else
+	# . character has special meaning for tmux, it uses
+	# it for separating window from pane.
+	name="-|-$(basename "$host" | tr '.' '_')"
+	current_session="$(tmux display-message -p '#S')"
 
-sessions=$(tmux list-sessions | sed 's/: .*$//')
+	sessions=$(tmux list-sessions | sed 's/: .*$//')
 
-current_session=$(
-	printf "%s\n[new]" "$sessions" |
-		fzf \
-			--color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
-			--query "$current_session" \
-			--preview="tmux capture-pane -ep -t {}"
-)
+	current_session=$(
+		printf "%s\n[new]" "$sessions" |
+			fzf \
+				--color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+				--query "$current_session" \
+				--preview="tmux capture-pane -ep -t {}"
+	)
 
-if [ "$current_session" == "[new]" ]; then
-	read -r -p "please enter the new session name: " new_session
-	if [ -n "$new_session" ]; then
-		tmux new-session -s "$new_session" -d -n 'scratch' -c "$HOME/Downloads"
-		current_session="$new_session"
-	else
-		return 0
+	if [ "$current_session" == "[new]" ]; then
+		read -r -p "please enter the new session name: " new_session
+		if [ -n "$new_session" ]; then
+			tmux new-session -s "$new_session" -d -n 'scratch' -c "$HOME/Downloads"
+			current_session="$new_session"
+		else
+			return 0
+		fi
 	fi
-fi
 
-tmux kill-window -t "$current_session:=$name" &>/dev/null || true
-tmux new-window -t "$current_session" -c "$HOME/Downloads" -n "$name" "ssh $host"
-tmux split-window -t "$current_session:=$name" -c "$HOME/Downloads" "ssh $host"
-tmux select-pane -t "$current_session:=$name.0"
+	tmux kill-window -t "$current_session:=$name" &>/dev/null || true
+	tmux new-window -t "$current_session" -c "$HOME/Downloads" -n "$name" "ssh $host"
+	tmux split-window -t "$current_session:=$name" -c "$HOME/Downloads" "ssh $host"
+	tmux select-pane -t "$current_session:=$name.0"
+fi
