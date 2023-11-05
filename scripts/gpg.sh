@@ -26,7 +26,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew_cask gpg-suite
+	require_brew_cask gpg-suite-nightly
 }
 
 main() {
