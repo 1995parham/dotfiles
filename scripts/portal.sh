@@ -17,6 +17,10 @@ main_pacman() {
 	require_aur portal-bin
 }
 
+main_brew() {
+	require_brew portal
+}
+
 main() {
 	return 0
 }
