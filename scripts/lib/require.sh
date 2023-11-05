@@ -151,13 +151,18 @@ function require_go() {
 
 function require_pip() {
 	for pkg in "$@"; do
+		# do not upgrade when user request a specific version.
+		not_specific_version=true
+		if [[ "$pkg" == *@* ]]; then
+			not_specific_version=false
+		fi
 		# remove version specification and remaining
-		# spaces
+		# spaces.
 		name=${pkg%%@*}
 		name=$(echo "$name" | xargs)
 
 		action "require" " python $name"
-		if (pipx list | grep "$name" &>/dev/null); then
+		if $not_specific_version && (pipx list | grep "$pkg" &>/dev/null); then
 			pipx upgrade --pip-args pre "$pkg"
 		else
 			pipx install --include-deps --pip-args pre "$pkg"
