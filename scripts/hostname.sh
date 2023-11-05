@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-  echo "set hostname based on starship naming schema"
+	echo "set hostname based on starship naming schema"
 
-  # shellcheck disable=1004,2016
-  echo '
+	# shellcheck disable=1004,2016
+	echo '
  _               _
 | |__   ___  ___| |_ _ __   __ _ _ __ ___   ___
 | |_ \ / _ \/ __| __| |_ \ / _` | |_ ` _ \ / _ \
@@ -12,26 +12,53 @@ usage() {
   '
 }
 
+hostname=""
+name=""
 
+pre_main() {
+	PS3="select hostname to change into from $HOSTNAME:"
+
+	hostnames=(
+		"millennium-falcon:Millennium Falcon"
+		"pegasus:Pegasus"
+		"x-wing:X Wing"
+		"tie-fighter:Tie Fighter"
+		"death-star:Death Star"
+		"galactica:Galactica"
+	)
+
+	select _hostname in "${hostnames[@]}"; do
+		hostname=${_hostname%%:*}
+		name=${_hostname##*:}
+		msg "changing hostname to $hostname ($name)..."
+		break
+	done
+
+	if [ "$HOSTNAME" = "$hostname" ]; then
+		msg "already has the hostname $hostname"
+		exit 0
+	fi
+}
 
 main_pacman() {
-  return 1
+	if [ -n "$hostname" ]; then
+		msg "using systemd to change hostname to $hostname"
+		sudo hostnamectl hostname "$hostname"
+	fi
 }
 
 main_apt() {
-  return 1
+	if [ -n "$hostname" ]; then
+		msg "using systemd to change hostname to $hostname"
+		sudo hostnamectl hostname "$hostname"
+	fi
 }
 
 main_brew() {
-  sudo scutil --set ComputerName 'Millennium Falcon'
-  sudo scutil --set HostName 'millennium-falcon'
-  sudo scutil --set LocalHostName 'millennium-falcon'
-}
-
-main() {
-  return 0
-}
-
-main_parham() {
-  return 0
+	if [ -n "$hostname" ] && [ -n "$name" ]; then
+		msg "using scutil to change hostname to $hostname"
+		sudo scutil --set ComputerName "$name"
+		sudo scutil --set HostName "$hostname"
+		sudo scutil --set LocalHostName "$hostname"
+	fi
 }
