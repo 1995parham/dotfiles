@@ -129,9 +129,6 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (1) |  `DDR4 - Micron Technology - 8 GB - 3200 MT/s`  |
   | Memory (2) | `DDR4 - Micron Technology - 16 GB - 3200 MT/s`  |
 
-- [`a-wing`](https://en.wikipedia.org/wiki/A-wing): Intel NUC system attached to my TV which is very old and not capable
-  of doing anything. Last `LinuxMint` installation happened on 07 Sep 2023. 🚧
-
 - [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on `ROG STRIX X399-E GAMING` Motherboard.
   It's always home and ready for duties.
   Last `ArchLinux` installation happened on 02 Apr 2023. ✅
@@ -160,10 +157,6 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   |  Memory (2)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
   |  Memory (3)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
   |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
-
-- [`escape-pod`](https://starwars.fandom.com/wiki/Escape_pod): Raspberry Pi bought to me by my queen.
-  I am going to use it for Speedify connectivity.
-  Last `Ubuntu 23.04` installation happened on 25 Oct 2023. ✅
 
 Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
