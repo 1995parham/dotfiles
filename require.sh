@@ -161,11 +161,18 @@ function require_pip() {
 		name=${pkg%%@*}
 		name=$(echo "$name" | xargs)
 
-		action "require" " python $name ($pkg)"
+		running "require" " python $name ($pkg)"
 		if $not_specific_version && (pipx list | grep "$pkg" &>/dev/null); then
+			action "require" " pipx upgrade $name ($pkg)"
 			pipx upgrade "$pkg"
 		else
-			pipx install --include-deps "$pkg"
+			if $not_specific_version; then
+				action "require" " pipx install $name ($pkg)"
+				pipx install --include-deps "$pkg"
+			else
+				action "require" " pipx install by force $name ($pkg)"
+				pipx install --include-deps --force "$pkg"
+			fi
 		fi
 	done
 }
