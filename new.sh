@@ -73,6 +73,10 @@ $(figlet "$name" | tr "'" "|" | sed -e 's/[[:space:]]*$//')
 
 $root_env
 
+pre_main() {
+  return 0
+}
+
 main_pacman() {
   return 1
 }
