@@ -161,7 +161,7 @@ function require_pip() {
 		name=${pkg%%@*}
 		name=$(echo "$name" | xargs)
 
-		action "require" " python $name"
+		action "require" " python $name ($pkg)"
 		if $not_specific_version && (pipx list | grep "$pkg" &>/dev/null); then
 			pipx upgrade --pip-args pre "$pkg"
 		else
