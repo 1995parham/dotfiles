@@ -163,9 +163,9 @@ function require_pip() {
 
 		action "require" " python $name ($pkg)"
 		if $not_specific_version && (pipx list | grep "$pkg" &>/dev/null); then
-			pipx upgrade --pip-args pre "$pkg"
+			pipx upgrade "$pkg"
 		else
-			pipx install --include-deps --pip-args pre "$pkg"
+			pipx install --include-deps "$pkg"
 		fi
 	done
 }
