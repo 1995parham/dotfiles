@@ -20,6 +20,10 @@ alias weaf='curl -s "wttr.in/Tehran?Fqm"'
 # watch network connection
 alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias ls="ls --color"
+fi
+
 alias grep="grep --color=auto"
 alias vi="vim"
 alias ls-la="ls -la"
