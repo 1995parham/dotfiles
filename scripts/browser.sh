@@ -27,7 +27,7 @@ main_brew() {
 		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
 	fi
 
-	defaultbrowser google-chrome-beta
+	defaultbrowser beta
 }
 
 main_pacman() {
