@@ -160,8 +160,11 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): ✅
 
-  | Type | Value |
-  | :--: | :---: |
+  |   Type    |                       Value                        |
+  | :-------: | :------------------------------------------------: |
+  |  System   |               `Mac14,9 (MPHE3LL/A)`                |
+  | Processor | `Apple M2 Pro 10 (6 performance and 4 efficiency)` |
+  |  Memory   |             `LPDDR5 - Micron - 16 GB`              |
 
 Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
