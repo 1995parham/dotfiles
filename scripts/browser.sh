@@ -24,7 +24,8 @@ main_brew() {
 		msg 'install gopass-jsonapi native host for firefox'
 		gopass-jsonapi configure --browser firefox
 		msg 'install gopass-jsonapi native host for google chrome'
-		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
+		gopass-jsonapi configure --browser chrome --path "$HOME/Library/Application Support/Google/Chrome Beta" \
+			--manifest-path "$HOME/Library/Application Support/Google/Chrome Beta/NativeMessagingHosts/com.justwatch.gopass.json"
 	fi
 
 	defaultbrowser beta
