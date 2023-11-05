@@ -62,6 +62,15 @@ if [ -d "$HOME/.local/bin" ]; then
 	path+=("$HOME/.local/bin")
 fi
 
+# dircolors
+if [ -f "$HOME/.dircolors" ]; then
+	if [ "$(command -v dircolors)" ]; then
+		eval "$(dircolors "$HOME/.dircolors")"
+	elif [ "$(command -v gdircolors)" ]; then
+		eval "$(gdircolors "$HOME/.dircolors")"
+	fi
+fi
+
 # pyenv, simple python version management
 if [[ "$(command -v pyenv)" ]]; then
 	export PYENV_ROOT="$HOME/.pyenv"
