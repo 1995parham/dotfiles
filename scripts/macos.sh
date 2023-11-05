@@ -30,6 +30,10 @@ main_brew() {
 	defaults write NSGlobalDomain AppleHighlightColor -string "1.000000 0.874510 0.701961 Orange"
 	defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
+	# Use tap instead of click. Secondary click with two finger tap.
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 2
+
 	msg "Dock, Dashboard, and hot corners"
 
 	defaults write com.apple.dock persistent-apps -array
