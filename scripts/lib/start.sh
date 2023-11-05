@@ -232,6 +232,10 @@ _dependencies() {
 }
 
 run() {
+	if declare -f pre_main >/dev/null; then
+		pre_main "$@"
+	fi
+
 	install
 
 	if declare -f main >/dev/null; then
