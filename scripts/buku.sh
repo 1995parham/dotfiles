@@ -15,12 +15,16 @@ usage() {
 export dependencies=('python' 'rust')
 
 main_pacman() {
-	return 0
+	require_pip buku
+	require_aur bukubrow
+}
+
+main_brew() {
+	require_brew buku
 }
 
 main() {
-	require_pip buku
-	require_aur bukubrow
+	return 0
 }
 
 main_parham() {

@@ -18,11 +18,16 @@ main_brew() {
 	require_brew_cask firefox
 	require_brew_cask firefox-developer-edition
 	require_brew_cask google-chrome-beta
+	require_brew defaultbrowser
 
 	if [[ "$(command -v gopass-jsonapi)" ]]; then
+		msg 'install gopass-jsonapi native host for firefox'
 		gopass-jsonapi configure --browser firefox
+		msg 'install gopass-jsonapi native host for google chrome'
 		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
 	fi
+
+	defaultbrowser google-chrome-beta
 }
 
 main_pacman() {
@@ -33,6 +38,7 @@ main_pacman() {
 	fi
 
 	if [[ "$(command -v bukubrow)" ]]; then
+		msg 'install bukubrow native host for firefox'
 		bukubrow --install-firefox
 	fi
 
@@ -56,6 +62,7 @@ main_pacman() {
 		fi
 
 		if [[ "$(command -v bukubrow)" ]]; then
+			msg 'install bukubrow native host for google chrome'
 			bukubrow --install-chrome --install-dir ~/.config/google-chrome-beta/NativeMessagingHosts/
 		fi
 	fi
