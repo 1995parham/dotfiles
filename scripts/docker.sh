@@ -13,6 +13,8 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 main_apt() {
 	sudo apt-get -y update
 	sudo apt-get -y install docker.io docker-compose
@@ -20,7 +22,7 @@ main_apt() {
 
 main_brew() {
 	require_brew_cask docker
-	require_brew docker-compose lazydocker
+	require_brew docker-compose lazydocker hadolint
 }
 
 main_pacman() {
@@ -28,7 +30,6 @@ main_pacman() {
 
 	require_aur hadolint-bin lazydocker-bin
 
-	root=${root:?"root must be set"}
 	sudo mkdir /etc/docker || true
 	sudo touch /etc/docker/daemon.json
 	msg 'merge provided configuration with the one that is available on system'
