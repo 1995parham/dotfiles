@@ -39,6 +39,7 @@ brew_packages=(
 	muzzle
 	jcal
 	speedtest-cli
+	chafa
 )
 apt_packages=(bmon atop)
 pacman_packages=(
