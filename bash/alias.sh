@@ -22,6 +22,8 @@ alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias ls="ls --color"
+	alias imv="open"
+	alias mupdf="open"
 fi
 
 alias grep="grep --color=auto"
