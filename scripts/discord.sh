@@ -16,12 +16,8 @@ main_pacman() {
 	require_aur webcord
 }
 
-main_apt() {
-	return 1
-}
-
 main_brew() {
-	return 1
+	require_brew_cask discord-canary
 }
 
 main() {
