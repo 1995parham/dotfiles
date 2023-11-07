@@ -14,6 +14,13 @@ usage() {
 
 root=${root:?"root must be set"}
 
+pre_main() {
+	msg "create zshrc if it doesn't exist"
+	if [ ! -f "$HOME/.zshrc" ]; then
+		touch "$HOME/.zshrc"
+	fi
+}
+
 main_pacman() {
 	require_pacman zsh
 }
@@ -23,18 +30,29 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew zsh
+	require_brew zsh zsh-completions
+
+	if ! grep -q -F "if type brew &>/dev/null; then" "$HOME/.zshrc"; then
+		tee -a "$HOME/.zshrc" <<EOL
+if type brew &>/dev/null; then
+  FPATH=\$(brew --prefix)/share/zsh-completions:\$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+EOL
+	fi
+
+	chmod go-w '/opt/homebrew/share'
+	chmod -R go-w '/opt/homebrew/share/zsh'
+
+	rm -f ~/.zcompdump
 }
 
 main() {
 	dotfile "zsh" "zshrc.shared"
 	dotfile "zsh" "zshenv"
 	dotfile "zsh" "zsh.plug"
-
-	# create zshrc if it doesn't exists
-	if [ ! -f "$HOME/.zshrc" ]; then
-		touch "$HOME/.zshrc"
-	fi
 
 	# source zshrc.shared
 	if ! grep -q -F "source \$HOME/.zshrc.shared" "$HOME/.zshrc"; then
