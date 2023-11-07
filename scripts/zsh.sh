@@ -43,8 +43,8 @@ fi
 EOL
 	fi
 
-	chmod go-w '/opt/homebrew/share'
-	chmod -R go-w '/opt/homebrew/share/zsh'
+	chmod go-w "$(brew --prefix)/share"
+	chmod -R go-w "$(brew --prefix)/share/zsh"
 
 	rm -f ~/.zcompdump
 }
