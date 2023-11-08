@@ -19,7 +19,7 @@ version="4.0.1"
 main_brew() {
 	aria2c "https://s3.amazonaws.com/builds-desktop-rj/Radio%20Javan-$version-universal.dmg" -d "$HOME/Downloads"
 
-	hdiutil attach "$HOME/Downloads/Radio Javan-$version-universal"
-	cp -r "/Volumes/Radio\ Javan\ $version-universal/Radio Javan.app" /Applications
-	hdiutil detach "/Volumes/Radio\ Javan\ $version-universal"
+	hdiutil attach "$HOME/Downloads/Radio Javan-$version-universal.dmg"
+	cp -r "/Volumes/Radio Javan $version-universal/Radio Javan.app" /Applications
+	hdiutil detach "/Volumes/Radio Javan $version-universal"
 }
