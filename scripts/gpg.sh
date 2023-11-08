@@ -27,6 +27,10 @@ main_apt() {
 
 main_brew() {
 	require_brew_cask gpg-suite-nightly
+	msg 'set gpg suite to be auto started'
+	osascript -e 'tell application "System Events" to ¬' \
+		-e 'make new login item with properties ¬' \
+		-e '{name:"GPG Keychain", path:"/Applications/GPG Keychain.app", hidden:true}'
 }
 
 main() {
