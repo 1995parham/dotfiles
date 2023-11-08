@@ -41,6 +41,7 @@ windows:
       - start_directory: ~/.local/share/dijo
         shell_command:
           - git pull origin main &> /dev/null
+          - figlet 'stick to your habits'
       - start_directory: ~/org
         shell_command:
           - git pull origin main &> /dev/null
@@ -48,14 +49,23 @@ windows:
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
         shell_command:
           - git pull origin main &> /dev/null
+          - figlet 'spend money wisely'
 
   - window_name: life-2
     layout: tiled
     panes:
       - start_directory: ~/Documents/Git/parham/parham-alvani/addressbook
+        shell_command:
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/parham-alvani/calendar
+        shell_command:
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/parham-alvani/buying
+        shell_command:
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/parham-alvani/tabs
+        shell_command:
+          - git pull origin main &> /dev/null
 
   - window_name: raha
     layout: even-vertical
