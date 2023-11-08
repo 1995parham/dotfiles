@@ -15,7 +15,7 @@ host=$(
 
 if [[ "$OSTYPE" == "darwin"* ]] &&
 	[[ "$(command -v kitty)" ]]; then
-	kitty @ launch --type=tab kitten ssh "$host"
+	kitty @ launch --type=tab ssh "$host"
 else
 	# . character has special meaning for tmux, it uses
 	# it for separating window from pane.
