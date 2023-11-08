@@ -40,6 +40,7 @@ brew_packages=(
 	jcal
 	speedtest-cli
 	chafa
+	mtr
 )
 apt_packages=(bmon atop)
 pacman_packages=(
