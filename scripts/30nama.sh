@@ -72,6 +72,6 @@ EOF
 main_brew() {
 	aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version-arm64.dmg" -d "$HOME/Downloads"
 	hdiutil attach "$HOME/Downloads/30nama-$version-arm64.dmg"
-	cp -r "/Volumes/30nama 1.2.1-arm64/30nama.app" /Applications
-	hdiutil detach "/Volumes/30nama 1.2.1-arm64"
+	cp -r "/Volumes/30nama $version-arm64/30nama.app" /Applications
+	hdiutil detach "/Volumes/30nama $version-arm64"
 }
