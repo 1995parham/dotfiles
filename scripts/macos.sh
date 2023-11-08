@@ -34,11 +34,14 @@ main_brew() {
 	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
 	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 2
 
-	msg "Dock, Dashboard, and hot corners"
+	msg "Dock, Dashboard, Control Center, and hot corners"
 
 	defaults write com.apple.dock persistent-apps -array
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+
+	defaults write com.apple.controlcenter 'NSStatusItem Visible Sound' -int 1
+	defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
 
 	# Don’t show recent applications in Dock
 	defaults write com.apple.dock show-recents -bool false
