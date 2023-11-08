@@ -16,6 +16,10 @@ pre_main() {
 	return 0
 }
 
+main_pacman() {
+	require_aur zoom
+}
+
 main_brew() {
 	require_brew_cask zoom
 }
