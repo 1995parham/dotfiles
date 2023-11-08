@@ -15,10 +15,6 @@ usage() {
 }
 
 main_pacman() {
-	return 0
-}
-
-main() {
 	if [ ! -d /opt/30nama ]; then
 		sudo mkdir /opt/30nama
 		sudo chown "$USER:$USER" /opt/30nama
@@ -71,4 +67,11 @@ Terminal=false
 # Describes the categories in which this entry should be shown
 Categories=Entertainment;
 EOF
+}
+
+main_brew() {
+	aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version-arm64.dmg" -d "$HOME/Downloads"
+	hdiutil attach "$HOME/Downloads/30nama-$version-arm64.dmg"
+	cp -r "/Volumes/30nama 1.2.1-arm64/30nama.app" /Applications
+	hdiutil detach "/Volumes/30nama 1.2.1-arm64"
 }
