@@ -23,7 +23,6 @@ main_apt() {
 main_brew() {
 	require_brew_cask docker
 	require_brew lazydocker hadolint
-	msg 'you need to enable compose plugin by installing it after running docker'
 }
 
 main_pacman() {
