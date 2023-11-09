@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function verbose_run() {
-	history -s "$@"
+	print -S "echo $*"
 	set -x
 	"$@"
 	set +x
