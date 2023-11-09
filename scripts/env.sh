@@ -42,6 +42,7 @@ brew_packages=(
 	chafa
 	mtr
 	dog
+	yq
 )
 apt_packages=(bmon atop)
 pacman_packages=(
