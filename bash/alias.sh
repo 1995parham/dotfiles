@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
+DOTFILES_ROOT=${DOTFILES_ROOT:?"dotfiles root must be set in your *shrc file before using these aliases"}
+
 # shellcheck source=./scripts/lib/message.sh
 source "$DOTFILES_ROOT/scripts/lib/message.sh"
+
+if [ -d "$HOME/.config/aliases" ]; then
+	# shellcheck disable=1090
+	for f in "$HOME"/.config/aliases/*.sh; do source "$f"; done
+fi
 
 # set personal aliases
 # for a full list of active aliases, run `alias`.
@@ -37,7 +44,7 @@ alias ls-la="ls -la"
 alias emacs="emacs -nw"
 
 # connect into the openvpn server on Asus RT-AX88u router at home.
-function vpn-home() {
+function home-vpn() {
 	case "$1" in
 	"start")
 		running 'vpn-home' 'start home connection using openvpn'
