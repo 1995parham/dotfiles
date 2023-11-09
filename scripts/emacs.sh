@@ -21,7 +21,7 @@ main_brew() {
 	brew tap d12frosted/emacs-plus
 	msg 'installation based on emacs-plus'
 	msg 'installation takes time and cpu because it compiles emacs from source'
-	brew install emacs-plus@29 --with-native-comp --with-elrumo2-icon
+	brew install emacs-plus --with-native-comp --with-elrumo2-icon
 
 	if [ ! -e /Applications/Emacs.app ]; then
 		ln -s "$(brew --prefix)/opt/emacs-plus@29/Emacs.app" /Applications
