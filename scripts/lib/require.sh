@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-function verbose_run() {
-	print -S "echo $*"
-	set -x
-	"$@"
-	set +x
-}
-
 function require_country() {
 	country=$1
 	current_country="$(curl -s ipconfig.io/country)"
