@@ -13,9 +13,7 @@ usage() {
 }
 
 main_brew() {
-	brew install --cask homebrew/cask-fonts/font-jetbrains-mono
-	brew install --cask homebrew/cask-fonts/font-jetbrains-mono-nerd-font
-	brew install --cask font-vazirmatn
+	require_brew_cask homebrew/cask-fonts/font-jetbrains-mono homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-vazirmatn homebrew/cask-fonts/font-dejavu
 }
 
 main_pacman() {
