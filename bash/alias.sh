@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
-DOTFILES_ROOT=${DOTFILES_ROOT:?"dotfiles root must be set in your *shrc file before using these aliases"}
+# https://unix.stackexchange.com/questions/76505/unix-portable-way-to-get-scripts-absolute-path-in-zsh
+# shellcheck disable=2296
+dotfiles_bash_source="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]:-${(%):-%x}}")")" && pwd)"
 
 # shellcheck source=./scripts/lib/message.sh
-source "$DOTFILES_ROOT/scripts/lib/message.sh"
+source "$dotfiles_bash_source/../scripts/lib/message.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
 	# shellcheck disable=1090
-	for f in "$HOME"/.config/aliases/*.sh; do source "$f"; done
+	for f in "$HOME"/.config/aliases/*.sh; do
+		# message 'aliases' "sourcing $f"
+		source "$f"
+	done
 fi
 
 # set personal aliases
@@ -45,38 +50,52 @@ alias emacs="emacs -nw"
 
 # connect into the openvpn server on Asus RT-AX88u router at home.
 function home-vpn() {
-	case "$1" in
+	local operations=("start" "stop")
+
+	if [ -n "$1" ]; then
+		operation="$1"
+		# shellcheck disable=2076
+		if [[ ! " ${operations[*]} " =~ " ${operation} " ]]; then
+			message 'home-vpn' "$operation is not valid a valid operation"
+			return 1
+		fi
+	else
+		operation=$(printf '%s\n' "${operations[@]}" |
+			fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec)
+	fi
+
+	case "$operation" in
 	"start")
-		running 'vpn-home' 'start home connection using openvpn'
+		running 'home-vpn' 'start home connection using openvpn'
 		if [[ "$OSTYPE" == "darwin"* ]]; then
-			message 'vpn-home' " darwin, using launchctl"
+			message 'home-vpn' " darwin, using launchctl"
 			set -x
 			sudo launchctl bootstrap system /Library/LaunchAgents/com.openvpn.home.plist
 			set +x
 		elif [[ "$(command -v systemctl)" ]]; then
-			message 'vpn-home' " linux, using systemd"
+			message 'home-vpn' " linux, using systemd"
 			set -x
 			systemctl start openvpn-client@home
 			set +x
 		else
-			message 'vpn-home' '󰏲 call parham (+98 939 09 09 540)'
+			message 'home-vpn' '󰏲 call parham (+98 939 09 09 540)'
 		fi
 
 		;;
 	"stop")
-		running 'vpn-home' 'stop home connection using openvpn'
+		running 'home-vpn' 'stop home connection using openvpn'
 		if [[ "$OSTYPE" == "darwin"* ]]; then
-			message 'vpn-home' " darwin, using launchctl"
+			message 'home-vpn' " darwin, using launchctl"
 			set -x
 			sudo launchctl bootout system /Library/LaunchAgents/com.openvpn.home.plist
 			set +x
 		elif [[ "$(command -v systemctl)" ]]; then
-			message 'vpn-home' " linux, using systemd"
+			message 'home-vpn' " linux, using systemd"
 			set -x
 			systemctl stop openvpn-client@home
 			set +x
 		else
-			message 'vpn-home' '󰏲 call parham (+98 939 09 09 540)'
+			message 'home-vpn' '󰏲 call parham (+98 939 09 09 540)'
 		fi
 
 		;;
