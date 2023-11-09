@@ -41,6 +41,7 @@ brew_packages=(
 	speedtest-cli
 	chafa
 	mtr
+	dog
 )
 apt_packages=(bmon atop)
 pacman_packages=(
