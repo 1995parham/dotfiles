@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# shellcheck source=./scripts/lib/message.sh
+source "$DOTFILES_ROOT/scripts/lib/message.sh"
+
 # set personal aliases
 # for a full list of active aliases, run `alias`.
 
@@ -32,3 +35,43 @@ alias ls-la="ls -la"
 
 # run emacs tui on terminal instead of emacs itself.
 alias emacs="emacs -nw"
+
+# connect into the openvpn server on Asus RT-AX88u router at home.
+function vpn-home() {
+	case "$1" in
+	"start")
+		running 'vpn-home' 'start home connection using openvpn'
+		if [[ "$OSTYPE" == "darwin"* ]]; then
+			message 'vpn-home' " darwin, using launchctl"
+			set -x
+			sudo launchctl bootstrap system /Library/LaunchAgents/com.openvpn.home.plist
+			set +x
+		elif [[ "$(command -v systemctl)" ]]; then
+			message 'vpn-home' " linux, using systemd"
+			set -x
+			systemctl start openvpn-client@home
+			set +x
+		else
+			message 'vpn-home' '󰏲 call parham (+98 939 09 09 540)'
+		fi
+
+		;;
+	"stop")
+		running 'vpn-home' 'stop home connection using openvpn'
+		if [[ "$OSTYPE" == "darwin"* ]]; then
+			message 'vpn-home' " darwin, using launchctl"
+			set -x
+			sudo launchctl bootout system /Library/LaunchAgents/com.openvpn.home.plist
+			set +x
+		elif [[ "$(command -v systemctl)" ]]; then
+			message 'vpn-home' " linux, using systemd"
+			set -x
+			systemctl stop openvpn-client@home
+			set +x
+		else
+			message 'vpn-home' '󰏲 call parham (+98 939 09 09 540)'
+		fi
+
+		;;
+	esac
+}
