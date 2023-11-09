@@ -8,7 +8,7 @@ function run_editor_before() {
 }
 
 function run_verbose() {
-	print -S "echo $*" 2>/dev/null || history -s "$*"
+	print -S "$*" 2>/dev/null || history -s "$*"
 	action "run" "$*"
 	"$@"
 }
