@@ -58,9 +58,4 @@ main() {
 	if ! grep -q -F "source \$HOME/.zshrc.shared" "$HOME/.zshrc"; then
 		echo "source \$HOME/.zshrc.shared" | tee -a "$HOME/.zshrc"
 	fi
-
-	msg 'provide dotfile home variable'
-	if ! grep -q -F "export DOTFILES_ROOT=" "$HOME/.zshrc"; then
-		echo "export DOTFILES_ROOT=\"$root\"" | tee -a "$HOME/.zshrc"
-	fi
 }

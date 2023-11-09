@@ -1,6 +1,9 @@
 #!/bin/zsh
-# source bash profiles
 
+dotfiles_source="$(cd "$(dirname "$(readlink -f "${(%):-%x}")")/.." && pwd)"
+export DOTFILES_ROOT="$dotfiles_source"
+
+# source bash profiles
 test -f /etc/profile && emulate sh -c 'source /etc/profile'
 test -f "$HOME/.profile" && emulate sh -c 'source $HOME/.profile'
 

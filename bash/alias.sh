@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-# https://unix.stackexchange.com/questions/76505/unix-portable-way-to-get-scripts-absolute-path-in-zsh
-# shellcheck disable=2296
-dotfiles_bash_source="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]:-${(%):-%x}}")")" && pwd)"
+DOTFILES_ROOT=${DOTFILES_ROOT:?"dotfiles root must be set for using aliases"}
 
 # shellcheck source=./scripts/lib/message.sh
-source "$dotfiles_bash_source/../scripts/lib/message.sh"
+source "$DOTFILES_ROOT/scripts/lib/message.sh"
 # shellcheck source=./scripts/lib/run.sh
-source "$dotfiles_bash_source/../scripts/lib/run.sh"
+source "$DOTFILES_ROOT/scripts/lib/run.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
 	# shellcheck disable=1090

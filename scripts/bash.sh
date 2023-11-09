@@ -49,9 +49,4 @@ main() {
 	if ! grep -q -F "source \$HOME/.bashrc.shared" "$HOME/.bashrc"; then
 		echo "source \$HOME/.bashrc.shared" | tee -a "$HOME/.bashrc"
 	fi
-
-	msg "provide dotfile home variable in bashrc"
-	if ! grep -q -F "export DOTFILES_ROOT=" "$HOME/.bashrc"; then
-		echo "export DOTFILES_ROOT=\"$root\"" | tee -a "$HOME/.bashrc"
-	fi
 }

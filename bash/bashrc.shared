@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-dotfiles_bash_source="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd)"
-source "$dotfiles_bash_source/alias.sh"
-source "$dotfiles_bash_source/proxy.sh"
+dotfiles_source="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)"
+export DOTFILES_ROOT="$dotfiles_source"
+source "$dotfiles_source/bash/alias.sh"
+source "$dotfiles_source/bash/proxy.sh"
 
 bind 'TAB: menu-complete'
 bind '"\e[Z": menu-complete-backward'
