@@ -19,7 +19,7 @@ main_pacman() {
 
 main_brew() {
 	msg 'insider belongs to parham and stable belongs to michael'
-	require_brew_cask visual-studio-code
+	require_brew_cask visual-studio-code visual-studio-code-insiders
 }
 
 main() {
