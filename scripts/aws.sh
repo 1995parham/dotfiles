@@ -18,6 +18,10 @@ main_pacman() {
 	require_aur cw-cloudwatch aws-ecs-cli aws-session-manager-plugin
 }
 
+main_brew() {
+	require_brew aws-vault awscli terraform lucagrulla/tap/cw aws-cdk
+}
+
 main() {
 	msg 'install terraform-ls on neovim'
 	require_mason 'terraform-ls'
