@@ -54,14 +54,24 @@ function home-vpn() {
 
 	if [ -n "$1" ]; then
 		operation="$1"
-		# shellcheck disable=2076
-		if [[ ! " ${operations[*]} " =~ " ${operation} " ]]; then
-			message 'home-vpn' "$operation is not valid a valid operation"
-			return 1
-		fi
 	else
 		operation=$(printf '%s\n' "${operations[@]}" |
 			fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec)
+	fi
+
+	case "$operation" in
+	start | up)
+		operation="start"
+		;;
+	stop | down)
+		operation="stop"
+		;;
+	esac
+
+	# shellcheck disable=2076
+	if [[ ! " ${operations[*]} " =~ " ${operation} " ]]; then
+		message 'home-vpn' "$operation is not valid a valid operation"
+		return 1
 	fi
 
 	case "$operation" in
