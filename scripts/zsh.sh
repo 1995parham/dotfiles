@@ -54,12 +54,12 @@ main() {
 	dotfile "zsh" "zshenv"
 	dotfile "zsh" "zsh.plug"
 
-	# source zshrc.shared
+	msg 'source zshrc.shared'
 	if ! grep -q -F "source \$HOME/.zshrc.shared" "$HOME/.zshrc"; then
 		echo "source \$HOME/.zshrc.shared" | tee -a "$HOME/.zshrc"
 	fi
 
-	# provide dotfile home variable
+	msg 'provide dotfile home variable'
 	if ! grep -q -F "export DOTFILES_ROOT=" "$HOME/.zshrc"; then
 		echo "export DOTFILES_ROOT=\"$root\"" | tee -a "$HOME/.zshrc"
 	fi
