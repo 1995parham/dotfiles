@@ -6,6 +6,7 @@ dotfiles_bash_source="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]:-${(%):-%
 
 # shellcheck source=./scripts/lib/message.sh
 source "$dotfiles_bash_source/../scripts/lib/message.sh"
+source "$dotfiles_bash_source/../scripts/lib/require.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
 	# shellcheck disable=1090
@@ -69,14 +70,10 @@ function home-vpn() {
 		running 'home-vpn' 'start home connection using openvpn'
 		if [[ "$OSTYPE" == "darwin"* ]]; then
 			message 'home-vpn' " darwin, using launchctl"
-			set -x
-			sudo launchctl bootstrap system /Library/LaunchAgents/com.openvpn.home.plist
-			set +x
+			verbose_run sudo launchctl bootstrap system /Library/LaunchAgents/com.openvpn.home.plist
 		elif [[ "$(command -v systemctl)" ]]; then
 			message 'home-vpn' " linux, using systemd"
-			set -x
-			systemctl start openvpn-client@home
-			set +x
+			verbose_run systemctl start openvpn-client@home
 		else
 			message 'home-vpn' '󰏲 call parham (+98 939 09 09 540)'
 		fi
@@ -86,14 +83,10 @@ function home-vpn() {
 		running 'home-vpn' 'stop home connection using openvpn'
 		if [[ "$OSTYPE" == "darwin"* ]]; then
 			message 'home-vpn' " darwin, using launchctl"
-			set -x
-			sudo launchctl bootout system /Library/LaunchAgents/com.openvpn.home.plist
-			set +x
+			verbose_run sudo launchctl bootout system /Library/LaunchAgents/com.openvpn.home.plist
 		elif [[ "$(command -v systemctl)" ]]; then
 			message 'home-vpn' " linux, using systemd"
-			set -x
-			systemctl stop openvpn-client@home
-			set +x
+			verbose_run systemctl stop openvpn-client@home
 		else
 			message 'home-vpn' '󰏲 call parham (+98 939 09 09 540)'
 		fi
