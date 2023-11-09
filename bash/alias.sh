@@ -6,8 +6,8 @@ dotfiles_bash_source="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]:-${(%):-%
 
 # shellcheck source=./scripts/lib/message.sh
 source "$dotfiles_bash_source/../scripts/lib/message.sh"
-# shellcheck source=./scripts/lib/require.sh
-source "$dotfiles_bash_source/../scripts/lib/require.sh"
+# shellcheck source=./scripts/lib/run.sh
+source "$dotfiles_bash_source/../scripts/lib/run.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
 	# shellcheck disable=1090
@@ -71,10 +71,10 @@ function home-vpn() {
 		running 'home-vpn' 'start home connection using openvpn'
 		if [[ "$OSTYPE" == "darwin"* ]]; then
 			message 'home-vpn' " darwin, using launchctl"
-			verbose_run sudo launchctl bootstrap system /Library/LaunchAgents/com.openvpn.home.plist
+			run_verbose sudo launchctl bootstrap system /Library/LaunchAgents/com.openvpn.home.plist
 		elif [[ "$(command -v systemctl)" ]]; then
 			message 'home-vpn' " linux, using systemd"
-			verbose_run systemctl start openvpn-client@home
+			run_verbose systemctl start openvpn-client@home
 		else
 			message 'home-vpn' '󰏲 call parham (+98 939 09 09 540)'
 		fi
@@ -84,10 +84,10 @@ function home-vpn() {
 		running 'home-vpn' 'stop home connection using openvpn'
 		if [[ "$OSTYPE" == "darwin"* ]]; then
 			message 'home-vpn' " darwin, using launchctl"
-			verbose_run sudo launchctl bootout system /Library/LaunchAgents/com.openvpn.home.plist
+			run_verbose sudo launchctl bootout system /Library/LaunchAgents/com.openvpn.home.plist
 		elif [[ "$(command -v systemctl)" ]]; then
 			message 'home-vpn' " linux, using systemd"
-			verbose_run systemctl stop openvpn-client@home
+			run_verbose systemctl stop openvpn-client@home
 		else
 			message 'home-vpn' '󰏲 call parham (+98 939 09 09 540)'
 		fi
