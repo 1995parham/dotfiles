@@ -6,6 +6,7 @@ dotfiles_bash_source="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]:-${(%):-%
 
 # shellcheck source=./scripts/lib/message.sh
 source "$dotfiles_bash_source/../scripts/lib/message.sh"
+# shellcheck source=./scripts/lib/require.sh
 source "$dotfiles_bash_source/../scripts/lib/require.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
