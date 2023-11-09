@@ -16,6 +16,10 @@ main_pacman() {
 	require_pacman khard
 }
 
+main_brew() {
+	require_brew khard
+}
+
 main() {
 	configfile khard khard.conf
 }

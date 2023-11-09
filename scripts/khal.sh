@@ -16,6 +16,10 @@ main_pacman() {
 	require_pacman khal
 }
 
+main_brew() {
+	require_brew khal
+}
+
 main() {
 	configfile khal config
 }
