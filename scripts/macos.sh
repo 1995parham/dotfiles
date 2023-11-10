@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
 	echo "setup macos and aqua"
 
@@ -13,7 +14,7 @@ usage() {
 }
 
 main_brew() {
-	msg "use binaries installed by brew before anything else"
+	msg "use binaries installed by brew before anything else in the PATH"
 	copycat "macos" "osx/paths" "/etc/paths"
 
 	msg "General UI/UX"
