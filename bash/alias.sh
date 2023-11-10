@@ -42,6 +42,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias mupdf="open"
 	alias wl-copy=pbcopy
 	alias wl-paste=pbpaste
+	alias mtr="sudo mtr"
 fi
 
 alias grep="grep --color=auto"
