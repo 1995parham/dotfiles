@@ -13,7 +13,7 @@ usage() {
 }
 
 main_brew() {
-	require_brew_cask homebrew/cask-fonts/font-jetbrains-mono homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-vazirmatn homebrew/cask-fonts/font-dejavu
+	require_brew_cask homebrew/cask-fonts/font-jetbrains-mono homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-vazirmatn homebrew/cask-fonts/font-dejavu homebrew/cask-fonts/font-fira-code-nerd-font
 }
 
 main_pacman() {
