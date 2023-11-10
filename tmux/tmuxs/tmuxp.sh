@@ -19,9 +19,4 @@ if [ ! -f "$path" ]; then
 	exit 1
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]] &&
-	[[ "$(command -v kitty)" ]]; then
-	kitty @ launch --type=tab --copy-env tmuxp load -y "$path"
-else
-	tmuxp load "$path"
-fi
+tmuxp load "$path"
