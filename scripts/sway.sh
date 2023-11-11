@@ -26,6 +26,20 @@ main_pacman() {
 		require_aur sway-git wlroots-git swaylock-git swayidle-git swaybg-git
 	fi
 
+	sudo mkdir -p /etc/pacman.d/hooks || true
+	sudo tee /etc/pacman.d/hooks/sway_desktop.hook <<EOL
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = sway
+
+[Action]
+Description = Update sway.desktop to use /usr/local/bin/sway.sh.
+When = PostTransaction
+Exec = /usr/bin/cp $root/archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
+EOL
+
 	copycat "sway" archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
 	copycat "sway" archinstall/sway.d/sway.sh /usr/local/bin/sway.sh
 
