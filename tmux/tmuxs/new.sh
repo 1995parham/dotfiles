@@ -119,6 +119,10 @@ if [ -f requirements.txt ]; then
 		if [[ "$(command -v pyenv)" ]] && [ -f .python-version ]; then
 			pyenv install
 			pyenv exec python -mvenv .venv
+		elif [[ "$(command -v python3)" ]]; then
+			# macos still have python3 instead of python because this operating system is
+			# garbage.
+			python3 -mvenv .venv
 		else
 			python -mvenv .venv
 		fi
