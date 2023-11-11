@@ -24,7 +24,7 @@ main_brew() {
 	brew install emacs-plus --with-native-comp --with-elrumo2-icon
 
 	if [ ! -e /Applications/Emacs.app ]; then
-		ln -s "$(brew --prefix)/opt/emacs-plus@29/Emacs.app" /Applications
+		osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus/Emacs.app" at POSIX file "/Applications"'
 	fi
 
 	msg 'installing doom on osx manually is better because there are many errors'
