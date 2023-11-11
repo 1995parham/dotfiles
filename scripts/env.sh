@@ -43,6 +43,7 @@ brew_packages=(
 	mtr
 	dog
 	yq
+	watch
 	mike-engel/jwt-cli/jwt-cli
 )
 apt_packages=(bmon atop)
