@@ -41,6 +41,9 @@ main_brew() {
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 
+	# Group windows by application
+	defaults write com.apple.dock expose-group-apps -bool true
+
 	defaults write com.apple.controlcenter 'NSStatusItem Visible Sound' -int 1
 	defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
 
