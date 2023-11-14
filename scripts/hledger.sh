@@ -17,6 +17,10 @@ main_pacman() {
 	require_pacman hledger
 }
 
+main_brew() {
+	require_brew hledger
+}
+
 main() {
 	return 0
 }
