@@ -18,12 +18,8 @@ main_pacman() {
 	require_aur micromamba-bin
 }
 
-main_apt() {
-	return 0
-}
-
 main_brew() {
-	return 0
+	require_brew micromamba
 }
 
 main() {
