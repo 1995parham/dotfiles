@@ -12,7 +12,7 @@ usage() {
 }
 
 main_brew() {
-	brew install --cask mpv
+	require_brew_cask mpv
 }
 
 main_pacman() {
