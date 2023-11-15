@@ -86,7 +86,7 @@ if [ -f Pipfile ]; then
 
 	if [ -n "$pipenv" ]; then
 		message 'tmux' "setup project base on pipenv ($pipenv)" 'warn' && sleep 5
-		bash -c "$pipenv sync --verbose --dev" || msg 'tmux' 'pipenv requirement installation failed' 'error'
+		bash -c "$pipenv sync --verbose --dev" || message 'tmux' 'pipenv requirement installation failed' 'error'
 
 		# shellcheck disable=2016
 		commands+=('pipenv shell --fancy' "${commands[@]}")
@@ -105,7 +105,7 @@ if [ -f poetry.lock ]; then
 
 	if [ -n "$poetry" ]; then
 		message 'tmux' "setup project base on poetry ($poetry)" 'warn' && sleep 5
-		bash -c "$poetry install --verbose" || msg 'tmux' 'poetry requirement installation failed' 'error'
+		bash -c "$poetry install --verbose" || message 'tmux' 'poetry requirement installation failed' 'error'
 
 		# shellcheck disable=2016
 		commands+=('source "$(poetry env info --path)/bin/activate"' "${commands[@]}")
