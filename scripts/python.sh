@@ -30,6 +30,9 @@ main_apt() {
 
 main_brew() {
 	require_brew python@3.11 pipx pyenv
+
+	msg 'GDAL is a translator library for raster and vector geospatial data formats'
+	require_brew gdal
 }
 
 main_pacman() {
