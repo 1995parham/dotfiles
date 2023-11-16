@@ -57,7 +57,7 @@ main_brew() {
 	defaults write com.apple.dock show-process-indicators -bool true
 
 	# Automatically hide and show the Dock
-	defaults write com.apple.dock autohide -bool true
+	defaults write com.apple.dock autohide -bool false
 
 	killall Dock
 }
