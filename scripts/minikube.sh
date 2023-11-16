@@ -21,7 +21,7 @@ main_pacman() {
 }
 
 main_brew() {
-	require_bew minikube
+	require_brew minikube
 }
 
 main() {
