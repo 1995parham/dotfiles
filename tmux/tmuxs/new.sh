@@ -88,8 +88,10 @@ if [ -f Pipfile ]; then
 		message 'tmux' "setup project base on pipenv ($pipenv)" 'warn' && sleep 5
 		bash -c "$pipenv sync --verbose --dev" || message 'tmux' 'pipenv requirement installation failed' 'error'
 
+		venv_path="$($pipenv --venv)"
+
 		# shellcheck disable=2016
-		commands+=('pipenv shell --fancy' "${commands[@]}")
+		commands+=("source $venv_path/bin/activate" "${commands[@]}")
 	fi
 fi
 
@@ -107,8 +109,10 @@ if [ -f poetry.lock ]; then
 		message 'tmux' "setup project base on poetry ($poetry)" 'warn' && sleep 5
 		bash -c "$poetry install --verbose" || message 'tmux' 'poetry requirement installation failed' 'error'
 
+		venv_path="$($poetry env info --path)"
+
 		# shellcheck disable=2016
-		commands+=('source "$(poetry env info --path)/bin/activate"' "${commands[@]}")
+		commands+=("source $venv_path/bin/activate" "${commands[@]}")
 	fi
 fi
 
@@ -144,12 +148,21 @@ while tmux has-session -t "$current_session:=$name" &>/dev/null; do
 	prefix=$((prefix + 1))
 done
 
-tmux new-window -t "$current_session" -c "$project" -n "$name" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux new-window -t "$current_session" -c "$project" -n "$name"
 # show project information on the last pane. this doesn't work with pipenv shell
 # so we don't have information on pythonic projects.
 # commands+=("git project")
-tmux split-window -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
-tmux split-window -h -t "$current_session:$name" -c "$project" "$(printf "%s;" "${commands[@]}")$SHELL"
+tmux split-window -t "$current_session:$name" -c "$project"
+tmux split-window -h -t "$current_session:$name" -c "$project"
+
+# using send command to run the pre
+for i in $(seq 0 2); do
+	for command in "${commands[@]}"; do
+		echo "$command"
+		tmux send-keys -t "$current_session:$name.$i" "$command" Enter
+	done
+done
+
 # I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
 # tmux select-layout -t "$current_session:$name" tiled
 tmux send-keys -t "$current_session:$name.0" 'nvim' Enter
