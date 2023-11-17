@@ -67,5 +67,7 @@ main() {
 }
 
 main_parham() {
-	return 0
+	msg 'the wallpapers that we love'
+
+	clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "wallpapers"
 }
