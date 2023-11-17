@@ -13,10 +13,6 @@ usage() {
 }
 
 main_pacman() {
-	return 0
-}
-
-main() {
 	configfile user-tmpfiles.d '' 'tmpfiles'
 	configsystemd 'tmpfiles' systemd-tmpfiles-clean.timer.d
 
@@ -24,4 +20,13 @@ main() {
 	systemctl --user enable --now systemd-tmpfiles-clean.timer
 
 	systemd-tmpfiles --user --create
+}
+
+main_brew() {
+	copycat "tmpfiles" tmpfiles/me.1995parham.cleanup.plist "$HOME/Library/LaunchAgents/" 0
+	launchctl enable "user/$UID/me.1995parham.cleanup"
+}
+
+main() {
+	return 0
 }
