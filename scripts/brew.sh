@@ -14,7 +14,7 @@ usage() {
 
 main_brew() {
 	if [[ ! "$(command -v brew)" ]]; then
-		xcode-select --install
+		xcode-select --install || true
 
 		/usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
