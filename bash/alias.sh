@@ -44,7 +44,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias wl-paste=pbpaste
 	alias mtr="sudo mtr"
 	alias python=python3
-  alias mcli=mc
+	alias mcli=mc
 fi
 
 alias grep="grep --color=auto"
