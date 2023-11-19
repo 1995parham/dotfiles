@@ -61,9 +61,21 @@ main() {
 	msg 'a modern python package and dependency manager supporting the latest pep standards'
 	configfile pdm "" python
 
-	if yes_or_no "python" "do you want to use v2ray as a python-pip proxy?"; then
-		msg 'python pypi start dropping iran traffic, so we need to use a proxy'
-		configfile pip "" python
+	has_proxy=0
+	if [[ $(command -v ss) ]]; then
+		if (ss -tunl | grep :1080 &>/dev/null); then
+			has_proxy=1
+		fi
+	elif [[ $(command -v netstat) ]]; then
+		if (netstat -an | grep LISTEN | grep 1080 &>/dev/null); then
+			has_proxy=1
+		fi
+	fi
+	if [ $has_proxy -eq 1 ]; then
+		if yes_or_no "python" "do you want to use v2ray as a python-pip proxy?"; then
+			msg 'python pypi start dropping iran traffic, so we need to use a proxy'
+			configfile pip "" python
+		fi
 	fi
 
 	python-install-packages

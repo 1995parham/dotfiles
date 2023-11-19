@@ -32,7 +32,7 @@ main_pacman() {
 
 main_brew() {
 	msg "install scala because of the queen"
-	brew install openjdk sbt
+	require_brew openjdk sbt
 }
 
 main() {
