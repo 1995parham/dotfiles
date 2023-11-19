@@ -25,6 +25,7 @@ main_pacman() {
 main_brew() {
 	copycat "tmpfiles" tmpfiles/me.1995parham.cleanup.plist "$HOME/Library/LaunchAgents/" 0
 	launchctl enable "user/$UID/me.1995parham.cleanup"
+	launchctl bootstrap "user/$UID" "$HOME/Library/LaunchAgents/me.1995parham.cleanup.plist"
 }
 
 main() {
