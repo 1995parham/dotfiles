@@ -104,6 +104,9 @@ main_brew() {
 	defaults write com.apple.dock autohide -bool false
 
 	killall Dock
+
+	# wake the machine when the laptop lid (or clamshell) is opened
+	sudo pmset -a lidwake 0
 }
 
 main() {
