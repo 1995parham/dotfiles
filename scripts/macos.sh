@@ -86,8 +86,12 @@ main_brew() {
 	defaults write com.apple.dock expose-group-apps -bool true
 
 	# Battery
-	defaults -currentHost write com.apple.controlcenter Battery -int 12
-	defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool false
+	# show in menu bar & show in control center = 3, true
+	# show in menu bar & don't show in control center = 6, true
+	# don't show in menu bar & show in control center = 9, false
+	# don't show in menu bar & don't show in control center = 12, false
+	defaults -currentHost write com.apple.controlcenter Battery -int 3
+	defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool true
 	# Show percentage
 	defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
