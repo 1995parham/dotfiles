@@ -305,13 +305,13 @@ I use Emacs based on [doom](https://github.com/doomemacs), and I found following
 
 ### Workspace
 
-Never close emacs, just use workspace to manage your work.
+Never close Emacs, just use workspace to manage your work.
 To work with workspace just start with `SPACE-TAB`.
 
 ## Windows as Virtual Machine
 
-Windows has some softwares that you don't have on linux, software likes [JumpDesktop](https://jumpdesktop.com/), [Microsoft Office](https://www.office.com/), etc.
-I need to use these softwares and because of that, I always install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on host machine.
+Because there are software applications like [JumpDesktop](https://jumpdesktop.com/) and [Microsoft Office](https://www.office.com/) that are only available on Windows,
+I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on my host machine in order to use them.
 
 ### What we need to do after installation?
 
@@ -332,3 +332,4 @@ These are the software that I need on my system:
 ## References
 
 - <https://github.com/Ruixi-rebirth/sway-dotfiles>
+- <https://github.com/philiprein/macos-settings>
