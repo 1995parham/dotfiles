@@ -41,11 +41,55 @@ main_brew() {
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 
+	# Dock position on screen
+	# options: left, bottom, right
+	defaults write com.apple.dock orientation -string "left"
+
+	# Show date
+	# when space allows = 0
+	# always = 1
+	# never = 2
+	defaults write com.apple.menuextra.clock ShowDate -int 1
+
+	# Show the day of the week
+	defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
+
+	# Style (not analog)
+	defaults write com.apple.menuextra.clock IsAnalog -bool false
+
+	# Use a 24-hour clock
+	defaults write com.apple.menuextra.clock Show24Hour -bool false
+
+	# Show AM/PM
+	defaults write com.apple.menuextra.clock ShowAMPM -bool true
+
+	# Flash the time separators
+	defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+
+	# Display the time with seconds
+	defaults write com.apple.menuextra.clock ShowSeconds -bool false
+
+	# Bluetooth
+	# show in menu bar = 18, true
+	# don't show in menu bar = 24, false
+	defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+	defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+
+	# Sound
+	# always show in menu bar = 18, true
+	# show when active = 2
+	# don't show in menu bar = 8, false
+	defaults -currentHost write com.apple.controlcenter Sound -int 18
+	defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
+
 	# Group windows by application
 	defaults write com.apple.dock expose-group-apps -bool true
 
-	defaults write com.apple.controlcenter 'NSStatusItem Visible Sound' -int 1
-	defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -int 1
+	# Battery
+	defaults -currentHost write com.apple.controlcenter Battery -int 12
+	defaults write com.apple.controlcenter "NSStatusItem Visible Battery" -bool false
+	# Show percentage
+	defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
 	# Don’t show recent applications in Dock
 	defaults write com.apple.dock show-recents -bool false
