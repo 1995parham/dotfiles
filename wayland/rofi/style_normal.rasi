@@ -33,7 +33,7 @@ configuration {
 
 * {
   background-color: rgba(0,0,0,0);
-  font: "JetBrainsMono Nerd Font Mono 12";
+  font: "JetBrainsMono NF Mono 12";
 }
 
 window {
