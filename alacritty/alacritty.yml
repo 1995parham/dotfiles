@@ -15,13 +15,13 @@ font:
   # Point size
   size: 8
   normal:
-    family: JetBrainsMonoNL Nerd Font Propo
+    family: JetBrainsMonoNL NF
     style: ExtraLight
   bold:
-    family: JetBrainsMonoNL Nerd Font Propo
+    family: JetBrainsMonoNL NF
     style: SemiBold
   italic:
-    family: JetBrainsMonoNL Nerd Font Propo
+    family: JetBrainsMonoNL NF
     style: ExtraLight Italic
 
   builtin_box_drawing: true
