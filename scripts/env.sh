@@ -46,7 +46,7 @@ brew_packages=(
 	watch
 	mike-engel/jwt-cli/jwt-cli
 )
-apt_packages=(bmon atop)
+apt_packages=(bmon atop jcal)
 pacman_packages=(
 	perl-image-exiftool
 	ripgrep
