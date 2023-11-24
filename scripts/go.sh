@@ -15,11 +15,11 @@ usage() {
 export additionals=("atlas")
 
 main_brew() {
-	require_brew go
+	require_brew go operator-sdk
 }
 
 main_apt() {
-	sudo apt install golang-go
+	require_apt golang-go
 }
 
 main_pacman() {
