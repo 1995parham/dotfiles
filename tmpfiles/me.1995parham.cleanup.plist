@@ -12,5 +12,9 @@
   </array>
   <key>StartInterval</key>
   <integer>60</integer>
+  <key>StandardOutPath</key>
+  <string>/opt/homebrew/var/log/cleanup.log</string>
+  <key>StandardErrorPath</key>
+  <string>/opt/homebrew/var/log/cleanup.log</string>
 </dict>
 </plist>
