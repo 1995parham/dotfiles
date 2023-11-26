@@ -4,10 +4,10 @@ windows:
   - window_name: ingiteg
     layout: tiled
     panes:
-      - start_directory: ~/Documents/Git/parham/snapp/dispatching/igniteg
-      - start_directory: ~/Documents/Git/parham/snapp/dispatching/igniteg
+      - start_directory: ~/Documents/Git/parham/snapp/snappcloud/helm
+      - start_directory: ~/Documents/Git/parham/snapp/snappcloud/helm
       - start_directory: ~/Documents/Git/parham/snapp/data-infra/ignite
-      - start_directory: ~/Documents/Git/parham/snapp/dispatching/nats/ignite
+      - start_directory: ~/Documents/Git/parham/snapp/platform/nats/ignite
 
   - window_name: scratch
     layout: tiled
