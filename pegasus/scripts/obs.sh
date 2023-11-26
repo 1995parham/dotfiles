@@ -34,6 +34,7 @@ main() {
 
 	copycat "obs" "obs/basic/profiles/Parham/basic.ini" "$HOME/.config/obs-studio/basic/profiles/Parham/basic.ini" 0
 	copycat "obs" "obs/basic/scenes/Parham.json" "$HOME/.config/obs-studio/basic/scenes/Parham.json" 0
+	copycat "obs" "obs/basic/scenes/Teaching.json" "$HOME/.config/obs-studio/basic/scenes/Teaching.json" 0
 }
 
 main_parham() {
