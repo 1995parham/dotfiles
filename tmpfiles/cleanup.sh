@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 stable_folders=(
+	"$HOME/Downloads"
 	"$HOME/Downloads/Telegram Desktop"
 	"$HOME/Downloads/samba"
 	"$HOME/Downloads/xandikos"
