@@ -97,7 +97,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 
 - [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
   which is huge and always stays at home. Last `ArchLinux` installation happened
-  on 06 Sep 2023 using `archlinux-2023.09.01-x86_64.iso`. ✅
+  on 26 Nov 2023 using `archlinux-2023.11.01-x86_64.iso`. ✅
 
   |    Type    |                  Value                  |
   | :--------: | :-------------------------------------: |
