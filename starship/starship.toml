@@ -13,7 +13,7 @@ $rust\
 $conda\
 $helm\
 $python
-:: $kubernetes $aws
+:: $kubernetes $aws ${custom.nats}
 ┌ [  ](bg:#1f1f1f)\
 $username\
 $hostname\
@@ -149,6 +149,13 @@ when = true
 style = 'fg:#ff0080'
 symbol = '  '
 description = 'kernel version'
+
+[custom.nats]
+command = "nats context show -j | jq -r '.name'"
+when = 'command -v nats'
+style = 'fg:#ff9933'
+symbol = ' 󰈸 '
+description = 'nats current context'
 
 [custom.neovim]
 command = ''
