@@ -152,7 +152,7 @@ description = 'kernel version'
 
 [custom.nats]
 command = "nats context show -j | jq -r '.name'"
-when = 'command -v nats'
+when = "command -v nats && [ $(nats context show -j | jq -r '.name') != localhost ]"
 style = 'fg:#ff9933'
 symbol = ' 󰈸 '
 description = 'nats current context'
