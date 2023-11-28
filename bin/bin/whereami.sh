@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# https://stackoverflow.com/questions/3822621/how-to-exit-if-a-command-failed
 set -eu
+set -o pipefail
 
 # Sometimes we lose ourselves to success, gaining approval, meeting the expectations of others.
 # Sometimes the lost part of ourselves is faith, hope, a dream.
