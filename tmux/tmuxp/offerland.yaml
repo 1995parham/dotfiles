@@ -20,3 +20,13 @@ windows:
       - focus: true
       - pane
       - pane
+
+  - window_name: wiki
+    layout: tiled
+    start_directory: ~/Downloads
+    focus: true
+    panes:
+      - start_directory: ~/Documents/Git/parham/offerland/offerland/root.wiki
+      - start_directory: ~/Documents/Git/parham/offerland/offerland/demeter.wiki
+      - start_directory: ~/Documents/Git/parham/offerland/offerland/squad.wiki
+      - start_directory: ~/Documents/Git/parham/offerland/offerland/root
