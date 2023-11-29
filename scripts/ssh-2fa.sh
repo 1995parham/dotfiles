@@ -19,7 +19,11 @@ pre_main() {
 main_pacman() {
 	require_pacman qrencode libpam-google-authenticator
 
-	echo "ChallengeResponseAuthentication yes" | sudo tee "/etc/ssh/sshd_config.d/10-2fa.conf"
+	echo "
+PasswordAuthentication no
+KbdInteractiveAuthentication yes
+AuthenticationMethods publickey,keyboard-interactive:pam
+" | sudo tee "/etc/ssh/sshd_config.d/20-pam.conf"
 }
 
 main_apt() {
