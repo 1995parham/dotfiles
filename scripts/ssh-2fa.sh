@@ -24,6 +24,16 @@ PasswordAuthentication no
 KbdInteractiveAuthentication yes
 AuthenticationMethods publickey,keyboard-interactive:pam
 " | sudo tee "/etc/ssh/sshd_config.d/20-pam.conf"
+
+	echo "
+#%PAM-1.0
+
+auth required pam_google_authenticator.so
+#auth      include   system-remote-login
+account   include   system-remote-login
+password  include   system-remote-login
+session   include   system-remote-login
+" | sudo tee "/etc/pam.d/sshd"
 }
 
 main_apt() {
@@ -35,10 +45,6 @@ main_brew() {
 }
 
 main() {
-	if ! grep -q -F "auth required pam_google_authenticator.so" "/etc/pam.d/sshd"; then
-		echo "auth required pam_google_authenticator.so" | sudo tee -a "/etc/pam.d/sshd"
-	fi
-
 	if [ ! -f "$HOME/.google_authenticator" ]; then
 		google-authenticator -t -d -r 3 -R 60
 	fi
