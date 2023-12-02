@@ -17,6 +17,10 @@ main_pacman() {
 	require_pacman ansible ansible-lint cowsay
 }
 
+main_brew() {
+	require_brew ansible ansible-lint cowsay
+}
+
 main() {
 	require_mason 'ansible-language-server'
 }
