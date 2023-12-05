@@ -1,11 +1,11 @@
 ---
 session_name: Snapp!
 windows:
-  - window_name: ingiteg
+  - window_name: ingite 🚀
     layout: tiled
     panes:
       - start_directory: ~/Documents/Git/parham/snapp/snappcloud/helm
-      - start_directory: ~/Documents/Git/parham/snapp/snappcloud/helm
+      - start_directory: ~/Documents/Git/parham/snapp/platform/nats/ignite-baly
       - start_directory: ~/Documents/Git/parham/snapp/data-infra/ignite
       - start_directory: ~/Documents/Git/parham/snapp/platform/nats/ignite
 
@@ -17,14 +17,5 @@ windows:
       - shell_command:
           - chafa $DOTFILES_ROOT/wayland/waybar/img/snapp.svg --size 80 --clear | less
       - focus: true
-      - pane
-      - pane
-
-  - window_name: baly
-    layout: tiled
-    start_directory: ~/Documents/Git/parham/snapp/baly-devops/baly-dispatching
-    panes:
-      - pane
-      - pane
       - pane
       - pane
