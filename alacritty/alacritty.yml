@@ -13,15 +13,15 @@
 # Font configuration (changes require restart)
 font:
   # Point size
-  size: 8
+  size: 12
   normal:
-    family: JetBrainsMonoNL NF
+    family: JetBrainsMono Nerd Font
     style: ExtraLight
   bold:
-    family: JetBrainsMonoNL NF
+    family: JetBrainsMono Nerd Font
     style: SemiBold
   italic:
-    family: JetBrainsMonoNL NF
+    family: JetBrainsMono Nerd Font
     style: ExtraLight Italic
 
   builtin_box_drawing: true
