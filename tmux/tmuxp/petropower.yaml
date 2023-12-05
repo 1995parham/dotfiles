@@ -1,7 +1,7 @@
 ---
 session_name: Petropower
 windows:
-  - window_name: trex
+  - window_name: trex 🦖
     layout: tiled
     start_directory: ~/Documents/Git/michael/petropower/petropower/trex
     panes:
@@ -10,7 +10,7 @@ windows:
       - pane
       - pane
 
-  - window_name: scratch
+  - window_name: scratch ✏️
     layout: tiled
     start_directory: ~/Downloads
     focus: true

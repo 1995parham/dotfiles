@@ -1,7 +1,7 @@
 ---
 session_name: Offerland
 windows:
-  - window_name: root
+  - window_name: root 🫚
     layout: tiled
     start_directory: ~/Documents/Git/parham/offerland/offerland/root
     panes:
@@ -10,7 +10,7 @@ windows:
       - pane
       - pane
 
-  - window_name: scratch
+  - window_name: scratch ✏️
     layout: tiled
     start_directory: ~/Downloads
     focus: true
@@ -21,7 +21,7 @@ windows:
       - pane
       - pane
 
-  - window_name: wiki
+  - window_name: wiki ℹ️
     layout: tiled
     start_directory: ~/Downloads
     focus: true
