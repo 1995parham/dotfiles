@@ -8,4 +8,6 @@ set -o pipefail
 # Sometimes the lost part of ourselves is faith, hope, a dream.
 # It is so easy to lose a piece of ourselves and it can happen in a thousand different ways.
 
-curl -sL http://ipconfig.io/json | jq -j '"\(.ip) - \(.country) (\(.asn_org))"'
+if ! curl -sL http://ipconfig.io/json | jq -j '"\(.ip) - \(.country) (\(.asn_org))"' | tee /tmp/whereami.sh; then
+	cat /tmp/whereami.sh
+fi
