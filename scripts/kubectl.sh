@@ -37,4 +37,7 @@ main() {
 	helm repo add emqx https://repos.emqx.io/charts || true
 
 	helm repo update
+
+	msg 'require kubectl plugins'
+	kubectl krew install kuttl
 }
