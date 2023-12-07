@@ -10,8 +10,4 @@ set -o pipefail
 
 curl -sL http://ipconfig.io/json |
 	jq -j '"\(.ip) - \(.country) (\(.asn_org))"' 2>/dev/null |
-	tee /tmp/whereami.sh
-
-if [ "${PIPESTATUS[0]}" != "0" ]; then
-	cat /tmp/whereami.sh
-fi
+	tee /tmp/whereami.sh || cat /tmp/whereami.sh
