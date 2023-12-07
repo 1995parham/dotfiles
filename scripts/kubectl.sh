@@ -16,13 +16,12 @@ usage() {
 }
 
 main_brew() {
-	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx
+	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew
 }
 
 main_pacman() {
 	require_pacman kubectl helm argocd kubectx stern k9s
-
-	require_aur kubeval-bin okd-client-bin kube-score-bin
+	require_aur okd-client-bin krew-bin
 }
 
 main() {
