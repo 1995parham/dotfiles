@@ -108,6 +108,9 @@ _navi_widget() {
 
 bind -x '"\C-h": _navi_widget'
 
+# using krew to install kubectl plugins and then running them
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# brew info coreutils
 	# all commands have been installed with the prefix 'g'.

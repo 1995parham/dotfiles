@@ -203,6 +203,8 @@ man(){
   =man "$@"
 }
 
+# using krew to install kubectl plugins and then running them
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# brew info coreutils
