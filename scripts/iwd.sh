@@ -22,4 +22,5 @@ main_pacman() {
 
 main() {
 	copycat "iwd" "iwd/wifi-backend.conf" "/etc/NetworkManager/conf.d/wifi-backend.conf"
+	msg 'https://wiki.archlinux.org/title/NetworkManager#Using_iwd_as_the_Wi-Fi_backend' 'notice'
 }
