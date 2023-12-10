@@ -38,6 +38,10 @@ main() {
 
 	helm repo update
 
-	msg 'require kubectl plugins'
+	msg 'required kubectl plugins (using krew)'
 	kubectl krew install kuttl
+
+	msg 'required helm plugins (using helm plugin manager)'
+	helm plugin install https://github.com/databus23/helm-diff
+
 }
