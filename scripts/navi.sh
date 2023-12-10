@@ -12,7 +12,7 @@ usage() {
 }
 
 main_brew() {
-	brew install navi
+	require_brew navi
 }
 
 main_apt() {
