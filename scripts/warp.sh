@@ -17,6 +17,14 @@ main_brew() {
 	require_brew_cask cloudflare-warp
 }
 
+main_pacman() {
+	require_aur cloudflare-warp-bin
+
+	sudo systemctl enable --now warp-svc.service
+	warp-cli register
+	warp-cli status
+}
+
 main() {
 	return 0
 }
