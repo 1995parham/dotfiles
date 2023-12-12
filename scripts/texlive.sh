@@ -19,5 +19,5 @@ main_pacman() {
 }
 
 main_brew() {
-	require_brew tectonic
+	require_brew tectonic latexindent
 }
