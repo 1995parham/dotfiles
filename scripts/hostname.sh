@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
 	echo "set hostname based on starship naming schema"
 
@@ -14,6 +15,7 @@ usage() {
 
 hostname=""
 name=""
+to_change=true
 
 pre_main() {
 	PS3="select hostname to change into from $HOSTNAME:"
@@ -36,29 +38,33 @@ pre_main() {
 
 	if [ "$HOSTNAME" = "$hostname" ]; then
 		msg "already has the hostname $hostname"
-		exit 0
+		to_change=false
 	fi
 }
 
 main_pacman() {
-	if [ -n "$hostname" ]; then
+	if [ $to_change ]; then
 		msg "using systemd to change hostname to $hostname"
 		sudo hostnamectl hostname "$hostname"
 	fi
 }
 
 main_apt() {
-	if [ -n "$hostname" ]; then
+	if [ $to_change ]; then
 		msg "using systemd to change hostname to $hostname"
 		sudo hostnamectl hostname "$hostname"
 	fi
 }
 
 main_brew() {
-	if [ -n "$hostname" ] && [ -n "$name" ]; then
+	if [ $to_change ]; then
 		msg "using scutil to change hostname to $hostname"
 		sudo scutil --set ComputerName "$name"
 		sudo scutil --set HostName "$hostname"
 		sudo scutil --set LocalHostName "$hostname"
 	fi
+}
+
+main() {
+	require_hosts_record "127.0.0.1" "$HOSTNAME"
 }
