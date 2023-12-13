@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function require_country() {
-	country=$1
+	country=${1:?"country is required"}
 	current_country="$(curl -s ipconfig.io/country)"
 	if [ "$current_country" != "$country" ]; then
 		message "country" "󰈻 please be in $country instead of $current_country" "error"
@@ -12,7 +12,7 @@ function require_country() {
 }
 
 function require_host() {
-	host=$1
+	host=${1:?"host is required"}
 	ping -q -c 1 "$host" || (message "host" "󰈂 please make sure you have access to $host" 'error' && return 1)
 }
 
@@ -143,7 +143,7 @@ function require_mason() {
 }
 
 function require_go() {
-	pkg=${1}
+	pkg=${1:?"package is required"}
 	version=${2:-"latest"}
 	action "require" " go $pkg @ $version"
 	go install "$pkg@$version" 2>/dev/null
@@ -184,6 +184,19 @@ function require_npm() {
 			sudo npm install -g "$pkg"
 		fi
 	done
+}
+
+function require_hosts_record() {
+	address=${1:?"address is required"}
+	name=${2:?"name is required"}
+
+	if [ ! -f /etc/hosts ]; then
+		printf "# Static table lookup for hostnames.\n# See hosts(5) for details." | tee /etc/hosts
+	fi
+
+	if ! grep "$2" "/etc/hosts"; then
+		printf "%s\t%s" "$address" "$name" | tee -a /etc/hosts
+	fi
 }
 
 function clone() {
