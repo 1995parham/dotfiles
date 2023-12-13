@@ -67,4 +67,5 @@ main_brew() {
 
 main() {
 	require_hosts_record "127.0.0.1" "$HOSTNAME"
+	require_hosts_record "127.0.0.1" "localhost"
 }
