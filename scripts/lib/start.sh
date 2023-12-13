@@ -243,7 +243,7 @@ run() {
 	fi
 
 	if declare -f "main_$USER" >/dev/null; then
-		msg " hello master $USER"
+		msg " Attention on deck $USER"
 		"main_$USER" "$@"
 	fi
 }
