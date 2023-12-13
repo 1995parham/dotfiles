@@ -43,24 +43,22 @@ main_pacman() {
 		bukubrow --install-firefox
 	fi
 
-	msg 'set default browser using xdg-settings'
-	bash xdg-settings set default-web-browser firefox.desktop
-
 	copycat "browser" "firefox/autoconfig.js" "/usr/lib/firefox/defaults/pref/autoconfig.js"
 	copycat "browser" "firefox/firefox.cfg" "/usr/lib/firefox/firefox.cfg"
 
-	if yes_or_no 'browser' 'do you want to install chrome?'; then
-		msg 'chrome, the worst browser ever but sometime we need that shit'
-		require_aur google-chrome-beta
-		copycat "browser" "chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf" false
+	msg 'chrome, the worst browser ever but sometime we need that shit'
+	require_aur google-chrome-beta
+	copycat "browser" "chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf" false
 
-		if [[ "$(command -v gopass-jsonapi)" ]]; then
-			gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
-		fi
-
-		if [[ "$(command -v bukubrow)" ]]; then
-			msg 'install bukubrow native host for google chrome'
-			bukubrow --install-chrome --install-dir ~/.config/google-chrome-beta/NativeMessagingHosts/
-		fi
+	if [[ "$(command -v gopass-jsonapi)" ]]; then
+		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
 	fi
+
+	if [[ "$(command -v bukubrow)" ]]; then
+		msg 'install bukubrow native host for google chrome'
+		bukubrow --install-chrome --install-dir ~/.config/google-chrome-beta/NativeMessagingHosts/
+	fi
+
+	msg 'set default browser using xdg-settings'
+	bash xdg-settings set default-web-browser google-chrome-beta.desktop
 }
