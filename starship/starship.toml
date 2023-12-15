@@ -157,6 +157,13 @@ style = 'fg:#ff9933'
 symbol = ' 󰈸 '
 description = 'nats current context'
 
+[custom.gh]
+command = "gh api user -q '.login'"
+when = "command -v gh"
+style = 'fg:#66E166'
+symbol = ' 󰊤 '
+description = 'github-cli current user'
+
 [custom.neovim]
 command = ''
 when = 'test -n "$NVIM"'
