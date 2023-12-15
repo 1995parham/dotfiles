@@ -38,7 +38,7 @@ shape = "Beam"
 
 [font]
 builtin_box_drawing = true
-size = 8
+size = 10
 
 [font.bold]
 family = "terminal-font"
