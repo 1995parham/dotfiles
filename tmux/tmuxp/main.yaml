@@ -21,7 +21,7 @@ windows:
           - cd "$(navi info cheats-path)/1995parham__cheats"
           - git pull origin main &> /dev/null
           - figlet 'I cannot remember anything' | lolcat
-
+          
   - window_name: personal
     layout: tiled
     start_directory: ~/Downloads
