@@ -12,16 +12,16 @@ windows:
       - start_directory: ~/.config/nvim/
         shell_command:
           - git pull origin main &> /dev/null
-          - lolcat 'i love neovim'
+          - figlet 'I love neovim' | lolcat
       - start_directory: ~/Documents/Git/parham/keys
         shell_command:
           - git pull origin main &> /dev/null
-          - lolcat 'keep your love life private'
+          - figlet 'Keep your love life private' | lolcat
       - shell_command:
           - cd "$(navi info cheats-path)/1995parham__cheats"
           - git pull origin main &> /dev/null
-          - lolcat 'i cannot remember anything'
-
+          - figlet 'I cannot remember anything' | lolcat
+          
   - window_name: personal
     layout: tiled
     start_directory: ~/Downloads
@@ -37,11 +37,11 @@ windows:
       - start_directory: ~/tasks
         shell_command:
           - git pull origin main &> /dev/null
-          - lolcat 'plan your day and stick to it'
+          - figlet 'Plan your day and stick to it' | lolcat
       - start_directory: ~/.local/share/dijo
         shell_command:
           - git pull origin main &> /dev/null
-          - lolcat 'stick to your habits'
+          - figlet 'Stick to your habits' | lolcat
       - start_directory: ~/org
         shell_command:
           - git pull origin main &> /dev/null
@@ -49,7 +49,7 @@ windows:
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
         shell_command:
           - git pull origin main &> /dev/null
-          - lolcat 'spend money wisely'
+          - figlet 'Spend money wisely' | lolcat
 
   - window_name: life-2
     layout: tiled
