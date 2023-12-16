@@ -16,7 +16,7 @@ usage() {
 # export dependencies=("neovim")
 export dependencies=("fetch" "zsh" "bash")
 
-packages=(tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet)
+packages=(tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet lolcat)
 
 brew_packages=(
 	coreutils
