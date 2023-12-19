@@ -2,7 +2,6 @@
 set -e
 
 mono_repositories=(
-	"petropower/trex"
 	"offerland/root"
 )
 
