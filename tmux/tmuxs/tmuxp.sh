@@ -19,8 +19,7 @@ if [ ! -f "$path" ]; then
 	exit 1
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]] &&
-	[[ "$(command -v kitty)" ]]; then
+if [ -n "$KITTY_WINDOW_ID" ]; then
 	kitty @ launch --type=tab --hold --env PATH="$PATH" tmuxp load "$path"
 else
 	tmuxp load "$path"
