@@ -17,4 +17,5 @@ root=${root:?"root must be set"}
 main_brew() {
 	require_brew_cask iterm2-nightly
 	linker iterm "$root/iterm/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+	linker iterm "$root/iterm/com.googlecode.iterm2.private.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.private.plist"
 }
