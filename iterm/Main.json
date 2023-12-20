@@ -626,6 +626,7 @@
     "Alpha Component" : 0.25,
     "Green Component" : 0.77217715978622437
   },
+  "Show Mark Indicators" : false,
   "Custom Directory" : "No",
   "Working Directory" : "\/Users\/parham",
   "ASCII Anti Aliased" : true,
