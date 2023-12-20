@@ -1,7 +1,7 @@
 ---
 session_name: Raha
 windows:
-  - window_name: main
+  - window_name: main ❤️
     layout: tiled
     start_directory: ~/Documents/Git/raha/elahe-dastan
     panes:
@@ -10,7 +10,7 @@ windows:
       - pane
       - pane
 
-  - window_name: snapp
+  - window_name: snapp 🚗
     layout: tiled
     start_directory: ~/Documents/Git/raha/snapp
     panes:
@@ -19,7 +19,7 @@ windows:
       - pane
       - pane
 
-  - window_name: scratch
+  - window_name: scratch ✏️
     layout: tiled
     start_directory: ~/Downloads
     panes:
