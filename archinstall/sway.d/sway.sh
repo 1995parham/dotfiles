@@ -12,7 +12,7 @@ export NVD_BACKEND=direct
 # to enable wayland on firefox
 export MOZ_ENABLE_WAYLAND=1
 
-eval "$(gnome-keyring-daemon --start)"
+eval "$(gnome-keyring-daemon --start 2>/dev/null)"
 export SSH_AUTH_SOCK
 
 exec systemd-cat --identifier=sway sway --unsupported-gpu
