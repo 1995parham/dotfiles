@@ -158,7 +158,8 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   |  Memory (3)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
   |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
 
-- [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook to taste the Apple world again. ✅
+- [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook to taste the Apple world again.
+  Last `macOS Ventura` installation happened on 21 Dec 2023. ✅
 
   |   Type    |                       Value                        |
   | :-------: | :------------------------------------------------: |
