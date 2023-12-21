@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
 	echo "enabling two factor authentication for using ssh"
 
@@ -10,10 +11,6 @@ usage() {
 \__ \__ \ | | |_____/ __/|  _| (_| |
 |___/___/_| |_|    |_____|_|  \__,_|
   '
-}
-
-pre_main() {
-	return 0
 }
 
 main_pacman() {
@@ -36,22 +33,10 @@ session   include   system-remote-login
 " | sudo tee "/etc/pam.d/sshd"
 }
 
-main_apt() {
-	return 1
-}
-
-main_brew() {
-	return 1
-}
-
 main() {
 	if [ ! -f "$HOME/.google_authenticator" ]; then
 		google-authenticator -t -d -r 3 -R 60
 	fi
 
 	sudo systemctl restart sshd.service
-}
-
-main_parham() {
-	return 0
 }
