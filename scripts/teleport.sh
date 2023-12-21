@@ -13,26 +13,10 @@ usage() {
   '
 }
 
-pre_main() {
-	return 0
-}
-
 main_pacman() {
-	return 1
-}
-
-main_apt() {
-	return 1
+	require_aur teleport-bin
 }
 
 main_brew() {
 	require_brew teleport
-}
-
-main() {
-	return 0
-}
-
-main_parham() {
-	return 0
 }
