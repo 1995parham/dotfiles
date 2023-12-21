@@ -120,7 +120,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 
 - [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen,
   and it's used at Snapp's office mainly.
-  Last `ArchLinux` installation happened on 10 Sep 2023 using `archlinux-2023.09.01-x86_64.iso`. ✅
+  Last `ArchLinux` installation happened on 21 Dec 2023 using `archlinux-2023.12.01-x86_64.iso`. ✅
 
   |    Type    |                      Value                      |
   | :--------: | :---------------------------------------------: |
