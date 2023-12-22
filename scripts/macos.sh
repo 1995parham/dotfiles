@@ -33,8 +33,9 @@ main_brew() {
 	defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 	# Use tap instead of click. Secondary click with two finger tap.
-	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
-	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 2
+	defaults write com.apple.driver.AppleMultitouch.trackpad Clicking -int 1
+	defaults write com.apple.driver.AppleMultitouch.trackpad TrackpadRightClick -bool true
+	defaults -currentHost write com.apple.trackpad.enableSecondaryClick -bool true
 
 	msg "Dock, Dashboard, Control Center, and hot corners"
 
