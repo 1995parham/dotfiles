@@ -17,6 +17,10 @@ main_pacman() {
 	require_pacman yt-dlp
 }
 
+main_brew() {
+	require_brew yt-dlp
+}
+
 main() {
 	configfile yt-dlp
 }
