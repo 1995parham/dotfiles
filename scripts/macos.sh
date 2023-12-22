@@ -36,9 +36,6 @@ main_brew() {
 	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
 	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 2
 
-	# Disable shortkey for switching languages
-	defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "{enabled = 0; value = { parameters = (65535, 49, 1048576); type = 'standard'; };}"
-
 	msg "Dock, Dashboard, Control Center, and hot corners"
 
 	defaults write com.apple.dock persistent-apps -array
