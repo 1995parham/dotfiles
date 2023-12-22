@@ -27,6 +27,7 @@ main_brew() {
 	defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 	# Set highlight color to orange
+	defaults write NSGlobalDomain AppleAccentColor -int 1
 	defaults write NSGlobalDomain AppleAquaColorVariant -int 1
 	defaults write NSGlobalDomain AppleHighlightColor -string "1.000000 0.874510 0.701961 Orange"
 	defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
