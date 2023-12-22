@@ -12,7 +12,7 @@ usage() {
   '
 }
 
-export dependencies=("ssh-2fa")
+export dependencies=("ssh-2fa" "keys 1995parham")
 
 pre_main() {
 	if [ ! -f "$HOME/.profile" ]; then
