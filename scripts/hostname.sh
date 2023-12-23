@@ -47,6 +47,8 @@ main_pacman() {
 		msg "using systemd to change hostname to $hostname"
 		sudo hostnamectl hostname "$hostname"
 	fi
+	require_hosts_record "127.0.0.1" "$HOSTNAME"
+	require_hosts_record "127.0.0.1" "localhost"
 }
 
 main_apt() {
@@ -54,6 +56,8 @@ main_apt() {
 		msg "using systemd to change hostname to $hostname"
 		sudo hostnamectl hostname "$hostname"
 	fi
+	require_hosts_record "127.0.0.1" "$HOSTNAME"
+	require_hosts_record "127.0.0.1" "localhost"
 }
 
 main_brew() {
@@ -66,6 +70,5 @@ main_brew() {
 }
 
 main() {
-	require_hosts_record "127.0.0.1" "$HOSTNAME"
-	require_hosts_record "127.0.0.1" "localhost"
+	return 0
 }
