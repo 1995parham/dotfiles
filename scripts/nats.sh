@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+export dependencies=("go")
+
 usage() {
 	echo "The NATS Command Line Interface"
 
