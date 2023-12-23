@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-export dependencies=('go')
-
 usage() {
 	echo "k8s and openshift command line tools (kubectl, oc, stern, kubeval, etc.)"
 	# shellcheck disable=2028
