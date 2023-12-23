@@ -42,6 +42,10 @@ main() {
 	kubectl krew install kuttl
 
 	msg 'required helm plugins (using helm plugin manager)'
-	helm plugin install https://github.com/databus23/helm-diff
+	if helm plugin list | grep "diff"; then
+		helm plugin update diff
+	else
+		helm plugin install https://github.com/databus23/helm-diff
+	fi
 
 }
