@@ -21,6 +21,7 @@ main_apt() {
 }
 
 main_brew() {
+	# require_brew ariga/tap/atlas
 	return 0
 }
 
