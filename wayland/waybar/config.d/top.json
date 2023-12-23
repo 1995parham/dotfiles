@@ -15,7 +15,7 @@
   "modules-right": [
     "keyboard-state",
     "disk",
-    "mpd",
+    // "mpd",
     "pulseaudio",
     "network#eth",
     "network#wifi",
