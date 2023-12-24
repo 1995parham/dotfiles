@@ -17,6 +17,10 @@ main_brew() {
 	msg "use binaries installed by brew before anything else in the PATH"
 	copycat "macos" "osx/paths" "/etc/paths"
 
+	msg 'Lock screen'
+
+	sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to Parham and Elahe's Mac. Please treat our digital space with the same respect you'd show our home. For access, kindly text or call us."
+
 	msg "General UI/UX"
 
 	# Close any open System Preferences panes, to prevent them from overriding
