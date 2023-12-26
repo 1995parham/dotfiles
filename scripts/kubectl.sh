@@ -14,11 +14,11 @@ usage() {
 }
 
 main_brew() {
-	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew
+	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd
 }
 
 main_pacman() {
-	require_pacman kubectl helm argocd kubectx stern k9s
+	require_pacman kubectl helm argocd kubectx stern k9s fluxcd
 	require_aur okd-client-bin krew-bin
 }
 
