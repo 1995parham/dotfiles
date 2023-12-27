@@ -16,7 +16,7 @@ set_bg() {
 	swaybg -o "$output" -i \
 		"$(
 			find "$HOME/Pictures/GoSiMac" -type f -name '*.png' -or -name '*.jpg' -not -name lock.jpg |
-				shuf --random-source=/dev/random -n1
+				shuf -n1
 		)" \
 		-m fill &
 }
