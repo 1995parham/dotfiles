@@ -14,7 +14,7 @@ usage() {
 }
 
 main_brew() {
-	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd
+	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxctl
 }
 
 main_pacman() {
