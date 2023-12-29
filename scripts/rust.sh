@@ -17,7 +17,7 @@ main_pacman() {
 }
 
 main_brew() {
-	require_brew rust rustfmt
+	require_brew rustup-init
 }
 
 main() {
