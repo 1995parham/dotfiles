@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman rust
+	require_pacman rustup
 }
 
 main_brew() {
@@ -24,8 +24,8 @@ main() {
 	root=${root:?"root must be set"}
 
 	msg "install the stable toolchain and select it as default"
-	# rustup toolchain install stable
-	# rustup default stable
+	rustup toolchain install stable
+	rustup default stable
 
 	mkdir -p "$HOME/.cargo" || true
 	cp "$root/rust/config.toml" "$HOME/.cargo/config.toml"
@@ -34,7 +34,7 @@ main() {
 	cargo install cargo-edit cargo-expand
 
 	msg 'install rustup plugins'
-	# rustup component add clippy
-	# rustup component add rustfmt
-	# rustup component add rls rust-analysis rust-src
+	rustup component add clippy
+	rustup component add rustfmt
+	rustup component add rls rust-analysis rust-src
 }
