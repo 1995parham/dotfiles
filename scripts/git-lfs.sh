@@ -1,9 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 usage() {
 	echo -n 'manage large files on git'
 
-	# shellcheck disable=1004,2016
 	echo '
        _ _        _  __
   __ _(_) |_     | |/ _|___
@@ -14,21 +13,18 @@ usage() {
   '
 }
 
+main_pre() {
+	msg 'I am using git-lfs to store my books so pdfgrep is required to find the right book using its title'
+}
+
 main_apt() {
-	sudo apt install git-lfs
+	require_apt git-lfs
 }
 
 main_pacman() {
-	msg 'i am using git-lfs to store my papers so pdfgrep is required to find the right paper'
-	sudo pacman -Syu --needed --noconfirm git-lfs pdfgrep
+	require_pacman git-lfs pdfgrep
 }
 
 main_brew() {
-	brew install git-lfs
-}
-
-main() {
-	msg 'setup lfs on your account'
-
-	git lfs install
+	require_brew git-lfs
 }
