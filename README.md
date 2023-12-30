@@ -106,18 +106,6 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (1) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
   | Memory (2) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
 
-- [`x-wing`](https://en.wikipedia.org/wiki/X-wing_fighter): Lenovo ThinkPad X13 Generation 3 Laptop is lightweight
-  and always with me in travel. Last `ArchLinux` installation happened on 10 Sep 2023 using `archlinux-2023.09.01-x86_64.iso`. ✅
-
-  |    Type    |                     Value                     |
-  | :--------: | :-------------------------------------------: |
-  |   System   |    `LENOVO 21CMA001CD ThinkPad X13 Gen 3`     |
-  | Processor  | `AMD Ryzen 7 PRO 6850U with Radeon Graphics`  |
-  | Memory (1) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
-  | Memory (2) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
-  | Memory (3) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
-  | Memory (4) | `DDR5 - Micron Technology - 4 GB - 6400 MT/s` |
-
 - [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen,
   and it's used at Snapp's office mainly.
   Last `ArchLinux` installation happened on 21 Dec 2023 using `archlinux-2023.12.01-x86_64.iso`. ✅
@@ -129,36 +117,8 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (1) |  `DDR4 - Micron Technology - 8 GB - 3200 MT/s`  |
   | Memory (2) | `DDR4 - Micron Technology - 16 GB - 3200 MT/s`  |
 
-- [`death-star`](https://en.wikipedia.org/wiki/Death_Star): Tower server based on `ROG STRIX X399-E GAMING` Motherboard.
-  It's always home and ready for duties.
-  Last `ArchLinux` installation happened on 02 Apr 2023. ✅
-
-  |    Type    |                      Value                       |
-  | :--------: | :----------------------------------------------: |
-  |   System   | `ASUSTeK COMPUTER INC. ROG STRIX X399-E GAMING`  |
-  | Processor  | `AMD Ryzen Threadripper 1950X 16-Core Processor` |
-  | Memory (1) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
-  | Memory (2) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
-  | Memory (3) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
-  | Memory (4) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
-  | Memory (5) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
-  | Memory (6) |       `DDR4 - Unknown - 8 GB - 2133 MT/s`        |
-
-- [`galactica`](https://en.wikipedia.org/wiki/Battlestar_Galactica): Tower server base on `Z10PE-D16 WS` Motherboard.
-  It's always home and ready for duties.
-  Last `ArchLinux` installation happened on 06 Apr 2023. ✅
-
-  |     Type      |                      Value                       |
-  | :-----------: | :----------------------------------------------: |
-  |    System     |       `ASUSTeK COMPUTER INC. Z10PE-D16 WS`       |
-  | Processor (1) |   `Intel(R) Xeon(R) CPU E5-2683 v3 @ 2.00GHz`    |
-  | Processor (2) |   `Intel(R) Xeon(R) CPU E5-2683 v3 @ 2.00GHz`    |
-  |  Memory (1)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
-  |  Memory (2)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
-  |  Memory (3)   | `DDR4 - Hynix Semiconductor - 16 GB - 2133 MT/s` |
-  |  Memory (4)   | `DDR4 - Hynix Semiconductor - 8 GB - 2133 MT/s`  |
-
-- [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook to taste the Apple world again.
+- [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
+  to taste the Apple world again.
   Last `macOS Ventura` installation happened on 21 Dec 2023. ✅
 
   |   Type    |                       Value                        |
@@ -174,7 +134,7 @@ Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 Elahe has the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp, and it should
-  return to them when I decide to leave. Last OSx installation happened on 14 Oct 2023. ✅
+  return to them when I decide to leave. Last `macOS` installation happened on 14 Oct 2023. ✅
 
   |   Type    |                     Value                     |
   | :-------: | :-------------------------------------------: |
