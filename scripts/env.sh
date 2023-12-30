@@ -79,6 +79,7 @@ pacman_packages=(
 	just
 	bat-extras
 	tcpdump
+	powertop
 )
 yay_packages=(jcal actionlint-bin cbonsai k6)
 
