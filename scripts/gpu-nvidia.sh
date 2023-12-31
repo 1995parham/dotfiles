@@ -22,7 +22,9 @@ main_pacman() {
 	not_require_pacman nvidia-open
 	require_pacman nvidia-open-dkms cuda
 	require_aur envycontrol
-	require_pacman nvidia-prime
+	require_pacman nvidia-prime switcheroo-control
+
+	sudo systemctl enable --now switcheroo-control.service
 
 	require_systemd_kernel_parameter +nvidia_drm.modeset=1
 
