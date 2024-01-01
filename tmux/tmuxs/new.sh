@@ -165,6 +165,7 @@ done
 
 # I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
 # tmux select-layout -t "$current_session:$name" tiled
-tmux send-keys -t "$current_session:$name.0" 'nvim' Enter
+tmux send-keys -t "$current_session:$name.0" 'nvim'
+tmux send-keys -t "$current_session:$name.1" 'code-insider .'
 tmux select-pane -t "$current_session:$name.0"
-tmux resize-pane -Z -t "$current_session:$name.0"
+# tmux resize-pane -Z -t "$current_session:$name.0"
