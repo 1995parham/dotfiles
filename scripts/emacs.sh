@@ -16,15 +16,14 @@ root=${root:?"root must be set"}
 
 main_brew() {
 	# https://github.com/doomemacs/doomemacs/blob/develop/docs/getting_started.org#with-homebrew
-	brew install git ripgrep
+	require_brew git ripgrep
 
-	brew tap d12frosted/emacs-plus
-	msg 'installation based on emacs-plus'
+	msg 'installation is based on emacs-plus'
 	msg 'installation takes time and cpu because it compiles emacs from source'
-	brew install emacs-plus --with-native-comp --with-elrumo2-icon
+	require_brew d12frosted/emacs-plus/emacs-plus@30
 
 	if [ ! -e /Applications/Emacs.app ]; then
-		osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus/Emacs.app" at POSIX file "/Applications"'
+		osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@30/Emacs.app" at POSIX file "/Applications"'
 	fi
 
 	msg 'installing doom on osx manually is better because there are many errors'
