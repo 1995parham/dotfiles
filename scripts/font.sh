@@ -19,7 +19,8 @@ main_brew() {
 		homebrew/cask-fonts/font-vazirmatn \
 		homebrew/cask-fonts/font-dejavu \
 		homebrew/cask-fonts/font-fira-code-nerd-font \
-		homebrew/cask-fonts/font-fira-code
+		homebrew/cask-fonts/font-fira-code \
+		homebrew/cask-fonts/font-roboto
 }
 
 main_pacman() {
