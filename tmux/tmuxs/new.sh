@@ -154,6 +154,8 @@ tmux new-window -t "$current_session" -c "$project" -n "$name"
 # commands+=("git project")
 tmux split-window -t "$current_session:$name" -c "$project"
 tmux split-window -h -t "$current_session:$name" -c "$project"
+tmux select-pane -t "$current_session:$name.0"
+tmux split-window -h -t "$current_session:$name" -c "$project"
 
 # using send command to run the pre
 for i in $(seq 0 2); do
@@ -165,7 +167,7 @@ done
 
 # I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
 # tmux select-layout -t "$current_session:$name" tiled
-tmux send-keys -t "$current_session:$name.0" 'nvim'
-tmux send-keys -t "$current_session:$name.1" 'code-insiders .'
+tmux send-keys -t "$current_session:$name.2" 'nvim'
+tmux send-keys -t "$current_session:$name.3" 'code-insiders .'
 tmux select-pane -t "$current_session:$name.0"
 # tmux resize-pane -Z -t "$current_session:$name.0"
