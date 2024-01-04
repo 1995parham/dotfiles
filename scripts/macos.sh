@@ -120,31 +120,8 @@ main_brew() {
 	# wake the machine when the laptop lid (or clamshell) is opened
 	sudo pmset -a lidwake 0
 
-	msg ''
-	msg 'To grant full-disk access to an application like Kitty on macOS, you can follow these manual steps:
-
-Open "System Preferences" from the Apple menu or by searching for it in Spotlight.
-
-In the System Preferences window, click on "Security & Privacy".
-
-Switch to the "Privacy" tab.
-
-Scroll down and select "Full Disk Access" from the list on the left.
-
-Click on the lock icon at the bottom left corner and enter your administrator password when prompted. This will allow you to make changes to the settings.
-
-Click on the "+" button below the list of applications.
-
-In the file browser, navigate to the folder where Kitty is located. By default, applications are stored in the "Applications" folder, but you can choose a different location if applicable.
-
-Select the Kitty application and click on "Open".
-
-Kitty will now be added to the list of applications with full-disk access.
-
-You can close the System Preferences window.
-
-By following these steps, you will manually grant full-disk access to the Kitty application using the Privacy and Security settings on macOS.' 'notice'
-	msg ''
+	msg 'Internet account (parham.alvani@gmail.com)' 'notice'
+	msg 'Disable ctrl+space short key' 'notice'
 
 }
 
