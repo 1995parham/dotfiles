@@ -52,7 +52,7 @@ windows:
           - figlet 'Spend money wisely' | lolcat -S 57
 
   - window_name: life-2
-    layout: tiled
+    layout: even-horizontal
     panes:
       - start_directory: ~/Documents/Git/parham/parham-alvani/buying
         shell_command:
