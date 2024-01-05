@@ -38,7 +38,7 @@ brew_packages=(
 	wakatime-cli
 	muzzle
 	jcal
-	speedtest-cli
+	teamookla/speedtest/speedtest
 	chafa
 	mtr
 	dog
