@@ -122,6 +122,7 @@ main_brew() {
 
 	msg 'Internet account (parham.alvani@gmail.com)' 'notice'
 	msg 'Disable ctrl+space short key' 'notice'
+	msg 'Right Index Finger for fingerprint sensor'
 
 }
 
