@@ -18,7 +18,7 @@ pre_main() {
 }
 
 main_pacman() {
-	require_aur dvc
+	require_pip 'dvc[all]'
 }
 
 main_brew() {
