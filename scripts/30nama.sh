@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version="1.2.1"
+version="1.3.2"
 
 usage() {
 	echo -n "You will not get bored with 30nama ($version)"
