@@ -109,3 +109,21 @@ function home-vpn() {
 		;;
 	esac
 }
+
+# show differences between code and code-insiders configuration
+function code-settings-diff() {
+	config_home=""
+	if [[ "$OSTYPE" == "darwin"* ]]; then
+		config_home="$HOME/Library/Application Support"
+	elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+		config_home="$HOME/.config"
+	else
+		message 'code-settings-diff' '󰏲 call parham (+98 939 09 09 540)'
+	fi
+
+	code="$config_home/Code/User/settings.json"
+	code_insiders="$config_home/Code - Insiders/User/settings.json"
+	diff <(jq --sort-keys . "$code") <(jq --sort-keys . "$code_insiders")
+
+	diff -i <(code --list-extensions) <(code-insiders --list-extensions)
+}
