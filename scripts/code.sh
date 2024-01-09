@@ -19,6 +19,7 @@ main_pacman() {
 
 main_brew() {
 	require_brew_cask visual-studio-code visual-studio-code-insiders
+	require_brew devcontainer
 }
 
 main() {
