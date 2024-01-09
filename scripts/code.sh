@@ -14,6 +14,7 @@ usage() {
 
 main_pacman() {
 	require_aur visual-studio-code-insiders-bin visual-studio-code-bin
+	require_aur devcontainer-cli
 }
 
 main_brew() {
