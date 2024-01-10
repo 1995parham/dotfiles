@@ -66,9 +66,9 @@ _mount() {
 
 	# file system type specific mount options
 	if [[ ${ID_FS_TYPE} == "vfat" ]]; then
-		opts+=",users,uid=1000,gid=1000,umask=000,shortname=mixed,utf8=1,flush"
+		opts+=",users,uid=1000,gid=1000,umask=000"
 	elif [[ ${ID_FS_TYPE} == "exfat" ]]; then
-		opts+=",users,uid=1000,gid=1000,umask=000,shortname=mixed,utf8=1,flush"
+		opts+=",users,uid=1000,gid=1000,umask=000"
 	fi
 
 	if ! /bin/mount -o "${opts}" "${device}" "${mount_point}"; then
