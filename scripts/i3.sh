@@ -56,14 +56,11 @@ main_pacman() {
 	chmod +x "$HOME/.dmenurc"
 
 	msg 'configure rofi another application luncher'
-	sudo pacman -Syu --noconfirm --needed rofi
+	require_pacman rofi
 	configfile rofi "" i3
 
-	msg 'gnome-keyring/seahorse setup with ~/.profile'
+	msg 'gnome-keyring/seahorse setup'
 	require_pacman gnome-keyring seahorse
-	dotfile i3 profile
-	mkdir -p "$HOME/.gnupg"
-	linker gnupg "$root/i3/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
 
 	msg 'pavucontrol, a panel for audio'
 	require_pacman pavucontrol
