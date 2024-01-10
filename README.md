@@ -96,8 +96,8 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
 - [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
-  which is huge and always stays at home. Last `ArchLinux` installation happened
-  on 21 Dec 2023 using `archlinux-2023.12.01-x86_64.iso`. ✅
+  which is huge and always stays at home. Last `EndeavourOS` installation happened
+  on 21 Dec 2023 using `Endeavouros-Galileo-11-2023.iso`. ✅
 
   |    Type    |                  Value                  |
   | :--------: | :-------------------------------------: |
