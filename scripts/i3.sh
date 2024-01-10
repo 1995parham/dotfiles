@@ -80,6 +80,10 @@ main_pacman() {
 	msg 'gnome-keyring/seahorse setup'
 	require_pacman gnome-keyring seahorse
 
+	if [ ! -f "$HOME/.profile" ]; then
+		echo "#!/usr/bin/env bash" >"$HOME/.profile"
+	fi
+
 	# shellcheck disable=2016
 	if ! grep -q -F 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK' \
 		"$HOME/.profile"; then
