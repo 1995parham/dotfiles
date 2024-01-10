@@ -36,6 +36,9 @@ unfocused_hollow = true
 [cursor.style]
 shape = "Beam"
 
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
+
 [font]
 builtin_box_drawing = true
 size = 9
