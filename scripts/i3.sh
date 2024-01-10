@@ -23,42 +23,60 @@ main_pacman() {
 	configfile i3 "" i3
 	configfile polybar "" i3
 
+	msg
 	msg 'ranger (cli-based file manager) with image preview'
 	require_pacman ranger ueberzug
 	configfile ranger "" i3
 
+	msg
 	msg 'better brightness control with brightnessctl'
 	require_pacman brightnessctl
 
+	msg
+	msg 'lightdm and its configuration'
+	require_pacman lightdm-slick-greeter lightdm eos-lightdm-slick-theme
+	copycat "i3" i3/lightdm/login /etc/pam.d/login
+	copycat "i3" i3/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
+
+	msg
 	msg 'x11/wayland image viewer'
 	require_pacman imv
 
+	msg
 	msg 'pdf viewer'
 	require_pacman mupdf
 
+	msg
 	msg 'picom is a standalone compositor for Xorg'
 	require_pacman picom
 	require_pacman unclutter
 	configrootfile picom picom.conf i3
 
+	msg
 	msg 'notification with dunst'
 	require_pacman dunst libnotify
 	configfile dunst "" i3
 
+	msg
 	msg 'backgrounds with feh'
 	require_pacman feh
+
+	msg
 	msg 'setup a systemd timer/service to change background images each 5 minutes with feh'
 	configsystemd feh feh.timer i3
 	configsystemd feh feh.service i3
 
+	msg
 	msg 'configure the dmenu, default application luncher on i3'
 	linker dmenu "$root/i3/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
 
+	msg
 	msg 'configure rofi another application luncher'
 	require_pacman rofi
 	configfile rofi "" i3
 
+	msg
 	msg 'gnome-keyring/seahorse setup'
 	require_pacman gnome-keyring seahorse
 
@@ -70,15 +88,19 @@ main_pacman() {
 			tee -a "$HOME/.profile"
 	fi
 
+	msg
 	msg 'pavucontrol, a panel for audio'
 	require_pacman pavucontrol
 
+	msg
 	msg 'pulse-audio tray'
 	require_pacman pasystray
 
+	msg
 	msg 'there is no power manager installed and all events will be handled by systemd'
 	sudo cp "$root/i3/systemd/logind.conf" /etc/systemd/logind.conf
 
+	msg
 	msg 'enable feh services later to be a good post installation script'
 	systemctl --user enable feh.timer
 	systemctl --user start feh.timer
