@@ -17,7 +17,7 @@ root=${root:?"root must be set"}
 main_pacman() {
 	msg 'install i3 (actually i3-gaps) with polybar'
 	require_pacman i3-gaps xclip gtk3
-	require_pacman i3-scrot matcha-gtk-theme polybar i3exit
+	require_aur i3-scrot matcha-gtk-theme polybar i3exit
 
 	configfile gtk-3.0 settings.ini i3
 	configfile i3 "" i3
@@ -34,7 +34,7 @@ main_pacman() {
 	require_pacman imv
 
 	msg 'pdf viewer'
-	reuqire_pacman mupdf
+	require_pacman mupdf
 
 	msg 'picom is a standalone compositor for Xorg'
 	require_pacman picom
@@ -60,7 +60,7 @@ main_pacman() {
 	configfile rofi "" i3
 
 	msg 'gnome-keyring/seahorse setup with ~/.profile'
-	reuqire_pacman gnome-keyring seahorse
+	require_pacman gnome-keyring seahorse
 	dotfile i3 profile
 	mkdir -p "$HOME/.gnupg"
 	linker gnupg "$root/i3/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
