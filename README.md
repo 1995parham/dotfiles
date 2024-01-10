@@ -1,4 +1,5 @@
 <h1 align="center">1995parham's dotfiles library</h1>
+<h6 align="center"> Script Collection for Effortless Dotfile Management </h6>
 
 <p align="center">
      <img alt="GitHub" src="https://img.shields.io/github/license/1995parham/dotfiles.lib?logo=gnu&style=for-the-badge">
@@ -8,8 +9,17 @@
 
 ## Introduction
 
-These are scripts that help you maintain your `dotfiles` easier with having more fun.
-The library contains bash scripts for installing requirements, printing colorful messages, set-up proxy, etc.
+Discover a new way of managing your dotfiles with **dotfile.lib**, a collection of bash scripts designed to introduce ease and a splash of fun into the maintenance process.
+Whether you're setting up a new system or tailoring an existing one, these tools are crafted to streamline your workflow.
+
+## Features
+
+- **Easy Installation 🚀**: Jumpstart your environment setup with scripts that handle the installation of prerequisites.
+- **Vibrant Feedback 🌈**: Enjoy colorful console messages that make tracking your progress a visual treat.
+- **Proxy Configuration 🇮🇷**: Simplify the complex task of proxy settings with dedicated scripts.
+- **And More ✨**: The library is growing—more convenient scripts will continually enrich your setup experience.
+
+Explore **dotfile.lib** and make dotfile management something you look forward to.
 
 ## How to use it?
 

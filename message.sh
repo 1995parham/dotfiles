@@ -34,7 +34,7 @@ function yes_or_no() {
 
 function message() {
 	local module=$1
-	local message=$2
+	local message=${2:-""}
 	local servity=${3:-"info"}
 
 	case $servity in
