@@ -107,6 +107,7 @@ main_pacman() {
 	msg
 	msg 'remove tools that I do not love from endeavouros'
 	sudo rm /usr/lib/environment.d/99-environment.conf
+	not_require_pacman reflector-simple
 
 	msg
 	msg 'enable feh services later to be a good post installation script'
