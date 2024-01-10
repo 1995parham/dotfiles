@@ -12,4 +12,3 @@ cd "$HOME/yay-bin" && makepkg -si
 
 echo "have fun with your i3"
 cd "$HOME/dotfiles/" && ./start.sh i3
-sudo pacman -Syu firefox
