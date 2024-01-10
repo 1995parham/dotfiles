@@ -15,6 +15,8 @@ usage() {
 main_pacman() {
 	require_aur visual-studio-code-insiders-bin visual-studio-code-bin
 	require_aur devcontainer-cli
+
+	msg 'change password-store to gnome before enabling the sync settings' 'notice'
 }
 
 main_brew() {
