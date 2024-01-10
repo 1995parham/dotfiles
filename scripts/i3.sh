@@ -105,6 +105,10 @@ main_pacman() {
 	sudo cp "$root/i3/systemd/logind.conf" /etc/systemd/logind.conf
 
 	msg
+	msg 'remove tools that I do not love from endeavouros'
+	sudo rm /usr/lib/environment.d/99-environment.conf
+
+	msg
 	msg 'enable feh services later to be a good post installation script'
 	systemctl --user enable feh.timer
 	systemctl --user start feh.timer
