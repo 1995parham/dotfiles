@@ -216,10 +216,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# lock screen
+# lock your screen using a nice blurlock
 bindsym $mod+9 exec --no-startup-id "blurlock; sleep 10; xset dpms force off"
 
-# provide support for en/fa layouts
+# provide support for en/fa layout switching
 bindcode $mod+65 exec "if [ $(setxkbmap -query | awk '/layout/{print $2}') == us ]; then setxkbmap ir; else setxkbmap us; fi"
 
 # theme colors
