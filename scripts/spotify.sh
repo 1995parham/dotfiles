@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-  echo "Spotify is a digital music service that gives you access to millions of songs."
+	echo "Spotify is a digital music service that gives you access to millions of songs."
 
-  # shellcheck disable=1004,2016
-  echo '
+	# shellcheck disable=1004,2016
+	echo '
                  _   _  __
  ___ _ __   ___ | |_(_)/ _|_   _
 / __| |_ \ / _ \| __| | |_| | | |
@@ -13,28 +13,26 @@ usage() {
   '
 }
 
-
-
 pre_main() {
-  return 0
+	return 0
 }
 
 main_pacman() {
-  return 1
+	require_aur spotify
 }
 
 main_apt() {
-  return 1
+	return 1
 }
 
 main_brew() {
-  return 1
+	return 1
 }
 
 main() {
-  return 0
+	return 0
 }
 
 main_parham() {
-  return 0
+	return 0
 }
