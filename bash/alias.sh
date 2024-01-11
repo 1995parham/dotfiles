@@ -50,6 +50,8 @@ fi
 alias grep="grep --color=auto"
 alias vi="vim"
 alias ls-la="ls -la"
+alias wl-copy=xclip -i
+alias wl-paste=xclip -o
 
 # run emacs tui on terminal instead of emacs itself.
 alias emacs="emacs -nw"
