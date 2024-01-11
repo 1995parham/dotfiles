@@ -129,8 +129,8 @@ inherit = bar/main
 
 bottom = false
 
-modules-left = xwindow info-tmux-sessions
-modules-center = mpd
+modules-left = 
+modules-center = xwindow
 modules-right = filesystem backlight-intel backlight-amd pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
 
 cursor-click = pointer
