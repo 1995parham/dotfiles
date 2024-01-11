@@ -63,8 +63,8 @@ main_pacman() {
 
 	msg
 	msg 'setup a systemd timer/service to change background images each 5 minutes with feh'
-	configsystemd feh feh.timer i3
-	configsystemd feh feh.service i3
+	configsystemd services feh.timer i3
+	configsystemd services feh.service i3
 
 	msg
 	msg 'configure the dmenu, default application luncher on i3'
@@ -106,7 +106,9 @@ main_pacman() {
 
 	msg
 	msg 'remove tools that I do not love from endeavouros'
-	sudo rm /usr/lib/environment.d/99-environment.conf
+	if [ -f /usr/lib/environment.d/99-environment.conf ]; then
+		sudo rm /usr/lib/environment.d/99-environment.conf
+	fi
 	not_require_pacman reflector-simple
 
 	msg
