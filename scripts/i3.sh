@@ -69,6 +69,7 @@ main_pacman() {
 	msg
 	msg 'workspaces systemd in user'
 	configsystemd services workspaces.service i3
+	configsystemd services i3-session.target i3
 
 	msg
 	msg 'configure the dmenu, default application luncher on i3'

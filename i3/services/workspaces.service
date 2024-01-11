@@ -7,10 +7,10 @@ PartOf=graphical-session.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws1; exec alacritty'
+ExecStart=i3-msg 'workspace --no-auto-back-and-forth $ws1; exec alacritty'
 #ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws4; exec firefox'
-ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws3; exec emacs; exec obsidian'
-ExecStart=swaymsg 'workspace --no-auto-back-and-forth $wsf'
+ExecStart=i3-msg 'workspace --no-auto-back-and-forth $ws3; exec emacs; exec obsidian'
+ExecStart=i3-msg 'workspace --no-auto-back-and-forth $wsf'
 
 [Install]
-WantedBy=sway-session.target
+WantedBy=i3-session.target
