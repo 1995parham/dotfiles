@@ -113,6 +113,7 @@ main_pacman() {
 	msg 'remove tools that I do not love from endeavouros'
 	if [ -f /usr/lib/environment.d/99-environment.conf ]; then
 		sudo rm /usr/lib/environment.d/99-environment.conf
+		sudo rm /etc/environment
 	fi
 	not_require_pacman reflector-simple
 
