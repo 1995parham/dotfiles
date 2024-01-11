@@ -14,7 +14,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman texlab python-pygments graphviz tectonic
+	require_pacman texlab python-pygments graphviz tectonic texlive-binextra
 	require_aur libxcrypt-compat
 }
 
