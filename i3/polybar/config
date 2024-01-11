@@ -114,7 +114,7 @@ bottom = true
 
 modules-left = i3
 modules-center = couple-birthday couple-relationship
-modules-right = jdate date snapp1 snapp2 baly speedify
+modules-right = snapp1 snapp2 baly speedify
 
 tray-position = right
 tray-padding = 2
@@ -129,7 +129,7 @@ inherit = bar/main
 
 bottom = false
 
-modules-left = 
+modules-left = jdate date
 modules-center = xwindow
 modules-right = filesystem backlight-intel backlight-amd pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
 
