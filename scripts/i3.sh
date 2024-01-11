@@ -67,6 +67,10 @@ main_pacman() {
 	configsystemd services feh.service i3
 
 	msg
+	msg 'workspaces systemd in user'
+	configsystemd services workspaces.service i3
+
+	msg
 	msg 'configure the dmenu, default application luncher on i3'
 	linker dmenu "$root/i3/dmenurc" "$HOME/.dmenurc"
 	chmod +x "$HOME/.dmenurc"
@@ -112,9 +116,10 @@ main_pacman() {
 	not_require_pacman reflector-simple
 
 	msg
-	msg 'enable feh services later to be a good post installation script'
+	msg 'i3-related user services'
 	systemctl --user enable feh.timer
 	systemctl --user start feh.timer
+	systemctl --user enable workspaces.service
 }
 
 main_parham() {
