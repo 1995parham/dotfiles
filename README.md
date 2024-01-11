@@ -35,10 +35,19 @@ Her remarkable contributions to both this repository and my personal life are tr
 
 You need to first install an operating system to use these `dotfiles`,
 For installing [`ArchLinux`](https://archlinux.org/) from scratch with [`archinstall`](https://github.com/archlinux/archinstall/),
-please check [here](./archinstall)
+please check [here](./archinstall).
 
-In case of using macOS, you already have the installed macOS.
-(Use recovery mode by Press and hold the power button on your Mac until the system volume and the Options button appear)
+After many years struggling with `archinstall`, I decided to use [`EndeavourOS`](https://endeavouros.com/).
+Using it, I have system ready soon, and it doesn't have many preinstalled software and configuration.
+Experience was good until now and I hope I can stick with it.
+I worked with sway, but issues were too many (share screen is not working, screen flicks, etc.)
+and because of that I migrated to use i3 again.
+
+**You know, I am old now.**
+
+In case of using macOS, you already have the installed macOS
+(Use recovery mode by Press and hold the power button on your Mac until the system volume and the Options button
+appear).
 So, there is no need to install the operating system, and you cannot customize anything about it.
 Just run the following script to have the setup:
 
@@ -97,7 +106,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
 
 - [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
   which is huge and always stays at home. Last `EndeavourOS` installation happened
-  on 21 Dec 2023 using `Endeavouros-Galileo-11-2023.iso`. ✅
+  on 10 Jan 2024 using `Endeavouros-Galileo-11-2023.iso`. ✅
 
   |    Type    |                  Value                  |
   | :--------: | :-------------------------------------: |
@@ -118,7 +127,7 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (2) | `DDR4 - Micron Technology - 16 GB - 3200 MT/s`  |
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
-  to taste the Apple world again.
+  to taste the Apple world again. Please note that, disk is encrypted and named `Falcon HD`.
   Last `macOS Ventura` installation happened on 21 Dec 2023. ✅
 
   |   Type    |                       Value                        |
