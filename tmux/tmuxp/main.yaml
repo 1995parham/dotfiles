@@ -1,7 +1,7 @@
 ---
 session_name: Main
 windows:
-  - window_name: dotfiles
+  - window_name: dotfiles ⚙️
     layout: tiled
     panes:
       - start_directory: ~/dotfiles
@@ -22,7 +22,7 @@ windows:
           - git pull origin main &> /dev/null
           - figlet 'I cannot remember anything' | lolcat -S 57
 
-  - window_name: personal
+  - window_name: scratch ✏️
     layout: tiled
     start_directory: ~/Downloads
     panes:
@@ -31,7 +31,7 @@ windows:
       - pane
       - pane
 
-  - window_name: life-1
+  - window_name: life-1 🐼
     layout: tiled
     panes:
       - start_directory: ~/tasks
@@ -51,7 +51,7 @@ windows:
           - git pull origin main &> /dev/null
           - figlet 'Spend money wisely' | lolcat -S 57
 
-  - window_name: life-2
+  - window_name: life-2 🐼
     layout: even-horizontal
     panes:
       - start_directory: ~/Documents/Git/parham/parham-alvani/buying
@@ -63,7 +63,7 @@ windows:
           - git pull origin main &> /dev/null
           - figlet 'Read more' | lolcat -S 57
 
-  - window_name: raha
+  - window_name: raha ❤️
     layout: even-vertical
     panes:
       - shell_command:
