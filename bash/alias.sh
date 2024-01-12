@@ -36,8 +36,8 @@ alias weaf='curl -s "wttr.in/Tehran?Fqm"'
 alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
 
 # wl-copy and wl-paste from wayland and I want them in i3
-alias wl-copy=xclip -i
-alias wl-paste=xclip -o
+alias wl-copy="xclip -i"
+alias wl-paste="xclip -o"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# when you live years in Arch and force to use osx
