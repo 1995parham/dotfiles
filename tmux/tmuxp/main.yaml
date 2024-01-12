@@ -1,5 +1,6 @@
 ---
 session_name: Main
+before_script: "$HOME/.config/tmuxs/hello.sh"
 windows:
   - window_name: dotfiles ⚙️
     layout: tiled
