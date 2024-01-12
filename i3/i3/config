@@ -157,6 +157,8 @@ bindsym $mod+minus scratchpad show
 # navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+bindsym --whole-window button9 workspace next
+bindsym --whole-window button8 workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
