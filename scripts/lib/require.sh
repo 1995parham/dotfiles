@@ -11,6 +11,17 @@ function require_country() {
 	return 0
 }
 
+function not_require_country() {
+	country=${1:?"country is required"}
+	current_country="$(curl -s ipconfig.io/country)"
+	if [ "$current_country" == "$country" ]; then
+		message "country" "󰈻 please be in another country instead of $country" "error"
+		return 1
+	fi
+
+	return 0
+}
+
 function require_host() {
 	host=${1:?"host is required"}
 	ping -q -c 1 "$host" || (message "host" "󰈂 please make sure you have access to $host" 'error' && return 1)
