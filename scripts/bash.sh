@@ -46,7 +46,7 @@ main() {
 	dotfile "bash" "bashrc.shared"
 
 	msg "source bashrc.shared in bashrc"
-	if ! grep -q -F "source \$HOME/.bashrc.shared" "$HOME/.bashrc"; then
-		echo "source \$HOME/.bashrc.shared" | tee -a "$HOME/.bashrc"
+	if ! grep -q -F "source \"\$HOME/.bashrc.shared\"" "$HOME/.bashrc"; then
+		echo "source \"\$HOME/.bashrc.shared\"" | tee -a "$HOME/.bashrc"
 	fi
 }

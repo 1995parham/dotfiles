@@ -32,7 +32,15 @@ main_pacman() {
 
 main_brew() {
 	msg "install scala because of the queen"
-	require_brew openjdk sbt
+	require_brew openjdk@17 sbt gradle
+
+	if ! grep -q -F "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" "$HOME/.bashrc"; then
+		echo "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" | tee -a "$HOME/.bashrc"
+	fi
+
+	if ! grep -q -F "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" "$HOME/.zshrc"; then
+		echo "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" | tee -a "$HOME/.zshrc"
+	fi
 }
 
 main() {

@@ -56,7 +56,7 @@ main() {
 	dotfile "zsh" "zsh.plug"
 
 	msg 'source zshrc.shared'
-	if ! grep -q -F "source \$HOME/.zshrc.shared" "$HOME/.zshrc"; then
-		echo "source \$HOME/.zshrc.shared" | tee -a "$HOME/.zshrc"
+	if ! grep -q -F "source \"\$HOME/.zshrc.shared\"" "$HOME/.zshrc"; then
+		echo "source \"\$HOME/.zshrc.shared\"" | tee -a "$HOME/.zshrc"
 	fi
 }
