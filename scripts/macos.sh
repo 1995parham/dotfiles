@@ -120,9 +120,17 @@ main_brew() {
 	# wake the machine when the laptop lid (or clamshell) is opened
 	sudo pmset -a lidwake 0
 
-	msg 'Internet account (parham.alvani@gmail.com)' 'notice'
-	msg 'Disable ctrl+space short key' 'notice'
-	msg 'Right Index Finger for fingerprint sensor'
+	msg
+	msg 'Setup an internet account for parham.alvani@gmail.com for Calendar and Contacts' 'notice'
+	yes_or_no 'Did you do it?'
+
+	msg
+	msg 'Disable ctrl+space short key to use tmux without pain' 'notice'
+	yes_or_no 'Did you do it?'
+
+	msg
+	msg 'Register Right Index Finger for fingerprint sensor' 'notice'
+	yes_or_no 'Did you do it?'
 
 }
 
