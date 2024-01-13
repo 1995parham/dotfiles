@@ -33,6 +33,8 @@ main_pacman() {
 	if ! vagrant plugin list | grep vagrant-libvirt; then
 		proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
 	fi
+
+	sudo firewall-cmd --reload
 }
 
 main() {
