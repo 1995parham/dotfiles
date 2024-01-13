@@ -9,7 +9,7 @@ mono_repositories=(
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck source=./scripts/lib/message.sh
-source "$tmuxs_root/../../scripts/lib/message.sh"
+source "$tmuxs_root/../../scripts/lib/main.sh"
 
 project=$(
 	# -H is not enough for having .git in your search, you need to have -I too.
@@ -147,6 +147,8 @@ while tmux has-session -t "$current_session:=$name" &>/dev/null; do
 	name="${name}_${prefix}"
 	prefix=$((prefix + 1))
 done
+
+name="${name} 📁"
 
 tmux new-window -t "$current_session" -c "$project" -n "$name"
 # show project information on the last pane. this doesn't work with pipenv shell
