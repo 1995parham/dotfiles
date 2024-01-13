@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# set -a causes variables defined from now on to be automatically exported.
-set -a
-
 # aggregate all scripts and load them in one place.
 
 dotfile_lib_root="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
@@ -17,5 +14,5 @@ if [ -n "$root" ]; then
 fi
 # shellcheck source=require.sh
 source "$dotfile_lib_root/require.sh"
-
-set +a
+# shellcheck source=run.sh
+source "$dotfile_lib_root/run.sh"
