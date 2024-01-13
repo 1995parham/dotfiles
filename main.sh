@@ -2,7 +2,12 @@
 
 # aggregate all scripts and load them in one place.
 
-dotfile_lib_root="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+source="$0"
+if [ -n "${BASH_SOURCE[0]}" ]; then
+	source="${BASH_SOURCE[0]}"
+fi
+
+dotfile_lib_root="$(cd "$(dirname "$(readlink -f "$source")")" && pwd)"
 
 # shellcheck source=message.sh
 source "$dotfile_lib_root/message.sh"
