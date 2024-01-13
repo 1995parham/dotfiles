@@ -18,12 +18,10 @@ set -eu
 declare -a labels
 labels=(
 	"parham-main"
-	"parham-secret"
 	"PARHAM-KEYS"
 	"Ventoy"
 	"PARHAM-SHRD"
-	"PARHAM-DRFT"
-	"parham-movies"
+	"parham-uni"
 )
 
 me="parham"
