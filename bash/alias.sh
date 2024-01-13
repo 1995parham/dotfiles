@@ -2,10 +2,8 @@
 
 DOTFILES_ROOT=${DOTFILES_ROOT:?"dotfiles root must be set for using aliases"}
 
-# shellcheck source=./scripts/lib/message.sh
-source "$DOTFILES_ROOT/scripts/lib/message.sh"
-# shellcheck source=./scripts/lib/run.sh
-source "$DOTFILES_ROOT/scripts/lib/run.sh"
+# shellcheck source=./scripts/lib/main.sh
+source "$DOTFILES_ROOT/scripts/lib/main.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
 	# shellcheck disable=1090
