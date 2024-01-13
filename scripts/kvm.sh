@@ -34,7 +34,9 @@ main_pacman() {
 		proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
 	fi
 
-	sudo firewall-cmd --reload
+	if [ "$(command -v firewall-cmd)" ]; then
+		sudo firewall-cmd --reload
+	fi
 }
 
 main() {
