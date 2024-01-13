@@ -117,11 +117,14 @@ main_pacman() {
 	fi
 	not_require_pacman reflector-simple
 
+	# nautilus file manager (a.k.a files)
+	# https://wiki.archlinux.org/title/GNOME/Files
+	require_pacman ffmpegthumbnailer gst-libav gst-plugins-ugly nautilus
+
 	msg
 	msg 'i3-related user services'
 	systemctl --user enable feh.timer
 	systemctl --user start feh.timer
-	systemctl --user enable workspaces.service
 }
 
 main_parham() {
