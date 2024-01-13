@@ -2,7 +2,7 @@
 
 # aggregate all scripts and load them in one place.
 
-dotfile_lib_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+dotfile_lib_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck source=message.sh
 source "$dotfile_lib_root/message.sh"
