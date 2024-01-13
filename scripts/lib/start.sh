@@ -8,14 +8,8 @@ set -o pipefail
 # it used also in scripts/.
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_root="$root"
-# shellcheck source=message.sh
-source "$root/scripts/lib/message.sh"
-# shellcheck source=proxy.sh
-source "$root/scripts/lib/proxy.sh"
-# shellcheck source=linker.sh
-source "$root/scripts/lib/linker.sh"
-# shellcheck source=require.sh
-source "$root/scripts/lib/require.sh"
+# shellcheck source=main.sh
+source "$root/scripts/lib/main.sh"
 
 # start.sh
 program_name=$0

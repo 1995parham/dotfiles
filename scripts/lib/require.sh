@@ -22,6 +22,7 @@ function not_require_country() {
 	return 0
 }
 
+# connectivity check for the given host using icmp.
 function require_host() {
 	host=${1:?"host is required"}
 	ping -q -c 1 "$host" || (message "host" "󰈂 please make sure you have access to $host" 'error' && return 1)
@@ -197,6 +198,7 @@ function require_npm() {
 	done
 }
 
+# check and add the given hostname, address pair into /etc/hosts.
 function require_hosts_record() {
 	address=${1:?"address is required"}
 	name=${2:?"name is required"}
