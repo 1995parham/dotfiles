@@ -17,5 +17,9 @@ function run_verbose() {
 }
 
 function run_privately() {
-	HISTFILE=/dev/null "$@"
+	run_privately_() {
+		export HISTFILE=/dev/null
+		"$@"
+	}
+	(run_privately_ "$@")
 }
