@@ -81,7 +81,13 @@ pacman_packages=(
 	tcpdump
 	powertop
 )
-yay_packages=(jcal actionlint-bin cbonsai k6)
+yay_packages=(
+	jcal
+	actionlint-bin
+	cbonsai
+	k6
+	ookla-speedtest-bin
+)
 
 main_apt() {
 	sudo apt update -yq
