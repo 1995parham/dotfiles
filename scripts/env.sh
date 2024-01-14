@@ -62,7 +62,6 @@ pacman_packages=(
 	inetutils websocat fuse2
 	dog go-yq man-pages usbutils exfat-utils
 	openbsd-netcat
-	speedtest-cli
 	cpupower
 	reflector
 	jwt-cli
