@@ -132,8 +132,7 @@ Elahe has the following systems with [starship naming](https://namingschemes.com
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
-Username always set to `Elahe`.
-
+Username always set to `elahe`.
 ## Usage
 
 These `dotfiles` configure various tools and applications, including:
