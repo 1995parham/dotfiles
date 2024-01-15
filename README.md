@@ -37,14 +37,6 @@ You need to first install an operating system to use these `dotfiles`,
 For installing [`ArchLinux`](https://archlinux.org/) from scratch with [`archinstall`](https://github.com/archlinux/archinstall/),
 please check [here](./archinstall).
 
-After many years struggling with `archinstall`, I decided to use [`EndeavourOS`](https://endeavouros.com/).
-Using it, I have system ready soon, and it doesn't have many preinstalled software and configuration.
-Experience was good until now and I hope I can stick with it.
-I worked with sway, but issues were too many (share screen is not working, screen flicks, etc.)
-and because of that I migrated to use i3 again.
-
-**You know, I am old now.**
-
 In case of using macOS, you already have the installed macOS
 (Use recovery mode by Press and hold the power button on your Mac until the system volume and the Options button
 appear).
@@ -86,7 +78,7 @@ Run `start.sh font` script to install useful fonts (obviously on a desktop syste
 touch $HOME/.config/git/config
 ```
 
-or you can use mine (it's crystal clear these values is useful only for me):
+or you can use mine (it's crystal clear these values is useful only for **me** and my **queen**):
 
 ```bash
 ./start.sh git
@@ -105,8 +97,8 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
 - [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
-  which is huge and always stays at home. Last `EndeavourOS` installation happened
-  on 10 Jan 2024 using `Endeavouros-Galileo-11-2023.iso`. ✅
+  which is huge and always stays at home. Last `Archlinux` installation happened
+  on 15 Jan 2024 using `archlinux-2024.01.01-x86_64.iso`. ✅
 
   |    Type    |                  Value                  |
   | :--------: | :-------------------------------------: |
@@ -114,17 +106,6 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Processor  | `12th Gen Intel(R) Core(TM) i9-12900HX` |
   | Memory (1) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
   | Memory (2) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
-
-- [`tie-fighter`](https://en.wikipedia.org/wiki/TIE_fighter): Asus Zephyrus G14 GA401Q Laptop is a gift from Queen,
-  and it's used at Snapp's office mainly.
-  Last `ArchLinux` installation happened on 21 Dec 2023 using `archlinux-2023.12.01-x86_64.iso`. ✅
-
-  |    Type    |                      Value                      |
-  | :--------: | :---------------------------------------------: |
-  |   System   | `ASUSTeK COMPUTER INC GA401QM ROG Zephyrus G14` |
-  | Processor  |    `AMD Ryzen 9 5900HS with Radeon Graphics`    |
-  | Memory (1) |  `DDR4 - Micron Technology - 8 GB - 3200 MT/s`  |
-  | Memory (2) | `DDR4 - Micron Technology - 16 GB - 3200 MT/s`  |
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
   to taste the Apple world again. Please note that, disk is encrypted and named `Falcon HD`.
@@ -151,6 +132,8 @@ Elahe has the following systems with [starship naming](https://namingschemes.com
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
+Username always set to `Elahe`.
+
 ## Usage
 
 These `dotfiles` configure various tools and applications, including:
@@ -173,7 +156,7 @@ The following operating systems and their package managers are supported:
 - `ArchLinux`:
   - [`pacman`](https://archlinux.org/pacman/)
   - [Yet another Yogurt (`yay`)](https://github.com/Jguer/yay)
-- `OSx`
+- `macOS`
   - [`brew`](https://brew.sh)
 
 ### Applications
@@ -184,73 +167,71 @@ If an application is marked with a (?), it means I had a negative experience wit
 
 To find software compatible with sway, always check the [`are we wayland yet`](https://arewewaylandyet.com/) website.
 
-|          Role          | How to Install?                   | ArchLinux                                      | OSx                             |
-| :--------------------: | :-------------------------------- | :--------------------------------------------- | :------------------------------ |
-|        Anydesk         | `anydesk-bin (yay)`               | Anydesk                                        | -                               |
-|        Browser         | `./start.sh browser`              | Firefox, Firefox Developer Edition, etc.       | Firefox, etc.                   |
-|        Calendar        | `./start.sh env`                  | `cal`, `jcal`                                  | `cal`, `jcal`                   |
-|         Camera         | `guvcview (pacman)`               | `guvcview`                                     | Photo Booth                     |
-|  cat clone with wings  | `./start.sh env`                  | `bat`                                          | `bat`                           |
-|         Fetch          | `./start.sh fetch`                | `neofetch`, `onefetch`, `tokei`                | `neofetch`, `onefetch`, `tokei` |
-|          BTop          | `./start.sh btop`                 | `btop`                                         | `btop`                          |
-|    Container Engine    | `./start.sh docker`               | `docker`                                       | Docker Desktop                  |
-|    Container Engine    | `./start.sh podman`               | `podman`                                       | `podman`                        |
-|    Desktop Manager     | `./archinstall/sway.sh`           | `greetd`, `greetd-tuigreet`                    | -                               |
-|     Window Manager     | `./archinstall/sway.sh`           | `sway`                                         | -                               |
-|       Dictionary       | `./start.sh def`                  | `def`                                          | `def`                           |
-|    Download Manager    | `./start.sh env`                  | `aria2c`                                       | `aria2c`                        |
-|    Drawing Diagram     | `./start.sh drawio`               | `drawio`                                       | `drawio`                        |
-|         Emacs          | `./start.sh emacs`                | `emacs`                                        | `emacs` (?)                     |
-|   GNU Privacy Guard    | `./start.sh env`                  | `gpg`                                          | -                               |
-|     Habit Tracker      | `./start.sh dijo`                 | `dijo`                                         | -                               |
-|  HTTP/GRPC Load Test   | `./start.sh env`                  | `k6`                                           | `k6`                            |
-|      Image Editor      | `./start.sh image`                | GNU Image Manipulation Program, `convert`      | Preview                         |
-|      Image Viewer      | `./start.sh sway`                 | `imv`                                          | Preview                         |
-| Terminal Image Viewer  | `./start.sh env`                  | `chafa`                                        | -                               |
-|        Launcher        | `./start.sh sway`                 | `rofi`                                         | -                               |
-|        MP3 Tags        | `./start.sh mpd`                  | Strawberry                                     | iTunes                          |
-|      Music Player      | `./start.sh mpd`                  | `mpc`, `ncmpcpp`                               | -                               |
-|         neovim         | `./start.sh neovim`               | `nvim`                                         | `nvim`                          |
-|          vim           | `./start.sh env`                  | `vim`                                          | `vim`                           |
-|       Networking       | `NetworkManager (archinstall)`    | `nmtui`, `nmcli`                               | -                               |
-| Network Time Protocol  | `chrony (pacman)`                 | -                                              | -                               |
-|      Note Keeping      | `xournalpp (pacman)`              | Xournalpp                                      | Xournalpp                       |
-|      Office Suite      | `./start.sh office`               | LibreOffice                                    | Office                          |
-|     Packet Sniffer     | `./start.sh wireshark`            | Wireshark                                      | -                               |
-|     Packet Sniffer     | `termshark (pacman)`              | `termshark`                                    | -                               |
-|    Password Manager    | `./start.sh gopass`               | `gopass`                                       | `gopass`                        |
-|       PDF Viewer       | `./start.sh sway`                 | `mupdf`                                        | Preview                         |
-|     Power Manager      | -                                 | -                                              | -                               |
-|         Skype          | `skypeforlinux-preview-bin (yay)` | Skype Preview                                  | Skype                           |
-|       Clipboard        | `./start.sh sway`                 | `wl-copy`, `wl-paste`                          | -                               |
-|     Wayland Evnets     | `wev (yay)`                       | `wev`                                          | -                               |
-|     Network Speed      | `./start.sh env`                  | `speedtest-cli`                                | `speedtest-cli`                 |
-|       Status Bar       | `./start.sh sway`                 | `waybar`                                       | -                               |
-|       Syncthing        | `./start.sh syncthing`            | `syncthing`                                    | `syncthing`                     |
-|   Terminal Emulator    | `./start.sh alacritty`            | `alacritty`                                    | Alacritty (?)                   |
-|   Terminal Emulator    | `./start.sh kitty`                | `kitty`                                        | Kitty                           |
-|   Terminal Emulator    | `./start.sh foot`                 | `foot`                                         | -                               |
-|  Terminal Multiplexer  | `./start.sh env`                  | `tmux`                                         | `tmux`                          |
-|      Video Editor      | `ffmpeg (pacman)`                 | `ffmpeg`                                       | `ffmpeg`                        |
-|      Video Player      | `./start.sh mpv`                  | `mpv`                                          | `mpv`                           |
-|       Wallpaper        | `./start.sh sway`                 | `wpaperd`                                      | -                               |
-|   Youtube Downloader   | `./start.sh yt-dlp`               | `yt-dlp`                                       | `yt-dlp`                        |
-|        Timezone        | `./start.sh gotz`                 | `gotz`                                         | -                               |
-|      Google Cloud      | `./start.sh gcloud`               | `gcloud`                                       | -                               |
-| Multi-OS Bootable Disk | `./start.sh ventoy`               | `ventoy`                                       | -                               |
-|  LaTex/XeTex/Texlive   | `./start.sh texlive`              | `tlmgr`, `xelatex`, `latexmk`, `tectonic` etc. | `mactex`, `tectonic`            |
-|     Android, Quest     | `./start.sh android`              | `adb`, SideQuest                               | -                               |
-|    Bandwidth Usage     | `./start.sh env`                  | `bandwhich`                                    | -                               |
-|          TLDR          | `./start.sh tealdeer`             | `tldr`                                         | `tldr`                          |
-|          DNS           | `./start.sh blocky`               | `blocky`                                       | -                               |
-|          JSON          | `./start.sh env`                  | `jq`, `jless`                                  | `jq`, `jless`                   |
-|  Disk Usage Analyzer   | `./start.sh env`                  | `dua`                                          | `dua`                           |
+|          Role          | How to Install?           | ArchLinux                                 | macOS                           |
+| :--------------------: | :------------------------ | :---------------------------------------- | :------------------------------ |
+|        Anydesk         | `anydesk-bin (yay)`       | Anydesk                                   | -                               |
+|        Browser         | `./start.sh browser`      | Google Chrome Beta                        | Google Chrome Beta              |
+|        Calendar        | `./start.sh env`          | `cal`, `jcal`                             | `cal`, `jcal`                   |
+|         Camera         | `guvcview (pacman)`       | `guvcview`                                | Photo Booth                     |
+|  cat clone with wings  | `./start.sh env`          | `bat`                                     | `bat`                           |
+|         Fetch          | `./start.sh fetch`        | `neofetch`, `onefetch`, `tokei`           | `neofetch`, `onefetch`, `tokei` |
+|          BTop          | `./start.sh btop`         | `btop`                                    | `btop`                          |
+|    Container Engine    | `./start.sh docker`       | `docker`                                  | Docker Desktop                  |
+|    Desktop Manager     | `./archinstall/i3.sh`     | `lightdm`                                 | -                               |
+|     Window Manager     | `./archinstall/i3.sh`     | `i3`                                      | -                               |
+|       Dictionary       | `./start.sh def`          | `def`                                     | `def`                           |
+|    Download Manager    | `./start.sh env`          | `aria2c`                                  | `aria2c`                        |
+|    Drawing Diagram     | `./start.sh drawio`       | `drawio`                                  | `drawio`                        |
+|         Emacs          | `./start.sh emacs`        | `emacs`                                   | `emacs`                         |
+|   GNU Privacy Guard    | `./start.sh gpg`          | `gpg`                                     | `gpg`                           |
+|     Habit Tracker      | `./start.sh dijo`         | `dijo`                                    | `dijo`                          |
+|  HTTP/GRPC Load Test   | `./start.sh env`          | `k6`                                      | `k6`                            |
+|      Image Editor      | `./start.sh image`        | GNU Image Manipulation Program, `convert` | Preview                         |
+|      Image Viewer      | `./start.sh i3`           | `imv`                                     | Preview                         |
+| Terminal Image Viewer  | `./start.sh env`          | `chafa`                                   | `chafa`                         |
+|        Launcher        | `./start.sh i3`           | `rofi`                                    | -                               |
+|         neovim         | `./start.sh neovim`       | `nvim`                                    | `nvim`                          |
+|          vim           | `./start.sh env`          | `vim`                                     | `vim`                           |
+|       Networking       | `NetworkManager (pacman)` | `nmtui`, `nmcli`                          | -                               |
+| Network Time Protocol  | `chrony (pacman)`         | -                                         | -                               |
+|      Office Suite      | `./start.sh office`       | LibreOffice                               | Office                          |
+|     Packet Sniffer     | `./start.sh wireshark`    | Wireshark                                 | -                               |
+|     Packet Sniffer     | `termshark (pacman)`      | `termshark`                               | -                               |
+|    Password Manager    | `./start.sh gopass`       | `gopass`                                  | `gopass`                        |
+|       PDF Viewer       | `./start.sh i3`           | `mupdf`                                   | Preview                         |
+|     Power Manager      | -                         | -                                         | -                               |
+|         Skype          | `./start.sh skype`        | Skype Preview                             | Skype                           |
+|       Clipboard        | `./start.sh i3`           | `xclip`                                   | `pbcopy`/`pbpaste`              |
+|     Network Speed      | `./start.sh env`          | `speedtest`                               | `speedtest`                     |
+|       Status Bar       | `./start.sh i3`           | `polybar`                                 | -                               |
+|       Syncthing        | `./start.sh syncthing`    | `syncthing`                               | `syncthing`                     |
+|   Terminal Emulator    | `./start.sh alacritty`    | `alacritty`                               | Alacritty (?)                   |
+|   Terminal Emulator    | `./start.sh kitty`        | `kitty`                                   | Kitty                           |
+|  Terminal Multiplexer  | `./start.sh env`          | `tmux`                                    | `tmux`                          |
+|      Video Editor      | `./start.sh ffmpeg`       | `ffmpeg`                                  | `ffmpeg`                        |
+|      Video Player      | `./start.sh mpv`          | `mpv`                                     | `mpv`                           |
+|       Wallpaper        | `./start.sh i3`           | `feh`                                     | -                               |
+|   Youtube Downloader   | `./start.sh yt-dlp`       | `yt-dlp`                                  | `yt-dlp`                        |
+|        Timezone        | `./start.sh gotz`         | `gotz`                                    | -                               |
+|      Google Cloud      | `./start.sh gcloud`       | `gcloud`                                  | -                               |
+| Multi-OS Bootable Disk | `./start.sh ventoy`       | `ventoy`                                  | -                               |
+|  LaTex/XeTex/Texlive   | `./start.sh tex`          | `tectonic`                                | `tectonic`                      |
+|    Bandwidth Usage     | `./start.sh env`          | `bandwhich`                               | -                               |
+|          TLDR          | `./start.sh tealdeer`     | `tldr`                                    | `tldr`                          |
+|          DNS           | `./start.sh blocky`       | `blocky`                                  | -                               |
+|          JSON          | `./start.sh env`          | `jq`, `jless`                             | `jq`, `jless`                   |
+|  Disk Usage Analyzer   | `./start.sh env`          | `dua`                                     | `dua`                           |
 
 ## [Window Managers](https://wiki.archlinux.org/title/Window_manager) (on ArchLinux)
 
 I am using [`sway`](https://github.com/swaywm/) or [`hyprland`](https://github.com/hyprwm) as my primary window managers. This repository
 structured around creating soft-links and because of that the duplicate configurations
-between these window managers are gathered in `sway/`.
+between these window managers are gathered in `wayland/`.
+
+I worked with `sway`, but issues were too many (share screen is not working, screen flicks, etc.)
+and because of that I migrated to use [`i3`](https://i3wm.org/) and X11 again.
+
+**You know, I am old now.**
 
 ## [Emacs](https://www.gnu.org/software/emacs/)
 
