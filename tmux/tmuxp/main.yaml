@@ -57,6 +57,6 @@ windows:
     panes:
       - shell_command:
           - git pull origin main &> /dev/null
-          - chafa --clear ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg --symbols
+          - chafa --clear ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg -f symbols
         start_directory: ~/Documents/Git/parham/parham-alvani/raha
       - start_directory: ~/Documents/Git/parham/parham-alvani/dishes
