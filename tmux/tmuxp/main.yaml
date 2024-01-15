@@ -32,7 +32,7 @@ windows:
       - pane
       - pane
 
-  - window_name: life-1 🐼
+  - window_name: life 🐼
     layout: tiled
     panes:
       - start_directory: ~/Documents/Git/parham/parham-alvani/buying
