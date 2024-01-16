@@ -27,7 +27,7 @@ main_brew() {
 }
 
 main() {
-	return 0
+	curl https://get.trunk.io -fsSL | bash
 }
 
 main_parham() {
