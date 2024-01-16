@@ -133,6 +133,7 @@ Elahe has the following systems with [starship naming](https://namingschemes.com
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
 Username always set to `elahe`.
+
 ## Usage
 
 These `dotfiles` configure various tools and applications, including:
@@ -250,7 +251,7 @@ I use Emacs based on [doom](https://github.com/doomemacs), and I found following
 
 1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
    - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
-2. [acdemic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
+2. [Academic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
 3. [elenapan dotfiles](https://github.com/elenapan/dotfiles)
 
 ### Workspace
@@ -260,7 +261,7 @@ To work with workspace just start with `SPACE-TAB`.
 
 ## Windows as Virtual Machine
 
-Because there are software applications like [JumpDesktop](https://jumpdesktop.com/) and [Microsoft Office](https://www.office.com/) that are only available on Windows,
+Because there are software applications like [Microsoft Office](https://www.office.com/) that are only available on Windows,
 I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on my host machine in order to use them.
 
 ### What we need to do after installation?
