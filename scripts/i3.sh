@@ -34,7 +34,7 @@ main_pacman() {
 
 	msg
 	msg 'lightdm and its configuration'
-	require_pacman lightdm-slick-greeter lightdm eos-lightdm-slick-theme
+	require_pacman lightdm-slick-greeter lightdm
 	copycat "i3" i3/lightdm/login /etc/pam.d/login
 	copycat "i3" i3/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 
