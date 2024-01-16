@@ -19,6 +19,8 @@ main_pacman() {
 	require_aur devcontainer-cli
 
 	linker code "$root/code/code-flags.conf" "$HOME/.config/code-flags.conf"
+
+	require_pacman libxcrypt-compat
 }
 
 main_brew() {
