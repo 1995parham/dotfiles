@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: apt update
       - name: start.sh env
         run: ./start.sh -y env
       - name: install.sh
