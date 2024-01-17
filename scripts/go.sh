@@ -40,8 +40,8 @@ main() {
 	go env -w GOBIN="$HOME/.local/bin"
 	go env -w GOPROXY="https://goproxy.io,goproxy.cn,direct"
 	# go env -w GOPROXY="https://goproxy.cn,direct"
-	# go env -w GONOSUMDB="gitlab.snapp.ir"
-	go env -w GOSUMDB="off"
+	go env -w GONOSUMDB="gitlab.snapp.ir"
+	go env -w GOSUMDB="sum.golang.org"
 	go env -w GOPRIVATE="gitlab.snapp.ir"
 
 	go env
