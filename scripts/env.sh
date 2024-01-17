@@ -67,7 +67,6 @@ pacman_packages=(
 	jwt-cli
 	tokei
 	glow
-	wakatime
 	tmuxp
 	arch-wiki-lite arch-wiki-docs
 	pastel
