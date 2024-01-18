@@ -26,6 +26,14 @@ windows:
     start_directory: ~/Downloads
     panes:
       - start_directory: ~/Documents/Git/parham/offerland/offerland/root.wiki
+        shell_command:
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/offerland/offerland/demeter.wiki
+        shell_command:
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/offerland/offerland/squad.wiki
+        shell_command:
+          - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/offerland/offerland/carpet.wiki
+        shell_command:
+          - git pull origin main &> /dev/null
