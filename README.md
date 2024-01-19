@@ -37,14 +37,14 @@ You need to first install an operating system to use these `dotfiles`,
 For installing [`ArchLinux`](https://archlinux.org/) from scratch with [`archinstall`](https://github.com/archlinux/archinstall/),
 please check [here](./archinstall).
 
-In case of using macOS, you already have the installed macOS
+In the case of using macOS, you already have the installed macOS
 (Use recovery mode by Press and hold the power button on your Mac until the system volume and the Options button
 appear).
 So, there is no need to install the operating system, and you cannot customize anything about it.
 Just run the following script to have the setup:
 
 ```bash
-# install brew with default configuration.
+# install brew with the default configuration.
 ./start.sh brew
 # configure osx with Parham's preferences.
 ./start.sh osx
@@ -72,7 +72,7 @@ Run `start.sh font` script to install useful fonts (obviously on a desktop syste
 ./start.sh font
 ```
 
-**Don't** forget setting the git username and email:
+**Don't** forget to set the git username and email:
 
 ```bash
 touch $HOME/.config/git/config
@@ -97,7 +97,7 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
 - [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
-  which is huge and always stays at home. Last `Archlinux` installation happened
+  which is huge and always stays at home. The last `Archlinux` installation happened
   on 15 Jan 2024 using `archlinux-2024.01.01-x86_64.iso`. ✅
 
   |    Type    |                  Value                  |
@@ -108,8 +108,8 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Memory (2) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
-  to taste the Apple world again. Please note that, disk is encrypted and named `Falcon HD`.
-  Last `macOS Ventura` installation happened on 21 Dec 2023. ✅
+  to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
+  The last `macOS Ventura` installation happened on 21 Dec 2023. ✅
 
   |   Type    |                       Value                        |
   | :-------: | :------------------------------------------------: |
@@ -117,14 +117,14 @@ I have the following systems with [starship naming](https://namingschemes.com/St
   | Processor | `Apple M2 Pro 10 (6 performance and 4 efficiency)` |
   |  Memory   |             `LPDDR5 - Micron - 16 GB`              |
 
-Username always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
+The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
 ### Elahe
 
 Elahe has the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp, and it should
-  return to them when I decide to leave. Last `macOS` installation happened on 14 Oct 2023. ✅
+  return to them when I decide to leave. The last `macOS` installation happened on 14 Oct 2023. ✅
 
   |   Type    |                     Value                     |
   | :-------: | :-------------------------------------------: |
@@ -132,7 +132,7 @@ Elahe has the following systems with [starship naming](https://namingschemes.com
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
-Username always set to `elahe`.
+The username is always set to `elahe`.
 
 ## Usage
 
@@ -162,7 +162,7 @@ The following operating systems and their package managers are supported:
 ### Applications
 
 For each package, I provided information on its installation script and how to run it on different operating systems.
-Applications with command names in all lowercase can be run from the command line interface, while those with title case need to be launched using your application launcher.
+Applications with command names in all lowercase can be run from the command line interface, while those with title cases need to be launched using your application launcher.
 If an application is marked with a (?), it means I had a negative experience with that application on that particular operating system.
 
 To find software compatible with sway, always check the [`are we wayland yet`](https://arewewaylandyet.com/) website.
@@ -225,29 +225,29 @@ To find software compatible with sway, always check the [`are we wayland yet`](h
 ## [Window Managers](https://wiki.archlinux.org/title/Window_manager) (on ArchLinux)
 
 I am using [`sway`](https://github.com/swaywm/) or [`hyprland`](https://github.com/hyprwm) as my primary window managers. This repository
-structured around creating soft-links and because of that the duplicate configurations
-between these window managers are gathered in `wayland/`.
+structured around creating soft links and because of that the duplicate configurations
+between these window-managers are gathered in `wayland/`.
 
 I worked with `sway`, but issues were too many (share screen is not working, screen flicks, etc.)
-and because of that I migrated to use [`i3`](https://i3wm.org/) and X11 again.
+and because of that, I migrated to use [`i3`](https://i3wm.org/) and X11 again.
 
 **You know, I am old now.**
 
 ## [Emacs](https://www.gnu.org/software/emacs/)
 
-I am using Emacs for the followings:
+I am using Emacs for the following:
 
-- latex documents (specially when writing them in Persian)
+- latex documents (especially when writing them in Persian)
 - org-mode (for managing my daily life)
 
 ### Searching
 
 [Ivy](https://github.com/abo-abo/swiper) is a plugin for searching in buffers, notes, etc.
-Almost everything in doom Emacs works with ivy. It is simple and will show you a popup for everything.
+Almost everything in Doom Emacs works with ivy. It is simple and will show you a popup for everything.
 
 ### Configuration (based on doom)
 
-I use Emacs based on [doom](https://github.com/doomemacs), and I found following configurations are useful to update my configurations based on them.
+I use Emacs based on [doom](https://github.com/doomemacs), and I found the following configurations are useful to update my configurations based on them.
 
 1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
    - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
@@ -262,11 +262,11 @@ To work with workspace just start with `SPACE-TAB`.
 ## Windows as Virtual Machine
 
 Because there are software applications like [Microsoft Office](https://www.office.com/) that are only available on Windows,
-I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on my host machine in order to use them.
+I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on my host machine to use them.
 
-### What we need to do after installation?
+### What do we need to do after installation?
 
-During installation you need to provide your outlook account and then you have up and running system in no time.
+During installation, you need to provide your Outlook account and then you have an up and running system in no time.
 These are the software that I need on my system:
 
 |         Name          | How to Install?                                        |
