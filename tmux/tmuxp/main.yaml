@@ -43,10 +43,6 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Stick to your habits' | lolcat -S 57
-      - start_directory: ~/org
-        shell_command:
-          - git pull origin main &> /dev/null
-          - nvim
       - start_directory: ~/Documents/Git/parham/parham-alvani/ledger
         shell_command:
           - git pull origin main &> /dev/null
