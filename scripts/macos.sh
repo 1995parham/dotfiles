@@ -120,6 +120,7 @@ main_brew() {
 	# wake the machine when the laptop lid (or clamshell) is opened
 	sudo pmset -a lidwake 0
 
+	# change system languages and locale (please logout/login to work)
 	defaults write NSGlobalDomain AppleLocale -string en_US
 	defaults write NSGlobalDomain AppleLanguages -array "en-US" "fa-IR"
 
