@@ -120,6 +120,9 @@ main_brew() {
 	# wake the machine when the laptop lid (or clamshell) is opened
 	sudo pmset -a lidwake 0
 
+	defaults write NSGlobalDomain AppleLocale -string en_US
+	defaults write NSGlobalDomain AppleLanguages -array "en-US" "fa-IR"
+
 	msg
 	msg 'Setup an internet account for parham.alvani@gmail.com for Calendar and Contacts' 'notice'
 	yes_or_no 'Did you do it?'
