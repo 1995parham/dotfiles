@@ -7,7 +7,7 @@ if [[ -n "${BASH_SOURCE[0]}" ]]; then
 	source="${BASH_SOURCE[0]}"
 fi
 
-dotfile_lib_root="$(cd "$(dirname "$(readlink -f "${source}")")" && pwd)"
+dotfile_lib_root="$(cd "$(dirname "${source}")" && pwd)"
 
 # shellcheck source=message.sh
 source "${dotfile_lib_root}/message.sh"
