@@ -17,12 +17,8 @@ main_pacman() {
 	require_pacman hugo
 }
 
-main_apt() {
-	return 1
-}
-
 main_brew() {
-	return 1
+	require_brew hugo
 }
 
 main() {
