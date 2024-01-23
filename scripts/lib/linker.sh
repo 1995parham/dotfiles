@@ -12,31 +12,31 @@ copycat() {
 	local sudo=${4:-1}
 	local ask=0
 
-	message "$module" "difference between $root/$src and $dest:"
+	message "${module}" "difference between ${root}/${src} and ${dest}:"
 	echo
 	echo
-	if [ "$sudo" == 1 ]; then
-		if ! sudo diff -yNs --suppress-common-lines "$root/$src" "$dest"; then
+	if [[ "${sudo}" == 1 ]]; then
+		if ! sudo diff -yNs --suppress-common-lines "${root}/${src}" "${dest}"; then
 			ask=1
 		fi
 	else
-		if ! diff -yNs --suppress-common-lines "$root/$src" "$dest"; then
+		if ! diff -yNs --suppress-common-lines "${root}/${src}" "${dest}"; then
 			ask=1
 		fi
 	fi
 	echo
 	echo
 
-	if [ "$ask" == 1 ]; then
-		if ! yes_or_no "$module" "do you want to replace $dest?"; then
+	if [[ "${ask}" == 1 ]]; then
+		if ! yes_or_no "${module}" "do you want to replace ${dest}?"; then
 			return 1
 		fi
 	fi
 
-	if [ "$sudo" == 1 ]; then
-		sudo cp "$root/$src" "$dest"
+	if [[ "${sudo}" == 1 ]]; then
+		sudo cp "${root}/${src}" "${dest}"
 	else
-		cp "$root/$src" "$dest"
+		cp "${root}/${src}" "${dest}"
 	fi
 }
 
@@ -52,18 +52,18 @@ dotfile() {
 	local file=${2:-""}
 	local is_hidden=${3:-true}
 
-	if $is_hidden; then
-		local dst_file=".${file:-$module}"
+	if ${is_hidden}; then
+		local dst_file=".${file:-${module}}"
 	else
-		local dst_file="${file:-$module}"
+		local dst_file="${file:-${module}}"
 	fi
 
-	local src_file="$file"
+	local src_file="${file}"
 
-	local dst_path="$HOME/$dst_file"
-	local src_path="$root/$module/$src_file"
+	local dst_path="${HOME}/${dst_file}"
+	local src_path="${root}/${module}/${src_file}"
 
-	linker "$module" "$src_path" "$dst_path"
+	linker "${module}" "${src_path}" "${dst_path}"
 }
 
 # creates a config file that resides in the `.config` directory, and provides a soft link to it.
@@ -77,25 +77,25 @@ configfile() {
 	local src_file=${2:-""}
 	local src_dir=${3:-""}
 
-	if [ ! -e "$HOME/.config" ]; then
-		mkdir "$HOME/.config"
+	if [[ ! -e "${HOME}/.config" ]]; then
+		mkdir "${HOME}/.config"
 	fi
 
-	if [ -n "$src_file" ]; then
-		local src_path="$root${src_dir:+/$src_dir}/$module/$src_file"
-		local dst_file="$module/$src_file"
+	if [[ -n "${src_file}" ]]; then
+		local src_path="${root}${src_dir:+/${src_dir}}/${module}/${src_file}"
+		local dst_file="${module}/${src_file}"
 
-		if [ ! -d "$HOME/.config/$module" ]; then
-			mkdir "$HOME/.config/$module"
+		if [[ ! -d "${HOME}/.config/${module}" ]]; then
+			mkdir "${HOME}/.config/${module}"
 		fi
 	else
-		src_file=$module
-		local src_path="$root${src_dir:+/$src_dir}/$module"
-		local dst_file="$module"
+		src_file=${module}
+		local src_path="${root}${src_dir:+/${src_dir}}/${module}"
+		local dst_file="${module}"
 	fi
-	local dst_path="$HOME/.config/$dst_file"
+	local dst_path="${HOME}/.config/${dst_file}"
 
-	linker "$module" "$src_path" "$dst_path"
+	linker "${module}" "${src_path}" "${dst_path}"
 }
 
 # linker does the soft linking, it has a yes_to_all parameter which you can use to skip the question phase
@@ -109,26 +109,26 @@ linker() {
 
 	local create_link=true
 
-	if [ -e "$dst_path" ] || [ -L "$dst_path" ]; then
-		message "$module" "$dst_path has already existed"
+	if [[ -e "${dst_path}" ]] || [[ -L "${dst_path}" ]]; then
+		message "${module}" "${dst_path} has already existed"
 
-		if [[ $src_path = $(readlink "$dst_path") ]]; then
-			message "$module" "$dst_path points to the correct location"
+		if [[ ${src_path} = $(readlink "${dst_path}") ]]; then
+			message "${module}" "${dst_path} points to the correct location"
 			create_link=false
 			return
 		fi
 
-		if yes_or_no "$module" "do you want to remove $dst_path?"; then
-			rm -R "$dst_path"
-			action "$module" "$dst_path is removed successfully"
+		if yes_or_no "${module}" "do you want to remove ${dst_path}?"; then
+			rm -R "${dst_path}"
+			action "${module}" "${dst_path} is removed successfully"
 		else
 			create_link=false
 		fi
 	fi
 
-	if $create_link; then
-		ln -s "$src_path" "$dst_path"
-		action "$module" "symbolic link created successfully from $src_path to $dst_path"
+	if ${create_link}; then
+		ln -s "${src_path}" "${dst_path}"
+		action "${module}" "symbolic link created successfully from ${src_path} to ${dst_path}"
 	fi
 }
 
@@ -143,17 +143,17 @@ configrootfile() {
 	local src_file=${2:?"configrootfile requires src_file"}
 	local src_dir=${3:-""}
 
-	if [ ! -e "$HOME/.config" ]; then
-		mkdir "$HOME/.config"
+	if [[ ! -e "${HOME}/.config" ]]; then
+		mkdir "${HOME}/.config"
 	fi
 
-	if [ -n "$src_file" ]; then
-		local src_path="$root${src_dir:+/$src_dir}/$module/$src_file"
-		local dst_file="$src_file"
+	if [[ -n "${src_file}" ]]; then
+		local src_path="${root}${src_dir:+/${src_dir}}/${module}/${src_file}"
+		local dst_file="${src_file}"
 	fi
-	local dst_path="$HOME/.config/$dst_file"
+	local dst_path="${HOME}/.config/${dst_file}"
 
-	linker "$module" "$src_path" "$dst_path"
+	linker "${module}" "${src_path}" "${dst_path}"
 }
 
 # creates a systemd file that resides in the `.config` directory, and provides a soft link for it.
@@ -167,15 +167,15 @@ configsystemd() {
 	local src_file=${2:?"configsystemd requires src_file"}
 	local src_dir=${3:-""}
 
-	if [ ! -e "$HOME/.config/systemd/user" ]; then
-		mkdir -p "$HOME/.config/systemd/user"
+	if [[ ! -e "${HOME}/.config/systemd/user" ]]; then
+		mkdir -p "${HOME}/.config/systemd/user"
 	fi
 
-	if [ -n "$src_file" ]; then
-		local src_path="$root${src_dir:+/$src_dir}/$module/$src_file"
-		local dst_file="$src_file"
+	if [[ -n "${src_file}" ]]; then
+		local src_path="${root}${src_dir:+/${src_dir}}/${module}/${src_file}"
+		local dst_file="${src_file}"
 	fi
-	local dst_path="$HOME/.config/systemd/user/$dst_file"
+	local dst_path="${HOME}/.config/systemd/user/${dst_file}"
 
-	linker "$module" "$src_path" "$dst_path"
+	linker "${module}" "${src_path}" "${dst_path}"
 }

@@ -13,7 +13,7 @@ export F_RESET="\033[39m"
 
 function yes_or_no() {
 	yes_to_all=${yes_to_all:-0}
-	if [ "$yes_to_all" == 1 ]; then
+	if [[ "${yes_to_all}" == 1 ]]; then
 		return 0
 	fi
 
@@ -21,13 +21,14 @@ function yes_or_no() {
 	shift
 
 	while true; do
-		read -r -p "$(echo -e "\033[38;5;226m[$module] ${F_ORANGE}$*${F_RESET} [${F_GREEN}y${F_RESET}/${F_RED}n${F_RESET}]: ")" yn
-		case $yn in
+		read -r -p "$(echo -e "\033[38;5;226m[${module}] ${F_ORANGE}$*${F_RESET} [${F_GREEN}y${F_RESET}/${F_RED}n${F_RESET}]: ")" yn
+		case ${yn} in
 		[Yy]*) return 0 ;;
 		[Nn]*)
 			echo -e "${F_YELLOW}Aborted${F_RESET}"
 			return 1
 			;;
+		*) ;;
 		esac
 	done
 }
@@ -37,7 +38,7 @@ function message() {
 	local message=${2:-""}
 	local servity=${3:-"info"}
 
-	case $servity in
+	case ${servity} in
 	info)
 		servity=""
 		;;
@@ -55,26 +56,26 @@ function message() {
 		;;
 	esac
 
-	echo -e "$servity${F_CYAN}[$module] ${F_ORANGE}$message $F_RESET"
+	echo -e "${servity}${F_CYAN}[${module}] ${F_ORANGE}${message} ${F_RESET}"
 }
 
 function running() {
 	local module=$1
 	shift
 
-	echo -e "${F_YELLOW}[$module] ${F_ORANGE}⇒ $* $F_RESET"
+	echo -e "${F_YELLOW}[${module}] ${F_ORANGE}⇒ $* ${F_RESET}"
 }
 
 function action() {
 	local module=$1
 	shift
 
-	echo -e "${F_RED}[$module] ${F_ORANGE}⇒ $* $F_RESET"
+	echo -e "${F_RED}[${module}] ${F_ORANGE}⇒ $* ${F_RESET}"
 }
 
 function ok() {
 	local module=$1
 	shift
 
-	echo -e "${F_GREEN}[$module] ${F_ORANGE}⇒ $* $F_RESET"
+	echo -e "${F_GREEN}[${module}] ${F_ORANGE}⇒ $* ${F_RESET}"
 }

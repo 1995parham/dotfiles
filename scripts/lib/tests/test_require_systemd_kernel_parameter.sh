@@ -2,8 +2,8 @@
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=require.sh
-source "$root/../require.sh"
+# shellcheck source=main.sh
+source "$root/../main.sh"
 
 sample_loader="$root/loader.conf"
 

@@ -31,10 +31,10 @@ main() {
 	echo
 
 	local script
-	for script in $(fd -e .sh -d 1 . "$root/scripts" -x basename | sed -e "s/.sh$//" | sort); do
+	for script in $(fd -e .sh -d 1 . "${root}/scripts" -x basename | sed -e "s/.sh$//" | sort); do
 		# shellcheck disable=1090
-		description=$(source "$root/scripts/$script.sh" && usage | head -1)
-		msg "$script: $description"
+		description=$(source "${root}/scripts/${script}.sh" && usage | head -1)
+		msg "${script}: ${description}"
 	done
 
 	echo
@@ -44,15 +44,15 @@ main() {
 	host="$(hostname)"
 	host="${host%.*}"
 
-	if [ ! -d "$root/$host/scripts" ]; then
+	if [[ ! -d "${root}/${host}/scripts" ]]; then
 		return 0
 	fi
 
 	local script
-	for script in $(fd -e .sh -d 1 . "$root/$host/scripts" -x basename | sed -e "s/.sh$//" | sort); do
+	for script in $(fd -e .sh -d 1 . "${root}/${host}/scripts" -x basename | sed -e "s/.sh$//" | sort); do
 		# shellcheck disable=1090
-		description=$(source "$root/$host/scripts/$script.sh" && usage | head -1)
-		msg "$script: $description"
+		description=$(source "${root}/${host}/scripts/${script}.sh" && usage | head -1)
+		msg "${script}: ${description}"
 	done
 
 	echo

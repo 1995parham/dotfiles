@@ -15,11 +15,3 @@ function run_verbose() {
 	action "run" "$*"
 	"$@"
 }
-
-function run_privately() {
-	run_privately_() {
-		export HISTFILE=/dev/null
-		"$@"
-	}
-	(run_privately_ "$@")
-}
