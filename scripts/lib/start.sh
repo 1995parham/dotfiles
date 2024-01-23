@@ -107,8 +107,7 @@ _main() {
 		git subtree pull --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
 		return 0
 		;;
-	*)
-	;;
+	*) ;;
 	esac
 
 	# shellcheck disable=1090

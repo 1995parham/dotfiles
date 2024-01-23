@@ -3,7 +3,6 @@ name: lint
 on:
   push:
 
-
 jobs:
   sh-checker:
     runs-on: ubuntu-latest
