@@ -28,25 +28,25 @@ main_apt() {
 
 main() {
 	read -r -p "name: " name
-	if [[ "$name" =~ [[:space:]]+ ]]; then
-		msg "$name cotains one or more spaces" "error"
+	if [[ "${name}" =~ [[:space:]]+ ]]; then
+		msg "${name} cotains one or more spaces" "error"
 		return 1
 	fi
 
 	local host
 	host="$(hostname)"
 	host="${host%.*}"
-	if yes_or_no "do you want to be $host specific? "; then
-		root="$root/$host"
+	if yes_or_no "do you want to be ${host} specific? "; then
+		root="${root}/${host}"
 	fi
 
-	mkdir -p "$root/scripts" || true
+	mkdir -p "${root}/scripts" || true
 
-	if [ -f "$root/scripts/$name.sh" ]; then
-		msg "$name already exists" "error"
+	if [[ -f "${root}/scripts/${name}.sh" ]]; then
+		msg "${name} already exists" "error"
 		return 1
 	fi
-	touch "$root/scripts/$name.sh"
+	touch "${root}/scripts/${name}.sh"
 
 	read -r -p 'dscription: ' description
 
@@ -58,20 +58,20 @@ main() {
 		root_env=''
 	fi
 
-	read -r -p 'user: ' -i "$USER" -e user
+	read -r -p 'user: ' -i "${USER}" -e user
 
-	cat >>"$root/scripts/$name.sh" <<EOF
+	cat >>"${root}/scripts/${name}.sh" <<EOF
 #!/usr/bin/env bash
 usage() {
-  echo "$description"
+  echo "${description}"
 
   # shellcheck disable=1004,2016
   echo '
-$(figlet "$name" | tr "'" "|" | sed -e 's/[[:space:]]*$//')
+$(figlet "${name}" | tr "'" "|" | sed -e 's/[[:space:]]*$//')
   '
 }
 
-$root_env
+${root_env}
 
 pre_main() {
   return 0
@@ -93,7 +93,7 @@ main() {
   return 0
 }
 
-main_$user() {
+main_${user}() {
   return 0
 }
 EOF
