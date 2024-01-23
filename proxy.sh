@@ -2,11 +2,11 @@
 # https://about.gitlab.com/blog/2021/01/27/we-need-to-talk-no-proxy/
 
 proxy_start() {
-	if [[ $(command -v ss) ]]; then
+	if [[ -n $(command -v ss) ]]; then
 		if ! (ss -tunl | grep :1080 &>/dev/null); then
 			return 0
 		fi
-	elif [[ $(command -v netstat) ]]; then
+	elif [[ -n $(command -v netstat) ]]; then
 		if ! (netstat -an | grep LISTEN | grep 1080 &>/dev/null); then
 			return 0
 		fi
@@ -16,7 +16,7 @@ proxy_start() {
 	echo -e "\033[38;5;46m[proxy] \033[38;5;202mpress enter to continue or anything else to disable it\033[39m"
 	read -r accept
 
-	if [[ "$accept" != "" ]]; then
+	if [[ "${accept}" != "" ]]; then
 		return 0
 	fi
 
@@ -45,7 +45,7 @@ socks_start() {
 	echo -e "\033[38;5;46m[socks] \033[38;5;202mpress enter to continue or anything else to disable it\033[39m"
 	read -r accept
 
-	if [[ "$accept" != "" ]]; then
+	if [[ "${accept}" != "" ]]; then
 		return 0
 	fi
 
