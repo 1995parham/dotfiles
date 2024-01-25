@@ -30,7 +30,6 @@ main_parham() {
 	devices=(
 		"wh-1000xm5-parham: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE. 🐼"
 		"wh-1000xm5-elahe: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE. 🌰"
-		"redmi-buds-3-pro: 35dB Smart noise cancellation | Dual-device connectivity | Wireless charging | 28h long battery life, The sound you want"
 	)
 
 	local device
@@ -53,9 +52,6 @@ main_parham() {
 		;;
 	"wh-1000xm5-elahe")
 		mac_address="AC:80:0A:0D:A3:AB"
-		;;
-	"redmi-buds-3-pro")
-		mac_address="6C:D3:EE:28:D8:A5"
 		;;
 	*)
 		return
