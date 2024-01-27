@@ -31,3 +31,7 @@ main_parham() {
 main_elahe() {
 	configfile "git" "" "git/elahe"
 }
+
+main_raha() {
+	configfile "git" "" "git/elahe"
+}
