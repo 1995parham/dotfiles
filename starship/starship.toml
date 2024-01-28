@@ -135,7 +135,13 @@ context_alias = "$site"
 context_pattern = ".*api-okd-eu-central-1-cloud-baly-app:6443.*"
 user_pattern = ".*parham.alvani.*"
 user_alias = "parham"
-context_alias = "baly"
+context_alias = "pirouz"
+
+[[kubernetes.contexts]]
+context_pattern = ".*api-lotus-eu-central-1-cloud-baly-app:6443.*"
+user_pattern = ".*elahe.dastan.*"
+user_alias = "elahe"
+context_alias = "lotus"
 
 [[kubernetes.contexts]]
 context_pattern = "gt.kaytu.io-(?P<site>.*)"
