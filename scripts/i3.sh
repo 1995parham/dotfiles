@@ -129,7 +129,9 @@ main_pacman() {
 }
 
 main_parham() {
-	msg 'the wallpapers that we love'
+	msg 'change user full name'
+	sudo usermod -c 'Parham Alvani' parham
 
+	msg 'the wallpapers that we love'
 	clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "GoSiMac"
 }
