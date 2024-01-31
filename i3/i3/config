@@ -248,7 +248,7 @@ bar {
         background #222222
         statusline #dddddd
 
-        focused_workspace #0088CC #0088CC #ffffff
+        focused_workspace #ffa500 #ffa500 #ffffff
         active_workspace #333333 #333333 #ffffff
         inactive_workspace #333333 #333333 #888888
         urgent_workspace #2f343a #900000 #ffffff
@@ -268,7 +268,7 @@ bar {
         background #222222
         statusline #dddddd
 
-        focused_workspace #0088CC #0088CC #ffffff
+        focused_workspace #ffa500 #ffa500 #474747
         active_workspace #333333 #333333 #ffffff
         inactive_workspace #333333 #333333 #888888
         urgent_workspace #2f343a #900000 #ffffff
