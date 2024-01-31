@@ -1,0 +1,27 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "semi-native"
+
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "uptime"
+interval = 3600  # update every hour
+
+[[block]]
+block = "load"
+format = " $icon 1min avg: $1m.eng(w:4) "
+interval = 1
+
+[[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+interval = 1
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R %Z') "
+timezone = ["Asia/Tehran", "UTC"]

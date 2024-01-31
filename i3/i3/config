@@ -237,13 +237,17 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #333333
 
 bar {
-    font pango:JetBrainsMonoNL Nerd Font Mono, FontAwesome 12
+    font pango:JetBrainsMonoNL Nerd Font Mono, FontAwesome 10
     position top
     status_command i3status-rs ~/.config/i3status-rust/top.toml
+    tray_output none
+    workspace_buttons no
+    separator_symbol " "
     colors {
         separator #666666
         background #222222
         statusline #dddddd
+
         focused_workspace #0088CC #0088CC #ffffff
         active_workspace #333333 #333333 #ffffff
         inactive_workspace #333333 #333333 #888888
@@ -252,9 +256,13 @@ bar {
 }
 
 bar {
-    font pango:JetBrainsMonoNL Nerd Font Mono, FontAwesome 12
+    font pango:JetBrainsMonoNL Nerd Font Mono, FontAwesome 10
     position bottom
     status_command i3status-rs ~/.config/i3status-rust/bottom.toml
+    workspace_buttons yes
+    strip_workspace_numbers no
+    strip_workspace_name no
+    separator_symbol " "
     colors {
         separator #666666
         background #222222

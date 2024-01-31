@@ -22,7 +22,7 @@ main_pacman() {
 	configfile gtk-3.0 settings.ini i3
 	configfile i3 "" i3
 	configfile polybar "" i3
-	configfile i3status "" i3
+	configfile i3status-rust "" i3
 
 	msg
 	msg 'ranger (cli-based file manager) with image preview'
