@@ -22,6 +22,7 @@ main_pacman() {
 	configfile gtk-3.0 settings.ini i3
 	configfile i3 "" i3
 	configfile polybar "" i3
+	configfile i3status "" i3
 
 	msg
 	msg 'ranger (cli-based file manager) with image preview'
@@ -35,7 +36,6 @@ main_pacman() {
 	msg
 	msg 'lightdm and its configuration'
 	require_pacman lightdm-slick-greeter lightdm accountsservice archlinux-wallpaper
-	curl -L https://github.com/1995parham.png -o "$HOME/.face"
 	copycat "i3" i3/lightdm/login /etc/pam.d/login
 	copycat "i3" i3/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 
