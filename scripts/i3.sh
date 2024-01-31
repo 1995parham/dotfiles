@@ -38,6 +38,7 @@ main_pacman() {
 	require_pacman lightdm-slick-greeter lightdm accountsservice archlinux-wallpaper
 	copycat "i3" i3/lightdm/login /etc/pam.d/login
 	copycat "i3" i3/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
+	copycat "i3" i3/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
 
 	msg
 	msg 'x11/wayland image viewer'
