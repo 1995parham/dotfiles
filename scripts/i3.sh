@@ -34,7 +34,8 @@ main_pacman() {
 
 	msg
 	msg 'lightdm and its configuration'
-	require_pacman lightdm-slick-greeter lightdm
+	require_pacman lightdm-slick-greeter lightdm accountsservice
+	curl -L https://github.com/1995parham.png -o "$HOME/.face"
 	copycat "i3" i3/lightdm/login /etc/pam.d/login
 	copycat "i3" i3/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 
