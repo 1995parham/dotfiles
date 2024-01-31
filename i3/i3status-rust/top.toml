@@ -4,7 +4,7 @@ icons_format = "{icon}"
 theme = "semi-native"
 
 [icons]
-icons = "awesome6"
+icons = "material-nf"
 
 [[block]]
 block = "uptime"
@@ -12,8 +12,15 @@ interval = 3600  # update every hour
 
 [[block]]
 block = "load"
-format = " $icon 1min avg: $1m.eng(w:4) "
+format = " $icon load: $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4)"
 interval = 1
+info = 0.3
+warning = 0.6
+critical = 0.9
+[block.theme_overrides]
+idle_fg = "#1aff58"
+warning_fg = "#cccc00"
+critical_fg = "#ff4500"
 
 [[block]]
 block = "keyboard_layout"
@@ -25,3 +32,18 @@ block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %d/%m %R %Z') "
 timezone = ["Asia/Tehran", "UTC"]
+
+[[block]]
+block = "bluetooth"
+mac = "AC:80:0A:45:A3:1F"
+disconnected_format = ""
+format = " $icon "
+[block.battery_state]
+"0..20" = "critical"
+"21..70" = "warning"
+"71..100" = "good"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage {$time |}"
+full_format = " $icon ✅ "

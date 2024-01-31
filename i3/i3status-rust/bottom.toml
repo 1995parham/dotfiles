@@ -4,7 +4,7 @@ icons_format = "{icon}"
 theme = "semi-native"
 
 [icons]
-icons = "awesome6"
+icons = "material-nf"
 
 [[block]]
 block = "cpu"
