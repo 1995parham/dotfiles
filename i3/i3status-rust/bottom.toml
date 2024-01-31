@@ -55,5 +55,5 @@ missing_format = ""
 block = "net"
 interval = 1
 device = "connectify0"
-format = " connectify0  $ip "
+format = " connectify0 $ip "
 missing_format = "  "
