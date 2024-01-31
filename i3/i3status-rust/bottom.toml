@@ -11,24 +11,30 @@ block = "cpu"
 interval = 1
 format_alt = " $icon $barchart $utilization "
 format = " $icon $frequency{ $boost|} "
+[block.theme_overrides]
+idle_fg = "#FFC0CB"
 
 [[block]]
 block = "disk_space"
 path = "/"
-info_type = "available"
+info_type = "used"
 alert_unit = "GB"
 interval = 20
-warning = 20.0
-alert = 10.0
-format = " $icon root: $available.eng(w:2) "
+warning = 500.0
+alert = 800.0
+format = " $icon root: $used.eng(w:2) "
 
 [[block]]
 block = "memory"
 format = " $icon $mem_total_used_percents.eng(w:2) "
 format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+[block.theme_overrides]
+idle_fg = "#FF4040"
 
 [[block]]
 block = "sound"
+[block.theme_overrides]
+idle_fg = "#FFEFDB"
 
 [[block]]
 block = "net"
@@ -36,6 +42,8 @@ interval = 1
 device = "snapp-1"
 format = " snapp-1 $ip "
 missing_format = ""
+[block.theme_overrides]
+idle_fg = "#A0DB8E"
 
 [[block]]
 block = "net"
@@ -43,6 +51,8 @@ interval = 1
 device = "snapp-2"
 format = " snapp-2 $ip "
 missing_format = ""
+[block.theme_overrides]
+idle_fg = "#A0DB8E"
 
 [[block]]
 block = "net"
@@ -50,6 +60,8 @@ interval = 1
 device = "offerland"
 format = " offerland $ip "
 missing_format = ""
+[block.theme_overrides]
+idle_fg = "#89CFF0"
 
 [[block]]
 block = "net"
@@ -57,3 +69,5 @@ interval = 1
 device = "connectify0"
 format = " connectify0 $ip "
 missing_format = "  "
+[block.theme_overrides]
+idle_fg = "#F2B31C"
