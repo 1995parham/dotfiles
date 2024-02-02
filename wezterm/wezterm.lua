@@ -31,7 +31,7 @@ config.keys = {
 }
 
 wezterm.on("update-right-status", function(window, _)
-	local hostname = " " .. wezterm.nerdfonts.fa_laptop .. " " .. wezterm.hostname() .. " "
+	local hostname = " " .. wezterm.nerdfonts.fa_laptop .. " " .. wezterm.hostname() .. "  "
 
 	window:set_right_status(wezterm.format({
 		{ Foreground = { Color = "#ffffff" } },
