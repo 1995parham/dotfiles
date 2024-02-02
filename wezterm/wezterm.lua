@@ -27,7 +27,7 @@ config.keys = {
 	{
 		key = "RightArrow",
 		mods = "CMD",
-		action = wezterm.action.ActivateTabRelative(-1),
+		action = wezterm.action.ActivateTabRelative(1),
 	},
 	{
 		key = "LeftArrow",
@@ -37,7 +37,7 @@ config.keys = {
 	{
 		key = "RightArrow",
 		mods = "CTRL | SHIFT",
-		action = wezterm.action.ActivateTabRelative(-1),
+		action = wezterm.action.ActivateTabRelative(1),
 	},
 }
 
