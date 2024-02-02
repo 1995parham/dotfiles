@@ -18,6 +18,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		pane_id=$(wezterm cli spawn)
 		wezterm cli send-text --pane-id "${pane_id}" --no-paste "$(printf "%s\r" "ssh $host")"
 		wezterm cli activate-pane --pane-id "${pane_id}"
+		wezterm cli set-tab-title "ssh @ $host"
 	elif [[ -n "$(command -v wezterm)" ]]; then
 		kitty @ launch --type=tab kitten ssh "$host"
 	fi
