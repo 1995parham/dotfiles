@@ -19,10 +19,16 @@ if [ ! -f "$path" ]; then
 	exit 1
 fi
 
-if [ -n "$KITTY_WINDOW_ID" ]; then
-	kitty @ launch --type=tab --hold --env PATH="$PATH" tmuxp load "$path"
-elif [ -n "$ITERM_SESSION_ID" ]; then
-	osascript -e 'tell application "iTerm"' -e 'tell current window' -e 'create tab with default profile' -e 'tell current session' -e "write text \"tmuxp load $path\"" -e 'end tell' -e 'end tell' -e 'end tell'
+# using commands are better because tmux can be share between different
+# terminal emulators and this will mess up the environment variables.
+if [[ "${OSTYPE}" == "darwin"* ]]; then
+	if [[ -n "$(command -v wezterm)" ]]; then
+		pane_id=$(wezterm cli spawn)
+		wezterm cli send-text --pane-id "${pane_id}" --no-paste "$(printf "%s\n" "tmuxp load $path")"
+		wezterm cli activate-pane --pane-id "${pane_id}"
+	elif [[ -n "$(command -v wezterm)" ]]; then
+		kitty @ launch --type=tab --hold --env PATH="$PATH" tmuxp load "$path"
+	fi
 else
 	tmuxp load "$path"
 fi
