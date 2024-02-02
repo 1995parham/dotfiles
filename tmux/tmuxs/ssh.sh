@@ -13,9 +13,14 @@ host=$(
 		fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec
 )
 
-if [[ "$OSTYPE" == "darwin"* ]] &&
-	[[ "$(command -v kitty)" ]]; then
-	kitty @ launch --type=tab kitten ssh "$host"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	if [[ -n "$(command -v wezterm)" ]]; then
+		pane_id=$(wezterm cli spawn)
+		wezterm cli send-text --pane-id "${pane_id}" --no-paste "$(printf "%s\n" "ssh $host")"
+		wezterm cli activate-pane --pane-id "${pane_id}"
+	elif [[ -n "$(command -v wezterm)" ]]; then
+		kitty @ launch --type=tab kitten ssh "$host"
+	fi
 else
 	# . character has special meaning for tmux, it uses
 	# it for separating window from pane.
