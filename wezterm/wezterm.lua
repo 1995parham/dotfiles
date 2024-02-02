@@ -2,7 +2,10 @@ local wezterm = require("wezterm")
 
 local config = {}
 
-config.color_scheme = "Batman"
+-- WezTerm bundles JetBrains Mono, Nerd Font Symbols and Noto Color Emoji fonts
+-- and uses those for the default font configuration.
+
+config.color_scheme = "Afterglow"
 
 config.keys = {
 	{
