@@ -26,7 +26,7 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 		pane_id=$(wezterm cli spawn)
 		wezterm cli send-text --pane-id "${pane_id}" --no-paste "$(printf "%s\n" "tmuxp load $path")"
 		wezterm cli activate-pane --pane-id "${pane_id}"
-	elif [[ -n "$(command -v wezterm)" ]]; then
+	elif [[ -n "$(command -v kitty)" ]]; then
 		kitty @ launch --type=tab --hold --env PATH="$PATH" tmuxp load "$path"
 	fi
 else
