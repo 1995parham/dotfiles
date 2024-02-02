@@ -37,7 +37,7 @@ font pango:Vazirmatn 10
 floating_modifier $mod
 
 # start a terminal fullscreen and in floating mode
-bindsym $mod+Return exec wezterm cli spawn --new-window || wezterm start
+bindsym $mod+Return exec alacritty
 for_window [class="__termpad" instance="__termpad"] floating enable
 bindsym $mod+Shift+Return exec alacritty --class "__termpad" --option="window.opacity=0.8"
 
