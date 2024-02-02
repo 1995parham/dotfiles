@@ -30,7 +30,7 @@ main_brew() {
 }
 
 main() {
-	return 0
+	configfile wezterm
 }
 
 main_parham() {
