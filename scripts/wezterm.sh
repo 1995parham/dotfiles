@@ -18,7 +18,7 @@ pre_main() {
 }
 
 main_pacman() {
-	return 1
+	require_pacman wezterm wezterm-shell-integration wezterm-terminfo
 }
 
 main_apt() {
