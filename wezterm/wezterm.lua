@@ -11,7 +11,7 @@
 
 local wezterm = require("wezterm")
 
-local config = {}
+local config = wezterm.config_builder()
 
 -- WezTerm bundles JetBrains Mono, Nerd Font Symbols and Noto Color Emoji fonts
 -- and uses those for the default font configuration.
