@@ -44,9 +44,17 @@ config.keys = {
 wezterm.on("update-right-status", function(window, _)
 	local hostname = " " .. wezterm.nerdfonts.fa_laptop .. " " .. wezterm.hostname() .. "  "
 
+	local success, jalali_date, _ = wezterm.run_child_process({ "bash", "-lc", "jdate +%D" })
+	if success then
+		jalali_date = " " .. wezterm.nerdfonts.fa_calendar .. " " .. jalali_date .. "  "
+	else
+		jalali_date = " "
+	end
+
 	window:set_right_status(wezterm.format({
 		{ Foreground = { Color = "#ffffff" } },
 		{ Text = hostname },
+		{ Text = jalali_date },
 	}))
 end)
 
