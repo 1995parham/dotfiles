@@ -71,3 +71,19 @@ format = " connectify0 $ip "
 missing_format = "  "
 [block.theme_overrides]
 idle_fg = "#F2B31C"
+
+[[block]]
+block = "custom"
+command = ''' couple.sh relationship | head -1 '''
+format = " 󰣐 $text.pango-str() "
+interval = 3600
+[block.theme_overrides]
+idle_fg = "#FFB2B2"
+
+[[block]]
+block = "custom"
+command = ''' couple.sh birthday | head -1 '''
+format = " 󱟰 $text.pango-str() "
+interval = 3600
+[block.theme_overrides]
+idle_fg = "#8E7CC3"
