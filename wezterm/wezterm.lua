@@ -18,6 +18,8 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "Afterglow"
 
+config.prefer_to_spawn_tabs = true
+
 config.keys = {
 	{
 		key = "LeftArrow",
