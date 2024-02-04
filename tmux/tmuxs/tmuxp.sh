@@ -23,6 +23,10 @@ fi
 # terminal emulators and this will mess up the environment variables.
 if [[ "${OSTYPE}" == "darwin"* ]]; then
 	if [[ -n "$(command -v wezterm)" ]]; then
+		# TODO (parham): replace it with a better solution. it works only on macOS and it isn't tested enough.
+		socket="$HOME/.local/share/wezterm/default-org.wezfurlong.wezterm"
+		export WEZTERM_UNIX_SOCKET="$socket"
+
 		pane_id=$(wezterm cli spawn)
 		wezterm cli send-text --pane-id "${pane_id}" "$(printf "%s\r" "tmuxp load $path")"
 		wezterm cli activate-pane --pane-id "${pane_id}"
