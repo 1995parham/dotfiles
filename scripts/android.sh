@@ -19,3 +19,7 @@ main_pacman() {
 	#	msg 'https://github.com/skrimix/QLoaderFiles'
 	msg 'https://wiki.archlinux.org/title/Media_Transfer_Protocol'
 }
+
+main_brew() {
+	require_brew_cask android-file-transfer
+}
