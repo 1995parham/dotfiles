@@ -5,10 +5,22 @@
     "enable": true,
     "globals": [
       "awesome",
-      "awful",
-      "client",
+      "button",
+      "dbus",
+      "drawable",
+      "drawin",
+      "key",
+      "keygrabber",
+      "mousegrabber",
+      "selection",
+      "tag",
+      "window",
+      "table.unpack",
+      "math.atan2",
       "screen",
-      "tag"
+      "mouse",
+      "root",
+      "client"
     ]
   }
 }
