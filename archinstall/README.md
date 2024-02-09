@@ -5,8 +5,6 @@
 [`archinstall`](https://github.com/archlinux/archinstall) is a guided/automated `ArchLinux` installer.
 This repository contains scripts and configuration that I use with `archinstall` to set up `ArchLinux` on desktop or
 server.
-For desktop, I prefer [`Sway`](https://wiki.archlinux.org/title/Sway), but I have scripts for
-[`Hyprland`](https://github.com/hyprwm) too.
 
 ## How to
 
@@ -34,7 +32,7 @@ cd dotfiles/archinstall
 - Partitioning using `fstab`. (please remember to create boot partition with _EFI System_ label).
   You can also skip this step and then do it in `archinstall` TUI.
 
-- Create Filesystems using e.g. `mkfs.fat -F32`, `mkfs.btrfs`. Again you can skip this step and then do it in `archinstall`
+- Create Filesystem using e.g. `mkfs.fat -F32`, `mkfs.btrfs`. Again you can skip this step and then do it in `archinstall`
   TUI.
 
 - Enable NTP. It is a required step because incorrect time may cause issue with HTTPS mirrors.
