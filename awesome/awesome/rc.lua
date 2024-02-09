@@ -9,6 +9,9 @@
 local gears = require("gears")
 local awful = require("awful")
 
+-- Detect hostname to use it over configuration
+hostname = io.popen("uname -n"):read()
+
 -- ===================================================================
 -- User Configuration
 -- ===================================================================
@@ -24,8 +27,8 @@ local theme_config_dir = gears.filesystem.get_configuration_dir() .. "/configura
 
 -- define default apps (global variable so other components can access it)
 apps = {
-	network_manager = "", -- recommended: nm-connection-editor
-	power_manager = "", -- recommended: xfce4-power-manager
+	network_manager = "nm-connection-editor",
+	power_manager = "xfce4-power-manager",
 	terminal = "alacritty",
 	launcher = "rofi -normal-window -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
 	lock = "i3lock",
@@ -35,14 +38,17 @@ apps = {
 
 -- define wireless and ethernet interface names for the network widget
 -- use `ip link` command to determine these
-network_interfaces = {
-	wlan = "wlp1s0",
-	lan = "enp111s0",
+network_interfaces_hostname = {
+	["pegasus"] = {
+		wlan = "wlan0",
+		lan = "enp111s0",
+	},
 }
+network_interfaces = network_interfaces_hostname["pegasus"]
 
 -- List of apps to run on start-up
 local run_on_start_up = {
-	"picom --experimental-backends --config " .. theme_config_dir .. "picom.conf",
+	"picom --config " .. theme_config_dir .. "picom.conf",
 	"redshift",
 	"unclutter",
 }
