@@ -9,7 +9,6 @@
 -- Initialization
 -- ===================================================================
 
-
 local xresources = require("beautiful.xresources")
 local gears = require("gears")
 local dpi = xresources.apply_dpi
@@ -17,11 +16,9 @@ local dpi = xresources.apply_dpi
 -- define module table
 local theme = {}
 
-
 -- ===================================================================
 -- Theme Variables
 -- ===================================================================
-
 
 theme.name = "mirage"
 
@@ -84,11 +81,9 @@ theme.notification_max_width = dpi(350)
 theme.bg_systray = "#00000000"
 theme.systray_icon_spacing = dpi(5)
 
-
 -- ===================================================================
 -- Icons
 -- ===================================================================
-
 
 -- Define layout icons
 theme.layout_tile = "~/.config/awesome/icons/layouts/tiled.png"
@@ -97,11 +92,9 @@ theme.layout_max = "~/.config/awesome/icons/layouts/maximized.png"
 
 theme.icon_theme = "Tela-dark"
 
-
 -- ===================================================================
 -- Titlebars
 -- ===================================================================
-
 
 theme.titlebars_enabled = true
 
@@ -113,28 +106,28 @@ theme.titlebar_fg_focus = theme.fg_normal
 theme.titlebar_fg_normal = theme.fg_focus
 
 -- Close Button
-theme.titlebar_close_button_normal = icon_dir .. 'normal.svg'
-theme.titlebar_close_button_focus  = icon_dir .. 'close_focus.svg'
-theme.titlebar_close_button_normal_hover = icon_dir .. 'close_focus_hover.svg'
-theme.titlebar_close_button_focus_hover  = icon_dir .. 'close_focus_hover.svg'
+theme.titlebar_close_button_normal = icon_dir .. "normal.svg"
+theme.titlebar_close_button_focus = icon_dir .. "close_focus.svg"
+theme.titlebar_close_button_normal_hover = icon_dir .. "close_focus_hover.svg"
+theme.titlebar_close_button_focus_hover = icon_dir .. "close_focus_hover.svg"
 
 -- Minimize Button
-theme.titlebar_minimize_button_normal = icon_dir .. 'normal.svg'
-theme.titlebar_minimize_button_focus  = icon_dir .. 'minimize_focus.svg'
-theme.titlebar_minimize_button_normal_hover = icon_dir .. 'minimize_focus_hover.svg'
-theme.titlebar_minimize_button_focus_hover  = icon_dir .. 'minimize_focus_hover.svg'
+theme.titlebar_minimize_button_normal = icon_dir .. "normal.svg"
+theme.titlebar_minimize_button_focus = icon_dir .. "minimize_focus.svg"
+theme.titlebar_minimize_button_normal_hover = icon_dir .. "minimize_focus_hover.svg"
+theme.titlebar_minimize_button_focus_hover = icon_dir .. "minimize_focus_hover.svg"
 
 -- Maximized Button (While Window is Maximized)
-theme.titlebar_maximized_button_normal_active = icon_dir .. 'normal.svg'
-theme.titlebar_maximized_button_focus_active  = icon_dir .. 'maximized_focus.svg'
-theme.titlebar_maximized_button_normal_active_hover = icon_dir .. 'maximized_focus_hover.svg'
-theme.titlebar_maximized_button_focus_active_hover  = icon_dir .. 'maximized_focus_hover.svg'
+theme.titlebar_maximized_button_normal_active = icon_dir .. "normal.svg"
+theme.titlebar_maximized_button_focus_active = icon_dir .. "maximized_focus.svg"
+theme.titlebar_maximized_button_normal_active_hover = icon_dir .. "maximized_focus_hover.svg"
+theme.titlebar_maximized_button_focus_active_hover = icon_dir .. "maximized_focus_hover.svg"
 
 -- Maximized Button (While Window is not Maximized)
-theme.titlebar_maximized_button_normal_inactive = icon_dir .. 'normal.svg'
-theme.titlebar_maximized_button_focus_inactive  = icon_dir .. 'maximized_focus.svg'
-theme.titlebar_maximized_button_normal_inactive_hover = icon_dir .. 'maximized_focus_hover.svg'
-theme.titlebar_maximized_button_focus_inactive_hover  = icon_dir .. 'maximized_focus_hover.svg'
+theme.titlebar_maximized_button_normal_inactive = icon_dir .. "normal.svg"
+theme.titlebar_maximized_button_focus_inactive = icon_dir .. "maximized_focus.svg"
+theme.titlebar_maximized_button_normal_inactive_hover = icon_dir .. "maximized_focus_hover.svg"
+theme.titlebar_maximized_button_focus_inactive_hover = icon_dir .. "maximized_focus_hover.svg"
 
 -- return theme
 return theme
