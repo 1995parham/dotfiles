@@ -1,0 +1,65 @@
+{
+  "additional-repositories": [
+    "testing"
+  ],
+  "archinstall-language": "English",
+  "audio_config": {
+    "audio": "pipewire"
+  },
+  "bootloader": "Systemd-boot",
+  "config_version": "2.6.0",
+  "debug": false,
+  "kernels": [
+    "linux",
+    "linux-zen"
+  ],
+  "locale_config": {
+    "kb_layout": "us",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "mirror_config": {
+    "custom_mirrors": [],
+    "mirror_regions": {
+      "Germany": [
+        "http://mirror.23m.com/archlinux/$repo/os/$arch",
+        "http://mirror.united-gameserver.de/archlinux/$repo/os/$arch",
+        "http://mirror.mikrogravitation.org/archlinux/$repo/os/$arch",
+        "http://os.codefionn.eu/archlinux/$repo/os/$arch",
+        "http://mirrors.xtom.de/archlinux/$repo/os/$arch",
+        "http://archlinux.mirror.iphh.net/$repo/os/$arch",
+        "https://mirrors.xtom.de/archlinux/$repo/os/$arch",
+        "http://ftp.tu-chemnitz.de/pub/linux/archlinux/$repo/os/$arch",
+        "http://ftp.hosteurope.de/mirror/ftp.archlinux.org/$repo/os/$arch",
+        "http://ftp.gwdg.de/pub/linux/archlinux/$repo/os/$arch"
+      ]
+    }
+  },
+  "network_config": {
+    "type": "nm"
+  },
+  "no_pkg_lookups": false,
+  "ntp": true,
+  "offline": false,
+  "packages": [],
+  "parallel downloads": 0,
+  "profile_config": {
+    "greeter": "",
+    "profile": {
+      "custom_settings": {
+        "Sway": {
+          "seat_access": "polkit"
+        }
+      },
+      "details": [
+        "Sway"
+      ],
+      "main": "Desktop"
+    }
+  },
+  "script": "guided",
+  "silent": false,
+  "swap": true,
+  "timezone": "UTC",
+  "version": "2.6.0"
+}
