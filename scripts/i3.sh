@@ -17,9 +17,9 @@ export additionals=(x11)
 root=${root:?"root must be set"}
 
 main_pacman() {
-	msg 'install i3 (actually i3-gaps) with polybar'
+	msg 'install i3 (actually i3-gaps) with polybar/i3status-rust'
 	require_pacman i3-gaps xclip gtk3
-	require_aur i3-scrot matcha-gtk-theme polybar i3exit
+	require_aur i3-scrot matcha-gtk-theme polybar i3exit i3status-rust
 
 	configfile gtk-3.0 settings.ini i3
 	configfile i3 "" i3
