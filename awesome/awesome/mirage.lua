@@ -60,7 +60,7 @@ mirage.initialize = function()
 		local atags = awful.screen.focused().tags
 
 		-- update each tag icon
-		for i, t in ipairs(atags) do
+		for _, t in ipairs(atags) do
 			-- don't update active tag icon
 			if t == awful.screen.focused().selected_tag then
 				goto continue
@@ -84,7 +84,7 @@ mirage.initialize = function()
 		update_tag_icons()
 	end)
 	-- Update tag icons when a client is moved to a new tag
-	tag.connect_signal("tagged", function(c)
+	tag.connect_signal("tagged", function(_)
 		update_tag_icons()
 	end)
 end
