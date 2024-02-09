@@ -12,6 +12,8 @@ usage() {
   '
 }
 
+export additionals=(x11)
+
 root=${root:?"root must be set"}
 
 main_pacman() {
