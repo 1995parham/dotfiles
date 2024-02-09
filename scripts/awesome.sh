@@ -22,4 +22,9 @@ main_pacman() {
 	msg 'install awesome with nice tools'
 	require_pacman awesome picom redshift unclutter xfce4-power-manager acpi
 	require_aur i3exit matcha-gtk-theme
+
+	msg
+	msg 'configure rofi another application luncher'
+	require_pacman rofi
+	configfile rofi "" awesome
 }
