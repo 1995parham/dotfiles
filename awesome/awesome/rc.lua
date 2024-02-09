@@ -10,7 +10,7 @@ local gears = require("gears")
 local awful = require("awful")
 
 -- Detect hostname to use it over configuration
-hostname = io.popen("uname -n"):read()
+HOSTNAME = io.popen("uname -n"):read()
 
 -- ===================================================================
 -- User Configuration
@@ -38,13 +38,13 @@ apps = {
 
 -- define wireless and ethernet interface names for the network widget
 -- use `ip link` command to determine these
-network_interfaces_hostname = {
+local network_interfaces_hostname = {
 	["pegasus"] = {
 		wlan = "wlan0",
 		lan = "enp111s0",
 	},
 }
-network_interfaces = network_interfaces_hostname["pegasus"]
+network_interfaces = network_interfaces_hostname[HOSTNAME]
 
 -- List of apps to run on start-up
 local run_on_start_up = {
