@@ -111,14 +111,6 @@ main_pacman() {
 	msg 'there is no power manager installed and all events will be handled by systemd'
 	sudo cp "$root/i3/systemd/logind.conf" /etc/systemd/logind.conf
 
-	msg
-	msg 'remove tools that I do not love from endeavouros'
-	if [ -f /usr/lib/environment.d/99-environment.conf ]; then
-		sudo rm /usr/lib/environment.d/99-environment.conf
-		sudo rm /etc/environment
-	fi
-	not_require_pacman reflector-simple
-
 	# nautilus file manager (a.k.a files)
 	# https://wiki.archlinux.org/title/GNOME/Files
 	require_pacman ffmpegthumbnailer gst-libav gst-plugins-ugly nautilus
