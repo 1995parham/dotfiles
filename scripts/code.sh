@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
 	echo "Code editing. Redefined."
 
@@ -29,6 +30,7 @@ main_brew() {
 }
 
 main() {
+	msg 'install trunk to have control over linter, etc.'
 	curl https://get.trunk.io -fsSL | bash
 }
 
