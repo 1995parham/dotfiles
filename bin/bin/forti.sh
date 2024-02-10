@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -eu
+set -o pipefail
+
 dry_run=0
 
 source="$0"
@@ -7,7 +10,7 @@ if [[ -n "${BASH_SOURCE[0]}" ]]; then
 	source="${BASH_SOURCE[0]}"
 fi
 
-root="$(cd "$(readlink "${source}")" && pwd)"
+root="$(cd "$(dirname "$(realpath "$source")")/../.." && pwd)"
 
 source "$root/scripts/lib/main.sh"
 
