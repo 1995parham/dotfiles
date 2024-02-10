@@ -78,7 +78,7 @@ watch(
 		local battery_info = {}
 		local capacities = {}
 		for s in stdout:gmatch("[^\r\n]+") do
-			local status, charge_str, time = string.match(s, ".+: (%a+), (%d?%d?%d)%%,?.*")
+			local status, charge_str, _ = string.match(s, ".+: (%a+), (%d?%d?%d)%%,?.*")
 			if status ~= nil then
 				table.insert(battery_info, { status = status, charge = tonumber(charge_str) })
 			else
@@ -107,7 +107,7 @@ watch(
 		if charge >= 0 and charge < 15 then
 			if status ~= "Charging" and os.difftime(os.time(), last_battery_check) > 300 then
 				-- if 5 minutes have elapsed since the last warning
-				last_battery_check = time()
+				last_battery_check = os.time()
 
 				show_battery_warning()
 			end
