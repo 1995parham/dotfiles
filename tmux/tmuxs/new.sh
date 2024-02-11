@@ -160,11 +160,13 @@ tmux select-pane -t "$current_session:$name.0"
 tmux split-window -h -t "$current_session:$name" -c "$project"
 
 # using send command to run the pre
-for i in $(seq 0 2); do
+for i in $(seq 0 3); do
 	for command in "${commands[@]}"; do
-		echo "$command"
 		tmux send-keys -t "$current_session:$name.$i" "$command" Enter
 	done
+	if [[ "$i" = 0 ]]; then
+		tmux send-keys -t "$current_session:$name.$i" "git project" Enter
+	fi
 done
 
 # I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
