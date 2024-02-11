@@ -43,27 +43,32 @@ fi
 if [[ "$dry_run" = 1 ]]; then
 	message 'forti.sh' 'encrypt configuration for snapp1 vpn using elahe/raha public key 🔒'
 	if [ -f "$root/encrypted/elahe/snapp1.up" ]; then
-		age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.up" >"$root/encrypted/elahe/snapp1.conf.enc"
+		age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.up" >"$root/encrypted/elahe/snapp1.up.enc"
 	fi
 	if [ -f "$root/encrypted/elahe/snapp1.conf" ]; then
-		age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.conf" >"$root/encrypted/elahe/snapp1.up.enc"
+		age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.conf" >"$root/encrypted/elahe/snapp1.conf.enc"
 	fi
 fi
 
 message 'forti.sh' 'decrypt configuration for snapp1 vpn using elahe/raha public key 🔓'
 if [[ "$dry_run" = 1 ]]; then
-	age -d -i ~/.ssh/raha_rsa "$root/encrypted/elahe/snapp1.up.enc" >"$root/encrypted/elahe/snapp1.conf"
-	age -d -i ~/.ssh/raha_rsa "$root/encrypted/elahe/snapp1.conf.enc" >"$root/encrypted/elahe/snapp1.up"
+	if [ -f "$HOME/.ssh/raha_rsa" ]; then
+		age -d -i "$HOME/.ssh/raha_rsa" "$root/encrypted/elahe/snapp1.up.enc" >"$root/encrypted/elahe/snapp1.up"
+		age -d -i "$HOME/.ssh/raha_rsa" "$root/encrypted/elahe/snapp1.conf.enc" >"$root/encrypted/elahe/snapp1.conf"
+	else
+		message 'forti.sh' 'please first install the required keys'
+	fi
 else
-	age -d -i ~/.ssh/id_rsa "$root/encrypted/elahe/snapp1.up.enc" >"$root/encrypted/elahe/snapp1.conf"
-	age -d -i ~/.ssh/id_rsa "$root/encrypted/elahe/snapp1.conf.enc" >"$root/encrypted/elahe/snapp1.up"
+	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/snapp1.up.enc" >"$root/encrypted/elahe/snapp1.up"
+	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/snapp1.conf.enc" >"$root/encrypted/elahe/snapp1.conf"
 fi
 
 if [[ "$dry_run" = 1 ]]; then
 	message 'forti.sh' 'we are on dry run'
 else
-	copycat "$root/encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
+	copycat "$root/encrypted/elahe/snapp1.conf" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
 	copycat "$root/encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.up" 0
+
 	sudo tee "/Library/LaunchAgents/com.openconnect.snapp1.plist" <<EOL
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
