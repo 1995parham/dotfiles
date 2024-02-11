@@ -31,12 +31,23 @@ case "$USER" in
 	;;
 esac
 
-require_brew openconnect age
+if [[ "${OSTYPE}" == "darwin"* ]]; then
+	message 'forti.sh' " darwin, using brew"
+	require_brew openconnect age
+elif [[ -n "$(command -v pacman)" ]]; then
+	message 'forti.sh' " linux with pacman installed, using pacman/yay"
+
+	require_pacman age
+fi
 
 if [[ "$dry_run" = 1 ]]; then
 	message 'forti.sh' 'encrypt configuration for snapp1 vpn using elahe/raha public key 🔒'
-	age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.up" >"$root/encrypted/elahe/snapp1.conf.enc"
-	age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.conf" >"$root/encrypted/elahe/snapp1.up.enc"
+	if [ -f "$root/encrypted/elahe/snapp1.up" ]; then
+		age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.up" >"$root/encrypted/elahe/snapp1.conf.enc"
+	fi
+	if [ -f "$root/encrypted/elahe/snapp1.conf" ]; then
+		age -R ~/.ssh/raha_rsa.pub "$root/encrypted/elahe/snapp1.conf" >"$root/encrypted/elahe/snapp1.up.enc"
+	fi
 fi
 
 message 'forti.sh' 'decrypt configuration for snapp1 vpn using elahe/raha public key 🔓'
