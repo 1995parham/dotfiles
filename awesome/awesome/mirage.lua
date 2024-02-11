@@ -65,11 +65,6 @@ mirage.initialize = function()
 			if t == awful.screen.focused().selected_tag then
 				goto continue
 			end
-			-- if the tag has clients use busy icon
-			for _ in pairs(t:clients()) do
-				awful.tag.seticon(icon_dir .. t.name .. "-busy.png", t)
-				goto continue
-			end
 			-- if the tag has no clients use regular inactive icon
 			awful.tag.seticon(icon_dir .. t.name .. "-inactive.png", t)
 
