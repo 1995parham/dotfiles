@@ -284,3 +284,4 @@ These are the software that I need on my system:
 
 - <https://github.com/Ruixi-rebirth/sway-dotfiles>
 - <https://github.com/philiprein/macos-settings>
+- Icons by [Icons8](https://icons8.com)
