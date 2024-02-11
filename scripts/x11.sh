@@ -64,8 +64,9 @@ main_pacman() {
 	fi
 
 	msg
-	msg 'x11 configuration for touchpad'
+	msg 'x11 configuration for keyboard/touchpad'
 	copycat "x11" x11/x11/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
+	copycat "x11" x11/x11/00-keyboard.conf /etc/X11/xorg.conf.d/00-keyboard.conf
 
 	msg
 	msg 'there is no power manager installed and all events will be handled by systemd'
