@@ -19,8 +19,8 @@ root=${root:?"root must be set"}
 main_pacman() {
 	configfile awesome "" awesome
 
-	msg 'install awesome with nice tools'
-	require_pacman awesome picom redshift unclutter xfce4-power-manager acpi
+	msg 'install awesome with required system tooling'
+	require_pacman awesome picom redshift unclutter xfce4-power-manager acpi pacmixer
 	require_aur i3exit matcha-gtk-theme
 
 	msg
