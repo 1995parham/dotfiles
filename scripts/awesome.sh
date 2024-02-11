@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "i3 window manager for arch"
+	echo "awesome is a highly configurable, next generation framework window manager for X"
 
 	echo '
- _ _____
-(_)___ /
-| | |_ \
-| |___) |
-|_|____/
+  __ ___      _____  ___  ___  _ __ ___   ___
+ / _` \ \ /\ / / _ \/ __|/ _ \| |_ | _ \ / _ \
+| (_| |\ V  V /  __/\__ \ (_) | | | | | |  __/
+ \__,_| \_/\_/ \___||___/\___/|_| |_| |_|\___|
   '
 }
 
@@ -20,7 +19,7 @@ main_pacman() {
 	configfile awesome "" awesome
 
 	msg 'install awesome with required system tooling'
-	require_pacman awesome picom redshift unclutter xfce4-power-manager acpi pacmixer
+	require_pacman awesome picom redshift unclutter xfce4-power-manager acpi pamixer xorg xorg-apps
 	require_aur i3exit matcha-gtk-theme
 
 	msg

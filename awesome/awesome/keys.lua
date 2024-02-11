@@ -114,6 +114,24 @@ keys.desktopbuttons = gears.table.join(
 	-- left click on desktop to hide notification
 	awful.button({}, 1, function()
 		naughty.destroy_all_notifications()
+	end),
+
+	-- mouse tag movement
+	awful.button({ modkey }, 7, nil, function()
+		local screen = awful.screen.focused()
+		local tag = screen.selected_tag.index
+		local prev_tag = screen.tags[tag - 1]
+		if prev_tag then
+			prev_tag:view_only()
+		end
+	end),
+	awful.button({ modkey }, 8, nil, function()
+		local screen = awful.screen.focused()
+		local tag = screen.selected_tag.index
+		local next_tag = screen.tags[tag + 1]
+		if next_tag then
+			next_tag:view_only()
+		end
 	end)
 )
 
