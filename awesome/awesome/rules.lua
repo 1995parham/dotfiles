@@ -108,6 +108,18 @@ function rules.create(clientkeys, clientbuttons)
 
 		{
 			rule_any = {
+				name = {
+					"Google Chrome",
+				},
+			},
+			properties = {
+				switchtotag = true,
+				tag = awful.screen.focused().tags[4],
+			},
+		},
+
+		{
+			rule_any = {
 				class = {
 					"Telegram",
 				},
