@@ -30,8 +30,7 @@ main_brew() {
 }
 
 main() {
-	msg 'install trunk to have control over linter, etc.'
-	curl https://get.trunk.io -fsSL | bash
+	return 0
 }
 
 main_parham() {
