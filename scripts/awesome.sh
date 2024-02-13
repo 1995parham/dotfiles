@@ -26,4 +26,6 @@ main_pacman() {
 	msg 'configure rofi another application luncher'
 	require_pacman rofi
 	configfile rofi "" awesome
+
+	require_pacman scrot
 }
