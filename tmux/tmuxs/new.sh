@@ -164,13 +164,12 @@ for i in $(seq 0 3); do
 	for command in "${commands[@]}"; do
 		tmux send-keys -t "$current_session:$name.$i" "$command" Enter
 	done
-	if [[ "$i" = 0 ]]; then
-		tmux send-keys -t "$current_session:$name.$i" "git project" Enter
-	fi
 done
 
 # I am switching to use neovim more than tmux so I am going to use 3 panes instead of 4.
 # tmux select-layout -t "$current_session:$name" tiled
+tmux send-keys -t "$current_session:$name.0" "onefetch" Enter
+tmux send-keys -t "$current_session:$name.1" "tokei" Enter
 tmux send-keys -t "$current_session:$name.2" "nvim" Enter
 # tmux send-keys -t "$current_session:$name.3" 'code .'
 tmux select-pane -t "$current_session:$name.0"
