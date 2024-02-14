@@ -59,3 +59,6 @@ windows:
       - start_directory: ~/Documents/Git/parham/1995parham-learning/cloud-roadmap
         shell_command:
           - git pull origin main &> /dev/null
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/english101
+        shell_command:
+          - git pull origin main &> /dev/null
