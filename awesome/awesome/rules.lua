@@ -132,6 +132,17 @@ function rules.create(clientkeys, clientbuttons)
 		{
 			rule_any = {
 				class = {
+					"Emacs",
+				},
+			},
+			properties = {
+				tag = awful.screen.focused().tags[9],
+			},
+		},
+
+		{
+			rule_any = {
+				class = {
 					"Telegram",
 				},
 			},
