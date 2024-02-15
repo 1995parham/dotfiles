@@ -46,6 +46,8 @@ local run_on_start_up = {
 	"picom --config " .. theme_config_dir .. "picom.conf",
 	"redshift",
 	"unclutter",
+	-- Restore last background with feh
+	"$HOME/.fehbg",
 }
 
 -- ===================================================================
