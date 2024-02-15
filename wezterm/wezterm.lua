@@ -63,7 +63,7 @@ end)
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
 if hostname == "pegasus" then
-	config.font_size = 10
+	config.font_size = 9
 	config.window_background_opacity = 0.95
 elseif hostname == "millennium-falcon" then
 	config.font_size = 11
