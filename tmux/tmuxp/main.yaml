@@ -33,7 +33,7 @@ windows:
       - pane
 
   - window_name: life 🐼
-    layout: even-vertical
+    layout: tiled
     panes:
       - start_directory: ~/Documents/Git/parham/parham-alvani/buying
         shell_command:
@@ -60,5 +60,8 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
       - start_directory: ~/Documents/Git/parham/1995parham-learning/english101
+        shell_command:
+          - git pull origin main &> /dev/null
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
         shell_command:
           - git pull origin main &> /dev/null
