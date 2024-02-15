@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
 	echo "Bash is a Unix shell and command language written by Brian Fox for the GNU Project as a free software replacement for the Bourne shell."
 
@@ -17,7 +18,7 @@ root=${root:?"root must be set"}
 pre_main() {
 	msg "create bashrc if it doesn't exist"
 	if [ ! -f "$HOME/.bashrc" ]; then
-		touch "$HOME/.bashrc"
+		echo '#!/usr/bin/env bash' >"$HOME/.bashrc"
 	fi
 }
 
@@ -33,7 +34,7 @@ main_brew() {
 	require_brew bash bash-completion@2
 
 	msg "bash-completion caveats"
-	if ! grep -q -F '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' \
+	if ! grep -qF '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' \
 		"$HOME/.bashrc"; then
 
 		echo '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' |
@@ -46,7 +47,7 @@ main() {
 	dotfile "bash" "bashrc.shared"
 
 	msg "source bashrc.shared in bashrc"
-	if ! grep -q -F "source \"\$HOME/.bashrc.shared\"" "$HOME/.bashrc"; then
+	if ! grep -qF "source \"\$HOME/.bashrc.shared\"" "$HOME/.bashrc"; then
 		echo "source \"\$HOME/.bashrc.shared\"" | tee -a "$HOME/.bashrc"
 	fi
 }
