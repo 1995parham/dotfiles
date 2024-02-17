@@ -19,7 +19,7 @@ pre_main() {
 
 main_pacman() {
 	msg
-	msg 'lightdm and its configuration'
+	msg 'lightdm and its configuration for automatically unlock gnome-keyring'
 	require_pacman lightdm-slick-greeter lightdm accountsservice archlinux-wallpaper
 	copycat "x11" x11/lightdm/login /etc/pam.d/login
 	copycat "x11" x11/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
@@ -55,12 +55,24 @@ main_pacman() {
 		echo "#!/usr/bin/env bash" >"$HOME/.profile"
 	fi
 
+	if [ ! -f "$HOME/.xprofile" ]; then
+		echo "#!/usr/bin/env bash" >"$HOME/.xprofile"
+	fi
+
+	msg 'gnome-keyring is open but we need to have its variable defined'
 	# shellcheck disable=2016
-	if ! grep -q -F 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK' \
+	if ! grep -qF 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK' \
 		"$HOME/.profile"; then
 
 		echo 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK' |
 			tee -a "$HOME/.profile"
+	fi
+	# shellcheck disable=2016
+	if ! grep -qF 'export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh' \
+		"$HOME/.xprofile"; then
+
+		echo 'export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh' |
+			tee -a "$HOME/.xprofile"
 	fi
 
 	msg
