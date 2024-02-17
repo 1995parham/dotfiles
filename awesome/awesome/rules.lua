@@ -136,6 +136,19 @@ function rules.create(clientkeys, clientbuttons)
 				},
 			},
 			properties = {
+				floating = false,
+				tag = awful.screen.focused().tags[9],
+			},
+		},
+
+		{
+			rule_any = {
+				class = {
+					"obsidian",
+				},
+			},
+			properties = {
+				floating = false,
 				tag = awful.screen.focused().tags[9],
 			},
 		},
