@@ -144,6 +144,19 @@ function rules.create(clientkeys, clientbuttons)
 		{
 			rule_any = {
 				class = {
+					"30nama",
+				},
+			},
+			properties = {
+				floating = true,
+				height = screen_height * 0.40,
+				width = screen_width * 0.60,
+			},
+		},
+
+		{
+			rule_any = {
+				class = {
 					"obsidian",
 				},
 			},
