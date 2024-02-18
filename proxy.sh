@@ -50,7 +50,7 @@ socks_start() {
 	fi
 
 	echo
-	curl --max-time 10 https://ifconfig.io/country_code || return 1
+	curl --max-time 10 https://ipconfig.io/country || return 1
 
 	export ftp_proxy="http://127.0.0.1:1080"
 	export http_proxy="socks5://127.0.0.1:1086"
@@ -58,7 +58,7 @@ socks_start() {
 	alias sudo='sudo -E'
 
 	echo
-	curl --max-time 10 https://ifconfig.io/country_code || socks_stop
+	curl --max-time 10 https://ipconfig.io/country || socks_stop
 	echo
 }
 
