@@ -59,15 +59,19 @@ if [[ "$dry_run" = 1 ]]; then
 		message 'forti.sh' 'please first install the required keys'
 	fi
 else
-	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/snapp1.up.enc" >"$root/encrypted/elahe/snapp1.up"
-	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/snapp1.conf.enc" >"$root/encrypted/elahe/snapp1.conf"
+	if [ -f "$HOME/.ssh/id_rsa" ]; then
+		age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/snapp1.up.enc" >"$root/encrypted/elahe/snapp1.up"
+		age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/snapp1.conf.enc" >"$root/encrypted/elahe/snapp1.conf"
+	else
+		message 'forti.sh' 'please first install the required keys'
+	fi
 fi
 
 if [[ "$dry_run" = 1 ]]; then
 	message 'forti.sh' 'we are on dry run'
 else
-	copycat "$root/encrypted/elahe/snapp1.conf" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
-	copycat "$root/encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.up" 0
+	copycat "forti.sh" "$root/encrypted/elahe/snapp1.conf" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
+	copycat "forti.sh" "$root/encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.up" 0
 
 	sudo tee "/Library/LaunchAgents/com.openconnect.snapp1.plist" <<EOL
 <?xml version="1.0" encoding="UTF-8"?>
