@@ -48,11 +48,17 @@ main_brew() {
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/WezTerm.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
-	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///opt/homebrew/opt/emacs-plus@30/Emacs.app</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+	if [[ "$USER" == "parham" ]]; then
+		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///opt/homebrew/opt/emacs-plus@30/Emacs.app</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+	fi
 
 	# Dock position on screen
 	# options: left, bottom, right
-	defaults write com.apple.dock orientation -string "left"
+	if [[ "$USER" == "parham" ]]; then
+		defaults write com.apple.dock orientation -string "left"
+	else
+		defaults write com.apple.dock orientation -string "bottom"
+	fi
 
 	# Show date
 	# when space allows = 0
