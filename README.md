@@ -132,6 +132,9 @@ Elahe has the following systems with [starship naming](https://namingschemes.com
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
+- [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBookPro (17,1) given by Snapp, and it should
+  return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
+
 The username is always set to `elahe`.
 
 ## Usage
