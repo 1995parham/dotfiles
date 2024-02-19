@@ -27,6 +27,7 @@ pre_main() {
 		"tie-fighter:Tie Fighter"
 		"death-star:Death Star"
 		"galactica:Galactica"
+		"sandcrawler:Sandcrawler"
 	)
 
 	select _hostname in "${hostnames[@]}"; do
