@@ -70,6 +70,7 @@ fi
 if [[ "$dry_run" = 1 ]]; then
 	message 'forti.sh' 'we are on dry run'
 else
+	mkdir "$(brew --prefix)/etc/openconnect" || true
 	copycat "forti.sh" "encrypted/elahe/snapp1.conf" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
 	copycat "forti.sh" "encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.up" 0
 
