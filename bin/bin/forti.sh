@@ -70,8 +70,8 @@ fi
 if [[ "$dry_run" = 1 ]]; then
 	message 'forti.sh' 'we are on dry run'
 else
-	copycat "forti.sh" "$root/encrypted/elahe/snapp1.conf" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
-	copycat "forti.sh" "$root/encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.up" 0
+	copycat "forti.sh" "encrypted/elahe/snapp1.conf" "$(brew --prefix)/etc/openconnect/snapp1.conf" 0
+	copycat "forti.sh" "encrypted/elahe/snapp1.up" "$(brew --prefix)/etc/openconnect/snapp1.up" 0
 
 	sudo tee "/Library/LaunchAgents/com.openconnect.snapp1.plist" <<EOL
 <?xml version="1.0" encoding="UTF-8"?>
