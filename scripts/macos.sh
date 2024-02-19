@@ -45,11 +45,17 @@ main_brew() {
 	msg "Dock, Dashboard, Control Center, and hot corners"
 
 	defaults write com.apple.dock persistent-apps -array
-	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
-	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/WezTerm.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
-	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	if [[ "$USER" == "parham" ]]; then
+		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+	else
+		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/iTerm.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+	fi
+	defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/WezTerm.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+	if [[ "$USER" == "parham" ]]; then
+		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///opt/homebrew/opt/emacs-plus@30/Emacs.app</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+	else
+		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	fi
 
 	# Dock position on screen
@@ -117,7 +123,7 @@ main_brew() {
 	if [[ "$USER" == "parham" ]]; then
 		defaults write com.apple.dock tilesize -int 36
 	else
-		defaults write com.apple.dock tilesize -int 72
+		defaults write com.apple.dock tilesize -int 48
 	fi
 
 	# Show indicator lights for open applications in the Dock
