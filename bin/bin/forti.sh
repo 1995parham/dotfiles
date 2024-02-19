@@ -103,6 +103,6 @@ EOL
 
 	sudo launchctl enable system/com.openconnect.snapp1
 
-	sudo launchctl bootout system /Library/LauchAgents/com.openconnect.snapp1.plist || true
-	sudo launchctl bootstrap system /Library/LauchAgents/com.openconnect.snapp1.plist || true
+	sudo launchctl bootout system /Library/LaunchAgents/com.openconnect.snapp1.plist || true
+	sudo launchctl bootstrap system /Library/LaunchAgents/com.openconnect.snapp1.plist || true
 fi
