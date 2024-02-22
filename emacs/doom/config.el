@@ -36,6 +36,9 @@
 ;; (setq doom-font (font-spec :family "JetBrains Mono" :height 1.0)
 ;;      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :height 1.3))
 (setq doom-font (font-spec :family "JetBrains Mono" :size 12))
+(when (equal (system-name) "millennium-falcon")
+  (setq doom-font (font-spec :family "JetBrains Mono" :size 10))
+  )
 ;;
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :height 90)
 
