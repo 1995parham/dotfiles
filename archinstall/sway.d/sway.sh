@@ -13,6 +13,6 @@ export NVD_BACKEND=direct
 export MOZ_ENABLE_WAYLAND=1
 
 eval "$(gnome-keyring-daemon --start 2>/dev/null)"
-export SSH_AUTH_SOCK
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 exec systemd-cat --identifier=sway sway --unsupported-gpu
