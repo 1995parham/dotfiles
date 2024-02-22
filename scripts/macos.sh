@@ -143,15 +143,15 @@ main_brew() {
 
 	msg
 	msg 'Setup an internet account for parham.alvani@gmail.com for Calendar and Contacts' 'notice'
-	yes_or_no 'Did you do it?'
+	yes_or_no "macos" 'Did you do it?'
 
 	msg
 	msg 'Disable ctrl+space short key to use tmux without pain' 'notice'
-	yes_or_no 'Did you do it?'
+	yes_or_no "macos" 'Did you do it?'
 
 	msg
 	msg 'Register Right Index Finger for fingerprint sensor' 'notice'
-	yes_or_no 'Did you do it?'
+	yes_or_no "macos" 'Did you do it?'
 
 }
 
