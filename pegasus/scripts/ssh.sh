@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
 	echo "Enable ssh-access to Pegasus"
 
@@ -26,10 +27,10 @@ main_pacman() {
 
 main() {
 	# shellcheck disable=2016
-	if ! grep -q -F 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK' \
+	if ! grep -q -F 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"' \
 		"$HOME/.profile"; then
 
-		echo 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK' |
+		echo 'eval "$(gnome-keyring-daemon --start 2>/dev/null)" >/dev/null 1>&2 && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"' |
 			tee -a "$HOME/.profile"
 	fi
 }
