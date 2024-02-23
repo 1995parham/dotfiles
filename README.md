@@ -231,10 +231,7 @@ I am using [`sway`](https://github.com/swaywm/) or [`hyprland`](https://github.c
 structured around creating soft links and because of that the duplicate configurations
 between these window-managers are gathered in `wayland/`.
 
-I worked with `sway`, but issues were too many (share screen is not working, screen flicks, etc.)
-and because of that, I migrated to use [`i3`](https://i3wm.org/) and X11 again.
-
-**You know, I am old now.**
+I also, have configuration for [`i3`](https://i3wm.org/) and [`awesomewm`](https://awesomewm.org/) as x11 window managers. The shared configuration of these two are placed in `x11` folder.
 
 ## [Emacs](https://www.gnu.org/software/emacs/)
 
