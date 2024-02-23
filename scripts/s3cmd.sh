@@ -18,7 +18,7 @@ pre_main() {
 }
 
 main_pacman() {
-	return 1
+	require_pacman s3cmd
 }
 
 main_apt() {
