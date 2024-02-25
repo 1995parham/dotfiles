@@ -45,6 +45,7 @@ brew_packages=(
 	yq
 	watch
 	mike-engel/jwt-cli/jwt-cli
+	taplo
 )
 
 apt_packages=(bmon atop jcal)
@@ -78,6 +79,7 @@ pacman_packages=(
 	bat-extras
 	tcpdump
 	powertop
+	taplo-cli
 )
 yay_packages=(
 	jcal
