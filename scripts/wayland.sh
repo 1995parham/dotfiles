@@ -89,6 +89,8 @@ main_pacman() {
 	# nautilus file manager (a.k.a files)
 	# https://wiki.archlinux.org/title/GNOME/Files
 	require_pacman ffmpegthumbnailer gst-libav gst-plugins-ugly nautilus
+
+	systemctl --user enable --now gcr-ssh-agent.service
 }
 
 main_parham() {
