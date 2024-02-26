@@ -17,7 +17,7 @@
   ],
   "modules-right": [
     "network#snapp",
-    "network#baly",
+    "network#pirouz",
     "network#aut",
     "network#offerland",
     "network#petropower",
@@ -54,8 +54,8 @@
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },
-  "network#baly": {
-    "interface": "baly",
+  "network#pirouz": {
+    "interface": "pirouz",
     "format": "{ifname}: {ipaddr}",
     "format-disconnected": ""
   },
