@@ -30,9 +30,12 @@ esac
 
 if [[ "${OSTYPE}" == "darwin"* ]]; then
 	message 'khik.sh' " darwin, using brew"
-	require_brew wireguard-tools
+
+	require_brew age wireguard-tools
 elif [[ -n "$(command -v pacman)" ]]; then
 	message 'khik.sh' " linux with pacman installed, using pacman/yay"
+
+	require_pacman age
 fi
 
 if [[ "$USER" = "parham" ]]; then
