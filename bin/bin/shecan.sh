@@ -3,14 +3,12 @@
 set -eu
 set -o pipefail
 
-program_name=$0
-
 usage() {
-	echo "Are you using shecan? Do you want to use it? Do you want your default DNS?"
-	echo "shecan.sh is here for you"
-	echo "usage: $program_name [-r] [-s] [-h] [-p ip]"
+	echo "Hey queen 👑👋"
+	echo "shecan.sh is here to setup shecan for you"
+	echo "usage: shecan.sh [-r] [-s] [-h] [-p ip]"
 	echo "  -r   reset dns to default"
-	echo "  -s   set dns to awesome shecan"
+	echo "  -s   set dns to shecan"
 	echo "  -h   display help"
 	echo "  -p   shecan dns server ip address"
 }
@@ -26,16 +24,16 @@ source "$root/scripts/lib/main.sh"
 
 case "$USER" in
 "parham")
-	message 'khik.sh' "Welcome impersonated queen 👑"
+	message 'shecan.sh' "Welcome impersonated queen 👑"
 	;;
 "elahe")
-	message 'khik.sh' "Welcome queen 👑"
+	message 'shecan.sh' "Welcome queen 👑"
 	;;
 "raha")
-	message 'khik.sh' "Welcome queen 👑"
+	message 'shecan.sh' "Welcome queen 👑"
 	;;
 *)
-	message 'khik.sh' "This script is not for you, shu shu"
+	message 'shecan.sh' "This script is not for you, shu shu"
 	exit 1
 	;;
 esac
@@ -79,6 +77,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [ "$setup" = true ]; then
 		message 'shecan.sh' "sets DNS to shecan ${shecan[*]}"
 		networksetup -setdnsservers Wi-Fi "${shecan[@]}"
+		curl 'https://ddns.shecan.ir/update?password=f45154507bd7bdd7'
 	fi
 else
 	message 'shecan.sh' "this script just works with OSx" 'error'
