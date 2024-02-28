@@ -51,6 +51,7 @@ fi
 
 if [[ "${OSTYPE}" != "darwin"* ]]; then
 	message 'khik.sh' 'the script is written to use with osx and by queen, for linux installation use parham-alvani/keys' 'error'
+	exit 1
 fi
 
 message 'khik.sh' 'decrypt configuration for alvani vpn using (over wireguard) elahe/raha public key 🔓'
