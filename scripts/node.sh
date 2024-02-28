@@ -14,19 +14,19 @@ usage() {
 }
 
 main_brew() {
-	msg "installing node from brew"
-	brew install node
+	msg "install node using brew"
+	require_brew node
 }
 
 main_apt() {
-	msg "installing node from its official apt repository"
-	curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-	sudo apt-get install -y nodejs
+	msg "installing node from node source apt repository (https://github.com/nodesource/distributions)"
+	curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&
+		sudo apt-get install -y nodejs
 
 }
 
 main_pacman() {
-	message "node" "install node with pacman"
+	msg "install node using pacman"
 	require_pacman nodejs npm
 }
 
