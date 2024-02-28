@@ -49,11 +49,6 @@ if [[ "$USER" = "parham" ]]; then
 	fi
 fi
 
-if [[ "${OSTYPE}" != "darwin"* ]]; then
-	message 'khik.sh' 'the script is written to use with osx and by queen, for linux installation use parham-alvani/keys' 'error'
-	exit 1
-fi
-
 message 'khik.sh' 'decrypt configuration for alvani vpn using (over wireguard) elahe/raha public key 🔓'
 if [ -f "$HOME/.ssh/raha_rsa" ]; then
 	age -d -i "$HOME/.ssh/raha_rsa" "$root/encrypted/elahe/millennium-falcon.conf.enc" >"$root/encrypted/elahe/millennium-falcon.conf"
@@ -63,6 +58,11 @@ elif [ -f "$HOME/.ssh/id_rsa" ]; then
 	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/sandcrawler.conf.enc" >"$root/encrypted/elahe/sandcrawler.conf"
 else
 	message 'khik.sh' 'please first install the required keys'
+fi
+
+if [[ "${OSTYPE}" != "darwin"* ]]; then
+	message 'khik.sh' 'the script is written to use with osx and by queen, for linux installation use parham-alvani/keys' 'error'
+	exit 1
 fi
 
 mkdir "$(brew --prefix)/etc/wireguard" || true
