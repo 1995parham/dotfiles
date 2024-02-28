@@ -6,11 +6,10 @@ set -o pipefail
 usage() {
 	echo "Hey queen 👑👋"
 	echo "shecan.sh is here to setup shecan for you"
-	echo "usage: shecan.sh [-r] [-s] [-h] [-p ip]"
+	echo "usage: shecan.sh [-r] [-s] [-h]"
 	echo "  -r   reset dns to default"
 	echo "  -s   set dns to shecan"
 	echo "  -h   display help"
-	echo "  -p   shecan dns server ip address"
 }
 
 source="$0"
@@ -61,7 +60,7 @@ while getopts 'rsh:' argv; do
 done
 
 # checks you shecan status
-http_code=$(curl -s -o /dev/null -w "%{http_code}" https://check.shecan.ir)
+http_code=$(curl -s -o /dev/null -w "%{http_code}" https://check.shecan.ir || true)
 if [ "$http_code" -eq 200 ]; then
 	message 'shecan.sh' "you are using shecan"
 else
