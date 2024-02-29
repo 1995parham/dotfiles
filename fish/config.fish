@@ -12,6 +12,8 @@ starship init fish | source
 fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
 
+set -U DOTIFLES_ROOT $(realpath "$(dirname (realpath ~/.config/fish/config.fish ))/..")
+
 function ls --description 'List contents of directory'
     command ls -G $argv
 end
