@@ -18,6 +18,10 @@ function ls --description 'List contents of directory'
     command ls -G $argv
 end
 
+if type -q navi
+  navi widget fish | source
+end
+
 # Setting PATH for Python 3.12
 # The original version is saved in /Users/elahe/.config/fish/config.fish.pysave
 set -x PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" "$PATH"
