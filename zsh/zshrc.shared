@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-dotfiles_source="$(cd "$(dirname "$(readlink -f "${(%):-%x}")")/.." && pwd)"
+dotfiles_source="$(cd "$(dirname "$(readlink "${(%):-%x}")")/.." && pwd)"
 export DOTFILES_ROOT="$dotfiles_source"
 
 # source bash profiles
