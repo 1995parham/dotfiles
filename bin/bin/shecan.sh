@@ -20,16 +20,19 @@ fi
 root="$(cd "$(dirname "$(realpath "$source")")/../.." && pwd)"
 
 source "$root/scripts/lib/main.sh"
+is_queen=false
 
 case "$USER" in
 "parham")
-	message 'shecan.sh' "Welcome impersonated queen 👑"
+	message 'shecan.sh' "Welcome panda 🐼"
 	;;
 "elahe")
 	message 'shecan.sh' "Welcome queen 👑"
+	is_queen=true
 	;;
 "raha")
 	message 'shecan.sh' "Welcome queen 👑"
+	is_queen=true
 	;;
 *)
 	message 'shecan.sh' "This script is not for you, shu shu"
@@ -76,7 +79,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [ "$setup" = true ]; then
 		message 'shecan.sh' "sets DNS to shecan ${shecan[*]}"
 		networksetup -setdnsservers Wi-Fi "${shecan[@]}"
-		curl 'https://ddns.shecan.ir/update?password=f45154507bd7bdd7'
+		if [[ "$is_queen" == true ]]; then
+			message 'shecan.sh' 'calls queen ddns on shecan to update her public ip address'
+			curl 'https://ddns.shecan.ir/update?password=f45154507bd7bdd7'
+		fi
 	fi
 else
 	message 'shecan.sh' "this script just works with OSx" 'error'
