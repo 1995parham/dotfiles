@@ -17,7 +17,7 @@ pre_main() {
 }
 
 main_pacman() {
-	return 1
+	require_pacman dbeaver
 }
 
 main_apt() {
@@ -25,7 +25,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew dbeaver-community
+	require_brew_cask dbeaver-community
 }
 
 main() {
