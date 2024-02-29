@@ -43,8 +43,14 @@ esac
 reset=false
 setup=false
 
-# please note that these are the pro address of shecan.
+# please note that these are the pro address of shecan,
+# so they will not work on not-registered public ip address.
 shecan=("178.22.122.101" "185.51.200.1")
+
+domains=(
+	"github.com"
+	"ipconfig.io"
+)
 
 while getopts 'rsh:' argv; do
 	case $argv in
@@ -70,7 +76,7 @@ else
 	message 'shecan.sh' "you are not using shecan"
 fi
 
-# sets or rests shecan DNS in OSx
+message 'shecan.sh' 'sets or rests shecan DNS in macOS'
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [ "$reset" = true ]; then
 		message 'shecan.sh' "resets DNS to DHCP defaults"
@@ -78,6 +84,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 	if [ "$setup" = true ]; then
 		message 'shecan.sh' "sets DNS to shecan ${shecan[*]}"
+
+		sudo mkdir '/etc/resolver' || true
+		for resolver in "${domains[@]}"; do
+			message "shecan.sh" "bypass $resolver from shecan"
+			echo "nameserver 8.8.8.8 8.4.4.8" | sudo tee "/etc/resolver/$resolver"
+		done
+
 		networksetup -setdnsservers Wi-Fi "${shecan[@]}"
 		if [[ "$is_queen" == true ]]; then
 			message 'shecan.sh' 'calls queen ddns on shecan to update her public ip address'
