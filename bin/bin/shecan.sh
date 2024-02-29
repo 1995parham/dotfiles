@@ -9,6 +9,7 @@ usage() {
 	echo "usage: shecan.sh [-r] [-s] [-h]"
 	echo "  -r   reset dns to default"
 	echo "  -s   set dns to shecan"
+	echo "  -l   list current macOS resolvers"
 	echo "  -h   display help"
 }
 
@@ -42,6 +43,7 @@ esac
 
 reset=false
 setup=false
+list=false
 
 # please note that these are the pro address of shecan,
 # so they will not work on not-registered public ip address.
@@ -52,7 +54,7 @@ domains=(
 	"ipconfig.io"
 )
 
-while getopts 'rsh:' argv; do
+while getopts 'rshl' argv; do
 	case $argv in
 	h)
 		usage
@@ -63,6 +65,9 @@ while getopts 'rsh:' argv; do
 		;;
 	s)
 		setup=true
+		;;
+	l)
+		list=true
 		;;
 	*) ;;
 	esac
@@ -78,19 +83,22 @@ fi
 
 message 'shecan.sh' 'sets or rests shecan DNS in macOS'
 if [[ "$OSTYPE" == "darwin"* ]]; then
+	if [ "$list" = true ]; then
+		scutil --dns
+	fi
 	if [ "$reset" = true ]; then
 		message 'shecan.sh' "resets DNS to DHCP defaults"
 		networksetup -setdnsservers Wi-Fi empty
 	fi
 	if [ "$setup" = true ]; then
-		message 'shecan.sh' "sets DNS to shecan ${shecan[*]}"
-
+		message 'shecan.sh' 'bypass domains from shecan'
 		sudo mkdir '/etc/resolver' || true
 		for resolver in "${domains[@]}"; do
 			message "shecan.sh" "bypass $resolver from shecan"
-			echo "nameserver 8.8.8.8 8.4.4.8" | sudo tee "/etc/resolver/$resolver"
+			printf "nameserver 8.8.8.8\nnameserver 8.4.4.8\n" | sudo tee "/etc/resolver/$resolver"
 		done
 
+		message 'shecan.sh' "sets DNS to shecan ${shecan[*]}"
 		networksetup -setdnsservers Wi-Fi "${shecan[@]}"
 		if [[ "$is_queen" == true ]]; then
 			message 'shecan.sh' 'calls queen ddns on shecan to update her public ip address'
