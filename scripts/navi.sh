@@ -34,3 +34,11 @@ main_parham() {
 	repo=cheats
 	clone "git@github.com:${user}/${repo}" "$(navi info cheats-path)" "${user}__${repo}"
 }
+
+main_elahe() {
+	main_parham
+}
+
+main_raha() {
+	main_parham
+}
