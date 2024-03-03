@@ -52,6 +52,7 @@ shecan=("178.22.122.101" "185.51.200.1")
 domains=(
 	"github.com"
 	"ipconfig.io"
+	"snappcloud.io"
 )
 
 while getopts 'rshl' argv; do
