@@ -143,12 +143,6 @@ user_pattern = ".*elahe.dastan.*"
 user_alias = "elahe"
 context_alias = "lotus"
 
-[[kubernetes.contexts]]
-context_pattern = "gt.kaytu.io-(?P<site>.*)"
-user_pattern = ".*"
-user_alias = "parham"
-context_alias = "$site"
-
 [hostname]
 ssh_only = false
 format = '[$ssh_symbol](fg:#ffae1a bg:#1f1f1f)[$hostname](fg:#00bfff bg:#1f1f1f bold)'
