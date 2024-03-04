@@ -15,6 +15,7 @@ usage() {
 }
 
 main_pacman() {
+	require_pacman font-manager
 	require_aur micromamba-bin
 }
 
