@@ -15,7 +15,7 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman font-manager
+	require_pacman ttf-liberation
 	require_aur micromamba-bin
 }
 
