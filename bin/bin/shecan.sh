@@ -54,6 +54,7 @@ domains=(
 	"ipconfig.io"
 	"snappcloud.io"
 	"snapp.tech"
+	"shop"
 )
 
 while getopts 'rshl' argv; do
