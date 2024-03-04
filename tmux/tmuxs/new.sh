@@ -142,13 +142,13 @@ fi
 
 cd -
 
+name="${name} 📁"
+
 prefix=0
 while tmux has-session -t "$current_session:=$name" &>/dev/null; do
 	name="${name}_${prefix}"
 	prefix=$((prefix + 1))
 done
-
-name="${name} 📁"
 
 tmux new-window -t "$current_session" -c "$project" -n "$name"
 # show project information on the last pane. this doesn't work with pipenv shell
