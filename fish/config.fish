@@ -52,6 +52,9 @@ if type -q navi
   end
 end
 
-# Setting PATH for Python 3.12
-# The original version is saved in /Users/elahe/.config/fish/config.fish.pysave
-set -x PATH "/Library/Frameworks/Python.framework/Versions/3.12/bin" "$PATH"
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+set -gx MAMBA_EXE "/opt/homebrew/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "$HOME/micromamba"
+$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+# <<< mamba initialize <<<
