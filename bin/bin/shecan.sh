@@ -56,6 +56,7 @@ domains=(
 	"snapp.tech"
 	"snapp.cab"
 	"shop"
+	"home"
 )
 
 while getopts 'rshl' argv; do
