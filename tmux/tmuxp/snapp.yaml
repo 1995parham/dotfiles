@@ -9,7 +9,7 @@ windows:
       - start_directory: ~/Documents/Git/parham/snapp/platform/emqx/ignite
       - start_directory: ~/Documents/Git/parham/snapp/platform/nats/ignite
 
-  - window_name: scratch ✏️
+  - window_name: scratch 📝
     layout: tiled
     start_directory: ~/Downloads
     focus: true

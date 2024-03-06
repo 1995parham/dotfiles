@@ -10,7 +10,7 @@ windows:
       - pane
       - pane
 
-  - window_name: scratch ✏️
+  - window_name: scratch 📝
     layout: tiled
     start_directory: ~/Downloads
     focus: true

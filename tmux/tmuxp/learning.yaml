@@ -1,7 +1,7 @@
 ---
 session_name: Learning
 windows:
-  - window_name: scratch ✏️
+  - window_name: scratch 📝
     layout: tiled
     start_directory: ~/Downloads
     panes:

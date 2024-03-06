@@ -2,7 +2,7 @@
 session_name: Main
 before_script: "$HOME/.config/tmuxs/hello.sh"
 windows:
-  - window_name: dotfiles ⚙️
+  - window_name: dotfiles 🔨
     layout: tiled
     panes:
       - start_directory: ~/dotfiles
@@ -23,7 +23,7 @@ windows:
           - git pull origin main &> /dev/null
           - figlet 'I cannot remember anything' | lolcat -S 57
 
-  - window_name: scratch ✏️
+  - window_name: scratch 📝
     layout: tiled
     start_directory: ~/Downloads
     panes:
@@ -52,7 +52,7 @@ windows:
           - git pull origin main &> /dev/null
           - figlet 'Stick to your habits' | lolcat -S 57
 
-  - window_name: raha ❤️
+  - window_name: raha 🧡
     layout: even-vertical
     panes:
       - shell_command:
