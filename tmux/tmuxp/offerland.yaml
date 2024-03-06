@@ -21,7 +21,7 @@ windows:
       - pane
       - pane
 
-  - window_name: wiki ℹ️
+  - window_name: wiki 📚
     layout: tiled
     start_directory: ~/Downloads
     panes:
