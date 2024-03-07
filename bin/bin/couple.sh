@@ -56,6 +56,27 @@ to_birthday() {
 	echo -e "$days days $hours hours $minutes minutes\nHow much left until to her birthday?"
 }
 
+to_departure() {
+	local minute=$((60))
+	local hour=$((minute * 60))
+	local day=$((hour * 24))
+
+	local to
+	to=$(date -d "20 jun 2024 00:00:00" "+%s")
+	local now
+	now=$(date -d "now" "+%s")
+
+	local diff=$((to - now))
+
+	local days=$((diff / day))
+	diff=$((diff - days * day))
+	local hours=$((diff / hour))
+	diff=$((diff - hours * hour))
+	local minutes=$((diff / minute))
+
+	echo -e "$days days $hours hours $minutes minutes\nHow much left until/since her departure?"
+}
+
 since_first_family_meeting() {
 	since- "18 nov 2022 15:30:00"
 	echo "How much since our first family meeting?"
@@ -91,6 +112,9 @@ else
 		;;
 	'relationship')
 		in_relationship
+		;;
+	'departure')
+		to_departure
 		;;
 	'first_family_meeting')
 		since_first_family_meeting
