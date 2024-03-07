@@ -1,3 +1,4 @@
+// vim: ft=jsonc
 {
   "position": "bottom",
   "ipc": true,
@@ -5,7 +6,8 @@
   "height": 33,
   "modules-center": [
     "custom/love#relationship",
-    "idle_inhibitor",
+    // "idle_inhibitor",
+    "custom/love#departure",
     "custom/love#birthday"
   ],
   "modules-left": [
@@ -83,6 +85,11 @@
     "interval": 3600,
     "exec": "$HOME/.config/waybar/scripts/couple.sh relationship",
     "format": " {}"
+  },
+  "custom/love#departure": {
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/scripts/couple.sh departure",
+    "format": "󰀝 {}"
   },
   "custom/love#birthday": {
     "interval": 3600,

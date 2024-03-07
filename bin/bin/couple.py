@@ -16,10 +16,18 @@ def calculate_time_difference(
     return days, hours, minutes
 
 
+def to_departure():
+    to = datetime.datetime.strptime(f"20 jun 2024 00:00:00", "%d %b %Y %H:%M:%S")
+    now = datetime.datetime.now()
+
+    days, hours, minutes = calculate_time_difference(now, to)
+
+    print(f"{days} days {hours} hours {minutes} minutes")
+    print("How much left until/since her depature?")
+
+
 def in_relationship():
-    start_date = datetime.datetime.strptime(
-        "13 feb 2020 22:26:00", "%d %b %Y %H:%M:%S"
-    )
+    start_date = datetime.datetime.strptime("13 feb 2020 22:26:00", "%d %b %Y %H:%M:%S")
     now = datetime.datetime.now()
 
     days, hours, minutes = calculate_time_difference(start_date, now)
@@ -32,9 +40,7 @@ def to_birthday():
     this_year = datetime.datetime.now().year
     next_year = this_year + 1
 
-    to = datetime.datetime.strptime(
-        f"12 oct {this_year} 19:20:00", "%d %b %Y %H:%M:%S"
-    )
+    to = datetime.datetime.strptime(f"12 oct {this_year} 19:20:00", "%d %b %Y %H:%M:%S")
     now = datetime.datetime.now()
 
     diff = to - now
@@ -52,9 +58,7 @@ def to_birthday():
 
 
 def since_first_family_meeting():
-    start_date = datetime.datetime.strptime(
-        "18 nov 2022 15:30:00", "%d %b %Y %H:%M:%S"
-    )
+    start_date = datetime.datetime.strptime("18 nov 2022 15:30:00", "%d %b %Y %H:%M:%S")
     now = datetime.datetime.now()
 
     days, hours, minutes = calculate_time_difference(start_date, now)
@@ -64,9 +68,7 @@ def since_first_family_meeting():
 
 
 def since_first_family_dinner():
-    start_date = datetime.datetime.strptime(
-        "31 mar 2023 19:00:00", "%d %b %Y %H:%M:%S"
-    )
+    start_date = datetime.datetime.strptime("31 mar 2023 19:00:00", "%d %b %Y %H:%M:%S")
     now = datetime.datetime.now()
 
     days, hours, minutes = calculate_time_difference(start_date, now)
@@ -100,5 +102,7 @@ if __name__ == "__main__":
             to_birthday()
         elif option == "relationship":
             in_relationship()
+        elif option == "departure":
+            to_departure()
         elif option == "first_family_meeting":
             since_first_family_meeting()
