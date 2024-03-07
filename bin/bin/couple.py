@@ -22,7 +22,7 @@ def to_departure():
 
     days, hours, minutes = calculate_time_difference(now, to)
 
-    print(f"{days} days {hours} hours {minutes} minutes")
+    print(f"🛫 {days} days {hours} hours {minutes} minutes")
     print("How much left until/since her depature?")
 
 
@@ -32,7 +32,7 @@ def in_relationship():
 
     days, hours, minutes = calculate_time_difference(start_date, now)
 
-    print(f"{days} days {hours} hours {minutes} minutes")
+    print(f"🧡 {days} days {hours} hours {minutes} minutes")
     print("How long we were together?")
 
 
@@ -53,7 +53,7 @@ def to_birthday():
 
     days, hours, minutes = calculate_time_difference(now, to)
 
-    print(f"{days} days {hours} hours {minutes} minutes")
+    print(f"🎂 {days} days {hours} hours {minutes} minutes")
     print("How much left until her birthday?")
 
 
