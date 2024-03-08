@@ -51,9 +51,11 @@ fi
 
 message 'khik.sh' 'decrypt configuration for alvani vpn using (over wireguard) elahe/raha public key 🔓'
 if [ -f "$HOME/.ssh/raha_rsa" ]; then
+	message 'khik.sh' '🐼'
 	age -d -i "$HOME/.ssh/raha_rsa" "$root/encrypted/elahe/millennium-falcon.conf.enc" >"$root/encrypted/elahe/millennium-falcon.conf"
 	age -d -i "$HOME/.ssh/raha_rsa" "$root/encrypted/elahe/sandcrawler.conf.enc" >"$root/encrypted/elahe/sandcrawler.conf"
 elif [ -f "$HOME/.ssh/id_rsa" ]; then
+	message 'khik.sh' '👑'
 	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/millennium-falcon.conf.enc" >"$root/encrypted/elahe/millennium-falcon.conf"
 	age -d -i "$HOME/.ssh/id_rsa" "$root/encrypted/elahe/sandcrawler.conf.enc" >"$root/encrypted/elahe/sandcrawler.conf"
 else
