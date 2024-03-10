@@ -33,6 +33,9 @@ main_parham() {
 	user=1995parham
 	repo=cheats
 	clone "git@github.com:${user}/${repo}" "$(navi info cheats-path)" "${user}__${repo}"
+	user=1995parham-goodies
+	repo=nats-cheats
+	clone "git@github.com:${user}/${repo}" "$(navi info cheats-path)" "${user}__${repo}"
 }
 
 main_elahe() {
