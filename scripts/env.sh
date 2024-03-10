@@ -46,6 +46,7 @@ brew_packages=(
 	watch
 	mike-engel/jwt-cli/jwt-cli
 	taplo
+	actionlint
 )
 
 apt_packages=(bmon atop jcal)
