@@ -24,7 +24,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 else
 	# . character has special meaning for tmux, it uses
-	# it for separating window from pane.
+	# that for separating window from pane.
 	name="-|-$(basename "$host" | tr '.' '_')"
 	current_session="$(tmux display-message -p '#S')"
 
