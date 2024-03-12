@@ -84,7 +84,7 @@ or you can use mine (it's crystal clear these values is useful only for **me** a
 ./start.sh git
 ```
 
-Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.com/1995parham/elievim) configurations:
+Run `start.sh neovim` script to install `neovim` with [`ElieVIM`](https://github.com/1995parham/elievim) configurations:
 
 ```bash
 ./start.sh neovim
@@ -92,9 +92,12 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 
 ## Hosts (naming based on Star Wars and Battlestar Galactica movies)
 
-### Parham
+Elahe and I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows.
+Here is the list of available resources to find name names using the schema.
 
-I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
+- <https://en.wikipedia.org/wiki/List_of_fictional_spacecraft>
+
+### Parham
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
@@ -110,9 +113,7 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
 ### Elahe
 
-Elahe has the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
-
-- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBookPro (17,1) given by Snapp, and it should
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Pro (17,1) given by Snapp, and it should
   return to them when I decide to leave. The last `macOS` installation happened on 14 Oct 2023. ✅
 
   |   Type    |                     Value                     |
@@ -121,7 +122,7 @@ Elahe has the following systems with [starship naming](https://namingschemes.com
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
-- [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBookPro (17,1) given by Snapp, and it should
+- [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (17,1) given by Snapp, and it should
   return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
 
 The username is always set to `elahe`.
