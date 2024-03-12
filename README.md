@@ -96,17 +96,6 @@ Run `start.sh neovim` script to install neovim with [`ElieVIM`](https://github.c
 
 I have the following systems with [starship naming](https://namingschemes.com/Starships) as follows:
 
-- [`pegasus`](<https://en.wikipedia.org/wiki/Pegasus_(Battlestar_Galactica)>): Lenovo Y9000K 2022 Gaming Laptop
-  which is huge and always stays at home. The last `Archlinux` installation happened
-  on 15 Jan 2024 using `archlinux-2024.01.01-x86_64.iso`. ✅
-
-  |    Type    |                  Value                  |
-  | :--------: | :-------------------------------------: |
-  |   System   |    `LENOVO 82TD Legion Y9000K IAX7`     |
-  | Processor  | `12th Gen Intel(R) Core(TM) i9-12900HX` |
-  | Memory (1) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
-  | Memory (2) |  `DDR5 - SK Hynix - 16 GB - 4800 MT/s`  |
-
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
   The last `macOS Ventura` installation happened on 21 Dec 2023. ✅
