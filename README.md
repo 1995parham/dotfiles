@@ -252,19 +252,19 @@ To work with workspace just start with `SPACE-TAB`.
 ## Windows as Virtual Machine
 
 Because there are software applications like [Microsoft Office](https://www.office.com/) that are only available on Windows,
-I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM) on my host machine to use them.
+I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM)
+or VMWare Fusion on my host machine to use them. Based on my naming schema, I named it `Rager`.
 
 ### What do we need to do after installation?
 
-During installation, you need to provide your Outlook account and then you have an up and running system in no time.
+During installation, you need to provide your Outlook account, and then you have an up and running system in no time.
 These are the software that I need on my system:
 
 |         Name          | How to Install?                                        |
 | :-------------------: | :----------------------------------------------------- |
-| Microsoft office 2021 | [p30download](https://p30download.ir/fa/entry/101362/) |
-|      JumpDesktop      | [JumpDesktop](https://jumpdesktop.com/)                |
-|    Github Desktop     | `winget install 'github desktop'`                      |
-|        VSCode         | `winget install vscode`                                |
+| Microsoft Office 2021 | [p30download](https://p30download.ir/fa/entry/101362/) |
+|    GitHub Desktop     | `winget install 'github desktop'`                      |
+|  Visual Studio Code   | `winget install vscode`                                |
 |       Anaconda        | `winget install anaconda3`                             |
 |   Adobe Acrobat Pro   | [p30download](https://p30download.ir/fa/entry/58302/)  |
 |          Git          | `winget install Git.Git`                               |
