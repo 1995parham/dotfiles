@@ -53,6 +53,7 @@ domains=(
 	"github.com"
 	"ipconfig.io"
 	"snappcloud.io"
+	"staging-snappcloud.io"
 	"snapp.tech"
 	"snapp.cab"
 	"shop"
