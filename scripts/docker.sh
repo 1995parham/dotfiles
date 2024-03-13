@@ -22,7 +22,7 @@ main_apt() {
 
 main_brew() {
 	require_brew_cask docker
-	require_brew lazydocker hadolint docker-completion
+	require_brew lazydocker hadolint docker-completion dive
 }
 
 main_pacman() {
