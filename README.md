@@ -254,7 +254,7 @@ To work with workspace just start with `SPACE-TAB`.
 
 Because there are software applications like [Microsoft Office](https://www.office.com/) that are only available on Windows,
 I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM)
-or VMWare Fusion on my host machine to use them. Based on my naming schema, I named it `Roger`.
+or VMWare Fusion on my host machine to use them. Based on my naming schema, I named it `Rager`.
 
 ### What do we need to do after installation?
 
