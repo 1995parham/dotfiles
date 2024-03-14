@@ -162,14 +162,14 @@ To find software compatible with sway, always check the [`are we wayland yet`](h
 
 |          Role          | How to Install?           | ArchLinux                                 | macOS                           |
 | :--------------------: | :------------------------ | :---------------------------------------- | :------------------------------ |
-|        Anydesk         | `anydesk-bin (yay)`       | Anydesk                                   | -                               |
+|        AnyDesk         | `anydesk-bin (yay)`       | AnyDesk                                   | -                               |
 |        Browser         | `./start.sh browser`      | Google Chrome Beta                        | Google Chrome Beta              |
 |        Calendar        | `./start.sh env`          | `cal`, `jcal`                             | `cal`, `jcal`                   |
 |         Camera         | `guvcview (pacman)`       | `guvcview`                                | Photo Booth                     |
 |  cat clone with wings  | `./start.sh env`          | `bat`                                     | `bat`                           |
 |         Fetch          | `./start.sh fetch`        | `neofetch`, `onefetch`, `tokei`           | `neofetch`, `onefetch`, `tokei` |
-|          BTop          | `./start.sh btop`         | `btop`                                    | `btop`                          |
-|    Container Engine    | `./start.sh docker`       | `docker`                                  | Docker Desktop                  |
+|         `btop`         | `./start.sh btop`         | `btop`                                    | `btop`                          |
+|    Container Engine    | `./start.sh docker`       | `docker`                                  | Docker                          |
 |    Desktop Manager     | `./archinstall/i3.sh`     | `lightdm`                                 | -                               |
 |     Window Manager     | `./archinstall/i3.sh`     | `i3`                                      | -                               |
 |       Dictionary       | `./start.sh def`          | `def`                                     | `def`                           |
@@ -204,11 +204,11 @@ To find software compatible with sway, always check the [`are we wayland yet`](h
 |      Video Editor      | `./start.sh ffmpeg`       | `ffmpeg`                                  | `ffmpeg`                        |
 |      Video Player      | `./start.sh mpv`          | `mpv`                                     | `mpv`                           |
 |       Wallpaper        | `./start.sh i3`           | `feh`                                     | -                               |
-|   Youtube Downloader   | `./start.sh yt-dlp`       | `yt-dlp`                                  | `yt-dlp`                        |
+|   YouTube Downloader   | `./start.sh yt-dlp`       | `yt-dlp`                                  | `yt-dlp`                        |
 |        Timezone        | `./start.sh gotz`         | `gotz`                                    | -                               |
 |      Google Cloud      | `./start.sh gcloud`       | `gcloud`                                  | -                               |
 | Multi-OS Bootable Disk | `./start.sh ventoy`       | `ventoy`                                  | -                               |
-|  LaTex/XeTex/Texlive   | `./start.sh tex`          | `tectonic`                                | `tectonic`                      |
+|  LaTeX/XeTeX/TeXLive   | `./start.sh tex`          | `tectonic`                                | `tectonic`                      |
 |    Bandwidth Usage     | `./start.sh env`          | `bandwhich`                               | -                               |
 |          TLDR          | `./start.sh tealdeer`     | `tldr`                                    | `tldr`                          |
 |          DNS           | `./start.sh blocky`       | `blocky`                                  | -                               |
@@ -221,7 +221,8 @@ I am using [`sway`](https://github.com/swaywm/) or [`hyprland`](https://github.c
 structured around creating soft links and because of that the duplicate configurations
 between these window-managers are gathered in `wayland/`.
 
-I also, have configuration for [`i3`](https://i3wm.org/) and [`awesomewm`](https://awesomewm.org/) as x11 window managers. The shared configuration of these two are placed in `x11` folder.
+I also, have configuration for [`i3`](https://i3wm.org/) and [`awesomewm`](https://awesomewm.org/) as x11 window managers.
+The shared configuration of these two are placed in `x11` folder.
 
 ## [Emacs](https://www.gnu.org/software/emacs/)
 
@@ -253,7 +254,7 @@ To work with workspace just start with `SPACE-TAB`.
 
 Because there are software applications like [Microsoft Office](https://www.office.com/) that are only available on Windows,
 I install Windows using [KVM](https://www.redhat.com/en/topics/virtualization/what-is-KVM)
-or VMWare Fusion on my host machine to use them. Based on my naming schema, I named it `Rager`.
+or VMWare Fusion on my host machine to use them. Based on my naming schema, I named it `Roger`.
 
 ### What do we need to do after installation?
 
