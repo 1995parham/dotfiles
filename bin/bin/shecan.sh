@@ -56,6 +56,7 @@ domains=(
 	"staging-snappcloud.io"
 	"snapp.tech"
 	"snapp.cab"
+	"baly.app"
 	"shop"
 	"home"
 )
