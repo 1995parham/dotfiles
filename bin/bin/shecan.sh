@@ -59,7 +59,8 @@ domains=(
 	"baly.app"
 	"shop"
 	"home"
-	"parham.cvpn-endpoint-0e653e453135a4555.prod.clientvpn.us-west-2.amazonaws.com"
+	"clientvpn.us-west-2.amazonaws.com"
+	"rds.amazonaws.com"
 )
 
 while getopts 'rshl' argv; do
