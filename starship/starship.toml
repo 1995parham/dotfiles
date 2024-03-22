@@ -24,7 +24,7 @@ $git_branch\
 $git_status\
 $git_state\
 $docker_context
-└ ${custom.neovim}$character$jobs${env_var.http_proxy}
+└ ${env_var.NVIM}$character$jobs${env_var.http_proxy}
 """
 
 right_format = """
@@ -91,7 +91,7 @@ cherry_pick = '[ PICKING](bold red)'
 [golang]
 symbol = " "
 style = "fg:#86BBD8"
-format = '[ \[ $symbol ($version) \] ]($style)'
+format = '[ \[ $symbol ($version $mod_version) \] ]($style)'
 
 [java]
 symbol = " "
@@ -181,17 +181,15 @@ style = 'fg:#66E166'
 symbol = ' 󰊤 '
 description = 'github-cli current user'
 
-[custom.neovim]
-command = ''
-when = 'test -n "$NVIM"'
+[env_var.NVIM]
 style = 'fg:#32cd32'
-symbol = '  '
+symbol = ' '
+format = ' [$symbol]($style)'
 description = 'are we in neovim?'
 
 [env_var.http_proxy]
 variable = "http_proxy"
 format = " 󰞇 "
-disabled = false
 
 [aws]
 format = '[$symbol($profile )(\($region\) )]($style)'
