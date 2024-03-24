@@ -141,6 +141,12 @@ main_brew() {
 	defaults write NSGlobalDomain AppleLocale -string en_US
 	defaults write NSGlobalDomain AppleLanguages -array "en-US" "fa-IR"
 
+	# change new finder window dafault path
+	defaults write com.apple.finder NewWindowTarget -string "PfLo"
+	defaults write com.apple.finder NewWindowTargetPath -string "file:///$HOME/Downloads"
+
+	killall Finder
+
 	msg
 	msg 'Setup an internet account for parham.alvani@gmail.com for Calendar and Contacts' 'notice'
 	yes_or_no "macos" 'Did you do it?'
