@@ -27,5 +27,5 @@ main() {
 	dotfile mamba mambarc
 
 	micromamba shell init --shell=zsh --prefix="$HOME/micromamba"
-	micromamba install -n base jupyterlab pandas numpy geopandas
+	micromamba install -n base jupyterlab pandas numpy geopandas polars
 }
