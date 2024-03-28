@@ -47,9 +47,7 @@ list=false
 
 # please note that these are the pro address of shecan,
 # so they will not work on not-registered public ip address.
-# shecan=("178.22.122.101" "185.51.200.1")
-# https://403.online/
-shecan=("10.202.10.102" "10.202.10.202")
+shecan=("178.22.122.101" "185.51.200.1")
 
 domains=(
 	"github.com"
