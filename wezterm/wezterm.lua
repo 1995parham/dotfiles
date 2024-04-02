@@ -98,7 +98,7 @@ wezterm.on("update-right-status", function(window, _)
 			elseif 80 <= percentage and percentage < 90 then
 				bat = wezterm.nerdfonts.md_battery_90 .. " "
 			else
-				bat = wezterm.nerdfonts.md_battery_100 .. " "
+				bat = wezterm.nerdfonts.md_battery .. " "
 			end
 		end
 
