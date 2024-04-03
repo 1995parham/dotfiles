@@ -41,7 +41,6 @@ brew_packages=(
 	teamookla/speedtest/speedtest
 	chafa
 	mtr
-	dog
 	yq
 	watch
 	mike-engel/jwt-cli/jwt-cli
@@ -62,7 +61,7 @@ pacman_packages=(
 	dua-cli
 	github-cli glab
 	inetutils websocat fuse2
-	dog go-yq man-pages usbutils exfat-utils
+	go-yq man-pages usbutils exfat-utils
 	openbsd-netcat
 	cpupower
 	reflector
