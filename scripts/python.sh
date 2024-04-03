@@ -29,7 +29,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew python@3.11 pipx pyenv
+	require_brew python@3.11 pipx pyenv python
 
 	msg 'GDAL is a translator library for raster and vector geospatial data formats'
 	require_brew gdal
@@ -43,9 +43,6 @@ main_pacman() {
 
 	msg 'MySQL/MariaDB client library'
 	require_pacman mariadb-clients
-
-	# msg "update user-local version of pip"
-	# python -mpip install --user --pre -U pip
 }
 
 python-install-packages() {
