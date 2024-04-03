@@ -32,6 +32,7 @@ brew_packages=(
 	ripgrep
 	fd
 	glab
+	jless
 	gh
 	just
 	bat-extras
