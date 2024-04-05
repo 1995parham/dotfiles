@@ -13,7 +13,7 @@ jobs:
       - name: start.sh env
         run: ./start.sh -y env
       - name: install.sh
-        run: ./install.sh
+        run: ./install.sh -y
       - name: validate symbolic links
         run: |
           test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
@@ -29,7 +29,7 @@ jobs:
       - name: start.sh env
         run: ./start.sh -y env
       - name: install.sh
-        run: ./install.sh
+        run: ./install.sh -y
       - name: validate symbolic links
         run: |
           test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
