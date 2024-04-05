@@ -109,6 +109,8 @@ Here is the list of available resources to find name names using the schema.
   | Processor | `Apple M2 Pro 10 (6 performance and 4 efficiency)` |
   |  Memory   |             `LPDDR5 - Micron - 16 GB`              |
 
+  ![](https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white)
+
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Pro (17,1) given by Snapp, and it should
   return to them when I decide to leave. The last `macOS Ventura` installation happened on 1 Apr 2024. ✅
 
@@ -117,6 +119,8 @@ Here is the list of available resources to find name names using the schema.
   |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
+
+  ![](https://img.shields.io/badge/Apple-MacBook_Pro_(13--inch,_M1,_2021)-333333?style=for-the-badge&logo=apple&logoColor=white)
 
 The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
@@ -130,6 +134,8 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
   |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 8 GB`             |
+
+  ![](https://img.shields.io/badge/Apple-MacBook_Pro_(13--inch,_M1,_2021)-333333?style=for-the-badge&logo=apple&logoColor=white)
 
 The username is always set to `elahe`.
 
