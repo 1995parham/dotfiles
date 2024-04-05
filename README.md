@@ -128,12 +128,12 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
 - [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (17,1) given by Snapp, and it should
   return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
-  
+
   |   Type    |                     Value                     |
   | :-------: | :-------------------------------------------: |
   |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
-  |  Memory   |           `LPDDR4 - Hynix - 8 GB`             |
+  |  Memory   |            `LPDDR4 - Hynix - 8 GB`            |
 
   ![](https://img.shields.io/badge/Apple-MacBook_Pro_(13--inch,_M1,_2021)-333333?style=for-the-badge&logo=apple&logoColor=white)
 
