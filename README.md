@@ -109,12 +109,8 @@ Here is the list of available resources to find name names using the schema.
   | Processor | `Apple M2 Pro 10 (6 performance and 4 efficiency)` |
   |  Memory   |             `LPDDR5 - Micron - 16 GB`              |
 
-The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
-
-### Elahe
-
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Pro (17,1) given by Snapp, and it should
-  return to them when I decide to leave. The last `macOS` installation happened on 14 Oct 2023. ✅
+  return to them when I decide to leave. The last `macOS Ventura` installation happened on 1 Apr 2024. ✅
 
   |   Type    |                     Value                     |
   | :-------: | :-------------------------------------------: |
@@ -122,8 +118,18 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
   | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
   |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
 
+The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
+
+### Elahe
+
 - [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (17,1) given by Snapp, and it should
   return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
+  
+  |   Type    |                     Value                     |
+  | :-------: | :-------------------------------------------: |
+  |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
+  | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
+  |  Memory   |           `LPDDR4 - Hynix - 8 GB`             |
 
 The username is always set to `elahe`.
 
