@@ -98,6 +98,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [ "$reset" = true ]; then
 		message 'shecan.sh' "resets DNS to DHCP defaults"
 		networksetup -setdnsservers Wi-Fi empty
+
+		for resolver in "${domains[@]}"; do
+			message "shecan.sh" "bypass $resolver from shecan"
+			sudo rm "/etc/resolver/$resolver" || true
+		done
 	fi
 	if [ "$setup" = true ]; then
 		message 'shecan.sh' 'bypass domains from shecan'
