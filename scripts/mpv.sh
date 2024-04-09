@@ -12,7 +12,7 @@ usage() {
 }
 
 main_brew() {
-	require_brew_cask mpv
+	require_brew_cask stolendata-mpv
 }
 
 main_pacman() {
