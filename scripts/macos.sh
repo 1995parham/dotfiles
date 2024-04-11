@@ -54,6 +54,7 @@ main_brew() {
 	if [[ "$USER" == "parham" ]]; then
 		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome Beta.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///opt/homebrew/opt/emacs-plus@30/Emacs.app</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Obsidian.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	else
 		defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
 	fi
