@@ -47,6 +47,7 @@ brew_packages=(
 	mike-engel/jwt-cli/jwt-cli
 	taplo
 	actionlint
+	xdg-ninja
 )
 
 apt_packages=(bmon atop jcal)
