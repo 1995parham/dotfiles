@@ -54,7 +54,7 @@ install-conf() {
 	configfile "aria2" "" "conf"
 	configfile "htop" "" "conf"
 
-	dotfile "curl" "curlrc"
+	configrootfile "curl" ".curlrc"
 	dotfile "wget" "wgetrc"
 }
 
