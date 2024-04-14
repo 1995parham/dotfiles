@@ -71,11 +71,11 @@ install-tmux() {
 	configfile "tmuxp" "" "tmux"
 
 	message "tmux" "installing tmux plugins"
-	if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
-		mkdir -p ~/.config/tmux/plugins
-		git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+	if [ ! -d "$HOME/.local/share/tmux/plugins/tpm" ]; then
+		mkdir -p ~/.local/share/tmux/plugins
+		git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 	fi
-	"$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
+	"$HOME/.local/share/tmux/plugins/tpm/bin/install_plugins"
 }
 
 # bin
