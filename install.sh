@@ -50,8 +50,8 @@ install-vim() {
 # which are installed by ./start.sh env
 install-conf() {
 	dotfile "conf" "dircolors"
-	dotfile "conf" "aria2"
 
+	configfile "aria2" "" "conf"
 	configfile "htop" "" "conf"
 
 	dotfile "curl" "curlrc"
