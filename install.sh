@@ -66,16 +66,16 @@ install-wakatime() {
 
 # tmux
 install-tmux() {
-	dotfile "tmux" "tmux.conf"
+	configfile "tmux" "" "tmux"
 	configfile "tmuxs" "" "tmux"
 	configfile "tmuxp" "" "tmux"
 
 	message "tmux" "installing tmux plugins"
-	if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-		mkdir -p ~/.tmux/plugins
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	if [ ! -d "$HOME/.config/tmux/plugins/tpm" ]; then
+		mkdir -p ~/.config/tmux/plugins
+		git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 	fi
-	"$HOME/.tmux/plugins/tpm/bin/install_plugins"
+	"$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
 }
 
 # bin
