@@ -120,7 +120,7 @@ if hostname == "millennium-falcon" then
 	config.font_size = 9
 end
 if hostname == "tantive-iv" then
-	config.font_size = 10
+	config.font_size = 9
 end
 
 return config
