@@ -31,12 +31,12 @@ case "$USER" in
 "elahe")
 	message 'shecan.sh' "Welcome queen 👑"
 	is_queen=true
-	shecan=("178.22.122.100" "185.51.200.2")
+	shecan=("178.22.122.101" "185.51.200.1")
 	;;
 "raha")
 	message 'shecan.sh' "Welcome queen 👑"
 	is_queen=true
-	shecan=("178.22.122.100" "185.51.200.2")
+	shecan=("178.22.122.101" "185.51.200.1")
 	;;
 *)
 	message 'shecan.sh' "This script is not for you, shu shu"
@@ -115,7 +115,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		networksetup -setdnsservers Wi-Fi "${shecan[@]}"
 		if [[ "$is_queen" == true ]]; then
 			message 'shecan.sh' 'calls queen ddns on shecan to update her public ip address'
-			curl 'https://ddns.shecan.ir/update?password=f45154507bd7bdd7'
+			curl 'https://ddns.shecan.ir/update?password=b1464f3ac0fe7816'
 		fi
 	fi
 else
