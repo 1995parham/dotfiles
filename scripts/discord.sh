@@ -17,7 +17,7 @@ main_pacman() {
 }
 
 main_brew() {
-	require_brew_cask discord-canary
+	require_brew_cask discord@canary
 }
 
 main() {

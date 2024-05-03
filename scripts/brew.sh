@@ -33,9 +33,6 @@ main_brew() {
 
 	# provides brew in the current shell
 	eval "$(/opt/homebrew/bin/brew shellenv)"
-
-	msg 'add cask-versions for finding alternative versions of Casks'
-	brew tap homebrew/cask-versions
 }
 
 main_pacman() {
