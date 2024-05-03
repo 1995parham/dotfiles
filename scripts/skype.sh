@@ -22,7 +22,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew_cask skype-preview
+	require_brew_cask skype@preview
 }
 
 main() {
