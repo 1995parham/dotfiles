@@ -26,7 +26,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew_cask whatsapp-beta
+	require_brew_cask whatsapp@beta
 }
 
 main() {
