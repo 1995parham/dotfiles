@@ -21,11 +21,6 @@ since-() {
 	echo "$days days $hours hours $minutes minutes"
 }
 
-in_relationship() {
-	since- "13 feb 2020 22:26:00"
-	echo "How long we were together?"
-}
-
 to_birthday() {
 	local minute=$((60))
 	local hour=$((minute * 60))
@@ -56,27 +51,6 @@ to_birthday() {
 	echo -e "$days days $hours hours $minutes minutes\nHow much left until to her birthday?"
 }
 
-to_departure() {
-	local minute=$((60))
-	local hour=$((minute * 60))
-	local day=$((hour * 24))
-
-	local to
-	to=$(date -d "20 jun 2024 00:00:00" "+%s")
-	local now
-	now=$(date -d "now" "+%s")
-
-	local diff=$((to - now))
-
-	local days=$((diff / day))
-	diff=$((diff - days * day))
-	local hours=$((diff / hour))
-	diff=$((diff - hours * hour))
-	local minutes=$((diff / minute))
-
-	echo -e "$days days $hours hours $minutes minutes\nHow much left until/since her departure?"
-}
-
 since_first_family_meeting() {
 	since- "18 nov 2022 15:30:00"
 	echo "How much since our first family meeting?"
@@ -85,6 +59,16 @@ since_first_family_meeting() {
 since_first_family_dinner() {
 	since- "31 mar 2023 19:00:00"
 	echo "How much since our first family dinner?"
+}
+
+in_relationship() {
+	since- "13 feb 2020 22:26:00"
+	echo "How long we were together?"
+}
+
+in_marriage() {
+	since- "09 may 2024 14:45:00"
+	echo "How long we were married?"
 }
 
 main() {
@@ -113,8 +97,8 @@ else
 	'relationship')
 		in_relationship
 		;;
-	'departure')
-		to_departure
+	'marriage')
+		in_marriage
 		;;
 	'first_family_meeting')
 		since_first_family_meeting

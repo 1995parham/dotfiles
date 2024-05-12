@@ -16,19 +16,23 @@ def calculate_time_difference(
     return days, hours, minutes
 
 
-def to_departure():
-    to = datetime.datetime.strptime(f"20 jun 2024 00:00:00", "%d %b %Y %H:%M:%S")
-    now = datetime.datetime.now()
+def in_marriage():
+    since = datetime.datetime.strptime(
+        f"09 may 2024 14:45:00+0330", "%d %b %Y %H:%M:%S%z"
+    )
+    now = datetime.datetime.now(datetime.timezone.utc)
 
-    days, hours, minutes = calculate_time_difference(now, to)
+    days, hours, minutes = calculate_time_difference(since, now)
 
-    print(f"🛫 {days} days {hours} hours {minutes} minutes")
-    print("How much left until/since her depature?")
+    print(f"💍 {days} days {hours} hours {minutes} minutes")
+    print("How long we were married? (marriage office 221)")
 
 
 def in_relationship():
-    start_date = datetime.datetime.strptime("13 feb 2020 22:26:00", "%d %b %Y %H:%M:%S")
-    now = datetime.datetime.now()
+    start_date = datetime.datetime.strptime(
+        "13 feb 2020 22:26:00+0330", "%d %b %Y %H:%M:%S%z"
+    )
+    now = datetime.datetime.now(datetime.timezone.utc)
 
     days, hours, minutes = calculate_time_difference(start_date, now)
 
@@ -40,16 +44,15 @@ def to_birthday():
     this_year = datetime.datetime.now().year
     next_year = this_year + 1
 
-    to = datetime.datetime.strptime(f"12 oct {this_year} 19:20:00", "%d %b %Y %H:%M:%S")
-    now = datetime.datetime.now()
+    to = datetime.datetime.strptime(
+        f"12 oct {this_year} 19:20:00+0330", "%d %b %Y %H:%M:%S%z"
+    )
+    now = datetime.datetime.now(datetime.timezone.utc)
 
-    diff = to - now
-
-    if diff.days < 0:
+    if to < now:
         to = datetime.datetime.strptime(
-            f"12 oct {next_year} 19:20:00", "%d %b %Y %H:%M:%S"
+            f"12 oct {next_year} 19:20:00+0330", "%d %b %Y %H:%M:%S%z"
         )
-        diff = to - now
 
     days, hours, minutes = calculate_time_difference(now, to)
 
@@ -58,8 +61,10 @@ def to_birthday():
 
 
 def since_first_family_meeting():
-    start_date = datetime.datetime.strptime("18 nov 2022 15:30:00", "%d %b %Y %H:%M:%S")
-    now = datetime.datetime.now()
+    start_date = datetime.datetime.strptime(
+        "18 nov 2022 15:30:00+0330", "%d %b %Y %H:%M:%S%z"
+    )
+    now = datetime.datetime.now(datetime.timezone.utc)
 
     days, hours, minutes = calculate_time_difference(start_date, now)
 
@@ -68,8 +73,10 @@ def since_first_family_meeting():
 
 
 def since_first_family_dinner():
-    start_date = datetime.datetime.strptime("31 mar 2023 19:00:00", "%d %b %Y %H:%M:%S")
-    now = datetime.datetime.now()
+    start_date = datetime.datetime.strptime(
+        "31 mar 2023 19:00:00+0330", "%d %b %Y %H:%M:%S%z"
+    )
+    now = datetime.datetime.now(datetime.timezone.utc)
 
     days, hours, minutes = calculate_time_difference(start_date, now)
 
@@ -102,7 +109,9 @@ if __name__ == "__main__":
             to_birthday()
         elif option == "relationship":
             in_relationship()
-        elif option == "departure":
-            to_departure()
+        elif option == "marriage":
+            in_marriage()
         elif option == "first_family_meeting":
             since_first_family_meeting()
+        elif option == "first_family_dinner":
+            since_first_family_dinner()
