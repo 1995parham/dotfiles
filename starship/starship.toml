@@ -13,7 +13,7 @@ $rust\
 $conda\
 $helm\
 $python
-:: $kubernetes $aws ${custom.nats}
+:: $kubernetes $aws $nats
 ┌ [  ](bg:#1f1f1f)\
 $username\
 $hostname\
@@ -24,7 +24,7 @@ $git_branch\
 $git_status\
 $git_state\
 $docker_context
-└ ${env_var.NVIM}$character$jobs${env_var.http_proxy}
+└ ${env_var.NVIM}$character$shlvl$jobs${env_var.http_proxy}
 """
 
 right_format = """
@@ -160,26 +160,25 @@ format = '[$symbol$environment]($style) '
 style = 'fg:#ff3333'
 format = "[$symbol$number ]($style)"
 
+[nats]
+style = 'fg:#ff9933'
+symbol = ' 󰈸 '
+disabled = false
+
+[shlvl]
+disabled = true
+format = '[$symbol$shlvl]($style) '
+repeat = true
+symbol = '❯'
+repeat_offset = 2
+threshold = 0
+
 [custom.uname]
 command = 'uname -rs'
 when = true
 style = 'fg:#ff0080'
 symbol = '  '
 description = 'kernel version'
-
-[custom.nats]
-command = "nats context show -j | jq -r '.name'"
-when = "command -v nats && [ $(nats context show -j | jq -r '.name') != localhost ]"
-style = 'fg:#ff9933'
-symbol = ' 󰈸 '
-description = 'nats current context'
-
-[custom.gh]
-command = "gh api user -q '.login'"
-when = "command -v gh"
-style = 'fg:#66E166'
-symbol = ' 󰊤 '
-description = 'github-cli current user'
 
 [env_var.NVIM]
 style = 'fg:#32cd32'
