@@ -38,7 +38,8 @@ main_brew() {
 		brew list --version neovim | grep HEAD && brew uninstall --ignore-dependencies neovim
 		require_brew neovim
 	else
-		brew list --version neovim | grep HEAD || require_brew_head neovim
+		brew list --version neovim | grep HEAD || brew uninstall --ignore-dependencies neovim
+		require_brew_head neovim
 	fi
 	require_brew luarocks gcc@11
 	require_pip 'nvim-remote'
