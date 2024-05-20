@@ -35,11 +35,10 @@ main_pacman() {
 
 main_brew() {
 	if yes_or_no 'neovim' 'do you want to use stable release?'; then
-		not_require_brew neovim-git
+		brew list --version neovim | grep HEAD && brew uninstall --ignore-dependencies neovim
 		require_brew neovim
 	else
-		not_require_brew neovim
-		require_brew_head neovim
+		brew list --version neovim | grep HEAD || require_brew_head neovim
 	fi
 	require_brew luarocks gcc@11
 	require_pip 'nvim-remote'
