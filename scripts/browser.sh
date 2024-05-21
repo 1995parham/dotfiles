@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+export dependencies=('buku')
+
 usage() {
-	echo "install google-chrom-beta, firefox, firefox-developer-edition"
+	echo "install firefox, firefox-developer-edition and tridactyl configuration"
 	echo '
  _
 | |__  _ __ _____      _____  ___ _ __
@@ -32,15 +34,29 @@ main_brew() {
 main_pacman() {
 	require_pacman firefox w3m firefox-developer-edition
 
+	if [[ "$(command -v gopass-jsonapi)" ]]; then
+		gopass-jsonapi configure --browser firefox
+	fi
+
+	if [[ "$(command -v bukubrow)" ]]; then
+		msg 'install bukubrow native host for firefox'
+		bukubrow --install-firefox
+	fi
+
 	copycat "browser" "firefox/autoconfig.js" "/usr/lib/firefox/defaults/pref/autoconfig.js"
 	copycat "browser" "firefox/firefox.cfg" "/usr/lib/firefox/firefox.cfg"
 
+	msg 'chrome, the worst browser ever but sometime we need that shit'
 	require_aur google-chrome-beta
 	# copycat "browser" "chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf" false
 
 	if [[ "$(command -v gopass-jsonapi)" ]]; then
-		gopass-jsonapi configure --browser firefox
 		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
+	fi
+
+	if [[ "$(command -v bukubrow)" ]]; then
+		msg 'install bukubrow native host for google chrome'
+		bukubrow --install-chrome --install-dir ~/.config/google-chrome-beta/NativeMessagingHosts/
 	fi
 
 	msg 'set default browser using xdg-settings'
