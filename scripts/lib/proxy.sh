@@ -3,11 +3,11 @@
 
 proxy_start() {
 	if [[ -n $(command -v ss) ]]; then
-		if ! (ss -tunl | grep :1080 &>/dev/null); then
+		if ! (ss -tunl | grep :2081 &>/dev/null); then
 			return 0
 		fi
 	elif [[ -n $(command -v netstat) ]]; then
-		if ! (netstat -an | grep LISTEN | grep 1080 &>/dev/null); then
+		if ! (netstat -an | grep LISTEN | grep 2081 &>/dev/null); then
 			return 0
 		fi
 	fi
@@ -23,9 +23,9 @@ proxy_start() {
 	echo
 	curl --max-time 10 https://ipconfig.io/country || return 1
 
-	export ftp_proxy="http://127.0.0.1:1080"
-	export http_proxy="http://127.0.0.1:1080"
-	export https_proxy="http://127.0.0.1:1080"
+	export ftp_proxy="http://127.0.0.1:2081"
+	export http_proxy="http://127.0.0.1:2081"
+	export https_proxy="http://127.0.0.1:2081"
 	alias sudo='sudo -E'
 
 	echo
@@ -52,9 +52,9 @@ socks_start() {
 	echo
 	curl --max-time 10 https://ipconfig.io/country || return 1
 
-	export ftp_proxy="http://127.0.0.1:1080"
-	export http_proxy="socks5://127.0.0.1:1086"
-	export https_proxy="socks5://127.0.0.1:1086"
+	export ftp_proxy="http://127.0.0.1:2081"
+	export http_proxy="socks5://127.0.0.1:2080"
+	export https_proxy="socks5://127.0.0.1:2080"
 	alias sudo='sudo -E'
 
 	echo
