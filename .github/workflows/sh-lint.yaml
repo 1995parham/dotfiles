@@ -3,7 +3,6 @@ name: lint
 on:
   push:
 
-
 jobs:
   sh-checker:
     runs-on: ubuntu-latest
@@ -11,8 +10,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run the sh-checker
         uses: luizm/action-sh-checker@v0.8.0
-        env:
-          SHELLCHECK_OPTS: -x
         with:
           sh_checker_comment: false
-          sh_checker_exclude: "scripts/lib/ start.sh"
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test units
+        run: |
+          for f in tests/*.sh; do
+            bash "$f" -H || break
+          done
