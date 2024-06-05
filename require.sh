@@ -228,6 +228,7 @@ function clone() {
 	repo=${1:?"clone requires repository"}
 	path=${2:-"."}
 	dir=${3:-""}
+	shift 3
 
 	if [[ ! -d "${path}" ]]; then
 		mkdir -p "${path}"
@@ -256,6 +257,27 @@ function clone() {
 			action git "${repo_name} ${F_GRAY}${F_RESET}"
 		else
 			action git "${repo_name} (${repo} != ${origin_url}) ${F_RED}󱋭${F_RESET}"
+		fi
+
+		cd - &>/dev/null || return
+	fi
+
+	if [[ "$#" -ge 2 ]]; then
+		origin="$1"
+		url="$2"
+		shift 2
+
+		cd "${path}/${dir}" || return
+
+		origin_url=$(git config --get "remote.${origin}.url")
+		if [[ "${url}" == "${origin_url%.git}" ]]; then
+			action git "${repo_name} ${origin} -> ${url} ${F_GREEN}󰄲${F_RESET}"
+		else
+			if git remote add "${origin}" "${url}" &>/dev/null; then
+				action git "${repo_name} ${origin} -> ${url} ${F_GREEN}󰄲${F_RESET}"
+			else
+				action git "${repo_name} ${origin} -> ${url} ${F_RED}󱋭${F_RESET}"
+			fi
 		fi
 
 		cd - &>/dev/null || return
