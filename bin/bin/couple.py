@@ -6,7 +6,7 @@ import sys
 
 def calculate_time_difference(
     start_date: datetime.datetime, end_date: datetime.datetime
-) -> tuple[int, int, int, int]:
+):
     diff = end_date - start_date
 
     years, days = divmod(diff.days, 365)
