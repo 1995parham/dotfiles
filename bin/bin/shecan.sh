@@ -31,12 +31,12 @@ case "$USER" in
 "elahe")
 	message 'shecan.sh' "Welcome queen 👑"
 	is_queen=true
-	shecan=("178.22.122.100" "185.51.200.2")
+	shecan=("178.22.122.101" "185.51.200.1")
 	;;
 "raha")
 	message 'shecan.sh' "Welcome queen 👑"
 	is_queen=true
-	shecan=("178.22.122.100" "185.51.200.2")
+	shecan=("178.22.122.101" "185.51.200.1")
 	;;
 *)
 	message 'shecan.sh' "This script is not for you, shu shu"
