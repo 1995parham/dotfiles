@@ -25,7 +25,7 @@ usage() {
 }
 
 main_apt() {
-	return 0
+	require_apt pipx
 }
 
 main_brew() {
