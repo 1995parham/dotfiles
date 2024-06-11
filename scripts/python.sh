@@ -26,6 +26,7 @@ usage() {
 
 main_apt() {
 	require_apt pipx
+	curl https://pyenv.run | bash
 }
 
 main_brew() {
