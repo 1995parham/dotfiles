@@ -125,3 +125,12 @@ function code-settings-diff() {
 
 	diff -i <(code --list-extensions) <(code-insiders --list-extensions)
 }
+
+# setup snappcloud proxy which is useful in the snapp datacenters
+function snappcloud-proxy-on() {
+	proxy_start proxy.snappcloud.io:3128
+}
+
+function snappcloud-proxy-off() {
+	proxy_stop
+}
