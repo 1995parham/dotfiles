@@ -32,7 +32,7 @@ proxy_start() {
 	fi
 
 	echo
-	curl --max-time 10 https://ipconfig.io/country || true
+	curl --max-time 10 https://ipconfig.io/country || echo "💩"
 
 	export ftp_proxy="$url"
 	export http_proxy="$url"
