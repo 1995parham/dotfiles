@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "install firefox, firefox-developer-edition and tridactyl configuration"
+	echo "install firefox, firefox-developer-edition, etc. and their configuration"
 	echo '
  _
 | |__  _ __ _____      _____  ___ _ __
@@ -10,6 +10,10 @@ usage() {
 |_.__/|_|  \___/ \_/\_/ |___/\___|_|
 
 	'
+}
+
+pre_main() {
+	msg 'bookmarks are synced using https://floccus.org/' 'info'
 }
 
 main_brew() {
