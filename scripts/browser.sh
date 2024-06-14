@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-export dependencies=('buku')
-
 usage() {
 	echo "install firefox, firefox-developer-edition and tridactyl configuration"
 	echo '
@@ -28,7 +26,7 @@ main_brew() {
 			--manifest-path "$HOME/Library/Application Support/Google/Chrome Beta/NativeMessagingHosts/com.justwatch.gopass.json"
 	fi
 
-	defaultbrowser beta
+	defaultbrowser firefox
 }
 
 main_pacman() {
@@ -36,11 +34,6 @@ main_pacman() {
 
 	if [[ "$(command -v gopass-jsonapi)" ]]; then
 		gopass-jsonapi configure --browser firefox
-	fi
-
-	if [[ "$(command -v bukubrow)" ]]; then
-		msg 'install bukubrow native host for firefox'
-		bukubrow --install-firefox
 	fi
 
 	copycat "browser" "firefox/autoconfig.js" "/usr/lib/firefox/defaults/pref/autoconfig.js"
@@ -54,11 +47,6 @@ main_pacman() {
 		gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
 	fi
 
-	if [[ "$(command -v bukubrow)" ]]; then
-		msg 'install bukubrow native host for google chrome'
-		bukubrow --install-chrome --install-dir ~/.config/google-chrome-beta/NativeMessagingHosts/
-	fi
-
 	msg 'set default browser using xdg-settings'
-	bash xdg-settings set default-web-browser google-chrome-beta.desktop
+	bash xdg-settings set default-web-browser firefox.desktop
 }
