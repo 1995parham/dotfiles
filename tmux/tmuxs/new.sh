@@ -131,13 +131,15 @@ if [ -f requirements.txt ]; then
 			python -mvenv .venv
 		fi
 	fi
+fi
 
-	if [ -d '.venv' ]; then
-		commands+=('source .venv/bin/activate')
+# having .venv indicates we need to activate the virtual environment manually.
+# there are multiple tools that create and manage .venv including but not limited to rye.
+if [ -d '.venv' ]; then
+	commands+=('source .venv/bin/activate')
 
-		# shellcheck disable=1091
-		source '.venv/bin/activate' && pip install -r requirements.txt && deactivate
-	fi
+	# shellcheck disable=1091
+	source '.venv/bin/activate' && pip install -r requirements.txt && deactivate
 fi
 
 cd -
