@@ -26,6 +26,7 @@ usage() {
 
 main_apt() {
 	require_apt pipx
+
 	curl https://pyenv.run | bash
 }
 
@@ -56,6 +57,9 @@ python-install-packages() {
 }
 
 main() {
+	msg 'a Hassle-Free Python Experience'
+	curl -sSf https://rye.astral.sh/get | bash
+
 	msg 'a modern python package and dependency manager supporting the latest pep standards'
 	configfile pdm "" python
 
