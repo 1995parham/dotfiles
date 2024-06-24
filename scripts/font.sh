@@ -14,13 +14,13 @@ usage() {
 
 main_brew() {
 	require_brew_cask \
-		homebrew/cask-fonts/font-jetbrains-mono \
-		homebrew/cask-fonts/font-jetbrains-mono-nerd-font \
-		homebrew/cask-fonts/font-vazirmatn \
-		homebrew/cask-fonts/font-dejavu \
-		homebrew/cask-fonts/font-fira-code-nerd-font \
-		homebrew/cask-fonts/font-fira-code \
-		homebrew/cask-fonts/font-roboto
+		font-jetbrains-mono \
+		font-jetbrains-mono-nerd-font \
+		font-vazirmatn \
+		font-dejavu \
+		font-fira-code-nerd-font \
+		font-fira-code \
+		font-roboto
 }
 
 main_pacman() {
