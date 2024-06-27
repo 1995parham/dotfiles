@@ -2,7 +2,6 @@
 
 usage() {
 	echo -n "Robust, fast, intuitive plain text accounting tool with CLI, TUI and web interfaces."
-	# shellcheck disable=2016,2028
 	echo '
  _     _          _
 | |__ | | ___  __| | __ _  ___ _ __
