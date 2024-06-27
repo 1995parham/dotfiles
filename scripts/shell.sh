@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "write shell scripts with confidence using shfmt and shellcheck"
-	echo '
+  echo -n "write shell scripts with confidence using shfmt and shellcheck"
+  echo '
      _          _ _
  ___| |__   ___| | |
 / __| |_ \ / _ \ | |
@@ -13,13 +13,13 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman shfmt shellcheck
+  require_pacman shfmt shellcheck
 }
 
 main_brew() {
-	require_brew shfmt shellcheck
+  require_brew shfmt shellcheck shellharden
 }
 
 main_apt() {
-	sudo apt install shellcheck
+  sudo apt install shellcheck
 }
