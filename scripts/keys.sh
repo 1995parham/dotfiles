@@ -29,7 +29,7 @@ public() {
 
 	keys="$(curl -sL "$url")"
 
-	if [ -z "$keys" ]; then
+	if [ "$keys" = "" ]; then
 		msg "no keys found for $1" "error"
 		return
 	fi

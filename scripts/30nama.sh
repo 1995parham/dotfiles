@@ -25,7 +25,7 @@ main_pacman() {
 	fi
 
 	current_version="$(find /opt/30nama -iname "30nama-*.AppImage" -exec sh -c 'basename $1 .AppImage | cut -d- -f2' sh {} \;)"
-	if [ -n "$current_version" ]; then
+	if [ "$current_version" != "" ]; then
 		if [ "$(semver_compare "$current_version" "$version")" = "lt" ]; then
 			rm "/opt/30nama/30nama-$current_version.AppImage"
 

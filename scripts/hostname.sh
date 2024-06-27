@@ -45,7 +45,7 @@ pre_main() {
 }
 
 main_pacman() {
-	if [ $to_change ]; then
+	if [ "$to_change" ]; then
 		msg "using systemd to change hostname to $hostname"
 		sudo hostnamectl hostname "$hostname"
 	fi
@@ -54,7 +54,7 @@ main_pacman() {
 }
 
 main_apt() {
-	if [ $to_change ]; then
+	if [ "$to_change" ]; then
 		msg "using systemd to change hostname to $hostname"
 		sudo hostnamectl hostname "$hostname"
 	fi
@@ -63,7 +63,7 @@ main_apt() {
 }
 
 main_brew() {
-	if [ $to_change ]; then
+	if [ "$to_change" ]; then
 		msg "using scutil to change hostname to $hostname"
 		sudo scutil --set ComputerName "$name"
 		sudo scutil --set HostName "$hostname"
