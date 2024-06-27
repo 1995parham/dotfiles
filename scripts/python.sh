@@ -58,7 +58,7 @@ python-install-packages() {
 
 main() {
 	msg 'a Hassle-Free Python Experience'
-	curl -sSf https://rye.astral.sh/get | bash
+	curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
 
 	msg 'a modern python package and dependency manager supporting the latest pep standards'
 	configfile pdm "" python
