@@ -14,7 +14,7 @@ fish_add_path $HOME/.local/bin
 
 alias python="python3"
 
-set -U DOTIFLES_ROOT $(realpath "$(dirname (realpath ~/.config/fish/config.fish ))/..")
+set -x DOTFILES_ROOT $(realpath "$(dirname (realpath ~/.config/fish/config.fish ))/..")
 
 function ls --description 'List contents of directory'
     command ls -G $argv
