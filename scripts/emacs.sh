@@ -22,7 +22,7 @@ main_brew() {
 	msg 'installation takes time and cpu because it compiles emacs from source'
 	require_brew d12frosted/emacs-plus/emacs-plus@30
 
-	if [ ! -e /Applications/Emacs.app ]; then
+	if [ ! -e /Applications/Emacs ]; then
 		osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@30/Emacs.app" at POSIX file "/Applications"'
 	fi
 
