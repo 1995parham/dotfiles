@@ -128,7 +128,7 @@ function code-settings-diff() {
 
 # setup snappcloud proxy which is useful in the snapp datacenters
 function snappcloud-proxy-on() {
-	proxy_start proxy.snappcloud.io:3128
+	proxy_start internal-proxy.snapp.tech:8118
 }
 
 function snappcloud-proxy-off() {
