@@ -17,7 +17,7 @@ main_pacman() {
 }
 
 main_brew() {
-	require_brew khard
+	require_brew khard vcftools
 }
 
 main() {
