@@ -255,8 +255,8 @@ function clone() {
 	else
 		cd "${path}/${dir}" || return
 
-		# origin_url=$(git remote get-url origin 2>/dev/null)
-		origin_url=$(git config --get remote.origin.url)
+		origin_url=$(git remote get-url origin 2>/dev/null)
+		#origin_url=$(git config --get remote.origin.url)
 
 		if [[ "${repo}" == "${origin_url%.git}" ]]; then
 			action git "${repo_name} ${F_GRAY}${F_RESET}"
@@ -267,27 +267,19 @@ function clone() {
 		cd - &>/dev/null || return
 	fi
 
-	if [[ "$#" -ge 2 ]]; then
-		origin="$1"
-		url="$2"
-		shift 2
+	if [[ "$#" -ge 1 ]]; then
+		url="$1"
+		shift 1
 
 		cd "${path}/${dir}" || return
 
-		if git config --get "remote.${origin}.url" &>/dev/null; then
-			origin_url=$(git config --get "remote.${origin}.url")
-
-			if [[ "${url}" == "${origin_url%.git}" ]]; then
-				action git "${repo_name} ${origin} -> ${url} ${F_GRAY}󰄲${F_RESET}"
-			else
-				git remote remove "${origin}"
-				git remote add "${origin}" "${url}"
-			fi
+		if git remote get-url origin --all 2>/dev/null | grep "$url"; then
+			action git "${repo_name} pushurl -> ${url} ${F_GRAY}󰄲${F_RESET}"
 		else
-			if git remote add "${origin}" "${url}" &>/dev/null; then
-				action git "${repo_name} ${origin} -> ${url} ${F_GREEN}󰄲${F_RESET}"
+			if git remote set-url --add --push origin "${url}" &>/dev/null; then
+				action git "${repo_name} pushurl -> ${url} ${F_GREEN}󰄲${F_RESET}"
 			else
-				action git "${repo_name} ${origin} -> ${url} ${F_RED}󱋭${F_RESET}"
+				action git "${repo_name} pushurl -> ${url} ${F_RED}󱋭${F_RESET}"
 			fi
 		fi
 
