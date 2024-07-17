@@ -30,6 +30,6 @@ main_parham() {
 	clone git@github.com:parham-alvani/ledger "$HOME/Documents/Git/parham/parham-alvani"
 
 	cd "$HOME/Documents/Git/parham/parham-alvani/ledger" || return
-	linker "hledger" "$PWD/2023.journal" "$HOME/.hledger.journal"
+	linker "hledger" "$PWD/2024.journal" "$HOME/.hledger.journal"
 	cd - || return
 }
