@@ -67,6 +67,10 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Spend your money wisely' | lolcat -S 57
+      - start_directory: ~/.task
+        shell_command:
+          - git pull origin main &> /dev/null
+          - figlet 'Do your tasks on plan' | lolcat -S 57
 
   - window_name: raha 🧡
     layout: even-vertical
