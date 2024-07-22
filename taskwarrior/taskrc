@@ -39,3 +39,5 @@ data.location=/Users/parham/.task
 #include solarized-light-256.theme
 #include no-color.theme
 
+uda.issue.type=string
+uda.issue.label=Issue
