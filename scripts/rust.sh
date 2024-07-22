@@ -18,7 +18,6 @@ main_pacman() {
 
 main_brew() {
 	require_brew rustup
-	rustup --default-toolchain none --no-modify-path -y
 
 	# shellcheck disable=1091
 	source "$HOME/.cargo/env"
