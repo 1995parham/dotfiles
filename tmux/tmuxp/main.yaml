@@ -43,10 +43,9 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Take note' | lolcat -S 57
-      - start_directory: ~/.tasks
+      - start_directory: ~/.task
         shell_command:
           - git pull origin main &> /dev/null
-          - figlet 'Act based on a plan' | lolcat -S 57
           - task logo
       - start_directory: ~/.local/share/dijo
         shell_command:
