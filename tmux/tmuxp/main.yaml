@@ -43,10 +43,11 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Take note' | lolcat -S 57
-      - start_directory: ~/tasks
+      - start_directory: ~/.tasks
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Act based on a plan' | lolcat -S 57
+          - task logo
       - start_directory: ~/.local/share/dijo
         shell_command:
           - git pull origin main &> /dev/null
@@ -67,10 +68,6 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Spend your money wisely' | lolcat -S 57
-      - start_directory: ~/.task
-        shell_command:
-          - git pull origin main &> /dev/null
-          - figlet 'Do your tasks on plan' | lolcat -S 57
 
   - window_name: raha 🧡
     layout: even-vertical
