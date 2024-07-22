@@ -111,16 +111,16 @@ Here is the list of available resources to find name names using the schema.
 
   ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Pro (17,1) given by Snapp, and it should
-  return to them when I decide to leave. The last `macOS Ventura` installation happened on 30 Jun 2024. ✅
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2) given by Snapp, and it should
+  return to them when I decide to leave. The last `macOS Ventura` installation happened on 24 Jun 2024. ✅
 
   |   Type    |                     Value                     |
   | :-------: | :-------------------------------------------: |
-  |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
-  | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
-  |  Memory   |           `LPDDR4 - Hynix - 16 GB`            |
+  |  System   |           `Mac14,2 (Z160000Z4HN/A)`           |
+  | Processor | `Apple M2 8 (4 performance and 4 efficiency)` |
+  |  Memory   |           `LPDDR4 - Micron - 16 GB`           |
 
-  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(13--inch,_M1,_2021)-333333?style=for-the-badge&logo=apple&logoColor=white>)
+  ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 - [`senerity`]() is my phone which is iPhone 13.
 
