@@ -101,7 +101,7 @@ Here is the list of available resources to find name names using the schema.
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
-  The last `macOS Ventura` installation happened on 21 Dec 2023. ✅
+  The last `macOS Ventura` installation happened on 16 Jun 2024. ✅
 
   |   Type    |                       Value                        |
   | :-------: | :------------------------------------------------: |
