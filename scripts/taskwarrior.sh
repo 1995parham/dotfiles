@@ -30,9 +30,11 @@ main_brew() {
 }
 
 main() {
-	return 0
+	dotfile taskwarrior taskrc
 }
 
 main_parham() {
-	return 0
+	msg "hello parham, clone your private repositories"
+
+	clone git@github.com:parham-alvani/tasks "$HOME" ".task"
 }
