@@ -103,26 +103,26 @@ Here is the list of available resources to find name names using the schema.
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
   The last `macOS Ventura` installation happened on 16 Jun 2024. ✅
 
-  |   Type    |                       Value                        |
-  | :-------: | :------------------------------------------------: |
-  |  System   |               `Mac14,9 (MPHE3LL/A)`                |
-  | Processor | `Apple M2 Pro 10 (6 performance and 4 efficiency)` |
-  |  Memory   |             `LPDDR5 - Micron - 16 GB`              |
+  |   Type    |                          Value                           |
+  | :-------: | :------------------------------------------------------: |
+  |  System   |                  `Mac14,9 (MPHE3LL/A)`                   |
+  | Processor | `Apple M2 Pro 10 cores (6 performance and 4 efficiency)` |
+  |  Memory   |                `LPDDR5 - Micron - 16 GB`                 |
 
   ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2) given by Snapp, and it should
   return to them when I decide to leave. The last `macOS Ventura` installation happened on 24 Jun 2024. ✅
 
-  |   Type    |                     Value                     |
-  | :-------: | :-------------------------------------------: |
-  |  System   |           `Mac14,2 (Z160000Z4HN/A)`           |
-  | Processor | `Apple M2 8 (4 performance and 4 efficiency)` |
-  |  Memory   |           `LPDDR4 - Micron - 16 GB`           |
+  |   Type    |                        Value                        |
+  | :-------: | :-------------------------------------------------: |
+  |  System   |              `Mac14,2 (Z160000Z4HN/A)`              |
+  | Processor | `Apple M2 8 cores (4 performance and 4 efficiency)` |
+  |  Memory   |              `LPDDR4 - Micron - 16 GB`              |
 
   ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`senerity`]() is my phone which is iPhone 13.
+- [`senerity`](<https://en.wikipedia.org/wiki/Serenity_(2005_film)>) is my phone which is iPhone 13.
 
 The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
@@ -131,11 +131,11 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 - [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (17,1) given by Snapp, and it should
   return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
 
-  |   Type    |                     Value                     |
-  | :-------: | :-------------------------------------------: |
-  |  System   |       `MacBookPro17,1 (Z11B000E3LL/A)`        |
-  | Processor | `Apple M1 8 (4 performance and 4 efficiency)` |
-  |  Memory   |            `LPDDR4 - Hynix - 8 GB`            |
+  |   Type    |                        Value                        |
+  | :-------: | :-------------------------------------------------: |
+  |  System   |          `MacBookPro17,1 (Z11B000E3LL/A)`           |
+  | Processor | `Apple M1 8 cores (4 performance and 4 efficiency)` |
+  |  Memory   |               `LPDDR4 - Hynix - 8 GB`               |
 
   ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(13--inch,_M1,_2021)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
