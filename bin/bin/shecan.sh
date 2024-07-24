@@ -82,7 +82,7 @@ while getopts 'rshl' argv; do
 done
 
 # checks you shecan status
-http_code=$(curl -s -o /dev/null -w "%{http_code}" https://check.shecan.ir || true)
+http_code=$(curl -s -o /dev/null -w "%{http_code}" -m 10 https://check.shecan.ir || true)
 if [ "$http_code" -eq 200 ]; then
 	message 'shecan.sh' "you are using shecan"
 else
