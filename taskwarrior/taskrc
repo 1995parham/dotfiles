@@ -41,4 +41,3 @@ data.location=/Users/parham/.task
 
 uda.issue.type=string
 uda.issue.label=Issue
-rc.gc=off
