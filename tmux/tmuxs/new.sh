@@ -169,9 +169,9 @@ tmux new-window -t "$current_session" -c "$project" -n "$name"
 # so we don't have information on pythonic projects.
 # commands+=("git project")
 tmux split-window -t "$current_session:$name" -c "$project"
-tmux split-window -h -t "$current_session:$name" -c "$project"
 tmux select-pane -t "$current_session:$name.0"
 tmux split-window -h -t "$current_session:$name" -c "$project"
+# tmux split-window -h -t "$current_session:$name" -c "$project"
 
 # using send command to run the pre
 for i in $(seq 0 3); do
