@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n -e "tools for communicating with android-based devices"
+  echo -n -e "tools for communicating with android-based devices"
 
-	echo '
+  echo '
                  _           _     _
   __ _ _ __   __| |_ __ ___ (_) __| |
  / _| | |_ \ / _| | |__/ _ \| |/ _| |
@@ -13,13 +13,13 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman android-tools android-udev scrcpy android-file-transfer
-	# require_aur sidequest-bin
+  require_pacman android-tools android-udev scrcpy android-file-transfer
+  # require_aur sidequest-bin
 
-	#	msg 'https://github.com/skrimix/QLoaderFiles'
-	msg 'https://wiki.archlinux.org/title/Media_Transfer_Protocol'
+  #	msg 'https://github.com/skrimix/QLoaderFiles'
+  msg 'https://wiki.archlinux.org/title/Media_Transfer_Protocol'
 }
 
 main_brew() {
-	require_brew_cask android-file-transfer
+  require_brew_cask android-file-transfer android-platform-tools
 }
