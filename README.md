@@ -122,7 +122,7 @@ Here is the list of available resources to find name names using the schema.
 
   ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`senerity`](<https://en.wikipedia.org/wiki/Serenity_(2005_film)>) is my phone which is iPhone 13.
+- [`ghost`](https://starwars.fandom.com/wiki/Ghost) is my phone which is Nothing phone 2a.
 
 The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
