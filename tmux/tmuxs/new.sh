@@ -174,7 +174,7 @@ tmux split-window -h -t "$current_session:$name" -c "$project"
 # tmux split-window -h -t "$current_session:$name" -c "$project"
 
 # using send command to run the pre
-for i in $(seq 0 3); do
+for i in $(seq 0 2); do
 	for command in "${commands[@]}"; do
 		tmux send-keys -t "$current_session:$name.$i" "$command" Enter
 	done
