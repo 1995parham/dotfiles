@@ -26,7 +26,7 @@ main_apt() {
 }
 
 main_brew() {
-	require_brew task
+	require_brew task dhth/tap/hours
 }
 
 main() {
