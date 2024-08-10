@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "create a new script just for you"
+    echo "create a new script just for you"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
  _ __   _____      __
 | |_ \ / _ \ \ /\ / /
 | | | |  __/\ V  V /
@@ -15,52 +15,52 @@ usage() {
 root=${root:?"root must be set"}
 
 main_pacman() {
-	return 0
+    return 0
 }
 
 main_brew() {
-	return 0
+    return 0
 }
 
 main_apt() {
-	return 0
+    return 0
 }
 
 main() {
-	read -r -p "name: " name
-	if [[ "${name}" =~ [[:space:]]+ ]]; then
-		msg "${name} cotains one or more spaces" "error"
-		return 1
-	fi
+    read -r -p "name: " name
+    if [[ "${name}" =~ [[:space:]]+ ]]; then
+        msg "${name} cotains one or more spaces" "error"
+        return 1
+    fi
 
-	local host
-	host="$(hostname)"
-	host="${host%.*}"
-	if yes_or_no "do you want to be ${host} specific? "; then
-		root="${root}/${host}"
-	fi
+    local host
+    host="$(hostname)"
+    host="${host%.*}"
+    if yes_or_no "do you want to be ${host} specific? "; then
+        root="${root}/${host}"
+    fi
 
-	mkdir -p "${root}/scripts" || true
+    mkdir -p "${root}/scripts" || true
 
-	if [[ -f "${root}/scripts/${name}.sh" ]]; then
-		msg "${name} already exists" "error"
-		return 1
-	fi
-	touch "${root}/scripts/${name}.sh"
+    if [[ -f "${root}/scripts/${name}.sh" ]]; then
+        msg "${name} already exists" "error"
+        return 1
+    fi
+    touch "${root}/scripts/${name}.sh"
 
-	read -r -p 'dscription: ' description
+    read -r -p 'dscription: ' description
 
-	local root_env
-	if yes_or_no 'do you need root? '; then
-		# shellcheck disable=2016
-		root_env='root=${root:?"root must be set"}'
-	else
-		root_env=''
-	fi
+    local root_env
+    if yes_or_no 'do you need root? '; then
+        # shellcheck disable=2016
+        root_env='root=${root:?"root must be set"}'
+    else
+        root_env=''
+    fi
 
-	read -r -p 'user: ' -i "${USER}" -e user
+    read -r -p 'user: ' -i "${USER}" -e user
 
-	cat >>"${root}/scripts/${name}.sh" <<EOF
+    cat >>"${root}/scripts/${name}.sh" <<EOF
 #!/usr/bin/env bash
 usage() {
   echo "${description}"
@@ -98,5 +98,5 @@ main_${user}() {
 }
 EOF
 
-	return 0
+    return 0
 }
