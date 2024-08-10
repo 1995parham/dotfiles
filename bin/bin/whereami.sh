@@ -10,11 +10,11 @@ set -o pipefail
 
 ip="$(curl -sL https://ipconfig.io/json --max-time 10 | jq -j '"\(.ip) - \(.country) (\(.asn_org))"' 2>/dev/null)"
 if [ -n "$ip" ]; then
-	echo "$ip" | tee /tmp/whereami.sh
+    echo "$ip" | tee /tmp/whereami.sh
 else
-	if [ -f /tmp/whereami.sh ]; then
-		cat /tmp/whereami.sh
-	else
-		echo "💩"
-	fi
+    if [ -f /tmp/whereami.sh ]; then
+        cat /tmp/whereami.sh
+    else
+        echo "💩"
+    fi
 fi

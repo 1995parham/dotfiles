@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "Postman is an API platform for building and using APIs"
+    echo "Postman is an API platform for building and using APIs"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
                  _
  _ __   ___  ___| |_ _ __ ___   __ _ _ __
 | |_ \ / _ \/ __| __| |_ ` _ \ / _` | |_ \
@@ -14,17 +14,17 @@ usage() {
 }
 
 main_pacman() {
-	require_aur postman-bin
+    require_aur postman-bin
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew_cask postman
+    require_brew_cask postman
 }
 
 main() {
-	return 0
+    return 0
 }

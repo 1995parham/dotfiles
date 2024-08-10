@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "Portal is a quick and easy command-line file transfer utility from any computer to another"
+    echo "Portal is a quick and easy command-line file transfer utility from any computer to another"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
                   _        _
  _ __   ___  _ __| |_ __ _| |
 | |_ \ / _ \| |__| __/ _` | |
@@ -14,17 +14,17 @@ usage() {
 }
 
 main_pacman() {
-	require_aur portal-bin
+    require_aur portal-bin
 }
 
 main_brew() {
-	require_brew portal
+    require_brew portal
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

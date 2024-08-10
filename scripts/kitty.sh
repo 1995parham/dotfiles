@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n 'full-flagged terminal'
+    echo -n 'full-flagged terminal'
 
-	echo '
+    echo '
  _    _ _   _
 | | _(_) |_| |_ _   _
 | |/ / | __| __| | | |
@@ -14,17 +14,17 @@ usage() {
 }
 
 main_apt() {
-	sudo apt install kitty
+    sudo apt install kitty
 }
 
 main_pacman() {
-	require_pacman kitty
+    require_pacman kitty
 }
 
 main_brew() {
-	require_brew_cask kitty
+    require_brew_cask kitty
 }
 
 main() {
-	configfile kitty
+    configfile kitty
 }

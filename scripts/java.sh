@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n -e "queen needs spark, spark needs java"
+    echo -n -e "queen needs spark, spark needs java"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
    _
   (_) __ ___   ____ _
   | |/ _` \ \ / / _` |
@@ -15,36 +15,36 @@ usage() {
 }
 
 main_apt() {
-	sudo apt install openjdk-16-jdk
+    sudo apt install openjdk-16-jdk
 
-	msg "install scala because of the queen"
-	echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
-	curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
-	sudo apt-get update
-	sudo apt-get install sbt
+    msg "install scala because of the queen"
+    echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
+    curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
+    sudo apt-get update
+    sudo apt-get install sbt
 }
 
 main_pacman() {
-	require_pacman jdk17-openjdk gradle maven
-	msg "install scala because of the queen"
-	require_pacman sbt
+    require_pacman jdk17-openjdk gradle maven
+    msg "install scala because of the queen"
+    require_pacman sbt
 }
 
 main_brew() {
-	msg "install scala because of the queen"
-	require_brew openjdk@17 sbt gradle
+    msg "install scala because of the queen"
+    require_brew openjdk@17 sbt gradle
 
-	if ! grep -q -F "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" "$HOME/.bashrc"; then
-		echo "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" | tee -a "$HOME/.bashrc"
-	fi
+    if ! grep -q -F "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" "$HOME/.bashrc"; then
+        echo "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" | tee -a "$HOME/.bashrc"
+    fi
 
-	if ! grep -q -F "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" "$HOME/.zshrc"; then
-		echo "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" | tee -a "$HOME/.zshrc"
-	fi
+    if ! grep -q -F "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" "$HOME/.zshrc"; then
+        echo "export PATH=\"/opt/homebrew/opt/openjdk@17/bin:\$PATH\"" | tee -a "$HOME/.zshrc"
+    fi
 }
 
 main() {
-	proxy_start &&
-		require_mason jdtls &&
-		proxy_stop
+    proxy_start &&
+        require_mason jdtls &&
+        proxy_stop
 }

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "rust programming language install by rustup"
-	echo '
+    echo -n "rust programming language install by rustup"
+    echo '
                 _
  _ __ _   _ ___| |_
 | |__| | | / __| __|
@@ -13,31 +13,31 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman rustup
+    require_pacman rustup
 }
 
 main_brew() {
-	require_brew rustup
+    require_brew rustup
 
-	# shellcheck disable=1091
-	source "$HOME/.cargo/env"
+    # shellcheck disable=1091
+    source "$HOME/.cargo/env"
 }
 
 main() {
-	root=${root:?"root must be set"}
+    root=${root:?"root must be set"}
 
-	msg "install the stable toolchain and select it as default"
-	rustup toolchain install stable
-	rustup default stable
+    msg "install the stable toolchain and select it as default"
+    rustup toolchain install stable
+    rustup default stable
 
-	mkdir -p "$HOME/.cargo" || true
-	cp "$root/rust/config.toml" "$HOME/.cargo/config.toml"
+    mkdir -p "$HOME/.cargo" || true
+    cp "$root/rust/config.toml" "$HOME/.cargo/config.toml"
 
-	msg 'install cargo plugins'
-	cargo install cargo-edit cargo-expand
+    msg 'install cargo plugins'
+    cargo install cargo-edit cargo-expand
 
-	msg 'install rustup plugins'
-	rustup component add clippy
-	rustup component add rustfmt
-	rustup component add rls rust-analysis rust-src
+    msg 'install rustup plugins'
+    rustup component add clippy
+    rustup component add rustfmt
+    rustup component add rls rust-analysis rust-src
 }

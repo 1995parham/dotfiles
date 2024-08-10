@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n -e "a new bootable USB solution"
+    echo -n -e "a new bootable USB solution"
 
-	echo '
+    echo '
                  _
 __   _____ _ __ | |_ ___  _   _
 \ \ / / _ \ |_ \| __/ _ \| | | |
@@ -14,5 +14,5 @@ __   _____ _ __ | |_ ___  _   _
 }
 
 main_pacman() {
-	require_aur ventoy-bin
+    require_aur ventoy-bin
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management."
+    echo "Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management."
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
    _ _
   (_|_)_ __ __ _
   | | | |__/ _` |
@@ -14,5 +14,5 @@ usage() {
 }
 
 main_pacman() {
-	require_aur jira-cli
+    require_aur jira-cli
 }

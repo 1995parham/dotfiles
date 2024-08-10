@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "Code editing. Redefined."
+    echo "Code editing. Redefined."
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
                _
   ___ ___   __| | ___
  / __/ _ \ / _` |/ _ \
@@ -16,23 +16,23 @@ usage() {
 root=${root:?"root must be set"}
 
 main_pacman() {
-	require_aur visual-studio-code-insiders-bin visual-studio-code-bin
-	require_aur devcontainer-cli
+    require_aur visual-studio-code-insiders-bin visual-studio-code-bin
+    require_aur devcontainer-cli
 
-	linker code "$root/code/code-flags.conf" "$HOME/.config/code-flags.conf"
+    linker code "$root/code/code-flags.conf" "$HOME/.config/code-flags.conf"
 
-	require_pacman libxcrypt-compat
+    require_pacman libxcrypt-compat
 }
 
 main_brew() {
-	require_brew_cask visual-studio-code visual-studio-code@insiders
-	require_brew devcontainer efm-langserver
+    require_brew_cask visual-studio-code visual-studio-code@insiders
+    require_brew devcontainer efm-langserver
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

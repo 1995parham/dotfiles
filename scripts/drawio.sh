@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n -e "draw.io desktop application"
+    echo -n -e "draw.io desktop application"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
      _                    _
   __| |_ __ __ ___      _(_) ___
  / _` | |__/ _` \ \ /\ / / |/ _ \
@@ -15,9 +15,9 @@ usage() {
 }
 
 main_pacman() {
-	require_aur drawio-desktop-bin
+    require_aur drawio-desktop-bin
 }
 
 main_brew() {
-	require_brew_cask drawio
+    require_brew_cask drawio
 }

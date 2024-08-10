@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "awesome is a highly configurable, next generation framework window manager for X"
+    echo "awesome is a highly configurable, next generation framework window manager for X"
 
-	echo '
+    echo '
   __ ___      _____  ___  ___  _ __ ___   ___
  / _` \ \ /\ / / _ \/ __|/ _ \| |_ | _ \ / _ \
 | (_| |\ V  V /  __/\__ \ (_) | | | | | |  __/
@@ -16,16 +16,16 @@ export additionals=(x11)
 root=${root:?"root must be set"}
 
 main_pacman() {
-	configfile awesome "" awesome
+    configfile awesome "" awesome
 
-	msg 'install awesome with required system tooling'
-	require_pacman awesome picom redshift unclutter xfce4-power-manager acpi pamixer xorg xorg-apps
-	require_aur i3exit matcha-gtk-theme
+    msg 'install awesome with required system tooling'
+    require_pacman awesome picom redshift unclutter xfce4-power-manager acpi pamixer xorg xorg-apps
+    require_aur i3exit matcha-gtk-theme
 
-	msg
-	msg 'configure rofi another application luncher'
-	require_pacman rofi
-	configfile rofi "" awesome
+    msg
+    msg 'configure rofi another application luncher'
+    require_pacman rofi
+    configfile rofi "" awesome
 
-	require_pacman scrot
+    require_pacman scrot
 }

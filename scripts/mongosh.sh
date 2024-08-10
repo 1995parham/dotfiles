@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n 'mongodb shell'
-	echo '
+    echo -n 'mongodb shell'
+    echo '
                                        _
  _ __ ___   ___  _ __   __ _  ___  ___| |__
 | |_ | _ \ / _ \| |_ \ / _| |/ _ \/ __| |_ \
@@ -13,9 +13,9 @@ usage() {
 }
 
 main_pacman() {
-	require_aur mongosh-bin
+    require_aur mongosh-bin
 }
 
 main() {
-	dotfile mongosh mongoshrc.js
+    dotfile mongosh mongoshrc.js
 }

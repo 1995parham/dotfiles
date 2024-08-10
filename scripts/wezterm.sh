@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "WezTerm is a powerful cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust"
+    echo "WezTerm is a powerful cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
                   _
 __      _____ ___| |_ ___ _ __ _ __ ___
 \ \ /\ / / _ \_  / __/ _ \ |__| |_ ` _ \
@@ -14,25 +14,25 @@ __      _____ ___| |_ ___ _ __ _ __ ___
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	require_pacman wezterm wezterm-shell-integration wezterm-terminfo
+    require_pacman wezterm wezterm-shell-integration wezterm-terminfo
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew_cask wezterm
+    require_brew_cask wezterm
 }
 
 main() {
-	configfile wezterm
+    configfile wezterm
 }
 
 main_parham() {
-	return 0
+    return 0
 }

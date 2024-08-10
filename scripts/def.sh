@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "def, a free oxford dictionary (based on stardict) in terminal"
-	echo '
+    echo "def, a free oxford dictionary (based on stardict) in terminal"
+    echo '
      _       __
   __| | ___ / _|
  / _` |/ _ \ |_
@@ -13,14 +13,14 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman sdcv
-	require_aur stardict-oald
+    require_pacman sdcv
+    require_aur stardict-oald
 }
 
 main_brew() {
-	return 1
+    return 1
 }
 
 main_apt() {
-	return 1
+    return 1
 }

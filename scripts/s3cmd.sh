@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "Command line tool for managing S3 compatible storage services (including Amazon S3 and CloudFront)"
+    echo "Command line tool for managing S3 compatible storage services (including Amazon S3 and CloudFront)"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
      _____                    _
  ___|___ /  ___ _ __ ___   __| |
 / __| |_ \ / __| |_ ` _ \ / _` |
@@ -14,25 +14,25 @@ usage() {
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	require_pacman s3cmd
+    require_pacman s3cmd
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew s3cmd
+    require_brew s3cmd
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

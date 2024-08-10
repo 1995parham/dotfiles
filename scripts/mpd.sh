@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "mpd music server with ncmpcpp as a client"
-	# shellcheck disable=2016
-	echo '
+    echo "mpd music server with ncmpcpp as a client"
+    # shellcheck disable=2016
+    echo '
                      _
  _ __ ___  _ __   __| |
 | |_ ` _ \| "_ \ / _` |
@@ -14,12 +14,12 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman mpd ncmpcpp mpc
-	# require_pacman strawberry
+    require_pacman mpd ncmpcpp mpc
+    # require_pacman strawberry
 }
 
 main() {
-	configfile mpd mpd.conf
-	systemctl --user enable mpd.service
-	systemctl --user start mpd.service
+    configfile mpd mpd.conf
+    systemctl --user enable mpd.service
+    systemctl --user start mpd.service
 }

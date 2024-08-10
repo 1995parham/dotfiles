@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "A youtube-dl fork with additional features and fixes"
-	# shellcheck disable=2016
-	echo '
+    echo -n "A youtube-dl fork with additional features and fixes"
+    # shellcheck disable=2016
+    echo '
        _            _ _
  _   _| |_       __| | |_ __
 | | | | __|____ / _| | | |_ \
@@ -14,13 +14,13 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman yt-dlp
+    require_pacman yt-dlp
 }
 
 main_brew() {
-	require_brew yt-dlp
+    require_brew yt-dlp
 }
 
 main() {
-	configfile yt-dlp
+    configfile yt-dlp
 }

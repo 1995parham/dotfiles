@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "Imagine a place..."
+    echo "Imagine a place..."
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
      _ _                       _
   __| (_)___  ___ ___  _ __ __| |
  / _` | / __|/ __/ _ \| |__/ _` |
@@ -13,13 +13,13 @@ usage() {
 }
 
 main_pacman() {
-	require_aur webcord
+    require_aur webcord
 }
 
 main_brew() {
-	require_brew_cask discord@canary
+    require_brew_cask discord@canary
 }
 
 main() {
-	return 0
+    return 0
 }

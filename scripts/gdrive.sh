@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "Google Drive CLI Client"
+    echo "Google Drive CLI Client"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
            _      _
   __ _  __| |_ __(_)_   _____
  / _` |/ _` | |__| \ \ / / _ \
@@ -16,21 +16,21 @@ usage() {
 export dependencies=("rust")
 
 main_pacman() {
-	require_aur gdrive
+    require_aur gdrive
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	return 1
+    return 1
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

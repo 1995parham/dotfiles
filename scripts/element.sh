@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "Element is a free and open-source software instant messaging client implementing the Matrix protocol."
+    echo "Element is a free and open-source software instant messaging client implementing the Matrix protocol."
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
       _                           _
   ___| | ___ _ __ ___   ___ _ __ | |_
  / _ \ |/ _ \ |_ ` _ \ / _ \ |_ \| __|
@@ -13,21 +13,21 @@ usage() {
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	require_pacman element-desktop
+    require_pacman element-desktop
 }
 
 main_brew() {
-	require_brew_cask element
+    require_brew_cask element
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "k8s and openshift command line tools (kubectl, oc, stern, kubeval, etc.)"
-	# shellcheck disable=2028
-	echo '
+    echo "k8s and openshift command line tools (kubectl, oc, stern, kubeval, etc.)"
+    # shellcheck disable=2028
+    echo '
  _          _               _   _
 | | ___   _| |__   ___  ___| |_| |
 | |/ / | | | |_ \ / _ \/ __| __| |
@@ -14,36 +14,36 @@ usage() {
 }
 
 main_brew() {
-	require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd/tap/flux k9s
+    require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd/tap/flux k9s
 }
 
 main_pacman() {
-	require_pacman kubectl helm argocd kubectx stern k9s fluxcd
-	require_aur okd-client-bin krew-bin
+    require_pacman kubectl helm argocd kubectx stern k9s fluxcd
+    require_aur okd-client-bin krew-bin
 }
 
 main() {
-	msg 'install helm-ls on neovim'
-	require_mason 'helm-ls'
+    msg 'install helm-ls on neovim'
+    require_mason 'helm-ls'
 
-	msg "awesome chart repositories for helm"
-	# Bitnami has migrated into OCI registry, which can be used directly.
-	# helm repo add bitnami https://charts.bitnami.com/bitnami || true
-	helm repo add nats https://nats-io.github.io/k8s/helm/charts || true
-	helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart || true
-	helm repo add benthos https://benthosdev.github.io/benthos-helm-chart || true
-	helm repo add emqx https://repos.emqx.io/charts || true
+    msg "awesome chart repositories for helm"
+    # Bitnami has migrated into OCI registry, which can be used directly.
+    # helm repo add bitnami https://charts.bitnami.com/bitnami || true
+    helm repo add nats https://nats-io.github.io/k8s/helm/charts || true
+    helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart || true
+    helm repo add benthos https://benthosdev.github.io/benthos-helm-chart || true
+    helm repo add emqx https://repos.emqx.io/charts || true
 
-	helm repo update
+    helm repo update
 
-	msg 'required kubectl plugins (using krew)'
-	kubectl krew install kuttl
+    msg 'required kubectl plugins (using krew)'
+    kubectl krew install kuttl
 
-	msg 'required helm plugins (using helm plugin manager)'
-	if helm plugin list | grep "diff"; then
-		helm plugin update diff
-	else
-		helm plugin install https://github.com/databus23/helm-diff
-	fi
+    msg 'required helm plugins (using helm plugin manager)'
+    if helm plugin list | grep "diff"; then
+        helm plugin update diff
+    else
+        helm plugin install https://github.com/databus23/helm-diff
+    fi
 
 }

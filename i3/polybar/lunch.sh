@@ -11,10 +11,10 @@ polybar-msg cmd quit
 bars=('top' 'bottom')
 
 for bar in "${bars[@]}"; do
-	echo "---" | tee -a "/tmp/$bar.log"
+    echo "---" | tee -a "/tmp/$bar.log"
 
-	polybar "$bar" 2>&1 | tee -a "/tmp/$bar.log" &
-	disown
+    polybar "$bar" 2>&1 | tee -a "/tmp/$bar.log" &
+    disown
 done
 
 # Wait until the processes have been shut down

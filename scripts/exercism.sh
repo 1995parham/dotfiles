@@ -8,9 +8,9 @@
 # [] Created By : Parham Alvani <parham.alvani@gmail.com>
 # =======================================
 usage() {
-	echo "exercism"
-	# shellcheck disable=1004
-	echo '
+    echo "exercism"
+    # shellcheck disable=1004
+    echo '
                         _
   _____  _____ _ __ ___(_)___ _ __ ___
  / _ \ \/ / _ \ |__/ __| / __| |_ ` _ \
@@ -20,14 +20,14 @@ usage() {
 }
 
 main_brew() {
-	brew install exercism
+    brew install exercism
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
-	return 1
+    msg "there is nothing that we can do"
+    return 1
 }
 
 main_pacman() {
-	yay -Syu --needed --noconfirm exercism-bin
+    yay -Syu --needed --noconfirm exercism-bin
 }

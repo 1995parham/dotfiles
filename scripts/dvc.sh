@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "Data and model versioning"
+    echo "Data and model versioning"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
      _
   __| |_   _____
  / _` \ \ / / __|
@@ -14,21 +14,21 @@ usage() {
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	require_pip 'dvc[all]'
+    require_pip 'dvc[all]'
 }
 
 main_brew() {
-	require_brew dvc
+    require_brew dvc
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

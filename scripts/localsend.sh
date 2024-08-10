@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "An open source cross-platform alternative to AirDrop"
-	# shellcheck disable=2016
-	echo '
+    echo -n "An open source cross-platform alternative to AirDrop"
+    # shellcheck disable=2016
+    echo '
  _                 _                    _ 
 | | ___   ___ __ _| |___  ___ _ __   __| |
 | |/ _ \ / __/ _| | / __|/ _ \ |_ \ / _| |
@@ -14,5 +14,5 @@ usage() {
 }
 
 main_pacman() {
-	require_aur localsend-bin
+    require_aur localsend-bin
 }

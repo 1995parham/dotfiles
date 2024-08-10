@@ -3,9 +3,9 @@
 version="1.10.1"
 
 usage() {
-	echo -n "The Outline clients use the popular Shadowsocks protocol ($version)"
-	# shellcheck disable=2016
-	echo '
+    echo -n "The Outline clients use the popular Shadowsocks protocol ($version)"
+    # shellcheck disable=2016
+    echo '
              _   _ _
   ___  _   _| |_| (_)_ __   ___
  / _ \| | | | __| | | |_ \ / _ \
@@ -16,19 +16,19 @@ usage() {
 }
 
 main_pacman() {
-	return 0
+    return 0
 }
 
 main() {
-	if [ ! -d /opt/outline ]; then
-		sudo mkdir /opt/outline
-		sudo chown "$USER:$USER" /opt/outline
-		aria2c "https://github.com/Jigsaw-Code/outline-client/releases/download/v$version/Outline-Client.AppImage" -d /opt/outline
-		aria2c "https://github.com/Jigsaw-Code/outline-client/blob/master/resources/icons/ios/Icon-512@2x.png?raw=true" -d /opt/outline
-		chmod +x "/opt/outline/Outline-Client.AppImage"
-	fi
+    if [ ! -d /opt/outline ]; then
+        sudo mkdir /opt/outline
+        sudo chown "$USER:$USER" /opt/outline
+        aria2c "https://github.com/Jigsaw-Code/outline-client/releases/download/v$version/Outline-Client.AppImage" -d /opt/outline
+        aria2c "https://github.com/Jigsaw-Code/outline-client/blob/master/resources/icons/ios/Icon-512@2x.png?raw=true" -d /opt/outline
+        chmod +x "/opt/outline/Outline-Client.AppImage"
+    fi
 
-	cat >"$HOME/.local/share/applications/outline.desktop" <<EOF
+    cat >"$HOME/.local/share/applications/outline.desktop" <<EOF
   [Desktop Entry]
 
 # The type as listed above

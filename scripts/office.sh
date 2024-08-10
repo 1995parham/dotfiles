@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n -e "office tools"
+    echo -n -e "office tools"
 
-	echo '
+    echo '
         __  __ _
   ___  / _|/ _(_) ___ ___
  / _ \| |_| |_| |/ __/ _ \
@@ -14,5 +14,5 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman libreoffice-fresh libreoffice-fresh-fa
+    require_pacman libreoffice-fresh libreoffice-fresh-fa
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "AnyDesk is a software that enables you to access and control devices remotely from anywhere in the world."
+    echo "AnyDesk is a software that enables you to access and control devices remotely from anywhere in the world."
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
                        _           _
   __ _ _ __  _   _  __| | ___  ___| | __
  / _` | |_ \| | | |/ _` |/ _ \/ __| |/ /
@@ -14,25 +14,25 @@ usage() {
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	return 1
+    return 1
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew_cask anydesk
+    require_brew_cask anydesk
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

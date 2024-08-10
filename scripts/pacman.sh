@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo 'pacman configuraiton for arch here and now'
+    echo 'pacman configuraiton for arch here and now'
 
-	echo '
+    echo '
  _ __   __ _  ___ _ __ ___   __ _ _ __
 | |_ \ / _| |/ __| |_ | _ \ / _| | |_ \
 | |_) | (_| | (__| | | | | | (_| | | | |
@@ -13,6 +13,6 @@ usage() {
 }
 
 main_pacman() {
-	copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
-	copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
+    copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
+    copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
 }

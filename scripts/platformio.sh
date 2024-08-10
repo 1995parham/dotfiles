@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n -e "platformio, professional collaborative platform for embedded development"
+    echo -n -e "platformio, professional collaborative platform for embedded development"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
        _       _    __                      _
  _ __ | | __ _| |_ / _| ___  _ __ _ __ ___ (_) ___
 | |_ \| |/ _| | __| |_ / _ \| |__| |_ |_ \| |/ _ \
@@ -15,9 +15,9 @@ usage() {
 }
 
 main_pacman() {
-	yay -Syu --needed --noconfirm platformio
+    yay -Syu --needed --noconfirm platformio
 }
 
 main() {
-	return 0
+    return 0
 }

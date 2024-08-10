@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "timezone info in cli for working remotely"
-	# shellcheck disable=2016
-	echo '
+    echo "timezone info in cli for working remotely"
+    # shellcheck disable=2016
+    echo '
              _
   __ _  ___ | |_ ____
  / _` |/ _ \| __|_  /
@@ -14,9 +14,9 @@ usage() {
 }
 
 main_pacman() {
-	require_aur gotz
+    require_aur gotz
 }
 
 main() {
-	configfile gotz
+    configfile gotz
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "aur's packages maintain by 1995parham"
+    echo -n "aur's packages maintain by 1995parham"
 
-	echo '
+    echo '
   __ _ _   _ _ __
  / _| | | | | |__|
 | (_| | |_| | |
@@ -13,28 +13,28 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman pacman-contrib
+    require_pacman pacman-contrib
 }
 
 main() {
-	pkgs=(
-		"natscli"
-		"natscli-bin"
-		"natscli-git"
-		"okd-client-bin"
-		"gosimac-bin"
-		"gosimac"
-		"actionlint-bin"
-		"jcal"
-		"mprocs-bin"
-		"mprocs"
-		"gotz"
-		"scitopdf-git"
-		"jira-cli"
-		#		"litmusctl-bin"
-	)
+    pkgs=(
+        "natscli"
+        "natscli-bin"
+        "natscli-git"
+        "okd-client-bin"
+        "gosimac-bin"
+        "gosimac"
+        "actionlint-bin"
+        "jcal"
+        "mprocs-bin"
+        "mprocs"
+        "gotz"
+        "scitopdf-git"
+        "jira-cli"
+        #		"litmusctl-bin"
+    )
 
-	for pkg in "${pkgs[@]}"; do
-		clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur"
-	done
+    for pkg in "${pkgs[@]}"; do
+        clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur"
+    done
 }

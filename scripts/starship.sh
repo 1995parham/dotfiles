@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "the minimal, blazing-fast, and infinitely customizable prompt for any shell!"
-	echo '
+    echo -n "the minimal, blazing-fast, and infinitely customizable prompt for any shell!"
+    echo '
      _                 _     _
  ___| |_ __ _ _ __ ___| |__ (_)_ __
 / __| __/ _| | |__/ __| |_ \| | |_ \
@@ -13,17 +13,17 @@ usage() {
 }
 
 main_apt() {
-	curl -sS https://starship.rs/install.sh | sh
+    curl -sS https://starship.rs/install.sh | sh
 }
 
 main_pacman() {
-	require_pacman starship
+    require_pacman starship
 }
 
 main_brew() {
-	require_brew starship
+    require_brew starship
 }
 
 main() {
-	configrootfile starship starship.toml ""
+    configrootfile starship starship.toml ""
 }

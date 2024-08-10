@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "image manipulation tools including: imagemagick (convert), gimp"
-	# shellcheck disable=2016,1004
-	echo '
+    echo -n "image manipulation tools including: imagemagick (convert), gimp"
+    # shellcheck disable=2016,1004
+    echo '
  _
 (_)_ __ ___   __ _  __ _  ___
 | | |_ ` _ \ / _` |/ _` |/ _ \
@@ -14,5 +14,5 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman gimp imagemagick imv
+    require_pacman gimp imagemagick imv
 }

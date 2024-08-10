@@ -3,9 +3,9 @@
 version="1.3.3"
 
 usage() {
-	echo -n "You will not get bored with 30nama ($version)"
-	# shellcheck disable=2016
-	echo '
+    echo -n "You will not get bored with 30nama ($version)"
+    # shellcheck disable=2016
+    echo '
  _____  ___
 |___ / / _ \ _ __   __ _ _ __ ___   __ _
   |_ \| | | | |_ \ / _| | |_ | _ \ / _| |
@@ -15,29 +15,29 @@ usage() {
 }
 
 main_pacman() {
-	if [ ! -d /opt/30nama ]; then
-		sudo mkdir /opt/30nama
-		sudo chown "$USER:$USER" /opt/30nama
-	fi
+    if [ ! -d /opt/30nama ]; then
+        sudo mkdir /opt/30nama
+        sudo chown "$USER:$USER" /opt/30nama
+    fi
 
-	if [ ! -f /opt/30nama/logo.png ]; then
-		aria2c "https://github.com/Mr30nama/30nama/raw/main/logo.png" -d /opt/30nama
-	fi
+    if [ ! -f /opt/30nama/logo.png ]; then
+        aria2c "https://github.com/Mr30nama/30nama/raw/main/logo.png" -d /opt/30nama
+    fi
 
-	current_version="$(find /opt/30nama -iname "30nama-*.AppImage" -exec sh -c 'basename $1 .AppImage | cut -d- -f2' sh {} \;)"
-	if [ "$current_version" != "" ]; then
-		if [ "$(semver_compare "$current_version" "$version")" = "lt" ]; then
-			rm "/opt/30nama/30nama-$current_version.AppImage"
+    current_version="$(find /opt/30nama -iname "30nama-*.AppImage" -exec sh -c 'basename $1 .AppImage | cut -d- -f2' sh {} \;)"
+    if [ "$current_version" != "" ]; then
+        if [ "$(semver_compare "$current_version" "$version")" = "lt" ]; then
+            rm "/opt/30nama/30nama-$current_version.AppImage"
 
-			aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
-			chmod +x "/opt/30nama/30nama-$version.AppImage"
-		fi
-	else
-		aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
-		chmod +x "/opt/30nama/30nama-$version.AppImage"
-	fi
+            aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
+            chmod +x "/opt/30nama/30nama-$version.AppImage"
+        fi
+    else
+        aria2c "https://github.com/Mr30nama/30nama-Hybrid/releases/download/v$version/30nama-$version.AppImage" -d /opt/30nama
+        chmod +x "/opt/30nama/30nama-$version.AppImage"
+    fi
 
-	cat >"$HOME/.local/share/applications/30nama.desktop" <<EOF
+    cat >"$HOME/.local/share/applications/30nama.desktop" <<EOF
   [Desktop Entry]
 
 # The type as listed above
@@ -70,8 +70,8 @@ EOF
 }
 
 main_brew() {
-	aria2c "https://cdn.30nama-hybrid.digital/30nama-$version-arm64.dmg" -d "$HOME/Downloads"
-	hdiutil attach "$HOME/Downloads/30nama-$version-arm64.dmg"
-	cp -r "/Volumes/30nama $version-arm64/30nama.app" /Applications
-	hdiutil detach "/Volumes/30nama $version-arm64"
+    aria2c "https://cdn.30nama-hybrid.digital/30nama-$version-arm64.dmg" -d "$HOME/Downloads"
+    hdiutil attach "$HOME/Downloads/30nama-$version-arm64.dmg"
+    cp -r "/Volumes/30nama $version-arm64/30nama.app" /Applications
+    hdiutil detach "/Volumes/30nama $version-arm64"
 }

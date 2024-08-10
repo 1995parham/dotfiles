@@ -2,8 +2,8 @@
 set -e
 
 if [[ $USER != parham ]]; then
-	echo "you are not my master"
-	exit
+    echo "you are not my master"
+    exit
 fi
 
 # global variable that points to `dotfiles/archinstall` root directory

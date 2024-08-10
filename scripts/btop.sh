@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "a monitor of resources"
-	# shellcheck disable=2016
-	echo '
+    echo -n "a monitor of resources"
+    # shellcheck disable=2016
+    echo '
  _     _
 | |__ | |_ ___  _ __
 | |_ \| __/ _ \| |_ \
@@ -14,17 +14,17 @@ usage() {
 }
 
 main_brew() {
-	require_brew btop
+    require_brew btop
 }
 
 main_pacman() {
-	require_pacman btop
+    require_pacman btop
 }
 
 main_apt() {
-	require_apt btop
+    require_apt btop
 }
 
 main() {
-	configfile btop
+    configfile btop
 }

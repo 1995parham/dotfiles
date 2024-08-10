@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "AWS CLI with required tools like terraform"
-	# shellcheck disable=2016
-	echo '
+    echo -n "AWS CLI with required tools like terraform"
+    # shellcheck disable=2016
+    echo '
 
   __ ___      _____
  / _` \ \ /\ / / __|
@@ -14,15 +14,15 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman aws-cli-v2 aws-vault terraform
-	require_aur cw-cloudwatch aws-ecs-cli
+    require_pacman aws-cli-v2 aws-vault terraform
+    require_aur cw-cloudwatch aws-ecs-cli
 }
 
 main_brew() {
-	require_brew aws-vault awscli terraform lucagrulla/tap/cw aws-cdk
+    require_brew aws-vault awscli terraform lucagrulla/tap/cw aws-cdk
 }
 
 main() {
-	msg 'install terraform-ls on neovim'
-	require_mason 'terraform-ls'
+    msg 'install terraform-ls on neovim'
+    require_mason 'terraform-ls'
 }

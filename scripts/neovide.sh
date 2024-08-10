@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "No Nonsense Neovim Client in Rust"
+    echo "No Nonsense Neovim Client in Rust"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
                        _     _
  _ __   ___  _____   _(_) __| | ___
 | |_ \ / _ \/ _ \ \ / / |/ _` |/ _ \
@@ -16,25 +16,25 @@ usage() {
 export dependencies=("neovim")
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	require_pacman neovide
+    require_pacman neovide
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew_cask neovide
+    require_brew_cask neovide
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

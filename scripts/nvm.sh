@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo 'Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions'
-	echo '
+    echo 'Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions'
+    echo '
  _ ____   ___ __ ___
 | |_ \ \ / / |_ | _ \
 | | | \ V /| | | | | |
@@ -11,11 +11,11 @@ usage() {
 }
 
 main_pacman() {
-	require_aur nvm
+    require_aur nvm
 }
 
 main() {
-	if ! grep -q "source /usr/share/nvm/init-nvm.sh" "$HOME/.zshrc"; then
-		echo 'source /usr/share/nvm/init-nvm.sh' >>"$HOME/.zshrc"
-	fi
+    if ! grep -q "source /usr/share/nvm/init-nvm.sh" "$HOME/.zshrc"; then
+        echo 'source /usr/share/nvm/init-nvm.sh' >>"$HOME/.zshrc"
+    fi
 }

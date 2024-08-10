@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "minikube quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows."
+    echo "minikube quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows."
 
-	# shellcheck disable=1004,2016,2028
-	echo '
+    # shellcheck disable=1004,2016,2028
+    echo '
            _       _ _          _
  _ __ ___ (_)_ __ (_) | ___   _| |__   ___
 | |_ | _ \| | |_ \| | |/ / | | | |_ \ / _ \
@@ -13,21 +13,21 @@ usage() {
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	require_pacman minikube
+    require_pacman minikube
 }
 
 main_brew() {
-	require_brew minikube
+    require_brew minikube
 }
 
 main() {
-	minikube config set driver docker
+    minikube config set driver docker
 }
 
 main_parham() {
-	return 0
+    return 0
 }

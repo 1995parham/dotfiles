@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "install erlang and remembers the good old days with dr.bakhshi"
+    echo -n "install erlang and remembers the good old days with dr.bakhshi"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
            _
   ___ _ __| | __ _ _ __   __ _
  / _ \ |__| |/ _| | |_ \ / _` |
@@ -15,21 +15,21 @@ usage() {
 }
 
 main_apt() {
-	msg "there is nothing that we can do"
-	return 1
+    msg "there is nothing that we can do"
+    return 1
 }
 
 main_pacman() {
-	sudo pacman -Syu --needed --noconfirm erlang
-	yay -Syu --needed --noconfirm rebar3
+    sudo pacman -Syu --needed --noconfirm erlang
+    yay -Syu --needed --noconfirm rebar3
 }
 
 main_brew() {
-	msg "there is nothing that we can do"
-	return 1
+    msg "there is nothing that we can do"
+    return 1
 }
 
 main() {
-	msg "there is nothing that we can do"
-	return 1
+    msg "there is nothing that we can do"
+    return 1
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "do your communication over skype because it is free and open"
+    echo "do your communication over skype because it is free and open"
 
-	# shellcheck disable=1004,2016,2028
-	echo '
+    # shellcheck disable=1004,2016,2028
+    echo '
      _
  ___| | ___   _ _ __   ___
 / __| |/ / | | | |_ \ / _ \
@@ -14,17 +14,17 @@ usage() {
 }
 
 main_pacman() {
-	require_aur skypeforlinux-stable-bin
+    require_aur skypeforlinux-stable-bin
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew_cask skype@preview
+    require_brew_cask skype@preview
 }
 
 main() {
-	return 0
+    return 0
 }

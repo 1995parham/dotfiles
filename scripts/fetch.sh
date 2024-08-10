@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo -n "a command-line system/repository information tool"
-	# shellcheck disable=2016
-	echo '
+    echo -n "a command-line system/repository information tool"
+    # shellcheck disable=2016
+    echo '
   __      _       _
  / _| ___| |_ ___| |__
 | |_ / _ \ __/ __| |_ \
@@ -13,17 +13,17 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman neofetch onefetch tokei
+    require_pacman neofetch onefetch tokei
 }
 
 main_apt() {
-	require_apt neofetch
+    require_apt neofetch
 }
 
 main_brew() {
-	require_brew neofetch onefetch tokei
+    require_brew neofetch onefetch tokei
 }
 
 main() {
-	configfile neofetch
+    configfile neofetch
 }

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "Taskwarrior - Command line Task Management"
+    echo "Taskwarrior - Command line Task Management"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
  _            _                             _
 | |_ __ _ ___| | ____      ____ _ _ __ _ __(_) ___  _ __
 | __/ _` / __| |/ /\ \ /\ / / _` | |__| |__| |/ _ \| |__|
@@ -14,27 +14,27 @@ usage() {
 }
 
 pre_main() {
-	return 0
+    return 0
 }
 
 main_pacman() {
-	return 1
+    return 1
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew task dhth/tap/hours
+    require_brew task dhth/tap/hours
 }
 
 main() {
-	dotfile taskwarrior taskrc
+    dotfile taskwarrior taskrc
 }
 
 main_parham() {
-	msg "hello parham, clone your private repositories"
+    msg "hello parham, clone your private repositories"
 
-	clone git@github.com:parham-alvani/tasks "$HOME" ".task"
+    clone git@github.com:parham-alvani/tasks "$HOME" ".task"
 }

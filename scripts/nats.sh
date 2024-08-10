@@ -3,10 +3,10 @@
 export dependencies=("go")
 
 usage() {
-	echo "The NATS Command Line Interface"
+    echo "The NATS Command Line Interface"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
              _
  _ __   __ _| |_ ___
 | |_ \ / _` | __/ __|
@@ -16,21 +16,21 @@ usage() {
 }
 
 main_pacman() {
-	require_aur natscli-git
+    require_aur natscli-git
 }
 
 main_apt() {
-	return 1
+    return 1
 }
 
 main_brew() {
-	require_brew nats-io/nats-tools/nats
+    require_brew nats-io/nats-tools/nats
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

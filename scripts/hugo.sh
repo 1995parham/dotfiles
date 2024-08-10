@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "The world’s fastest framework for building websites"
+    echo "The world’s fastest framework for building websites"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
  _
 | |__  _   _  __ _  ___
 | |_ \| | | |/ _` |/ _ \
@@ -14,17 +14,17 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman hugo
+    require_pacman hugo
 }
 
 main_brew() {
-	require_brew hugo
+    require_brew hugo
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }

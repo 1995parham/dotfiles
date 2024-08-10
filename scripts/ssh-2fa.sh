@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "enabling two factor authentication for using ssh"
+    echo "enabling two factor authentication for using ssh"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
          _          ____   __
  ___ ___| |__      |___ \ / _| __ _
 / __/ __| |_ \ _____ __) | |_ / _` |
@@ -14,15 +14,15 @@ usage() {
 }
 
 main_pacman() {
-	require_pacman qrencode libpam-google-authenticator
+    require_pacman qrencode libpam-google-authenticator
 
-	echo "
+    echo "
 PasswordAuthentication no
 KbdInteractiveAuthentication yes
 AuthenticationMethods publickey,keyboard-interactive:pam
 " | sudo tee "/etc/ssh/sshd_config.d/20-pam.conf"
 
-	echo "
+    echo "
 #%PAM-1.0
 
 auth required pam_google_authenticator.so
@@ -34,9 +34,9 @@ session   include   system-remote-login
 }
 
 main() {
-	if [ ! -f "$HOME/.google_authenticator" ]; then
-		google-authenticator -t -d -r 3 -R 60
-	fi
+    if [ ! -f "$HOME/.google_authenticator" ]; then
+        google-authenticator -t -d -r 3 -R 60
+    fi
 
-	sudo systemctl restart sshd.service
+    sudo systemctl restart sshd.service
 }

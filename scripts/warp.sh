@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 usage() {
-	echo "The free app that makes your Internet safer (even when you are using speedify)"
+    echo "The free app that makes your Internet safer (even when you are using speedify)"
 
-	# shellcheck disable=1004,2016
-	echo '
+    # shellcheck disable=1004,2016
+    echo '
 
 __      ____ _ _ __ _ __
 \ \ /\ / / _` | |__| |_ \
@@ -14,21 +14,21 @@ __      ____ _ _ __ _ __
 }
 
 main_brew() {
-	require_brew_cask cloudflare-warp
+    require_brew_cask cloudflare-warp
 }
 
 main_pacman() {
-	require_aur cloudflare-warp-bin
+    require_aur cloudflare-warp-bin
 
-	sudo systemctl enable --now warp-svc.service
-	warp-cli register
-	warp-cli status
+    sudo systemctl enable --now warp-svc.service
+    warp-cli register
+    warp-cli status
 }
 
 main() {
-	return 0
+    return 0
 }
 
 main_parham() {
-	return 0
+    return 0
 }
