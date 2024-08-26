@@ -19,6 +19,10 @@ main_brew() {
     require_brew_cask alacritty
 }
 
+main_apt() {
+    require_apt alacritty
+}
+
 main_pacman() {
     if yes_or_no 'alacritty' 'do you want to use stable release?'; then
         not_require_pacman alacritty-git
