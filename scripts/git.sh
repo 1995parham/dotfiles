@@ -33,5 +33,9 @@ main_elahe() {
 }
 
 main_raha() {
-    configfile "git" "" "git/elahe"
+    main_elahe
+}
+
+main_elahe-dastan() {
+    main_elahe
 }

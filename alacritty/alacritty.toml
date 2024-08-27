@@ -44,15 +44,15 @@ builtin_box_drawing = true
 size = 9
 
 [font.bold]
-family = "terminal-font"
+family = "JetBrainsMono Nerd Font"
 style = "SemiBold"
 
 [font.italic]
-family = "terminal-font"
+family = "JetBrainsMono Nerd Font"
 style = "ExtraLight Italic"
 
 [font.normal]
-family = "terminal-font"
+family = "JetBrainsMono Nerd Font"
 style = "ExtraLight"
 
 [font.offset]

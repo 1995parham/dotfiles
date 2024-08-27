@@ -22,7 +22,7 @@ main_pacman() {
 }
 
 main_apt() {
-    require_apt install gnupg2 git rng-tools
+    require_apt gnupg2 git rng-tools
 }
 
 main_brew() {

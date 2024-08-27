@@ -18,7 +18,7 @@ main_pacman() {
 }
 
 main_brew() {
-    require_brew yt-dlp
+    require_brew yt-dlp ffmpeg
 }
 
 main() {
