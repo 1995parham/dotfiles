@@ -15,5 +15,5 @@ usage() {
 root=${root:?"root must be set"}
 
 main_brew() {
-    require_brew_cask iterm2-nightly
+    require_brew_cask iterm2@nightly
 }
