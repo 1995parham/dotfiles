@@ -190,12 +190,16 @@ bindkey "^[OB" history-beginning-search-forward-end
 # edit command in vim
 bindkey -M vicmd v edit-command-line
 
-# pyenv
-
+# pyenv, simple python version management
 if [[ "$(command -v pyenv)" ]] && [ -z "$VIRTUAL_ENV" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
+fi
+
+# k9s, kubernetes cli to manage your clusters in style!
+if [[ "$(command -v k9s)" ]]; then
+    export K9S_CONFIG_DIR="$HOME/.config/k9s"
 fi
 
 # use man page with different pagers in different environments
