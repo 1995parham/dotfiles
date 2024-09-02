@@ -11,4 +11,4 @@ k9s:
     noIcons: false
     # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live.
     reactive: true
-    skin: one-dark
+    skin: one_dark
