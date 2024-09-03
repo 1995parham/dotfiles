@@ -272,7 +272,7 @@ function clone() {
 
         cd "${path}/${dir}" || return
 
-        if git remote get-url origin --all 2>/dev/null | grep "$url"; then
+        if git remote get-url origin --all 2>/dev/null | grep "$url" &>/dev/null; then
             action git "${repo_name} pushurl -> ${url} ${F_GRAY}󰄲${F_RESET}"
         else
             if git remote set-url --add origin "${url}" &>/dev/null; then
