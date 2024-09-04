@@ -26,7 +26,7 @@ main_apt() {
 }
 
 main_brew() {
-    require_brew php
+    require_brew php composer
 }
 
 main() {
