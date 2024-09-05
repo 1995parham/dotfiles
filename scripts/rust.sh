@@ -18,9 +18,6 @@ main_pacman() {
 
 main_brew() {
     require_brew rustup
-
-    # shellcheck disable=1091
-    source "$HOME/.cargo/env"
 }
 
 main() {
@@ -29,9 +26,6 @@ main() {
     msg "install the stable toolchain and select it as default"
     rustup toolchain install stable
     rustup default stable
-
-    mkdir -p "$HOME/.cargo" || true
-    cp "$root/rust/config.toml" "$HOME/.cargo/config.toml"
 
     msg 'install cargo plugins'
     cargo install cargo-edit cargo-expand
