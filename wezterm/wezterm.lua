@@ -117,10 +117,10 @@ end)
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
 if hostname == "millennium-falcon" then
-    config.font_size = 12
+    config.font_size = 10
 end
 if hostname == "tantive-iv" then
-    config.font_size = 12
+    config.font_size = 10
 end
 
 return config
