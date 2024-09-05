@@ -21,6 +21,7 @@ main_brew() {
 
     msg 'you know, osx always different'
     rustup-init --no-modify-path -y
+    # shellcheck disable=1091
     source "$HOME/.cargo/env"
 }
 
