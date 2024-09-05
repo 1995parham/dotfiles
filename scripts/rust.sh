@@ -21,8 +21,6 @@ main_brew() {
 }
 
 main() {
-    root=${root:?"root must be set"}
-
     msg "install the stable toolchain and select it as default"
     rustup toolchain install stable
     rustup default stable
