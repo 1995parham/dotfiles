@@ -12,7 +12,7 @@ export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
 # rust {{{
 
 if [ -d "$HOME/.cargo" ]; then
-	path+=("$HOME/.cargo/bin")
+    source "$HOME/.cargo/env"
 fi
 
 # }}}

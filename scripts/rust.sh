@@ -18,6 +18,10 @@ main_pacman() {
 
 main_brew() {
     require_brew rustup
+
+    msg 'you know, osx always different'
+    rustup-init --no-modify-path -y
+    source "$HOME/.cargo/env"
 }
 
 main() {
