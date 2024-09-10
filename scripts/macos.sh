@@ -40,7 +40,7 @@ main_brew() {
     defaults write com.apple.driver.AppleMultitouch Clicking -int 1
     defaults write com.apple.driver.AppleMultitouch TrackpadRightClick -bool true
     defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
-    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
 
     msg "Dock, Dashboard, Control Center, and hot corners"
 
