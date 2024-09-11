@@ -21,7 +21,7 @@ main_pacman() {
 }
 
 main_brew() {
-    require_brew_cask android-file-transfer android-platform-tools
+    require_brew_cask android-file-transfer android-platform-tools scrcpy
 
     if [ ! -f /usr/local/bin/heimdall ]; then
         msg 'install heimdall to upgrade recovery.img on Galaxy Tab S6 Lite (Wi-Fi)'
