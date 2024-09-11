@@ -41,7 +41,21 @@ config.keys = {
         mods = "CTRL | SHIFT",
         action = wezterm.action.ActivateTabRelative(1),
     },
+    {
+        key = "h",
+        mods = "CMD",
+        action = wezterm.action.EmitEvent("navi"),
+    },
 }
+
+wezterm.on("navi", function(window, pane)
+    window:perform_action(
+        wezterm.action.SpawnCommandInNewWindow({
+            args = { "bash", "-ilc", "navi --print | pbcopy" },
+        }),
+        pane
+    )
+end)
 
 wezterm.on("update-right-status", function(window, _)
     local hostname = wezterm.nerdfonts.fa_laptop .. " " .. wezterm.hostname()
