@@ -1,5 +1,5 @@
 ---
-session_name: StackAdapt
+session_name: Butler
 windows:
   - window_name: scratch 📝
     layout: tiled
@@ -7,7 +7,7 @@ windows:
     focus: true
     panes:
       - shell_command:
-          - chafa $DOTFILES_ROOT/wayland/waybar/img/stackadapt.svg --size 80 --clear -f symbols | less
+          - chafa $DOTFILES_ROOT/wayland/waybar/img/butlr.svg --size 80 --clear -f symbols | less
       - focus: true
       - pane
       - pane
