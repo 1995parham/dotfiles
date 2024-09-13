@@ -1,6 +1,15 @@
 ---
 session_name: Butler
 windows:
+  - window_name: butlr-api-container 🪄
+    layout: tiled
+    start_directory: ~/Documents/Git/butlr/butlrtechnologies/butlr-api-container
+    focus: true
+    panes:
+      - pane
+      - pane
+      - shell_command:
+          - nvim
   - window_name: scratch 📝
     layout: tiled
     start_directory: ~/Downloads
