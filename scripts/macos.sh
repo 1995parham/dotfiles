@@ -148,7 +148,7 @@ main_brew() {
     killall Finder
 
     msg
-    msg 'Setup an internet account for parham.alvani@gmail.com for Calendar and Contacts' 'notice'
+    msg 'Setup an internet account for xandikos for Calendar and Contacts' 'notice'
     yes_or_no "macos" 'Did you do it?'
 
     msg
