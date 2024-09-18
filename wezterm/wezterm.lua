@@ -128,6 +128,8 @@ wezterm.on("update-right-status", function(window, _)
     }))
 end)
 
+config.font = wezterm.font("JetBrains Mono", { weight = "Light" })
+
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
 if hostname == "millennium-falcon" then
