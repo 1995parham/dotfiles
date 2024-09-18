@@ -49,12 +49,14 @@ config.keys = {
 }
 
 wezterm.on("navi", function(window, pane)
-    window:perform_action(
-        wezterm.action.SpawnCommandInNewWindow({
-            args = { "bash", "-ilc", "navi --print | pbcopy" },
-        }),
-        pane
-    )
+    if wezterm.target_triple == "aarch64-apple-darwin" or wezterm.target_triple == "x86_64-apple-darwin" then
+        window:perform_action(
+            wezterm.action.SpawnCommandInNewWindow({
+                args = { "bash", "-ilc", "navi --print | pbcopy" },
+            }),
+            pane
+        )
+    end
 end)
 
 wezterm.on("update-right-status", function(window, _)
@@ -63,8 +65,14 @@ wezterm.on("update-right-status", function(window, _)
     local _, jalali_date, _ = wezterm.run_child_process({ "bash", "-lc", "jdate +%D" })
     jalali_date = wezterm.nerdfonts.fa_calendar .. " " .. jalali_date:gsub("[\n\r]", " ")
 
-    local _, clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='Asia/Tehran' date +%H:%M:%S" })
-    clock = wezterm.nerdfonts.fa_clock_o .. " " .. clock:gsub("[\n\r]", " ")
+    local _, tehran_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='Asia/Tehran' date +%H:%M:%S-%Z" })
+    tehran_clock = wezterm.nerdfonts.fa_clock_o .. " " .. tehran_clock:gsub("[\n\r]", " ")
+
+    local _, pst_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='America/Los_Angeles' date +%H:%M:%S-%Z" })
+    pst_clock = wezterm.nerdfonts.fa_clock_o .. " " .. pst_clock:gsub("[\n\r]", " ")
+
+    local _, est_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='America/New_York' date +%H:%M:%S-%Z" })
+    est_clock = wezterm.nerdfonts.fa_clock_o .. " " .. est_clock:gsub("[\n\r]", " ")
 
     local bat = ""
     for _, b in ipairs(wezterm.battery_info()) do
@@ -122,7 +130,9 @@ wezterm.on("update-right-status", function(window, _)
     window:set_right_status(wezterm.format({
         { Foreground = { Color = "#ffffff" } },
         { Text = "  " .. hostname .. "  " },
-        { Text = "  " .. clock .. "  " },
+        { Text = "  " .. tehran_clock .. "  " },
+        { Text = "  " .. pst_clock .. "  " },
+        { Text = "  " .. est_clock .. "  " },
         { Text = "  " .. jalali_date .. "  " },
         { Text = "  " .. bat .. "  " },
     }))
