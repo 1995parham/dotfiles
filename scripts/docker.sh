@@ -21,6 +21,7 @@ main_apt() {
 }
 
 main_brew() {
+    msg 'dive is working on macOS since docker version 26'
     require_brew_cask docker
     require_brew lazydocker hadolint docker-completion dive
 }
