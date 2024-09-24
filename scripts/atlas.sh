@@ -13,19 +13,19 @@ usage() {
 }
 
 main_pacman() {
-    return 0
+    msg 'download and install the latest release of the atlas cli'
+    curl -sSf https://atlasgo.sh | sh
 }
 
 main_apt() {
-    return 0
+    msg 'download and install the latest release of the atlas cli'
+    curl -sSf https://atlasgo.sh | sh
 }
 
 main_brew() {
-    # require_brew ariga/tap/atlas
-    return 0
+    require_brew ariga/tap/atlas
 }
 
 main() {
-    msg 'download and install the latest release of the atlas cli'
-    curl -sSf https://atlasgo.sh | sh
+    return 0
 }
