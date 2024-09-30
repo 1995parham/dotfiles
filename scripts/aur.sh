@@ -26,8 +26,6 @@ main() {
         "gosimac"
         "actionlint-bin"
         "jcal"
-        "mprocs-bin"
-        "mprocs"
         "gotz"
         "scitopdf-git"
         "jira-cli"
