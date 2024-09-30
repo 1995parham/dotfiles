@@ -47,10 +47,10 @@ if [ -n "$NVIM" ]; then
     export EDITOR="nvr -cc split --bufdelete --remote-wait"
     export MANPAGER="nvr -c 'Man!' -o -"
 else
+    # set -o vi
     # use ctrl+l for screen cleanup which is not useful
     # in neovim
     bind -x '"\C-l": clear'
-    set -o vi
 fi
 
 # set PATH so it includes user's private bin if it exists
