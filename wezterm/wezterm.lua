@@ -143,7 +143,7 @@ config.font = wezterm.font("JetBrains Mono", { weight = "Light" })
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
 if hostname == "millennium-falcon" then
-    config.font_size = 9
+    config.font_size = 8.5
 end
 if hostname == "tantive-iv" then
     config.font_size = 9
