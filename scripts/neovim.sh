@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-export dependencies=("node" "go" "rust" "python")
+export dependencies=("neovim-core" "node" "go" "rust" "python")
 export additionals=("shell" "java")
 
 usage() {
-    echo -n 'install edge version of neovim with nodejs, lua and pip'
+    echo -n 'hyperextensible Vim-based text editor (plugins, theme, etc.)'
     # shellcheck disable=1004
     echo '
                        _
@@ -17,32 +17,15 @@ usage() {
 }
 
 main_apt() {
-    sudo apt install neovim python3-pynvim
+    return 0
 }
 
 main_pacman() {
-    if yes_or_no 'neovim' 'do you want to use stable release?'; then
-        not_require_pacman neovim-git
-        require_pacman neovim
-    else
-        not_require_pacman neovim
-        # rm -rf ~/.cache/yay/neovim-git || true
-        require_aur neovim-git
-    fi
-    require_pacman libvterm python-pynvim luarocks
-    require_pip 'nvim-remote'
+    return 0
 }
 
 main_brew() {
-    if yes_or_no 'neovim' 'do you want to use stable release?'; then
-        brew list --version neovim | grep HEAD && brew uninstall --ignore-dependencies neovim
-        require_brew neovim
-    else
-        brew list --version neovim | grep HEAD || brew uninstall --ignore-dependencies neovim
-        require_brew_head neovim
-    fi
-    require_brew luarocks gcc@11
-    require_pip 'nvim-remote'
+    return 0
 }
 
 main() {
