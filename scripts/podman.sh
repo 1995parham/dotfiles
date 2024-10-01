@@ -32,7 +32,7 @@ main_pacman() {
 }
 
 main_apt() {
-    return 1
+    require_apt crun podman podman-compose podman-docker
 }
 
 main_brew() {
