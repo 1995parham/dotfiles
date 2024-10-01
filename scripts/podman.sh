@@ -13,8 +13,6 @@ usage() {
   '
 }
 
-
-
 pre_main() {
     return 0
 }
@@ -34,17 +32,17 @@ main_pacman() {
 }
 
 main_apt() {
-  return 1
+    return 1
 }
 
 main_brew() {
-  return 1
+    return 1
 }
 
 main() {
-  return 0
+    return 0
 }
 
 main_parham() {
-  return 0
+    return 0
 }
