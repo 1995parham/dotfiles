@@ -9,14 +9,6 @@ export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
 
 # }}}
 
-# rust {{{
-
-if [ -d "$HOME/.cargo" ]; then
-    source "$HOME/.cargo/env"
-fi
-
-# }}}
-
 # podman, helm, everything that is related to clouds. {{{
 
 export AWS_VAULT_BACKEND=file
