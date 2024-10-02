@@ -80,15 +80,6 @@ windows:
           - git pull origin main &> /dev/null
           - figlet 'Remember me when you must see me' | lolcat -S 57
 
-  - window_name: raha 🧡
-    layout: even-vertical
-    panes:
-      - shell_command:
-          - git pull origin main &> /dev/null
-          - chafa --clear ~/Documents/Git/parham/parham-alvani/profile-pics/elahe.jpg -f symbols
-        start_directory: ~/Documents/Git/parham/parham-alvani/raha
-      - start_directory: ~/Documents/Git/parham/parham-alvani/dishes
-
   - window_name: learning 🤓
     layout: tiled
     panes:
