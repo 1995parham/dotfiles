@@ -119,6 +119,16 @@ action = "DecreaseFontSize"
 key = "NumpadSubtract"
 mods = "Command"
 
+[[keyboard.bindings]]
+action = "SelectNextTab"
+key = "Right"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "SelectPreviousTab"
+key = "Left"
+mods = "Command"
+
 [mouse]
 hide_when_typing = true
 
