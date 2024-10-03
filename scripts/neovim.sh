@@ -21,11 +21,11 @@ main_apt() {
 }
 
 main_pacman() {
-    return 0
+    require_pip 'nvim-remote'
 }
 
 main_brew() {
-    return 0
+    require_pip 'nvim-remote'
 }
 
 main() {

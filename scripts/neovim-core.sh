@@ -26,7 +26,6 @@ main_pacman() {
         require_aur neovim-git
     fi
     require_pacman libvterm python-pynvim luarocks
-    require_pip 'nvim-remote'
 }
 
 main_apt() {
@@ -42,7 +41,6 @@ main_brew() {
         require_brew_head neovim
     fi
     require_brew luarocks gcc@11
-    require_pip 'nvim-remote'
 }
 
 main() {
