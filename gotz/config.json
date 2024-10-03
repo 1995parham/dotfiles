@@ -1,45 +1,32 @@
 {
-  "config_version": "1.0",
-  "timezones": [
-    {
-      "Name": "Home",
-      "TZ": "Asia/Tehran"
+    "config_version": "1.0",
+    "timezones": [
+        {
+            "Name": "Tehran",
+            "TZ": "Asia/Tehran"
+        },
+        {
+            "Name": "Vancouver",
+            "TZ": "America/Vancouver"
+        },
+        {
+            "Name": "New York",
+            "TZ": "America/New_York"
+        }
+    ],
+    "style": {
+        "colorize": true,
+        "day_segments": {
+            "morning": 6,
+            "day": 8,
+            "evening": 18,
+            "night": 22
+        },
+        "coloring": {}
     },
-    {
-      "Name": "Snapp",
-      "TZ": "Asia/Tehran"
-    },
-    {
-      "Name": "Offerland",
-      "TZ": "America/Vancouver"
-    }
-  ],
-  "style": {
-    "symbols": "mono",
-    "colorize": true,
-    "day_segments": {
-      "morning": 6,
-      "day": 8,
-      "evening": 18,
-      "night": 22
-    },
-    "coloring": {
-      "StaticColorMorning": "#445cf8",
-      "StaticColorDay": "#ec9c20",
-      "StaticColorEvening": "#051686",
-      "StaticColorNight": "#030D4D",
-      "StaticColorForeground": "",
-      "DynamicColorMorning": "#419AA8",
-      "DynamicColorDay": "#FFFFFF",
-      "DynamicColorEvening": "#419AA8",
-      "DynamicColorNight": "#09293F",
-      "DynamicColorForeground": "",
-      "DynamicColorBackground": ""
-    }
-  },
-  "tics": false,
-  "stretch": true,
-  "inline": false,
-  "hours12": false,
-  "live": false
+    "tics": false,
+    "stretch": true,
+    "inline": false,
+    "hours12": false,
+    "live": false
 }
