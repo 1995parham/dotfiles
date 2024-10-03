@@ -13,14 +13,21 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 main_pacman() {
     require_aur gotz
+
+    configfile gotz
 }
 
 main_brew() {
     require_brew 1995parham/tap/gotz
+
+    path="$HOME/Library/Application Support"
+    linker "gotz" "$root/gotz" "$path/gotz"
 }
 
 main() {
-    configfile gotz
+    return 0
 }
