@@ -18,7 +18,15 @@ root=${root:?"root must be set"}
 main_pacman() {
     require_pacman gnupg rng-tools
     mkdir -p "$HOME/.gnupg"
-    linker gnupg "$root/gpg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+
+    if yes_or_no "gpg" "do you have graphical user interface?"; then
+        pinentry_program="/usr/bin/pinentry-gnome3"
+    else
+        pinentry_program="/usr/bin/pinentry-tty"
+    fi
+
+    grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
+        (printf "pinentry-program %s" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
 }
 
 main_apt() {
