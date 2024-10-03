@@ -17,6 +17,10 @@ main_pacman() {
     require_aur gotz
 }
 
+main_brew() {
+    require_brew 1995parham/tap/gotz
+}
+
 main() {
     configfile gotz
 }
