@@ -134,3 +134,4 @@ hide_when_typing = true
 
 [window]
 opacity = 0.95
+startup_mode = "Fullscreen"
