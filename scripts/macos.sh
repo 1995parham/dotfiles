@@ -173,5 +173,5 @@ main_parham() {
     wget github.com/1995parham.png
     sudo dscl . delete /Users/parham JPEGPhoto
     sudo dscl . create /Users/parham Picture "$(pwd)/1995parham.png"
-    rm 1995parhan.png
+    rm 1995parham.png
 }
