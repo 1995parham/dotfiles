@@ -171,7 +171,9 @@ main_parham() {
 
     msg 'setting profile picture'
     wget github.com/1995parham.png
+    sips -s format jpeg 1995parham.png --out 1995parham.jpg
     sudo dscl . delete /Users/parham JPEGPhoto
-    sudo dscl . create /Users/parham Picture "$(pwd)/1995parham.png"
+    sudo dscl . create /Users/parham Picture "$(pwd)/1995parham.jpg"
     rm 1995parham.png
+    rm 1995parham.jpg
 }
