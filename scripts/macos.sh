@@ -170,10 +170,24 @@ main_parham() {
     clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "wallpapers"
 
     msg 'setting profile picture'
-    wget github.com/1995parham.png
-    sips -s format jpeg 1995parham.png --out 1995parham.jpg
-    sudo dscl . delete /Users/parham JPEGPhoto
-    sudo dscl . create /Users/parham Picture "$(pwd)/1995parham.jpg"
+    if [ ! -f 1995parham.png ]; then
+        wget github.com/1995parham.png
+    fi
+    if [ ! -f 1995parham.jpg ]; then
+        sips -s format jpeg 1995parham.png --out 1995parham.jpg
+    fi
+    import_profile_pic parham 1995parham.jpg
     rm 1995parham.png
     rm 1995parham.jpg
+}
+
+import_profile_pic() {
+    user="$1"
+    image="$2"
+    sudo dscl . delete "/Users/$user" JPEGPhoto
+    sudo dscl . delete "/Users/$user" Picture
+    tmp="$(mktemp)"
+    printf "0x0A 0x5C 0x3A 0x2C dsRecTypeStandard:Users 2 dsAttrTypeStandard:RecordName externalbinary:dsAttrTypeStandard:JPEGPhoto\n%s:%s" "$user" "$image" >"$tmp"
+    dsimport "$tmp" /Local/Default M
+    rm "$tmp"
 }
