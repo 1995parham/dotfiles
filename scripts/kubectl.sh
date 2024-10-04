@@ -18,8 +18,8 @@ main_brew() {
 }
 
 main_pacman() {
-    require_pacman kubectl helm argocd kubectx stern k9s fluxcd
-    require_aur okd-client-bin krew-bin
+    require_pacman kubectl helm argocd kubectx stern k9s fluxcd krew
+    require_aur okd-client-bin
 }
 
 main() {
