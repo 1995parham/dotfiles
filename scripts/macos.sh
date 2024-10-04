@@ -167,6 +167,11 @@ main() {
 
 main_parham() {
     msg 'the wallpapers that we love'
-
     clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "wallpapers"
+
+    msg 'setting profile picture'
+    wget github.com/1995parham.png
+    sudo dscl . delete /Users/parham JPEGPhoto
+    sudo dscl . create /Users/parham Picture "$(pwd)/1995parham.png"
+    rm 1995parhan.png
 }
