@@ -3,11 +3,8 @@
 stable_folders=(
     "$HOME/Downloads"
     "$HOME/Downloads/Telegram Desktop"
-    "$HOME/Downloads/samba"
     "$HOME/Downloads/xandikos"
-    "$HOME/Downloads/copyparty"
-    "$HOME/Downloads/swagger"
-    "$HOME/Downloads/movies"
+    "$HOME/Downloads/handy"
 )
 
 for folder in "${stable_folders[@]}"; do

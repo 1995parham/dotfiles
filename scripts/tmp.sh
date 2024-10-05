@@ -26,6 +26,8 @@ main_brew() {
     copycat "tmpfiles" tmpfiles/cleanup.sh "/usr/local/bin/cleanup.sh" 1
 
     sudo chmod +x /usr/local/bin/cleanup.sh
+
+    msg 'apple is not working with you because of its security and privacy'
 }
 
 main() {
