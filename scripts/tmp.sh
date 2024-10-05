@@ -23,16 +23,9 @@ main_pacman() {
 }
 
 main_brew() {
-    copycat "tmpfiles" tmpfiles/me.1995parham.cleanup.plist "$HOME/Library/LaunchAgents/" 0
     copycat "tmpfiles" tmpfiles/cleanup.sh "/usr/local/bin/cleanup.sh" 1
 
     sudo chmod +x /usr/local/bin/cleanup.sh
-
-    launchctl enable "gui/$UID/me.1995parham.cleanup"
-    if ! launchctl print "gui/$UID/me.1995parham.cleanup" >/dev/null 2>&1; then
-        launchctl bootstrap "gui/$UID" "$HOME/Library/LaunchAgents/me.1995parham.cleanup.plist"
-    fi
-    launchctl print "gui/$UID/me.1995parham.cleanup"
 }
 
 main() {
