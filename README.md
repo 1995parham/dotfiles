@@ -128,16 +128,16 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
 ### Elahe
 
-- [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (17,1) given by Snapp, and it should
+- [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (14,9) given by Digikala, and it should
   return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
 
-  |   Type    |                        Value                        |
-  | :-------: | :-------------------------------------------------: |
-  |  System   |          `MacBookPro17,1 (Z11B000E3LL/A)`           |
-  | Processor | `Apple M1 8 cores (4 performance and 4 efficiency)` |
-  |  Memory   |               `LPDDR4 - Hynix - 8 GB`               |
-
-  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(13--inch,_M1,_2021)-333333?style=for-the-badge&logo=apple&logoColor=white>)
+  |   Type    |                          Value                           |
+  | :-------: | :------------------------------------------------------: |
+  |  System   |                  `Mac14,9 (MPHE3LL/A)`                   |
+  | Processor | `Apple M2 Pro 10 cores (6 performance and 4 efficiency)` |
+  |  Memory   |                `LPDDR5 - Micron - 16 GB`                 |
+  
+  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 The username is always set to `elahe`.
 
