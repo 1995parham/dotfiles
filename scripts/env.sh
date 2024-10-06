@@ -39,7 +39,6 @@ brew_packages=(
     just
     bat-extras
     wakatime-cli
-    muzzle
     jcal
     teamookla/speedtest/speedtest
     mtr
@@ -49,9 +48,13 @@ brew_packages=(
     taplo
     actionlint
     xdg-ninja
-    the-unarchiver
 )
 declare -A brew_packages_replace=(
+)
+
+brew_cask_packages=(
+    muzzle
+    the-unarchiver
 )
 
 apt_packages=(bmon atop jcal)
@@ -168,4 +171,7 @@ main_brew() {
 
     msg "install ${brew_packages[*]} with brew"
     require_brew "${brew_packages[@]}"
+
+    msg "install ${brew_cask_packages[*]} with brew --cask"
+    require_brew_cask "${brew_cask_packages[@]}"
 }
