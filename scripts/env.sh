@@ -131,7 +131,7 @@ main_xbps() {
             package="${xbps_packages_replace[$package]}"
         fi
 
-        if [ -n "$package" ]; then
+        if [ "$package" != "-" ]; then
             xbps_packages+=("$package")
         fi
     done
@@ -146,7 +146,7 @@ main_pacman() {
             package="${pacman_packages_replace[$package]}"
         fi
 
-        if [ -n "$package" ]; then
+        if [ "$package" != "-" ]; then
             pacman_packages+=("$package")
         fi
     done
@@ -164,7 +164,7 @@ main_brew() {
             package="${brew_packages_replace[$package]}"
         fi
 
-        if [ -n "$package" ]; then
+        if [ "$package" != "-" ]; then
             brew_packages+=("$package")
         fi
     done
