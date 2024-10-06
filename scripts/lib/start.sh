@@ -282,6 +282,19 @@ install() {
 
         return
     fi
+
+    if [[ -n "$(command -v xbps-install)" ]]; then
+        msg " linux with xbps installed, using xbps"
+
+        if declare -f main_xbps >/dev/null; then
+            main_xbps
+        else
+            msg "main_xbps not found, there is nothing to do" "error"
+            exit
+        fi
+
+        return
+    fi
 }
 
 _main "$@"
