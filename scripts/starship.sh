@@ -20,6 +20,10 @@ main_pacman() {
     require_pacman starship
 }
 
+main_xbps() {
+    require_xbps starship
+}
+
 main_brew() {
     require_brew starship
 }

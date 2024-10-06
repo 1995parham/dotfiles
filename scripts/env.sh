@@ -18,6 +18,8 @@ export dependencies=("fetch" "zsh" "bash")
 
 packages=(tmux htop aria2 curl bat vim jq yamllint fzf mosh figlet lolcat)
 
+xbps_packages=()
+
 brew_packages=(
     coreutils
     k6
@@ -97,6 +99,11 @@ main_apt() {
 
     msg "install ${apt_packages[*]} + ${packages[*]} with apt"
     require_apt "${apt_packages[@]}" "${packages[@]}"
+}
+
+main_xbps() {
+    msg "install ${xbps_packages[*]} + ${packages[*]} with xbps"
+    require_xbps "${xbps_packages[@]}" "${packages[@]}"
 }
 
 main_pacman() {

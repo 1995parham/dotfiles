@@ -25,6 +25,10 @@ main_pacman() {
     require_pacman zsh
 }
 
+main_xbps() {
+    require_xbps zsh
+}
+
 main_apt() {
     require_apt zsh
 }
