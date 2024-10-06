@@ -66,9 +66,15 @@ pacman_packages=(
     git-delta
     fd
     jless
-    github-cli glab
-    inetutils websocat fuse2
-    go-yq man-pages usbutils exfat-utils
+    github-cli
+    glab
+    inetutils
+    websocat
+    fuse2
+    go-yq
+    man-pages
+    usbutils
+    exfat-utils
     openbsd-netcat
     cpupower
     reflector
@@ -76,7 +82,8 @@ pacman_packages=(
     tokei
     glow
     tmuxp
-    arch-wiki-lite arch-wiki-docs
+    arch-wiki-lite
+    arch-wiki-docs
     pastel
     man-db
     bandwhich
