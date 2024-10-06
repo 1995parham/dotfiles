@@ -58,7 +58,9 @@ main_apt() {
 }
 
 main_xbps() {
-    xbps_packages=()
+    xbps_packages=(
+        xmirror
+    )
     declare -A xbps_packages_replace=(
         [lolcat]=lolcat-c
         [tmuxp]=python3-tmuxp
