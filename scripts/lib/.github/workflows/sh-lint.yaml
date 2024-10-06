@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run the sh-checker
-        uses: luizm/action-sh-checker@v0.8.0
+        uses: luizm/action-sh-checker@v0.9.0
         with:
           sh_checker_comment: false
 
