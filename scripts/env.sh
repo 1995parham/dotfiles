@@ -59,7 +59,7 @@ brew_cask_packages=(
 
 apt_packages=(bmon atop jcal)
 declare -A apt_packages_replace=(
-    ["dua-cli"]=""
+    ["dua-cli"]="-"
 )
 
 pacman_packages=(
@@ -116,7 +116,7 @@ main_apt() {
             package="${apt_packages_replace[$package]}"
         fi
 
-        if [ -n "$package" ]; then
+        if [ "$package" != "-" ]; then
             apt_packages+=("$package")
         fi
     done
