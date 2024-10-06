@@ -16,7 +16,7 @@ usage() {
 # export dependencies=("neovim")
 export dependencies=("fetch" "zsh" "bash")
 
-packages=(tmux htop aria2 curl bat vim jq fzf mosh figlet lolcat)
+packages=(tmux htop aria2 curl bat vim jq fzf mosh figlet lolcat dua-cli wget chafa)
 
 xbps_packages=()
 declare -A xbps_packages_replace=(
@@ -25,13 +25,10 @@ declare -A xbps_packages_replace=(
 
 brew_packages=(
     coreutils
-    k6
     inetutils
     inxi
     fontconfig
-    wget
     tmuxp
-    dua-cli
     git
     bash
     ripgrep
@@ -45,7 +42,6 @@ brew_packages=(
     muzzle
     jcal
     teamookla/speedtest/speedtest
-    chafa
     mtr
     yq
     watch
@@ -55,8 +51,13 @@ brew_packages=(
     xdg-ninja
     the-unarchiver
 )
+declare -A brew_packages_replace=(
+)
 
 apt_packages=(bmon atop jcal)
+declare -A apt_packages_replace=(
+    ["dua-cli"]=""
+)
 
 pacman_packages=(
     perl-image-exiftool
@@ -65,8 +66,6 @@ pacman_packages=(
     git-delta
     fd
     jless
-    chafa
-    dua-cli
     github-cli glab
     inetutils websocat fuse2
     go-yq man-pages usbutils exfat-utils
@@ -89,19 +88,31 @@ pacman_packages=(
     powertop
     taplo-cli
 )
+declare -A pacman_packages_replace=(
+)
+
 yay_packages=(
     jcal
     actionlint-bin
     cbonsai
-    k6
     ookla-speedtest-bin
 )
 
 main_apt() {
     sudo apt update -yq
 
-    msg "install ${apt_packages[*]} + ${packages[*]} with apt"
-    require_apt "${apt_packages[@]}" "${packages[@]}"
+    for package in "${packages[@]}"; do
+        if [ "${apt_packages_replace[$package]:-}" ]; then
+            package="${apt_packages_replace[$package]}"
+        fi
+
+        if [ -n "$package" ]; then
+            apt_packages+=("$package")
+        fi
+    done
+
+    msg "install ${apt_packages[*]} with apt"
+    require_apt "${apt_packages[@]}"
 }
 
 main_xbps() {
@@ -110,7 +121,9 @@ main_xbps() {
             package="${xbps_packages_replace[$package]}"
         fi
 
-        xbps_packages+=("$package")
+        if [ -n "$package" ]; then
+            xbps_packages+=("$package")
+        fi
     done
 
     msg "install ${xbps_packages[*]} with xbps"
@@ -118,14 +131,34 @@ main_xbps() {
 }
 
 main_pacman() {
-    msg "install ${pacman_packages[*]} + ${packages[*]} with pacman"
-    require_pacman "${pacman_packages[@]}" "${packages[@]}"
+    for package in "${packages[@]}"; do
+        if [ "${pacman_packages_replace[$package]:-}" ]; then
+            package="${pacman_packages_replace[$package]}"
+        fi
+
+        if [ -n "$package" ]; then
+            pacman_packages+=("$package")
+        fi
+    done
+
+    msg "install ${pacman_packages[*]} with pacman"
+    require_pacman "${pacman_packages[@]}"
 
     msg "install ${yay_packages[*]} with yay"
     require_aur "${yay_packages[@]}"
 }
 
 main_brew() {
-    msg "install ${brew_packages[*]} + ${packages[*]} with brew"
-    require_brew "${brew_packages[@]}" "${packages[@]}"
+    for package in "${packages[@]}"; do
+        if [ "${brew_packages_replace[$package]:-}" ]; then
+            package="${brew_packages_replace[$package]}"
+        fi
+
+        if [ -n "$package" ]; then
+            brew_packages+=("$package")
+        fi
+    done
+
+    msg "install ${brew_packages[*]} with brew"
+    require_brew "${brew_packages[@]}"
 }
