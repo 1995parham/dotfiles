@@ -16,7 +16,7 @@ usage() {
 # export dependencies=("neovim")
 export dependencies=("fetch" "zsh" "bash")
 
-packages=(tmux htop aria2 curl bat vim jq fzf mosh figlet lolcat dua-cli wget chafa)
+packages=(tmux tmuxp htop aria2 curl bat vim jq fzf mosh figlet lolcat dua-cli wget chafa)
 
 main_apt() {
     apt_packages=(bmon atop jcal)
@@ -44,6 +44,7 @@ main_xbps() {
     xbps_packages=()
     declare -A xbps_packages_replace=(
         [lolcat]=lolcat-c
+        [tmuxp]=python3-tmuxp
     )
 
     for package in "${packages[@]}"; do
@@ -83,7 +84,6 @@ main_pacman() {
         jwt-cli
         tokei
         glow
-        tmuxp
         arch-wiki-lite
         arch-wiki-docs
         pastel
@@ -129,7 +129,6 @@ main_brew() {
         inetutils
         inxi
         fontconfig
-        tmuxp
         git
         bash
         ripgrep
