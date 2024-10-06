@@ -106,15 +106,15 @@ main_apt() {
 
 main_xbps() {
     for package in "${packages[@]}"; do
-        if [ -n "${xbps_packages_replace[$package]}" ]; then
+        if [ "${xbps_packages_replace[$package]:-}" ]; then
             package="${xbps_packages_replace[$package]}"
         fi
 
         xbps_packages+=("$package")
     done
 
-    msg "install ${xbps_packages[*]} + ${packages[*]} with xbps"
-    require_xbps "${xbps_packages[@]}" "${packages[@]}"
+    msg "install ${xbps_packages[*]} with xbps"
+    require_xbps "${xbps_packages[@]}"
 }
 
 main_pacman() {
