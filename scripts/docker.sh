@@ -20,6 +20,23 @@ main_apt() {
     sudo apt-get -y install docker.io docker-compose
 }
 
+main_xbps() {
+    require_xbps docker docker-cli docker-compose crun
+
+    sudo mkdir /etc/docker || true
+    sudo touch /etc/docker/daemon.json
+    msg 'merge provided configuration with the one that is available on system (delete comments too!)'
+    r=$(sed 's/^ *\/\/.*//' <"$root/docker/daemon.json" | jq -s '.[0] * (.[1] // {})' "-" "/etc/docker/daemon.json")
+    echo "$r" | sudo tee "/etc/docker/daemon.json"
+
+    msg "manage docker as a non-root user"
+    sudo groupadd -f docker
+    sudo usermod -aG docker "$USER"
+
+    msg 'docker service with runit'
+    sudo ln -s /etc/sv/docker /etc/runit/runsvdir/default/ || true
+}
+
 main_brew() {
     msg 'dive is working on macOS since docker version 26'
     require_brew_cask docker
@@ -27,7 +44,7 @@ main_brew() {
 }
 
 main_pacman() {
-    require_pacman docker docker-compose dive docker-buildx docker-scan
+    require_pacman docker docker-compose dive docker-buildx docker-scan crun
 
     require_aur hadolint-bin lazydocker
 

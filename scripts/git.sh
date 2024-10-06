@@ -24,6 +24,10 @@ main_apt() {
     return 0
 }
 
+main_xbps() {
+    return 0
+}
+
 main_parham() {
     configfile "git" "" "git/parham"
 }
