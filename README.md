@@ -47,7 +47,7 @@ Just run the following script to have the setup:
 # install brew with the default configuration.
 ./start.sh brew
 # configure osx with Parham's preferences.
-./start.sh osx
+./start.sh macos
 ```
 
 To install these `dotfiles` on a fresh system, run the following command:
