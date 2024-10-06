@@ -16,7 +16,24 @@ usage() {
 # export dependencies=("neovim")
 export dependencies=("fetch" "zsh" "bash")
 
-packages=(tmux tmuxp htop aria2 curl bat vim jq fzf mosh figlet lolcat dua-cli wget chafa)
+packages=(
+    tmux
+    tmuxp
+    htop
+    aria2
+    curl
+    bat
+    vim
+    jq
+    fzf
+    mosh
+    figlet
+    lolcat
+    dua-cli
+    wget
+    chafa
+    ripgrep
+)
 
 main_apt() {
     apt_packages=(bmon atop jcal)
@@ -64,7 +81,6 @@ main_xbps() {
 main_pacman() {
     pacman_packages=(
         perl-image-exiftool
-        ripgrep
         mtr
         git-delta
         fd
@@ -131,7 +147,6 @@ main_brew() {
         fontconfig
         git
         bash
-        ripgrep
         fd
         glab
         jless
