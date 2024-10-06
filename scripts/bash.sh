@@ -26,6 +26,10 @@ main_pacman() {
     require_pacman bash bash-completion
 }
 
+main_xbps() {
+    require_xbps bash bash-completion
+}
+
 main_apt() {
     require_apt bash
 }
