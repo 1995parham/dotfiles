@@ -141,6 +141,24 @@ function require_pacman() {
     fi
 }
 
+# install packages using xbps
+function require_xbps() {
+    declare -a to_install_pkg
+    to_install_pkg=()
+
+    for pkg in "$@"; do
+        running "require" " xbps ${pkg}"
+        if ! xbps-query "${pkg}" &>/dev/null; then
+            to_install_pkg+=("${pkg}")
+        fi
+    done
+
+    if [[ ${#to_install_pkg[@]} -ne 0 ]]; then
+        action "require" " xbps-install -Sy ${to_install_pkg[*]}"
+        sudo xbps-install -Sy "${to_install_pkg[@]}"
+    fi
+}
+
 # install packages from AUR using yay
 function require_aur() {
     for pkg in "$@"; do
