@@ -20,6 +20,10 @@ main_apt() {
     require_apt neofetch
 }
 
+main_xbps() {
+    require_xbps neofetch onefetch tokei
+}
+
 main_brew() {
     require_brew neofetch onefetch tokei
 }
