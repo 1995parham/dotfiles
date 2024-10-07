@@ -33,6 +33,7 @@ packages=(
     wget
     chafa
     ripgrep
+    speedtest-cli
 )
 
 main_apt() {
@@ -122,7 +123,6 @@ main_pacman() {
         jcal
         actionlint-bin
         cbonsai
-        ookla-speedtest-bin
     )
     for package in "${packages[@]}"; do
         if [ "${pacman_packages_replace[$package]:-}" ]; then
@@ -157,7 +157,6 @@ main_brew() {
         bat-extras
         wakatime-cli
         jcal
-        teamookla/speedtest/speedtest
         mtr
         yq
         watch
