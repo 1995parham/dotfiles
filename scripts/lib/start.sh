@@ -112,13 +112,13 @@ _main() {
 
     # shellcheck disable=1090
     if ! [[ -f "${root}/scripts/${script}.sh" ]] || ! source "${root}/scripts/${script}.sh" 2>/dev/null; then
-        message "pre ""404 script not found" "notice"
+        message "pre" "404 script not found" "notice"
 
         local host
         host="${HOSTNAME}"
         host="${host%.*}"
         if ! [[ -f "${root}/${host}/scripts/${script}.sh" ]] || ! source "${root}/${host}/scripts/${script}.sh" 2>/dev/null; then
-            message "pre ""404 script not found for ${host}" "notice"
+            message "pre" "404 script not found for ${host}" "notice"
             _usage
             return 1
         fi

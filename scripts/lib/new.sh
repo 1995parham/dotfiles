@@ -22,6 +22,10 @@ main_brew() {
     return 0
 }
 
+main_xbps() {
+    return 0
+}
+
 main_apt() {
     return 0
 }
