@@ -17,7 +17,7 @@ windows:
         shell_command:
           - git pull origin main &> /dev/null
           - figlet 'Keep your love life private' | lolcat -S 57
-      - start_directory: ~
+      - start_directory: ""
         shell_command:
             - cmd: weed server -dir data/ -s3
               enter: false
