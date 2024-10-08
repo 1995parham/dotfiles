@@ -70,6 +70,12 @@ install-tmux() {
     configfile "tmuxs" "" "tmux"
     configfile "tmuxp" "" "tmux"
 
+    if [ -f "$root/tmux/tmuxp/$HOSTNAME.yaml" ]; then
+        git update-index --assume-unchanged "$root/tmux/tmuxp/main.yaml"
+        rm "$root/tmux/tmuxp/main.yaml"
+        ln -s "$HOSTNAME.yaml" "$root/tmux/tmuxp/main.yaml"
+    fi
+
     message "tmux" "installing tmux plugins"
     if [ ! -d "$HOME/.local/share/tmux/plugins/tpm" ]; then
         mkdir -p ~/.local/share/tmux/plugins
