@@ -22,7 +22,7 @@ windows:
             - cmd: weed server -dir data/ -s3
               enter: false
 
-  - window_name: scratch 📝
+  - window_name: services 🦖
     layout: tiled
     start_directory: ~/Downloads
     panes:
@@ -31,7 +31,16 @@ windows:
       - pane
       - pane
 
-  - window_name: life-1 🐼
+  - window_name: services 🐉
+    layout: tiled
+    start_directory: ~/Downloads
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
+
+  - window_name: life 🐼
     layout: even-horizontal
     panes:
       - start_directory: ~/Documents/Git/parham/parham-alvani/calendar
