@@ -35,7 +35,9 @@ main_brew() {
 }
 
 main() {
-    return 0
+    if yes_or_no "do you want to try a simple workload with gpu?"; then
+        docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+    fi
 }
 
 main_parham() {
