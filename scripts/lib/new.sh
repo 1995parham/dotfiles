@@ -85,6 +85,10 @@ main_pacman() {
   return 1
 }
 
+main_xbps() {
+  return 1
+}
+
 main_apt() {
   return 1
 }
