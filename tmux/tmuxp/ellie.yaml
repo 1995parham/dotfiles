@@ -31,3 +31,10 @@ windows:
       - pane
       - pane
       - pane
+
+  - window_name: server 🦖
+    layout: even-horizontal
+    start_directory: ~/home.infra
+    panes:
+      - pane
+      - pane
