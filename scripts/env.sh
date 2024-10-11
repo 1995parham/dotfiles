@@ -62,6 +62,7 @@ main_apt() {
 main_xbps() {
     xbps_packages=(
         xmirror
+        bind-utils
     )
     declare -A xbps_packages_replace=(
         [lolcat]=lolcat-c
@@ -116,6 +117,7 @@ main_pacman() {
         tcpdump
         powertop
         taplo-cli
+        bind
     )
     declare -A pacman_packages_replace=(
     )
