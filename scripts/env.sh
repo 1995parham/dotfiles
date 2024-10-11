@@ -34,6 +34,7 @@ packages=(
     chafa
     ripgrep
     speedtest-cli
+    whois
 )
 
 main_apt() {
