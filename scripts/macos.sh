@@ -147,6 +147,8 @@ main_brew() {
 
     killall Finder
 
+    touch ~/.hushlogin
+
     msg
     msg 'Setup an internet account for xandikos for Calendar and Contacts' 'notice'
     yes_or_no "macos" 'Did you do it?'
@@ -158,7 +160,6 @@ main_brew() {
     msg
     msg 'Register Right Index Finger for fingerprint sensor' 'notice'
     yes_or_no "macos" 'Did you do it?'
-
 }
 
 main() {
