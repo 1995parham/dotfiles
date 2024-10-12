@@ -11,6 +11,8 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 declare -A primary_shecan_dns
 primary_shecan_dns["shecan-pro"]="178.22.122.101"
 primary_shecan_dns["shecan"]="178.22.122.100"
@@ -45,7 +47,6 @@ main_pacman() {
     fi
 
     if [ "$kind" != none ]; then
-        root=${root:?"root must be set"}
         for f in "$root/dns/domains-$kind".*; do
             mapfile -t domains <<<"$(cat "$f")"
             domains_dnsmasq="$(printf '/%s' "${domains[@]}")"
@@ -53,8 +54,6 @@ main_pacman() {
                 sudo tee -a /etc/NetworkManager/dnsmasq.d/shecan.conf
         done
     fi
-
-    copycat "dns" dns/1995parham.conf /etc/NetworkManager/dnsmasq.d/1995parham.conf
 
     dnsmasq --test --conf-file=/dev/null --conf-dir=/etc/NetworkManager/dnsmasq.d
     sudo nmcli general reload
