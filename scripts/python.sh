@@ -3,13 +3,16 @@
 packages=(
     flake8
     pep8-naming
+    black
+
+    # Pipenv is a production-ready tool that aims to bring the best of all
+    # packaging worlds to the Python world.
     pipenv
+    # Poetry is a tool for dependency management and packaging in Python.
     poetry
-    # hatch
     # PDM, as described, is a modern Python package and dependency manager
     # supporting the latest PEP standards (PEP 582 which is rejected).
     # pdm
-    black
 )
 
 usage() {
