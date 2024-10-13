@@ -27,6 +27,8 @@ main_pacman() {
 
 main() {
     configfile navi
+
+    navi repo add denisidoro/navi-tldr-pages
 }
 
 main_parham() {
