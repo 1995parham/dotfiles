@@ -38,3 +38,12 @@ windows:
     panes:
       - pane
       - pane
+
+  - window_name: triton 🧜
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/1995parham-learning/triton101
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
