@@ -5,8 +5,10 @@ packages=(
     pep8-naming
     pipenv
     poetry
-    hatch
-    pdm
+    # hatch
+    # PDM, as described, is a modern Python package and dependency manager
+    # supporting the latest PEP standards (PEP 582 which is rejected).
+    # pdm
     black
 )
 
