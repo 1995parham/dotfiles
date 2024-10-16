@@ -6,6 +6,10 @@ DOTFILES_ROOT=${DOTFILES_ROOT:?"dotfiles root must be set for using aliases"}
 source "$DOTFILES_ROOT/scripts/lib/main.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then
+    if [ ! -f "$HOME/.config/aliases/kubectl_aliases.sh" ]; then
+        curl -#L https://raw.githubusercontent.com/ahmetb/kubectl-aliases/master/.kubectl_aliases >"$HOME/.config/aliases/kubectl_aliases.sh"
+    fi
+
     # shellcheck disable=1090
     for f in "$HOME"/.config/aliases/*.sh; do
         # message 'aliases' "sourcing $f"
@@ -131,6 +135,7 @@ function snappcloud-proxy-on() {
     proxy_start internal-proxy.snapp.tech:8118
 }
 
+# remove snappcloud proxy which is useful in the snapp datacenters
 function snappcloud-proxy-off() {
     proxy_stop
 }
