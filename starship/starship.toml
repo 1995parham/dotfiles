@@ -126,22 +126,15 @@ user_alias = "parham"
 context_alias = "$site"
 
 [[kubernetes.contexts]]
-context_pattern = ".*api-okd4-(?P<site>[\\w]+-?[\\d](-staging)?)-snappcloud-io:6443.*"
-user_pattern = ".*elahe.dastan.*"
-user_alias = "elahe"
-context_alias = "$site"
-
-[[kubernetes.contexts]]
 context_pattern = ".*api-okd-eu-central-1-cloud-baly-app:6443.*"
 user_pattern = ".*parham.alvani.*"
 user_alias = "parham"
 context_alias = "pirouz"
 
 [[kubernetes.contexts]]
-context_pattern = ".*api-lotus-eu-central-1-cloud-baly-app:6443.*"
-user_pattern = ".*elahe.dastan.*"
-user_alias = "elahe"
-context_alias = "lotus"
+context_pattern = "arn:aws:eks:(?P<region>[\\w-]+):[\\d]+:cluster/(?P<name>.*)"
+user_alias = "aws"
+context_alias = "$name $region"
 
 [hostname]
 ssh_only = false
