@@ -117,13 +117,13 @@ format = '[ $time ]($style)'
 [kubernetes]
 disabled = false
 symbol = ' 󱃾  '
-format = '[ \[ $symbol](fg:#1e90ff)[$user @ $context](fg:#ff7f50)[ in ](fg:#ff50d0)[$namespace](#50ff7f)[ \]](fg:#1e90ff)'
+format = '[ \[ $symbol](fg:#1e90ff)[($user @ )$context](fg:#ff7f50)([ in ](fg:#ff50d0)[$namespace](#50ff7f))[ \]](fg:#1e90ff)'
 
 [[kubernetes.contexts]]
-context_pattern = ".*api-okd4-(?P<site>[\\w]+-?[\\d](-staging)?)-snappcloud-io:6443.*"
+context_pattern = ".*api-(?P<region>[\\w\\d]+)-(?P<site>[\\w]+-?[\\d](-staging)?)-snappcloud-io:6443.*"
 user_pattern = ".*parham.alvani.*"
 user_alias = "parham"
-context_alias = "$site"
+context_alias = "$region-$site"
 
 [[kubernetes.contexts]]
 context_pattern = ".*api-okd-eu-central-1-cloud-baly-app:6443.*"
@@ -133,7 +133,7 @@ context_alias = "pirouz"
 
 [[kubernetes.contexts]]
 context_pattern = "arn:aws:eks:(?P<region>[\\w-]+):[\\d]+:cluster/(?P<name>.*)"
-user_alias = "aws"
+user_alias = ""
 context_alias = "$name $region"
 
 [hostname]
