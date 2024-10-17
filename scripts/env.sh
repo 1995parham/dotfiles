@@ -35,12 +35,14 @@ packages=(
     ripgrep
     speedtest-cli
     whois
+    xh
 )
 
 main_apt() {
     apt_packages=(bmon atop jcal)
     declare -A apt_packages_replace=(
         ["dua-cli"]="-"
+        ["xh"]="-"
     )
 
     sudo apt update -yq
