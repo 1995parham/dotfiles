@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 packages=(
-    flake8
-    pep8-naming
+    # flake8
+    # pep8-naming
     # black
 
     # Pipenv is a production-ready tool that aims to bring the best of all
