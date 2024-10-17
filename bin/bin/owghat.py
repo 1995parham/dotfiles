@@ -3,6 +3,7 @@
 import datetime
 import math
 import re
+import zoneinfo
 
 """
 --------------------- Copyright Block ----------------------
@@ -146,9 +147,7 @@ class PrayTimes:
         _date: tuple[int, int, int] = (date.year, date.month, date.day)
         self.timeZone = timezone + (1 if dst else 0)
 
-        self.jDate = self.julian(_date[0], _date[1], _date[2]) - self.lng / (
-            15 * 24.0
-        )
+        self.jDate = self.julian(_date[0], _date[1], _date[2]) - self.lng / (15 * 24.0)
         return self.compute_times()
 
     # convert float time to the given format (see timeFormats)
@@ -239,23 +238,15 @@ class PrayTimes:
         times = self.day_portion(times)
         params = self.settings
 
-        imsak = self.sunAngleTime(
-            self.eval(params["imsak"]), times["imsak"], "ccw"
-        )
-        fajr = self.sunAngleTime(
-            self.eval(params["fajr"]), times["fajr"], "ccw"
-        )
+        imsak = self.sunAngleTime(self.eval(params["imsak"]), times["imsak"], "ccw")
+        fajr = self.sunAngleTime(self.eval(params["fajr"]), times["fajr"], "ccw")
         sunrise = self.sunAngleTime(
             self.rise_set_angle(self.elv), times["sunrise"], "ccw"
         )
         dhuhr = self.mid_day(times["dhuhr"])
         asr = self.asrTime(self.asrFactor(params["asr"]), times["asr"])
-        sunset = self.sunAngleTime(
-            self.rise_set_angle(self.elv), times["sunset"]
-        )
-        maghrib = self.sunAngleTime(
-            self.eval(params["maghrib"]), times["maghrib"]
-        )
+        sunset = self.sunAngleTime(self.rise_set_angle(self.elv), times["sunset"])
+        maghrib = self.sunAngleTime(self.eval(params["maghrib"]), times["maghrib"])
         isha = self.sunAngleTime(self.eval(params["isha"]), times["isha"])
         return {
             "imsak": imsak,
@@ -287,13 +278,11 @@ class PrayTimes:
         # add midnight time
         if self.settings["midnight"] == "Jafari":
             times["midnight"] = (
-                times["sunset"]
-                + self.time_diff(times["sunset"], times["fajr"]) / 2
+                times["sunset"] + self.time_diff(times["sunset"], times["fajr"]) / 2
             )
         else:
             times["midnight"] = (
-                times["sunset"]
-                + self.time_diff(times["sunset"], times["sunrise"]) / 2
+                times["sunset"] + self.time_diff(times["sunset"], times["sunrise"]) / 2
             )
 
         times = self.tune_times(times)
@@ -313,9 +302,7 @@ class PrayTimes:
             times["imsak"] = times["fajr"] - self.eval(params["imsak"]) / 60.0
         # need to ask about 'min' settings
         if self.isMin(params["maghrib"]):
-            times["maghrib"] = (
-                times["sunset"] - self.eval(params["maghrib"]) / 60.0
-            )
+            times["maghrib"] = times["sunset"] - self.eval(params["maghrib"]) / 60.0
 
         if self.isMin(params["isha"]):
             times["isha"] = times["maghrib"] - self.eval(params["isha"]) / 60.0
@@ -326,9 +313,7 @@ class PrayTimes:
     # get asr shadow factor
     def asrFactor(self, asrParam):
         methods = {"Standard": 1, "Hanafi": 2}
-        return (
-            methods[asrParam] if asrParam in methods else self.eval(asrParam)
-        )
+        return methods[asrParam] if asrParam in methods else self.eval(asrParam)
 
     # return sun angle for sunset/sunrise
     def rise_set_angle(self, elevation: float = 0):
@@ -415,7 +400,7 @@ class PrayTimes:
 
     # convert given string into a number
     def eval(self, st):
-        val = re.split("[^0-9.+-]", str(st), 1)[0]
+        val = re.split("[^0-9.+-]", str(st), maxsplit=1)[0]
         return float(val) if val else 0
 
     # detect if input contains 'min'
@@ -463,8 +448,8 @@ if __name__ == "__main__":
     pray_times = PrayTimes("Tehran")
 
     print(
-        f"Prayer Times for today ({datetime.date.today()}) in Iran/Tehran\n"
-        + ("=" * 41)
+        f"Prayer Times for today ({datetime.datetime.now(zoneinfo.ZoneInfo("Asia/Tehran")):%Y-%m-%d %H:%M:%S})"
+        " in Iran/Tehran\n" + ("=" * 41)
     )
     times = pray_times.get_times(
         datetime.date.today(),
