@@ -18,7 +18,7 @@ def calculate_time_difference(
 
 def in_marriage():
     since = datetime.datetime.strptime(
-        f"09 may 2024 14:45:00+0330", "%d %b %Y %H:%M:%S%z"
+        "09 may 2024 14:45:00+0330", "%d %b %Y %H:%M:%S%z"
     )
     now = datetime.datetime.now(datetime.timezone.utc)
 
