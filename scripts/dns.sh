@@ -68,13 +68,14 @@ main_pacman() {
             return 1
         fi
 
-        # msg 'use shecan to in the docker containers'
-        # if [ -d "/etc/docker" ]; then
-        # 	sudo touch /etc/docker/daemon.json
-        #
-        # 	msg 'merge dns configuration for docker with system current configuration'
-        # 	r=$(jq -s '.[0] * (.[1] // {})' "$root/dns/$kind-docker.json" "/etc/docker/daemon.json")
-        # 	echo "$r" | sudo tee "/etc/docker/daemon.json"
-        # fi
+        if yes_or_no 'dns' 'use shecan to in the docker containers'; then
+            if [ -d "/etc/docker" ]; then
+                sudo touch /etc/docker/daemon.json
+
+                msg 'merge dns configuration for docker with system current configuration'
+                r=$(jq -s '.[0] * (.[1] // {})' "$root/dns/$kind-docker.json" "/etc/docker/daemon.json")
+                echo "$r" | sudo tee "/etc/docker/daemon.json"
+            fi
+        fi
     fi
 }
