@@ -1,18 +1,13 @@
 #!/usr/bin/env bash
 
 packages=(
-    # flake8
-    # pep8-naming
-    # black
-
+    # An extremely fast Python package and project manager, written in Rust.
+    uv
     # Pipenv is a production-ready tool that aims to bring the best of all
     # packaging worlds to the Python world.
     pipenv
     # Poetry is a tool for dependency management and packaging in Python.
     poetry
-    # PDM, as described, is a modern Python package and dependency manager
-    # supporting the latest PEP standards (PEP 582 which is rejected).
-    # pdm
 )
 
 usage() {
@@ -62,14 +57,6 @@ python-install-packages() {
 }
 
 main() {
-    if [ ! -d "$HOME/.rye" ]; then
-        msg 'a hassle-free python experience'
-        curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
-    fi
-
-    msg 'a modern python package and dependency manager supporting the latest pep standards'
-    configfile pdm "" python
-
     python-install-packages
 
     msg 'pyenv already configured in zsh (zshrc.shared)'
