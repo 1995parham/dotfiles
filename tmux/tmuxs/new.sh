@@ -139,17 +139,18 @@ if [ -f requirements.txt ]; then
     fi
 fi
 
-# detect rye based on having requirements.lock in the project root.
-if [ -f requirements.lock ]; then
-    rye=""
+# detect rye based on having uv.lock in the project root.
+if [ -f uv.lock ]; then
+    uv=""
 
-    if [[ "$(command -v rye)" ]]; then
-        rye="rye"
-    elif [[ -f "$HOME/.rye/shims/rye" ]]; then
-        rye="$HOME/.rye/shims/rye"
+    if [[ "$(command -v pipx)" ]]; then
+        message 'tmux' 'pipx is installed and we are using it to run uv' 'warn' && sleep 5
+        uv="pipx run uv"
+    elif [[ "$(command -v uv)" ]]; then
+        uv="uv"
     fi
 
-    bash -c "$rye sync"
+    bash -c "$uv sync"
 
     commands+=('source .venv/bin/activate')
 fi
