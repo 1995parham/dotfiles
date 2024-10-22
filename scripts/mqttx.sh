@@ -19,7 +19,7 @@ pre_main() {
 }
 
 main_pacman() {
-    current_version=""
+    current_version="v0.0.0"
     if [ -f "/usr/local/bin/mqttx" ]; then
         current_version=$("/usr/local/bin/mqttx" -v | head -1)
     fi
@@ -28,6 +28,7 @@ main_pacman() {
     if [ "$(semver_compare "$current_version" "$next_version")" = "lt" ]; then
         curl -LO "https://www.emqx.com/en/downloads/MQTTX/$next_version/mqttx-cli-linux-x64"
         sudo install ./mqttx-cli-linux-x64 /usr/local/bin/mqttx
+        rm mqttx-cli-linux-x64
     fi
 }
 
