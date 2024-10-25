@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo -n "a monitor of resources"
+    echo -n "Resource monitor that shows usage and stats for processor, memory, disks, network and processes."
     # shellcheck disable=2016
     echo '
  _     _
@@ -11,6 +11,10 @@ usage() {
 |_.__/ \__\___/| .__/
                |_|
 	'
+}
+
+main_xbps() {
+    require_xbps btop
 }
 
 main_brew() {
