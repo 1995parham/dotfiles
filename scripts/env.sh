@@ -36,6 +36,7 @@ packages=(
     speedtest-cli
     whois
     xh
+    rsync
 )
 
 main_apt() {
