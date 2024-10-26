@@ -34,7 +34,7 @@ main_xbps() {
     sudo usermod -aG docker "$USER"
 
     msg 'docker service with runit'
-    if [ ! -f '/etc/runit/runsvdir/default/docker' ]; then
+    if [ ! -L '/etc/runit/runsvdir/default/docker' ]; then
         sudo ln -s /etc/sv/docker /etc/runit/runsvdir/default/
     fi
 }
