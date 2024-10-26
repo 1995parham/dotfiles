@@ -34,7 +34,9 @@ main_xbps() {
     sudo usermod -aG docker "$USER"
 
     msg 'docker service with runit'
-    sudo ln -s /etc/sv/docker /etc/runit/runsvdir/default/ || true
+    if [ ! -f '/etc/runit/runsvdir/default/docker' ]; then
+        sudo ln -s /etc/sv/docker /etc/runit/runsvdir/default/
+    fi
 }
 
 main_brew() {
@@ -75,5 +77,8 @@ LimitNOFILE=1048576
 
 main() {
     msg "$(docker version)"
-    msg "$(hadolint --version)"
+
+    if [[ -n $(command -v handolint) ]]; then
+        msg "$(hadolint --version)"
+    fi
 }
