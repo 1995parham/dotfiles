@@ -40,8 +40,9 @@ main_xbps() {
 }
 
 main_brew() {
-    msg 'dive is working on macOS since docker version 26'
     require_brew_cask docker
+    msg 'please remember to enable docker vmm instead of apple virtualization'
+    msg 'dive is working on macOS since docker version 26'
     require_brew lazydocker hadolint docker-completion dive
 }
 
