@@ -51,7 +51,13 @@ fi
 
 alias grep="grep --color=auto"
 alias vi="vim"
-alias ls-la="ls --clolor -la"
+alias ls-la="ls --color -la"
+alias l="ls -la --color"
+function ls-() {
+    local first_arg="-$1"
+    shift
+    command ls --color "$first_arg" "$@"
+}
 
 # run emacs tui on terminal instead of emacs itself.
 alias emacs="emacs -nw"

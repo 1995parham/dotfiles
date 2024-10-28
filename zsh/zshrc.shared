@@ -119,13 +119,6 @@ alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source ~/.zshenv && source ~/.zshrc"
 alias emacs="emacs -nw"
-alias l="ls -la"
-alias ls-la="ls -la"
-function ls-(){
-  local first_arg="-$1"
-  shift
-  command ls "$first_arg" "$@"
-}
 
 # set up navi
 
