@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+# these repositories are also searched during the search
+# of projects.
 mono_repositories=(
-    "offerland/root"
+    # "offerland/root"
 )
 
 # a global variable that points to tmuxs root directory.
