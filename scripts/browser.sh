@@ -20,7 +20,6 @@ main_brew() {
     require_brew_cask firefox
     require_brew_cask firefox@developer-edition
     require_brew_cask google-chrome@beta
-    require_brew_cask brave-browser@beta
     require_brew defaultbrowser
 
     if [[ "$(command -v gopass-jsonapi)" ]]; then
@@ -45,7 +44,7 @@ main_pacman() {
     copycat "browser" "firefox/firefox.cfg" "/usr/lib/firefox/firefox.cfg"
 
     msg 'chrome, the worst browser ever but sometime we need that shit'
-    require_aur google-chrome-beta brave-beta-bin
+    require_aur google-chrome-beta 
     # copycat "browser" "chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf" false
 
     if [[ "$(command -v gopass-jsonapi)" ]]; then
