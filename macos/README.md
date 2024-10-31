@@ -116,3 +116,19 @@ Let's conduct a few more configurations within System Settings.
 -   Select "General" from the left menu.
 -   Select "Software Update".
 -   Click the "i" in the circle and deselect everything.
+
+The following forces your operating system to use the Network Time
+Protocol Project's time synchronization server instead of Apple's network.
+
+-   Select "General" and choose "Date & Time".
+-   Click "Set..." next to "Source" and enter your password if prompted.
+-   Change the time-server to `pool.ntp.org` and click "Done".
+
+Apply full-disk encryption through Apple's FileVault with
+the following steps
+
+-   Select "Privacy & Security" from the left menu.
+-   Click "Turn On..." next to "FileVault".
+-   Enter your system password and click "Unlock".
+-   Choose "Create a recovery key and do not use my iCloud account".
+-   Document this recovery key somewhere safe and click "Continue".
