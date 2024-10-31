@@ -85,3 +85,16 @@ the following, which may be redundant.
 -   Select "Siri & Spotlight" from the left menu.
 -   Click "Siri Suggestions & Privacy".
 -   Click each option and disable all toggles, then click "Done".
+
+I do not like Apple searching through and
+indexing my documents. I do not want macOS to possess a database with my sensitive
+content.
+
+-   Select "Siri & Spotlight" from the left menu.
+-   Disable all options within the Spotlight area.
+-   Click "Spotlight Privacy".
+-   Click the "+" in the lower-left.
+-   Change the dropdown field to "Macintosh HD".
+-   Click "Choose", confirm with "OK", and click "Done".
+-   `sudo mdutil -i off /`
+-   `sudo mdutil -E /`
