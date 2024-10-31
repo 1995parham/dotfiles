@@ -117,13 +117,6 @@ Let's conduct a few more configurations within System Settings.
 -   Select "Software Update".
 -   Click the "i" in the circle and deselect everything.
 
-The following forces your operating system to use the Network Time
-Protocol Project's time synchronization server instead of Apple's network.
-
--   Select "General" and choose "Date & Time".
--   Click "Set..." next to "Source" and enter your password if prompted.
--   Change the time-server to `pool.ntp.org` and click "Done".
-
 Apply full-disk encryption through Apple's FileVault with
 the following steps
 
