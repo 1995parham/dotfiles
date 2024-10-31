@@ -100,6 +100,9 @@ main_brew() {
     sudo mdutil -E /
     sudo mdutil -a -i off
 
+    # Disable gatekeeper
+    sudo spctl --master-disable
+
     # Bluetooth
     # show in menu bar = 18, true
     # don't show in menu bar = 24, false

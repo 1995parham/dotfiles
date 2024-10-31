@@ -99,14 +99,6 @@ content.
 -   `sudo mdutil -i off /`
 -   `sudo mdutil -E /`
 
-The next consideration is Apple's Gatekeeper service. This feature sends data about
-the applications present on your system to Apple.
-
-```bash
-sudo spctl --master-disable
-spctl --status
-```
-
 Let's conduct a few more configurations within System Settings.
 
 -   Select "Privacy & Security" from the left menu.
