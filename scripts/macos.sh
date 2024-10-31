@@ -90,10 +90,15 @@ main_brew() {
     # Display the time with seconds
     defaults write com.apple.menuextra.clock ShowSeconds -bool false
 
-    # Set timeserver
+    # Set timeserver and system timezone
     sudo systemsetup -settimezone GMT
     sudo systemsetup -setusingnetworktime on
     sudo systemsetup -setnetworktimeserver pool.ntp.org
+
+    # Disable Spotlight
+    sudo mdutil -i off /
+    sudo mdutil -E /
+    sudo mdutil -a -i off
 
     # Bluetooth
     # show in menu bar = 18, true
