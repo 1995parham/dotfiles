@@ -179,9 +179,6 @@ main() {
 }
 
 main_parham() {
-    msg 'the wallpapers that we love'
-    clone https://github.com/parham-alvani/wallpapers "$HOME/Pictures" "wallpapers"
-
     msg 'setting profile picture'
     if [ ! -f 1995parham.png ]; then
         wget github.com/1995parham.png
