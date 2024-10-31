@@ -65,6 +65,12 @@ main_brew() {
         defaults write com.apple.dock orientation -string "bottom"
     fi
 
+    # Enable file vault
+    fdesetup status
+    if yes_or_no 'Do you want to enable file vault?'; then
+        sudo fdesetup enable
+    fi
+
     # Show date
     # when space allows = 0
     # always = 1
