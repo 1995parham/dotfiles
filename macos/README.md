@@ -106,3 +106,5 @@ the applications present on your system to Apple.
 sudo spctl --master-disable
 spctl --status
 ```
+
+Let's conduct a few more configurations within System Settings.
