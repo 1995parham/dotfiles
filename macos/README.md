@@ -108,3 +108,11 @@ spctl --status
 ```
 
 Let's conduct a few more configurations within System Settings.
+
+-   Select "Privacy & Security" from the left menu.
+-   Select "Analytics & Improvements" and verify all are disabled.
+-   Select "Privacy & Security" from the left menu.
+-   Select "Apple Advertising" and disable "Personalized Ads".
+-   Select "General" from the left menu.
+-   Select "Software Update".
+-   Click the "i" in the circle and deselect everything.
