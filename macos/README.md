@@ -30,3 +30,58 @@ could present minor variations from the steps outlined here.
 -   Click "Set Up Later" to bypass "Screen Time" settings.
 -   Disable Siri and click "Continue".
 -   Choose your desired screen mode and click "Continue".
+
+Since you have no internet connectivity, there should be no notifications of pending updates.
+
+-   Launch "System Settings" from the Dock.
+-   Select "Wi-Fi" from the left menu and disable it.
+-   Disable both "Ask to join networks" and "Ask to join hotspots".
+-   Select Bluetooth from the left menu and disable it.
+
+I want to configure the operating system's firewall, This is only responsible for the way the
+operating system treats incoming connections.
+
+-   Select "Network" from the left menu and select "Firewall".
+-   Enable the Firewall and click "Options".
+-   Disable "Automatically allow built-in software to receive...".
+-   Disable "Automatically allow downloaded signed software to receive...".
+-   Enable "Stealth mode".
+-   Click "OK".
+
+I like to disable all notifications possible. I do not want sensitive applications,
+which will be installed later, to display content on the screen when I am not around or
+when someone is over my shoulder.
+
+-   Select "Notifications" from the left menu.
+-   Change "Show previews" to "Never".
+-   Disable "Allow notifications when the device is sleeping".
+-   Disable "Allow notifications when the screen is locked".
+-   Disable "Allow notifications when mirroring or sharing the display".
+-   Open each application, disable notifications, and click the arrow to return.
+
+I also prefer to disable any unnecessary sounds with the following steps.
+
+-   Select "Sound" from the left menu.
+-   Change "Alert volume" to the minimum setting.
+-   Disable "Play sound on startup".
+-   Disable "Play user interface sound effects".
+-   Disable "Play feedback when volume is changed".
+
+The following should already be disabled by default, but let's make sure.
+
+-   Select "General" from the left menu.
+-   Select "AirDrop & Handoff".
+-   Disable "Allow Handoff between this Mac and your iCloud devices".
+-   Confirm AirDrop is set to "No One".
+-   Select "General" from the left menu.
+-   Select "Sharing".
+-   Confirm all options are disabled.
+-   Select "Siri & Spotlight" from the left menu.
+-   Confirm "Ask Siri" is disabled.
+
+If you want to truly ensure that Siri is not listening in on your activity, you can conduct
+the following, which may be redundant.
+
+-   Select "Siri & Spotlight" from the left menu.
+-   Click "Siri Suggestions & Privacy".
+-   Click each option and disable all toggles, then click "Done".
