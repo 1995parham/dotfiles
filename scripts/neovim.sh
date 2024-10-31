@@ -59,4 +59,6 @@ main() {
         fi
     fi
     git clone https://github.com/1995parham/elievim ~/.config/nvim
+
+    nvim --headless "+Lazy! sync" +qa
 }
