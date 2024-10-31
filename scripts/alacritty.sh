@@ -13,8 +13,6 @@ usage() {
 	'
 }
 
-export dependencies=("rust")
-
 main_brew() {
     require_brew_cask alacritty
 }
@@ -24,13 +22,7 @@ main_apt() {
 }
 
 main_pacman() {
-    if yes_or_no 'alacritty' 'do you want to use stable release?'; then
-        not_require_pacman alacritty-git
-        require_pacman alacritty
-    else
-        not_require_pacman alacritty
-        require_aur alacritty-git
-    fi
+    require_pacman alacritty
 }
 
 main() {
