@@ -15,7 +15,6 @@ usage() {
 
 main_pacman() {
     require_pacman mpd ncmpcpp mpc
-    # require_pacman strawberry
 }
 
 main() {
