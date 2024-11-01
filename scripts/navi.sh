@@ -28,7 +28,9 @@ main_pacman() {
 main() {
     configfile navi
 
-    navi repo add denisidoro/navi-tldr-pages
+    user=denisidoro
+    repo=navi-tldr-pages
+    clone "https://github.com/${user}/${repo}" "$(navi info cheats-path)" "${user}__${repo}"
 }
 
 main_parham() {
