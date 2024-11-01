@@ -63,6 +63,11 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes cargo's bin if it exists
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 # dircolors for having colorful ls (specially required for osx)
 if [ -f "$HOME/.dircolors" ]; then
     if [ "$(command -v dircolors)" ]; then

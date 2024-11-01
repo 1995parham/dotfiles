@@ -27,6 +27,12 @@ if [ -d "$HOME/.local/bin" ]; then
 	path+=("$HOME/.local/bin")
 fi
 
+# set PATH so it includes cargo's bin if it exists
+if [ -d "$HOME/.cargo/bin" ]; then
+    path+=("$HOME/.cargo/bin")
+fi
+
+
 # }}}
 
 # languages {{{
