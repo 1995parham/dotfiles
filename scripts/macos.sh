@@ -82,8 +82,10 @@ main_brew() {
 
     # Enable file vault
     fdesetup status
-    if yes_or_no 'Do you want to enable file vault?'; then
-        sudo fdesetup enable
+    if fdesetup status | grep "Off"; then
+        if yes_or_no 'Do you want to enable file vault?'; then
+            sudo fdesetup enable
+        fi
     fi
 
     # Show date
@@ -121,7 +123,8 @@ main_brew() {
     sudo mdutil -a -i off
 
     # Disable gatekeeper
-    sudo spctl --master-disable
+    msg 'Globally disabling the assessment system needs to be confirmed in System Settings means you need set application source from anywhere in the system settings' 'error'
+    sudo spctl --master-disable || true
 
     # Bluetooth
     # show in menu bar = 18, true
