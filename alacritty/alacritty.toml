@@ -41,7 +41,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 
 [font]
 builtin_box_drawing = true
-size = 9.5
+size = 12
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
