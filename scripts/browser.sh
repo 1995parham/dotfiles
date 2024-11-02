@@ -44,7 +44,7 @@ main_pacman() {
     copycat "browser" "firefox/firefox.cfg" "/usr/lib/firefox/firefox.cfg"
 
     msg 'chrome, the worst browser ever but sometime we need that shit'
-    require_aur google-chrome-beta 
+    require_aur google-chrome-beta
     # copycat "browser" "chrome/chrome-beta-flags.conf" "$HOME/.config/chrome-beta-flags.conf" false
 
     if [[ "$(command -v gopass-jsonapi)" ]]; then
