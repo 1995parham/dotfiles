@@ -1,8 +1,6 @@
 [general]
 live_config_reload = true
-import = [
-    "host.toml"
-]
+import = []
 
 [[colors.indexed_colors]]
 color = "0xd18616"
@@ -43,7 +41,7 @@ unfocused_hollow = true
 shape = "Beam"
 
 [env]
-WINIT_X11_SCALE_FACTOR = "1"
+WINIT_X11_SCALE_FACTOR = "1.0"
 
 [font]
 builtin_box_drawing = true
