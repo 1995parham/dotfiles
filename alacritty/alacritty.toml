@@ -1,7 +1,7 @@
 [general]
 live_config_reload = true
 import = [
-    "themes/themes/dark_pastels.toml"
+    "themes/themes/doom_one.toml"
 ]
 
 [cursor]
