@@ -160,6 +160,9 @@ fi
 cd -
 
 prefix=0
+if tmux has-session -t "$current_session:=$name 📁" &>/dev/null; then
+    name="${org_name}/${name}"
+fi
 while tmux has-session -t "$current_session:=$name 📁" &>/dev/null; do
     name="${name}_${prefix}"
     prefix=$((prefix + 1))
