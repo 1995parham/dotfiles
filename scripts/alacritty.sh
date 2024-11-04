@@ -13,6 +13,8 @@ usage() {
 	'
 }
 
+root=${root:?"root must be set"}
+
 main_brew() {
     require_brew_cask alacritty
 }
@@ -26,5 +28,8 @@ main_pacman() {
 }
 
 main() {
+    if [ -f "$root/alacritty/$HOSTNAME.toml" ]; then
+        ln -s "$HOSTNAME.toml" "$root/alacritty/host.toml"
+    fi
     configfile alacritty
 }

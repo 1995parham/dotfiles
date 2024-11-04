@@ -1,3 +1,8 @@
+[general]
+import = [
+    "host.toml"
+]
+
 [[colors.indexed_colors]]
 color = "0xd18616"
 index = 16
