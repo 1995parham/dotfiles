@@ -26,6 +26,6 @@ main_brew() {
 main() {
     dotfile mamba mambarc
 
-    micromamba shell init --shell=zsh --prefix="$HOME/micromamba"
+    micromamba shell init --shell=zsh --root-prefix="$HOME/micromamba"
     micromamba install -n base jupyterlab pandas numpy geopandas polars
 }
