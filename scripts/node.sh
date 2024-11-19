@@ -16,6 +16,9 @@ usage() {
 main_brew() {
     msg "install node using brew"
     require_brew node
+
+    mkdir -p ~/.config/husky
+    echo "PATH=\"${PATH}\"" >~/.config/husky/init.sh
 }
 
 main_apt() {
