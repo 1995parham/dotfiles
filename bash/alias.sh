@@ -145,3 +145,7 @@ function snappcloud-proxy-on() {
 function snappcloud-proxy-off() {
     proxy_stop
 }
+
+function ip-status() {
+    curl -s "https://api.ipquery.io/?format=json" | jq
+}
