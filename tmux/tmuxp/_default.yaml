@@ -47,13 +47,11 @@ windows:
   - window_name: learning 🤓
     layout: tiled
     panes:
-      - start_directory: ~/Documents/Git/parham/1995parham-learning/cloud-roadmap
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
         shell_command:
           - git pull origin main &> /dev/null
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
+      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
       - start_directory: ~/Documents/Git/parham/1995parham-learning/english101
         shell_command:
           - git pull origin main &> /dev/null
-      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
-        shell_command:
-          - git pull origin main &> /dev/null
-      - start_directory: ~/Documents/Git/parham/1995parham-learning/1995parham-learning.github.io
