@@ -18,7 +18,7 @@ pre_main() {
 }
 
 main_pacman() {
-    return 1
+    require_pacman php composer
 }
 
 main_apt() {
