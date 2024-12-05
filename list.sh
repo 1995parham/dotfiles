@@ -26,6 +26,14 @@ main_brew() {
     return 0
 }
 
+main_xbps() {
+    return 0
+}
+
+main_pkg() {
+    return 0
+}
+
 main() {
     echo
     echo
