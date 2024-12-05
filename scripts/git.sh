@@ -29,7 +29,8 @@ main_xbps() {
 }
 
 main_pkg() {
-    return 0
+    msg 'android does not have specific user, so we are forced to consider it as me'
+    configfile "git" "" "git/parham"
 }
 
 main_parham() {
