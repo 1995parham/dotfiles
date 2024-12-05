@@ -28,6 +28,10 @@ main_xbps() {
     return 0
 }
 
+main_pkg() {
+    return 0
+}
+
 main_parham() {
     configfile "git" "" "git/parham"
 }
