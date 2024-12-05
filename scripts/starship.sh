@@ -16,6 +16,10 @@ main_apt() {
     curl -sS https://starship.rs/install.sh | sh
 }
 
+main_pkg() {
+    require_pkg starship
+}
+
 main_pacman() {
     require_pacman starship
 }
