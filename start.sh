@@ -261,7 +261,7 @@ install() {
         msg " android (termux), using pkg"
 
         if declare -f main_pkg >/dev/null; then
-            main_brew
+            main_pkg
         else
             msg "main_pkg not found, there is nothing to do" "error"
             exit
