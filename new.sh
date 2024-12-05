@@ -26,6 +26,10 @@ main_xbps() {
     return 0
 }
 
+main_pkg() {
+    return 0
+}
+
 main_apt() {
     return 0
 }
@@ -90,6 +94,10 @@ main_xbps() {
 }
 
 main_apt() {
+  return 1
+}
+
+main_pkg() {
   return 1
 }
 

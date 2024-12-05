@@ -48,6 +48,24 @@ function not_require_pacman() {
     fi
 }
 
+# install packages using pkg
+function require_pkg() {
+    declare -a to_install_pkg
+    to_install_pkg=()
+
+    for pkg in "$@"; do
+        running "require" " pkg ${pkg}"
+        if ! pkg list-installed | grep "${pkg}" &>/dev/null; then
+            to_install_pkg+=("${pkg}")
+        fi
+    done
+
+    if [[ ${#to_install_pkg[@]} -ne 0 ]]; then
+        action "require" " pkg install ${to_install_pkg[*]}"
+        pkg install "${to_install_pkg[@]}"
+    fi
+}
+
 # install packages using brew
 function require_brew() {
     declare -a to_install_pkg

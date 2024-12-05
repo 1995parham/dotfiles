@@ -257,6 +257,19 @@ install() {
         return
     fi
 
+    if [[ "${OSTYPE}" == "linux-android" ]]; then
+        msg " android (termux), using pkg"
+
+        if declare -f main_pkg >/dev/null; then
+            main_brew
+        else
+            msg "main_pkg not found, there is nothing to do" "error"
+            exit
+        fi
+
+        return
+    fi
+
     if [[ -n "$(command -v apt)" ]]; then
         msg " linux with apt installed, using apt"
 
