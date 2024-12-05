@@ -30,7 +30,7 @@ main_apt() {
 }
 
 main_pkg() {
-    dotfile "tmux-widgets" "shortcuts"
+    dotfile "termux-widgets" "shortcuts"
 }
 
 main_brew() {

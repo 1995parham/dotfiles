@@ -16,6 +16,10 @@ pre_main() {
     return 0
 }
 
+main_pkg() {
+    require_pkg neovim
+}
+
 main_pacman() {
     if yes_or_no 'neovim' 'do you want to use stable release?'; then
         not_require_pacman neovim-git
