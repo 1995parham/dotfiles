@@ -62,7 +62,7 @@ function require_pkg() {
 
     if [[ ${#to_install_pkg[@]} -ne 0 ]]; then
         action "require" " pkg install ${to_install_pkg[*]}"
-        pkg install "${to_install_pkg[@]}"
+        pkg install -y "${to_install_pkg[@]}"
     fi
 }
 
