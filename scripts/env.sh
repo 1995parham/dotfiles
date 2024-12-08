@@ -86,6 +86,25 @@ main_xbps() {
     require_xbps "${xbps_packages[@]}"
 }
 
+main_pkg() {
+    pkg_packages=()
+    declare -A pkg_packages_replace=(
+    )
+
+    for package in "${packages[@]}"; do
+        if [ "${pkg_packages_replace[$package]:-}" ]; then
+            package="${pkg_packages_replace[$package]}"
+        fi
+
+        if [ "$package" != "-" ]; then
+            pkg_packages+=("$package")
+        fi
+    done
+
+    msg "install ${pkg_packages[*]} with xbps"
+    require_xbps "${pkg_packages[@]}"
+}
+
 main_pacman() {
     pacman_packages=(
         perl-image-exiftool
