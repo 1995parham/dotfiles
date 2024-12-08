@@ -29,6 +29,10 @@ main_xbps() {
     require_xbps zsh
 }
 
+main_pkg() {
+    require_pkg zsh
+}
+
 main_apt() {
     require_apt zsh
 }

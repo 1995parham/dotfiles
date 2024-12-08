@@ -24,6 +24,10 @@ main_xbps() {
     require_xbps neofetch onefetch tokei
 }
 
+main_pkg() {
+    require_pkg neofetch onefetch tokei
+}
+
 main_brew() {
     require_brew neofetch onefetch tokei
 }

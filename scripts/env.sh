@@ -89,6 +89,10 @@ main_xbps() {
 main_pkg() {
     pkg_packages=()
     declare -A pkg_packages_replace=(
+        [lolcat]="-"
+        [tmuxp]="-"
+        ["dua-cli"]="dua"
+        ["speedtest-cli"]="speedtest-go"
     )
 
     for package in "${packages[@]}"; do
@@ -102,7 +106,7 @@ main_pkg() {
     done
 
     msg "install ${pkg_packages[*]} with xbps"
-    require_xbps "${pkg_packages[@]}"
+    require_pkg "${pkg_packages[@]}"
 }
 
 main_pacman() {
