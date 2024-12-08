@@ -255,8 +255,21 @@ function require_hosts_record() {
         printf "# Static table lookup for hostnames.\n# See hosts(5) for details." | tee /etc/hosts
     fi
 
-    if ! grep "$2" "/etc/hosts"; then
-        printf "%s\t%s" "${address}" "${name}" | tee -a /etc/hosts
+    # find existing instances in the host file and save the line numbers
+    matches_in_hosts="$(grep -n "$name" /etc/hosts | cut -f1 -d:)"
+    host_entry=$(printf "%s\%s" "${address}" "${name}")
+
+    if [ -n "$matches_in_hosts" ]; then
+        message "hosts" "updating existing hosts entry"
+
+        # iterate over the line numbers on which matches were found
+        while read -r line_number; do
+            # replace the text of each line with the desired host entry
+            sudo sed -i '' "${line_number}s/.*/${host_entry} /" /etc/hosts
+        done <<<"$matches_in_hosts"
+    else
+        message "hosts" "adding new hosts entry"
+        echo "$host_entry" | sudo tee -a /etc/hosts >/dev/null
     fi
 }
 
