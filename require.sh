@@ -265,7 +265,7 @@ function require_hosts_record() {
         # iterate over the line numbers on which matches were found
         while read -r line_number; do
             # replace the text of each line with the desired host entry
-            sudo sed -i '' "${line_number}s/.*/${host_entry} /" /etc/hosts
+            sudo sed -i '' "${line_number}s/.*/${host_entry}/" /etc/hosts
         done <<<"$matches_in_hosts"
     else
         message "hosts" "adding new hosts entry"
