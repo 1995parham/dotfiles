@@ -256,8 +256,8 @@ function require_hosts_record() {
     fi
 
     # find existing instances in the host file and save the line numbers
-    matches_in_hosts="$(grep -n "$name" /etc/hosts | cut -f1 -d:)"
-    host_entry=$(printf "%s\%s" "${address}" "${name}")
+    matches_in_hosts="$(grep -n -e '\s'"$name" /etc/hosts | cut -f1 -d:)"
+    host_entry=$(printf "%s\t%s" "${address}" "${name}")
 
     if [ -n "$matches_in_hosts" ]; then
         message "hosts" "updating existing hosts entry"
