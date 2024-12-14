@@ -19,6 +19,10 @@ main_brew() {
         /usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
+    if [ ! -f "$HOME/.zprofile" ]; then
+        touch "$HOME/.zprofile"
+    fi
+
     # shellcheck disable=2016
     if ! grep -q -F 'eval "$(/opt/homebrew/bin/brew shellenv)"' \
         "$HOME/.zprofile"; then
