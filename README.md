@@ -101,15 +101,15 @@ Here is the list of available resources to find name names using the schema.
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
-  The last `macOS Ventura` installation happened on 16 Jun 2024. ✅
+  The last `macOS Ventura` installation happened on 14 Dec 2024. ✅
 
-  |   Type    |                          Value                           |
-  | :-------: | :------------------------------------------------------: |
-  |  System   |                  `Mac14,9 (MPHE3LL/A)`                   |
-  | Processor | `Apple M2 Pro 10 cores (6 performance and 4 efficiency)` |
-  |  Memory   |                `LPDDR5 - Micron - 16 GB`                 |
+  |   Type    |                          Value                            |
+  | :-------: | :-------------------------------------------------------: |
+  |  System   |                  `Mac16,7 (MX2Y3LL/A)`                    |
+  | Processor | `Apple M4 Pro 14 cores (10 performance and 4 efficiency)` |
+  |  Memory   |                `LPDDR5 - Hynix - 48 GB`                   |
 
-  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white>)
+  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(16--inch,_2024)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2) given by Snapp, and it should
   return to them when I decide to leave. The last `macOS Ventura` installation happened on 24 Jun 2024. ✅
@@ -122,7 +122,7 @@ Here is the list of available resources to find name names using the schema.
 
   ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`ghost`](https://starwars.fandom.com/wiki/Ghost) is my phone which is Nothing phone 2a.
+- [`ghost`](https://starwars.fandom.com/wiki/Ghost) is my phone which is Nothing phone 1.
 
 The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
