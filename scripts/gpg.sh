@@ -42,6 +42,8 @@ main_brew() {
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
         (printf "pinentry-program %s" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
 
+    pkill gpg-agent
+
     msg 'set gpg suite to be auto started'
     osascript -e 'tell application "System Events" to ¬' \
         -e 'make new login item with properties ¬' \
