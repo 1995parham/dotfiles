@@ -172,6 +172,7 @@ main_pacman() {
 
 main_brew() {
     brew_packages=(
+        gsed
         coreutils
         inetutils
         inxi
