@@ -188,3 +188,6 @@ format = '[$symbol($profile )(\($region\) )]($style)'
 style = 'bold blue'
 symbol = ' 󰸏 '
 disabled = false
+
+[character]
+vimcmd_symbol = '[](bold green)'
