@@ -205,6 +205,7 @@ main_brew() {
     brew_cask_packages=(
         muzzle
         the-unarchiver
+        KeepingYouAwake
     )
 
     msg "install ${brew_cask_packages[*]} with brew --cask"
