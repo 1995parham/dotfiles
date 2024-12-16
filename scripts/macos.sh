@@ -191,6 +191,7 @@ main_brew() {
 
     msg
     msg 'Disable ctrl+space short key to use tmux without pain' 'notice'
+    msg 'Use ctrl + h and ctrl + l instead of arrow keys' 'notice'
     yes_or_no "macos" 'Did you do it?'
 
     msg
