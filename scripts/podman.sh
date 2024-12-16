@@ -40,7 +40,16 @@ main_brew() {
     msg 'install podman cli with docker-compose cli because they are used by podman'
     require_brew podman docker-compose
 
-    podman machine init podman-machine-hvf
+    (podman machine ls | grep podman-machine-hvf) || podman machine init podman-machine-hvf
+
+    sudo tee /usr/local/bin/docker <<EOF
+#!/bin/sh
+[ -e /etc/containers/nodocker ] ||
+    echo "Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg." >&2
+    exec podman "\$@"
+EOF
+    sudo chmod +x /usr/local/bin/docker
+
 }
 
 main() {

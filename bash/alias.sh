@@ -49,10 +49,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias mcli=mc
 fi
 
-if [[ -n "$(command -v podman)" ]]; then
-    alias docker=podman
-fi
-
 alias grep="grep --color=auto"
 alias vi="vim"
 alias ls-la="ls --color -la"
