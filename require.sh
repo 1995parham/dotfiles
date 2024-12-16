@@ -80,7 +80,7 @@ function require_brew() {
 
     if [[ ${#to_install_pkg[@]} -ne 0 ]]; then
         action "require" " brew install ${to_install_pkg[*]}"
-        brew install "${to_install_pkg[@]}"
+        brew install --formula "${to_install_pkg[@]}"
     fi
 }
 
