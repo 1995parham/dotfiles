@@ -38,6 +38,8 @@ main_apt() {
 main_brew() {
     require_brew_cask podman-desktop
     require_brew podman
+
+    podman machine init podman-machine-hvf
 }
 
 main() {
