@@ -37,8 +37,8 @@ main_apt() {
 
 main_brew() {
     require_brew_cask podman-desktop
-    msg 'install podman cli with docker and docker-compose cli because they are used by podman'
-    require_brew podman docker docker-compose
+    msg 'install podman cli with docker-compose cli because they are used by podman'
+    require_brew podman docker-compose
 
     podman machine init podman-machine-hvf
 }
