@@ -28,6 +28,10 @@ main_apt() {
 
 }
 
+main_pkg() {
+    require_pkg nodejs
+}
+
 main_pacman() {
     msg "install node using pacman"
     require_pacman nodejs npm
