@@ -116,9 +116,9 @@ Here is the list of available resources to find name names using the schema.
 
     |   Type    |                        Value                        |
     | :-------: | :-------------------------------------------------: |
-    |  System   |              `Mac14,2 (Z160000Z4HN/A)`              |
-    | Processor | `Apple M2 8 cores (4 performance and 4 efficiency)` |
-    |  Memory   |              `LPDDR4 - Micron - 16 GB`              |
+    |  System   |              `Mac15,12 (MXCR3LL/A)`                 |
+    | Processor | `Apple M3 8 cores (4 performance and 4 efficiency)` |
+    |  Memory   |              `LPDDR5 - Hynix - 16 GB`               |
 
     ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
