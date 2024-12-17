@@ -39,8 +39,8 @@ please check [here](./archinstall).
 
 In the case of using macOS, you already have the installed macOS
 (Use recovery mode by Press and hold the power button on your Mac until the system volume and the Options button
-appear).
-So, there is no need to install the operating system, and you cannot customize anything about it.
+appear). During the fresh-installation, please check [here](./macos).
+There is no need for installing the operating system, and you cannot customize anything about it.
 Just run the following script to have the setup:
 
 ```bash
@@ -103,24 +103,24 @@ Here is the list of available resources to find name names using the schema.
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
   The last `macOS Ventura` installation happened on 14 Dec 2024. ✅
 
-  |   Type    |                          Value                            |
-  | :-------: | :-------------------------------------------------------: |
-  |  System   |                  `Mac16,7 (MX2Y3LL/A)`                    |
-  | Processor | `Apple M4 Pro 14 cores (10 performance and 4 efficiency)` |
-  |  Memory   |                `LPDDR5 - Hynix - 48 GB`                   |
+    |   Type    |                           Value                           |
+    | :-------: | :-------------------------------------------------------: |
+    |  System   |                   `Mac16,7 (MX2Y3LL/A)`                   |
+    | Processor | `Apple M4 Pro 14 cores (10 performance and 4 efficiency)` |
+    |  Memory   |                 `LPDDR5 - Hynix - 48 GB`                  |
 
-  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(16--inch,_2024)-333333?style=for-the-badge&logo=apple&logoColor=white>)
+    ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(16--inch,_2024)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 - [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2) given by Snapp, and it should
   return to them when I decide to leave. The last `macOS Ventura` installation happened on 24 Jun 2024. ✅
 
-  |   Type    |                        Value                        |
-  | :-------: | :-------------------------------------------------: |
-  |  System   |              `Mac14,2 (Z160000Z4HN/A)`              |
-  | Processor | `Apple M2 8 cores (4 performance and 4 efficiency)` |
-  |  Memory   |              `LPDDR4 - Micron - 16 GB`              |
+    |   Type    |                        Value                        |
+    | :-------: | :-------------------------------------------------: |
+    |  System   |              `Mac14,2 (Z160000Z4HN/A)`              |
+    | Processor | `Apple M2 8 cores (4 performance and 4 efficiency)` |
+    |  Memory   |              `LPDDR4 - Micron - 16 GB`              |
 
-  ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
+    ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 - [`ghost`](https://starwars.fandom.com/wiki/Ghost) is my phone which is Nothing phone 1.
 
@@ -131,13 +131,13 @@ The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 - [`sandcrawler`](https://en.wikipedia.org/wiki/Sandcrawler): MacBook Pro (14,9) given by Digikala, and it should
   return to them when Elahe decide to leave. The last `macOS` installation happened on dawn of the time. 🗑️
 
-  |   Type    |                          Value                           |
-  | :-------: | :------------------------------------------------------: |
-  |  System   |                  `Mac14,9 (MPHE3LL/A)`                   |
-  | Processor | `Apple M2 Pro 10 cores (6 performance and 4 efficiency)` |
-  |  Memory   |                `LPDDR5 - Micron - 16 GB`                 |
-  
-  ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white>)
+    |   Type    |                          Value                           |
+    | :-------: | :------------------------------------------------------: |
+    |  System   |                  `Mac14,9 (MPHE3LL/A)`                   |
+    | Processor | `Apple M2 Pro 10 cores (6 performance and 4 efficiency)` |
+    |  Memory   |                `LPDDR5 - Micron - 16 GB`                 |
+
+    ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(14--inch,_2023)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
 The username is always set to `elahe`.
 
@@ -161,10 +161,10 @@ You can install most of them by running the following script:
 The following operating systems and their package managers are supported:
 
 - `ArchLinux`:
-  - [`pacman`](https://archlinux.org/pacman/)
-  - [Yet another Yogurt (`yay`)](https://github.com/Jguer/yay)
+    - [`pacman`](https://archlinux.org/pacman/)
+    - [Yet another Yogurt (`yay`)](https://github.com/Jguer/yay)
 - `macOS`
-  - [`brew`](https://brew.sh)
+    - [`brew`](https://brew.sh)
 
 ### Applications
 
@@ -255,7 +255,7 @@ Almost everything in Doom Emacs works with ivy. It is simple and will show you a
 I use Emacs based on [doom](https://github.com/doomemacs), and I found the following configurations are useful to update my configurations based on them.
 
 1. [psamim dotfiles](https://github.com/github/psamim/dotfiles)
-   - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
+    - [My org-mode agenda, much better now with category icons!](https://www.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/?utm_source=share&utm_medium=web2x&context=3)
 2. [Academic doom](https://github.com/sunnyhasija/Academic-Doom-Emacs-Config)
 3. [elenapan dotfiles](https://github.com/elenapan/dotfiles)
 
