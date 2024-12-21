@@ -30,6 +30,14 @@ main_pacman() {
 main() {
     configfile alacritty
 
-    mkdir -p ~/.config/alacritty/themes
-    git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+    mkdir -p "$HOME/.config/alacritty/themes"
+    if [ ! -d "$HOME/.config/alacritty/themes" ]; then
+        git clone https://github.com/alacritty/alacritty-theme "$HOME/.config/alacritty/themes"
+    fi
+
+    if [ -f "$root/alacritty/$HOSTNAME.toml" ]; then
+        git update-index --assume-unchanged "$root/alacritty/host.toml"
+        rm "$root/alacritty/host.toml"
+        ln -s "$HOSTNAME.toml" "$root/alacritty/host.toml"
+    fi
 }
