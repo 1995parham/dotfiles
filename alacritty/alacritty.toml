@@ -11,11 +11,10 @@ unfocused_hollow = true
 shape = "Beam"
 
 [env]
-WINIT_X11_SCALE_FACTOR = "1.0"
 
 [font]
 builtin_box_drawing = true
-size = 10
+size = 8
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
