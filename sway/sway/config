@@ -80,10 +80,10 @@ bindsym XF86AudioPrev exec notify-send -a 'mpd' -i '/usr/share/icons/Adwaita/32x
 bindsym XF86TouchpadToggle exec "swaymsg input type:touchpad events toggle enabled disabled"
 
 # change focus with vim-like keybinding
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+h focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -109,7 +109,7 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h
+bindsym $mod+s split h
 bindsym $mod+v split v
 bindsym $mod+q split toggle
 
@@ -117,7 +117,7 @@ bindsym $mod+q split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
