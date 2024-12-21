@@ -90,7 +90,7 @@ main_pacman() {
     # https://wiki.archlinux.org/title/GNOME/Files
     require_pacman ffmpegthumbnailer gst-libav gst-plugins-ugly nautilus
 
-    systemctl --user enable --now gcr-ssh-agent.service
+    systemctl --user enable --now gcr-ssh-agent.socket
 }
 
 main_parham() {

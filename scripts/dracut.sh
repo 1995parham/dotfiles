@@ -14,7 +14,7 @@ usage() {
 
 main_pacman() {
     require_pacman dracut
-    require_not_pacman mkinitcpio
+    not_require_pacman mkinitcpio
 
     msg 'install system-wide scripts to generate initramfs'
     copycat dracut dracut/dracut-install.sh /usr/local/bin/dracut-install.sh
