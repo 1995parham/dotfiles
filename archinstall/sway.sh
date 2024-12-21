@@ -24,7 +24,7 @@ cd "$current_dir/.." && ./start.sh yay
 cd "$current_dir/.." && ./start.sh env
 
 message "archinstall" "lets use greetd as desktop manager"
-not_require_pacman lightdm lightdm-gtk-greeter
+not_require_pacman lightdm lightdm-gtk-greeter sddm
 require_pacman greetd greetd-tuigreet greetd-agreety
 
 sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
