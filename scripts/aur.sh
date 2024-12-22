@@ -29,6 +29,7 @@ main() {
         "gotz"
         "scitopdf-git"
         "jira-cli"
+        "dijo-1995parham"
         #		"litmusctl-bin"
     )
 
