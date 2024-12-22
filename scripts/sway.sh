@@ -43,7 +43,7 @@ EOL
     copycat "sway" archinstall/sway.d/sway.desktop /usr/share/wayland-sessions/sway.desktop
     copycat "sway" archinstall/sway.d/sway.sh /usr/local/bin/sway.sh
 
-    require_pacman xdg-desktop-portal-wlr
+    require_pacman xdg-desktop-portal-wlr wev
 
     configfile sway "" sway
     configfile swaylock "" sway
