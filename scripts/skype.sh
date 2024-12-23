@@ -14,7 +14,7 @@ usage() {
 }
 
 main_pacman() {
-    require_aur skypeforlinux-stable-bin
+    require_aur skypeforlinux-bin
 }
 
 main_apt() {
