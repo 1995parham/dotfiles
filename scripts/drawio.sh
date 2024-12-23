@@ -15,7 +15,7 @@ usage() {
 }
 
 main_pacman() {
-    require_aur drawio-desktop-bin
+    require_pacman drawio-desktop
 }
 
 main_brew() {
