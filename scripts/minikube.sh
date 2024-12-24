@@ -25,7 +25,7 @@ main_brew() {
 }
 
 main() {
-    minikube config set driver docker
+    minikube config set driver podman
 }
 
 main_parham() {
