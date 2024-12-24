@@ -16,6 +16,16 @@ windows:
     layout: tiled
     start_directory: ~/Documents/Git/parham/nobitex/nobitex/core
     panes:
+      - shell_command:
+          - nvim
+        focus: true
+      - pane
+      - pane
+
+  - window_name: infra
+    layout: tiled
+    start_directory: ~/Documents/Git/parham/1995parham-goodies/nobitex-core-infra
+    panes:
       - focus: true
       - pane
       - pane
