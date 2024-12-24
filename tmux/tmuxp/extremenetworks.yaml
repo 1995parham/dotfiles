@@ -7,7 +7,7 @@ windows:
     focus: true
     panes:
       - shell_command:
-          - chafa $DOTFILES_ROOT/wayland/waybar/img/extremenetworks.svg --size 80 --clear -f symbols | less
+          - chafa $DOTFILES_ROOT/companies/extremenetworks.svg --size 80 --clear -f symbols | less
       - focus: true
       - pane
       - pane
