@@ -1,4 +1,5 @@
 ---
+before_script: bash $HOME/Documents/Git/parham/1995parham-goodies/nobitex-core-infra/core.sh
 session_name: Nobitex
 windows:
   - window_name: scratch 📝
@@ -15,12 +16,15 @@ windows:
   - window_name: core
     layout: tiled
     start_directory: ~/Documents/Git/parham/nobitex/nobitex/core
+    shell_command_before:
+      - pyenv local 3.10
+      - "[ -d '.venv' ] && source .venv/bin/activate && reset"
     panes:
+      - pane
+      - pane
       - shell_command:
           - nvim
         focus: true
-      - pane
-      - pane
 
   - window_name: infra
     layout: tiled
