@@ -19,7 +19,7 @@ pre_main() {
 }
 
 main_pacman() {
-    return 1
+    require_aur galaxybudsclient-bin
 }
 
 main_xbps() {
