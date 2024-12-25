@@ -26,6 +26,7 @@ main_brew() {
 
 main() {
     minikube config set driver podman
+    minikube config set rootless true
 }
 
 main_parham() {
