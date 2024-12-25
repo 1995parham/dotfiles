@@ -28,8 +28,7 @@ main_brew() {
 
 main_parham() {
     devices=(
-        "wh-1000xm5-parham: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE. 🐼"
-        "wh-1000xm5-elahe: WH-1000XM5 Wireless Noise Cancelling Headphones, YOUR WORLD. NOTHING ELSE. 🌰"
+        "galaxy-buds2-pro: Experience studio-worthy listening in our most comfortable design yet."
     )
 
     local device
@@ -47,11 +46,8 @@ main_parham() {
 
     local mac_address
     case $device in
-    "wh-1000xm5-parham")
-        mac_address="AC:80:0A:45:A3:1F"
-        ;;
-    "wh-1000xm5-elahe")
-        mac_address="AC:80:0A:0D:A3:AB"
+    "galaxy-buds2-pro")
+        mac_address="64:5D:F4:9E:9D:5F"
         ;;
     *)
         return
