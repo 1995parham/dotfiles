@@ -37,7 +37,7 @@ main() {
 
     if [ -f "$root/alacritty/$HOSTNAME.toml" ]; then
         git update-index --assume-unchanged "$root/alacritty/host.toml"
-        rm "$root/alacritty/host.toml"
-        cp "$HOSTNAME.toml" "$root/alacritty/host.toml"
+        rm "$root/alacritty/host.toml" || true
+        cp "$root/alacritty/$HOSTNAME.toml" "$root/alacritty/host.toml"
     fi
 }
