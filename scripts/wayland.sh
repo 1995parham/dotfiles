@@ -66,7 +66,7 @@ main_pacman() {
     # require_pacman swaybg
 
     msg 'a window switcher, application launcher and dmenu replacement (fork with Wayland support)'
-    require_aur rofi-lbonn-wayland-git
+    require_pacman rofi-wayland
     configfile rofi "" wayland
 
     msg 'we are going to have sound with the awesome pipewire/wireplumber'
