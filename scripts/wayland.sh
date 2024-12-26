@@ -70,7 +70,7 @@ main_pacman() {
     configfile rofi "" wayland
 
     msg 'we are going to have sound with the awesome pipewire/wireplumber'
-    require_pacman pulsemixer easyeffects pavucontrol
+    require_pacman pulsemixer easyeffects pavucontrol sof-firmware alsa-ucm-conf
 
     msg 'configure the dmenu, default application luncher from manjaro i3 days'
     linker dmenu "$root/wayland/dmenurc" "$HOME/.dmenurc"
