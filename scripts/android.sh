@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo -n -e "tools for communicating with android-based devices"
+    echo -n -e "Tools for communicating with and performing bootloader operations on Android-based devices"
 
     echo '
                  _           _     _
@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman android-tools android-udev scrcpy android-file-transfer
+    require_pacman android-tools android-udev scrcpy android-file-transfer heimdall
     # require_aur sidequest-bin
 
     #	msg 'https://github.com/skrimix/QLoaderFiles'
