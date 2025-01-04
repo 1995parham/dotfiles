@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman android-tools android-udev scrcpy android-file-transfer heimdall
+    require_pacman android-tools android-udev android-file-transfer heimdall
     # require_aur sidequest-bin
 
     #	msg 'https://github.com/skrimix/QLoaderFiles'
@@ -21,7 +21,6 @@ main_pacman() {
 }
 
 main_brew() {
-    require_brew scrcpy
     require_brew_cask openmtp android-platform-tools
 
     if [ ! -f /usr/local/bin/heimdall ]; then
