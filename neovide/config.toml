@@ -10,7 +10,3 @@ theme = "auto"
 title-hidden = true
 vsync = true
 wsl = false
-
-[font]
-normal = [] # Will use the bundled Fira Code Nerd Font by default
-size = 12.0
