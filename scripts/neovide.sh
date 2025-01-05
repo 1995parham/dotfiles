@@ -33,7 +33,7 @@ main_brew() {
 }
 
 main() {
-    return 0
+    configfile neovide
 }
 
 main_parham() {
