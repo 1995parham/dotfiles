@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
     echo "Library Genesis"
 
@@ -39,7 +40,9 @@ main_brew() {
 
 main() {
     require_hosts_record 193.218.118.42 library.lol
+    require_hosts_record 193.218.118.42 library.gift
     require_hosts_record 176.119.25.72 download.library.lol
+    require_hosts_record 176.119.25.72 download.library.gift
 }
 
 main_parham() {
