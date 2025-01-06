@@ -251,25 +251,33 @@ function require_hosts_record() {
     address=${1:?"address is required"}
     name=${2:?"name is required"}
 
+    message 'hosts' "add mapping from $name to $address"
+
     if [[ ! -f /etc/hosts ]]; then
-        printf "# Static table lookup for hostnames.\n# See hosts(5) for details." | tee /etc/hosts
+        printf "# Static table lookup for hostnames.\n# See hosts(5) for details." | sudo tee /etc/hosts
     fi
 
     # find existing instances in the host file and save the line numbers
-    matches_in_hosts="$(grep -n -e '\s'"$name" /etc/hosts | cut -f1 -d:)"
     host_entry=$(printf "%s\t%s" "${address}" "${name}")
 
-    if [ -n "$matches_in_hosts" ]; then
-        message "hosts" "updating existing hosts entry"
+    message 'hosts' "the host entry is $host_entry"
 
-        # iterate over the line numbers on which matches were found
-        while read -r line_number; do
-            # replace the text of each line with the desired host entry
-            sudo sed -i '' "${line_number}s/.*/${host_entry}/" /etc/hosts
-        done <<<"$matches_in_hosts"
-    else
+    if matches_in_hosts="$(grep -n -e '\s'"$name" /etc/hosts | cut -f1 -d:)"; then
         message "hosts" "adding new hosts entry"
         echo "$host_entry" | sudo tee -a /etc/hosts >/dev/null
+    else
+        if [ -n "$matches_in_hosts" ]; then
+            message "hosts" "updating existing hosts entry"
+
+            # iterate over the line numbers on which matches were found
+            while read -r line_number; do
+                # replace the text of each line with the desired host entry
+                sudo sed -i '' "${line_number}s/.*/${host_entry}/" /etc/hosts
+            done <<<"$matches_in_hosts"
+        else
+            message "hosts" "adding new hosts entry"
+            echo "$host_entry" | sudo tee -a /etc/hosts >/dev/null
+        fi
     fi
 }
 
