@@ -18,6 +18,10 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "MaterialDark"
 
+config.colors = {
+    background = "#2e2e2e",
+}
+
 config.prefer_to_spawn_tabs = true
 
 config.keys = {
@@ -143,7 +147,7 @@ config.font = wezterm.font("JetBrains Mono", { weight = "Light" })
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
 if hostname == "millennium-falcon" then
-    config.font_size = 10
+    config.font_size = 9.5
 end
 if hostname == "tantive-iv" then
     config.font_size = 9
