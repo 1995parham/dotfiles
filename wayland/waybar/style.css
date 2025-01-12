@@ -278,6 +278,10 @@ label:focus {
     color: #ff005a;
 }
 
+#network.xvpn {
+    color: #ff005a;
+}
+
 #network.easynet {
     color: #5aff00;
 }

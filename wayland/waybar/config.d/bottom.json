@@ -19,6 +19,7 @@
     ],
     "modules-right": [
         "network#speedify",
+        "network#xvpn",
         "network#easynet"
     ],
     "idle_inhibitor": {
@@ -49,6 +50,11 @@
     },
     "network#speedify": {
         "interface": "connectify0",
+        "format": "{ifname}: {ipaddr}",
+        "format-disconnected": ""
+    },
+    "network#xvpn": {
+        "interface": "xvpn-*",
         "format": "{ifname}: {ipaddr}",
         "format-disconnected": ""
     },
