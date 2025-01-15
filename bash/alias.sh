@@ -149,3 +149,15 @@ function snappcloud-proxy-off() {
 function ip-status() {
     curl -s "https://api.ipquery.io/?format=json" | jq
 }
+
+function gotz() {
+    date
+    echo "----"
+    TZ="US/Eastern " date
+    echo "----"
+    TZ="US/Central" date
+    echo "----"
+    TZ="US/Mountain" date
+    echo "----"
+    TZ="US/Pacific" date
+}
