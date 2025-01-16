@@ -153,7 +153,7 @@ function ip-status() {
 function gotz() {
     date
     echo "----"
-    TZ="US/Eastern " date
+    TZ="US/Eastern" date
     echo "----"
     TZ="US/Central" date
     echo "----"
