@@ -21,7 +21,7 @@ main_apt() {
 }
 
 main_brew() {
-    require_brew_cask obs-beta
+    require_brew_cask obs@beta
 }
 
 main() {
