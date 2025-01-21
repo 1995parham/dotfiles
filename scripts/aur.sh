@@ -27,6 +27,7 @@ main() {
         "actionlint-bin"
         "jcal"
         "gotz"
+        "mprocs"
         "scitopdf-git"
         "jira-cli"
         "dijo-1995parham"
