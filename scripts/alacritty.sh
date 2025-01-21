@@ -30,7 +30,7 @@ main_pacman() {
 main() {
     configfile alacritty
 
-    mkdir -p "$HOME/.config/alacritty/themes"
+    mkdir -p "$HOME/.config/alacritty"
     if [ ! -d "$HOME/.config/alacritty/themes" ]; then
         git clone https://github.com/alacritty/alacritty-theme "$HOME/.config/alacritty/themes"
     fi
