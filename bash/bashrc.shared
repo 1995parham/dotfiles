@@ -132,4 +132,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # additionally, you can access their man pages with normal names if you add
     # the "gnuman" directory to your MANPATH from your bashrc as well:
     MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
+
+    # libpq contains useful binaries to work with postgres database,
+    # export them.
+    if [ -d "$(brew --prefix)/opt/libpq/bin/" ]; then
+        PATH="$(brew --prefix)/opt/libpq/bin/:$PATH"
+    fi
 fi
