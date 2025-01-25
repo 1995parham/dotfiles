@@ -26,6 +26,9 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
     if [[ -n "$(command -v alacritty)" ]]; then
         alacritty msg create-window -e "$bash" -lc "tmuxp load $path -y"
     fi
+    if [ -e "/Applications/Alacritty.app/Contents/MacOS/alacritty" ]; then
+        "/Applications/Alacritty.app/Contents/MacOS/alacritty" msg create-window -e "$bash" -lc "tmuxp load $path -y"
+    fi
 else
     tmuxp load "$path"
 fi
