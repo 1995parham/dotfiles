@@ -17,7 +17,7 @@ pre_main() {
 }
 
 main_pacman() {
-    return 1
+    required_pacman zed
 }
 
 main_xbps() {
@@ -33,7 +33,7 @@ main_pkg() {
 }
 
 main_brew() {
-    return 1
+    require_brew_cask zed
 }
 
 main() {
