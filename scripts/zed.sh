@@ -37,7 +37,7 @@ main_brew() {
 }
 
 main() {
-    return 0
+    configfile zed
 }
 
 main_parham() {
