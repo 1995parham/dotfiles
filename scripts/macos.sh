@@ -51,6 +51,10 @@ main_brew() {
     defaults write NSGlobalDomain AppleHighlightColor -string "1.000000 0.874510 0.701961 Orange"
     defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
+    # Use command + H/L to move between spaces
+    defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 79 "{ enabled = 1; value = { parameters = ( 65535, 37, 11534336 ); type = 'standard'; }; }"
+    defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81 "{ enabled = 1; value = { parameters = ( 65535, 4, 11534336 ); type = 'standard'; }; }"
+
     # Use tap instead of click. Secondary click with two finger tap.
     defaults write com.apple.driver.AppleMultitouch Clicking -int 1
     defaults write com.apple.driver.AppleMultitouch TrackpadRightClick -bool true
