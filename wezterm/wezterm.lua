@@ -16,13 +16,10 @@ local config = wezterm.config_builder()
 -- WezTerm bundles JetBrains Mono, Nerd Font Symbols and Noto Color Emoji fonts
 -- and uses those for the default font configuration.
 
-config.color_scheme = "MaterialDark"
-
-config.colors = {
-    background = "#2e2e2e",
-}
+config.color_scheme = "Github Dark (Gogh)"
 
 config.prefer_to_spawn_tabs = true
+config.native_macos_fullscreen_mode = true
 
 config.keys = {
     {
@@ -46,7 +43,7 @@ config.keys = {
         action = wezterm.action.ActivateTabRelative(1),
     },
     {
-        key = "h",
+        key = "n",
         mods = "CMD",
         action = wezterm.action.EmitEvent("navi"),
     },
@@ -63,94 +60,151 @@ wezterm.on("navi", function(window, pane)
     end
 end)
 
-wezterm.on("update-right-status", function(window, _)
-    local hostname = wezterm.nerdfonts.fa_laptop .. " " .. wezterm.hostname()
+wezterm.on("update-right-status", function(window, pane)
+    -- Each element holds the text for a cell in a "powerline" style << fade
+    local cells = {}
 
     local _, jalali_date, _ = wezterm.run_child_process({ "bash", "-lc", "jdate +%D" })
-    jalali_date = wezterm.nerdfonts.fa_calendar .. " " .. jalali_date:gsub("[\n\r]", " ")
+    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. jalali_date:gsub("[\n\r]", " "))
 
     local _, tehran_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='Asia/Tehran' date +%H:%M:%S-%Z" })
-    tehran_clock = wezterm.nerdfonts.fa_clock_o .. " " .. tehran_clock:gsub("[\n\r]", " ")
+    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. tehran_clock:gsub("[\n\r]", " "))
 
-    local _, pst_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='America/Los_Angeles' date +%H:%M:%S-%Z" })
-    pst_clock = wezterm.nerdfonts.fa_clock_o .. " " .. pst_clock:gsub("[\n\r]", " ")
+    local _, pst_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='US/Pacific' date +%H:%M:%S-%Z" })
+    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. pst_clock:gsub("[\n\r]", " "))
 
-    local _, est_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='America/New_York' date +%H:%M:%S-%Z" })
-    est_clock = wezterm.nerdfonts.fa_clock_o .. " " .. est_clock:gsub("[\n\r]", " ")
+    local _, est_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='US/Eastern' date +%H:%M:%S-%Z" })
+    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. est_clock:gsub("[\n\r]", " "))
 
-    local bat = ""
-    for _, b in ipairs(wezterm.battery_info()) do
-        local percentage = b.state_of_charge * 100
-
-        if b.state == "Charging" then
+    -- An entry for each battery (typically 0 or 1 battery)
+    local function battery_icons(state, percentage)
+        if state == "Charging" then
             if 0 <= percentage and percentage < 10 then
-                bat = wezterm.nerdfonts.md_battery_charging_10 .. " "
+                return wezterm.nerdfonts.md_battery_charging_10 .. " "
             elseif 10 <= percentage and percentage < 20 then
-                bat = wezterm.nerdfonts.md_battery_charging_20 .. " "
+                return wezterm.nerdfonts.md_battery_charging_20 .. " "
             elseif 20 <= percentage and percentage < 30 then
-                bat = wezterm.nerdfonts.md_battery_charging_30 .. " "
+                return wezterm.nerdfonts.md_battery_charging_30 .. " "
             elseif 30 <= percentage and percentage < 40 then
-                bat = wezterm.nerdfonts.md_battery_charging_40 .. " "
+                return wezterm.nerdfonts.md_battery_charging_40 .. " "
             elseif 40 <= percentage and percentage < 50 then
-                bat = wezterm.nerdfonts.md_battery_charging_50 .. " "
+                return wezterm.nerdfonts.md_battery_charging_50 .. " "
             elseif 50 <= percentage and percentage < 60 then
-                bat = wezterm.nerdfonts.md_battery_charging_60 .. " "
+                return wezterm.nerdfonts.md_battery_charging_60 .. " "
             elseif 60 <= percentage and percentage < 70 then
-                bat = wezterm.nerdfonts.md_battery_charging_70 .. " "
+                return wezterm.nerdfonts.md_battery_charging_70 .. " "
             elseif 70 <= percentage and percentage < 80 then
-                bat = wezterm.nerdfonts.md_battery_charging_80 .. " "
+                return wezterm.nerdfonts.md_battery_charging_80 .. " "
             elseif 80 <= percentage and percentage < 90 then
-                bat = wezterm.nerdfonts.md_battery_charging_90 .. " "
+                return wezterm.nerdfonts.md_battery_charging_90 .. " "
             else
-                bat = wezterm.nerdfonts.md_battery_charging_100 .. " "
+                return wezterm.nerdfonts.md_battery_charging_100 .. " "
             end
         else
             if 0 <= percentage and percentage < 10 then
-                bat = wezterm.nerdfonts.md_battery_10 .. " "
+                return wezterm.nerdfonts.md_battery_10 .. " "
             elseif 10 <= percentage and percentage < 20 then
-                bat = wezterm.nerdfonts.md_battery_20 .. " "
+                return wezterm.nerdfonts.md_battery_20 .. " "
             elseif 20 <= percentage and percentage < 30 then
-                bat = wezterm.nerdfonts.md_battery_30 .. " "
+                return wezterm.nerdfonts.md_battery_30 .. " "
             elseif 30 <= percentage and percentage < 40 then
-                bat = wezterm.nerdfonts.md_battery_40 .. " "
+                return wezterm.nerdfonts.md_battery_40 .. " "
             elseif 40 <= percentage and percentage < 50 then
-                bat = wezterm.nerdfonts.md_battery_50 .. " "
+                return wezterm.nerdfonts.md_battery_50 .. " "
             elseif 50 <= percentage and percentage < 60 then
-                bat = wezterm.nerdfonts.md_battery_60 .. " "
+                return wezterm.nerdfonts.md_battery_60 .. " "
             elseif 60 <= percentage and percentage < 70 then
-                bat = wezterm.nerdfonts.md_battery_70 .. " "
+                return wezterm.nerdfonts.md_battery_70 .. " "
             elseif 70 <= percentage and percentage < 80 then
-                bat = wezterm.nerdfonts.md_battery_80 .. " "
+                return wezterm.nerdfonts.md_battery_80 .. " "
             elseif 80 <= percentage and percentage < 90 then
-                bat = wezterm.nerdfonts.md_battery_90 .. " "
+                return wezterm.nerdfonts.md_battery_90 .. " "
             else
-                bat = wezterm.nerdfonts.md_battery .. " "
+                return wezterm.nerdfonts.md_battery .. " "
             end
         end
-
-        bat = bat .. string.format("%.0f%%", percentage)
+    end
+    for _, b in ipairs(wezterm.battery_info()) do
+        table.insert(
+            cells,
+            string.format("%s %.0f%% ", battery_icons(b.state, b.state_of_charge * 100), b.state_of_charge * 100)
+        )
     end
 
-    window:set_right_status(wezterm.format({
-        { Foreground = { Color = "#ffffff" } },
-        { Text = "  " .. hostname .. "  " },
-        { Text = "  " .. tehran_clock .. "  " },
-        { Text = "  " .. pst_clock .. "  " },
-        { Text = "  " .. est_clock .. "  " },
-        { Text = "  " .. jalali_date .. "  " },
-        { Text = "  " .. bat .. "  " },
-    }))
+    local cwd_uri = pane:get_current_working_dir()
+    if cwd_uri then
+        local hostname = ""
+
+        if type(cwd_uri) == "userdata" then
+            -- Running on a newer version of wezterm and we have
+            -- a URL object here, making this simple!
+
+            hostname = cwd_uri.host
+        end
+
+        -- Remove the domain name portion of the hostname
+        local dot = hostname:find("[.]")
+        if dot then
+            hostname = hostname:sub(1, dot - 1)
+        end
+
+        if hostname ~= "" and hostname ~= wezterm.hostname() then
+            table.insert(cells, hostname)
+        end
+    end
+
+    -- Color palette for the backgrounds of each cell
+    local colors = {
+        "#ffac14",
+        "#ffb327",
+        "#ffba3b",
+        "#ffc14e",
+        "#ffc862",
+        "#ffcf76",
+        "#ffd589",
+    }
+
+    -- The elements to be formatted
+    local elements = {}
+    -- How many cells have been formatted
+    local num_cells = 0
+
+    -- Translate a cell into elements
+    local function push(text, is_last)
+        local cell_no = num_cells + 1
+        table.insert(elements, { Foreground = { Color = colors[cell_no] } })
+        table.insert(elements, { Text = " " .. text .. " " })
+        if not is_last then
+            table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
+        end
+        num_cells = num_cells + 1
+    end
+
+    while #cells > 0 do
+        local cell = table.remove(cells, 1)
+        push(cell, #cells == 0)
+    end
+
+    window:set_right_status(wezterm.format(elements))
 end)
 
-config.font = wezterm.font("JetBrains Mono", { weight = "Light" })
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light" })
+config.font_size = 10
+-- TODO (parham): still in the nightly build
+-- config.show_close_tab_button_in_tabs = false
+config.show_new_tab_button_in_tab_bar = false
 
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
-if hostname == "millennium-falcon" then
-    config.font_size = 9.5
-end
-if hostname == "tantive-iv" then
-    config.font_size = 9
+
+local machines = {
+    ["millennium-falcon"] = function() end,
+    ["tantive-iv"] = function() end,
+}
+
+local machine_config = machines[hostname]
+if machine_config then
+    machine_config()
 end
 
 return config
