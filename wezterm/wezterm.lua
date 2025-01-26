@@ -60,6 +60,57 @@ wezterm.on("navi", function(window, pane)
     end
 end)
 
+-- This function returns the suggested title for a tab.
+-- It prefers the title that was set via `tab:set_title()`
+-- or `wezterm cli set-tab-title`, but falls back to the
+-- title of the active pane in that tab.
+local function tab_title(tab_info)
+    local title = tab_info.tab_title
+    -- if the tab title is explicitly set, take that
+    if title and #title > 0 then
+        return title
+    end
+
+    if tab_info.active_pane.title == "ssh" then
+        local hostname = ""
+        local cwd_uri = tab_info.active_pane.current_working_dir
+        if cwd_uri then
+            if type(cwd_uri) == "userdata" then
+                hostname = cwd_uri.host
+            end
+
+            -- Remove the domain name portion of the hostname
+            local dot = hostname:find("[.]")
+            if dot then
+                hostname = hostname:sub(1, dot - 1)
+            end
+
+            if hostname == wezterm.hostname() then
+                hostname = ""
+            end
+        end
+
+        -- Otherwise, use the title from the active pane
+        -- in that tab
+        if hostname ~= "" then
+            return hostname
+        end
+    end
+
+    return tab_info.active_pane.title
+end
+
+wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
+    local title = tab_title(tab)
+    if tab.is_active then
+        return {
+            { Foreground = { Color = "orange" } },
+            { Text = " " .. title .. " " },
+        }
+    end
+    return title
+end)
+
 wezterm.on("update-right-status", function(window, pane)
     -- Each element holds the text for a cell in a "powerline" style << fade
     local cells = {}
@@ -136,9 +187,6 @@ wezterm.on("update-right-status", function(window, pane)
         local hostname = ""
 
         if type(cwd_uri) == "userdata" then
-            -- Running on a newer version of wezterm and we have
-            -- a URL object here, making this simple!
-
             hostname = cwd_uri.host
         end
 
