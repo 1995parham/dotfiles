@@ -16,7 +16,7 @@ local config = wezterm.config_builder()
 -- WezTerm bundles JetBrains Mono, Nerd Font Symbols and Noto Color Emoji fonts
 -- and uses those for the default font configuration.
 
-config.color_scheme = "Github Dark (Gogh)"
+config.color_scheme = "Neon Night (Gogh)"
 
 config.prefer_to_spawn_tabs = true
 config.native_macos_fullscreen_mode = true
