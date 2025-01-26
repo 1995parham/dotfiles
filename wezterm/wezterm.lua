@@ -52,8 +52,10 @@ config.keys = {
 wezterm.on("navi", function(window, pane)
     if wezterm.target_triple == "aarch64-apple-darwin" or wezterm.target_triple == "x86_64-apple-darwin" then
         window:perform_action(
-            wezterm.action.SpawnCommandInNewWindow({
-                args = { "bash", "-ilc", "navi --print | pbcopy" },
+            wezterm.action.SplitPane({
+                direction = "Down",
+                size = { Percent = 15 },
+                command = { args = { "bash", "-ilc", "navi --print | pbcopy" } },
             }),
             pane
         )
