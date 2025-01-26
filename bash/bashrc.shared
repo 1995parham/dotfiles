@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# expose hostname using OSI7 which helps terminals to use better
+# tab naming.
+printf "\033]7;file://$HOSTNAME\033\\"
+
 dotfiles_source="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)"
 export DOTFILES_ROOT="$dotfiles_source"
 source "$dotfiles_source/bash/alias.sh"
