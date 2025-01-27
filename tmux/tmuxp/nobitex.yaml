@@ -17,7 +17,8 @@ windows:
     layout: tiled
     start_directory: ~/Documents/Git/parham/nobitex/nobitex/core
     shell_command_before:
-      - pyenv local 3.10
+      - pyenv local 3.8
+      - set -a && source .env && set +a
       - "[ -d '.venv' ] && source .venv/bin/activate && reset"
     panes:
       - pane
