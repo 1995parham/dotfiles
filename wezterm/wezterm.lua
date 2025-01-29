@@ -20,6 +20,7 @@ config.color_scheme = "Railscasts (dark) (terminal.sexy)"
 
 config.prefer_to_spawn_tabs = true
 config.native_macos_fullscreen_mode = true
+config.max_fps = 240
 
 config.keys = {
     {
