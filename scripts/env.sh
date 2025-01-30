@@ -37,6 +37,7 @@ packages=(
     whois
     xh
     rsync
+    pre-commit
 )
 
 main_apt() {
