@@ -38,6 +38,7 @@ packages=(
     xh
     rsync
     pre-commit
+    mtr
 )
 
 main_apt() {
@@ -113,7 +114,6 @@ main_pkg() {
 main_pacman() {
     pacman_packages=(
         perl-image-exiftool
-        mtr
         git-delta
         fd
         jless
@@ -188,7 +188,6 @@ main_brew() {
         bat-extras
         wakatime-cli
         jcal
-        mtr
         yq
         watch
         mike-engel/jwt-cli/jwt-cli
