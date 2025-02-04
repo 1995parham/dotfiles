@@ -29,6 +29,9 @@ main_pacman() {
     require_pacman aardvark-dns
     msg 'to replace Docker'
     require_pacman podman-compose podman-docker
+
+    msg 'I checked if I had overlay configured in /etc/containers/storage.conf and indeed I had.'
+    msg 'I changed that to btrfs as well, deleted my local storage again and rerun a couple of commands.'
 }
 
 main_apt() {
