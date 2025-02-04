@@ -1,6 +1,11 @@
-profile nobitex {
+profile nobitex-1 {
   # Nobitex monitors (setup on 5 Jan 2025)
-  # output "ASUSTek COMPUTER INC PA248QV L8LMQS061591" position 0,0 enable
+  output "ASUSTek COMPUTER INC PA248QV L8LMQS061591" position 0,0 enable
+  output eDP-1 disable
+}
+
+profile nobitex-2 {
+  # Nobitex monitors (setup on 5 Jan 2025)
   output "ASUSTek COMPUTER INC PA248QV L5LMQS027991" position 0,0 enable
   output eDP-1 disable
 }
