@@ -95,6 +95,8 @@ main_pkg() {
         [tmuxp]="-"
         ["dua-cli"]="dua"
         ["speedtest-cli"]="speedtest-go"
+        ["mtr"]="-"
+        ["pre-commit"]="-"
     )
 
     for package in "${packages[@]}"; do
