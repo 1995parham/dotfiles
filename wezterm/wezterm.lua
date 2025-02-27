@@ -71,7 +71,7 @@ local function tab_title(tab_info)
     local title = tab_info.tab_title
     -- if the tab title is explicitly set, take that
     if title and #title > 0 then
-        return title
+        return wezterm.nerdfonts.fa_circle .. "   " .. title
     end
 
     if tab_info.active_pane.title == "ssh" then
@@ -100,7 +100,7 @@ local function tab_title(tab_info)
         end
     end
 
-    return tab_info.active_pane.title
+    return wezterm.nerdfonts.fa_circle .. "   " .. tab_info.active_pane.title
 end
 
 wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
@@ -278,6 +278,48 @@ config.visual_bell = {
     fade_out_function = "EaseOut",
     fade_out_duration_ms = 250,
     target = "CursorColor",
+}
+
+config.automatically_reload_config = true
+config.status_update_interval = 1000
+
+config.scrollback_lines = 20000
+
+config.hyperlink_rules = {
+    -- Matches: a URL in parens: (URL)
+    {
+        regex = "\\((\\w+://\\S+)\\)",
+        format = "$1",
+        highlight = 1,
+    },
+    -- Matches: a URL in brackets: [URL]
+    {
+        regex = "\\[(\\w+://\\S+)\\]",
+        format = "$1",
+        highlight = 1,
+    },
+    -- Matches: a URL in curly braces: {URL}
+    {
+        regex = "\\{(\\w+://\\S+)\\}",
+        format = "$1",
+        highlight = 1,
+    },
+    -- Matches: a URL in angle brackets: <URL>
+    {
+        regex = "<(\\w+://\\S+)>",
+        format = "$1",
+        highlight = 1,
+    },
+    -- Then handle URLs not wrapped in brackets
+    {
+        regex = "\\b\\w+://\\S+[)/a-zA-Z0-9-]+",
+        format = "$0",
+    },
+    -- implicit mailto link
+    {
+        regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
+        format = "mailto:$0",
+    },
 }
 
 return config
