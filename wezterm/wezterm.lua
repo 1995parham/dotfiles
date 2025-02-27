@@ -96,7 +96,7 @@ local function tab_title(tab_info)
         -- Otherwise, use the title from the active pane
         -- in that tab
         if hostname ~= "" then
-            return hostname
+            return wezterm.nerdfonts.md_connection .. "   " .. hostname
         end
     end
 
