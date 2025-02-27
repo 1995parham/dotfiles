@@ -258,4 +258,26 @@ if machine_config then
     machine_config()
 end
 
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
+config.underline_thickness = "1.5pt"
+
+-- cursor
+config.animation_fps = 120
+config.cursor_blink_ease_in = "EaseOut"
+config.cursor_blink_ease_out = "EaseOut"
+config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_rate = 650
+
+config.adjust_window_size_when_changing_font_size = false
+config.window_close_confirmation = "NeverPrompt"
+
+config.visual_bell = {
+    fade_in_function = "EaseIn",
+    fade_in_duration_ms = 250,
+    fade_out_function = "EaseOut",
+    fade_out_duration_ms = 250,
+    target = "CursorColor",
+}
+
 return config
