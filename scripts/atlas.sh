@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
     echo "Atlas is a language-independent tool for managing and migrating database schemas using modern DevOps principles."
 
