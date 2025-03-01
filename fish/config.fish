@@ -56,3 +56,13 @@ if test -d $HOME/micromamba
   $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
   # <<< mamba initialize <<<
 end
+
+# using fish in neovim terminal mode.
+# neovim defines $NVIM in terminal mode and based on it
+# we can detect we are running inside neovim and use nvr
+# instead of neovim, etc.
+if test -n "$NVIM"
+    alias nvim=nvr
+    set -gx EDITOR "nvr -cc split --bufdelete --remote-wait"
+    set -gx MANPAGER "nvr -c 'Man!' -o -"
+end
