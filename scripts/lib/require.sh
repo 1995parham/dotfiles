@@ -117,8 +117,8 @@ function require_brew_cask_head() {
             action "require" " brew install --cask --fetch ${pkg}"
             brew install --cask --fetch "${pkg}"
         else
-            action "require" " brew upgrade --cask --fetch-HEAD ${pkg}"
-            brew upgrade --cask --fetch-HEAD "${pkg}"
+            action "require" " brew upgrade --fetch-HEAD ${pkg}"
+            brew upgrade --fetch-HEAD "${pkg}"
         fi
     done
 }
