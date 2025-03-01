@@ -27,6 +27,7 @@ main() {
         curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
     fi
 
+    msg 'add fish as a shell into /etc/shells'
     grep "fish" /etc/shells || which fish | sudo tee -a /etc/shells
 
     configfile "fish" "config.fish"
