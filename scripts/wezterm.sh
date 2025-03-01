@@ -26,7 +26,7 @@ main_apt() {
 }
 
 main_brew() {
-    require_brew_cask_head wezterm
+    require_brew_cask wezterm@nightly
 }
 
 main() {
