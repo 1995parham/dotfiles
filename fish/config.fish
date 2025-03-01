@@ -16,10 +16,6 @@ alias python="python3"
 
 set -x DOTFILES_ROOT $(realpath "$(dirname (realpath ~/.config/fish/config.fish ))/..")
 
-function ls --description 'List contents of directory'
-    command ls -G $argv
-end
-
 function _navi_smart_replace
   set -l current_process (commandline -p | string trim)
 
