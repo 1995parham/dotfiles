@@ -31,8 +31,5 @@ main() {
     grep "fish" /etc/shells || which fish | sudo tee -a /etc/shells
 
     configfile "fish" "config.fish"
-}
-
-main_elahe() {
-    configfile "fish/conf.d" "smapp.fish"
+    configfile "fish/conf.d" "greeting.fish"
 }
