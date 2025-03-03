@@ -18,7 +18,8 @@ pre_main() {
 }
 
 main_pacman() {
-    return 1
+    msg 'Bazelisk is a wrapper for Bazel written in Go. It automatically picks a good version of Bazel given your current working directory, downloads it from the official server (if required) and then transparently passes through all command-line arguments to the real Bazel binary. You can call it just like you would call Bazel.'
+    require_aur bazelisk
 }
 
 main_xbps() {
