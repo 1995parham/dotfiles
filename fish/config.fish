@@ -48,15 +48,6 @@ if type -q navi
   end
 end
 
-if test -d $HOME/micromamba
-  # >>> mamba initialize >>>
-  # !! Contents within this block are managed by 'mamba init' !!
-  set -gx MAMBA_EXE "/opt/homebrew/bin/micromamba"
-  set -gx MAMBA_ROOT_PREFIX "$HOME/micromamba"
-  $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
-  # <<< mamba initialize <<<
-end
-
 # using fish in neovim terminal mode.
 # neovim defines $NVIM in terminal mode and based on it
 # we can detect we are running inside neovim and use nvr
