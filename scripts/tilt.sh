@@ -33,7 +33,8 @@ main_pkg() {
 }
 
 main_brew() {
-    require_brew tilt
+    msg 'tilt requires a kubernetes cluster which means you need to have a tool to run local kubernetes cluster.'
+    require_brew tilt-dev/tap/tilt
 }
 
 main() {
