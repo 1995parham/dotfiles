@@ -12,6 +12,8 @@ usage() {
   '
 }
 
+export dependencies=("rust")
+
 pre_main() {
     return 0
 }
@@ -37,7 +39,8 @@ main_brew() {
 }
 
 main() {
-    return 0
+    msg 'Install Anchor framework using Anchor Version Manager (AVM)'
+    cargo install --git https://github.com/coral-xyz/anchor avm --force
 }
 
 main_parham() {
