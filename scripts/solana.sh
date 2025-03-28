@@ -19,7 +19,7 @@ pre_main() {
 }
 
 main_pacman() {
-    return 1
+    require_aur solana
 }
 
 main_xbps() {
