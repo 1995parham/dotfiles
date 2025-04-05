@@ -1,5 +1,5 @@
 ---
-before_script: $HOME/Documents/Git/parham/1995parham-goodies/nobitex-core-infra/core.sh
+before_script: "just --justfile $HOME/Documents/Git/parham/1995parham-goodies/nobitex-core-infra/justfile init"
 session_name: Nobitex
 windows:
     - window_name: scratch 📝
