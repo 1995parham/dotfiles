@@ -24,7 +24,7 @@ main_apt() {
 }
 
 main_brew() {
-    require_brew nats-io/nats-tools/nats
+    require_brew nats-io/nats-tools/nats nats-io/nats-tools/nsc
 }
 
 main() {
