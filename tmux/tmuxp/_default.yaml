@@ -32,6 +32,18 @@ windows:
       - pane
       - pane
 
+  - window_name: life 🐼
+    layout: tiled
+    panes:
+      - start_directory: ~/org
+        shell_command:
+          - git pull origin main &> /dev/null
+          - figlet 'Take note' | lolcat -S 57
+      - start_directory: ~/.local/share/dijo
+        shell_command:
+          - git pull origin main &> /dev/null
+          - figlet 'Stick to your habits' | lolcat -S 57
+
   - window_name: learning 🤓
     layout: tiled
     panes:
