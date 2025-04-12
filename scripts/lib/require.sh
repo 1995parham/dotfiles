@@ -3,7 +3,7 @@
 # check being in the specific country
 function require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 1 -s https://ipconfig.io/country || echo 'Unknown')"
+    current_country="$(curl -m 1 -s https://ipconfig.io/country || echo 'Iran')"
     if [[ "${current_country}" != "${country}" ]]; then
         message "country" "󰈻 please be in ${country} instead of ${current_country}" "error"
         return 1
@@ -15,7 +15,7 @@ function require_country() {
 # check not being in the specific country
 function not_require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 1 -s https://ipconfig.io/country || echo 'Unknown')"
+    current_country="$(curl -m 1 -s https://ipconfig.io/country || echo 'Iran')"
     if [[ "${current_country}" == "${country}" ]]; then
         message "country" "󰈻 please be in another country instead of ${country}" "error"
         return 1
