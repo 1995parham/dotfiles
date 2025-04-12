@@ -3,7 +3,7 @@
 # check being in the specific country
 function require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -s https://ipconfig.io/country)"
+    current_country="$(curl -m 1 -s https://ipconfig.io/country || echo 'Unknown')"
     if [[ "${current_country}" != "${country}" ]]; then
         message "country" "󰈻 please be in ${country} instead of ${current_country}" "error"
         return 1
@@ -15,7 +15,7 @@ function require_country() {
 # check not being in the specific country
 function not_require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -s https://ipconfig.io/country)"
+    current_country="$(curl -m 1 -s https://ipconfig.io/country || echo 'Unknown')"
     if [[ "${current_country}" == "${country}" ]]; then
         message "country" "󰈻 please be in another country instead of ${country}" "error"
         return 1
@@ -105,20 +105,6 @@ function require_brew_cask() {
         if ! brew list --cask --versions "${pkg}" &>/dev/null; then
             action "require" " brew install --cask ${pkg}"
             brew install --cask "${pkg}"
-        fi
-    done
-}
-
-# install packages using brew cask fetch-HEAD
-function require_brew_cask_head() {
-    for pkg in "$@"; do
-        running "require" " brew cask head ${pkg}"
-        if ! brew list --cask --versions "${pkg}" &>/dev/null; then
-            action "require" " brew install --cask --fetch ${pkg}"
-            brew install --cask --fetch "${pkg}"
-        else
-            action "require" " brew upgrade --fetch-HEAD ${pkg}"
-            brew upgrade --fetch-HEAD "${pkg}"
         fi
     done
 }
