@@ -60,5 +60,5 @@ main() {
 }
 
 main_parham() {
-    return 0
+    podman login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io
 }
