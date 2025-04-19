@@ -33,7 +33,7 @@ main_pacman() {
 }
 
 main_apt() {
-    sudo apt install neovim python3-pynvim
+    require_apt neovim python3-pynvim
 }
 
 main_brew() {
