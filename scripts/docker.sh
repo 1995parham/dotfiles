@@ -47,7 +47,7 @@ main_brew() {
 }
 
 main_pacman() {
-    require_pacman docker docker-compose dive docker-buildx docker-scan crun
+    require_pacman docker docker-compose dive docker-buildx crun
 
     require_aur hadolint-bin lazydocker
 
