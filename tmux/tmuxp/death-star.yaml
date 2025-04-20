@@ -30,3 +30,13 @@ windows:
           - pane
           - pane
           - pane
+
+    - window_name: servers 🦖
+      layout: tiled
+      panes:
+          - start_directory: ~/Downloads/xandikos/user/contacts/addressbook
+            shell_command:
+                - figlet 'Xandikos Contacts' | lolcat -S 57
+          - pane
+          - pane
+          - pane
