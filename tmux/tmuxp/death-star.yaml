@@ -37,6 +37,8 @@ windows:
           - start_directory: ~/Downloads/xandikos/user/contacts/addressbook
             shell_command:
                 - figlet 'Xandikos Contacts' | lolcat -S 57
-          - pane
+          - start_directory: ~/Books
+            shell_command:
+                - figlet 'Learn from birth to death' | lolcat -S 57
           - pane
           - pane
