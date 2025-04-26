@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 usage() {
-    echo "kind is a tool for running local Kubernetes clusters using Docker container “nodes”"
+    echo "kind is a tool for running local Kubernetes clusters using Docker container nodes"
 
     # shellcheck disable=1004,2016
     echo '
