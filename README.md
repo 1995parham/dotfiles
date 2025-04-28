@@ -116,7 +116,7 @@ Here is the list of available resources to find name names using the schema.
 
     |   Type    |                        Value                        |
     | :-------: | :-------------------------------------------------: |
-    |  System   |              `Mac15,12 (MXCR3LL/A)`                 |
+    |  System   |               `Mac15,12 (MXCR3LL/A)`                |
     | Processor | `Apple M3 8 cores (4 performance and 4 efficiency)` |
     |  Memory   |              `LPDDR5 - Hynix - 16 GB`               |
 
