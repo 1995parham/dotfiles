@@ -3,6 +3,10 @@
 export dependencies=("neovim-core" "node" "go" "rust" "python")
 export additionals=("shell" "java")
 
+lsp_servers() {
+    require_npm @mistweaverco/kulala-ls
+}
+
 usage() {
     echo -n 'hyperextensible Vim-based text editor (plugins, theme, etc.)'
     # shellcheck disable=1004
@@ -59,6 +63,8 @@ main() {
         fi
     fi
     git clone https://github.com/1995parham/elievim ~/.config/nvim
+
+    lsp_servers
 
     nvim --headless "+Lazy! sync" +qa
 }
