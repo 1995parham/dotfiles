@@ -1,9 +1,6 @@
 [general]
 live_config_reload = true
-import = [
-    "themes/themes/doom_one.toml",
-    "host.toml",
-]
+import = ["themes/themes/doom_one.toml"]
 
 [cursor]
 unfocused_hollow = true
@@ -15,6 +12,7 @@ shape = "Beam"
 
 [font]
 builtin_box_drawing = true
+size = 9.5
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
