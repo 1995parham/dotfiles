@@ -240,7 +240,7 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light" })
-config.font_size = 11
+config.font_size = 10
 -- TODO (parham): still in the nightly build
 -- config.show_close_tab_button_in_tabs = false
 config.show_new_tab_button_in_tab_bar = false
