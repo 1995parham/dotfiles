@@ -11,3 +11,22 @@ windows:
           - focus: true
           - pane
           - pane
+
+    - window_name: core
+      layout: tiled
+      start_directory: ~/Documents/Git/parham/aveehealth/aveehealth/iaso
+      panes:
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: infra
+      layout: tiled
+      start_directory: ~/Documents/Git/parham/aveehealth/1995parham-goodies/aveehealth-database
+      panes:
+          - focus: true
+          - pane
+          - pane
+          - pane
