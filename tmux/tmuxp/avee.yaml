@@ -14,7 +14,7 @@ windows:
 
     - window_name: core
       layout: tiled
-      start_directory: ~/Documents/Git/parham/aveehealth/aveehealth/iaso
+      start_directory: ~/Documents/Git/aveehealth/aveehealth/iaso
       panes:
           - pane
           - pane
@@ -24,7 +24,7 @@ windows:
 
     - window_name: infra
       layout: tiled
-      start_directory: ~/Documents/Git/parham/aveehealth/1995parham-goodies/aveehealth-database
+      start_directory: ~/Documents/Git/aveehealth/1995parham-goodies/aveehealth-database
       panes:
           - focus: true
           - pane
