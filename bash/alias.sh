@@ -161,3 +161,11 @@ function gotz() {
     echo "----"
     TZ="US/Pacific" date
 }
+
+function oc() {
+    if [ "$1" = "login" ]; then
+        command oc "$@"
+    else
+        message "be-man" "A man use k instead of oc"
+    fi
+}
