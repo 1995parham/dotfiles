@@ -42,7 +42,7 @@ profile nobitex-7 {
 
 profile nobitex-8 {
   # Nobitex monitors (setup on 5 Jan 2025)
-  output "ASUSTek COMPUTER INC PA248QV L5LMQS027878" position 0,0 enable scale 0.8
+  output "ASUSTek COMPUTER INC PA248QV L5LMQS027878" position 0,0 enable scale 1
   output eDP-1 disable
 }
 
