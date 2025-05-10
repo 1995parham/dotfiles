@@ -29,7 +29,7 @@ windows:
 
     - window_name: infra
       layout: tiled
-      start_directory: ~/Documents/Git/parham/1995parham-goodies/nobitex-core-infra
+      start_directory: ~/Documents/Git/parham/nobitex/1995parham-goodies/nobitex-core-infra
       panes:
           - focus: true
           - pane
