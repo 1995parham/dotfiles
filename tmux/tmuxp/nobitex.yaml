@@ -1,5 +1,5 @@
 ---
-before_script: "just --justfile $HOME/Documents/Git/parham/nobitex/1995parham-goodies/nobitex-core-infra/justfile init"
+before_script: "just --justfile $HOME/Documents/Git/nobitex/1995parham-goodies/nobitex-core-infra/justfile init"
 session_name: Nobitex
 windows:
     - window_name: scratch 📝
@@ -15,7 +15,7 @@ windows:
 
     - window_name: core
       layout: tiled
-      start_directory: ~/Documents/Git/parham/nobitex/nobitex/core
+      start_directory: ~/Documents/Git/nobitex/nobitex/core
       shell_command_before:
           - pyenv local 3.8
           - set -a && source .env && set +a
@@ -29,7 +29,7 @@ windows:
 
     - window_name: infra
       layout: tiled
-      start_directory: ~/Documents/Git/parham/nobitex/1995parham-goodies/nobitex-core-infra
+      start_directory: ~/Documents/Git/nobitex/1995parham-goodies/nobitex-core-infra
       panes:
           - focus: true
           - pane
