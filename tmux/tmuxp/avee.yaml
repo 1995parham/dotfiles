@@ -12,9 +12,12 @@ windows:
           - pane
           - pane
 
-    - window_name: core
+    - window_name: iaso
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/iaso
+      shell_command_before:
+        - pipx run uv sync
+        - "[ -d '.venv' ] && source .venv/bin/activate && reset"
       panes:
           - pane
           - pane
