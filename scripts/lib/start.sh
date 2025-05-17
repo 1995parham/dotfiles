@@ -17,7 +17,7 @@ program_name=$0
 trap '_end' INT
 
 _end() {
-    echo "see you in a better tomorrow [you signal start.sh execuation]"
+    echo "see you in a better tomorrow [you signal start.sh execution]"
     exit
 }
 
