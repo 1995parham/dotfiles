@@ -40,5 +40,7 @@ windows:
           - start_directory: ~/Books
             shell_command:
                 - figlet 'Learn from birth to death' | lolcat -S 57
-          - pane
+          - start_directory: ~/Downloads/prometheus
+            shell_command:
+                - figlet 'Promethues + Grafana' | lolcat -S 57
           - pane
