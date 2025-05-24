@@ -47,3 +47,9 @@ main_pacman() {
     msg 'set default browser using xdg-settings'
     bash xdg-settings set default-web-browser google-chrome-dev.desktop
 }
+
+main_parham() {
+    msg 'Profile 1 (main): parham.alvani@gmail.com'
+    msg 'Profile 2 (perosnal): 1995parham@gmail.com'
+    msg 'Profile 3 (google voice): reesemayfield1@gmail.com'
+}
