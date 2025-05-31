@@ -16,8 +16,8 @@ windows:
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/iaso
       shell_command_before:
-        - pipx run uv sync
-        - "[ -d '.venv' ] && source .venv/bin/activate && reset"
+          - pipx run uv sync --all-groups -U
+          - "[ -d '.venv' ] && source .venv/bin/activate && reset"
       panes:
           - pane
           - pane
