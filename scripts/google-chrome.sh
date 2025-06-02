@@ -41,11 +41,11 @@ main_pacman() {
         msg 'install gopass-jsonapi native host for google chrome beta'
         gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
         msg 'install gopass-jsonapi native host for google chrome dev'
-        gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-dev --manifest-path ~/.config/google-chrome-dev/NativeMessagingHosts/com.justwatch.gopass.json
+        gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-unstable --manifest-path ~/.config/google-chrome-unstable/NativeMessagingHosts/com.justwatch.gopass.json
     fi
 
     msg 'set default browser using xdg-settings'
-    bash xdg-settings set default-web-browser google-chrome-dev.desktop
+    bash xdg-settings set default-web-browser google-chrome-unstable.desktop
 }
 
 main_parham() {
