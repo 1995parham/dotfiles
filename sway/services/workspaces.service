@@ -9,7 +9,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws1; exec alacritty'
 ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws4; exec google-chrome-unstable'
-ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws3; layout tabbed; exec obsidian'
+ExecStart=swaymsg 'workspace --no-auto-back-and-forth $ws3; exec obsidian'
 ExecStart=swaymsg 'workspace --no-auto-back-and-forth $wsf'
 
 [Install]
