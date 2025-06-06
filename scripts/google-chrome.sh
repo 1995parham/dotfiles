@@ -18,34 +18,35 @@ pre_main() {
 }
 
 main_brew() {
+    require_brew_cask google-chrome
     require_brew_cask google-chrome@beta
-    require_brew_cask google-chrome@dev
     require_brew defaultbrowser
 
     if [[ "$(command -v gopass-jsonapi)" ]]; then
+        msg 'install gopass-jsonapi native host for google chrome'
+        gopass-jsonapi configure --browser chrome
+
         msg 'install gopass-jsonapi native host for google chrome beta'
         gopass-jsonapi configure --browser chrome --path "$HOME/Library/Application Support/Google/Chrome Beta" \
             --manifest-path "$HOME/Library/Application Support/Google/Chrome Beta/NativeMessagingHosts/com.justwatch.gopass.json"
-        msg 'install gopass-jsonapi native host for google chrome dev'
-        gopass-jsonapi configure --browser chrome --path "$HOME/Library/Application Support/Google/Chrome Dev" \
-            --manifest-path "$HOME/Library/Application Support/Google/Chrome Dev/NativeMessagingHosts/com.justwatch.gopass.json"
     fi
 
-    defaultbrowser dev
+    defaultbrowser chrome
 }
 
 main_pacman() {
     require_aur google-chrome-beta google-chrome-dev
 
     if [[ "$(command -v gopass-jsonapi)" ]]; then
+        msg 'install gopass-jsonapi native host for google chrome'
+        gopass-jsonapi configure --browser chrome
+
         msg 'install gopass-jsonapi native host for google chrome beta'
         gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-beta --manifest-path ~/.config/google-chrome-beta/NativeMessagingHosts/com.justwatch.gopass.json
-        msg 'install gopass-jsonapi native host for google chrome dev'
-        gopass-jsonapi configure --browser chrome --path ~/.config/google-chrome-unstable --manifest-path ~/.config/google-chrome-unstable/NativeMessagingHosts/com.justwatch.gopass.json
     fi
 
     msg 'set default browser using xdg-settings'
-    bash xdg-settings set default-web-browser google-chrome-unstable.desktop
+    bash xdg-settings set default-web-browser google-chrome.desktop
 }
 
 main_parham() {
