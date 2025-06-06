@@ -51,10 +51,13 @@ main_pacman() {
 }
 
 main_parham() {
-    msg '(beta): working profiles'
     msg '(stable): personal profiles'
+    msg ''
+    msg 'Profile 1 (main): parham.alvani@gmail.com - Parham'
+    msg 'Profile 2 (perosnal): 1995parham@gmail.com - Parham'
+    msg 'Profile 3 (google voice): reesemayfield1@gmail.com - Parham'
 
-    msg 'Profile 1 (main): parham.alvani@gmail.com'
-    msg 'Profile 2 (perosnal): 1995parham@gmail.com'
-    msg 'Profile 3 (google voice): reesemayfield1@gmail.com'
+    msg '(beta): working profiles'
+    msg ''
+    msg 'Profile (company): <company-email> - <first-name> (<company-name>)'
 }

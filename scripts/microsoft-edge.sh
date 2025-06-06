@@ -44,4 +44,6 @@ main() {
 
 main_parham() {
     msg '(beta): working profiles'
+    msg ''
+    msg 'Profile (company): <company-email> - <first-name> (<company-name>)'
 }
