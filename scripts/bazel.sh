@@ -40,7 +40,7 @@ main_brew() {
 }
 
 main() {
-    return 0
+    require_go github.com/bazelbuild/buildtools/buildifier
 }
 
 main_parham() {
