@@ -200,6 +200,18 @@ main_brew() {
     msg
     msg 'Register Right Index Finger for fingerprint sensor' 'notice'
     yes_or_no "macos" 'Did you do it?'
+
+    msg
+    msg 'Run "Maccy" and configure it - Lunch at login, Check for updates automatically' 'notice'
+    yes_or_no "macos" 'Did you do it?'
+
+    msg
+    msg 'Run "KeepingYouAwake" and configure it - Start at login, Activate on Launch' 'notice'
+    yes_or_no "macos" 'Did you do it?'
+
+    msg
+    msg 'Configure macos + L and macos + H as mission control short keys' 'notice'
+    yes_or_no "macos" 'Did you do it?'
 }
 
 main() {
