@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+
 usage() {
-    echo ""
+    echo "Google Chrome is a fast and secure web browser developed by Google, designed to be the modern platform for web applications and seamless Browse across your devices."
 
     # shellcheck disable=1004,2016
     echo '
@@ -50,6 +51,9 @@ main_pacman() {
 }
 
 main_parham() {
+    msg '(beta): working profiles'
+    msg '(stable): personal profiles'
+
     msg 'Profile 1 (main): parham.alvani@gmail.com'
     msg 'Profile 2 (perosnal): 1995parham@gmail.com'
     msg 'Profile 3 (google voice): reesemayfield1@gmail.com'
