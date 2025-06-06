@@ -206,7 +206,7 @@ main_brew() {
     yes_or_no "macos" 'Did you do it?'
 
     msg
-    msg 'Run "KeepingYouAwake" and configure it - Start at login, Activate on Launch' 'notice'
+    msg 'Run "KeepingYouAwake" and configure it - Start at login, Activate on Launch, Allow the display to sleep' 'notice'
     yes_or_no "macos" 'Did you do it?'
 
     msg
