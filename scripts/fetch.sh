@@ -13,25 +13,25 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman neofetch onefetch tokei
+    require_pacman fastfetch onefetch tokei countryfetch
 }
 
 main_apt() {
-    require_apt neofetch
+    require_apt fastfetch
 }
 
 main_xbps() {
-    require_xbps neofetch onefetch tokei
+    require_xbps fastfetch onefetch tokei
 }
 
 main_pkg() {
-    require_pkg neofetch onefetch tokei
+    require_pkg fastfetch onefetch tokei
 }
 
 main_brew() {
-    require_brew neofetch onefetch tokei
+    require_brew fastfetch onefetch tokei
 }
 
-main() {
-    configfile neofetch
-}
+# main() {
+#
+# }
