@@ -194,7 +194,6 @@ main_brew() {
         watch
         mike-engel/jwt-cli/jwt-cli
         taplo
-        actionlint
         xdg-ninja
     )
     for package in "${packages[@]}"; do
