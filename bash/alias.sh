@@ -148,6 +148,8 @@ function snappcloud-proxy-off() {
 
 function ip-status() {
     curl -s "https://api.ipquery.io/?format=json" | jq
+
+    countryfetch || true
 }
 
 function gotz() {
