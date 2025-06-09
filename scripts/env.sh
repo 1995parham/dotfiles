@@ -47,6 +47,7 @@ main_apt() {
     declare -A apt_packages_replace=(
         ["dua-cli"]="-"
         ["xh"]="-"
+        ["actionlint"]="-"
     )
 
     sudo apt update -yq
@@ -73,6 +74,7 @@ main_xbps() {
     declare -A xbps_packages_replace=(
         [lolcat]=lolcat-c
         [tmuxp]=python3-tmuxp
+        ["actionlint"]="-"
     )
 
     for package in "${packages[@]}"; do
@@ -98,6 +100,7 @@ main_pkg() {
         ["speedtest-cli"]="speedtest-go"
         ["mtr"]="-"
         ["pre-commit"]="-"
+        ["actionlint"]="-"
     )
 
     for package in "${packages[@]}"; do
