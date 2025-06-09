@@ -8,7 +8,7 @@ windows:
             focus: true
             shell_command:
                 - git pull origin main &> /dev/null
-                - neofetch
+                - fastfetch
           - start_directory: ~/.config/nvim/
             shell_command:
                 - git pull origin main &> /dev/null
