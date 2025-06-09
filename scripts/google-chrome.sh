@@ -36,7 +36,7 @@ main_brew() {
 }
 
 main_pacman() {
-    require_aur google-chrome-beta google-chrome-dev
+    require_aur google-chrome-beta google-chrome
 
     if [[ "$(command -v gopass-jsonapi)" ]]; then
         msg 'install gopass-jsonapi native host for google chrome'
