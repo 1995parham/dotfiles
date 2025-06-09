@@ -31,6 +31,7 @@ packages=(
     lolcat
     dua-cli
     wget
+    actionlint
     chafa
     ripgrep
     speedtest-cli
@@ -153,7 +154,6 @@ main_pacman() {
 
     yay_packages=(
         jcal
-        actionlint-bin
         cbonsai
     )
     for package in "${packages[@]}"; do
