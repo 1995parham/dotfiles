@@ -146,10 +146,17 @@ function snappcloud-proxy-off() {
     proxy_stop
 }
 
+# report status of the current system public ip address
 function ip-status() {
     curl -s "https://api.ipquery.io/?format=json" | jq
+}
 
-    countryfetch || true
+# report current country status
+function country-status() {
+    if type countryfetch >/dev/null 2>&1; then
+        rm ~/.cache/countryfetch.json || true
+        countryfetch
+    fi
 }
 
 function gotz() {
