@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
     echo "kind is a tool for running local Kubernetes clusters using Docker container nodes"
 
@@ -33,11 +34,11 @@ main_pkg() {
 }
 
 main_brew() {
-    return 1
+    require_brew kind
 }
 
 main() {
-    return 0
+    require_go sigs.k8s.io/cloud-provider-kind
 }
 
 main_parham() {
