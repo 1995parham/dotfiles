@@ -151,6 +151,7 @@ main_pacman() {
         powertop
         taplo-cli
         bind
+        iptables-nft
     )
     declare -A pacman_packages_replace=(
     )
