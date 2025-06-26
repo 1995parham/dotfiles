@@ -35,6 +35,11 @@ main_pkg() {
 
 main_brew() {
     require_brew_cask nikitabobko/tap/aerospace
+
+    # hide macos dock
+    defaults write com.apple.dock autohide -bool true && killall Dock
+    defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
+    defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 }
 
 main() {
