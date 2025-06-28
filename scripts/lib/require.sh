@@ -3,7 +3,7 @@
 # check being in the specific country
 function require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s https://ipconfig.io/country || echo -n 'Iran')"
+    current_country="$(curl -m 10 -s https://api.ipquery.io/?format=json | jq '.location.country' || echo -n 'Iran')"
     if [[ "${current_country}" != "${country}" ]]; then
         message "country" "󰈻 please be in ${country} instead of ${current_country}" "error"
         return 1
@@ -15,7 +15,7 @@ function require_country() {
 # check not being in the specific country
 function not_require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s https://ipconfig.io/country || echo -n 'Iran')"
+    current_country="$(curl -m 10 -s https://api.ipquery.io/?format=json | jq '.location.country' || echo -n 'Iran')"
     if [[ "${current_country}" == "${country}" ]]; then
         message "country" "󰈻 please be in another country instead of ${country}" "error"
         return 1
@@ -167,7 +167,7 @@ function require_xbps() {
 function require_aur() {
     for pkg in "$@"; do
         running "require" " arch users repository ${pkg}"
-        if (! pacman -Qi "${pkg}" &>/dev/null); then
+        if (! pacman -Q "${pkg}" &>/dev/null); then
             action "require" " yay -Sy ${pkg}"
             yay -Sy --sudoloop --noconfirm "${pkg}"
         elif [[ "${pkg}" =~ .*-git ]]; then
