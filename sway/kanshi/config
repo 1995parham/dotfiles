@@ -46,6 +46,11 @@ profile nobitex-8 {
   output eDP-1 disable
 }
 
+profile nobitex-9 {
+  output "ASUSTek COMPUTER INC PA248CRV R6LMSB001680" position 0,0 enable scale 1
+  output eDP-1 disable
+}
+
 profile aut-teaching-201 {
   # AUT 201 class projector (setup on 20 Feb 2023)
   output "Panasonic Industry Company PT-LB385 Unknown" enable
