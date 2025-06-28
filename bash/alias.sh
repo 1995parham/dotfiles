@@ -148,7 +148,8 @@ function snappcloud-proxy-off() {
 
 # report status of the current system public ip address
 function ip-status() {
-    curl -s "https://api.ipquery.io/?format=json" | jq
+    # curl -s "https://api.ipquery.io/?format=json" | jq
+    curl -s "https://api.ipapi.is" | jq
 }
 
 # report current country status
