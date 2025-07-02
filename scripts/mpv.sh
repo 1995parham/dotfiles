@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo "usage: mpv"
+    echo "mpv is a versatile, command-line-based media player, known for its high-quality video output, hardware acceleration support, and customization options."
     echo '
  _ __ ___  _ ____   __
 | |_ ` _ \| |_ \ \ / /
@@ -12,7 +12,7 @@ usage() {
 }
 
 main_brew() {
-    require_brew_cask stolendata-mpv
+    require_brew_cask iina
 }
 
 main_pacman() {
