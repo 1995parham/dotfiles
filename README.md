@@ -101,7 +101,7 @@ Here is the list of available resources to find name names using the schema.
 
 - [`millennium-falcon`](https://en.wikipedia.org/wiki/Millennium_Falcon): After years I bought another MacBook
   to taste the Apple world again. Please note that the disk is encrypted and named `Falcon HD`.
-  The last `macOS Ventura` installation happened on 14 Dec 2024. ✅
+  The last `macOS Ventura` installation happened on 15 Jun 2025. ✅
 
     |   Type    |                           Value                           |
     | :-------: | :-------------------------------------------------------: |
@@ -111,8 +111,8 @@ Here is the list of available resources to find name names using the schema.
 
     ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(16--inch,_2024)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2) given by Snapp, and it should
-  return to them when I decide to leave. The last `macOS Ventura` installation happened on 24 Jun 2024. ✅
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2), and it should
+  return to them when I decide to leave. The last `macOS Ventura` installation happened on 15 Jun 2025. ✅
 
     |   Type    |                        Value                        |
     | :-------: | :-------------------------------------------------: |
@@ -122,7 +122,7 @@ Here is the list of available resources to find name names using the schema.
 
     ![](<https://img.shields.io/badge/Apple-MacBook_Air_(13--inch,_M2,_2022)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`ghost`](https://starwars.fandom.com/wiki/Ghost) is my phone which is Nothing phone 1.
+- [`ghost`](https://starwars.fandom.com/wiki/Ghost) is my phone which is Samsung Galaxy S24 Ultra.
 
 The username is always set to [`parham`](https://en.wikipedia.org/wiki/Parham).
 
