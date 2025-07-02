@@ -111,8 +111,7 @@ Here is the list of available resources to find name names using the schema.
 
     ![](<https://img.shields.io/badge/Apple-MacBook_Pro_(16--inch,_2024)-333333?style=for-the-badge&logo=apple&logoColor=white>)
 
-- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2), and it should
-  return to them when I decide to leave. The last `macOS Ventura` installation happened on 15 Jun 2025. ✅
+- [`tantive-iv`](https://en.wikipedia.org/wiki/Tantive_IV): MacBook Air (14,2). The last `macOS Ventura` installation happened on 15 Jun 2025. ✅
 
     |   Type    |                        Value                        |
     | :-------: | :-------------------------------------------------: |
