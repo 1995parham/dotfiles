@@ -20,7 +20,7 @@ main_pacman() {
     msg 'install and configure sway and swaylock'
     if yes_or_no 'sway' 'do you want to use stable release?'; then
         not_require_pacman sway-git swaylock-git wlroots-git swayidle-git swaybg-git sway-git-debug wlroots-git-debug
-        require_pacman sway wlroots swaylock swayidle swaybg
+        require_pacman sway swaylock swayidle swaybg
     else
         not_require_pacman sway swaylock wlroots swayidle swaybg
         require_aur sway-git wlroots-git swaylock-git swayidle-git swaybg-git
