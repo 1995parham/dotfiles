@@ -39,7 +39,17 @@ config.keys = {
         action = wezterm.action.ActivateTabRelative(-1),
     },
     {
+        key = "h",
+        mods = "CTRL | SHIFT",
+        action = wezterm.action.ActivateTabRelative(-1),
+    },
+    {
         key = "RightArrow",
+        mods = "CTRL | SHIFT",
+        action = wezterm.action.ActivateTabRelative(1),
+    },
+    {
+        key = "l",
         mods = "CTRL | SHIFT",
         action = wezterm.action.ActivateTabRelative(1),
     },
