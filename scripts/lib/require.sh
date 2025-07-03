@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
+# ip_country_url="https://api.ipquery.io/?format=json"
+
+ip_country_url="https://api.ipapi.is"
+
 # check being in the specific country
 function require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s https://api.ipquery.io/?format=json | jq '.location.country' || echo -n 'Iran')"
+    current_country="$(curl -m 10 -s "$ip_country_url" | jq '.location.country' || echo -n 'Iran')"
     if [[ "${current_country}" != "${country}" ]]; then
         message "country" "󰈻 please be in ${country} instead of ${current_country}" "error"
         return 1
@@ -15,7 +19,7 @@ function require_country() {
 # check not being in the specific country
 function not_require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s https://api.ipquery.io/?format=json | jq '.location.country' || echo -n 'Iran')"
+    current_country="$(curl -m 10 -s "$ip_country_url" | jq '.location.country' || echo -n 'Iran')"
     if [[ "${current_country}" == "${country}" ]]; then
         message "country" "󰈻 please be in another country instead of ${country}" "error"
         return 1
