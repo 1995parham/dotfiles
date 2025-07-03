@@ -23,7 +23,7 @@ main_brew() {
 }
 
 main_apt() {
-    sudo snap install obsidian --classic
+    require_snap obsidian --classic
 }
 
 main() {
