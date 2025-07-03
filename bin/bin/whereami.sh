@@ -8,7 +8,7 @@ set -o pipefail
 # Sometimes the lost part of ourselves is faith, hope, a dream.
 # It is so easy to lose a piece of ourselves and it can happen in a thousand different ways.
 
-ip="$(curl -sL "https://api.ipquery.io/?format=json" --max-time 10 | jq -j '"\(.ip) - \(.location.country) (\(.isp.org))"' 2>/dev/null)"
+ip="$(curl -sL "https://api.ipapi.is" --max-time 10 | jq -j '"\(.ip) - \(.location.country) (\(.company.name))"' 2>/dev/null)"
 if [ -n "$ip" ]; then
     echo "$ip" | tee /tmp/whereami.sh
 else
