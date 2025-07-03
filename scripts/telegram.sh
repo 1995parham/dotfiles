@@ -18,6 +18,10 @@ main_pacman() {
     require_pacman telegram-desktop
 }
 
+main_apt() {
+    sudo snap install telegram-desktop
+}
+
 main_brew() {
-    brew install --cask telegram-desktop
+    require_brew_cask telegram-desktop
 }
