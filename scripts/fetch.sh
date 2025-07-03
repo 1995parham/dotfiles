@@ -35,6 +35,6 @@ main_brew() {
     require_brew fastfetch onefetch tokei
 }
 
-# main() {
-#
-# }
+main() {
+    configfile fastfetch
+}
