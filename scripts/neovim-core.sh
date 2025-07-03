@@ -33,7 +33,8 @@ main_pacman() {
 }
 
 main_apt() {
-    require_apt neovim python3-pynvim
+    sudo snap install nvim --edge --classic
+    require_apt python3-pynvim
 }
 
 main_brew() {
