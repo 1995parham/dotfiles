@@ -19,7 +19,7 @@ main_pacman() {
 }
 
 main_apt() {
-    sudo snap install telegram-desktop
+    require_snap telegram-desktop
 }
 
 main_brew() {
