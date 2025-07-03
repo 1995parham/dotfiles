@@ -22,6 +22,10 @@ main_brew() {
     require_brew_cask obsidian
 }
 
+main_apt() {
+    sudo snap install obsidian --classic
+}
+
 main() {
     return 0
 }
