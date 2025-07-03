@@ -113,6 +113,12 @@ function require_brew_cask() {
     done
 }
 
+# install packages using snap
+function require_snap() {
+    action "require" " snap install $* (snap ignore installed package itself)"
+    sudo snap install "$@"
+}
+
 # install packages using apt
 function require_apt() {
     declare -a to_install_pkg
