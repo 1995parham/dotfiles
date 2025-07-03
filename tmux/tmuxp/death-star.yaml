@@ -7,6 +7,7 @@ windows:
           - start_directory: ~/dotfiles
             focus: true
             shell_command:
+                - tmux resize-pane -Z
                 - git pull origin main &> /dev/null
                 - fastfetch
           - start_directory: ~/.config/nvim/
