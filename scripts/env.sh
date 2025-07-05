@@ -118,7 +118,7 @@ main_pkg() {
 }
 
 main_pacman() {
-    export allow_aur_bypass=true
+    export allow_no_aur=true
 
     pacman_packages=(
         perl-image-exiftool
