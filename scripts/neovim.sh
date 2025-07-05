@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export dependencies=("neovim-core" "node" "go" "rust" "python")
+export dependencies=("neovim-core" "node" "go" "python")
 export additionals=("shell" "java")
 
 lsp_servers() {
