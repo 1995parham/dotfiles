@@ -61,7 +61,7 @@ main_pacman() {
     if [ "$kind" != none ]; then
         msg 'validate your access to the shecan infrastructure'
 
-        if [ "$(curl -s check.shecan.ir)" = '0' ]; then
+        if [ "$(curl -s check.shecan.ir)" = '2' ]; then
             msg "shecan is ready"
         else
             msg 'shecan is not working' 'error'
