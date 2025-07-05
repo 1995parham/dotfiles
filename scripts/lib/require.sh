@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# ip_country_url="https://api.ipquery.io/?format=json"
-
-ip_country_url="https://api.ipapi.is"
+ip_country_url="https://api.ipquery.io/?format=json"
+# ip_country_url="https://api.ipapi.is"
 
 # check being in the specific country
 function require_country() {
@@ -175,6 +174,16 @@ function require_xbps() {
 
 # install packages from AUR using yay
 function require_aur() {
+    if [[ -z "$(command -v yay)" ]]; then
+        message "require" "yay command does not exist, so there is no support for aur, use 'allow_no_aur' to bypass aur" "error"
+
+        if [[ "$allow_no_aur" ]]; then
+            return 0
+        else
+            return 1
+        fi
+    fi
+
     for pkg in "$@"; do
         running "require" " arch users repository ${pkg}"
         if (! pacman -Q "${pkg}" &>/dev/null); then
