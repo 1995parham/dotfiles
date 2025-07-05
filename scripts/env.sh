@@ -118,6 +118,8 @@ main_pkg() {
 }
 
 main_pacman() {
+    export allow_aur_bypass=true
+
     pacman_packages=(
         perl-image-exiftool
         git-delta
@@ -151,7 +153,6 @@ main_pacman() {
         powertop
         taplo-cli
         bind
-        iptables-nft
     )
     declare -A pacman_packages_replace=(
     )
@@ -175,6 +176,10 @@ main_pacman() {
 
     msg "install ${yay_packages[*]} with yay"
     require_aur "${yay_packages[@]}"
+
+    msg 'fix issue with the iptables package'
+    not_require_pacman iptables
+    require_pacman iptables-nft
 }
 
 main_brew() {
