@@ -11,7 +11,7 @@ set -o pipefail
 ip_country_url="https://api.ipquery.io/?format=json"
 # ip_country_url="https://api.ipapi.is"
 
-ip="$(curl -sL "$ip_country_url" --max-time 10 | jq -j '"\(.ip) - \(.location.country) (\(.asn.org))"' 2>/dev/null)"
+ip="$(curl -sL "$ip_country_url" --max-time 10 | jq -j '"\(.ip) - \(.location.country) (\(.isp.org))"' 2>/dev/null)"
 if [ -n "$ip" ]; then
     echo "$ip" | tee /tmp/whereami.sh
 else
