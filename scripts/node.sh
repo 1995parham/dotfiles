@@ -25,7 +25,6 @@ main_apt() {
     msg "installing node from node source apt repository (https://github.com/nodesource/distributions)"
     curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&
         sudo apt-get install -y nodejs
-
 }
 
 main_pkg() {
@@ -40,5 +39,9 @@ main_pacman() {
 main() {
     msg "$(node -v)"
 
-    dotfile "npm" "npmrc"
+    if require_country Iran; then
+        if yes_or_no "Do you want to use Iranian local npm mirror (runflare.com)"; then
+            npm config set registry https://mirror-npm.runflare.com
+        fi
+    fi
 }
