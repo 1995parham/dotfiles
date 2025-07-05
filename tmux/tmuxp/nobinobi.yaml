@@ -41,3 +41,5 @@ windows:
           - start_directory: ~/Documents/Git/parham/keys/vpn/nobitex
             shell_command:
                 - sudo openvpn profile-userlocked-parhamalvani.ovpn
+          - start_directory: ~/Downloads
+          - start_directory: ~/Downloads
