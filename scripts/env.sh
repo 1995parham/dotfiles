@@ -178,7 +178,10 @@ main_pacman() {
     require_aur "${yay_packages[@]}"
 
     msg 'fix issue with the iptables package'
-    sudo pacman --noconfirm --ask=4 -Syu iptables-nft
+
+    if ! pacman -Qi iptables-nft &>/dev/null; then
+        sudo pacman --noconfirm --ask=4 -Syu iptables-nft
+    fi
 }
 
 main_brew() {
