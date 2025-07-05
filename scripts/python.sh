@@ -57,6 +57,14 @@ python-install-packages() {
 }
 
 main() {
+    if require_country "Iran"; then
+        if yes_or_no "Do you want to use Iranian local python mirror (runflare.com)"; then
+            pip config --user set global.index https://mirror-pypi.runflare.com/simple
+            pip config --user set global.index-url https://mirror-pypi.runflare.com/simple
+            pip config --user set global.trusted-host mirror-pypi.runflare.com
+        fi
+    fi
+
     python-install-packages
 
     msg 'pyenv already configured in zsh (zshrc.shared)'
