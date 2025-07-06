@@ -15,7 +15,7 @@ usage() {
 
 main_brew() {
     msg "install node using brew"
-    require_brew node
+    require_brew node pnpm
 
     mkdir -p ~/.config/husky
     echo "PATH=\"${PATH}\"" >~/.config/husky/init.sh
@@ -33,7 +33,7 @@ main_pkg() {
 
 main_pacman() {
     msg "install node using pacman"
-    require_pacman nodejs npm
+    require_pacman nodejs npm pnpm
 }
 
 main() {
