@@ -54,9 +54,19 @@ config.keys = {
         action = wezterm.action.ActivateTabRelative(1),
     },
     {
+        key = "i",
+        mods = "CMD | ALT",
+        action = wezterm.action.ShowDebugOverlay,
+    },
+    {
         key = "n",
         mods = "CMD",
         action = wezterm.action.EmitEvent("navi"),
+    },
+    {
+        key = "s",
+        mods = "CMD",
+        action = wezterm.action.EmitEvent("toggle_term"),
     },
 }
 
@@ -73,41 +83,42 @@ wezterm.on("navi", function(window, pane)
     end
 end)
 
--- This function returns the suggested title for a tab.
--- It prefers the title that was set via `tab:set_title()`
--- or `wezterm cli set-tab-title`, but falls back to the
--- title of the active pane in that tab.
+wezterm.on("toggle_term", function(window, pane)
+    local terminal_pane = nil
+
+    if TOGGLE_PANE_ID then
+        local status, p = pcall(function()
+            return wezterm.mux.get_pane(TOGGLE_PANE_ID)
+        end)
+        if status then
+            terminal_pane = p
+        else
+            terminal_pane = nil
+            TOGGLE_PANE_ID = nil
+        end
+    end
+
+    wezterm.log_info(terminal_pane)
+
+    if terminal_pane and window:active_pane():pane_id() == terminal_pane:pane_id() then
+        window:perform_action(wezterm.action.CloseCurrentPane({ confirm = true }), pane)
+        TOGGLE_PANE_ID = nil
+    else
+        if terminal_pane then
+            terminal_pane:activate()
+        else
+            local new_pane = pane:split({ direction = "Bottom", size = 0.3 })
+            TOGGLE_PANE_ID = new_pane:pane_id()
+        end
+    end
+end)
+
 local function tab_title(tab_info)
     local title = tab_info.tab_title
+
     -- if the tab title is explicitly set, take that
     if title and #title > 0 then
         return wezterm.nerdfonts.fa_circle .. "   " .. title
-    end
-
-    if tab_info.active_pane.title == "ssh" then
-        local hostname = ""
-        local cwd_uri = tab_info.active_pane.current_working_dir
-        if cwd_uri then
-            if type(cwd_uri) == "userdata" then
-                hostname = cwd_uri.host
-            end
-
-            -- Remove the domain name portion of the hostname
-            local dot = hostname:find("[.]")
-            if dot then
-                hostname = hostname:sub(1, dot - 1)
-            end
-
-            if hostname == wezterm.hostname() then
-                hostname = ""
-            end
-        end
-
-        -- Otherwise, use the title from the active pane
-        -- in that tab
-        if hostname ~= "" then
-            return wezterm.nerdfonts.md_connection .. "   " .. hostname
-        end
     end
 
     return wezterm.nerdfonts.fa_circle .. "   " .. tab_info.active_pane.title
@@ -193,25 +204,6 @@ wezterm.on("update-right-status", function(window, pane)
             cells,
             string.format("%s %.0f%% ", battery_icons(b.state, b.state_of_charge * 100), b.state_of_charge * 100)
         )
-    end
-
-    local cwd_uri = pane:get_current_working_dir()
-    if cwd_uri then
-        local hostname = ""
-
-        if type(cwd_uri) == "userdata" then
-            hostname = cwd_uri.host
-        end
-
-        -- Remove the domain name portion of the hostname
-        local dot = hostname:find("[.]")
-        if dot then
-            hostname = hostname:sub(1, dot - 1)
-        end
-
-        if hostname ~= "" and hostname ~= wezterm.hostname() then
-            table.insert(cells, hostname)
-        end
     end
 
     -- Color palette for the backgrounds of each cell
