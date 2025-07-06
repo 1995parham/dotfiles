@@ -11,13 +11,20 @@ set -o pipefail
 ip_country_url="https://api.ipquery.io/?format=json"
 # ip_country_url="https://api.ipapi.is"
 
+fallback_ip_country_url="http://ifconfig.io/all.json"
+
 ip="$(curl -sL "$ip_country_url" --max-time 10 | jq -j '"\(.ip) - \(.location.country) (\(.isp.org))"' 2>/dev/null)"
 if [ -n "$ip" ]; then
     echo "$ip" | tee /tmp/whereami.sh
 else
-    if [ -f /tmp/whereami.sh ]; then
-        cat /tmp/whereami.sh
+    ip="$(curl -sL "$fallback_ip_country_url" --max-time 10 | jq -j '"Fallback: \(.ip) - \(.country_code)"' 2>/dev/null)"
+    if [ -n "$ip" ]; then
+        echo "$ip" | tee /tmp/whereami.sh
     else
-        echo "💩"
+        if [ -f /tmp/whereami.sh ]; then
+            cat /tmp/whereami.sh
+        else
+            echo "💩"
+        fi
     fi
 fi
