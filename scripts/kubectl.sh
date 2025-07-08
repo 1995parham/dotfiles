@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo "k8s and openshift command line tools (kubectl, oc, stern, kubeval, etc.)"
+    echo "k8s and openshift command line tools (kubectl, oc, stern, etc.)"
     # shellcheck disable=2028
     echo '
  _          _               _   _
@@ -18,6 +18,8 @@ main_brew() {
 }
 
 main_pacman() {
+    export allow_no_aur=true
+
     require_pacman kubectl helm argocd kubectx stern k9s fluxcd krew
     require_aur okd-client-bin
 }
