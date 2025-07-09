@@ -172,7 +172,7 @@ function gotz() {
     TZ="US/Pacific" date
 }
 
-function setup_python_project() {
+function setup-python-project() {
     # Define colors
     local GREEN='\033[0;32m'
     local YELLOW='\033[0;33m'
@@ -191,7 +191,7 @@ function setup_python_project() {
         return 1
     fi
 
-    if [ -f '.python-version' ]; then
+    if [ ! -f '.python-version' ]; then
         echo -e "${RED}Error: .python-version does not exist.${NC}"
         return 1
     fi
@@ -223,6 +223,6 @@ function setup_python_project() {
     echo -e "${BLUE}You are now inside the virtual environment.${NC}"
     echo -e "${BLUE}To deactivate, run: deactivate${NC}"
     echo -e "${BLUE}To reactivate later: source .venv/bin/activate${NC}"
-    echo -e "${GREEN}Python project '$(basename)' setup complete!${NC}"
+    echo -e "${GREEN}Python project '$(pwd)' setup complete!${NC}"
     echo -e "${BLUE}========================================${NC}"
 }
