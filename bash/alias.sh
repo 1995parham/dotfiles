@@ -171,3 +171,58 @@ function gotz() {
     echo "----"
     TZ="US/Pacific" date
 }
+
+function setup_python_project() {
+    # Define colors
+    local GREEN='\033[0;32m'
+    local YELLOW='\033[0;33m'
+    local BLUE='\033[0;34m'
+    local RED='\033[0;31m'
+    local NC='\033[0m' # No Color
+
+    echo -e "${BLUE}========================================${NC}"
+    echo -e "${BLUE} Python Project Setup with pyenv and venv${NC}"
+    echo -e "${BLUE}========================================${NC}"
+
+    # Check for pyenv installation
+    if ! command -v pyenv &>/dev/null; then
+        echo -e "${RED}Error: pyenv is not installed. Please install pyenv first.${NC}"
+        echo -e "${YELLOW}Refer to https://github.com/pyenv/pyenv#installation for instructions.${NC}"
+        return 1
+    fi
+
+    if [ -f '.python-version' ]; then
+        echo -e "${RED}Error: .python-version does not exist.${NC}"
+        return 1
+    fi
+
+    pyenv install -s
+
+    echo -e "${GREEN}Local Python version set to $(pyenv version | cut -d ' ' -f 1).${NC}"
+
+    echo -e "${BLUE}Creating virtual environment...${NC}"
+    if [ ! -d '.venv' ]; then
+        if ! pyenv exec python -mvenv .venv; then
+            echo -e "${RED}Error: Failed to create virtual environment. Aborting.${NC}"
+            return 1
+        else
+            echo -e "${GREEN}Virtual environment '.venv' created.${NC}"
+        fi
+    fi
+
+    echo -e "${BLUE}Activating virtual environment...${NC}"
+    # shellcheck disable=1091
+    if ! source .venv/bin/activate; then
+        echo -e "${RED}Error: Failed to activate virtual environment. Please activate it manually: source .venv/bin/activate${NC}"
+        echo -e "${YELLOW}Project setup complete, but virtual environment activation failed.${NC}"
+        echo -e "${GREEN}To activate: source .venv/bin/activate${NC}"
+        return 0 # Still consider it partially successful
+    fi
+    echo -e "${GREEN}Virtual environment activated.${NC}"
+
+    echo -e "${BLUE}You are now inside the virtual environment.${NC}"
+    echo -e "${BLUE}To deactivate, run: deactivate${NC}"
+    echo -e "${BLUE}To reactivate later: source .venv/bin/activate${NC}"
+    echo -e "${GREEN}Python project '$(basename)' setup complete!${NC}"
+    echo -e "${BLUE}========================================${NC}"
+}
