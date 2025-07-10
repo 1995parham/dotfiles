@@ -15,7 +15,7 @@ source "$tmuxs_root/../../scripts/lib/main.sh"
 
 project=$(
     # -H is not enough for having .git in your search, you need to have -I too.
-    fd -tdirectory -IH ^\.git$ ~/Documents/Git -x dirname |
+    fd -tdirectory -tfile -IH ^\.git$ ~/Documents/Git -x dirname |
         fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
             --preview="onefetch {}; tokei {}"
 )
