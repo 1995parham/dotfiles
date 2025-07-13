@@ -29,6 +29,7 @@ pre_main() {
         "galactica:Galactica"
         "sandcrawler:Sandcrawler"
         "tantive-iv:Tantive IV"
+        "cab-46613390:Snapp system name"
     )
 
     select _hostname in "${hostnames[@]}"; do
