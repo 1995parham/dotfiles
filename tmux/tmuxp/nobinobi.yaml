@@ -32,6 +32,15 @@ windows:
           - pane
           - pane
 
+    - window_name: scratch 📝
+      layout: tiled
+      start_directory: ~/Downloads
+      panes:
+          - pane
+          - pane
+          - pane
+          - pane
+
     - window_name: nobi 🔥
       layout: tiled
       panes:
