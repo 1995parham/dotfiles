@@ -242,7 +242,7 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 -- config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light" })
-config.font_size = 12
+config.font_size = 11.5
 config.show_new_tab_button_in_tab_bar = false
 
 -- machine specific configuration based on the hostname
