@@ -38,10 +38,4 @@ main_pacman() {
 
 main() {
     msg "$(node -v)"
-
-    if require_country Iran &>/dev/null; then
-        if yes_or_no "Do you want to use Iranian local npm mirror (runflare.com)"; then
-            npm config set registry https://mirror-npm.runflare.com
-        fi
-    fi
 }
