@@ -14,13 +14,13 @@ usage() {
 }
 
 main_brew() {
-    require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd/tap/flux k9s
+    require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd/tap/flux k9s kubeseal
 }
 
 main_pacman() {
     export allow_no_aur=true
 
-    require_pacman kubectl helm argocd kubectx stern k9s fluxcd krew
+    require_pacman kubectl helm argocd kubectx stern k9s fluxcd krew kubeseal
     require_aur okd-client-bin
 }
 
