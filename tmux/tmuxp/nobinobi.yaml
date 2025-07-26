@@ -44,7 +44,7 @@ windows:
     - window_name: nobi 🔥
       layout: tiled
       panes:
-          - start_directory: ~/Documents/Git/nobitex/nobitex/production-v2
+          - start_directory: ~/Documents/Git/nobitex/gerrit/production
             shell_command:
                 - git pull origin main &> /dev/null
           - start_directory: ~/Documents/Git/parham/keys/vpn/nobitex
