@@ -44,6 +44,9 @@ main_brew() {
     msg 'please remember to enable docker vmm instead of apple virtualization'
     msg 'dive is working on macOS since docker version 26'
     require_brew lazydocker hadolint docker-completion dive
+
+    msg "Launching Docker Desktop. You may need to grant permissions."
+    open /Applications/Docker.app
 }
 
 main_pacman() {
@@ -77,6 +80,11 @@ LimitNOFILE=1048576
 }
 
 main() {
+    until docker info &>/dev/null; do
+        msg "Docker daemon not yet running, waiting..." "error"
+        sleep 5
+    done
+
     msg "$(docker version)"
 
     docker login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io
