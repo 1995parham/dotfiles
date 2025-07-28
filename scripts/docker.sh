@@ -79,6 +79,8 @@ LimitNOFILE=1048576
 main() {
     msg "$(docker version)"
 
+    docker login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io
+
     if [[ -n $(command -v handolint) ]]; then
         msg "$(hadolint --version)"
     fi
