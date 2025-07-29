@@ -23,4 +23,5 @@ main_brew() {
 
 main() {
     require_mason 'ansible-language-server'
+    require_pip 'ansible-vault'
 }
