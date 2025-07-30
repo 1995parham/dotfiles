@@ -253,6 +253,8 @@ function require_npm() {
 
 # check and add the given hostname, address pair into /etc/hosts.
 function require_hosts_record() {
+    local address
+    local name
     address=${1:?"address is required"}
     name=${2:?"name is required"}
 
@@ -263,11 +265,14 @@ function require_hosts_record() {
     fi
 
     # find existing instances in the host file and save the line numbers
+    local host_entry
     host_entry=$(printf "%s\t%s" "${address}" "${name}")
 
     message 'hosts' "the host entry is $host_entry"
 
-    if matches_in_hosts="$(grep -n -e '\s'"$name" /etc/hosts | cut -f1 -d:)"; then
+    local matches_in_hosts
+
+    if ! matches_in_hosts="$(grep -n -e '\s'"$name" /etc/hosts | cut -f1 -d:)"; then
         message "hosts" "adding new hosts entry"
         echo "$host_entry" | sudo tee -a /etc/hosts >/dev/null
     else
@@ -287,6 +292,10 @@ function require_hosts_record() {
 }
 
 function clone() {
+    local repo
+    local path
+    local dir
+
     repo=${1:?"clone requires repository"}
     path=${2:-"."}
     dir=${3:-""}
