@@ -1,0 +1,13 @@
+---
+session_name: Udacity part of Accenture
+windows:
+    - window_name: scratch 📝
+      layout: tiled
+      start_directory: ~/Downloads
+      focus: true
+      panes:
+          - shell_command:
+                - chafa $DOTFILES_ROOT/companies/udacity.png --size 80 --clear -f symbols | less
+          - focus: true
+          - pane
+          - pane
