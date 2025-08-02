@@ -44,11 +44,20 @@ windows:
     - window_name: nobi 🔥
       layout: tiled
       panes:
-          - start_directory: ~/Documents/Git/nobitex/gerrit/production
-            shell_command:
-                - git pull origin main &> /dev/null
           - start_directory: ~/Documents/Git/parham/keys/vpn/nobitex
             shell_command:
                 - sudo openvpn profile-userlocked-parhamalvani.ovpn
+          - start_directory: ~/Documents/Git/parham/keys/vpn/nobitex
+            shell_command:
+                - sudo openvpn nxbo-afranet-profile-userlocked-parhamalvani.ovpn
           - start_directory: ~/Downloads
           - start_directory: ~/Downloads
+
+    - window_name: production 🚀
+      layout: tiled
+      start_directory: ~/Documents/Git/nobitex/gerrit/production
+      panes:
+          - pane
+          - pane
+          - pane
+          - pane
