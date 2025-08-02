@@ -87,7 +87,9 @@ main() {
 
     msg "$(docker version)"
 
-    docker login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io
+    if command -v gopass &>/dev/null; then
+        docker login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io
+    fi
 
     if [[ -n $(command -v handolint) ]]; then
         msg "$(hadolint --version)"
