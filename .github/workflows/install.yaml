@@ -1,39 +1,38 @@
 ---
 name: install
 on:
-  push:
-
+    push:
 
 jobs:
-  basic-ubuntu:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: sudo apt update
-      - name: start.sh env
-        run: ./start.sh -y env
-      - name: install.sh
-        run: ./install.sh -y
-      - name: validate symbolic links
-        run: |
-          test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
-      - name: validate installation of requirements on both shell
-        run: |
-          bash -c hash vim batcat bmon
-          zsh -c hash vim batcat bmon
+    basic-ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - run: sudo apt update
+            - name: start.sh env
+              run: ./start.sh -y env
+            - name: install.sh
+              run: ./install.sh -y
+            - name: validate symbolic links
+              run: |
+                  test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
+            - name: validate installation of requirements on both shell
+              run: |
+                  bash -c hash vim batcat bmon
+                  zsh -c hash vim batcat bmon
 
-  basic-osx:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: start.sh env
-        run: ./start.sh -y env
-      - name: install.sh
-        run: ./install.sh -y
-      - name: validate symbolic links
-        run: |
-          test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
-      - name: validate installation of requirements on both shell
-        run: |
-          bash -c hash vim batcat bmon
-          zsh -c hash vim batcat bmon
+    basic-osx:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v5
+            - name: start.sh env
+              run: ./start.sh -y env
+            - name: install.sh
+              run: ./install.sh -y
+            - name: validate symbolic links
+              run: |
+                  test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
+            - name: validate installation of requirements on both shell
+              run: |
+                  bash -c hash vim batcat bmon
+                  zsh -c hash vim batcat bmon
