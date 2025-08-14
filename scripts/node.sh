@@ -38,4 +38,6 @@ main_pacman() {
 
 main() {
     msg "$(node -v)"
+
+    require_mason typescript-language-server
 }
