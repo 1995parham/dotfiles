@@ -12,7 +12,7 @@ windows:
           - pane
           - pane
 
-    - window_name: iaso
+    - window_name: iaso 🧑‍⚕️
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/iaso
       shell_command_before:
@@ -25,7 +25,7 @@ windows:
                 - nvim
             focus: true
 
-    - window_name: hygeia
+    - window_name: hygeia 🥼
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/hygeia
       panes:
@@ -35,7 +35,7 @@ windows:
                 - nvim
             focus: true
 
-    - window_name: infra
+    - window_name: infra 🏥
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/1995parham-goodies/aveehealth-database
       panes:
