@@ -61,7 +61,7 @@ go-install-packages() {
     require_go golang.org/x/tools/gopls
     require_go golang.org/dl/gotip
     require_go github.com/go-delve/delve/cmd/dlv
-    require_go github.com/google/wire/cmd/wire
+    # require_go github.com/google/wire/cmd/wire
     require_go github.com/abice/go-enum
     require_go github.com/swaggo/swag/cmd/swag
     require_go golang.org/x/tools/cmd/gonew
