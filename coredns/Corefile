@@ -1,32 +1,20 @@
-. {
-    # Use the hosts plugin to resolve anything ending in .local.dev
-    # to 127.0.0.1 (localhost). Great for local web development!
-    # For example, my-app.local.dev will resolve to 127.0.0.1.
+.:53 {
+    bufsize 512
+    errors
+    log . {
+        class all
+    }
+    health {
+        lameduck 20s
+    }
+
     hosts {
-        127.0.0.1 localhost local.dev
         fallthrough
     }
+    # forward . 178.22.122.100:5353
+    forward . 9.9.9.9:9953
+    cache 900
 
-    # The 'forward' plugin sends queries it can't answer locally
-    # to upstream DNS resolvers. We'll define several kinds here.
-    forward . 1.1.1.1 tls://8.8.8.8 https://dns.quad9.net/dns-query {
-        # 1.1.1.1        -> Standard DNS (over UDP)
-        # tls://8.8.8.8  -> DNS-over-TLS (DoT) to Google
-        # https://...    -> DNS-over-HTTPS (DoH) to Quad9
-
-        # Use this policy to try them in a random order for load balancing.
-        # policy random
-
-        health_check 5s
-    }
-
-    # Log all DNS requests and their responses to the console.
-    # This is extremely useful for debugging.
-    log
-
-    # Enable a 30-second cache to speed up repeated lookups.
-    cache 30
-
-    # Print errors to the console.
-    errors
+    reload
+    minimal
 }
