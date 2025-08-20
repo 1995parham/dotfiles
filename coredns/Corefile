@@ -7,12 +7,12 @@
     health {
         lameduck 20s
     }
-
     hosts {
         fallthrough
     }
-    # forward . 178.22.122.100:5353
-    forward . 9.9.9.9:9953
+    forward . tls://9.9.9.9 {
+        force_tcp
+    }
     cache 900
 
     reload
