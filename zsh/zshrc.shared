@@ -227,3 +227,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         PATH="$(brew --prefix)/opt/libpq/bin/:$PATH"
     fi
 fi
+
+# configure node version manager
+if [ "$(command -v fnm)" ]; then
+    eval "$(fnm env --use-on-cd --shell zsh)"
+fi
