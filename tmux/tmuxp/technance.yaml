@@ -1,0 +1,27 @@
+---
+session_name: Technance
+windows:
+    - window_name: core 📝
+      layout: tiled
+      start_directory: ~/Documents/Git/technance/technance/backend/technance-backend
+      shell_command_before:
+          - fnm install
+          - fnm use
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: scratch 📝
+      layout: tiled
+      start_directory: ~/Downloads
+      focus: true
+      panes:
+          - shell_command:
+                - chafa $DOTFILES_ROOT/companies/technance.jpg --size 80 --clear -f symbols | less
+          - focus: true
+          - pane
+          - pane
