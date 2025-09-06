@@ -31,6 +31,7 @@ main() {
         "scitopdf-git"
         "jira-cli"
         "dijo-1995parham"
+        "rpk-bin"
         #		"litmusctl-bin"
     )
 
