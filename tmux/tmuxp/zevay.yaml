@@ -1,0 +1,46 @@
+---
+session_name: Technance
+windows:
+    - window_name: scratch 📝
+      layout: tiled
+      start_directory: ~/Downloads
+      focus: true
+      panes:
+          - shell_command:
+                - chafa $DOTFILES_ROOT/companies/zevay.png --size 80 --clear -f symbols | less
+          - focus: true
+          - pane
+          - pane
+
+    - window_name: core 🪢
+      layout: tiled
+      start_directory: ~/Documents/Git/zevay/zevay/core
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: infrastructure 🚂
+      layout: tiled
+      start_directory: ~/Documents/Git/zevay/zevay/infrastructure
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: frontend 💄
+      layout: tiled
+      start_directory: ~/Documents/Git/zevay/zevay/frontend
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
