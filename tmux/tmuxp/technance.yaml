@@ -12,12 +12,9 @@ windows:
           - pane
           - pane
 
-    - window_name: core 🪢
+    - window_name: trade-engine 🚂
       layout: tiled
-      start_directory: ~/Documents/Git/technance/technance-foundation/technance-backend
-      shell_command_before:
-          - fnm install
-          - fnm use
+      start_directory: ~/Documents/Git/technance/technance-foundation/technance-trade-engine
       panes:
           - pane
           - pane
@@ -26,9 +23,9 @@ windows:
                 - nvim
             focus: true
 
-    - window_name: trade-engine 🚂
+    - window_name: aletheia 🔍
       layout: tiled
-      start_directory: ~/Documents/Git/technance/technance-foundation/technance-trade-engine
+      start_directory: ~/Documents/Git/technance/technance-foundation/aletheia
       panes:
           - pane
           - pane
