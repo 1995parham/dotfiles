@@ -121,11 +121,6 @@ main_brew() {
     sudo systemsetup -setusingnetworktime on
     sudo systemsetup -setnetworktimeserver pool.ntp.org
 
-    # Disable Spotlight
-    sudo mdutil -i off /
-    sudo mdutil -E /
-    sudo mdutil -a -i off
-
     # Disable gatekeeper
     msg 'Globally disabling the assessment system needs to be confirmed in System Settings means you need set application source from anywhere in the system settings' 'error'
     sudo spctl --master-disable || true
