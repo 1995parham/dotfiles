@@ -27,7 +27,8 @@ windows:
       layout: tiled
       start_directory: ~/Downloads
       panes:
-          - pane
+          - shell_command:
+                - chafa $DOTFILES_ROOT/companies/nobitex.png --size 80 --clear -f symbols | less
           - pane
           - pane
           - pane
@@ -36,7 +37,8 @@ windows:
       layout: tiled
       start_directory: ~/Downloads
       panes:
-          - pane
+          - shell_command:
+                - chafa $DOTFILES_ROOT/companies/nobitex.png --size 80 --clear -f symbols | less
           - pane
           - pane
           - pane
