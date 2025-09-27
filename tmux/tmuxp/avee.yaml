@@ -21,6 +21,7 @@ windows:
       panes:
           - pane
           - pane
+          - pane
           - shell_command:
                 - nvim
             focus: true
@@ -29,6 +30,7 @@ windows:
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/hygeia
       panes:
+          - pane
           - pane
           - pane
           - shell_command:
@@ -40,6 +42,7 @@ windows:
       start_directory: ~/Documents/Git/aveehealth/1995parham-goodies/aveehealth-database
       panes:
           - focus: true
+          - pane
           - pane
           - pane
           - pane
