@@ -14,7 +14,7 @@ usage() {
 }
 
 main_brew() {
-    require_brew_cask utml
+    require_brew_cask utm
 }
 
 main() {
