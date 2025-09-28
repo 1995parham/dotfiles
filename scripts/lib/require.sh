@@ -319,9 +319,9 @@ function clone() {
 
     if [[ ! -d "${path}/${dir}" ]]; then
         if git clone "${repo}" "${path}/${dir}" &>/dev/null; then
-            action git "${repo_name} ${F_GREEN}󰄲${F_RESET}"
+            action git "${repo_name} ${F_SUCCESS}󰄲${ALL_RESET}"
         else
-            action git "${repo_name} ${F_RED}󱋭${F_RESET}"
+            action git "${repo_name} ${F_ERROR}󱋭${ALL_RESET}"
         fi
     else
         cd "${path}/${dir}" || return
@@ -329,9 +329,9 @@ function clone() {
         origin_url=$(git remote get-url origin 2>/dev/null)
 
         if [[ "${repo}" == "${origin_url%.git}" ]]; then
-            action git "${repo_name} ${F_GRAY}${F_RESET}"
+            action git "${repo_name} ${F_DEBUG}${ALL_RESET}"
         else
-            action git "${repo_name} (${repo} != ${origin_url}) ${F_RED}󱋭${F_RESET}"
+            action git "${repo_name} (${repo} != ${origin_url}) ${F_ERROR}󱋭${ALL_RESET}"
         fi
 
         cd - &>/dev/null || return
@@ -344,12 +344,12 @@ function clone() {
         cd "${path}/${dir}" || return
 
         if git remote get-url origin --all 2>/dev/null | grep "$url" &>/dev/null; then
-            action git "${repo_name} pushurl -> ${url} ${F_GRAY}󰄲${F_RESET}"
+            action git "${repo_name} pushurl -> ${url} ${F_DEBUG}󰄲${ALL_RESET}"
         else
             if git remote set-url --add origin "${url}" &>/dev/null; then
-                action git "${repo_name} pushurl -> ${url} ${F_GREEN}󰄲${F_RESET}"
+                action git "${repo_name} pushurl -> ${url} ${F_SUCCESS}󰄲${ALL_RESET}"
             else
-                action git "${repo_name} pushurl -> ${url} ${F_RED}󱋭${F_RESET}"
+                action git "${repo_name} pushurl -> ${url} ${F_ERROR}󱋭${ALL_RESET}"
             fi
         fi
 
