@@ -32,8 +32,8 @@ export F_WARNING="${F_BRIGHT_ORANGE}"
 export F_INFO="${F_ELECTRIC_BLUE}"
 export F_NOTICE="${F_HOT_PINK}"
 export F_DEBUG="${F_BRIGHT_PURPLE}"
-export F_HIGHLIGHT="${F_BRIGHT_CYAN}"
-export F_ACCENT="${F_BRIGHT_PURPLE}"
+export F_HIGHLIGHT="${F_BRIGHT_ORANGE}"
+export F_ACCENT="${F_BRIGHT_YELLOW}"
 
 # Text formatting
 export BOLD_ON="\033[1m"
