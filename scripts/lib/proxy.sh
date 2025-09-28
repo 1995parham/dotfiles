@@ -4,10 +4,15 @@
 # by default it checkes for 127.0.0.1:2081 to find a proxy
 # but you can also manually pass the proxy url.
 
-# Source color definitions if not already loaded
-if [[ -z "${F_SUCCESS}" ]]; then
-    # shellcheck source=message.sh
-    source "$(dirname "${BASH_SOURCE[0]}")/message.sh"
+source="$0"
+if [[ -n "${BASH_SOURCE[0]}" ]]; then
+    source="${BASH_SOURCE[0]}"
+fi
+
+if ! source "$(dirname "$source")/message.sh" 2>/dev/null; then
+    if [ -n "$DOTFILES_ROOT" ]; then
+        source "$DOTFILES_ROOT/scripts/lib/message.sh"
+    fi
 fi
 
 proxy_start() {
