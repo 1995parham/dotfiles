@@ -43,16 +43,26 @@ echo
 
 # Test color variables showcase
 section_header "Available Colors"
-echo -e "${F_SUCCESS}Success Green${ALL_RESET}    ${F_ERROR}Error Red${ALL_RESET}      ${F_WARNING}Warning Yellow${ALL_RESET}"
-echo -e "${F_INFO}Info Blue${ALL_RESET}        ${F_NOTICE}Notice Orange${ALL_RESET}   ${F_DEBUG}Debug Gray${ALL_RESET}"
-echo -e "${F_HIGHLIGHT}Highlight Cyan${ALL_RESET}  ${F_ACCENT}Accent Purple${ALL_RESET}"
+echo -e "${F_SUCCESS}${BOLD_ON}Success Neon Green${ALL_RESET}    ${F_ERROR}${BOLD_ON}Error Bright Red${ALL_RESET}      ${F_WARNING}${BOLD_ON}Warning Orange${ALL_RESET}"
+echo -e "${F_INFO}${BOLD_ON}Info Electric Blue${ALL_RESET}    ${F_NOTICE}${BOLD_ON}Notice Hot Pink${ALL_RESET}     ${F_DEBUG}${BOLD_ON}Debug Purple${ALL_RESET}"
+echo -e "${F_HIGHLIGHT}${BOLD_ON}Highlight Cyan${ALL_RESET}     ${F_ACCENT}${BOLD_ON}Accent Purple${ALL_RESET}"
+
+echo
+echo -e "${BOLD_ON}${F_ACCENT}🌈 Extended Vibrant Color Palette:${ALL_RESET}"
+echo -e "${F_NEON_GREEN}${BOLD_ON}Neon Green${ALL_RESET}        ${F_ELECTRIC_BLUE}${BOLD_ON}Electric Blue${ALL_RESET}     ${F_HOT_PINK}${BOLD_ON}Hot Pink${ALL_RESET}"
+echo -e "${F_BRIGHT_PURPLE}${BOLD_ON}Bright Purple${ALL_RESET}     ${F_BRIGHT_ORANGE}${BOLD_ON}Bright Orange${ALL_RESET}     ${F_BRIGHT_CYAN}${BOLD_ON}Bright Cyan${ALL_RESET}"
 
 echo
 
 # Test formatted text
 section_header "Text Formatting"
-echo -e "${BOLD_ON}Bold Text${BOLD_OFF}        ${ITALIC_ON}Italic Text${ITALIC_OFF}      ${UNDERLINE_ON}Underlined Text${UNDERLINE_OFF}"
-echo -e "${DIM_ON}Dimmed Text${DIM_OFF}      ${F_SUCCESS}${BOLD_ON}Bold Success${ALL_RESET}   ${BG_BLUE}${F_WHITE}Background Color${ALL_RESET}"
+echo -e "${BOLD_ON}${F_BRIGHT_CYAN}Bold Text${ALL_RESET}        ${ITALIC_ON}${F_BRIGHT_PURPLE}Italic Text${ALL_RESET}      ${UNDERLINE_ON}${F_HOT_PINK}Underlined Text${ALL_RESET}"
+echo -e "${DIM_ON}${F_GRAY}Dimmed Text${ALL_RESET}      ${F_SUCCESS}${BOLD_ON}Bold Success${ALL_RESET}   ${BG_PURPLE}${F_WHITE}${BOLD_ON} Background Color ${ALL_RESET}"
+
+echo
+echo -e "${BOLD_ON}${F_ACCENT}🎨 Background Color Showcase:${ALL_RESET}"
+echo -e "${BG_RED}${F_WHITE}${BOLD_ON} Red Background ${ALL_RESET}  ${BG_GREEN}${F_BLACK}${BOLD_ON} Green Background ${ALL_RESET}  ${BG_YELLOW}${F_BLACK}${BOLD_ON} Yellow Background ${ALL_RESET}"
+echo -e "${BG_BLUE}${F_WHITE}${BOLD_ON} Blue Background ${ALL_RESET} ${BG_PURPLE}${F_WHITE}${BOLD_ON} Purple Background ${ALL_RESET} ${BG_PINK}${F_BLACK}${BOLD_ON} Pink Background ${ALL_RESET}"
 
 echo
 
@@ -66,4 +76,11 @@ echo -e "${F_ACCENT}${ARROW_MARK} Action${ALL_RESET}"
 echo -e "${F_ACCENT}${BULLET_MARK} List item${ALL_RESET}"
 
 echo
-colorize "${F_SUCCESS}" "✨ Color scheme enhancement complete!"
+echo -e "${BOLD_ON}${F_ACCENT}🌟 Special Effects:${ALL_RESET}"
+echo -e "${F_NEON_GREEN}${BOLD_ON}▲▲▲ ULTRA BRIGHT NEON GREEN ▲▲▲${ALL_RESET}"
+echo -e "${F_HOT_PINK}${BOLD_ON}★★★ HOT PINK STARS ★★★${ALL_RESET}"
+echo -e "${F_ELECTRIC_BLUE}${BOLD_ON}⚡⚡⚡ ELECTRIC BLUE LIGHTNING ⚡⚡⚡${ALL_RESET}"
+echo -e "${F_BRIGHT_ORANGE}${BOLD_ON}🔥🔥🔥 BLAZING ORANGE FIRE 🔥🔥🔥${ALL_RESET}"
+
+echo
+colorize "${F_SUCCESS}${BOLD_ON}" "🎉✨ ULTRA VIBRANT COLOR SCHEME COMPLETE! ✨🎉"

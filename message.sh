@@ -1,34 +1,39 @@
 #!/usr/bin/env bash
 
-# Base color palette - RGB values for better color consistency
+# Base color palette - Vibrant RGB values for maximum visual impact
 export F_CYAN="\033[38;2;0;255;255m"
-export F_GREEN="\033[38;2;127;230;127m"
-export F_RED="\033[38;2;255;127;127m"
-export F_ORANGE="\033[38;2;255;165;0m"
-export F_YELLOW="\033[38;2;255;255;25m"
-export F_GRAY="\033[38;2;90;90;90m"
-export F_BLUE="\033[38;2;0;191;255m"
-export F_PURPLE="\033[38;2;128;128;255m"
-export F_PINK="\033[38;2;255;128;255m"
+export F_GREEN="\033[38;2;0;255;128m"
+export F_RED="\033[38;2;255;64;64m"
+export F_ORANGE="\033[38;2;255;140;0m"
+export F_YELLOW="\033[38;2;255;255;0m"
+export F_GRAY="\033[38;2;120;120;120m"
+export F_BLUE="\033[38;2;64;164;255m"
+export F_PURPLE="\033[38;2;186;85;211m"
+export F_PINK="\033[38;2;255;105;180m"
 export F_WHITE="\033[38;2;255;255;255m"
 export F_BLACK="\033[38;2;0;0;0m"
 
-# Bright variants for emphasis
-export F_BRIGHT_GREEN="\033[38;2;0;255;0m"
-export F_BRIGHT_RED="\033[38;2;255;0;0m"
-export F_BRIGHT_YELLOW="\033[38;2;255;255;0m"
-export F_BRIGHT_BLUE="\033[38;2;0;128;255m"
-export F_BRIGHT_CYAN="\033[38;2;0;255;255m"
+# Ultra-bright variants for maximum emphasis
+export F_BRIGHT_GREEN="\033[38;2;50;255;50m"
+export F_BRIGHT_RED="\033[38;2;255;50;50m"
+export F_BRIGHT_YELLOW="\033[38;2;255;255;50m"
+export F_BRIGHT_BLUE="\033[38;2;50;150;255m"
+export F_BRIGHT_CYAN="\033[38;2;50;255;255m"
+export F_BRIGHT_PURPLE="\033[38;2;200;100;255m"
+export F_BRIGHT_ORANGE="\033[38;2;255;165;50m"
+export F_NEON_GREEN="\033[38;2;57;255;20m"
+export F_ELECTRIC_BLUE="\033[38;2;0;191;255m"
+export F_HOT_PINK="\033[38;2;255;20;147m"
 
-# Semantic colors for different purposes
-export F_SUCCESS="${F_BRIGHT_GREEN}"
+# Semantic colors for different purposes - Ultra vibrant assignments
+export F_SUCCESS="${F_NEON_GREEN}"
 export F_ERROR="${F_BRIGHT_RED}"
-export F_WARNING="${F_BRIGHT_YELLOW}"
-export F_INFO="${F_BRIGHT_BLUE}"
-export F_NOTICE="${F_ORANGE}"
-export F_DEBUG="${F_GRAY}"
+export F_WARNING="${F_BRIGHT_ORANGE}"
+export F_INFO="${F_ELECTRIC_BLUE}"
+export F_NOTICE="${F_HOT_PINK}"
+export F_DEBUG="${F_BRIGHT_PURPLE}"
 export F_HIGHLIGHT="${F_BRIGHT_CYAN}"
-export F_ACCENT="${F_PURPLE}"
+export F_ACCENT="${F_BRIGHT_PURPLE}"
 
 # Text formatting
 export BOLD_ON="\033[1m"
@@ -40,12 +45,16 @@ export UNDERLINE_OFF="\033[24m"
 export DIM_ON="\033[2m"
 export DIM_OFF="\033[22m"
 
-# Background colors
-export BG_RED="\033[48;2;255;127;127m"
-export BG_GREEN="\033[48;2;127;230;127m"
-export BG_YELLOW="\033[48;2;255;255;25m"
+# Background colors - Bright and vibrant backgrounds
+export BG_RED="\033[48;2;255;64;64m"
+export BG_GREEN="\033[48;2;57;255;20m"
+export BG_YELLOW="\033[48;2;255;255;0m"
 export BG_BLUE="\033[48;2;0;191;255m"
-export BG_GRAY="\033[48;2;90;90;90m"
+export BG_PURPLE="\033[48;2;186;85;211m"
+export BG_ORANGE="\033[48;2;255;140;0m"
+export BG_PINK="\033[48;2;255;105;180m"
+export BG_CYAN="\033[48;2;50;255;255m"
+export BG_GRAY="\033[48;2;120;120;120m"
 
 # Reset and special formatting
 export F_RESET="\033[39m"
