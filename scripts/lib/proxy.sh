@@ -11,6 +11,7 @@ fi
 
 if ! source "$(dirname "$source")/message.sh" 2>/dev/null; then
     if [ -n "$DOTFILES_ROOT" ]; then
+        # shellcheck source=message.sh
         source "$DOTFILES_ROOT/scripts/lib/message.sh"
     fi
 fi
