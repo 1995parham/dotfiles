@@ -4,6 +4,12 @@
 # by default it checkes for 127.0.0.1:2081 to find a proxy
 # but you can also manually pass the proxy url.
 
+# Source color definitions if not already loaded
+if [[ -z "${F_SUCCESS}" ]]; then
+    # shellcheck source=message.sh
+    source "$(dirname "${BASH_SOURCE[0]}")/message.sh"
+fi
+
 proxy_start() {
     if [ $# -gt 1 ]; then
         return 1
@@ -23,8 +29,8 @@ proxy_start() {
         fi
     fi
 
-    echo -e "\033[38;5;46m[proxy] \033[38;5;202msetup proxy based on http proxy on $url\033[39m"
-    echo -e "\033[38;5;46m[proxy] \033[38;5;202mpress enter to continue or anything else to disable it\033[39m"
+    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}setup proxy based on http proxy on $url${ALL_RESET}"
+    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}press enter to continue or anything else to disable it${ALL_RESET}"
     read -r accept
 
     if [[ "${accept}" != "" ]]; then
@@ -48,5 +54,5 @@ proxy_stop() {
     unset {http,https,ftp}_proxy || true
     unalias sudo 2>/dev/null || true
 
-    echo -e "\033[38;5;46m[proxy] \033[38;5;202mall proxy script configurations are removed\033[39m"
+    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}all proxy script configurations are removed${ALL_RESET}"
 }
