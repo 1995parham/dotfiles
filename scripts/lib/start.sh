@@ -228,17 +228,20 @@ _dependencies() {
 
 run() {
     if declare -f pre_main >/dev/null; then
+        section_header "Pre Main"
         pre_main "$@"
     fi
 
+    section_header "Install"
     install
 
     if declare -f main >/dev/null; then
+        section_header "Main"
         main "$@"
     fi
 
     if declare -f "main_${USER}" >/dev/null; then
-        msg " Attention on deck ${USER}"
+        section_header " Attention on deck ${USER}"
         "main_${USER}" "$@"
     fi
 }
