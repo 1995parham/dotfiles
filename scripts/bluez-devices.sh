@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
     echo "connect and register parham bluetooth devices"
 
