@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# a global variable that points to tmuxs root directory.
-tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# shellcheck source=./scripts/lib/proxy.sh
-source "$tmuxs_root/../../scripts/lib/proxy.sh"
-
 host=$(
     # shellcheck disable=2046
     grep '^Host' $(fd . ~/.ssh) 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2- | sort -u |
