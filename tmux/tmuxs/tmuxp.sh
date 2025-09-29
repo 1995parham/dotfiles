@@ -13,9 +13,10 @@ fi
 
 # Select layout using fzf
 layout=$(
-    grep -h 'session_name:' "${yaml_files[@]}" 2>/dev/null | cut -d':' -f3 | awk '{$1=$1;print}' | sort -u |
+    # shellcheck disable=2016
+    grep -h 'session_name:' "${yaml_files[@]}" 2>/dev/null | cut -d':' -f2 | awk '{$1=$1;print}' | sort -u |
         fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
-            --preview='bat -f $(grep -l "^session_name: {}" '"${yaml_files[*]}"' 2>/dev/null | head -1)' || true
+            --preview='bat -f $(grep -l {} '"${yaml_files[*]}"' 2>/dev/null | head -1)' || true
 )
 
 if [ -z "$layout" ]; then
@@ -38,32 +39,15 @@ fi
 
 # Detect current terminal emulator
 detect_terminal() {
-    # Check TERM_PROGRAM first (most reliable)
-    if [ -n "${TERM_PROGRAM:-}" ]; then
-        echo "$TERM_PROGRAM"
+    if [ -n "$KITTY_WINDOW_ID" ]; then
+        echo "kitty"
         return
     fi
 
-    # Check process tree for terminal emulator
-    local ppid=$$
-    while [ "$ppid" -gt 1 ]; do
-        local process_name
-        process_name=$(ps -p "$ppid" -o comm= 2>/dev/null | tail -1)
-
-        case "$process_name" in
-            *wezterm*|*wezterm-gui*)
-                echo "WezTerm"
-                return
-                ;;
-            *kitty*)
-                echo "kitty"
-                return
-                ;;
-        esac
-
-        ppid=$(ps -p "$ppid" -o ppid= 2>/dev/null | tr -d ' ')
-        [ -z "$ppid" ] && break
-    done
+    if [ -n "$WEZTERM_PANE" ]; then
+        echo "wezterm"
+        return
+    fi
 
     echo "unknown"
 }
@@ -76,6 +60,8 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
     bash_path="$(command -v bash)"
     current_terminal=$(detect_terminal)
 
+    echo "$current_terminal"
+
     if [[ "$current_terminal" == "WezTerm" ]] && command -v wezterm &>/dev/null; then
         echo "$cmd"
         wezterm cli spawn -- "$bash_path" -ilc "$cmd"
@@ -85,9 +71,7 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
     else
         # Fallback: run directly if no supported terminal emulator detected
         tmuxp load "$path" -y
-        tmux attach-session -t "$layout"
     fi
 else
     tmuxp load "$path" -y
-    tmux attach-session -t "$layout"
 fi

@@ -3,9 +3,7 @@ set -e
 
 # these repositories are also searched during the search
 # of projects.
-mono_repositories=(
-    # "offerland/root"
-)
+mono_repositories=()
 
 # a global variable that points to tmuxs root directory.
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
