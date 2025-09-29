@@ -39,12 +39,14 @@ fi
 
 # Detect current terminal emulator
 detect_terminal() {
-    if [ -n "$KITTY_WINDOW_ID" ]; then
+    eval "$(tmux show-environment -s "KITTY_WINDOW_ID")"
+    if [[ ! -z "${KITTY_WINDOW_ID:+set}" ]]; then
         echo "kitty"
         return
     fi
 
-    if [ -n "$WEZTERM_PANE" ]; then
+    eval "$(tmux show-environment -s "WEZTERM_PANE")"
+    if [[ ! -z "${WEZTERM_PANE:+set}" ]]; then
         echo "wezterm"
         return
     fi
@@ -62,7 +64,8 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
 
     echo "$current_terminal"
 
-    if [[ "$current_terminal" == "WezTerm" ]] && command -v wezterm &>/dev/null; then
+    if [[ "$current_terminal" == "wezterm" ]] && command -v wezterm &>/dev/null; then
+        eval "$(tmux show-environment -s "WEZTERM_UNIX_SOCKET")"
         echo "$cmd"
         wezterm cli spawn -- "$bash_path" -ilc "$cmd"
     elif [[ "$current_terminal" == "kitty" ]] && command -v kitty &>/dev/null; then
