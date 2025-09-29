@@ -66,6 +66,7 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
         echo "$cmd"
         wezterm cli spawn -- "$bash_path" -ilc "$cmd"
     elif [[ "$current_terminal" == "kitty" ]] && command -v kitty &>/dev/null; then
+        eval "$(tmux show-environment -s "KITTY_LISTEN_ON")"
         echo "$cmd"
         kitty @ launch --type=tab -- "$bash_path" -ilc "$cmd"
     else
