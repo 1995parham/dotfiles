@@ -216,7 +216,7 @@ main() {
 main_parham() {
     msg 'setting profile picture'
     if [ ! -f 1995parham.png ]; then
-        wget github.com/1995parham.png
+        wget https://github.com/1995parham.png
     fi
     if [ ! -f 1995parham.jpg ]; then
         sips -s format jpeg 1995parham.png --out 1995parham.jpg
