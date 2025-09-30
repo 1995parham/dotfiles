@@ -40,6 +40,7 @@ packages=(
     rsync
     pre-commit
     mtr
+    tree
 )
 
 main_apt() {
