@@ -40,13 +40,13 @@ fi
 # Detect current terminal emulator
 detect_terminal() {
     eval "$(tmux show-environment -s "KITTY_WINDOW_ID")"
-    if [[ ! -z "${KITTY_WINDOW_ID:+set}" ]]; then
+    if [[ -n "${KITTY_WINDOW_ID:+set}" ]]; then
         echo "kitty"
         return
     fi
 
     eval "$(tmux show-environment -s "WEZTERM_PANE")"
-    if [[ ! -z "${WEZTERM_PANE:+set}" ]]; then
+    if [[ -n "${WEZTERM_PANE:+set}" ]]; then
         echo "wezterm"
         return
     fi
