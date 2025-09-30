@@ -23,3 +23,5 @@ fi
 source "${dotfile_lib_root}/require.sh"
 # shellcheck source=run.sh
 source "${dotfile_lib_root}/run.sh"
+# shellcheck source=service.sh
+source "${dotfile_lib_root}/service.sh"
