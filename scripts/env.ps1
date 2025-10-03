@@ -17,11 +17,7 @@ $script:dependencies = @()
 
 # Basic packages to install via winget
 $packages = @(
-    "Git.Git"
-    "Microsoft.PowerShell"
-    "Python.Python.3.12"
-    "GoLang.Go"
-    "OpenJS.NodeJS"
+    "Microsoft.PowerShell.Preview"
     "BurntSushi.ripgrep.MSVC"
     "sharkdp.bat"
     "sharkdp.fd"
@@ -29,8 +25,6 @@ $packages = @(
     "jqlang.jq"
     "GNU.Wget2"
     "aria2.aria2"
-    "vim.vim"
-    "Neovim.Neovim"
     "ajeetdsouza.zoxide"
     "dandavison.delta"
     "eza-community.eza"

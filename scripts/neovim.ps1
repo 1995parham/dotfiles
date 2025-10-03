@@ -13,16 +13,13 @@ hyperextensible Vim-based text editor (plugins, theme, etc.)
 "@
 }
 
-# Dependencies (neovim-core is just "Neovim.Neovim" in winget, installed via env)
-$script:dependencies = @("env")
-
 function Install-LspServers {
     Write-Message -Module "neovim" -Message "installing LSP servers"
     Require-Npm "@mistweaverco/kulala-ls"
 }
 
 function main_winget {
-    Write-Message -Module "neovim" -Message "neovim should be installed via env script"
+    Require-Winget "Neovim.Neovim"
 
     # Install nvim-remote via pip
     Write-Message -Module "neovim" -Message "installing nvim-remote"
