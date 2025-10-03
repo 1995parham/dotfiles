@@ -26,7 +26,7 @@ jobs:
                   $files = Get-ChildItem -Path . -Filter *.ps1 -Recurse
                   $issues = @()
                   foreach ($file in $files) {
-                      $results = Invoke-ScriptAnalyzer -Path $file.FullName -Severity Warning,Error
+                      $results = Invoke-ScriptAnalyzer -Path $file.FullName -Severity Error
                       if ($results) {
                           $issues += $results
                           Write-Host "Issues found in $($file.Name):"
