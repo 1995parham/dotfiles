@@ -136,7 +136,7 @@ function Write-Message {
             $messageColor = $script:F_SUCCESS
         }
         "debug" {
-            $severityPrefix = "${script:F_DEBUG}${script:DIM_ON} ([char]0x1F41B debug) ${script:ALL_RESET}"
+            $severityPrefix = "${script:F_DEBUG}${script:DIM_ON} ($([char]0x1F41B) debug) ${script:ALL_RESET}"
             $moduleColor = $script:F_DEBUG
             $messageColor = $script:F_DEBUG
         }
@@ -202,16 +202,16 @@ function Write-ListItem {
     $prefix = "  " * $Indent
 
     switch ($Status) {
-        { $_ -in "success", "done", "✓" } {
+        { $_ -in @("success", "done", "✓") } {
             Write-Host "${prefix}${script:F_SUCCESS}$script:CHECK_MARK $Item${script:ALL_RESET}"
         }
-        { $_ -in "error", "failed", "✗" } {
+        { $_ -in @("error", "failed", "✗") } {
             Write-Host "${prefix}${script:F_ERROR}$script:CROSS_MARK $Item${script:ALL_RESET}"
         }
-        { $_ -in "warning", "warn", "⚠" } {
+        { $_ -in @("warning", "warn", "⚠") } {
             Write-Host "${prefix}${script:F_WARNING}$script:WARNING_MARK $Item${script:ALL_RESET}"
         }
-        { $_ -in "info", "ⓘ" } {
+        { $_ -in @("info", "ⓘ") } {
             Write-Host "${prefix}${script:F_INFO}$script:INFO_MARK $Item${script:ALL_RESET}"
         }
         default {
