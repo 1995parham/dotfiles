@@ -209,12 +209,4 @@ function Set-ConfigRootFile {
     Invoke-Linker -Module $Module -SrcPath $srcPath -DstPath $dstPath -Copy:$Copy
 }
 
-# Export functions
-Export-ModuleMember -Function @(
-    'Test-Administrator',
-    'Test-DeveloperMode',
-    'Invoke-Linker',
-    'Set-Dotfile',
-    'Set-ConfigFile',
-    'Set-ConfigRootFile'
-)
+# Functions are automatically available when dot-sourced

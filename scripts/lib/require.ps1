@@ -129,10 +129,10 @@ function Clone-Repo {
 
         try {
             git clone $Repo $targetPath *>&1 | Out-Null
-            Write-Action -Module "git" -Message "$repoName ${script:F_SUCCESS}$script:CHECK_MARK${script:ALL_RESET}"
+            Write-Message -Module "git" -Message "$repoName cloned successfully" -Severity "success"
         }
         catch {
-            Write-Action -Module "git" -Message "$repoName ${script:F_ERROR}$script:CROSS_MARK${script:ALL_RESET}"
+            Write-Message -Module "git" -Message "$repoName clone failed" -Severity "error"
             return
         }
     }
@@ -144,10 +144,10 @@ function Clone-Repo {
         $compareRepo = $Repo -replace '\.git$', ''
 
         if ($compareRepo -eq $originUrl) {
-            Write-Action -Module "git" -Message "$repoName ${script:F_DEBUG}already exists${script:ALL_RESET}"
+            Write-Message -Module "git" -Message "$repoName already exists" -Severity "debug"
         }
         else {
-            Write-Action -Module "git" -Message "$repoName ($Repo != $originUrl) ${script:F_ERROR}$script:CROSS_MARK${script:ALL_RESET}"
+            Write-Message -Module "git" -Message "$repoName ($Repo != $originUrl) mismatch" -Severity "error"
         }
 
         Pop-Location
@@ -160,15 +160,15 @@ function Clone-Repo {
         $existingPushUrls = git remote get-url origin --all 2>$null
 
         if ($existingPushUrls -match [regex]::Escape($PushUrl)) {
-            Write-Action -Module "git" -Message "$repoName pushurl -> $PushUrl ${script:F_DEBUG}$script:CHECK_MARK${script:ALL_RESET}"
+            Write-Message -Module "git" -Message "$repoName pushurl -> $PushUrl already set" -Severity "debug"
         }
         else {
             try {
                 git remote set-url --add origin $PushUrl *>&1 | Out-Null
-                Write-Action -Module "git" -Message "$repoName pushurl -> $PushUrl ${script:F_SUCCESS}$script:CHECK_MARK${script:ALL_RESET}"
+                Write-Message -Module "git" -Message "$repoName pushurl -> $PushUrl added" -Severity "success"
             }
             catch {
-                Write-Action -Module "git" -Message "$repoName pushurl -> $PushUrl ${script:F_ERROR}$script:CROSS_MARK${script:ALL_RESET}"
+                Write-Message -Module "git" -Message "$repoName pushurl -> $PushUrl failed" -Severity "error"
             }
         }
 
@@ -189,12 +189,4 @@ function Require-Mason {
     }
 }
 
-# Export functions
-Export-ModuleMember -Function @(
-    'Require-Winget',
-    'Require-Go',
-    'Require-Pip',
-    'Require-Npm',
-    'Clone-Repo',
-    'Require-Mason'
-)
+# Functions are automatically available when dot-sourced

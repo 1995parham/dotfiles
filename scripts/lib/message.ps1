@@ -138,14 +138,4 @@ function Write-ListItem {
     Write-Host "$prefix$Item" -ForegroundColor $color
 }
 
-# Export functions
-Export-ModuleMember -Function @(
-    'Colorize',
-    'Yes-Or-No',
-    'Write-Message',
-    'Write-Running',
-    'Write-Action',
-    'Write-Ok',
-    'Write-SectionHeader',
-    'Write-ListItem'
-)
+# Functions are automatically available when dot-sourced
