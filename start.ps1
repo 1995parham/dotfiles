@@ -17,13 +17,11 @@
 #>
 
 param(
-    [Parameter(Position=0, Mandatory=$false)]
-    [string]$ScriptName = "",
+    [Parameter(Position=0,Mandatory=$True)]
+    [string]$ScriptName,
     [switch]$Help,
     [Alias('y')]
-    [switch]$YesToAll,
-    [Parameter(Position=1, ValueFromRemainingArguments=$true)]
-    [string[]]$RemainingArgs = @()
+    [switch]$YesToAll
 )
 
 $ErrorActionPreference = "Stop"
@@ -202,7 +200,7 @@ function Main {
     # Load and execute the script
     try {
         . $scriptPath
-        Invoke-ScriptRun -ScriptArgs $RemainingArgs
+        Invoke-ScriptRun -ScriptArgs $args
     }
     catch {
         Write-Message -Module "pre" -Message "Failed to execute script: $_" -Severity "error"
