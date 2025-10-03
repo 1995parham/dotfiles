@@ -203,19 +203,19 @@ function Write-ListItem {
 
     switch ($Status) {
         { $_ -in @("success", "done", "✓") } {
-            Write-Host "${prefix}${script:F_SUCCESS}$script:CHECK_MARK $Item${script:ALL_RESET}"
+            Write-Host "${prefix}${script:F_SUCCESS}$script:CHECK_MARK ${Item}${script:ALL_RESET}"
         }
         { $_ -in @("error", "failed", "✗") } {
-            Write-Host "${prefix}${script:F_ERROR}$script:CROSS_MARK $Item${script:ALL_RESET}"
+            Write-Host "${prefix}${script:F_ERROR}$script:CROSS_MARK ${Item}${script:ALL_RESET}"
         }
         { $_ -in @("warning", "warn", "⚠") } {
-            Write-Host "${prefix}${script:F_WARNING}$script:WARNING_MARK $Item${script:ALL_RESET}"
+            Write-Host "${prefix}${script:F_WARNING}$script:WARNING_MARK ${Item}${script:ALL_RESET}"
         }
         { $_ -in @("info", "ⓘ") } {
-            Write-Host "${prefix}${script:F_INFO}$script:INFO_MARK $Item${script:ALL_RESET}"
+            Write-Host "${prefix}${script:F_INFO}$script:INFO_MARK ${Item}${script:ALL_RESET}"
         }
         default {
-            Write-Host "${prefix}${script:F_ACCENT}$script:BULLET_MARK $Item${script:ALL_RESET}"
+            Write-Host "${prefix}${script:F_ACCENT}$script:BULLET_MARK ${Item}${script:ALL_RESET}"
         }
     }
 }
