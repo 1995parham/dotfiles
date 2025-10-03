@@ -4,7 +4,7 @@ on:
     push:
 
 jobs:
-    sh-checker:
+    bash-lint:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v5
@@ -13,7 +13,33 @@ jobs:
               with:
                   sh_checker_comment: false
 
-    unit:
+    powershell-lint:
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v5
+            - name: Install PSScriptAnalyzer
+              shell: pwsh
+              run: Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+            - name: Lint PowerShell scripts
+              shell: pwsh
+              run: |
+                  $files = Get-ChildItem -Path . -Filter *.ps1 -Recurse
+                  $issues = @()
+                  foreach ($file in $files) {
+                      $results = Invoke-ScriptAnalyzer -Path $file.FullName -Severity Warning,Error
+                      if ($results) {
+                          $issues += $results
+                          Write-Host "Issues found in $($file.Name):"
+                          $results | Format-Table -AutoSize
+                      }
+                  }
+                  if ($issues.Count -gt 0) {
+                      Write-Host "Total issues found: $($issues.Count)"
+                      exit 1
+                  }
+                  Write-Host "No issues found!"
+
+    bash-unit:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v5
