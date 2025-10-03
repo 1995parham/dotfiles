@@ -135,11 +135,4 @@ function Get-ServiceManagerName {
     }
 }
 
-# Export functions
-Export-ModuleMember -Function @(
-    'Get-ServiceManager',
-    'Start-ServiceManager',
-    'Stop-ServiceManager',
-    'Restart-ServiceManager',
-    'Get-ServiceManagerName'
-)
+# Functions are automatically available when dot-sourced
