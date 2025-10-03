@@ -23,7 +23,7 @@ _end() {
 
 _usage() {
     echo ""
-    echo "usage: ${program_name}} [-y] [-h] script [script options]"
+    echo "usage: ${program_name} [-y] [-h] script [script options]"
     echo "  -h   display help"
     echo "  -d   as dependency (internal usage)"
     echo "  -y   yes to all"
@@ -104,7 +104,8 @@ _resolve_script_paths() {
 _execute_scripts() {
     local script=$1
     shift
-    local script_args=("${@:-}")
+    local -a script_args
+    script_args=("$@")
 
     local script_paths
     read -ra script_paths <<<"$(_resolve_script_paths "${script}")"
@@ -168,6 +169,10 @@ _main() {
 
     # Resolve script name (handle list/new/update)
     script=$(_resolve_script_name "${script}")
+
+    if [[ -z "$script" ]]; then
+        exit 0
+    fi
 
     # Execute all matching scripts (general + host-specific)
     _execute_scripts "${script}" "$@"
