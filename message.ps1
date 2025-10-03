@@ -69,7 +69,7 @@ function Colorize {
         [string]$Color,
         [string]$Text
     )
-    Write-Host "${Color}${Text}${script:ALL_RESET}" -NoNewline
+    Write-Host $Text -NoNewline -ForegroundColor $Color
 }
 
 function Yes-Or-No {
@@ -85,13 +85,19 @@ function Yes-Or-No {
     }
 
     while ($true) {
-        Write-Host "$($script:F_HIGHLIGHT)[$Module] $($script:F_NOTICE)$Question$($script:F_RESET) [$($script:F_SUCCESS)y$($script:F_RESET)/$($script:F_ERROR)n$($script:F_RESET)]: " -NoNewline
+        Write-Host "[$Module] " -NoNewline -ForegroundColor Yellow
+        Write-Host "$Question " -NoNewline -ForegroundColor Magenta
+        Write-Host "[" -NoNewline
+        Write-Host "y" -NoNewline -ForegroundColor Green
+        Write-Host "/" -NoNewline
+        Write-Host "n" -NoNewline -ForegroundColor Red
+        Write-Host "]: " -NoNewline
         $response = Read-Host
 
         switch -Regex ($response) {
             '^[Yy]' { return $true }
             '^[Nn]' {
-                Write-Host "$($script:F_WARNING)Aborted$($script:F_RESET)"
+                Write-Host "Aborted" -ForegroundColor Yellow
                 return $false
             }
         }
@@ -107,42 +113,46 @@ function Write-Message {
     )
 
     $severityPrefix = ""
-    $moduleColor = $script:F_INFO
-    $messageColor = $script:F_RESET
+    $moduleColor = "Cyan"
+    $messageColor = "White"
 
     switch ($Severity) {
         "info" {
-            $moduleColor = $script:F_INFO
-            $messageColor = $script:F_RESET
+            $moduleColor = "Cyan"
+            $messageColor = "White"
         }
         "error" {
-            $severityPrefix = "$($script:F_ERROR)$($script:BOLD_ON) ($($script:CROSS_MARK) error) $($script:ALL_RESET)"
-            $moduleColor = $script:F_ERROR
-            $messageColor = $script:F_ERROR
+            $severityPrefix = " ($($script:CROSS_MARK) error) "
+            $moduleColor = "Red"
+            $messageColor = "Red"
         }
         "notice" {
-            $severityPrefix = "$($script:F_NOTICE)$($script:BOLD_ON) ($($script:INFO_MARK) notice) $($script:ALL_RESET)"
-            $moduleColor = $script:F_NOTICE
-            $messageColor = $script:F_NOTICE
+            $severityPrefix = " ($($script:INFO_MARK) notice) "
+            $moduleColor = "Magenta"
+            $messageColor = "Magenta"
         }
         "warn" {
-            $severityPrefix = "$($script:F_WARNING)$($script:BOLD_ON) ($($script:WARNING_MARK) warn) $($script:ALL_RESET)"
-            $moduleColor = $script:F_WARNING
-            $messageColor = $script:F_WARNING
+            $severityPrefix = " ($($script:WARNING_MARK) warn) "
+            $moduleColor = "Yellow"
+            $messageColor = "Yellow"
         }
         "success" {
-            $severityPrefix = "$($script:F_SUCCESS)$($script:BOLD_ON) ($($script:CHECK_MARK) success) $($script:ALL_RESET)"
-            $moduleColor = $script:F_SUCCESS
-            $messageColor = $script:F_SUCCESS
+            $severityPrefix = " ($($script:CHECK_MARK) success) "
+            $moduleColor = "Green"
+            $messageColor = "Green"
         }
         "debug" {
-            $severityPrefix = "$($script:F_DEBUG)$($script:DIM_ON) ($([char]0x1F41B) debug) $($script:ALL_RESET)"
-            $moduleColor = $script:F_DEBUG
-            $messageColor = $script:F_DEBUG
+            $severityPrefix = " ($([char]0x1F41B) debug) "
+            $moduleColor = "DarkMagenta"
+            $messageColor = "DarkMagenta"
         }
     }
 
-    Write-Host "$severityPrefix$moduleColor[$Module] $messageColor$Message$($script:ALL_RESET)"
+    if ($severityPrefix) {
+        Write-Host $severityPrefix -NoNewline -ForegroundColor $moduleColor
+    }
+    Write-Host "[$Module] " -NoNewline -ForegroundColor $moduleColor
+    Write-Host $Message -ForegroundColor $messageColor
 }
 
 function Write-Running {
@@ -152,7 +162,8 @@ function Write-Running {
         [Parameter(Mandatory=$true)]
         [string]$Message
     )
-    Write-Host "$($script:F_HIGHLIGHT)[$Module] $($script:F_ACCENT)$($script:ARROW_MARK) $Message$($script:ALL_RESET)"
+    Write-Host "[$Module] " -NoNewline -ForegroundColor Yellow
+    Write-Host "$($script:ARROW_MARK) $Message" -ForegroundColor Yellow
 }
 
 function Write-Action {
@@ -162,7 +173,8 @@ function Write-Action {
         [Parameter(Mandatory=$true)]
         [string]$Message
     )
-    Write-Host "$($script:F_WARNING)[$Module] $($script:F_ACCENT)$($script:ARROW_MARK) $Message$($script:ALL_RESET)"
+    Write-Host "[$Module] " -NoNewline -ForegroundColor Yellow
+    Write-Host "$($script:ARROW_MARK) $Message" -ForegroundColor Yellow
 }
 
 function Write-Ok {
@@ -172,7 +184,8 @@ function Write-Ok {
         [Parameter(Mandatory=$true)]
         [string]$Message
     )
-    Write-Host "$($script:F_SUCCESS)[$Module] $($script:F_ACCENT)$($script:ARROW_MARK) $Message$($script:ALL_RESET)"
+    Write-Host "[$Module] " -NoNewline -ForegroundColor Green
+    Write-Host "$($script:ARROW_MARK) $Message" -ForegroundColor Yellow
 }
 
 function Write-SectionHeader {
@@ -184,11 +197,10 @@ function Write-SectionHeader {
     )
 
     Write-Host ""
-    Write-Host "$($script:F_ACCENT)$($script:BOLD_ON)" -NoNewline
-    Write-Host ($Char * $Width)
-    Write-Host " $Title "
-    Write-Host ($Char * $Width)
-    Write-Host "$($script:ALL_RESET)"
+    Write-Host ($Char * $Width) -ForegroundColor Yellow
+    Write-Host " $Title " -ForegroundColor Yellow
+    Write-Host ($Char * $Width) -ForegroundColor Yellow
+    Write-Host ""
 }
 
 function Write-ListItem {
@@ -203,19 +215,19 @@ function Write-ListItem {
 
     switch ($Status) {
         { $_ -in @("success", "done", "✓") } {
-            Write-Host "$prefix$($script:F_SUCCESS)$($script:CHECK_MARK) $Item$($script:ALL_RESET)"
+            Write-Host "$prefix$($script:CHECK_MARK) $Item" -ForegroundColor Green
         }
         { $_ -in @("error", "failed", "✗") } {
-            Write-Host "$prefix$($script:F_ERROR)$($script:CROSS_MARK) $Item$($script:ALL_RESET)"
+            Write-Host "$prefix$($script:CROSS_MARK) $Item" -ForegroundColor Red
         }
         { $_ -in @("warning", "warn", "⚠") } {
-            Write-Host "$prefix$($script:F_WARNING)$($script:WARNING_MARK) $Item$($script:ALL_RESET)"
+            Write-Host "$prefix$($script:WARNING_MARK) $Item" -ForegroundColor Yellow
         }
         { $_ -in @("info", "ⓘ") } {
-            Write-Host "$prefix$($script:F_INFO)$($script:INFO_MARK) $Item$($script:ALL_RESET)"
+            Write-Host "$prefix$($script:INFO_MARK) $Item" -ForegroundColor Cyan
         }
         default {
-            Write-Host "$prefix$($script:F_ACCENT)$($script:BULLET_MARK) $Item$($script:ALL_RESET)"
+            Write-Host "$prefix$($script:BULLET_MARK) $Item" -ForegroundColor Yellow
         }
     }
 }
