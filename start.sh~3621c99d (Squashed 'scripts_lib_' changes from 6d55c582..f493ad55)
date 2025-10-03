@@ -23,7 +23,7 @@ _end() {
 
 _usage() {
     echo ""
-    echo "usage: ${program_name}} [-y] [-h] script [script options]"
+    echo "usage: ${program_name} [-y] [-h] script [script options]"
     echo "  -h   display help"
     echo "  -d   as dependency (internal usage)"
     echo "  -y   yes to all"
@@ -169,6 +169,10 @@ _main() {
 
     # Resolve script name (handle list/new/update)
     script=$(_resolve_script_name "${script}")
+
+    if [[ -z "$script" ]]; then
+        exit 0
+    fi
 
     # Execute all matching scripts (general + host-specific)
     _execute_scripts "${script}" "$@"
