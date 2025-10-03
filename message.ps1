@@ -85,13 +85,13 @@ function Yes-Or-No {
     }
 
     while ($true) {
-        Write-Host "${script:F_HIGHLIGHT}[$Module] ${script:F_NOTICE}$Question${script:F_RESET} [${script:F_SUCCESS}y${script:F_RESET}/${script:F_ERROR}n${script:F_RESET}]: " -NoNewline
+        Write-Host "$($script:F_HIGHLIGHT)[$Module] $($script:F_NOTICE)$Question$($script:F_RESET) [$($script:F_SUCCESS)y$($script:F_RESET)/$($script:F_ERROR)n$($script:F_RESET)]: " -NoNewline
         $response = Read-Host
 
         switch -Regex ($response) {
             '^[Yy]' { return $true }
             '^[Nn]' {
-                Write-Host "${script:F_WARNING}Aborted${script:F_RESET}"
+                Write-Host "$($script:F_WARNING)Aborted$($script:F_RESET)"
                 return $false
             }
         }
@@ -116,33 +116,33 @@ function Write-Message {
             $messageColor = $script:F_RESET
         }
         "error" {
-            $severityPrefix = "${script:F_ERROR}${script:BOLD_ON} ($script:CROSS_MARK error) ${script:ALL_RESET}"
+            $severityPrefix = "$($script:F_ERROR)$($script:BOLD_ON) ($($script:CROSS_MARK) error) $($script:ALL_RESET)"
             $moduleColor = $script:F_ERROR
             $messageColor = $script:F_ERROR
         }
         "notice" {
-            $severityPrefix = "${script:F_NOTICE}${script:BOLD_ON} ($script:INFO_MARK notice) ${script:ALL_RESET}"
+            $severityPrefix = "$($script:F_NOTICE)$($script:BOLD_ON) ($($script:INFO_MARK) notice) $($script:ALL_RESET)"
             $moduleColor = $script:F_NOTICE
             $messageColor = $script:F_NOTICE
         }
         "warn" {
-            $severityPrefix = "${script:F_WARNING}${script:BOLD_ON} ($script:WARNING_MARK warn) ${script:ALL_RESET}"
+            $severityPrefix = "$($script:F_WARNING)$($script:BOLD_ON) ($($script:WARNING_MARK) warn) $($script:ALL_RESET)"
             $moduleColor = $script:F_WARNING
             $messageColor = $script:F_WARNING
         }
         "success" {
-            $severityPrefix = "${script:F_SUCCESS}${script:BOLD_ON} ($script:CHECK_MARK success) ${script:ALL_RESET}"
+            $severityPrefix = "$($script:F_SUCCESS)$($script:BOLD_ON) ($($script:CHECK_MARK) success) $($script:ALL_RESET)"
             $moduleColor = $script:F_SUCCESS
             $messageColor = $script:F_SUCCESS
         }
         "debug" {
-            $severityPrefix = "${script:F_DEBUG}${script:DIM_ON} ($([char]0x1F41B) debug) ${script:ALL_RESET}"
+            $severityPrefix = "$($script:F_DEBUG)$($script:DIM_ON) ($([char]0x1F41B) debug) $($script:ALL_RESET)"
             $moduleColor = $script:F_DEBUG
             $messageColor = $script:F_DEBUG
         }
     }
 
-    Write-Host "${severityPrefix}${moduleColor}[$Module] ${messageColor}${Message}${script:ALL_RESET}"
+    Write-Host "$severityPrefix$moduleColor[$Module] $messageColor$Message$($script:ALL_RESET)"
 }
 
 function Write-Running {
@@ -152,7 +152,7 @@ function Write-Running {
         [Parameter(Mandatory=$true)]
         [string]$Message
     )
-    Write-Host "${script:F_HIGHLIGHT}[$Module] ${script:F_ACCENT}$script:ARROW_MARK $Message${script:ALL_RESET}"
+    Write-Host "$($script:F_HIGHLIGHT)[$Module] $($script:F_ACCENT)$($script:ARROW_MARK) $Message$($script:ALL_RESET)"
 }
 
 function Write-Action {
@@ -162,7 +162,7 @@ function Write-Action {
         [Parameter(Mandatory=$true)]
         [string]$Message
     )
-    Write-Host "${script:F_WARNING}[$Module] ${script:F_ACCENT}$script:ARROW_MARK $Message${script:ALL_RESET}"
+    Write-Host "$($script:F_WARNING)[$Module] $($script:F_ACCENT)$($script:ARROW_MARK) $Message$($script:ALL_RESET)"
 }
 
 function Write-Ok {
@@ -172,7 +172,7 @@ function Write-Ok {
         [Parameter(Mandatory=$true)]
         [string]$Message
     )
-    Write-Host "${script:F_SUCCESS}[$Module] ${script:F_ACCENT}$script:ARROW_MARK $Message${script:ALL_RESET}"
+    Write-Host "$($script:F_SUCCESS)[$Module] $($script:F_ACCENT)$($script:ARROW_MARK) $Message$($script:ALL_RESET)"
 }
 
 function Write-SectionHeader {
@@ -184,11 +184,11 @@ function Write-SectionHeader {
     )
 
     Write-Host ""
-    Write-Host "${script:F_ACCENT}${script:BOLD_ON}" -NoNewline
+    Write-Host "$($script:F_ACCENT)$($script:BOLD_ON)" -NoNewline
     Write-Host ($Char * $Width)
     Write-Host " $Title "
     Write-Host ($Char * $Width)
-    Write-Host "${script:ALL_RESET}"
+    Write-Host "$($script:ALL_RESET)"
 }
 
 function Write-ListItem {
@@ -203,19 +203,19 @@ function Write-ListItem {
 
     switch ($Status) {
         { $_ -in @("success", "done", "✓") } {
-            Write-Host "${prefix}${script:F_SUCCESS}$script:CHECK_MARK ${Item}${script:ALL_RESET}"
+            Write-Host "$prefix$($script:F_SUCCESS)$($script:CHECK_MARK) $Item$($script:ALL_RESET)"
         }
         { $_ -in @("error", "failed", "✗") } {
-            Write-Host "${prefix}${script:F_ERROR}$script:CROSS_MARK ${Item}${script:ALL_RESET}"
+            Write-Host "$prefix$($script:F_ERROR)$($script:CROSS_MARK) $Item$($script:ALL_RESET)"
         }
         { $_ -in @("warning", "warn", "⚠") } {
-            Write-Host "${prefix}${script:F_WARNING}$script:WARNING_MARK ${Item}${script:ALL_RESET}"
+            Write-Host "$prefix$($script:F_WARNING)$($script:WARNING_MARK) $Item$($script:ALL_RESET)"
         }
         { $_ -in @("info", "ⓘ") } {
-            Write-Host "${prefix}${script:F_INFO}$script:INFO_MARK ${Item}${script:ALL_RESET}"
+            Write-Host "$prefix$($script:F_INFO)$($script:INFO_MARK) $Item$($script:ALL_RESET)"
         }
         default {
-            Write-Host "${prefix}${script:F_ACCENT}$script:BULLET_MARK ${Item}${script:ALL_RESET}"
+            Write-Host "$prefix$($script:F_ACCENT)$($script:BULLET_MARK) $Item$($script:ALL_RESET)"
         }
     }
 }
