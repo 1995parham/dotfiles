@@ -17,11 +17,13 @@
 #>
 
 param(
-    [Parameter(Position=0)]
+    [Parameter(Position=0, Mandatory=$false)]
     [string]$ScriptName = "",
     [switch]$Help,
     [Alias('y')]
-    [switch]$YesToAll
+    [switch]$YesToAll,
+    [Parameter(Position=1, ValueFromRemainingArguments=$true)]
+    [string[]]$RemainingArgs = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -76,7 +78,7 @@ function Resolve-ScriptName {
 function Resolve-ScriptPath {
     param([string]$Script)
 
-    $scriptPath = Join-Path $script:mainRoot "scripts\$Script.ps1"
+    $scriptPath = Join-Path $script:mainRoot "..\$Script.ps1"
 
     if (Test-Path $scriptPath) {
         return $scriptPath
@@ -200,7 +202,7 @@ function Main {
     # Load and execute the script
     try {
         . $scriptPath
-        Invoke-ScriptRun -ScriptArgs $args
+        Invoke-ScriptRun -ScriptArgs $RemainingArgs
     }
     catch {
         Write-Message -Module "pre" -Message "Failed to execute script: $_" -Severity "error"
