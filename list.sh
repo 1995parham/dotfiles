@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 usage() {
     echo "available scripts with their description"
 

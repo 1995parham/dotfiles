@@ -68,8 +68,7 @@ _resolve_script_name() {
         echo "lib/new"
         ;;
     "update")
-        git subtree pull --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
-        exit 0
+        echo "lib/update"
         ;;
     *)
         echo "${script}"
@@ -168,10 +167,6 @@ _main() {
 
     # Resolve script name (handle list/new/update)
     script=$(_resolve_script_name "${script}")
-
-    if [[ -z "$script" ]]; then
-        exit 0
-    fi
 
     # Execute all matching scripts (general + host-specific)
     _execute_scripts "${script}" "$@"
