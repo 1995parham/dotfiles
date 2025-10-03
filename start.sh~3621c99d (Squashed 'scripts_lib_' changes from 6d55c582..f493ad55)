@@ -104,7 +104,7 @@ _resolve_script_paths() {
 _execute_scripts() {
     local script=$1
     shift
-    local -a script_args=("$@")
+    local -a script_args
     script_args=("$@")
 
     local script_paths
