@@ -33,23 +33,12 @@ _usage() {
     echo ""
 }
 
-_main() {
-    ## global variables ##
-    ######################
+_parse_options() {
+    # These are used globally in the script
+    show_help=false
+    yes_to_all=0
+    as_dependency=false
 
-    # global variable indicates show help for user in specific script
-    # there is no need to use it in your script
-    local show_help=false
-
-    # ask no questions, use sane defaults
-    local yes_to_all=0
-
-    # as_dependency shows that this start.sh is going to install a dependency
-    local as_dependency=false
-
-    ######################
-
-    # parses options flags
     while getopts 'dhy' argv; do
         case ${argv} in
         h)
@@ -66,10 +55,95 @@ _main() {
             ;;
         esac
     done
+}
 
-    for ((i = 2; i <= OPTIND; i++)); do
-        shift
+_resolve_script_name() {
+    local script=$1
+
+    case ${script} in
+    "list")
+        echo "lib/list"
+        ;;
+    "new")
+        echo "lib/new"
+        ;;
+    "update")
+        git subtree pull --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
+        exit 0
+        ;;
+    *)
+        echo "${script}"
+        ;;
+    esac
+}
+
+_resolve_script_paths() {
+    local script=$1
+    local paths=()
+    local host
+    host="${HOSTNAME%%.*}"
+
+    # General script in scripts/
+    if [[ -f "${main_root}/scripts/${script}.sh" ]]; then
+        paths+=("${main_root}/scripts/${script}.sh:${main_root}")
+    fi
+
+    # Host-specific script in hosts/{hostname}/scripts/
+    if [[ -f "${main_root}/hosts/${host}/scripts/${script}.sh" ]]; then
+        paths+=("${main_root}/hosts/${host}/scripts/${script}.sh:${main_root}/hosts/${host}")
+    fi
+
+    # Fallback: old structure {hostname}/scripts/
+    if [[ -f "${main_root}/${host}/scripts/${script}.sh" ]]; then
+        paths+=("${main_root}/${host}/scripts/${script}.sh:${main_root}/${host}")
+    fi
+
+    echo "${paths[@]}"
+}
+
+_execute_scripts() {
+    local script=$1
+    shift
+    local script_args=("$@")
+
+    local script_paths
+    read -ra script_paths <<<"$(_resolve_script_paths "${script}")"
+
+    if [[ ${#script_paths[@]} -eq 0 ]]; then
+        message "pre" "404 script not found" "notice"
+        local host="${HOSTNAME%%.*}"
+        message "pre" "404 script not found for ${host}" "notice"
+        _usage
+        return 1
+    fi
+
+    for script_path_entry in "${script_paths[@]}"; do
+        IFS=':' read -r script_file script_root <<<"${script_path_entry}"
+
+        if [[ "${script_file}" == *"/hosts/"* ]] || [[ "${script_file}" == *"/${HOSTNAME%%.*}/"* ]]; then
+            local host="${HOSTNAME%%.*}"
+            message "pre" "run script for specific host: ${host}" "notice"
+        fi
+
+        # Set root for this script execution
+        root="${script_root}"
+
+        # shellcheck disable=1090
+        if ! source "${script_file}" 2>/dev/null; then
+            message "pre" "failed to source ${script_file}" "error"
+            return 1
+        fi
+
+        _run "${script_args[@]}"
     done
+}
+
+_main() {
+    # Parse command-line options
+    _parse_options "$@"
+
+    # Shift past the parsed options
+    shift $((OPTIND - 1))
 
     if [[ ${as_dependency} = false ]]; then
         # shellcheck source=header.sh
@@ -82,12 +156,8 @@ _main() {
         return 1
     fi
 
-    # handles given script run and result
+    # Get script name
     local script
-    local start
-    local took
-
-    # https://stackoverflow.com/questions/7832080/test-if-a-variable-is-set-in-bash-when-using-set-o-nounset
     if [[ "${1:+defined}" = "defined" ]]; then
         script=$1
         shift
@@ -96,51 +166,11 @@ _main() {
         script="list"
     fi
 
-    case ${script} in
-    "list")
-        script="lib/list"
-        ;;
-    "new")
-        script="lib/new"
-        ;;
-    "update")
-        git subtree pull --prefix scripts/lib https://github.com/1995parham/dotfiles.lib.git main --squash
-        return 0
-        ;;
-    *) ;;
-    esac
+    # Resolve script name (handle list/new/update)
+    script=$(_resolve_script_name "${script}")
 
-    # shellcheck disable=1090
-    if ! [[ -f "${root}/scripts/${script}.sh" ]] || ! source "${root}/scripts/${script}.sh" 2>/dev/null; then
-        message "pre" "404 script not found" "notice"
-
-        local host
-        host="${HOSTNAME}"
-        host="${host%.*}"
-        if ! [[ -f "${root}/${host}/scripts/${script}.sh" ]] || ! source "${root}/${host}/scripts/${script}.sh" 2>/dev/null; then
-            message "pre" "404 script not found for ${host}" "notice"
-            _usage
-            return 1
-        fi
-
-        message "pre" "run scirpt for specific host: ${host}" "notice"
-        root="${root}/${host}"
-    fi
-
-    _run "$@"
-
-    local host
-    host="${HOSTNAME}"
-    host="${host%.*}"
-    # shellcheck disable=1090
-    if ! [[ -f "${root}/${host}/scripts/${script}.sh" ]] || ! source "${root}/${host}/scripts/${script}.sh" 2>/dev/null; then
-        return 0
-    fi
-
-    message "pre" "run scirpt for specific host: ${host}" "notice"
-    root="${root}/${host}"
-
-    _run "$@"
+    # Execute all matching scripts (general + host-specific)
+    _execute_scripts "${script}" "$@"
 }
 
 _run() {

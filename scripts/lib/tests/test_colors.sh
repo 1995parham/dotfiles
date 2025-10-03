@@ -2,9 +2,10 @@
 
 # Test script to showcase the enhanced colorization
 
-# Source the message library
-# shellcheck source=message.sh
-source "$(dirname "${BASH_SOURCE[0]}")/message.sh"
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# shellcheck source=main.sh
+source "${root}/../main.sh"
 
 # Test section headers
 section_header "Color Scheme Demo"
@@ -84,3 +85,6 @@ echo -e "${F_BRIGHT_ORANGE}${BOLD_ON}🔥🔥🔥 BLAZING ORANGE FIRE 🔥🔥�
 
 echo
 colorize "${F_SUCCESS}${BOLD_ON}" "🎉✨ ULTRA VIBRANT COLOR SCHEME COMPLETE! ✨🎉"
+
+# shellcheck source=unit.sh
+source "${root}/../unit.sh"
