@@ -1,1 +1,0 @@
-tectonic.sh

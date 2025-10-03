@@ -1,3 +1,0 @@
-# ignores texlive-installer directory that is created by
-# texlive installation script.
-texlive-installer
