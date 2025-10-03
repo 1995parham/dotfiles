@@ -32,7 +32,7 @@ $script:mainRoot = $PSScriptRoot
 $script:yes_to_all = if ($YesToAll) { 1 } else { 0 }
 
 # Load library functions
-. (Join-Path $script:root "scripts\lib\main.ps1")
+. (Join-Path $script:root "main.ps1")
 
 function Show-Usage {
     Write-Host ""
