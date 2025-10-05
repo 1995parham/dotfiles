@@ -14,10 +14,16 @@ source "$tmuxs_root/../../scripts/lib/main.sh"
 # initialize commands array for virtual environment activation
 commands=()
 
+# window name suffix emoji
+window_emoji="📁"
+
+# fzf color scheme
+fzf_colors="fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec"
+
 project=$(
     # -H is not enough for having .git in your search, you need to have -I too.
     fd -tdirectory -tfile -IH ^\.git$ ~/Documents/Git -x dirname |
-        fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+        fzf --color="$fzf_colors" \
             --preview="onefetch {}; tokei {}"
 )
 
@@ -29,7 +35,7 @@ sub_project=""
 if [[ " ${mono_repositories[*]} " == *"$org_name/$project_name"* ]]; then
     sub_project=$(
         fd -tdirectory . "$project" -I -d 1 -x basename | cat - <(echo ".") |
-            fzf --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+            fzf --color="$fzf_colors" \
                 --preview="onefetch $project/{}; tokei $project/{}"
     )
     if [ "$sub_project" == "." ]; then
@@ -46,12 +52,12 @@ if [ -n "$sub_project" ]; then
 fi
 current_session="$(tmux display-message -p '#S')"
 
-sessions=$(tmux list-sessions | sed 's/: .*$//')
+sessions=$(tmux list-sessions 2>/dev/null | sed 's/: .*$//' || echo "")
 
 current_session=$(
     printf "%s\n[new]" "$sessions" |
         fzf \
-            --color=fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec \
+            --color="$fzf_colors" \
             --query "$current_session" \
             --preview="tmux capture-pane -ep -t {}"
 )
@@ -66,7 +72,10 @@ if [ "$current_session" == "[new]" ]; then
     fi
 fi
 
-cd "$project" || exit
+if ! cd "$project"; then
+    message 'tmux' "failed to change directory to $project" 'error'
+    exit 1
+fi
 
 if command -v onefetch &>/dev/null; then
     onefetch || true
@@ -80,8 +89,8 @@ if command -v tokei &>/dev/null; then
     echo
 fi
 
-# install python requirements using Pipenv
-# and it automatically use pyenv for python version management.
+# install python requirements using Pipenv, Poetry, uv or requirements.txt
+# pipenv automatically uses pyenv for python version management.
 if [ -f Pipfile ]; then
     pipenv=""
 
@@ -94,15 +103,13 @@ if [ -f Pipfile ]; then
 
     if [ -n "$pipenv" ]; then
         message 'tmux' "setup project base on pipenv ($pipenv)" 'warn' && sleep 5
-        bash -c "$pipenv sync --verbose --dev" || message 'tmux' 'pipenv requirement installation failed' 'error'
+        bash -c "$pipenv sync --dev" || message 'tmux' 'pipenv requirement installation failed' 'error'
 
         venv_path="$($pipenv --venv)"
 
         commands=("source $venv_path/bin/activate" "${commands[@]}")
     fi
-fi
-
-if [ -f poetry.lock ]; then
+elif [ -f poetry.lock ]; then
     poetry=""
 
     if command -v pipx &>/dev/null; then
@@ -120,11 +127,9 @@ if [ -f poetry.lock ]; then
 
         commands=("source $venv_path/bin/activate" "${commands[@]}")
     fi
-fi
-
 # install python requirements using requirements.txt
 # and using pyenv manually to install required python version.
-if [ -f requirements.txt ]; then
+elif [ -f requirements.txt ]; then
     if [ ! -d '.venv' ]; then
         if command -v pyenv &>/dev/null && [ -f .python-version ]; then
             pyenv install
@@ -143,10 +148,8 @@ if [ -f requirements.txt ]; then
         # shellcheck disable=1091
         source '.venv/bin/activate' && pip install -r requirements.txt && deactivate
     fi
-fi
-
-# detect rye based on having uv.lock in the project root.
-if [ -f uv.lock ]; then
+# detect uv based on having uv.lock in the project root.
+elif [ -f uv.lock ]; then
     uv=""
 
     if command -v pipx &>/dev/null; then
@@ -164,18 +167,21 @@ if [ -f uv.lock ]; then
     fi
 fi
 
-cd - || exit
-
 prefix=0
-if tmux has-session -t "$current_session:=$name 📁" &>/dev/null; then
+max_retries=100
+if tmux has-session -t "$current_session:=$name $window_emoji" &>/dev/null; then
     name="${org_name}/${name}"
 fi
-while tmux has-session -t "$current_session:=$name 📁" &>/dev/null; do
+while tmux has-session -t "$current_session:=$name $window_emoji" &>/dev/null; do
     name="${name}_${prefix}"
     prefix=$((prefix + 1))
+    if [ "$prefix" -ge "$max_retries" ]; then
+        message 'tmux' "failed to find unique window name after $max_retries attempts" 'error'
+        exit 1
+    fi
 done
 
-name="${name} 📁"
+name="${name} ${window_emoji}"
 
 tmux new-window -t "$current_session" -c "$project" -n "$name"
 tmux split-window -t "$current_session:$name" -c "$project"
@@ -183,8 +189,8 @@ tmux select-pane -t "$current_session:$name.0"
 tmux split-window -h -t "$current_session:$name" -c "$project"
 
 # using send command to run the pre-configured commands on all panes
-num_panes=2
-for i in $(seq 0 "$num_panes"); do
+num_panes=3
+for i in $(seq 0 $((num_panes - 1))); do
     for command in "${commands[@]}"; do
         tmux send-keys -t "$current_session:$name.$i" "$command" Enter
     done
