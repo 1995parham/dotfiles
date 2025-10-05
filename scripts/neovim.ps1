@@ -1,6 +1,9 @@
 # Neovim installation and configuration for Windows
 # Ported from neovim.sh
 
+# Dependencies
+$script:dependencies = @("node", "python")
+
 function Get-Usage {
     return @"
 hyperextensible Vim-based text editor (plugins, theme, etc.)
