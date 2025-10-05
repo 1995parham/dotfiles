@@ -220,6 +220,7 @@ main_brew() {
         the-unarchiver
         KeepingYouAwake
         maccy
+        pearcleaner
     )
 
     msg "install ${brew_cask_packages[*]} with brew --cask"
