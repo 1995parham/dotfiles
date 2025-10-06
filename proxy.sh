@@ -24,11 +24,11 @@ proxy_start() {
     else
         url="http://127.0.0.1:2081"
 
-        if [[ -n $(command -v ss) ]]; then
+        if command -v ss >/dev/null 2>&1; then
             if ! (ss -tunl | grep :2081 &>/dev/null); then
                 return 0
             fi
-        elif [[ -n $(command -v netstat) ]]; then
+        elif command -v netstat >/dev/null 2>&1; then
             if ! (netstat -an | grep LISTEN | grep 2081 &>/dev/null); then
                 return 0
             fi

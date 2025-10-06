@@ -6,7 +6,11 @@ ip_country_url="https://api.ipquery.io/?format=json"
 # check being in the specific country
 function require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s "$ip_country_url" | jq '.location.country' || echo -n 'Iran')"
+    current_country="$(curl -m 10 -s "$ip_country_url" | jq -r '.location.country' 2>/dev/null)"
+    if [[ -z "${current_country}" ]]; then
+        message "country" "󰈻 failed to detect current country" "error"
+        return 1
+    fi
     if [[ "${current_country}" != "${country}" ]]; then
         message "country" "󰈻 please be in ${country} instead of ${current_country}" "error"
         return 1
@@ -18,7 +22,11 @@ function require_country() {
 # check not being in the specific country
 function not_require_country() {
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s "$ip_country_url" | jq '.location.country' || echo -n 'Iran')"
+    current_country="$(curl -m 10 -s "$ip_country_url" | jq -r '.location.country' 2>/dev/null)"
+    if [[ -z "${current_country}" ]]; then
+        message "country" "󰈻 failed to detect current country" "error"
+        return 1
+    fi
     if [[ "${current_country}" == "${country}" ]]; then
         message "country" "󰈻 please be in another country instead of ${country}" "error"
         return 1
@@ -227,9 +235,9 @@ function require_pip() {
         name=$(echo "${name}" | xargs)
 
         running "require" " python ${name} (${pkg})"
-        if ${not_specific_version} && (pipx list | grep "${pkg}" &>/dev/null); then
+        if ${not_specific_version} && (pipx list | grep "${name}" &>/dev/null); then
             action "require" " pipx upgrade ${name} (${pkg})"
-            pipx upgrade "${pkg}"
+            pipx upgrade "${name}"
         else
             if ${not_specific_version}; then
                 action "require" " pipx install ${name} (${pkg})"
@@ -245,8 +253,12 @@ function require_pip() {
 function require_npm() {
     for pkg in "$@"; do
         action "require" "󰎙 node ${pkg}"
-        if ! (node -g list "${pkg}" &>/dev/null); then
-            sudo npm install -g "${pkg}"
+        if ! (npm list -g "${pkg}" &>/dev/null); then
+            if [[ "$OSTYPE" == "darwin"* ]]; then
+                npm install -g "${pkg}"
+            else
+                sudo npm install -g "${pkg}"
+            fi
         fi
     done
 }
@@ -282,7 +294,11 @@ function require_hosts_record() {
             # iterate over the line numbers on which matches were found
             while read -r line_number; do
                 # replace the text of each line with the desired host entry
-                sudo sed -i '' "${line_number}s/.*/${host_entry}/" /etc/hosts
+                if [[ "$OSTYPE" == "darwin"* ]]; then
+                    sudo sed -i '' "${line_number}s/.*/${host_entry}/" /etc/hosts
+                else
+                    sudo sed -i "${line_number}s/.*/${host_entry}/" /etc/hosts
+                fi
             done <<<"$matches_in_hosts"
         else
             message "hosts" "adding new hosts entry"
@@ -388,48 +404,48 @@ function _add_systemd_kernel_parameter() {
     local configuration=${1:?"systemd-boot loader configuration required"}
     local new_kernel_parameter=${2:?"new parameter required"}
 
-    local kernel_paramters
-    declare -a kernel_paramters
-    IFS=' ' read -ra kernel_paramters <<<"$(grep options "${configuration}")"
+    local kernel_parameters
+    declare -a kernel_parameters
+    IFS=' ' read -ra kernel_parameters <<<"$(grep options "${configuration}")"
 
     local output
-    output=$(echo -n "current kernel_paramters: |")
-    output="${output}"$(printf "%s|" "${kernel_paramters[@]}")
+    output=$(echo -n "current kernel_parameters: |")
+    output="${output}"$(printf "%s|" "${kernel_parameters[@]}")
     message 'systemd-boot' "${output}"
 
-    for kernel_parameter in "${kernel_paramters[@]}"; do
+    for kernel_parameter in "${kernel_parameters[@]}"; do
         if [[ "${kernel_parameter}" == "${new_kernel_parameter}" ]]; then
             message "systemd-boot" "kernel_parameter ${new_kernel_parameter} already exists"
             return 0
         fi
     done
-    kernel_paramters+=("${new_kernel_parameter}")
+    kernel_parameters+=("${new_kernel_parameter}")
 
-    sudo sed -i -e "s|^options.*$|${kernel_paramters[*]}|" "${configuration}"
+    sudo sed -i -e "s|^options.*$|${kernel_parameters[*]}|" "${configuration}"
 }
 
 function _remove_systemd_kernel_parameter() {
     local configuration=${1:?"systemd-boot loader configuration required"}
     local new_kernel_parameter=${2:?"new parameter required"}
 
-    local kernel_paramters
-    declare -a kernel_paramters
-    IFS=' ' read -ra kernel_paramters <<<"$(grep options "${configuration}")"
+    local kernel_parameters
+    declare -a kernel_parameters
+    IFS=' ' read -ra kernel_parameters <<<"$(grep options "${configuration}")"
 
     local output
-    output=$(echo -n "current kernel_paramters: |")
-    output="${output}"$(printf "%s|" "${kernel_paramters[@]}")
+    output=$(echo -n "current kernel_parameters: |")
+    output="${output}"$(printf "%s|" "${kernel_parameters[@]}")
     message 'systemd-boot' "${output}"
 
     local found=0
-    for index in "${!kernel_paramters[@]}"; do
-        if [[ "${kernel_paramters[${index}]}" == "${new_kernel_parameter}" ]]; then
-            unset "kernel_paramters[${index}]"
+    for index in "${!kernel_parameters[@]}"; do
+        if [[ "${kernel_parameters[${index}]}" == "${new_kernel_parameter}" ]]; then
+            unset "kernel_parameters[${index}]"
             found=1
         fi
     done
 
     if [[ "${found}" -eq 1 ]]; then
-        sudo sed -i -e "s|^options.*$|${kernel_paramters[*]}|" "${configuration}"
+        sudo sed -i -e "s|^options.*$|${kernel_parameters[*]}|" "${configuration}"
     fi
 }
