@@ -41,10 +41,12 @@ main_brew() {
     require_brew zsh zsh-completions
 
     if ! grep -q -F "if type brew &>/dev/null; then" "$HOME/.zshrc"; then
+        local brew_prefix="$(brew --prefix)"
         tee -a "$HOME/.zshrc" <<EOL
 if type brew &>/dev/null; then
-  FPATH=\$(brew --prefix)/share/zsh-completions:\$FPATH
-  FPATH=\$(brew --prefix)/share/zsh/site-functions:\$FPATH
+  HOMEBREW_PREFIX="\${HOMEBREW_PREFIX:-\$(brew --prefix)}"
+  FPATH=\$HOMEBREW_PREFIX/share/zsh-completions:\$FPATH
+  FPATH=\$HOMEBREW_PREFIX/share/zsh/site-functions:\$FPATH
 
   autoload -Uz compinit
   compinit
@@ -52,8 +54,9 @@ fi
 EOL
     fi
 
-    chmod go-w "$(brew --prefix)/share"
-    chmod -R go-w "$(brew --prefix)/share/zsh"
+    local brew_prefix="$(brew --prefix)"
+    chmod go-w "$brew_prefix/share"
+    chmod -R go-w "$brew_prefix/share/zsh"
 
     rm -f ~/.zcompdump
 }

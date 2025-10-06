@@ -46,10 +46,10 @@ export LC_ALL="en_US.UTF-8"
 
 # editors and terminals {{{
 
-EDITOR="$(which nvim)"
+EDITOR="$(command -v nvim)"
 export EDITOR
 
-SUDO_EDITOR="$(which nvim)"
+SUDO_EDITOR="$(command -v nvim)"
 export SUDO_EDITOR
 
 TERM="xterm-256color"

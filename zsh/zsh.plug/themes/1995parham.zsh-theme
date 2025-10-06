@@ -6,7 +6,7 @@
 # Setup python virtual environment prompt settings
 VIRTUAL_ENV_DISABLE_PROMPT=true
 function virtualenv_info() {
-  [ $VIRTUAL_ENV ] && echo "[  $(python3 --version) $(basename $VIRTUAL_ENV)] "
+  [ "$VIRTUAL_ENV" ] && echo "[  $(python3 --version) $(basename "$VIRTUAL_ENV")] "
 }
 
 function prompt_venv() {
@@ -15,11 +15,11 @@ function prompt_venv() {
 
 # is there any proxy?
 function prompt_proxy() {
-  [ $http_proxy ] || [ $https_proxy ] || [ $ftp_proxy ] && echo "⚔ "
+  [ "$http_proxy" ] || [ "$https_proxy" ] || [ "$ftp_proxy" ] && echo "⚔ "
 }
 
 function prompt_kube() {
-  if which kubectl 2>/dev/null 1>&2; then
+  if command -v kubectl >/dev/null 2>&1; then
     local namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2> /dev/null)
     namespace=${namespace:-default}
 
@@ -31,15 +31,15 @@ function prompt_kube() {
     cluster=${cluster%%:*}
     cluster=${cluster:-n/a}
 
-    echo %F{239}'['%f %F{blue}'ﴱ'%f%F{239} $user@%F{216}$cluster%f/%F{216}$namespace%f%F{239}']'%f
+    echo %F{239}'['%f %F{blue}'ﴱ'%f%F{239} "$user"@%F{216}"$cluster"%f/%F{216}"$namespace"%f%F{239}']'%f
   fi
 }
 
 function prompt_argocd() {
-  if which argocd 2>/dev/null 1>&2; then
+  if command -v argocd >/dev/null 2>&1; then
     context=$(argocd context 2> /dev/null | grep '*' | cut -d' ' -f9)
 
-    echo %F{239}'['%f%F{216} $context%f%F{239}']'%f
+    echo %F{239}'['%f%F{216} "$context"%f%F{239}']'%f
   fi
 }
 
@@ -48,7 +48,7 @@ function kernel_version() {
 }
 
 function local_remote_prompt() {
-  if [ $SSH_CONNECTION ]; then
+  if [ "$SSH_CONNECTION" ]; then
     echo "⇢"
   else
     echo '@'
