@@ -39,6 +39,7 @@ alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias imv="open"
+    alias ls="ls --color"
     alias mupdf="open"
     alias wl-copy=pbcopy
     alias wl-paste=pbpaste
