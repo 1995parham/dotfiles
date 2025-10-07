@@ -38,8 +38,6 @@ alias weaf='curl -s "wttr.in/Tehran?Fqm"'
 alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # when you live years in Arch and force to use osx
-    alias ls="ls --color"
     alias imv="open"
     alias mupdf="open"
     alias wl-copy=pbcopy
