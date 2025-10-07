@@ -27,6 +27,8 @@ jobs:
             - uses: actions/checkout@v5
             - name: start.sh brew
               run: ./start.sh -y brew
+            - name: start.sh bash
+              run: ./start.sh -y bash
             - name: start.sh env
               run: ./start.sh -y env
             - name: install.sh

@@ -15,7 +15,6 @@ export dependencies=("fetch" "zsh" "bash")
 
 # Common packages across all package managers
 packages=(
-    # Terminal & Shell
     tmux
     tmuxp
     htop
@@ -40,12 +39,10 @@ packages=(
     pre-commit
     mtr
     tree
-    # Development tools
     git
     bash
     fd
     jless
-    # Utilities
     yq
     watch
 )
