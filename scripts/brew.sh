@@ -13,36 +13,59 @@ usage() {
 }
 
 main_brew() {
-    if [[ ! "$(command -v brew)" ]]; then
-        xcode-select --install || true
+    if ! command -v brew &>/dev/null; then
+        msg 'installing Xcode Command Line Tools (this may prompt for password)'
+        if ! xcode-select --install 2>/dev/null; then
+            msg 'Xcode Command Line Tools already installed or installation failed'
+        fi
 
-        /usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        msg 'downloading Homebrew installer'
+        local brew_installer="/tmp/homebrew-installer.sh"
+        if ! curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$brew_installer"; then
+            msg 'failed to download Homebrew installer' 'error'
+            return 1
+        fi
+
+        msg 'running Homebrew installer'
+        if ! /usr/bin/env bash "$brew_installer"; then
+            msg 'failed to install Homebrew' 'error'
+            rm -f "$brew_installer"
+            return 1
+        fi
+        rm -f "$brew_installer"
+    fi
+
+    # Detect brew path (ARM vs Intel Mac)
+    local brew_path
+    if [ -x "/opt/homebrew/bin/brew" ]; then
+        brew_path="/opt/homebrew/bin/brew"
+    elif [ -x "/usr/local/bin/brew" ]; then
+        brew_path="/usr/local/bin/brew"
+    else
+        msg 'brew binary not found after installation' 'error'
+        return 1
     fi
 
     if [ ! -f "$HOME/.zprofile" ]; then
-        touch "$HOME/.zprofile"
+        if ! touch "$HOME/.zprofile"; then
+            msg 'failed to create .zprofile file' 'error'
+            return 1
+        fi
     fi
 
     # shellcheck disable=2016
-    if ! grep -q -F 'eval "$(/opt/homebrew/bin/brew shellenv)"' \
-        "$HOME/.zprofile"; then
-
-        # shellcheck disable=2016
-        (
+    local shellenv_line='eval "$('"$brew_path"' shellenv)"'
+    if ! grep -q -F "$brew_path shellenv" "$HOME/.zprofile"; then
+        msg 'adding brew shellenv to .zprofile'
+        if ! (
             echo
-            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
-        ) |
-            tee -a "$HOME/.zprofile"
+            echo "$shellenv_line"
+        ) | tee -a "$HOME/.zprofile" >/dev/null; then
+            msg 'failed to append to .zprofile' 'error'
+            return 1
+        fi
     fi
 
     # provides brew in the current shell
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-}
-
-main_pacman() {
-    return 1
-}
-
-main_apt() {
-    return 1
+    eval "$("$brew_path" shellenv)"
 }
