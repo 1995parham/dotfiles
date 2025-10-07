@@ -28,13 +28,18 @@ main_brew() {
 }
 
 main_parham() {
+    if ! command -v bluetoothctl &>/dev/null; then
+        msg 'bluetoothctl not available - please install bluez' 'error'
+        return 1
+    fi
+
     devices=(
         "galaxy-buds2-pro: Experience studio-worthy listening in our most comfortable design yet."
     )
 
     local device
     if [ $# -eq 1 ]; then
-        device=$("$1" | tr '[:upper:]' '[:lower:]')
+        device=$(echo "$1" | tr '[:upper:]' '[:lower:]')
     else
         PS3="select device to connect: "
 
@@ -51,18 +56,43 @@ main_parham() {
         mac_address="64:5D:F4:9E:9D:5F"
         ;;
     *)
-        return
+        msg "unknown device: $device" 'error'
+        return 1
         ;;
     esac
 
-    bluetoothctl disconnect "$mac_address" || true
-    bluetoothctl untrust "$mac_address" || true
-    bluetoothctl remove "$mac_address" || true
+    msg "cleaning up existing connection for $mac_address"
+    bluetoothctl disconnect "$mac_address" 2>/dev/null || true
+    bluetoothctl untrust "$mac_address" 2>/dev/null || true
+    bluetoothctl remove "$mac_address" 2>/dev/null || true
 
-    bluetoothctl --timeout 12 scan on
+    local scan_timeout=12 # seconds to scan for bluetooth devices
+    msg "scanning for bluetooth devices..."
+    if ! bluetoothctl --timeout "$scan_timeout" scan on; then
+        msg 'bluetooth scan failed' 'error'
+        return 1
+    fi
 
+    msg "device info:"
     bluetoothctl info "$mac_address"
-    bluetoothctl connect "$mac_address"
-    bluetoothctl pair "$mac_address"
-    bluetoothctl trust "$mac_address"
+
+    msg "connecting to $mac_address"
+    if ! bluetoothctl connect "$mac_address"; then
+        msg 'failed to connect to device' 'error'
+        return 1
+    fi
+
+    msg "pairing with device"
+    if ! bluetoothctl pair "$mac_address"; then
+        msg 'failed to pair with device' 'error'
+        return 1
+    fi
+
+    msg "trusting device"
+    if ! bluetoothctl trust "$mac_address"; then
+        msg 'failed to trust device' 'error'
+        return 1
+    fi
+
+    msg "successfully connected to $device"
 }
