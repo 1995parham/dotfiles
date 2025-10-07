@@ -25,34 +25,62 @@ main_pacman() {
 }
 
 main() {
+    if ! command -v go &>/dev/null; then
+        msg 'go is not available in PATH' 'error'
+        return 1
+    fi
     msg "$(go version)"
 
     msg "create go directories structure"
-    local gopath
-    gopath=$HOME/.cache/go
-    [ -d "$gopath/pkg" ] || mkdir -p "$gopath/pkg"
+    local gopath="$HOME/.cache/go"
+    if [ ! -d "$gopath/pkg" ]; then
+        if ! mkdir -p "$gopath/pkg"; then
+            msg 'failed to create GOPATH directory' 'error'
+            return 1
+        fi
+    fi
 
-    local gobin
-    gobin=$HOME/.local/bin
-    [ -d "$gobin" ] || mkdir -p "$gobin"
+    local gobin="$HOME/.local/bin"
+    if [ ! -d "$gobin" ]; then
+        if ! mkdir -p "$gobin"; then
+            msg 'failed to create GOBIN directory' 'error'
+            return 1
+        fi
+    fi
 
-    go env -w GOPATH="$HOME/.cache/go"
-    go env -w GOBIN="$HOME/.local/bin"
-    go env -w GOPROXY=https://proxy.golang.org,direct
-    # go env -w GOPROXY="direct"
-    # go env -w GOPROXY="https://goproxy.io,goproxy.cn,direct"
-    # go env -w GOPROXY="https://goproxy.cn,direct"
-    go env -w GONOSUMDB="gitlab.snapp.ir"
-    # go env -w GOSUMDB="sum.golang.org"
-    go env -w GOSUMDB="off"
-    go env -w GOPRIVATE="gitlab.snapp.ir"
+    msg "configure go environment variables"
+    go_env GOPATH "$HOME/.cache/go"
+    go_env GOBIN "$HOME/.local/bin"
+    go_env GOPROXY https://proxy.golang.org,direct
+    go_env GOSUMDB "sum.golang.org" # Use official Go checksum database
+
+    go_env GONOSUMDB "gitlab.snapp.ir"
+    go_env GOPRIVATE "gitlab.snapp.ir"
+
+    # Alternative GOPROXY configurations (uncomment if needed):
+    # go_env GOPROXY "direct"  # Direct access only (no proxy)
+    # go_env GOPROXY "https://goproxy.io,goproxy.cn,direct"  # Chinese mirrors
+    # go_env GOPROXY "https://goproxy.cn,direct"  # Aliyun mirror
+
+    # Alternative GOSUMDB configuration:
+    # go_env GOSUMDB "off"
 
     go env
 
-    go-install-packages
+    go_install_packages
 }
 
-go-install-packages() {
+go_env() {
+    local name=$1
+    local value=$2
+
+    if ! go env -w "${name}=${value}"; then
+        msg 'failed to configure go environment' 'error'
+        return 1
+    fi
+}
+
+go_install_packages() {
     msg "fetch some good and useful go packages"
 
     require_go github.com/golangci/golangci-lint/v2/cmd/golangci-lint
@@ -61,10 +89,15 @@ go-install-packages() {
     require_go golang.org/x/tools/gopls
     require_go golang.org/dl/gotip
     require_go github.com/go-delve/delve/cmd/dlv
+    # Wire dependency injection tool (commented - enable if needed)
     # require_go github.com/google/wire/cmd/wire
     require_go github.com/abice/go-enum
     require_go github.com/swaggo/swag/cmd/swag
     require_go golang.org/x/tools/cmd/gonew
 
-    msg "golangci-lint $(golangci-lint version)"
+    if command -v golangci-lint &>/dev/null; then
+        msg "golangci-lint $(golangci-lint version)"
+    else
+        msg 'golangci-lint not available in PATH' 'error'
+    fi
 }
