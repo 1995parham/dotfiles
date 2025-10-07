@@ -11,9 +11,6 @@ usage() {
   '
 }
 
-# neovim right now has very high cpu/memory usage and it is not suitable
-# for every system.
-# export dependencies=("neovim")
 export dependencies=("fetch" "zsh" "bash")
 
 # Common packages across all package managers
@@ -88,6 +85,7 @@ main_apt() {
         ["yq"]="yq"
         ["watch"]="procps"
         ["fd"]="fd-find"
+        ["jless"]="-"
     )'
 
     if ! sudo apt update -yq; then

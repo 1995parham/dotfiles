@@ -68,4 +68,7 @@ main_brew() {
 
     # provides brew in the current shell
     eval "$("$brew_path" shellenv)"
+
+    msg "use binaries installed by brew before anything else in the PATH"
+    copycat "macos" "osx/paths" "/etc/paths"
 }

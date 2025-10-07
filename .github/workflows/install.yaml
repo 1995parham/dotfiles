@@ -25,6 +25,8 @@ jobs:
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v5
+            - name: start.sh brew
+              run: ./start.sh -y brew
             - name: start.sh env
               run: ./start.sh -y env
             - name: install.sh
