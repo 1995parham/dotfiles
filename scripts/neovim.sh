@@ -54,10 +54,9 @@ main() {
                 msg 'valid repository, fetching latest changes'
                 if ! git pull origin main; then
                     msg 'failed to pull latest changes' 'error'
-                    popd >/dev/null
-                    return 1
+                    popd >/dev/null || return 1
                 fi
-                popd >/dev/null
+                popd >/dev/null || return 1
                 lsp_servers
 
                 msg 'syncing neovim plugins with Lazy'
@@ -69,7 +68,7 @@ main() {
                 return 0
             else
                 msg "invalid repository $url"
-                popd >/dev/null
+                popd >/dev/null || return 1
             fi
         fi
 
