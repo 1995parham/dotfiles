@@ -27,11 +27,24 @@ usage() {
 main_apt() {
     require_apt pipx
 
-    curl https://pyenv.run | bash
+    msg 'installing pyenv from official installer'
+    local pyenv_installer="/tmp/pyenv-installer.sh"
+    if ! curl -fsSL https://pyenv.run -o "$pyenv_installer"; then
+        msg 'failed to download pyenv installer' 'error'
+        return 1
+    fi
+
+    msg 'running pyenv installer'
+    if ! bash "$pyenv_installer"; then
+        msg 'failed to install pyenv' 'error'
+        rm -f "$pyenv_installer"
+        return 1
+    fi
+    rm -f "$pyenv_installer"
 }
 
 main_brew() {
-    require_brew python pipx pyenv python
+    require_brew python pipx pyenv
 
     msg 'GDAL is a translator library for raster and vector geospatial data formats'
     require_brew gdal
@@ -47,9 +60,9 @@ main_pacman() {
     require_pacman mariadb-clients
 }
 
-python-install-packages() {
+python_install_packages() {
     msg "install user-local packages"
-    msg "these package generally are there for dependency management"
+    msg "these packages are generally for dependency management"
 
     for package in "${packages[@]}"; do
         require_pip "$package"
@@ -58,14 +71,19 @@ python-install-packages() {
 
 main() {
     if require_country "Iran" &>/dev/null; then
-        if yes_or_no "Do you want to use Iranian local python mirror (runflare.com)"; then
-            pip config --user set global.index https://mirror-pypi.runflare.com/simple
-            pip config --user set global.index-url https://mirror-pypi.runflare.com/simple
-            pip config --user set global.trusted-host mirror-pypi.runflare.com
+        if yes_or_no "python" "Do you want to use Iranian local python mirror (runflare.com)?"; then
+            msg 'configuring pip to use Iranian mirror'
+            if ! pip config --user set global.index https://mirror-pypi.runflare.com/simple || \
+               ! pip config --user set global.index-url https://mirror-pypi.runflare.com/simple || \
+               ! pip config --user set global.trusted-host mirror-pypi.runflare.com; then
+                msg 'failed to configure pip mirror' 'error'
+                return 1
+            fi
+            msg 'pip configured to use runflare.com mirror'
         fi
     fi
 
-    python-install-packages
+    python_install_packages
 
     msg 'pyenv already configured in zsh (zshrc.shared)'
 }
@@ -73,6 +91,10 @@ main() {
 main_parham() {
     msg 'setting pypi token on poetry'
     if [[ "$(command -v gopass)" ]]; then
-        pipx run poetry config pypi-token.pypi "$(gopass show -o token/pypi/publish)"
+        if ! pipx run poetry config pypi-token.pypi "$(gopass show -o token/pypi/publish)"; then
+            msg 'failed to set poetry pypi token' 'error'
+            return 1
+        fi
+        msg 'poetry pypi token configured successfully'
     fi
 }
