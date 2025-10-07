@@ -16,7 +16,9 @@ usage() {
 # export dependencies=("neovim")
 export dependencies=("fetch" "zsh" "bash")
 
+# Common packages across all package managers
 packages=(
+    # Terminal & Shell
     tmux
     tmuxp
     htop
@@ -41,60 +43,93 @@ packages=(
     pre-commit
     mtr
     tree
+    # Development tools
+    git
+    bash
+    fd
+    jless
+    # Utilities
+    yq
+    watch
 )
 
+# Apply package name replacements for a specific package manager
+# Populates the result_array_name with transformed packages
+# Usage: apply_package_replacements result_array_name "replacement_map_declaration" package1 package2 ...
+apply_package_replacements() {
+    local result_array_name="$1"
+    local replacement_decl="$2"
+    shift 2
+    local base_packages=("$@")
+
+    # Declare the associative array from the string
+    eval "declare -A replacement_map=${replacement_decl}"
+
+    local result=()
+    for package in "${base_packages[@]}"; do
+        local mapped_package="${replacement_map[$package]:-$package}"
+
+        # Skip packages mapped to "-" (not available for this package manager)
+        if [ "$mapped_package" != "-" ]; then
+            result+=("$mapped_package")
+        fi
+    done
+
+    # Use eval to assign the array to the variable name
+    eval "$result_array_name=(\"\${result[@]}\")"
+}
+
 main_apt() {
-    apt_packages=(bmon atop jcal)
-    declare -A apt_packages_replace=(
+    local apt_specific=(bmon atop jcal)
+    local apt_replace='(
         ["dua-cli"]="-"
         ["xh"]="-"
         ["actionlint"]="-"
+        ["yq"]="yq"
+        ["watch"]="procps"
+        ["fd"]="fd-find"
+    )'
+
+    if ! sudo apt update -yq; then
+        msg 'failed to update apt package list' 'error'
+        return 1
+    fi
+
+    local apt_common=()
+    apply_package_replacements apt_common "$apt_replace" "${packages[@]}"
+
+    local apt_packages=(
+        "${apt_specific[@]}"
+        "${apt_common[@]}"
     )
-
-    sudo apt update -yq
-
-    for package in "${packages[@]}"; do
-        if [ "${apt_packages_replace[$package]:-}" ]; then
-            package="${apt_packages_replace[$package]}"
-        fi
-
-        if [ "$package" != "-" ]; then
-            apt_packages+=("$package")
-        fi
-    done
 
     msg "install ${apt_packages[*]} with apt"
     require_apt "${apt_packages[@]}"
 }
 
 main_xbps() {
-    xbps_packages=(
-        xmirror
-        bind-utils
-    )
-    declare -A xbps_packages_replace=(
-        [lolcat]=lolcat-c
-        [tmuxp]=python3-tmuxp
+    local xbps_specific=(xmirror bind-utils)
+    local xbps_replace='(
+        [lolcat]="lolcat-c"
+        [tmuxp]="python3-tmuxp"
         ["actionlint"]="-"
+    )'
+
+    local xbps_common=()
+    apply_package_replacements xbps_common "$xbps_replace" "${packages[@]}"
+
+    local xbps_packages=(
+        "${xbps_specific[@]}"
+        "${xbps_common[@]}"
     )
-
-    for package in "${packages[@]}"; do
-        if [ "${xbps_packages_replace[$package]:-}" ]; then
-            package="${xbps_packages_replace[$package]}"
-        fi
-
-        if [ "$package" != "-" ]; then
-            xbps_packages+=("$package")
-        fi
-    done
 
     msg "install ${xbps_packages[*]} with xbps"
     require_xbps "${xbps_packages[@]}"
 }
 
 main_pkg() {
-    pkg_packages=()
-    declare -A pkg_packages_replace=(
+    local pkg_specific=()
+    local pkg_replace='(
         [lolcat]="-"
         [tmuxp]="-"
         ["dua-cli"]="dua"
@@ -102,30 +137,26 @@ main_pkg() {
         ["mtr"]="-"
         ["pre-commit"]="-"
         ["actionlint"]="-"
+    )'
+
+    local pkg_common=()
+    apply_package_replacements pkg_common "$pkg_replace" "${packages[@]}"
+
+    local pkg_packages=(
+        "${pkg_specific[@]}"
+        "${pkg_common[@]}"
     )
 
-    for package in "${packages[@]}"; do
-        if [ "${pkg_packages_replace[$package]:-}" ]; then
-            package="${pkg_packages_replace[$package]}"
-        fi
-
-        if [ "$package" != "-" ]; then
-            pkg_packages+=("$package")
-        fi
-    done
-
-    msg "install ${pkg_packages[*]} with xbps"
+    msg "install ${pkg_packages[*]} with pkg"
     require_pkg "${pkg_packages[@]}"
 }
 
 main_pacman() {
     export allow_no_aur=true
 
-    pacman_packages=(
+    local pacman_specific=(
         perl-image-exiftool
         git-delta
-        fd
-        jless
         github-cli
         glab
         inetutils
@@ -155,22 +186,16 @@ main_pacman() {
         taplo-cli
         bind
     )
-    declare -A pacman_packages_replace=(
-    )
+    local yay_packages=(jcal cbonsai)
+    local pacman_replace='()'
 
-    yay_packages=(
-        jcal
-        cbonsai
-    )
-    for package in "${packages[@]}"; do
-        if [ "${pacman_packages_replace[$package]:-}" ]; then
-            package="${pacman_packages_replace[$package]}"
-        fi
+    local pacman_common=()
+    apply_package_replacements pacman_common "$pacman_replace" "${packages[@]}"
 
-        if [ "$package" != "-" ]; then
-            pacman_packages+=("$package")
-        fi
-    done
+    local pacman_packages=(
+        "${pacman_specific[@]}"
+        "${pacman_common[@]}"
+    )
 
     msg "install ${pacman_packages[*]} with pacman"
     require_pacman "${pacman_packages[@]}"
@@ -179,49 +204,50 @@ main_pacman() {
     require_aur "${yay_packages[@]}"
 
     msg 'fix issue with the iptables package'
-
     if ! pacman -Qi iptables-nft &>/dev/null; then
-        sudo pacman --noconfirm --ask=4 -Syu iptables-nft
+        if ! sudo pacman --noconfirm --ask=4 -Syu iptables-nft; then
+            msg 'failed to install iptables-nft' 'error'
+            return 1
+        fi
     fi
 }
 
 main_brew() {
-    brew_packages=(
+    local brew_specific=(
         gsed
         coreutils
         inetutils
         inxi
         fontconfig
-        git
-        bash
-        fd
         glab
-        jless
         gh
         just
         bat-extras
         wakatime-cli
         jcal
-        yq
-        watch
         mike-engel/jwt-cli/jwt-cli
         taplo
         xdg-ninja
     )
-    for package in "${packages[@]}"; do
-        brew_packages+=("$package")
-    done
-
-    msg "install ${brew_packages[*]} with brew"
-    require_brew "${brew_packages[@]}"
-
-    brew_cask_packages=(
+    local brew_cask_packages=(
         muzzle
         the-unarchiver
         KeepingYouAwake
         maccy
         pearcleaner
     )
+    local brew_replace='()'
+
+    local brew_common=()
+    apply_package_replacements brew_common "$brew_replace" "${packages[@]}"
+
+    local brew_packages=(
+        "${brew_specific[@]}"
+        "${brew_common[@]}"
+    )
+
+    msg "install ${brew_packages[*]} with brew"
+    require_brew "${brew_packages[@]}"
 
     msg "install ${brew_cask_packages[*]} with brew --cask"
     require_brew_cask "${brew_cask_packages[@]}"
