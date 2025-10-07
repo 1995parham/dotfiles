@@ -13,14 +13,31 @@ usage() {
   '
 }
 
+install_atlas_from_script() {
+    msg 'downloading atlas cli installer'
+    local atlas_installer="/tmp/atlas-installer.sh"
+    if ! curl -sSfL https://atlasgo.sh -o "$atlas_installer"; then
+        msg 'failed to download atlas installer' 'error'
+        return 1
+    fi
+
+    msg 'running atlas installer'
+    if ! sh "$atlas_installer"; then
+        msg 'failed to install atlas' 'error'
+        rm -f "$atlas_installer"
+        return 1
+    fi
+    rm -f "$atlas_installer"
+
+    msg 'atlas cli installed successfully'
+}
+
 main_pacman() {
-    msg 'download and install the latest release of the atlas cli'
-    curl -sSf https://atlasgo.sh | sh
+    install_atlas_from_script
 }
 
 main_apt() {
-    msg 'download and install the latest release of the atlas cli'
-    curl -sSf https://atlasgo.sh | sh
+    install_atlas_from_script
 }
 
 main_brew() {
@@ -28,5 +45,10 @@ main_brew() {
 }
 
 main() {
-    return 0
+    if command -v atlas &>/dev/null; then
+        msg "$(atlas version)"
+    else
+        msg 'atlas not available in PATH' 'error'
+        return 1
+    fi
 }
