@@ -18,7 +18,10 @@ root=${root:?"root must be set"}
 pre_main() {
     msg "create bashrc if it doesn't exist"
     if [ ! -f "$HOME/.bashrc" ]; then
-        echo '#!/usr/bin/env bash' >"$HOME/.bashrc"
+        if ! echo '#!/usr/bin/env bash' >"$HOME/.bashrc"; then
+            msg 'failed to create .bashrc file' 'error'
+            return 1
+        fi
     fi
 }
 
@@ -41,13 +44,17 @@ main_apt() {
 main_brew() {
     require_brew bash bash-completion@2
 
-    msg "bash-completion caveats"
-    if ! grep -qF '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' \
-        "$HOME/.bashrc"; then
+    local brew_prefix
+    brew_prefix="$(brew --prefix)"
+    local completion_path="$brew_prefix/etc/profile.d/bash_completion.sh"
 
-        echo '[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"' |
-            tee -a "$HOME/.bashrc"
-
+    msg "adding bash-completion to .bashrc"
+    if ! grep -q "bash_completion.sh" "$HOME/.bashrc"; then
+        local completion_line="[[ -r \"$completion_path\" ]] && . \"$completion_path\""
+        if ! echo "$completion_line" | tee -a "$HOME/.bashrc" >/dev/null; then
+            msg 'failed to append bash-completion to .bashrc' 'error'
+            return 1
+        fi
     fi
 }
 
@@ -56,6 +63,9 @@ main() {
 
     msg "source bashrc.shared in bashrc"
     if ! grep -qF "source \"\$HOME/.bashrc.shared\"" "$HOME/.bashrc"; then
-        echo "source \"\$HOME/.bashrc.shared\"" | tee -a "$HOME/.bashrc"
+        if ! echo "source \"\$HOME/.bashrc.shared\"" | tee -a "$HOME/.bashrc" >/dev/null; then
+            msg 'failed to append source command to .bashrc' 'error'
+            return 1
+        fi
     fi
 }
