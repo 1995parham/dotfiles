@@ -15,83 +15,122 @@ usage() {
 
 root=${root:?"root must be set"}
 
+configure_docker_daemon() {
+    if [ ! -f "$root/docker/daemon.json" ]; then
+        msg 'docker daemon.json config file not found, skipping configuration' 'error'
+        return 1
+    fi
+
+    sudo mkdir -p /etc/docker || true
+    sudo touch /etc/docker/daemon.json
+
+    msg 'merge provided configuration with the one that is available on system'
+    local merged_config
+    if ! merged_config=$(sed 's/^ *\/\/.*//' <"$root/docker/daemon.json" | jq -s '.[0] * (.[1] // {})' "-" "/etc/docker/daemon.json"); then
+        msg 'failed to merge docker daemon configuration' 'error'
+        return 1
+    fi
+
+    if ! echo "$merged_config" | sudo tee "/etc/docker/daemon.json" >/dev/null; then
+        msg 'failed to write docker daemon configuration' 'error'
+        return 1
+    fi
+}
+
+setup_docker_user() {
+    msg "manage docker as a non-root user"
+    sudo groupadd -f docker
+    sudo usermod -aG docker "$USER"
+}
+
 main_apt() {
-    sudo apt-get -y update
-    sudo apt-get -y install docker.io docker-compose
+    require_apt docker.io docker-compose
 }
 
 main_xbps() {
     require_xbps docker docker-cli docker-compose crun
 
-    sudo mkdir /etc/docker || true
-    sudo touch /etc/docker/daemon.json
-    msg 'merge provided configuration with the one that is available on system (delete comments too!)'
-    r=$(sed 's/^ *\/\/.*//' <"$root/docker/daemon.json" | jq -s '.[0] * (.[1] // {})' "-" "/etc/docker/daemon.json")
-    echo "$r" | sudo tee "/etc/docker/daemon.json"
-
-    msg "manage docker as a non-root user"
-    sudo groupadd -f docker
-    sudo usermod -aG docker "$USER"
+    configure_docker_daemon || return 1
+    setup_docker_user
 
     msg 'docker service with runit'
     if [ ! -L '/etc/runit/runsvdir/default/docker' ]; then
-        sudo ln -s /etc/sv/docker /etc/runit/runsvdir/default/
+        if ! sudo ln -s /etc/sv/docker /etc/runit/runsvdir/default/; then
+            msg 'failed to enable docker service with runit' 'error'
+            return 1
+        fi
     fi
 }
 
 main_brew() {
     require_brew_cask docker
-    msg 'please remember to enable docker vmm instead of apple virtualization'
-    msg 'dive is working on macOS since docker version 26'
     require_brew lazydocker hadolint docker-completion dive
 
-    msg "Launching Docker Desktop. You may need to grant permissions."
-    open /Applications/Docker.app
+    if [ -d "/Applications/Docker.app" ]; then
+        msg "Launching Docker Desktop. You may need to grant permissions."
+        if ! open /Applications/Docker.app; then
+            msg 'failed to launch Docker Desktop' 'error'
+            return 1
+        fi
+    else
+        msg 'Docker Desktop not found at /Applications/Docker.app' 'error'
+        return 1
+    fi
 }
 
 main_pacman() {
     require_pacman docker docker-compose dive docker-buildx crun
-
     require_aur hadolint-bin lazydocker
 
-    sudo mkdir /etc/docker || true
-    sudo touch /etc/docker/daemon.json
-    msg 'merge provided configuration with the one that is available on system'
-    r=$(sed 's/^ *\/\/.*//' <"$root/docker/daemon.json" | jq -s '.[0] * (.[1] // {})' "-" "/etc/docker/daemon.json")
-    echo "$r" | sudo tee "/etc/docker/daemon.json"
+    configure_docker_daemon || return 1
 
     msg 'docker service with systemd'
-    sudo systemctl enable --now docker.service
+    if ! sudo systemctl enable --now docker.service; then
+        msg 'failed to enable docker service' 'error'
+        return 1
+    fi
 
-    msg "manage docker as a non-root user"
-    sudo groupadd -f docker
-    sudo usermod -aG docker "$USER"
+    setup_docker_user
 
     sudo mkdir -p /etc/systemd/system/containerd.service.d/ || true
-    echo '
-[Service]
-LimitNOFILE=1048576
-    ' | sudo tee /etc/systemd/system/containerd.service.d/override.conf
-    sudo systemctl daemon-reload
+    if ! echo '[Service]
+LimitNOFILE=1048576' | sudo tee /etc/systemd/system/containerd.service.d/override.conf >/dev/null; then
+        msg 'failed to configure containerd service' 'error'
+        return 1
+    fi
 
-    # the following command create a new shell which is not
-    # good to run in a script.
-    # newgrp docker
+    if ! sudo systemctl daemon-reload; then
+        msg 'failed to reload systemd daemon' 'error'
+        return 1
+    fi
 }
 
 main() {
+    local timeout=60
+    local elapsed=0
     until docker info &>/dev/null; do
-        msg "Docker daemon not yet running, waiting..." "error"
+        if [ $elapsed -ge $timeout ]; then
+            msg "Docker daemon did not start within ${timeout} seconds" "error"
+            return 1
+        fi
+        msg "Docker daemon not yet running, waiting... ($elapsed/${timeout}s)"
         sleep 5
+        elapsed=$((elapsed + 5))
     done
 
     msg "$(docker version)"
 
-    if command -v gopass &>/dev/null; then
-        docker login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io
-    fi
-
-    if [[ -n $(command -v hadolint) ]]; then
+    if command -v hadolint &>/dev/null; then
         msg "$(hadolint --version)"
+    fi
+}
+
+main_parham() {
+    if command -v gopass &>/dev/null; then
+        msg 'logging into Docker Hub'
+        if ! docker login --username 1995parham --password "$(gopass show -o token/docker/cli)" docker.io; then
+            msg 'failed to login to Docker Hub' 'error'
+            return 1
+        fi
     fi
 }
