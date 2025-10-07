@@ -73,9 +73,9 @@ main() {
     if require_country "Iran" &>/dev/null; then
         if yes_or_no "python" "Do you want to use Iranian local python mirror (runflare.com)?"; then
             msg 'configuring pip to use Iranian mirror'
-            if ! pip config --user set global.index https://mirror-pypi.runflare.com/simple || \
-               ! pip config --user set global.index-url https://mirror-pypi.runflare.com/simple || \
-               ! pip config --user set global.trusted-host mirror-pypi.runflare.com; then
+            if ! pip config --user set global.index https://mirror-pypi.runflare.com/simple ||
+                ! pip config --user set global.index-url https://mirror-pypi.runflare.com/simple ||
+                ! pip config --user set global.trusted-host mirror-pypi.runflare.com; then
                 msg 'failed to configure pip mirror' 'error'
                 return 1
             fi
