@@ -22,8 +22,7 @@ main_pacman() {
     require_pacman awesome picom redshift unclutter xfce4-power-manager acpi pamixer xorg xorg-apps
     require_aur i3exit matcha-gtk-theme
 
-    msg
-    msg 'configure rofi another application luncher'
+    msg 'configure rofi another application launcher'
     require_pacman rofi
     configfile rofi "" awesome
 
