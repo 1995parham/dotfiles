@@ -103,7 +103,8 @@ _resolve_script_paths() {
 _execute_scripts() {
     local script=$1
     shift
-    local script_args=("${@}")
+    local script_args=()
+    [[ $# -gt 0 ]] && script_args=("$@")
 
     local script_paths
     read -ra script_paths <<<"$(_resolve_script_paths "${script}")"
@@ -133,7 +134,7 @@ _execute_scripts() {
             return 1
         fi
 
-        _run "${script_args[@]+"${script_args[@]}"}"
+        _run "${script_args[@]}"
     done
 }
 
