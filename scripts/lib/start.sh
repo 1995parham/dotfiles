@@ -134,7 +134,7 @@ _execute_scripts() {
             return 1
         fi
 
-        _run "${script_args[@]}"
+        _run "${script_args[@]+"${script_args[@]}"}"
     done
 }
 
