@@ -12,16 +12,21 @@ usage() {
   '
 }
 
+main_pre() {
+    msg 'git-filter-repo is a versatile tool for rewriting git history (filter-branch replacement)'
+    msg 'pre-commit is a framework for managing and maintaining multi-language pre-commit hooks'
+}
+
 main_pacman() {
-    require_pacman pre-commit
+    require_pacman pre-commit git-filter-repo
 }
 
 main_brew() {
-    return 0
+    require_brew pre-commit git-filter-repo
 }
 
 main_apt() {
-    return 0
+    require_apt git-filter-repo
 }
 
 main_xbps() {
