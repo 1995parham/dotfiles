@@ -27,6 +27,8 @@ function Require-Winget {
             winget install --id $pkg --exact --accept-source-agreements --accept-package-agreements
         }
     }
+
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
 # Install Go packages
