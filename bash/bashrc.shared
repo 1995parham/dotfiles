@@ -150,6 +150,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     if [ -d "$brew_path/opt/libpq/bin/" ]; then
         export PATH="$brew_path/opt/libpq/bin/:$PATH"
     fi
+
+    # using gnu sed instead of macos default sed
+    alias sed=gsed
 fi
 
 # configure node version manager
