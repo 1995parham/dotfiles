@@ -334,9 +334,23 @@ function clone() {
     fi
 
     if [[ ! -d "${path}/${dir}" ]]; then
-        if git clone "${repo}" "${path}/${dir}" &>/dev/null; then
+        running git "cloning ${repo_name}..."
+        if git clone --progress "${repo}" "${path}/${dir}" 2>&1 | {
+            while IFS= read -r line; do
+                # Extract percentage from git progress output
+                if [[ "${line}" =~ ([0-9]+)%.*\(([0-9]+)/([0-9]+)\) ]]; then
+                    percent="${BASH_REMATCH[1]}"
+                    current="${BASH_REMATCH[2]}"
+                    total="${BASH_REMATCH[3]}"
+                    echo -ne "\r${CLEAR_LINE}${F_INFO}[git] ${F_ACCENT}${ARROW_MARK} ${repo_name}: ${F_SUCCESS}${percent}%${F_INFO} (${current}/${total})${ALL_RESET}"
+                fi
+            done
+            echo
+        }; then
+            echo -ne "\r${CLEAR_LINE}"
             action git "${repo_name} ${F_SUCCESS}󰄲${ALL_RESET}"
         else
+            echo -ne "\r${CLEAR_LINE}"
             action git "${repo_name} ${F_ERROR}󱋭${ALL_RESET}"
         fi
     else
