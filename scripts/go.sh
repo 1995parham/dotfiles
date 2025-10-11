@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo -n "setup working environment for go with neovim + fatih/vim-go"
+    echo -n "setup working environment for go with neovim"
     # shellcheck disable=1004
     echo '
   __ _  ___

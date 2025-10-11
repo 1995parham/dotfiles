@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo -n 'git configuration useful on systems with ssh keys used by @1995parham/@elahe-dastan'
+    echo -n 'git configuration useful on systems with ssh keys used by @1995parham/@elaheh-dastan'
     echo '
        _ _
   __ _(_) |_

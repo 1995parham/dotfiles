@@ -28,12 +28,10 @@ $packages = @(
     "ajeetdsouza.zoxide"
     "dandavison.delta"
     "eza-community.eza"
-    "aristocratos.btop"
-    "mosh.mosh"
 )
 
 function main_winget {
-    Write-Message -Module "env" -Message "installing packages with winget"
+    msg "installing packages with winget"
 
     foreach ($package in $packages) {
         Write-Running -Module "require" -Message " winget $package"
@@ -41,18 +39,17 @@ function main_winget {
     }
 
     # Install pipx for Python package management
-    Write-Message -Module "env" -Message "setting up pipx"
+    msg "setting up pipx"
     python -m pip install --user pipx
     python -m pipx ensurepath
 
     # Install global Python tools
-    Write-Message -Module "env" -Message "installing Python tools"
+    msg "installing Python tools"
     Require-Pip "tmuxp" "pre-commit"
 }
 
 function main {
-    Write-Message -Module "env" -Message "basic environment setup complete" -Severity "success"
+    msg -Message "basic environment setup complete" -Severity "success"
 
-    Write-Host ""
-    Write-Message -Module "env" -Message "You may need to restart your shell for PATH changes to take effect" -Severity "notice"
+    msg "You may need to restart your shell for PATH changes to take effect" -Severity "notice"
 }
