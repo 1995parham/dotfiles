@@ -17,4 +17,5 @@ function main_winget {}
 function main {
     git config --global user.name "Parham Alvani"
     git config --global user.email "parham.alvani@gmail.com"
+    git config --global url."git@github.com:".insteadOf "https://github.com/"
 }
