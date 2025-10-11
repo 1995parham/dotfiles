@@ -18,4 +18,5 @@ function main {
     git config --global user.name "Parham Alvani"
     git config --global user.email "parham.alvani@gmail.com"
     git config --global url."git@github.com:".insteadOf "https://github.com/"
+    git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
 }
