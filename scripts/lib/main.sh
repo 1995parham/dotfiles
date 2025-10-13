@@ -21,6 +21,8 @@ if [[ -n "${root}" ]]; then
 fi
 # shellcheck source=require.sh
 source "${dotfile_lib_root}/require.sh"
+# shellcheck source=clone.sh
+source "${dotfile_lib_root}/clone.sh"
 # shellcheck source=run.sh
 source "${dotfile_lib_root}/run.sh"
 # shellcheck source=service.sh
