@@ -16,6 +16,7 @@
     .\start.ps1 neovim -YesToAll
 #>
 
+[CmdletBinding()]
 param(
     [Parameter(Position=0,Mandatory=$True)]
     [string]$ScriptName,
@@ -173,21 +174,11 @@ function Invoke-Dependencies {
     }
 }
 
-# Main execution
-function Main {
-    # Check for admin if needed (optional warning)
-    if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-        Write-Message -Module "pre" -Message "Not running as Administrator. Some features may not work." -Severity "warn"
-    }
-
+begin {
     Show-Header
+}
 
-    if (-not $ScriptName) {
-        Show-Usage
-        $ScriptName = "list"
-    }
-
-    # Resolve script name
+process {
     $resolvedScript = Resolve-ScriptName -Script $ScriptName
     $scriptPath = Resolve-ScriptPath -Script $resolvedScript
 
@@ -197,7 +188,6 @@ function Main {
         exit 1
     }
 
-    # Load and execute the script
     try {
         . $scriptPath
         Invoke-ScriptRun -ScriptArgs $args
@@ -207,6 +197,3 @@ function Main {
         exit 1
     }
 }
-
-# Run main
-Main
