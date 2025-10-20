@@ -44,7 +44,6 @@ packages=(
     fd
     jless
     yq
-    watch
 )
 
 # Apply package name replacements for a specific package manager
@@ -157,7 +156,6 @@ main_pacman() {
         inetutils
         websocat
         fuse2
-        go-yq
         man-pages
         usbutils
         exfat-utils
