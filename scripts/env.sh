@@ -221,6 +221,7 @@ main_brew() {
         mike-engel/jwt-cli/jwt-cli
         taplo
         xdg-ninja
+        watch
     )
     local brew_cask_packages=(
         muzzle
