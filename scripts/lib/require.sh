@@ -307,7 +307,6 @@ function require_hosts_record() {
     fi
 }
 
-
 function require_systemd_kernel_parameter() {
     local new_kernel_parameter=${1:?"new parameter required"}
 
