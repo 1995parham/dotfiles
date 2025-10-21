@@ -22,17 +22,11 @@ main_pacman() {
         qemu-hw-display-virtio-vga qemu-hw-display-virtio-vga-gl \
         qemu-hw-usb-redirect qemu-hw-usb-host
 
-    require_aur vagrant
-
     msg "user access for kvm and libvirt"
     sudo usermod -aG libvirt "$USER"
     sudo usermod -aG kvm "$USER"
 
     sudo systemctl enable --now libvirtd.service
-
-    if ! vagrant plugin list | grep vagrant-libvirt; then
-        proxy_start && vagrant plugin install vagrant-libvirt && proxy_stop
-    fi
 
     if [ "$(command -v firewall-cmd)" ]; then
         sudo firewall-cmd --reload
@@ -48,7 +42,5 @@ main() {
 }
 
 main_parham() {
-    msg "vagrant is awesome for preconfigured vm"
-
     clone git@github.com:1995parham-me/kvm "$HOME/kvm" seed
 }
