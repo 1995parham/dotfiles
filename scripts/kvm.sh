@@ -14,7 +14,7 @@ usage() {
 
 main_pacman() {
     require_pacman \
-        qemu libvirt dnsmasq bridge-utils virt-manager vagrant \
+        qemu libvirt dnsmasq bridge-utils virt-manager \
         edk2-ovmf swtpm dmidecode \
         qemu-hw-display-virtio-gpu qemu-hw-display-virtio-gpu-pci \
         qemu-hw-display-virtio-gpu-gl qemu-hw-display-virtio-gpu-pci-gl \
@@ -22,7 +22,7 @@ main_pacman() {
         qemu-hw-display-virtio-vga qemu-hw-display-virtio-vga-gl \
         qemu-hw-usb-redirect qemu-hw-usb-host
 
-    # require_pacman ebtables
+    require_aur vagrant
 
     msg "user access for kvm and libvirt"
     sudo usermod -aG libvirt "$USER"
