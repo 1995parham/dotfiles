@@ -1,6 +1,3 @@
-# Basic environment setup for Windows
-# Ported from env.sh
-
 function Get-Usage {
     return @"
 installs required packages for having a working system

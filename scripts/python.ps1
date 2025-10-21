@@ -1,6 +1,3 @@
-# Python installation for Windows
-# Ported from python.sh
-
 $packages = @(
     # An extremely fast Python package and project manager, written in Rust.
     "uv",
