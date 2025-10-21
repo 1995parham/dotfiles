@@ -35,10 +35,14 @@ main_apt() {
 }
 
 main() {
-    read -r -p "name: " name
-    if [[ "${name}" =~ [[:space:]]+ ]]; then
-        msg "${name} cotains one or more spaces" "error"
-        return 1
+    if [ -n "$1" ]; then
+        name="$1"
+    else
+        read -r -p "name: " name
+        if [[ "${name}" =~ [[:space:]]+ ]]; then
+            msg "${name} cotains one or more spaces" "error"
+            return 1
+        fi
     fi
 
     local host

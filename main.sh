@@ -27,3 +27,5 @@ source "${dotfile_lib_root}/clone.sh"
 source "${dotfile_lib_root}/run.sh"
 # shellcheck source=service.sh
 source "${dotfile_lib_root}/service.sh"
+# shellcheck source=github.sh
+source "${dotfile_lib_root}/github.sh"
