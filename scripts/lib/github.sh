@@ -59,6 +59,18 @@ _github_release_extract_dmg() {
     local dmg_file=$1
     local temp_dir=$2
 
+    # Check if we're on a macOS system
+    if [[ "$(uname -s)" != "Darwin" ]]; then
+        message "github-release" ".dmg files are only supported on macOS systems" "error"
+        return 1
+    fi
+
+    # Check if hdiutil is available
+    if ! command -v hdiutil &>/dev/null; then
+        message "github-release" "hdiutil not found - required for mounting DMG files" "error"
+        return 1
+    fi
+
     message "github-release" "Mounting DMG..." "info"
 
     local mount_point
@@ -85,6 +97,35 @@ _github_release_extract_dmg() {
     return 0
 }
 
+# Handle DEB installation (Debian/Ubuntu only)
+_github_release_extract_deb() {
+    local deb_file=$1
+    local temp_dir=$2
+
+    # Check if we're on a Linux system
+    if [[ "$(uname -s)" != "Linux" ]]; then
+        message "github-release" ".deb files are only supported on Linux systems" "error"
+        return 1
+    fi
+
+    # Check if dpkg is available
+    if ! command -v dpkg &>/dev/null; then
+        message "github-release" "dpkg not found - .deb files are only supported on Debian-based systems" "error"
+        return 1
+    fi
+
+    message "github-release" "Installing DEB package..." "info"
+
+    if ! sudo dpkg -i "${deb_file}"; then
+        message "github-release" "Failed to install DEB package" "error"
+        message "github-release" "Attempting to fix dependencies..." "info"
+        sudo apt-get install -f -y
+        return 1
+    fi
+
+    return 0
+}
+
 # Extract archive based on extension
 _github_release_extract() {
     local archive_file=$1
@@ -104,6 +145,10 @@ _github_release_extract() {
         ;;
     dmg)
         _github_release_extract_dmg "${archive_file}" "${extract_dir}"
+        return $?
+        ;;
+    deb)
+        _github_release_extract_deb "${archive_file}" "${extract_dir}"
         return $?
         ;;
     "")
@@ -191,7 +236,7 @@ function require_github_release() {
         return 1
     fi
 
-    if [[ "${archive_ext}" != "dmg" ]]; then
+    if [[ "${archive_ext}" != "dmg" && "${archive_ext}" != "deb" ]]; then
         if ! _github_release_install_binary "${temp_dir}" "${binary_name}" "${install_dir}"; then
             rm -rf "${temp_dir}"
             return 1
