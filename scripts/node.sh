@@ -14,7 +14,7 @@ usage() {
 }
 
 main_brew() {
-    require_brew node pnpm fnm
+    require_brew node pnpm
 
     msg 'creating husky configuration directory'
     if ! mkdir -p "$HOME/.config/husky"; then
@@ -60,7 +60,6 @@ main_pkg() {
 
 main_pacman() {
     require_pacman nodejs npm pnpm
-    require_aur fnm
 }
 
 main() {
