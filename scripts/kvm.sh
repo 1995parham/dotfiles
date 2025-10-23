@@ -35,13 +35,9 @@ main_pacman() {
 }
 
 main() {
-    msg "create base images folder"
-    mkdir -p "$HOME/kvm/base"
-
-    msg "create virtual machine disk folder"
-    mkdir -p "$HOME/kvm/pool"
+    return 0
 }
 
 main_parham() {
-    clone git@github.com:1995parham-me/kvm "$HOME/kvm" seed
+    clone git@github.com:1995parham-me/kvm "$HOME"
 }
