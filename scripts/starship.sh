@@ -13,7 +13,7 @@ usage() {
 }
 
 main_apt() {
-    curl -SS https://raw.githubusercontent.com/starship/starship/refs/heads/master/install/install.sh | sh
+    require_apt starship
 }
 
 main_pkg() {
