@@ -13,7 +13,14 @@ usage() {
 }
 
 main_apt() {
-    require_apt starship
+    if require_apt starship; then
+        return 0
+    fi
+
+    msg "starship not available in apt, installing via https://starship.rs/install.sh" "notice"
+
+    export BIN_DIR="$HOME/.local/bin"
+    curl -SS https://raw.githubusercontent.com/starship/starship/refs/heads/master/install/install.sh | sh
 }
 
 main_pkg() {
