@@ -108,18 +108,37 @@ _github_release_extract_deb() {
         return 1
     fi
 
-    # Check if dpkg is available
-    if ! command -v dpkg &>/dev/null; then
-        message "github-release" "dpkg not found - .deb files are only supported on Debian-based systems" "error"
-        return 1
-    fi
+    # Use apt if available (handles dependencies automatically)
+    if command -v apt &>/dev/null; then
+        message "github-release" "Installing DEB package with apt..." "info"
 
-    message "github-release" "Installing DEB package..." "info"
+        if ! sudo apt install -y "${deb_file}"; then
+            message "github-release" "Failed to install DEB package" "error"
+            return 1
+        fi
+    # Fall back to dpkg + apt-get if apt is not available
+    elif command -v apt-get &>/dev/null && command -v dpkg &>/dev/null; then
+        message "github-release" "Installing DEB package with dpkg..." "info"
 
-    if ! sudo dpkg -i "${deb_file}"; then
-        message "github-release" "Failed to install DEB package" "error"
-        message "github-release" "Attempting to fix dependencies..." "info"
-        sudo apt-get install -f -y
+        if ! sudo dpkg -i "${deb_file}"; then
+            message "github-release" "Fixing dependencies with apt-get..." "warn"
+
+            if ! sudo apt-get install -f -y; then
+                message "github-release" "Failed to fix dependencies" "error"
+                return 1
+            fi
+        fi
+    # Last resort: dpkg only (no dependency resolution)
+    elif command -v dpkg &>/dev/null; then
+        message "github-release" "Installing DEB package with dpkg (no dependency resolution available)..." "warn"
+
+        if ! sudo dpkg -i "${deb_file}"; then
+            message "github-release" "Failed to install DEB package" "error"
+            message "github-release" "You may need to manually resolve dependencies" "notice"
+            return 1
+        fi
+    else
+        message "github-release" "No package manager found - .deb files are only supported on Debian-based systems" "error"
         return 1
     fi
 
