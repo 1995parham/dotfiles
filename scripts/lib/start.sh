@@ -270,7 +270,7 @@ run() {
         main "$@"
     fi
 
-    if declare -f "main_${USER}" >/dev/null; then
+    if [[ -n "${USER+x}" ]] && declare -f "main_${USER}" >/dev/null; then
         section_header " Attention on deck ${USER}"
         "main_${USER}" "$@"
     fi
