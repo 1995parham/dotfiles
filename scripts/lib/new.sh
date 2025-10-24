@@ -35,7 +35,7 @@ main_apt() {
 }
 
 main() {
-    if [ -n "$1" ]; then
+    if [ -n "${1+x}" ]; then
         name="$1"
     else
         read -r -p "name: " name
@@ -49,7 +49,7 @@ main() {
     host="$(hostname)"
     host="${host%.*}"
     if yes_or_no "do you want to be ${host} specific? "; then
-        root="${root}/${host}"
+        root="${root}/hosts/${host}"
     fi
 
     mkdir -p "${root}/scripts" || true
