@@ -29,8 +29,6 @@ main_pacman() {
 gopass-upstall() {
     msg "installing gopass from github"
 
-    # Use the github.sh library to install from deb release
-    # Note: This will skip if gopass is already installed
     require_github_release "gopasspw/gopass" "gopass" "gopass_\${version}_linux_amd64" "deb"
 
     msg "$(gopass version)"

@@ -17,10 +17,7 @@ main_pacman() {
 }
 
 main_apt() {
-    sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
-    sudo apt update
-
-    require_apt fastfetch
+    require_github_release "fastfetch-cli/fastfetch" "fastfetch" "fastfetch-linux-amd64-polyfilled" "deb"
 }
 
 main_xbps() {
