@@ -6,7 +6,7 @@ _github_release_get_latest_version() {
 
     local version
     version=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" |
-        grep '"tag_name":' | sed -E 's/.*"v?([^"]+)".*/\1/')
+        grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 
     if [[ -z "${version}" ]]; then
         message "github-release" "Failed to fetch latest version for ${repo}" "error"
@@ -209,9 +209,9 @@ _github_release_build_url() {
     local archive_ext=$4
 
     if [ -n "$archive_ext" ]; then
-        echo "https://github.com/${repo}/releases/download/v${version}/${release_name}.${archive_ext}"
+        echo "https://github.com/${repo}/releases/download/${version}/${release_name}.${archive_ext}"
     else
-        echo "https://github.com/${repo}/releases/download/v${version}/${release_name}"
+        echo "https://github.com/${repo}/releases/download/${version}/${release_name}"
     fi
 }
 
