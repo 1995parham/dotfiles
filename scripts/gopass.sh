@@ -29,7 +29,7 @@ main_pacman() {
 gopass-upstall() {
     msg "installing gopass from github"
 
-    require_github_release "gopasspw/gopass" "gopass" "gopass_\${version}_linux_amd64" "deb"
+    require_github_release "gopasspw/gopass" "gopass" "gopass_\${version#v}_linux_amd64" "deb"
 
     msg "$(gopass version)"
 }
