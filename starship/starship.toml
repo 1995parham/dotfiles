@@ -120,7 +120,7 @@ symbol = ' 󱃾  '
 format = '[ \[ $symbol](fg:#1e90ff)[($user @ )$context](fg:#ff7f50)([ in ](fg:#ff50d0)[$namespace](#50ff7f))[ \]](fg:#1e90ff)'
 
 [[kubernetes.contexts]]
-context_pattern = ".*api-(?P<region>[\\w\\d]+)-(?P<site>[\\w]+-?[\\d](-staging)?)-snappcloud-io:6443.*"
+context_pattern = ".*api-(?P<region>[\\w\\d]+)-(?P<site>.+)-snappcloud-io:6443.*"
 user_pattern = ".*parham.alvani.*"
 user_alias = "parham"
 context_alias = "$region-$site"
