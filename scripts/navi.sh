@@ -12,17 +12,15 @@ usage() {
 }
 
 main_brew() {
-    require_brew navi
+    require_github_release "1995parham/navi" "navi" "navi-\${version}-aarch64-apple-darwin" "tar.gz"
 }
 
 main_apt() {
-    if [ ! -f /usr/local/bin/navi ]; then
-        sudo BIN_DIR=/usr/local/bin bash -c "$(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)"
-    fi
+    require_github_release "1995parham/navi" "navi" "navi-\${version}-x86_64-unknown-linux-musl" "tar.gz"
 }
 
 main_pacman() {
-    require_pacman navi
+    require_github_release "1995parham/navi" "navi" "navi-\${version}-x86_64-unknown-linux-musl" "tar.gz"
 }
 
 main() {
