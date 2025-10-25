@@ -179,7 +179,7 @@ main_pacman() {
         taplo-cli
         bind
     )
-    local yay_packages=(jcal cbonsai)
+    local yay_packages=()
     local pacman_replace='()'
 
     local pacman_common=()
