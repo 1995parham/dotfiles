@@ -1,0 +1,18 @@
+[style.tag]
+color = "yellow"
+width_percentage = 26
+min_width = 20
+
+[style.comment]
+color = "green"
+width_percentage = 42
+min_width = 45
+
+[style.snippet]
+color = "magenta"
+
+[finder]
+command = "fzf"
+
+[shell]
+command = "bash"
