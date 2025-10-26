@@ -11,6 +11,8 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 main_brew() {
     require_github_release "1995parham/navi" "navi" "navi-\${version}-aarch64-apple-darwin" "tar.gz"
 }
@@ -24,7 +26,7 @@ main_pacman() {
 }
 
 main() {
-    configfile navi
+    linker "navi" "$root/navi/config.toml" "$(navi info config-path)"
 }
 
 main_parham() {
