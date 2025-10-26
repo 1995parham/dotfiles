@@ -39,6 +39,11 @@ main_pacman() {
 }
 
 setup_firefox_profiles() {
+    if [[ "$(command -v gopass-jsonapi)" ]]; then
+        msg 'install gopass-jsonapi native host for firefox'
+        gopass-jsonapi configure --browser firefox
+    fi
+
     msg 'Setting up Firefox profiles' 'info'
 
     # Find Firefox profile directory
