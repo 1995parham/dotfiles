@@ -26,6 +26,10 @@ main_pacman() {
 }
 
 main() {
+    config_path="$(navi info config-path)"
+
+    mkdir -p "$(dirname "$config_path")" || true
+
     linker "navi" "$root/navi/config.toml" "$(navi info config-path)"
 }
 
