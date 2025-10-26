@@ -2,19 +2,19 @@
 # the config file schema may change at any time
 
 style:
-  tag:
-    color: yellow
-    width_percentage: 26
-    min_width: 20
-  comment:
-    color: green
-    width_percentage: 42
-    min_width: 45
-  snippet:
-    color: magenta
+    tag:
+        color: yellow
+        width_percentage: 26
+        min_width: 20
+    comment:
+        color: green
+        width_percentage: 42
+        min_width: 45
+    snippet:
+        color: magenta
 
 finder:
-  command: fzf
+    command: fzf
 
 # cheats:
 # paths:
@@ -22,4 +22,4 @@ finder:
 # - /path/to/another/dir
 
 shell:
-  command: bash
+    command: bash
