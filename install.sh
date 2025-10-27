@@ -75,13 +75,6 @@ install-tmux() {
         rm "$root/tmux/tmuxp/main.yaml"
         ln -s "$HOSTNAME.yaml" "$root/tmux/tmuxp/main.yaml"
     fi
-
-    message "tmux" "installing tmux plugins"
-    if [ ! -d "$HOME/.local/share/tmux/plugins/tpm" ]; then
-        mkdir -p ~/.local/share/tmux/plugins
-        git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
-    fi
-    "$HOME/.local/share/tmux/plugins/tpm/bin/install_plugins"
 }
 
 # bin
