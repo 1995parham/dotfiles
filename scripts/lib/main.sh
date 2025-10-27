@@ -13,8 +13,6 @@ dotfile_lib_root="$(cd "$(dirname "${source}")" && pwd)"
 source "${dotfile_lib_root}/message.sh"
 # shellcheck source=proxy.sh
 source "${dotfile_lib_root}/proxy.sh"
-# shellcheck source=semver.sh
-source "${dotfile_lib_root}/semver.sh"
 if [[ -n "${root}" ]]; then
     # shellcheck source=linker.sh
     source "${dotfile_lib_root}/linker.sh"

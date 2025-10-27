@@ -43,7 +43,7 @@ source "${root}/message.sh"
 declare -F | while read -r unit_test; do
     unit_test="${unit_test#"declare -f "}"
 
-    if [[ "${unit_test}" =~ test_* ]]; then
+    if [[ "${unit_test}" =~ ^test_* ]]; then
         "${unit_test}" || (
             message "${unit_test}" 'failed' 'error'
             return 1
