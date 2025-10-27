@@ -238,7 +238,7 @@ _github_release_get_installed_version() {
 }
 
 # Install binary from GitHub releases
-function require_github_release() {
+require_github_release() {
     local repo=${1:?"GitHub repo (owner/name) is required"}
     local binary_name
     binary_name=$(eval echo "${2:?'binary name is required'}")
