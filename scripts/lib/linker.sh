@@ -125,13 +125,17 @@ _get_symlink_target() {
 #######################################
 # Copy a file from root into the given destination.
 # Shows the difference before copying. Useful for setup files in /etc, /usr, etc.
+# Supports two modes:
+#   1. If destination ends with /, treats it as a directory and copies the file
+#      with the same name into that directory
+#   2. Otherwise, treats destination as the full file path (including filename)
 # Globals:
 #   root - The root directory path
 #   yes_to_all - Skip confirmation prompts if true
 # Arguments:
 #   $1 - module name (for logging)
 #   $2 - source file path (relative to $root)
-#   $3 - destination file path (absolute)
+#   $3 - destination path (absolute). If ends with /, treated as directory
 #   $4 - use sudo for operations (true/false, default: true)
 # Returns:
 #   0 on success, 1 on failure or user cancellation
@@ -149,6 +153,21 @@ copycat() {
     if [[ ! -f "${src_path}" ]]; then
         message "${module}" "Source file does not exist: ${src_path}" "error"
         return 1
+    fi
+
+    # Handle directory destination (ending with /)
+    if [[ "${dest}" == */ ]]; then
+        # Extract filename from source
+        local filename
+        filename="$(basename "${src}")"
+
+        # Ensure destination directory exists
+        if ! _ensure_directory "${dest}" "${module}"; then
+            return 1
+        fi
+
+        # Append filename to destination
+        dest="${dest}${filename}"
     fi
 
     # Validate destination path
