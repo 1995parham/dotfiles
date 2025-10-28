@@ -13,6 +13,28 @@ usage() {
   '
 }
 
+app_exists() {
+    local app_path="$1"
+    if [ -d "$app_path" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+add_to_dock_if_exists() {
+    local app_path="$1"
+    local app_name
+    app_name=$(basename "$app_path")
+
+    if app_exists "$app_path"; then
+        defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file://$app_path</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>"
+        msg "Added $app_name to dock" 'success'
+    else
+        msg "Skipping $app_name - application not found at $app_path" 'warning'
+    fi
+}
+
 main_brew() {
     msg 'Lock screen'
 
@@ -62,15 +84,16 @@ main_brew() {
 
     defaults write com.apple.dock persistent-apps -array
     if [[ "$USER" == "parham" ]]; then
-        defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Kitty.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+        add_to_dock_if_exists "/Applications/Kitty.app"
+        add_to_dock_if_exists "/Applications/Firefox.app"
     else
-        defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/iTerm.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+        add_to_dock_if_exists "/Applications/iTerm.app"
     fi
     if [[ "$USER" == "parham" ]]; then
-        defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
-        defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Obsidian.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+        add_to_dock_if_exists "/Applications/Google Chrome.app"
+        add_to_dock_if_exists "/Applications/Obsidian.app"
     else
-        defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file:///Applications/Google Chrome.app/</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>'
+        add_to_dock_if_exists "/Applications/Google Chrome.app"
     fi
 
     # Dock position on screen
