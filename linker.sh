@@ -39,7 +39,7 @@ _ensure_directory() {
 #   0 if safe, 1 if dangerous
 #######################################
 _validate_path_safety() {
-    local path="${1:?'path required'}"
+    local path="${1:-}"
     local operation="${2:-'operation'}"
 
     # Check if path is empty
