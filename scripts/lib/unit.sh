@@ -40,15 +40,34 @@ root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=message.sh
 source "${root}/message.sh"
 
-declare -F | while read -r unit_test; do
+# Track test failures
+test_failed=0
+test_passed=0
+test_total=0
+
+# Use process substitution to avoid subshell issue
+while read -r unit_test; do
     unit_test="${unit_test#"declare -f "}"
 
     if [[ "${unit_test}" =~ ^test_* ]]; then
-        "${unit_test}" || (
-            message "${unit_test}" 'failed' 'error'
-            return 1
-        )
+        test_total=$((test_total + 1))
 
-        message "${unit_test}" 'passed'
+        if "${unit_test}"; then
+            message "${unit_test}" 'passed'
+            test_passed=$((test_passed + 1))
+        else
+            message "${unit_test}" 'failed' 'error'
+            test_failed=$((test_failed + 1))
+        fi
     fi
-done
+done < <(declare -F)
+
+# Print summary
+echo
+if [[ ${test_failed} -gt 0 ]]; then
+    message "test_summary" "${test_passed}/${test_total} tests passed, ${test_failed} failed" "error"
+    exit 1
+else
+    message "test_summary" "All ${test_total} tests passed" "success"
+    exit 0
+fi

@@ -17,7 +17,7 @@ setup_test_env() {
     # Export for linker.sh to use
     export HOME="${test_home_dir}"
     export root="${test_root_dir}"
-    export yes_to_all=true
+    export yes_to_all=1
 }
 
 # Global test cleanup
@@ -740,6 +740,79 @@ test_copycat_dangerous_destination() {
 
     if copycat "test" "${source_file}" "/etc/passwd" "false" 2>/dev/null; then
         message "test" "copycat accepted dangerous destination" "error"
+        cleanup_test_env
+        return 1
+    fi
+
+    cleanup_test_env
+    return 0
+}
+
+#######################################
+# Test: copycat copies to directory (destination ending with /)
+#######################################
+test_copycat_directory_destination() {
+    setup_test_env
+
+    local source_file="myconfig.txt"
+    local dest_dir="${test_temp_dir}/target_dir/"
+
+    echo "directory test content" >"${test_root_dir}/${source_file}"
+
+    if ! copycat "test" "${source_file}" "${dest_dir}" "false" 2>/dev/null; then
+        message "test" "copycat failed to copy to directory destination" "error"
+        cleanup_test_env
+        return 1
+    fi
+
+    # File should be copied with same name into the directory
+    local expected_file="${test_temp_dir}/target_dir/myconfig.txt"
+    if [[ ! -f "${expected_file}" ]]; then
+        message "test" "File was not copied to directory: ${expected_file}" "error"
+        cleanup_test_env
+        return 1
+    fi
+
+    local content
+    content=$(cat "${expected_file}")
+    if [[ "${content}" != "directory test content" ]]; then
+        message "test" "File content incorrect: ${content}" "error"
+        cleanup_test_env
+        return 1
+    fi
+
+    cleanup_test_env
+    return 0
+}
+
+#######################################
+# Test: copycat copies to specific file path (destination not ending with /)
+#######################################
+test_copycat_file_destination() {
+    setup_test_env
+
+    local source_file="source.conf"
+    local dest_file="${test_temp_dir}/custom_name.conf"
+
+    echo "file test content" >"${test_root_dir}/${source_file}"
+
+    if ! copycat "test" "${source_file}" "${dest_file}" "false" 2>/dev/null; then
+        message "test" "copycat failed to copy to file destination" "error"
+        cleanup_test_env
+        return 1
+    fi
+
+    # File should be copied with the specified name
+    if [[ ! -f "${dest_file}" ]]; then
+        message "test" "File was not created: ${dest_file}" "error"
+        cleanup_test_env
+        return 1
+    fi
+
+    local content
+    content=$(cat "${dest_file}")
+    if [[ "${content}" != "file test content" ]]; then
+        message "test" "File content incorrect: ${content}" "error"
         cleanup_test_env
         return 1
     fi

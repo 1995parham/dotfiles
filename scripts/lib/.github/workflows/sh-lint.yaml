@@ -45,6 +45,16 @@ jobs:
             - uses: actions/checkout@v5
             - name: Test units
               run: |
+                  failed=0
                   for f in tests/*.sh; do
-                    bash "$f" -H || break
+                    echo "Running test: $f"
+                    if ! bash "$f" -H; then
+                      echo "Test failed: $f"
+                      failed=1
+                    fi
                   done
+                  if [ $failed -eq 1 ]; then
+                    echo "Some tests failed"
+                    exit 1
+                  fi
+                  echo "All tests passed"
