@@ -16,6 +16,7 @@ setup_test_env() {
 
     # Export for linker.sh to use
     export HOME="${test_home_dir}"
+    export XDG_CONFIG_HOME="${test_home_dir}/.config"
     export root="${test_root_dir}"
     export yes_to_all=1
 }
@@ -183,7 +184,10 @@ test_get_symlink_target_valid() {
     target=$(_get_symlink_target "${link_file}")
 
     # The target should match the source (may be relative or absolute depending on readlink)
-    if [[ "${target}" != "${source_file}" ]] && [[ "${target}" != "source.txt" ]]; then
+    # On macOS, readlink -f may add /private prefix to /var paths
+    if [[ "${target}" != "${source_file}" ]] &&
+        [[ "${target}" != "source.txt" ]] &&
+        [[ "${target}" != "/private${source_file}" ]]; then
         message "test" "_get_symlink_target returned incorrect target: ${target}" "error"
         cleanup_test_env
         return 1
