@@ -57,16 +57,16 @@ home_symbol = "~"
 
 [c]
 symbol = " "
-style = "fd:#86BBD8"
+style = "fg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [helm]
-style = "fd:#86BBD8"
+style = "fg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "fd:#06969A"
+style = "fg:#06969A"
 format = '[ $symbol $context ]($style) $path'
 only_with_files = false
 disabled = false
@@ -167,11 +167,19 @@ repeat_offset = 2
 threshold = 0
 
 [custom.uname]
-command = 'uname -rs'
+command = '''
+CACHE_FILE="/tmp/starship_uname_cache"
+CACHE_MAX_AGE=86400  # 24 hours in seconds
+if [ -f "$CACHE_FILE" ] && [ $(($(date +%s) - $(stat -c %Y "$CACHE_FILE" 2>/dev/null || stat -f %m "$CACHE_FILE" 2>/dev/null))) -lt $CACHE_MAX_AGE ]; then
+  cat "$CACHE_FILE"
+else
+  uname -rs | tee "$CACHE_FILE"
+fi
+'''
 when = true
 style = 'fg:#ff0080'
 symbol = '  '
-description = 'kernel version'
+description = 'kernel version (cached 24h)'
 
 [env_var.NVIM]
 style = 'fg:#32cd32'
