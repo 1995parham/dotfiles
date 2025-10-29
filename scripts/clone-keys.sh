@@ -93,13 +93,23 @@ decrypt_and_clone() {
         msg "directory ${clone_path} already exists" "notice"
         if yes_or_no "clone-keys" "would you like to update it instead?"; then
             cd "$clone_path" || return 1
-            git pull "https://${token}@${repo_url}"
+            GIT_CONFIG_COUNT=2 \
+            GIT_CONFIG_KEY_0="credential.helper" \
+            GIT_CONFIG_VALUE_0="" \
+            GIT_CONFIG_KEY_1="credential.helper" \
+            GIT_CONFIG_VALUE_1="!f() { echo \"username=parham-alvani\"; echo \"password=${token}\"; }; f" \
+            git pull "https://${repo_url}"
             msg "repository updated successfully" "success"
         fi
     else
         msg "cloning repository..."
 
-        if git clone "https://${token}@${repo_url}" "$clone_path"; then
+        if GIT_CONFIG_COUNT=2 \
+           GIT_CONFIG_KEY_0="credential.helper" \
+           GIT_CONFIG_VALUE_0="" \
+           GIT_CONFIG_KEY_1="credential.helper" \
+           GIT_CONFIG_VALUE_1="!f() { echo \"username=parham-alvani\"; echo \"password=${token}\"; }; f" \
+           git clone "https://${repo_url}" "$clone_path"; then
             msg "repository cloned successfully to ${clone_path}" "success"
         else
             msg "failed to clone repository" "error"
