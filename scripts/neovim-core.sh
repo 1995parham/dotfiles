@@ -29,7 +29,7 @@ main_pacman() {
         # rm -rf ~/.cache/yay/neovim-git || true
         require_aur neovim-git
     fi
-    require_pacman libvterm python-pynvim luarocks
+    require_pacman libvterm python-pynvim luarocks stylua
 }
 
 main_apt() {
@@ -45,7 +45,7 @@ main_brew() {
         brew list --version neovim | grep HEAD || brew uninstall --ignore-dependencies neovim
         require_brew_head neovim
     fi
-    require_brew luarocks gcc@11
+    require_brew luarocks gcc@11 stylua
 }
 
 main() {
