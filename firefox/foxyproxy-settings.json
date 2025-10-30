@@ -1,0 +1,101 @@
+{
+  "mode": "patterns",
+  "sync": false,
+  "browserVersion": "122.0",
+  "foxyProxyVersion": "8.9",
+  "foxyProxyEdition": "standard",
+  "proxies": [
+    {
+      "active": true,
+      "title": "Direct (No Proxy)",
+      "notes": "Direct connection without proxy",
+      "color": "#00c853",
+      "type": "direct",
+      "hostname": "",
+      "port": "",
+      "username": "",
+      "password": "",
+      "cc": "DIRECT",
+      "city": "Direct",
+      "country": "Direct"
+    },
+    {
+      "active": true,
+      "title": "Local Proxy",
+      "notes": "Local proxy server on 127.0.0.1:2081",
+      "color": "#2196f3",
+      "type": "http",
+      "hostname": "127.0.0.1",
+      "port": "2081",
+      "username": "",
+      "password": "",
+      "cc": "XX",
+      "city": "Local",
+      "country": "Local Proxy"
+    }
+  ],
+  "ipv4": [],
+  "ipv6": [],
+  "logging": {
+    "active": false,
+    "maxSize": 500
+  },
+  "commands": {
+    "active": false,
+    "values": []
+  },
+  "container": {
+    "active": false,
+    "values": []
+  },
+  "sync2": false,
+  "passthrough": "",
+  "autoClear": {
+    "authCookies": false,
+    "cookiesAll": false
+  },
+  "globalExcludeWildcardsEnabled": true,
+  "globalExcludeWildcards": [
+    "localhost",
+    "127.0.0.1",
+    "192.168.*",
+    "10.*",
+    "172.16.*",
+    "*.local"
+  ],
+  "patternProxy": [
+    {
+      "active": true,
+      "title": "Iranian Websites - Direct",
+      "pattern": ".*\\.ir$|.*\\.ir/.*",
+      "type": 1,
+      "protocols": 1,
+      "proxyDNS": false,
+      "whitePatterns": [],
+      "blackPatterns": [],
+      "proxy": 0
+    },
+    {
+      "active": true,
+      "title": "Local Networks - Direct",
+      "pattern": "localhost|127\\.0\\.0\\.1|192\\.168\\.*|10\\.*|172\\.16\\.*|\\.local",
+      "type": 1,
+      "protocols": 1,
+      "proxyDNS": false,
+      "whitePatterns": [],
+      "blackPatterns": [],
+      "proxy": 0
+    },
+    {
+      "active": true,
+      "title": "Everything Else - Proxy",
+      "pattern": "*",
+      "type": 1,
+      "protocols": 1,
+      "proxyDNS": false,
+      "whitePatterns": [],
+      "blackPatterns": [],
+      "proxy": 1
+    }
+  ]
+}
