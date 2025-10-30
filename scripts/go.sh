@@ -31,6 +31,8 @@ main() {
     fi
     msg "$(go version)"
 
+    msg "configure go environment variables"
+
     msg "create go directories structure"
     local gopath="$HOME/.cache/go"
     if [ ! -d "$gopath/pkg" ]; then
@@ -48,9 +50,6 @@ main() {
         fi
     fi
 
-    msg "configure go environment variables"
-
-    # Ensure Go config directory exists before running go env -w
     local goconfig="$HOME/.config/go"
     if [ ! -d "$goconfig" ]; then
         if ! mkdir -p "$goconfig"; then
