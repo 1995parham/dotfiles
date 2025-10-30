@@ -20,32 +20,6 @@ pre_main() {
     msg 'bookmarks can be synced using Firefox Sync or https://floccus.org/'
 }
 
-copy_if_different() {
-    local src="$1"
-    local dest="$2"
-
-    if [[ ! -f "$src" ]]; then
-        return 1
-    fi
-
-    # If destination doesn't exist, just copy
-    if [[ ! -f "$dest" ]]; then
-        cp "$src" "$dest"
-        ok 'firefox' "Created: $(basename "$dest")"
-        return 0
-    fi
-
-    # If files are identical, skip
-    if cmp -s "$src" "$dest"; then
-        msg "Already up to date: $(basename "$dest")"
-        return 0
-    fi
-
-    # Files are different, update
-    cp "$src" "$dest"
-    ok 'firefox' "Updated: $(basename "$dest")"
-}
-
 check_firefox_running() {
     if pgrep -x firefox >/dev/null 2>&1; then
         msg 'Warning: Firefox is currently running' 'warn'
@@ -84,25 +58,27 @@ setup_firefox_profiles() {
 
     check_firefox_running
 
+    local firefox_dir
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        FIREFOX_DIR="$HOME/Library/Application Support/Firefox"
+        firefox_dir="$HOME/Library/Application Support/Firefox"
     else
-        FIREFOX_DIR="$HOME/.mozilla/firefox"
+        firefox_dir="$HOME/.mozilla/firefox"
     fi
 
-    mkdir -p "$FIREFOX_DIR"
+    mkdir -p "$firefox_dir"
 
-    PROFILES_INI="$FIREFOX_DIR/profiles.ini"
-    DOTFILES_FIREFOX="$root/firefox"
+    profiles_ini="$firefox_dir/profiles.ini"
+    root_firefox="$root/firefox"
 
-    if [[ ! -f "$PROFILES_INI" ]]; then
+    if [[ ! -f "$profiles_ini" ]]; then
         running 'firefox' 'Creating profiles.ini from dotfiles'
-        if [[ -f "$DOTFILES_FIREFOX/profiles.ini" ]]; then
-            cp "$DOTFILES_FIREFOX/profiles.ini" "$PROFILES_INI"
+        if [[ -f "$root_firefox/profiles.ini" ]]; then
+            cp "$root_firefox/profiles.ini" "$profiles_ini"
             ok 'firefox' 'profiles.ini created'
         else
             msg 'Warning: profiles.ini not found in dotfiles, using default' 'warn'
-            cat >"$PROFILES_INI" <<'EOF'
+            cat >"$profiles_ini" <<'EOF'
 [Install4F96D1932A9F858E]
 Default=main.default
 Locked=1
@@ -123,27 +99,27 @@ StartWithLastProfile=1
 Version=2
 EOF
         fi
-    elif [[ -f "$DOTFILES_FIREFOX/profiles.ini" ]] && ! cmp -s "$DOTFILES_FIREFOX/profiles.ini" "$PROFILES_INI"; then
+    elif [[ -f "$root_firefox/profiles.ini" ]] && ! cmp -s "$root_firefox/profiles.ini" "$profiles_ini"; then
         msg 'profiles.ini exists but differs from dotfiles version' 'warn'
         msg 'Skipping profiles.ini update to preserve existing profiles' 'warn'
-        msg "To update, manually backup and remove: $PROFILES_INI" 'notice'
+        msg "To update, manually backup and remove: $profiles_ini" 'notice'
     else
         msg 'profiles.ini already up to date'
     fi
 
-    mkdir -p "$FIREFOX_DIR/main.default"
-    mkdir -p "$FIREFOX_DIR/personal.default"
+    mkdir -p "$firefox_dir/main.default"
+    mkdir -p "$firefox_dir/personal.default"
 
     running 'firefox' 'Configuring main profile (parham.alvani@gmail.com)'
-    copy_if_different "$DOTFILES_FIREFOX/main.default.user.js" "$FIREFOX_DIR/main.default/user.js"
+    copycat 'firefox' "$root_firefox/main.default.user.js" "$firefox_dir/main.default/user.js" 'false'
 
     running 'firefox' 'Configuring personal profile (1995parham@gmail.com)'
-    copy_if_different "$DOTFILES_FIREFOX/personal.default.user.js" "$FIREFOX_DIR/personal.default/user.js"
+    copycat 'firfox' "$root_firefox/personal.default.user.js" "$firefox_dir/personal.default/user.js" 'false'
 
-    if [[ -f "$DOTFILES_FIREFOX/foxyproxy-settings.json" ]]; then
+    if [[ -f "$root_firefox/foxyproxy-settings.json" ]]; then
         running 'firefox' 'Copying FoxyProxy settings'
-        copy_if_different "$DOTFILES_FIREFOX/foxyproxy-settings.json" "$FIREFOX_DIR/main.default/foxyproxy-settings.json"
-        copy_if_different "$DOTFILES_FIREFOX/foxyproxy-settings.json" "$FIREFOX_DIR/personal.default/foxyproxy-settings.json"
+        copycat 'firefox' "$root_firefox/foxyproxy-settings.json" "$firefox_dir/main.default/foxyproxy-settings.json" 'false'
+        copycat 'firefox' "$root_firefox/foxyproxy-settings.json" "$firefox_dir/personal.default/foxyproxy-settings.json" 'false'
     fi
 
     ok 'firefox' 'Firefox profiles setup completed!'
@@ -163,7 +139,7 @@ setup_foxyproxy_instructions() {
     msg '2. After installation, click FoxyProxy icon → Options'
     echo
     msg '3. Click "Import Settings" and select:'
-    msg "   $FIREFOX_DIR/main.default/foxyproxy-settings.json"
+    msg "   $firefox_dir/main.default/foxyproxy-settings.json"
     msg '   (or personal.default for personal profile)'
     echo
     msg '4. Configuration includes:'
