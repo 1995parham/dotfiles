@@ -49,6 +49,19 @@ main() {
     fi
 
     msg "configure go environment variables"
+
+    # Ensure Go config directory exists before running go env -w
+    local goconfig="$HOME/.config/go"
+    if [ ! -d "$goconfig" ]; then
+        if ! mkdir -p "$goconfig"; then
+            msg 'failed to create Go config directory' 'error'
+            return 1
+        fi
+    fi
+
+    # Explicitly set GOENV to ensure go env -w writes to user directory
+    export GOENV="$HOME/.config/go/env"
+
     go_env GOPATH "$HOME/.cache/go"
     go_env GOBIN "$HOME/.local/bin"
     go_env GOPROXY https://proxy.golang.org,direct
