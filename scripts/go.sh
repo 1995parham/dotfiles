@@ -31,12 +31,10 @@ main() {
     fi
     msg "$(go version)"
 
-    msg "configure go environment variables"
-
     msg "create go directories structure"
     local gopath="$HOME/.cache/go"
-    if [ ! -d "$gopath/pkg" ]; then
-        if ! mkdir -p "$gopath/pkg"; then
+    if [ ! -d "$gopath" ]; then
+        if ! mkdir -p "$gopath"; then
             msg 'failed to create GOPATH directory' 'error'
             return 1
         fi
@@ -50,16 +48,7 @@ main() {
         fi
     fi
 
-    local goconfig="$HOME/.config/go"
-    if [ ! -d "$goconfig" ]; then
-        if ! mkdir -p "$goconfig"; then
-            msg 'failed to create Go config directory' 'error'
-            return 1
-        fi
-    fi
-
-    # Explicitly set GOENV to ensure go env -w writes to user directory
-    export GOENV="$HOME/.config/go/env"
+    msg "configure go environment variables"
 
     go_env GOPATH "$HOME/.cache/go"
     go_env GOBIN "$HOME/.local/bin"
