@@ -90,6 +90,7 @@ go_install_packages() {
     require_go golang.org/x/tools/gopls
     require_go golang.org/dl/gotip
     require_go github.com/go-delve/delve/cmd/dlv
+    require_go github.com/pressly/goose/v3/cmd/goose
     # Wire dependency injection tool (commented - enable if needed)
     # require_go github.com/google/wire/cmd/wire
     require_go github.com/abice/go-enum
