@@ -29,6 +29,44 @@ check_firefox_running() {
     return 1
 }
 
+check_firefox_login() {
+    local firefox_dir="$1"
+    local profile_path="$2"
+    local profile_name="$3"
+
+    local profile_dir="$firefox_dir/$profile_path"
+
+    # Check if signedInUser.json exists (indicates Firefox account login)
+    if [[ -f "$profile_dir/signedInUser.json" ]] && [[ -s "$profile_dir/signedInUser.json" ]]; then
+        ok 'firefox' "Profile '$profile_name' is logged in"
+        return 0
+    fi
+
+    msg 'firefox' "Profile '$profile_name' is not logged in" 'warn'
+
+    # Check if gopass is available
+    if command -v gopass >/dev/null 2>&1; then
+        ok 'firefox' 'gopass is installed and available'
+        msg 'firefox' "Retrieve password with: gopass show -c <password-path>" 'notice'
+
+        # Ask user if they want to open Firefox to login
+        if yes_or_no 'firefox' "Would you like to open Firefox '$profile_name' profile to login?"; then
+            running 'firefox' "Opening Firefox with '$profile_name' profile..."
+            if [[ "$OSTYPE" == "darwin"* ]]; then
+                /Applications/Firefox.app/Contents/MacOS/firefox -P "$profile_name" &
+            else
+                firefox -P "$profile_name" &
+            fi
+            ok 'firefox' "Firefox opened. Please log in with your account"
+        fi
+    else
+        msg 'firefox' 'gopass is not installed' 'warn'
+        msg 'firefox' 'Install gopass for password management to enable login assistance' 'notice'
+    fi
+
+    return 1
+}
+
 main_brew() {
     require_brew_cask firefox
     require_brew defaultbrowser
@@ -107,19 +145,37 @@ EOF
         msg 'profiles.ini already up to date'
     fi
 
-    mkdir -p "$firefox_dir/main.default"
-    mkdir -p "$firefox_dir/personal.default"
+    if [[ -f "$profiles_ini" ]]; then
+        export yes_to_all=1
 
-    running 'firefox' 'Configuring main profile (parham.alvani@gmail.com)'
-    copycat 'firefox' "$root_firefox/main.default.user.js" "$firefox_dir/main.default/user.js" 'false'
+        while IFS= read -r line; do
+            profile_path=$(echo "$line" | cut -d'=' -f2)
+            profile_dir="$firefox_dir/$profile_path"
+            mkdir -p "$profile_dir"
 
-    running 'firefox' 'Configuring personal profile (1995parham@gmail.com)'
-    copycat 'firfox' "$root_firefox/personal.default.user.js" "$firefox_dir/personal.default/user.js" 'false'
+            profile_name=$(grep -B2 "$line" "$profiles_ini" | grep '^Name=' | cut -d'=' -f2)
 
-    if [[ -f "$root_firefox/foxyproxy-settings.json" ]]; then
-        running 'firefox' 'Copying FoxyProxy settings'
-        copycat 'firefox' "$root_firefox/foxyproxy-settings.json" "$firefox_dir/main.default/foxyproxy-settings.json" 'false'
-        copycat 'firefox' "$root_firefox/foxyproxy-settings.json" "$firefox_dir/personal.default/foxyproxy-settings.json" 'false'
+            case "$profile_name" in
+            main)
+                running 'firefox' "Configuring main profile ($profile_path)"
+                copycat 'firefox' "firefox/main.default.user.js" "$profile_dir/user.js" 'false'
+                ;;
+            personal)
+                running 'firefox' "Configuring personal profile ($profile_path)"
+                copycat 'firefox' "firefox/personal.default.user.js" "$profile_dir/user.js" 'false'
+                ;;
+            *)
+                msg "Unknown profile '$profile_name' found, skipping user.js configuration." "warn"
+                ;;
+            esac
+
+            if [[ -f "$root_firefox/foxyproxy-settings.json" ]]; then
+                running 'firefox' "Copying FoxyProxy settings to $profile_path"
+                copycat 'firefox' "firefox/foxyproxy-settings.json" "$profile_dir/foxyproxy-settings.json" 'false'
+            fi
+
+            check_firefox_login "$firefox_dir" "$profile_path" "$profile_name"
+        done < <(grep -E '^Path=' "$profiles_ini")
     fi
 
     ok 'firefox' 'Firefox profiles setup completed!'
@@ -138,9 +194,9 @@ setup_foxyproxy_instructions() {
     echo
     msg '2. After installation, click FoxyProxy icon → Options'
     echo
-    msg '3. Click "Import Settings" and select:'
-    msg "   $firefox_dir/main.default/foxyproxy-settings.json"
-    msg '   (or personal.default for personal profile)'
+    msg '3. Click "Import Settings" and select the "foxyproxy-settings.json" file'
+    msg '   from your desired profile directory inside:'
+    msg "   $firefox_dir"
     echo
     msg '4. Configuration includes:'
     msg '   - Proxy: 127.0.0.1:2081'
