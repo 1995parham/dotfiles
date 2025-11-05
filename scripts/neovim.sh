@@ -4,7 +4,7 @@ export dependencies=("neovim-core" "node" "go" "python")
 export additionals=("shell" "java")
 
 lsp_servers() {
-    require_npm @mistweaverco/kulala-ls
+    return 0
 }
 
 usage() {
