@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-export dependencies=("neovim-core" "node" "go" "python")
-export additionals=("shell" "java")
+export additionals=("node" "go" "python" "shell" "java")
 
 lsp_servers() {
     return 0
@@ -20,15 +19,41 @@ usage() {
   '
 }
 
-main_apt() {
+pre_main() {
     return 0
 }
 
+main_pkg() {
+    require_pkg neovim
+}
+
+main_apt() {
+    require_snap nvim --edge --classic
+    require_apt python3-pynvim
+}
+
 main_pacman() {
+    if yes_or_no 'neovim' 'do you want to use stable release?'; then
+        not_require_pacman neovim-git
+        require_pacman neovim
+    else
+        not_require_pacman neovim
+        # rm -rf ~/.cache/yay/neovim-git || true
+        require_aur neovim-git
+    fi
+    require_pacman libvterm python-pynvim luarocks stylua
     require_pip 'nvim-remote'
 }
 
 main_brew() {
+    if yes_or_no 'neovim' 'do you want to use stable release?'; then
+        brew list --version neovim | grep HEAD && brew uninstall --ignore-dependencies neovim
+        require_brew neovim
+    else
+        brew list --version neovim | grep HEAD || brew uninstall --ignore-dependencies neovim
+        require_brew_head neovim
+    fi
+    require_brew luarocks gcc@11 stylua
     require_pip 'nvim-remote'
 }
 
@@ -42,32 +67,31 @@ remove_nvim_config() {
     fi
 }
 
-main() {
-    # Check if nvim config exists
-    if [ -e "$HOME/.config/nvim" ]; then
-        # If it's a git repository, check if it's the right one
-        if [ -d "$HOME/.config/nvim/.git" ]; then
-            pushd "$HOME/.config/nvim" >/dev/null || return 1
+# Clone or update elievim configuration repository
+require_elievim_repo() {
+    local repo_url="https://github.com/1995parham/elievim"
+    local config_dir="$HOME/.config/nvim"
 
+    running "require" " elievim configuration"
+
+    # Check if nvim config exists
+    if [ -e "$config_dir" ]; then
+        # If it's a git repository, check if it's the right one
+        if [ -d "$config_dir/.git" ]; then
+            pushd "$config_dir" >/dev/null || return 1
+
+            local url
             url=$(git remote get-url origin 2>/dev/null)
             if [[ "$url" =~ .*github.com[:/]1995parham/elievim ]]; then
-                msg 'valid repository, fetching latest changes'
+                action "require" " pulling latest changes from elievim"
                 if ! git pull origin main; then
-                    msg 'failed to pull latest changes' 'error'
+                    message "elievim" "failed to pull latest changes" "error"
                     popd >/dev/null || return 1
                 fi
                 popd >/dev/null || return 1
-                lsp_servers
-
-                msg 'syncing neovim plugins with Lazy'
-                if ! nvim --headless "+Lazy! sync" +qa; then
-                    msg 'failed to sync neovim plugins' 'error'
-                    return 1
-                fi
-
                 return 0
             else
-                msg "invalid repository $url"
+                message "elievim" "invalid repository $url" "warn"
                 popd >/dev/null || return 1
             fi
         fi
@@ -77,19 +101,33 @@ main() {
     fi
 
     # Clone the repository
-    msg 'cloning elievim repository'
-    if ! git clone https://github.com/1995parham/elievim "$HOME/.config/nvim"; then
-        msg 'failed to clone elievim repository' 'error'
+    action "require" " cloning elievim repository"
+    if ! git clone "$repo_url" "$config_dir"; then
+        message "elievim" "failed to clone elievim repository" "error"
         return 1
     fi
 
-    lsp_servers
+    return 0
+}
 
-    msg 'syncing neovim plugins with Lazy'
-    if ! nvim --headless "+Lazy! sync" +qa; then
-        msg 'failed to sync neovim plugins' 'error'
-        return 1
+main() {
+    # Only install elievim configuration if requested
+    if yes_or_no "neovim" "do you want to install elievim configuration (full setup)?"; then
+        require_elievim_repo || return 1
+        lsp_servers
+
+        msg 'syncing neovim plugins with Lazy'
+        if ! nvim --headless "+Lazy! sync" +qa; then
+            msg 'failed to sync neovim plugins' 'error'
+            return 1
+        fi
+
+        msg 'neovim configuration installed successfully'
+    else
+        msg 'neovim core installed (minimal setup)'
     fi
+}
 
-    msg 'neovim configuration installed successfully'
+main_parham() {
+    return 0
 }

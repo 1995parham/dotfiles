@@ -13,8 +13,7 @@ usage() {
   '
 }
 
-export dependencies=("neovim-core")
-export additionals=("neovim")
+export dependencies=("neovim")
 
 pre_main() {
     return 0
