@@ -204,28 +204,81 @@ main_brew() {
 
     touch ~/.hushlogin
 
+    # Architecture for "Did you do it?" interactive prompts:
+    # Each manual configuration step follows this pattern:
+    # 1. Empty msg line for spacing
+    # 2. Main prompt with 'notice' type describing what needs to be done
+    # 3. Detailed step-by-step instructions using msg with 'info' type:
+    #    - Start each step with numbered list (1., 2., 3., etc.)
+    #    - Include exact paths to System Settings or app locations
+    #    - Provide specific UI elements to click/check/uncheck
+    #    - Add context about what each step accomplishes
+    #    - Include a "Quick command" line with an 'open' command to launch settings directly
+    # 4. yes_or_no call with "macos" context and 'Did you do it?' question
+    #
+    # This format ensures users have complete information to perform manual tasks
+    # without needing to search for settings or guess at paths.
+
     msg
     msg 'Setup an internet account for xandikos for Calendar and Contacts' 'notice'
+    msg '  1. Open System Settings > Internet Accounts' 'info'
+    msg '  2. Click "Add Account..." button' 'info'
+    msg '  3. Select "Add Other Account..." at the bottom' 'info'
+    msg '  4. Choose "CalDAV account" for Calendar or "CardDAV account" for Contacts' 'info'
+    msg '  5. Enter your xandikos server details (server address, username, password)' 'info'
+    msg '  6. Repeat steps 3-5 for the other service if needed' 'info'
+    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.Internet-Accounts"' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
     msg 'Disable ctrl+space short key to use tmux without pain' 'notice'
+    msg '  1. Open System Settings > Keyboard > Keyboard Shortcuts' 'info'
+    msg '  2. Select "Input Sources" from the left sidebar' 'info'
+    msg '  3. Uncheck "Select the previous input source" (Ctrl+Space)' 'info'
+    msg '  4. If you have multiple input sources, also uncheck "Select next source in Input menu"' 'info'
+    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.Keyboard-Settings"' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
     msg 'Register Right Index Finger for fingerprint sensor' 'notice'
+    msg '  1. Open System Settings > Touch ID & Password' 'info'
+    msg '  2. Click the lock icon to authenticate' 'info'
+    msg '  3. Click "Add Fingerprint..." button' 'info'
+    msg '  4. Follow the on-screen instructions to scan your right index finger' 'info'
+    msg '  5. Lift and rest your finger repeatedly until the fingerprint is fully registered' 'info'
+    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.preferences.password"' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
-    msg 'Run "Maccy" and configure it - Lunch at login, Check for updates automatically' 'notice'
+    msg 'Run "Maccy" and configure it - Launch at login, Check for updates automatically' 'notice'
+    msg '  1. Launch Maccy from Applications folder or Spotlight' 'info'
+    msg '  2. Click the Maccy icon in the menu bar' 'info'
+    msg '  3. Select "Preferences..." from the dropdown menu' 'info'
+    msg '  4. In the "General" tab, check "Launch at login"' 'info'
+    msg '  5. In the "General" tab, check "Check for updates automatically"' 'info'
+    msg '  6. Adjust other settings as needed (e.g., paste automatically, sound effects)' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
     msg 'Run "KeepingYouAwake" and configure it - Start at login, Activate on Launch, Allow the display to sleep' 'notice'
+    msg '  1. Launch KeepingYouAwake from Applications folder or Spotlight' 'info'
+    msg '  2. Click the KeepingYouAwake icon in the menu bar (coffee cup icon)' 'info'
+    msg '  3. Select "Preferences..." from the dropdown menu' 'info'
+    msg '  4. In the "General" tab, check "Start at login"' 'info'
+    msg '  5. Check "Activate on Launch" to automatically prevent sleep when app starts' 'info'
+    msg '  6. Check "Allow the display to sleep" to only prevent system sleep, not screen sleep' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
-    msg 'Configure macos + L and macos + H as mission control short keys' 'notice'
+    msg 'Configure Command + L and Command + H as mission control short keys' 'notice'
+    msg '  1. Open System Settings > Keyboard > Keyboard Shortcuts' 'info'
+    msg '  2. Select "Mission Control" from the left sidebar' 'info'
+    msg '  3. Find "Move left a space" and click on the current shortcut' 'info'
+    msg '  4. Press Command (⌘) + H to set the new shortcut' 'info'
+    msg '  5. Find "Move right a space" and click on the current shortcut' 'info'
+    msg '  6. Press Command (⌘) + L to set the new shortcut' 'info'
+    msg '  7. If there are conflicts with other shortcuts, you may need to disable them first' 'info'
+    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.Keyboard-Settings"' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
