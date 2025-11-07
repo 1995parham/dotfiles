@@ -227,6 +227,18 @@ main_brew() {
     msg
     msg 'Configure macos + L and macos + H as mission control short keys' 'notice'
     yes_or_no "macos" 'Did you do it?'
+
+    msg
+    msg 'Grant Full Disk Access to Terminal for unrestricted file access' 'notice'
+    msg '  1. Open System Settings > Privacy & Security > Full Disk Access' 'info'
+    msg '  2. Click the lock icon to authenticate' 'info'
+    msg '  3. Click the + button and add your terminal app:' 'info'
+    msg '     - Terminal.app: /Applications/Utilities/Terminal.app' 'info'
+    msg '     - iTerm2: /Applications/iTerm.app' 'info'
+    msg '     - Kitty: /Applications/Kitty.app' 'info'
+    msg '  4. Restart your terminal after granting access' 'info'
+    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"' 'info'
+    yes_or_no "macos" 'Did you do it?'
 }
 
 main() {
