@@ -27,3 +27,9 @@ user_pref("toolkit.telemetry.enabled", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
+// Dark Mode Settings
+user_pref("ui.systemUsesDarkTheme", 1); // Force dark mode
+user_pref("browser.theme.dark-private-windows", true); // Dark mode for private windows
+user_pref("layout.css.prefers-color-scheme.content-override", 0); // 0 = dark, 1 = light, 2 = system
+user_pref("browser.in-content.dark-mode", true); // Dark mode for about: pages
+
