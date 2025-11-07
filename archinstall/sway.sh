@@ -23,15 +23,15 @@ cd "$current_dir/.." && ./start.sh yay
 # install required packages using pacman and yay
 cd "$current_dir/.." && ./start.sh env
 
-# message "archinstall" "lets use greetd as desktop manager"
-# not_require_pacman lightdm lightdm-gtk-greeter sddm
-# require_pacman greetd greetd-tuigreet greetd-agreety
+message "archinstall" "lets use greetd as desktop manager"
+not_require_pacman lightdm lightdm-gtk-greeter sddm
+require_pacman greetd greetd-tuigreet greetd-agreety
 
-# sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
-# sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
+sudo cp "$current_dir/wayland.d/greetd" /etc/pam.d/greetd
+sudo cp "$current_dir/wayland.d/config.toml" /etc/greetd/config.toml
 
-# message "archinstall" "enable greetd"
-# sudo systemctl enable greetd.service
+message "archinstall" "enable greetd"
+sudo systemctl enable greetd.service
 
 message "archinstall" "setup sway and required softwares"
 cd "$current_dir/.." && ./start.sh sway
