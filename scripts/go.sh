@@ -52,8 +52,9 @@ main() {
 
     go_env GOPATH "$HOME/.cache/go"
     go_env GOBIN "$HOME/.local/bin"
-    go_env GOPROXY https://proxy.golang.org,direct
-    go_env GOSUMDB "sum.golang.org" # Use official Go checksum database
+    # go_env GOPROXY https://proxy.golang.org,direct
+    go_env GOPROXY "https://goproxy.io,goproxy.cn,direct" # Chinese mirrors
+    go_env GOSUMDB "sum.golang.org"                       # Use official Go checksum database
 
     go_env GONOSUMDB "gitlab.snapp.ir"
     go_env GOPRIVATE "gitlab.snapp.ir"
