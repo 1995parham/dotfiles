@@ -108,7 +108,7 @@ LimitNOFILE=1048576' | sudo tee /etc/systemd/system/containerd.service.d/overrid
 main() {
     local timeout=60
     local elapsed=0
-    until docker info &>/dev/null; do
+    until sg 'docker' -c 'docker info' &>/dev/null; do
         if [ $elapsed -ge $timeout ]; then
             msg "Docker daemon did not start within ${timeout} seconds" "error"
             return 1
