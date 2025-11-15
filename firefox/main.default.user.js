@@ -20,7 +20,7 @@ user_pref("browser.urlbar.placeholderName.private", "DuckDuckGo");
 // Based on recommendations from Arkenfox and other privacy guides
 
 // Privacy Settings
-user_pref("privacy.resistFingerprinting", true);
+// user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.firstparty.isolate", true);
