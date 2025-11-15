@@ -4,10 +4,17 @@ user_pref("services.sync.username", "parham.alvani@gmail.com");
 user_pref("identity.fxaccounts.account.device.name", "Main Profile");
 user_pref("browser.ml.chat.provider", "https://gemini.google.com");
 user_pref("browser.translations.neverTranslateLanguages", "fa");
+user_pref("sidebar.main.tools", "syncedtabs,history,bookmarks");
+user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
+user_pref("browser.profiles.created", true);
+user_pref("browser.profiles.enabled", true);
+user_pref("browser.profiles.profile-name.updated", true);
 
 // Search Engine Configuration
 user_pref("browser.search.defaultenginename", "DuckDuckGo");
 user_pref("browser.search.order.1", "DuckDuckGo");
+user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
+user_pref("browser.urlbar.placeholderName.private", "DuckDuckGo");
 
 // Modern Privacy and Security Settings
 // Based on recommendations from Arkenfox and other privacy guides

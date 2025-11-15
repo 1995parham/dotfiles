@@ -1,90 +1,90 @@
 {
-  "mode": "pattern",
-  "sync": false,
-  "autoBackup": false,
-  "passthrough": "",
-  "theme": "moonlight",
-  "container": {},
-  "commands": {
-    "setProxy": "",
-    "setTabProxy": "",
-    "includeHost": "",
-    "excludeHost": ""
-  },
-  "data": [
-    {
-      "active": true,
-      "title": "DIRECT",
-      "type": "direct",
-      "hostname": "DIRECT",
-      "port": "",
-      "username": "",
-      "password": "",
-      "cc": "",
-      "city": "",
-      "color": "#a7a1a2",
-      "pac": "",
-      "pacString": "",
-      "proxyDNS": true,
-      "include": [
-        {
-          "type": "wildcard",
-          "title": "Iranian Websites",
-          "pattern": "*.ir",
-          "active": true
-        },
-        {
-          "type": "regex",
-          "title": "10.*.*.*",
-          "pattern": "^(http|ws)s?://10(\\.\\d+){3}/",
-          "active": true
-        },
-        {
-          "type": "regex",
-          "title": "127.*.*.*",
-          "pattern": "^(http|ws)s?://127(\\.\\d+){3}/",
-          "active": true
-        },
-        {
-          "type": "regex",
-          "title": "172.16.*.*",
-          "pattern": "^(http|ws)s?://172\\.16(\\.\\d+){2}/",
-          "active": true
-        },
-        {
-          "type": "regex",
-          "title": "192.168.*.*",
-          "pattern": "^(http|ws)s?://192\\.168(\\.\\d+){2}/",
-          "active": true
-        }
-      ],
-      "exclude": [],
-      "tabProxy": []
+    "mode": "pattern",
+    "sync": false,
+    "autoBackup": false,
+    "passthrough": "",
+    "theme": "moonlight",
+    "container": {},
+    "commands": {
+        "setProxy": "",
+        "setTabProxy": "",
+        "includeHost": "",
+        "excludeHost": ""
     },
-    {
-      "active": true,
-      "title": "local",
-      "type": "socks5",
-      "hostname": "127.0.0.1",
-      "port": "2081",
-      "username": "",
-      "password": "",
-      "cc": "EU",
-      "city": "",
-      "color": "#f88439",
-      "pac": "",
-      "pacString": "",
-      "proxyDNS": true,
-      "include": [
+    "data": [
         {
-          "type": "wildcard",
-          "title": "All",
-          "pattern": "*",
-          "active": true
+            "active": true,
+            "title": "DIRECT",
+            "type": "direct",
+            "hostname": "DIRECT",
+            "port": "",
+            "username": "",
+            "password": "",
+            "cc": "",
+            "city": "",
+            "color": "#a7a1a2",
+            "pac": "",
+            "pacString": "",
+            "proxyDNS": true,
+            "include": [
+                {
+                    "type": "wildcard",
+                    "title": "Iranian Websites",
+                    "pattern": "*.ir",
+                    "active": true
+                },
+                {
+                    "type": "regex",
+                    "title": "10.*.*.*",
+                    "pattern": "^(http|ws)s?://10(\\.\\d+){3}/",
+                    "active": true
+                },
+                {
+                    "type": "regex",
+                    "title": "127.*.*.*",
+                    "pattern": "^(http|ws)s?://127(\\.\\d+){3}/",
+                    "active": true
+                },
+                {
+                    "type": "regex",
+                    "title": "172.16.*.*",
+                    "pattern": "^(http|ws)s?://172\\.16(\\.\\d+){2}/",
+                    "active": true
+                },
+                {
+                    "type": "regex",
+                    "title": "192.168.*.*",
+                    "pattern": "^(http|ws)s?://192\\.168(\\.\\d+){2}/",
+                    "active": true
+                }
+            ],
+            "exclude": [],
+            "tabProxy": []
+        },
+        {
+            "active": true,
+            "title": "local",
+            "type": "socks5",
+            "hostname": "127.0.0.1",
+            "port": "2081",
+            "username": "",
+            "password": "",
+            "cc": "EU",
+            "city": "",
+            "color": "#f88439",
+            "pac": "",
+            "pacString": "",
+            "proxyDNS": true,
+            "include": [
+                {
+                    "type": "wildcard",
+                    "title": "All",
+                    "pattern": "*",
+                    "active": true
+                }
+            ],
+            "exclude": [],
+            "tabProxy": []
         }
-      ],
-      "exclude": [],
-      "tabProxy": []
-    }
-  ]
+    ]
 }
