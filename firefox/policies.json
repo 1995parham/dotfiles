@@ -1,46 +1,47 @@
 {
-  "policies": {
-    "SearchEngines": {
-      "Default": "DuckDuckGo",
-      "PreventInstalls": false,
-      "Add": [
-        {
-          "Name": "DuckDuckGo",
-          "URLTemplate": "https://duckduckgo.com/?q={searchTerms}",
-          "Method": "GET",
-          "IconURL": "https://duckduckgo.com/favicon.ico",
-          "Alias": "ddg",
-          "Description": "DuckDuckGo Search",
-          "SuggestURLTemplate": "https://ac.duckduckgo.com/ac/?q={searchTerms}&type=list"
-        }
-      ]
-    },
-    "DefaultDownloadDirectory": "${home}/Downloads",
-    "PromptForDownloadLocation": true,
-    "DisableTelemetry": true,
-    "DisableFirefoxStudies": true,
-    "DisablePocket": true,
-    "DisableFormHistory": false,
-    "DisplayBookmarksToolbar": "newtab",
-    "DontCheckDefaultBrowser": true,
-    "EnableTrackingProtection": {
-      "Value": true,
-      "Locked": false,
-      "Cryptomining": true,
-      "Fingerprinting": true
-    },
-    "FirefoxHome": {
-      "Search": true,
-      "TopSites": true,
-      "SponsoredTopSites": false,
-      "Highlights": true,
-      "Pocket": false,
-      "SponsoredPocket": false,
-      "Snippets": false,
-      "Locked": false
-    },
-    "HardwareAcceleration": true,
-    "OfferToSaveLogins": false,
-    "PasswordManagerEnabled": false
-  }
+    "policies": {
+        "Theme": "dark",
+        "SearchEngines": {
+            "Default": "DuckDuckGo",
+            "PreventInstalls": false,
+            "Add": [
+                {
+                    "Name": "DuckDuckGo",
+                    "URLTemplate": "https://duckduckgo.com/?q={searchTerms}",
+                    "Method": "GET",
+                    "IconURL": "https://duckduckgo.com/favicon.ico",
+                    "Alias": "ddg",
+                    "Description": "DuckDuckGo Search",
+                    "SuggestURLTemplate": "https://ac.duckduckgo.com/ac/?q={searchTerms}&type=list"
+                }
+            ]
+        },
+        "DefaultDownloadDirectory": "${home}/Downloads",
+        "PromptForDownloadLocation": true,
+        "DisableTelemetry": true,
+        "DisableFirefoxStudies": true,
+        "DisablePocket": true,
+        "DisableFormHistory": false,
+        "DisplayBookmarksToolbar": "newtab",
+        "DontCheckDefaultBrowser": true,
+        "EnableTrackingProtection": {
+            "Value": true,
+            "Locked": false,
+            "Cryptomining": true,
+            "Fingerprinting": true
+        },
+        "FirefoxHome": {
+            "Search": true,
+            "TopSites": true,
+            "SponsoredTopSites": false,
+            "Highlights": true,
+            "Pocket": false,
+            "SponsoredPocket": false,
+            "Snippets": false,
+            "Locked": false
+        },
+        "HardwareAcceleration": true,
+        "OfferToSaveLogins": false,
+        "PasswordManagerEnabled": false
+    }
 }
