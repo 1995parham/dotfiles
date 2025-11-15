@@ -1,6 +1,5 @@
 {
     "policies": {
-        "Theme": "dark",
         "SearchEngines": {
             "Default": "DuckDuckGo",
             "PreventInstalls": false,
