@@ -187,7 +187,7 @@ setup_firefox_profiles() {
                 rm -f "$profiles_ini.bak"
             else
                 # Add Install section if it doesn't exist
-                echo -e "\n[Install$install_hash]\nDefault=$main_profile_path\nLocked=1" >> "$profiles_ini"
+                echo -e "\n[Install$install_hash]\nDefault=$main_profile_path\nLocked=1" >>"$profiles_ini"
             fi
             ok 'firefox' "'main' set as default profile"
         else
