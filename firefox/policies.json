@@ -1,5 +1,11 @@
 {
     "policies": {
+        "Preferences": {
+            "layout.css.prefers-color-scheme.content-override": {
+                "Value": 0,
+                "Status": "default"
+            }
+        },
         "SearchEngines": {
             "Default": "DuckDuckGo",
             "PreventInstalls": false,

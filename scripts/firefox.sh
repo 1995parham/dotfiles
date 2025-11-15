@@ -113,6 +113,8 @@ setup_firefox_policies() {
         msg 'firefox' 'Failed to install policies.json (sudo required)' 'error'
         return 1
     fi
+
+    sudo chown "$USER" "$policies_dir/policies.json"
 }
 
 setup_firefox_profiles() {
