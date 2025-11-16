@@ -71,8 +71,14 @@ main_brew() {
     defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
     # Use command + H/L to move between spaces
-    defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 79 "{ enabled = 1; value = { parameters = ( 65535, 37, 11534336 ); type = 'standard'; }; }"
-    defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81 "{ enabled = 1; value = { parameters = ( 65535, 4, 11534336 ); type = 'standard'; }; }"
+    # Modifier value: Command = 1048576
+    # Key code: H = 4, L = 37
+    # ASCII: 104 (h), 108 (l)
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 "<dict><key>enabled</key><true/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>104</integer><integer>4</integer><integer>1048576</integer></array></dict></dict>"
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 "<dict><key>enabled</key><true/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>108</integer><integer>37</integer><integer>1048576</integer></array></dict></dict>"
+
+    # Apply keyboard shortcut changes immediately
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
     # Use tap instead of click. Secondary click with two finger tap.
     defaults write com.apple.driver.AppleMultitouch Clicking -int 1
@@ -269,17 +275,7 @@ main_brew() {
     msg '  6. Check "Allow the display to sleep" to only prevent system sleep, not screen sleep' 'info'
     yes_or_no "macos" 'Did you do it?'
 
-    msg
-    msg 'Configure Command + L and Command + H as mission control short keys' 'notice'
-    msg '  1. Open System Settings > Keyboard > Keyboard Shortcuts' 'info'
-    msg '  2. Select "Mission Control" from the left sidebar' 'info'
-    msg '  3. Find "Move left a space" and click on the current shortcut' 'info'
-    msg '  4. Press Command (⌘) + H to set the new shortcut' 'info'
-    msg '  5. Find "Move right a space" and click on the current shortcut' 'info'
-    msg '  6. Press Command (⌘) + L to set the new shortcut' 'info'
-    msg '  7. If there are conflicts with other shortcuts, you may need to disable them first' 'info'
-    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.Keyboard-Settings"' 'info'
-    yes_or_no "macos" 'Did you do it?'
+    # Command + L and Command + H mission control shortcuts are now configured automatically above (lines 73-81)
 
     msg
     msg 'Grant Full Disk Access to Terminal for unrestricted file access' 'notice'
