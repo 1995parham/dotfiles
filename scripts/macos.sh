@@ -29,16 +29,18 @@ add_to_dock_if_exists() {
 
     if app_exists "$app_path"; then
         defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>file://$app_path</string><key>_CFURLStringType</key><integer>15</integer></dict></dict></dict>"
-        msg "Added $app_name to dock" 'success'
+        list_item "$app_name" "success" 1
     else
-        msg "Skipping $app_name - application not found at $app_path" 'warning'
+        list_item "$app_name (not found)" "warning" 1
     fi
 }
 
 main_brew() {
+    section_header "System Configuration" 60 "="
+
     msg 'Lock screen'
 
-    sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to Parham and Elahe's Mac. Please treat our digital space with the same respect you'd show our home. For access, kindly text or call us."
+    sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to Parham and Elaheh's Mac. Please treat our digital space with the same respect you'd show our home. For access, kindly text or call us."
 
     msg 'Disable Siri'
     defaults write com.apple.assistant.support 'Assistant Enabled' -bool false
@@ -55,10 +57,10 @@ main_brew() {
     defaults write com.apple.Siri 'UserHasDeclinedEnable' -bool true
     defaults write com.apple.assistant.support 'Siri Data Sharing Opt-In Status' -int 2
 
-    msg "General UI/UX"
+    section_header "General UI/UX" 60 "="
 
     # Close any open System Preferences panes, to prevent them from overriding
-    # settings we’re about to change
+    # settings we're about to change
     osascript -e 'tell application "System Preferences" to quit'
 
     # Disable the “Are you sure you want to open this application?” dialog
@@ -70,6 +72,10 @@ main_brew() {
     defaults write NSGlobalDomain AppleHighlightColor -string "1.000000 0.874510 0.701961 Orange"
     defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
+    section_header "Keyboard & Shortcuts" 60 "="
+
+    running 'Configuring keyboard shortcuts'
+
     # Use command + H/L to move between spaces
     # Modifier value: Command = 1048576
     # Key code: H = 4, L = 37
@@ -77,8 +83,18 @@ main_brew() {
     defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 "<dict><key>enabled</key><true/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>104</integer><integer>4</integer><integer>1048576</integer></array></dict></dict>"
     defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 "<dict><key>enabled</key><true/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>108</integer><integer>37</integer><integer>1048576</integer></array></dict></dict>"
 
+    # Disable Ctrl+Space (Input Source switching) to avoid conflicts with tmux
+    # Key 60 = "Select the previous input source" (Ctrl+Space)
+    # Key 61 = "Select next source in Input menu" (Ctrl+Option+Space)
+    /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c "Set AppleSymbolicHotKeys:60:enabled false" 2>/dev/null || true
+    /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c "Set AppleSymbolicHotKeys:61:enabled false" 2>/dev/null || true
+
     # Apply keyboard shortcut changes immediately
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
+    ok 'Keyboard shortcuts configured and activated'
+
+    section_header "Trackpad" 60 "="
 
     # Use tap instead of click. Secondary click with two finger tap.
     defaults write com.apple.driver.AppleMultitouch Clicking -int 1
@@ -86,7 +102,9 @@ main_brew() {
     defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
     defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
 
-    msg "Dock, Dashboard, Control Center, and hot corners"
+    section_header "Dock & Applications" 60 "="
+
+    running 'Configuring dock applications'
 
     defaults write com.apple.dock persistent-apps -array
     if [[ "$USER" == "parham" ]]; then
@@ -117,6 +135,10 @@ main_brew() {
             sudo fdesetup enable
         fi
     fi
+
+    section_header "Menu Bar & Control Center" 60 "="
+
+    running 'Configuring menu bar and control center items'
 
     # Show date
     # when space allows = 0
@@ -150,6 +172,10 @@ main_brew() {
     # Disable gatekeeper
     msg 'Globally disabling the assessment system needs to be confirmed in System Settings means you need set application source from anywhere in the system settings' 'error'
     sudo spctl --master-disable || true
+
+    ok 'Menu bar and control center configured'
+
+    section_header "Security & Privacy" 60 "="
 
     # Bluetooth
     # show in menu bar = 18, true
@@ -194,6 +220,9 @@ main_brew() {
     defaults write com.apple.dock autohide -bool false
 
     killall Dock
+    ok 'Dock configured and restarted'
+
+    section_header "Locale & Finder" 60 "="
 
     # wake the machine when the laptop lid (or clamshell) is opened
     sudo pmset -a lidwake 0
@@ -209,6 +238,8 @@ main_brew() {
     killall Finder
 
     touch ~/.hushlogin
+
+    section_header "Manual Setup Required" 60 "="
 
     # Architecture for "Did you do it?" interactive prompts:
     # Each manual configuration step follows this pattern:
@@ -234,15 +265,6 @@ main_brew() {
     msg '  5. Enter your xandikos server details (server address, username, password)' 'info'
     msg '  6. Repeat steps 3-5 for the other service if needed' 'info'
     msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.Internet-Accounts"' 'info'
-    yes_or_no "macos" 'Did you do it?'
-
-    msg
-    msg 'Disable ctrl+space short key to use tmux without pain' 'notice'
-    msg '  1. Open System Settings > Keyboard > Keyboard Shortcuts' 'info'
-    msg '  2. Select "Input Sources" from the left sidebar' 'info'
-    msg '  3. Uncheck "Select the previous input source" (Ctrl+Space)' 'info'
-    msg '  4. If you have multiple input sources, also uncheck "Select next source in Input menu"' 'info'
-    msg '  Quick command to open settings: open "x-apple.systempreferences:com.apple.Keyboard-Settings"' 'info'
     yes_or_no "macos" 'Did you do it?'
 
     msg
@@ -274,8 +296,6 @@ main_brew() {
     msg '  5. Check "Activate on Launch" to automatically prevent sleep when app starts' 'info'
     msg '  6. Check "Allow the display to sleep" to only prevent system sleep, not screen sleep' 'info'
     yes_or_no "macos" 'Did you do it?'
-
-    # Command + L and Command + H mission control shortcuts are now configured automatically above (lines 73-81)
 
     msg
     msg 'Grant Full Disk Access to Terminal for unrestricted file access' 'notice'
