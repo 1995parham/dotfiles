@@ -94,6 +94,41 @@ main_brew() {
 
     ok 'Keyboard shortcuts configured and activated'
 
+    section_header "Spotlight Configuration" 60 "="
+
+    running 'Configuring Spotlight to search only Applications'
+
+    # Configure Spotlight to search only Applications
+    # This disables all other search categories and privacy-invasive features
+    defaults write com.apple.spotlight orderedItems -array \
+        '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+        '{"enabled" = 0;"name" = "SYSTEM_PREFS";}' \
+        '{"enabled" = 0;"name" = "DIRECTORIES";}' \
+        '{"enabled" = 0;"name" = "PDF";}' \
+        '{"enabled" = 0;"name" = "FONTS";}' \
+        '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+        '{"enabled" = 0;"name" = "MESSAGES";}' \
+        '{"enabled" = 0;"name" = "CONTACT";}' \
+        '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+        '{"enabled" = 0;"name" = "IMAGES";}' \
+        '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+        '{"enabled" = 0;"name" = "MUSIC";}' \
+        '{"enabled" = 0;"name" = "MOVIES";}' \
+        '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+        '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+        '{"enabled" = 0;"name" = "SOURCE";}' \
+        '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+        '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+        '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+        '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+        '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+        '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+
+    # Apply changes immediately by restarting the preferences daemon
+    killall cfprefsd
+
+    ok 'Spotlight configured to search only Applications'
+
     section_header "Trackpad" 60 "="
 
     # Use tap instead of click. Secondary click with two finger tap.
