@@ -1,0 +1,70 @@
+# Colima configuration for container runtime on macOS
+# This configuration provides a balanced setup for development
+
+# CPU and Memory Configuration
+# Adjust these based on your Mac's resources
+cpu: 4
+memory: 8
+
+# Disk size in GiB (can be increased after creation)
+disk: 100
+
+# Architecture (x86_64 or aarch64)
+# Auto-detected, but can be overridden
+# arch: aarch64
+
+# Container runtime (docker, containerd, or incus)
+runtime: docker
+
+# Kubernetes configuration
+kubernetes:
+    enabled: false
+    # version: v1.28.3
+    # k3sArgs:
+    #   - --disable=traefik
+
+# Network configuration
+# - Address: Use true for dynamic address (default)
+# - DNS: Custom DNS servers
+network:
+    address: true
+    # dns:
+    #   - 8.8.8.8
+    #   - 1.1.1.1
+
+# Forward agent for SSH
+forwardAgent: true
+
+# Docker daemon configuration
+# Customize Docker settings here
+docker:
+    features:
+        buildkit: true
+
+# VM type (qemu or vz)
+# vz is faster but only available on macOS 13+ (Ventura)
+# Uncomment below for Apple Silicon with Rosetta 2 support
+# vmType: vz
+# rosetta: true
+
+# Mount configuration
+mounts: []
+
+# Provision scripts
+# Run custom scripts after VM starts
+# provision:
+#   - mode: system
+#     script: |
+#       #!/bin/bash
+#       echo "System provisioning"
+#   - mode: user
+#     script: |
+#       #!/bin/bash
+#       echo "User provisioning"
+
+# Environment variables
+# env:
+#   MY_VAR: value
+
+# Auto-activation of containerd runtime for Kubernetes
+autoActivate: true
