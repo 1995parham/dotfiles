@@ -15,12 +15,6 @@ usage() {
 root=${root:?"root must be set"}
 
 pre_main() {
-    if [[ "$OSTYPE" != "darwin"* ]]; then
-        msg 'Colima is primarily designed for macOS' 'error'
-        msg 'For Linux, consider using Docker Desktop or native Docker' 'notice'
-        return 1
-    fi
-
     msg 'Colima provides container runtimes (Docker, Containerd, Incus) on macOS'
     msg 'This script will install Colima and optionally configure it'
     echo
@@ -86,11 +80,56 @@ setup_rosetta() {
     fi
 }
 
+setup_docker_compose_plugin() {
+    local docker_config="$HOME/.docker/config.json"
+    local plugins_dir="/opt/homebrew/lib/docker/cli-plugins"
+
+    if [[ ! -d "$plugins_dir" ]]; then
+        msg 'Docker CLI plugins directory not found' 'warn'
+        msg 'This is expected if docker-compose is not yet installed' 'notice'
+        return 0
+    fi
+
+    msg 'Configuring Docker Compose plugin support'
+
+    if ! mkdir -p "$HOME/.docker"; then
+        msg 'Failed to create Docker config directory' 'error'
+        return 1
+    fi
+
+    if [[ ! -f "$docker_config" ]]; then
+        echo '{}' >"$docker_config"
+    fi
+
+    if grep -q '"cliPluginsExtraDirs"' "$docker_config" 2>/dev/null; then
+        if grep -q "$plugins_dir" "$docker_config" 2>/dev/null; then
+            msg 'Docker Compose plugin already configured' 'notice'
+            return 0
+        fi
+    fi
+
+    local temp_config
+    temp_config=$(mktemp)
+
+    if jq --arg dir "$plugins_dir" '.cliPluginsExtraDirs = [$dir]' "$docker_config" >"$temp_config"; then
+        mv "$temp_config" "$docker_config"
+        ok 'colima' 'Docker Compose plugin configured successfully'
+    else
+        msg 'Failed to update Docker config with jq' 'error'
+        rm -f "$temp_config"
+        return 1
+    fi
+
+    msg 'Docker Compose is now available as: docker compose' 'success'
+}
+
 main() {
     if yes_or_no 'colima' 'Install Colima configuration?'; then
         setup_colima_config
         setup_rosetta
     fi
+
+    setup_docker_compose_plugin
 
     echo
     msg '========================================'
