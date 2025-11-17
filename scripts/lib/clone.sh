@@ -28,20 +28,7 @@ function clone() {
 
     if [[ ! -d "${path}/${dir}" ]]; then
         running git "cloning ${repo_name}..."
-        # Unbuffer stderr and stdout for git clone progress
-        if git clone --progress "${repo}" "${path}/${dir}" 2>&1 | {
-            stdbuf -oL -eL cat | while IFS= read -r line; do
-                # Extract percentage from git progress output
-                # Git format: "Receiving objects:  50% (100/200)" or "Resolving deltas:  50% (100/200)"
-                if [[ "${line}" =~ ([0-9]+)%[[:space:]]*\(([0-9]+)/([0-9]+)\) ]]; then
-                    percent="${BASH_REMATCH[1]}"
-                    current="${BASH_REMATCH[2]}"
-                    total="${BASH_REMATCH[3]}"
-                    echo -ne "\r${CLEAR_LINE}${F_INFO}[git] ${F_ACCENT}${ARROW_MARK} ${repo_name}: ${F_SUCCESS}${percent}%${F_INFO} (${current}/${total})${ALL_RESET}"
-                fi
-            done
-            echo
-        }; then
+        if git clone "${repo}" "${path}/${dir}" &>/dev/null; then
             echo -ne "\r${CLEAR_LINE}"
             action git "${repo_name} ${F_SUCCESS}󰄲${ALL_RESET}"
         else
@@ -56,17 +43,7 @@ function clone() {
         if [[ "${repo}" == "${origin_url%.git}" ]]; then
             action git "${repo_name} ${F_DEBUG}${ALL_RESET}"
             running git "pulling ${repo_name}..."
-            if git pull --ff-only 2>&1 | {
-                stdbuf -oL -eL cat | while IFS= read -r line; do
-                    # Extract percentage from git progress output
-                    if [[ "${line}" =~ ([0-9]+)%[[:space:]]*\(([0-9]+)/([0-9]+)\) ]]; then
-                        percent="${BASH_REMATCH[1]}"
-                        current="${BASH_REMATCH[2]}"
-                        total="${BASH_REMATCH[3]}"
-                        echo -ne "\r${CLEAR_LINE}${F_INFO}[git] ${F_ACCENT}${ARROW_MARK} ${repo_name}: ${F_SUCCESS}${percent}%${F_INFO} (${current}/${total})${ALL_RESET}"
-                    fi
-                done
-            }; then
+            if git pull --ff-only &>/dev/null; then
                 echo -ne "\r${CLEAR_LINE}"
                 action git "${repo_name} ${F_SUCCESS}󰄲${ALL_RESET}"
             else
