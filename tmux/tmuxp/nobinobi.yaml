@@ -63,3 +63,12 @@ windows:
           - pane
           - pane
           - pane
+
+    - window_name: nobitex 🧳
+      layout: tiled
+      start_directory: ~/Documents/Git/nobitex/gerrit/nobitex
+      panes:
+          - pane
+          - pane
+          - pane
+          - pane
