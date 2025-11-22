@@ -42,7 +42,10 @@ main_pacman() {
         require_aur neovim-git
     fi
     require_pacman libvterm python-pynvim luarocks stylua
-    require_pip 'nvim-remote'
+
+    if [[ "$(command -v pipx)" ]]; then
+        require_pip 'nvim-remote'
+    fi
 }
 
 main_brew() {
@@ -54,7 +57,10 @@ main_brew() {
         require_brew_head neovim
     fi
     require_brew luarocks gcc@11 stylua
-    require_pip 'nvim-remote'
+
+    if [[ "$(command -v pipx)" ]]; then
+        require_pip 'nvim-remote'
+    fi
 }
 
 remove_nvim_config() {
