@@ -54,7 +54,7 @@ main() {
     go_env GOBIN "$HOME/.local/bin"
     # go_env GOPROXY https://proxy.golang.org,direct
     go_env GOPROXY "https://goproxy.io,goproxy.cn,direct" # Chinese mirrors
-    go_env GOSUMDB "sum.golang.org"                       # Use official Go checksum database
+    # go_env GOSUMDB "sum.golang.org"                       # Use official Go checksum database
 
     go_env GONOSUMDB "gitlab.snapp.ir"
     go_env GOPRIVATE "gitlab.snapp.ir"
@@ -65,7 +65,7 @@ main() {
     # go_env GOPROXY "https://goproxy.cn,direct"  # Aliyun mirror
 
     # Alternative GOSUMDB configuration:
-    # go_env GOSUMDB "off"
+    go_env GOSUMDB "off"
 
     go env
 
