@@ -36,6 +36,6 @@ main() {
     )
 
     for pkg in "${pkgs[@]}"; do
-        clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/parham/aur"
+        clone "aur@aur.archlinux.org:$pkg" "$HOME/Documents/Git/aur"
     done
 }
