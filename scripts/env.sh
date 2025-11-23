@@ -23,6 +23,7 @@ packages=(
     bat
     vim
     jq
+    bfs
     fzf
     mosh
     figlet
