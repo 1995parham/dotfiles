@@ -86,7 +86,6 @@ go_install_packages() {
     msg "fetch some good and useful go packages"
 
     require_go github.com/golangci/golangci-lint/v2/cmd/golangci-lint
-    require_go mvdan.cc/gofumpt
     require_go golang.org/x/tools/cmd/goimports
     require_go golang.org/x/tools/gopls
     require_go golang.org/dl/gotip
