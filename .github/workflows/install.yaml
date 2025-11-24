@@ -7,7 +7,7 @@ jobs:
     basic-ubuntu:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
             - run: sudo apt update
             - name: start.sh env
               run: ./start.sh -y env
@@ -24,7 +24,7 @@ jobs:
     basic-osx:
         runs-on: macos-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
             - name: start.sh brew
               run: ./start.sh -y brew
             - name: start.sh bash
