@@ -40,7 +40,9 @@ main_brew() {
 
     msg 'Lock screen'
 
-    sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to Parham and Elaheh's Mac. Please treat our digital space with the same respect you'd show our home. For access, kindly text or call us."
+    if [[ "$USER" =~ .*parham.* ]]; then
+        sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Welcome to Parham and Elaheh's Mac. Please treat our digital space with the same respect you'd show our home. For access, kindly text or call us."
+    fi
 
     msg 'Disable Siri'
     defaults write com.apple.assistant.support 'Assistant Enabled' -bool false
