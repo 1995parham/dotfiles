@@ -142,6 +142,8 @@ format = '[$ssh_symbol](fg:#ffae1a bg:#1f1f1f)[$hostname](fg:#00bfff bg:#1f1f1f 
 disabled = false
 
 [python]
+detect_extensions = []
+detect_files = []
 style = 'fg:#00bfff'
 format = '[ \[ $symbol $version \($virtualenv\) \] ]($style)'
 
