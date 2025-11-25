@@ -181,7 +181,9 @@ main_pacman() {
         bind
     )
     local yay_packages=(jcal cbonsai)
-    local pacman_replace='()'
+    local pacman_replace='(
+        [yq]="go-yq"
+    )'
 
     local pacman_common=()
     apply_package_replacements pacman_common "$pacman_replace" "${packages[@]}"
