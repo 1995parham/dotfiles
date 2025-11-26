@@ -37,8 +37,7 @@ main() {
     helm repo update
 
     msg 'required kubectl plugins (using krew)'
-    kubectl krew install kuttl
-    kubectl krew install cnpg
+    kubectl krew install kuttl cnpg
 
     msg 'required helm plugins (using helm plugin manager)'
     if helm plugin list | grep "diff"; then
