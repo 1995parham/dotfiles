@@ -152,10 +152,6 @@ write_config_file() {
         echo "data-dir: \"${k3s_data_dir}\""
         echo "cluster-cidr: \"${k3s_cluster_cidr}\""
         echo "service-cidr: \"${k3s_service_cidr}\""
-        echo "node-taint:"
-        echo '  - "node-role.kubernetes.io/control-plane=true:NoSchedule"'
-        echo "node-label:"
-        echo '  - "node-role.kubernetes.io/control-plane=true"'
 
         if [[ -n "${k3s_node_ip}" ]]; then
             echo "node-ip: \"${k3s_node_ip}\""
