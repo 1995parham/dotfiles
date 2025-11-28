@@ -134,7 +134,7 @@ context_alias = "pirouz"
 [[kubernetes.contexts]]
 context_pattern = "arn:aws:eks:(?P<region>[\\w-]+):[\\d]+:cluster/(?P<name>.*)"
 user_alias = ""
-context_alias = "$name $region"
+context_alias = "$name ($region)"
 
 [hostname]
 ssh_only = false
