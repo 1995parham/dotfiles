@@ -132,7 +132,7 @@ pre_main() {
 }
 
 main_pacman() {
-    require_pacman conntrack-tools curl ethtool iptables-nft ipset socat cni-plugins nfs-utils open-iscsi
+    require_pacman conntrack-tools curl ethtool iptables-nft ipset socat cni-plugins nfs-utils open-iscsi containerd
 }
 
 ensure_config_dir() {
@@ -192,7 +192,10 @@ install_k3s() {
         return 1
     fi
 
+    sudo k3s check-config
+
     sudo systemctl enable --now k3s.service
+    sudo systemctl enable --now containerd.service
 }
 
 wait_for_file() {
