@@ -15,7 +15,7 @@ declare -a k3s_disable_components=("servicelb" "traefik")
 declare -a k3s_tls_sans=()
 
 usage() {
-    echo "Install a single-node (server+agent) k3s cluster on Arch Linux."
+    echo "Install a single-node (server+agent) k3s cluster."
     # shellcheck disable=1004,2016
     cat <<'EOF'
           _  ____ ____
@@ -32,11 +32,10 @@ Arguments:
   --flannel-iface IFACE       Interface name flannel should bind to
   --tls-san VALUE             Additional TLS SAN entries (repeat flag)
   --disable LIST              Disable packaged components (repeat flag or comma separated)
-  --cluster-cidr CIDR         Pod CIDR (default: 10.42.0.0/16)
-  --service-cidr CIDR         Service CIDR (default: 10.43.0.0/16)
+  --cluster-cidr CIDR         Pod CIDR (default: 10.73.0.0/16)
+  --service-cidr CIDR         Service CIDR (default: 10.78.0.0/16)
   --kubeconfig PATH           Where to copy the kubeconfig (default: ~/.kube/k3s.yaml)
   --skip-kubeconfig           Do not copy kubeconfig to \$HOME
-  -h, --help                  Show this message
 
 Example:
   start.sh k3s --node-ip 192.168.40.10 --flannel-iface eno1 --tls-san cluster.lab.local
@@ -119,10 +118,6 @@ pre_main() {
             k3s_copy_kubeconfig=false
             shift
             ;;
-        -h | --help)
-            usage
-            exit 0
-            ;;
         *)
             msg "unknown option: $1" "error"
             exit 1
@@ -132,7 +127,40 @@ pre_main() {
 }
 
 main_pacman() {
-    require_pacman conntrack-tools curl ethtool iptables-nft ipset socat cni-plugins nfs-utils open-iscsi containerd
+    require_pacman conntrack-tools curl ethtool iptables-nft ipset socat cni-plugins nfs-utils open-iscsi
+}
+
+main_apt() {
+    require_apt conntrack curl ethtool iptables ipset socat nfs-common open-iscsi
+}
+
+preflight_checks() {
+    msg "running pre-flight checks"
+
+    # Check for minimum disk space (2GB)
+    local available_space
+    available_space=$(df -BG "${k3s_data_dir%/*}" 2>/dev/null | awk 'NR==2 {print $4}' | tr -d 'G')
+    if [[ -n "${available_space}" ]] && [[ "${available_space}" -lt 2 ]]; then
+        msg "insufficient disk space: ${available_space}GB available, 2GB required" "error"
+        return 1
+    fi
+
+    # Check network connectivity
+    if ! curl -sfL --connect-timeout 5 https://get.k3s.io >/dev/null 2>&1; then
+        msg "cannot reach https://get.k3s.io - check network connectivity" "error"
+        return 1
+    fi
+
+    # Check if k3s is already installed
+    if command -v k3s &>/dev/null; then
+        msg "k3s is already installed: $(k3s --version)" "notice"
+        if ! yes_or_no "k3s" "reinstall/upgrade k3s?"; then
+            return 1
+        fi
+    fi
+
+    msg "pre-flight checks passed" "success"
+    return 0
 }
 
 ensure_config_dir() {
@@ -147,7 +175,7 @@ write_config_file() {
     tmp=$(mktemp)
 
     {
-        echo "write-kubeconfig-mode: \"0644\""
+        echo "write-kubeconfig-mode: \"0600\""
         echo "cluster-name: \"${k3s_cluster_name}\""
         echo "data-dir: \"${k3s_data_dir}\""
         echo "cluster-cidr: \"${k3s_cluster_cidr}\""
@@ -188,10 +216,16 @@ install_k3s() {
         return 1
     fi
 
-    sudo k3s check-config
+    if ! sudo k3s check-config; then
+        msg "k3s check-config failed" "warn"
+    fi
 
-    sudo systemctl enable --now k3s.service
-    sudo systemctl enable --now containerd.service
+    if ! sudo systemctl enable --now k3s.service; then
+        msg "failed to enable k3s service" "error"
+        return 1
+    fi
+
+    return 0
 }
 
 wait_for_file() {
@@ -236,9 +270,18 @@ print_summary() {
 }
 
 main() {
+    if ! preflight_checks; then
+        return 1
+    fi
+
     ensure_config_dir
     write_config_file
-    install_k3s
+
+    if ! install_k3s; then
+        msg "k3s installation failed" "error"
+        return 1
+    fi
+
     copy_kubeconfig
     print_summary
 }
