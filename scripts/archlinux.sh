@@ -39,8 +39,16 @@ main() {
     # Create output directory if it doesn't exist
     mkdir -p "${output_dir}"
 
-    # Download the ISO
-    if command -v wget &>/dev/null; then
+    # Download the ISO (prefer aria2c for multi-connection downloads)
+    if command -v aria2c &>/dev/null; then
+        action "download" " using aria2c"
+        if aria2c -x 16 -s 16 -d "${output_dir}" -o "${iso_name}" "${iso_url}"; then
+            message "archlinux" "Successfully downloaded ${iso_name}" "success"
+        else
+            message "archlinux" "Failed to download ISO" "error"
+            return 1
+        fi
+    elif command -v wget &>/dev/null; then
         action "download" " using wget"
         if wget -O "${output_file}" "${iso_url}"; then
             message "archlinux" "Successfully downloaded ${iso_name}" "success"
@@ -57,7 +65,7 @@ main() {
             return 1
         fi
     else
-        message "archlinux" "Neither wget nor curl found" "error"
+        message "archlinux" "No download tool found (aria2c, wget, or curl)" "error"
         return 1
     fi
 
@@ -66,7 +74,9 @@ main() {
     local checksum_url="${mirror}/iso/latest/sha256sums.txt"
 
     message "archlinux" "Downloading checksums" "info"
-    if command -v wget &>/dev/null; then
+    if command -v aria2c &>/dev/null; then
+        aria2c -q -d "${output_dir}" -o "sha256sums.txt" "${checksum_url}"
+    elif command -v wget &>/dev/null; then
         wget -q -O "${checksum_file}" "${checksum_url}"
     elif command -v curl &>/dev/null; then
         curl -sL -o "${checksum_file}" "${checksum_url}"
