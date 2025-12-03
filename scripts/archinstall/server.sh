@@ -84,11 +84,11 @@ HandleLidSwitchDocked=ignore' | sudo tee /etc/systemd/logind.conf.d/99-laptop-se
 }
 
 main() {
-    # Install MOTD script
-    msg "installing dynamic MOTD script"
-    sudo tee /etc/profile.d/motd.sh >/dev/null <<'MOTD_EOF'
+    # Install MOTD generator script
+    msg "installing MOTD generator script"
+    sudo tee /usr/local/bin/generate-motd >/dev/null <<'MOTD_EOF'
 #!/bin/bash
-# Server MOTD - displays system status on login
+# Server MOTD generator - run by systemd timer
 
 # Colors
 RED='\033[0;31m'
@@ -97,6 +97,7 @@ YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
+{
 # ASCII Art - Paranoid server penguin
 cat << 'EOF'
 
@@ -134,8 +135,41 @@ FAILED=$(systemctl --failed --no-legend 2>/dev/null | wc -l)
 
 echo ""
 echo -e "${CYAN}═══════════════════════════════════════════════════${NC}"
+} > /etc/motd
 MOTD_EOF
-    sudo chmod +x /etc/profile.d/motd.sh
+    sudo chmod +x /usr/local/bin/generate-motd
+
+    # Install systemd service
+    msg "installing MOTD systemd service"
+    sudo tee /etc/systemd/system/motd-update.service >/dev/null <<'SERVICE_EOF'
+[Unit]
+Description=Update MOTD
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/generate-motd
+SERVICE_EOF
+
+    # Install systemd timer
+    msg "installing MOTD systemd timer"
+    sudo tee /etc/systemd/system/motd-update.timer >/dev/null <<'TIMER_EOF'
+[Unit]
+Description=Update MOTD every 5 minutes
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
+TIMER_EOF
+
+    # Enable and start the timer
+    sudo systemctl daemon-reload
+    sudo systemctl enable --now motd-update.timer
+
+    # Generate initial MOTD
+    sudo /usr/local/bin/generate-motd
 
     # Detect sensors (non-interactive)
     if command -v sensors-detect &>/dev/null; then
