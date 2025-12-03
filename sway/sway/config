@@ -159,7 +159,7 @@ for_window [title=".*"] title_format "%title (%app_id,%class)"
 #                 set $ws2 2:
 set $ws1 1:main-1
 set $ws2 2:main-2
-set $ws3 3:emacs
+set $ws3 3:code
 set $ws4 4:www
 set $ws5 5:vm
 set $ws6 6:apps-1

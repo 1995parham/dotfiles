@@ -58,5 +58,3 @@ function ls-() {
     command ls --color "$first_arg" "$@"
 }
 
-# run emacs tui on terminal instead of emacs itself.
-alias emacs="emacs -nw"

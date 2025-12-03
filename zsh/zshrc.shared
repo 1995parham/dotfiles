@@ -118,7 +118,6 @@ function def() {
 alias grep="grep --color=auto"
 alias vi="vim"
 alias r="source $HOME/.zshenv && source $HOME/.zshrc"
-alias emacs="emacs -nw"
 
 # set up navi
 
