@@ -145,14 +145,14 @@ main_pacman() {
     require_pacman aardvark-dns
     msg 'to replace Docker'
     require_pacman podman-compose podman-docker
-    require_pacman fuse-overlayfs slirp4netns uidmap
+    require_pacman fuse-overlayfs slirp4netns
 
     ensure_subid_mappings
     configure_storage_driver
 }
 
 main_apt() {
-    require_apt crun podman podman-compose podman-docker uidmap slirp4netns fuse-overlayfs
+    require_apt crun podman podman-compose podman-docker slirp4netns fuse-overlayfs
     require_apt_if_available netavark aardvark-dns
 
     ensure_subid_mappings
