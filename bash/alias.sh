@@ -57,4 +57,3 @@ function ls-() {
     shift
     command ls --color "$first_arg" "$@"
 }
-
