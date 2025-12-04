@@ -4,11 +4,32 @@ usage() {
     echo -n "Provision and harden a Raspberry Pi server for safe internet exposure"
     # shellcheck disable=1004
     echo '
-  ____       _        _      _
- |  _ \ __ _(_)_ __  (_) ___| |_
- | |_) / _` | | '\''__| | |/ __| __|
- |  _ < (_| | | |    | | (__| |_
- |_| \_\__,_|_|_|    |_|\___|\__|
+          ┌──────────────────────────────────────┐
+          │    ┌──────────────┐                  │
+          │    │   Broadcom   │                  │
+          │    │   BCM2711    │                  │
+          │    └──────────────┘                  │
+          │    ┌──────────────┐                  │
+GPIO  ┌───┤    │ LPDDR4 RAM   │                  │
+Header│###│    └──────────────┘                  │
+40-pin│###│                                      │
+          │  ┌─────────┐ ┌─────────┐             │
+          │  │CSI Cam  │ │DSI Disp │             │
+          │  └─────────┘ └─────────┘             │
+          │                                      │
+          │ ┌─────┐ ┌─────┐                      │
+          │ │mHDMI│ │mHDMI│   ┌───────┐ ┌──────┐ │
+          │ │  0  │ │  1  │   │ USB3  │ │ USB3 │ │
+          │ └─────┘ └─────┘   └───────┘ └──────┘ │
+          │     ┌─────┐    ┌───────┐ ┌──────┐    │
+          │     │ USB │    │ USB2  │ │ USB2 │    │
+          │     │  C  │    └───────┘ └──────┘    │
+          │     └─────┘        ┌──────────┐      │
+          │                   ┌┤ Ethernet │      │
+          │   ┌──────────┐    │└──────────┘      │
+          │   │  WiFi/BT │    │                  │
+          │   └──────────┘    │                  │
+          └───────────────────┴──────────────────┘
 '
 }
 
@@ -62,6 +83,7 @@ main() {
     configure_unattended_upgrades
     configure_ufw
     enable_services
+    configure_motd
 
     msg "Raspberry Pi server hardening complete" "success"
     msg "SSH listening on ${SSH_PORT}/tcp for: ${SSH_ALLOWED_USERS}" "info"
@@ -310,4 +332,76 @@ enable_services() {
             msg "failed to enable ${service}" "warn"
         fi
     done
+}
+
+configure_motd() {
+    msg "installing dynamic MOTD script"
+    local motd_dir="/etc/update-motd.d"
+    local motd_script="${motd_dir}/20-server-status"
+
+    if ! sudo mkdir -p "${motd_dir}"; then
+        msg "failed to create ${motd_dir}" "error"
+        return 1
+    fi
+
+    sudo tee "${motd_script}" >/dev/null <<'MOTD_EOF'
+#!/bin/bash
+# Raspberry Pi MOTD generator (run by pam_motd/update-motd)
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+cat <<'EOF'
+
+    .--.      "Who goes there?!"
+   |o_o |
+   |:_/ |     I'm watching the logs...
+  //   \ \    and I have FIREWALL!
+ (|     | )
+/'\_   _/`\
+\___)=(___/
+
+EOF
+
+echo -e "${CYAN}═══════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}  Welcome to $(hostname)${NC}"
+echo -e "${CYAN}═══════════════════════════════════════════════════${NC}"
+echo ""
+echo -e "${YELLOW}▸ Uptime:${NC}    $(uptime -p)"
+echo -e "${YELLOW}▸ Load:${NC}      $(awk '{print $1, $2, $3}' /proc/loadavg)"
+
+MEM_USED=$(free -m | awk '/Mem:/ {print $3}')
+MEM_TOTAL=$(free -m | awk '/Mem:/ {print $2}')
+if [[ -n "${MEM_TOTAL}" && "${MEM_TOTAL}" -ne 0 ]]; then
+    MEM_PCT=$((MEM_USED * 100 / MEM_TOTAL))
+    echo -e "${YELLOW}▸ Memory:${NC}    ${MEM_USED}MB / ${MEM_TOTAL}MB (${MEM_PCT}%)"
+fi
+echo -e "${YELLOW}▸ Disk /:${NC}    $(df -h / | awk 'NR==2 {print $5}') used"
+
+if [[ -f /sys/class/thermal/thermal_zone0/temp ]]; then
+    echo -e "${YELLOW}▸ CPU Temp:${NC}  $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
+fi
+
+if command -v apt-get &>/dev/null; then
+    UPDATES=$(apt-get -s upgrade 2>/dev/null | awk '/^Inst / {count++} END {print count+0}')
+    echo -e "${YELLOW}▸ Updates:${NC}   ${UPDATES} packages"
+fi
+
+FAILED=$(systemctl --failed --no-legend 2>/dev/null | wc -l)
+if [[ "${FAILED}" -gt 0 ]]; then
+    echo -e "${RED}▸ ALERT:${NC}     ${FAILED} failed service(s)!"
+fi
+
+echo ""
+echo -e "${CYAN}═══════════════════════════════════════════════════${NC}"
+MOTD_EOF
+
+    sudo chmod +x "${motd_script}"
+
+    if ! echo "${motd_script}" | sudo tee /etc/motd; then
+        msg "failed to write fallback /etc/motd" "warn"
+    fi
 }
