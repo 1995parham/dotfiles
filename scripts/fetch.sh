@@ -17,7 +17,9 @@ main_pacman() {
 }
 
 main_apt() {
-    require_github_release "fastfetch-cli/fastfetch" "fastfetch" "fastfetch-linux-amd64-polyfilled" "deb"
+    if ! require_apt "fastfetch"; then
+        require_github_release "fastfetch-cli/fastfetch" "fastfetch" "fastfetch-linux-amd64-polyfilled" "deb"
+    fi
 }
 
 main_xbps() {
