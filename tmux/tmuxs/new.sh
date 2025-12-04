@@ -21,8 +21,21 @@ window_emoji="📁"
 fzf_colors="fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec"
 
 project=$(
-    # -H is not enough for having .git in your search, you need to have -I too.
-    fd -tdirectory -tfile -IH ^\.git$ ~/Documents/Git -x dirname |
+    if command -v bfs &>/dev/null; then
+        bfs ~/Documents/Git -name .git -prune -o \
+            -type d -exec test -d {}/.git \; -print -prune
+    else
+        # fall back to fd and drop any repository nested under a parent repository
+        fd -t directory -t file -IH '^\.git$' ~/Documents/Git -x dirname |
+            sort |
+            awk '{
+                keep=1
+                for (r in roots) {
+                    if (index($0, r "/") == 1) { keep=0; break }
+                }
+                if (keep) { roots[$0]=1; print }
+            }'
+    fi |
         fzf --color="$fzf_colors" \
             --preview="onefetch {}; tokei {}"
 )
