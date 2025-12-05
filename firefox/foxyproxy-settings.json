@@ -14,6 +14,37 @@
     "data": [
         {
             "active": true,
+            "title": "home",
+            "type": "socks5",
+            "hostname": "127.0.0.1",
+            "port": "1080",
+            "username": "",
+            "password": "",
+            "cc": "IR",
+            "city": "Tehran",
+            "color": "#a783dc",
+            "pac": "",
+            "pacString": "",
+            "proxyDNS": true,
+            "include": [
+                {
+                    "type": "wildcard",
+                    "title": "Nobitex",
+                    "pattern": "*.ntx.ir",
+                    "active": true
+                },
+                {
+                    "type": "wildcard",
+                    "title": "Bitbarg",
+                    "pattern": "*.bitbarg.dev",
+                    "active": true
+                }
+            ],
+            "exclude": [],
+            "tabProxy": []
+        },
+        {
+            "active": true,
             "title": "DIRECT",
             "type": "direct",
             "hostname": "DIRECT",
