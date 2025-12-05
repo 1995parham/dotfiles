@@ -329,9 +329,10 @@ configure_ufw() {
         fi
     done
 
-    if ! sudo ufw --force enable; then
-        msg "failed to enable ufw" "error"
-        return 1
+    # Try to enable ufw - may fail if kernel modules aren't loaded yet
+    if ! sudo ufw --force enable 2>/dev/null; then
+        msg "ufw enable skipped (kernel modules not available)" "notice"
+        msg "ufw will activate on next boot via systemd" "notice"
     fi
 
     if ! sudo systemctl enable ufw.service; then
