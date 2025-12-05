@@ -409,10 +409,10 @@ MOTD_EOF
 validate_forwarding() {
     local mode=$1
     case "${mode}" in
-        yes|no|local|all) return 0 ;;
-        *)
-            msg "invalid SSH_ALLOW_FORWARDING '${mode}', choose yes|no|local|all" "error"
-            return 1
-            ;;
+    yes | no | local | all) return 0 ;;
+    *)
+        msg "invalid SSH_ALLOW_FORWARDING '${mode}', choose yes|no|local|all" "error"
+        return 1
+        ;;
     esac
 }
