@@ -37,7 +37,6 @@ export dependencies=("env")
 
 SSH_PORT="${SSH_PORT:-22}"
 SSH_ALLOWED_USERS="${SSH_ALLOWED_USERS:-$USER}"
-SSH_ALLOW_FORWARDING="${SSH_ALLOW_FORWARDING:-no}"
 FAIL2BAN_BANTIME="${FAIL2BAN_BANTIME:-12h}"
 FAIL2BAN_FINDTIME="${FAIL2BAN_FINDTIME:-10m}"
 FAIL2BAN_MAXRETRY="${FAIL2BAN_MAXRETRY:-4}"
@@ -72,10 +71,6 @@ main() {
 
     if [[ -z "${SSH_ALLOWED_USERS// /}" ]]; then
         msg "SSH_ALLOWED_USERS must not be empty" "error"
-        return 1
-    fi
-
-    if ! validate_forwarding "${SSH_ALLOW_FORWARDING}"; then
         return 1
     fi
 
@@ -212,7 +207,7 @@ UsePAM yes
 AllowUsers ${SSH_ALLOWED_USERS}
 PermitEmptyPasswords no
 AllowAgentForwarding no
-AllowTcpForwarding ${SSH_ALLOW_FORWARDING}
+AllowTcpForwarding yes
 X11Forwarding no
 ClientAliveInterval 240
 ClientAliveCountMax 2
@@ -404,15 +399,4 @@ MOTD_EOF
     if ! echo "${motd_script}" | sudo tee /etc/motd; then
         msg "failed to write fallback /etc/motd" "warn"
     fi
-}
-
-validate_forwarding() {
-    local mode=$1
-    case "${mode}" in
-    yes | no | local | all) return 0 ;;
-    *)
-        msg "invalid SSH_ALLOW_FORWARDING '${mode}', choose yes|no|local|all" "error"
-        return 1
-        ;;
-    esac
 }
