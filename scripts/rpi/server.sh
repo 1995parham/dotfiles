@@ -37,6 +37,7 @@ export dependencies=("env")
 
 SSH_PORT="${SSH_PORT:-22}"
 SSH_ALLOWED_USERS="${SSH_ALLOWED_USERS:-$USER}"
+SSH_ALLOW_FORWARDING="${SSH_ALLOW_FORWARDING:-no}"
 FAIL2BAN_BANTIME="${FAIL2BAN_BANTIME:-12h}"
 FAIL2BAN_FINDTIME="${FAIL2BAN_FINDTIME:-10m}"
 FAIL2BAN_MAXRETRY="${FAIL2BAN_MAXRETRY:-4}"
@@ -71,6 +72,10 @@ main() {
 
     if [[ -z "${SSH_ALLOWED_USERS// /}" ]]; then
         msg "SSH_ALLOWED_USERS must not be empty" "error"
+        return 1
+    fi
+
+    if ! validate_forwarding "${SSH_ALLOW_FORWARDING}"; then
         return 1
     fi
 
@@ -207,7 +212,7 @@ UsePAM yes
 AllowUsers ${SSH_ALLOWED_USERS}
 PermitEmptyPasswords no
 AllowAgentForwarding no
-AllowTcpForwarding no
+AllowTcpForwarding ${SSH_ALLOW_FORWARDING}
 X11Forwarding no
 ClientAliveInterval 240
 ClientAliveCountMax 2
@@ -385,11 +390,6 @@ if [[ -f /sys/class/thermal/thermal_zone0/temp ]]; then
     echo -e "${YELLOW}▸ CPU Temp:${NC}  $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
 fi
 
-if command -v apt-get &>/dev/null; then
-    UPDATES=$(apt-get -s upgrade 2>/dev/null | awk '/^Inst / {count++} END {print count+0}')
-    echo -e "${YELLOW}▸ Updates:${NC}   ${UPDATES} packages"
-fi
-
 FAILED=$(systemctl --failed --no-legend 2>/dev/null | wc -l)
 if [[ "${FAILED}" -gt 0 ]]; then
     echo -e "${RED}▸ ALERT:${NC}     ${FAILED} failed service(s)!"
@@ -404,4 +404,15 @@ MOTD_EOF
     if ! echo "${motd_script}" | sudo tee /etc/motd; then
         msg "failed to write fallback /etc/motd" "warn"
     fi
+}
+
+validate_forwarding() {
+    local mode=$1
+    case "${mode}" in
+        yes|no|local|all) return 0 ;;
+        *)
+            msg "invalid SSH_ALLOW_FORWARDING '${mode}', choose yes|no|local|all" "error"
+            return 1
+            ;;
+    esac
 }
