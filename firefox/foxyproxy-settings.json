@@ -30,13 +30,13 @@
                 {
                     "type": "wildcard",
                     "title": "Nobitex",
-                    "pattern": "*.ntx.ir",
+                    "pattern": "*ntx.ir",
                     "active": true
                 },
                 {
                     "type": "wildcard",
                     "title": "Bitbarg",
-                    "pattern": "*.bitbarg.dev",
+                    "pattern": "*bitbarg.dev",
                     "active": true
                 }
             ],
