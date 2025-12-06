@@ -40,6 +40,9 @@ SSH_ALLOWED_USERS="${SSH_ALLOWED_USERS:-$USER}"
 FAIL2BAN_BANTIME="${FAIL2BAN_BANTIME:-12h}"
 FAIL2BAN_FINDTIME="${FAIL2BAN_FINDTIME:-10m}"
 FAIL2BAN_MAXRETRY="${FAIL2BAN_MAXRETRY:-4}"
+WATCHDOG_TIMEOUT="${WATCHDOG_TIMEOUT:-15}"
+COCKPIT_PORT="${COCKPIT_PORT:-9090}"
+COCKPIT_ALLOWED_NETWORKS="${COCKPIT_ALLOWED_NETWORKS:-192.168.0.0/16}"
 
 main_apt() {
     if ! sudo apt update -yq; then
@@ -59,6 +62,8 @@ main_apt() {
         vnstat
         sysstat
         net-tools
+        watchdog
+        cockpit
     )
 
     require_apt "${packages[@]}"
@@ -81,12 +86,16 @@ main() {
     configure_ssh
     configure_fail2ban
     configure_unattended_upgrades
+    configure_watchdog
+    configure_cockpit
     configure_ufw
     enable_services
     configure_motd
 
     msg "Raspberry Pi server hardening complete" "success"
     msg "SSH listening on ${SSH_PORT}/tcp for: ${SSH_ALLOWED_USERS}" "info"
+    msg "Cockpit available at https://$(hostname):${COCKPIT_PORT} from ${COCKPIT_ALLOWED_NETWORKS}" "info"
+    msg "Watchdog enabled with ${WATCHDOG_TIMEOUT}s timeout, monitoring sshd" "info"
 }
 
 is_valid_port() {
@@ -280,6 +289,95 @@ EOF
     fi
 }
 
+configure_watchdog() {
+    msg "configuring hardware watchdog for automatic recovery"
+
+    # Enable bcm2835 watchdog module on Raspberry Pi
+    if ! grep -q "^bcm2835_wdt" /etc/modules 2>/dev/null; then
+        echo "bcm2835_wdt" | sudo tee -a /etc/modules >/dev/null
+    fi
+
+    # Load the module now
+    if ! sudo modprobe bcm2835_wdt 2>/dev/null; then
+        msg "bcm2835_wdt module not available (may not be a Raspberry Pi)" "warn"
+    fi
+
+    local conf_file="/etc/watchdog.conf"
+
+    sudo tee "${conf_file}" >/dev/null <<EOF
+# Hardware watchdog device
+watchdog-device = /dev/watchdog
+watchdog-timeout = ${WATCHDOG_TIMEOUT}
+
+# Reboot if system is unresponsive
+realtime = yes
+priority = 1
+
+# Check if system load is too high (5x number of CPUs for 1-min average)
+max-load-1 = 24
+
+# Check memory usage (pages)
+min-memory = 1
+
+# Check if critical processes are running
+pidfile = /run/sshd.pid
+
+# Check network connectivity (ping test)
+ping = 127.0.0.1
+
+# Log watchdog activity
+log-dir = /var/log/watchdog
+
+# Interval between checks (seconds)
+interval = 10
+
+# Retry count before action
+retry-timeout = 60
+
+# Actions on failure
+admin = root
+EOF
+
+    # Create log directory
+    sudo mkdir -p /var/log/watchdog
+
+    if ! sudo systemctl enable --now watchdog.service; then
+        msg "failed to enable watchdog service" "error"
+        return 1
+    fi
+
+    msg "watchdog configured with ${WATCHDOG_TIMEOUT}s timeout, monitoring sshd" "success"
+}
+
+configure_cockpit() {
+    msg "configuring Cockpit web console for local network access"
+
+    local conf_dir="/etc/cockpit"
+    local conf_file="${conf_dir}/cockpit.conf"
+
+    if ! sudo mkdir -p "${conf_dir}"; then
+        msg "failed to create ${conf_dir}" "error"
+        return 1
+    fi
+
+    sudo tee "${conf_file}" >/dev/null <<EOF
+[WebService]
+Origins = https://${HOSTNAME}:${COCKPIT_PORT}
+ProtocolHeader = X-Forwarded-Proto
+AllowUnencrypted = false
+
+[Session]
+IdleTimeout = 15
+EOF
+
+    if ! sudo systemctl enable --now cockpit.socket; then
+        msg "failed to enable cockpit" "error"
+        return 1
+    fi
+
+    msg "Cockpit enabled on port ${COCKPIT_PORT} (local network only)" "success"
+}
+
 configure_ufw() {
     msg "configuring firewall rules via ufw"
 
@@ -292,6 +390,16 @@ configure_ufw() {
     sudo ufw logging medium
     sudo ufw delete allow "${SSH_PORT}/tcp" &>/dev/null || true
     sudo ufw limit "${SSH_PORT}/tcp"
+
+    # Allow Cockpit only from local networks
+    sudo ufw delete allow "${COCKPIT_PORT}/tcp" &>/dev/null || true
+    read -r -a cockpit_networks <<<"${COCKPIT_ALLOWED_NETWORKS}" || true
+    for network in "${cockpit_networks[@]}"; do
+        if [[ -n "${network}" ]]; then
+            sudo ufw allow from "${network}" to any port "${COCKPIT_PORT}" proto tcp
+            msg "Cockpit allowed from ${network}" "info"
+        fi
+    done
 
     read -r -a tcp_ports <<<"${ADDITIONAL_TCP_PORTS:-}" || true
     for port in "${tcp_ports[@]}"; do
