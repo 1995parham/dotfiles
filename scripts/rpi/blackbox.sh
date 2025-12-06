@@ -75,6 +75,7 @@ main() {
     configure_timesync
     configure_journal
     configure_sysctl
+    configure_wifi_country
     configure_ssh
     configure_fail2ban
     configure_unattended_upgrades
@@ -341,6 +342,13 @@ EOF
     msg "watchdog configured with ${WATCHDOG_TIMEOUT}s timeout, monitoring sshd" "success"
 }
 
+configure_wifi_country() {
+    msg "setting Wi-Fi regulatory domain to IR"
+    if ! sudo raspi-config nonint do_wifi_country IR; then
+        msg "failed to set Wi-Fi country code" "warn"
+    fi
+}
+
 configure_cockpit() {
     msg "configuring Cockpit web console for local network access"
 
@@ -354,9 +362,9 @@ configure_cockpit() {
 
     sudo tee "${conf_file}" >/dev/null <<EOF
 [WebService]
-Origins = https://${HOSTNAME}:${COCKPIT_PORT}
+Origins = *
 ProtocolHeader = X-Forwarded-Proto
-AllowUnencrypted = false
+AllowUnencrypted = true
 
 [Session]
 IdleTimeout = 15
