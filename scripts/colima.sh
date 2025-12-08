@@ -31,7 +31,7 @@ main_brew() {
     require_brew colima
 
     msg "Install Docker CLI (required for docker runtime)"
-    require_brew docker docker-compose docker-credential-helper
+    require_brew docker docker-compose docker-credential-helper docker-buildx
 }
 
 main_pacman() {
