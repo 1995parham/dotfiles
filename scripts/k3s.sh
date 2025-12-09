@@ -11,7 +11,7 @@ k3s_cluster_cidr="10.73.0.0/16"
 k3s_service_cidr="10.78.0.0/16"
 k3s_kubeconfig_local="${HOME}/.kube/k3s.yaml"
 k3s_copy_kubeconfig=true
-declare -a k3s_disable_components=("servicelb" "traefik")
+declare -a k3s_disable_components=("traefik")
 declare -a k3s_tls_sans=()
 
 usage() {
