@@ -78,6 +78,9 @@ main() {
     msg "SSH listening on ${SSH_PORT}/tcp for: ${SSH_ALLOWED_USERS}" "info"
     if [[ -n "${SSH_ALLOWED_SUBNET}" ]]; then
         msg "SSH restricted to subnet ${SSH_ALLOWED_SUBNET}" "info"
+        if [[ -z "${RESTRICT_SUBNET_PORTS}" ]]; then
+            msg "all ports (TCP/UDP) allowed from ${SSH_ALLOWED_SUBNET}" "info"
+        fi
     fi
     msg "next steps:" "notice"
     msg "  - ./start.sh keys <github-username>  # add SSH keys"
@@ -305,29 +308,14 @@ configure_ufw() {
 
     if [[ -n "${SSH_ALLOWED_SUBNET}" ]]; then
         sudo ufw allow from "${SSH_ALLOWED_SUBNET}" to any port "${SSH_PORT}" proto tcp
+
+        # Allow all TCP/UDP from subnet unless restricted
+        if [[ -z "${RESTRICT_SUBNET_PORTS}" ]]; then
+            sudo ufw allow from "${SSH_ALLOWED_SUBNET}"
+        fi
     else
         sudo ufw limit "${SSH_PORT}/tcp"
     fi
-
-    # shellcheck disable=SC2206
-    read -r -a tcp_ports <<<"${ADDITIONAL_TCP_PORTS:-}" || true
-    for port in "${tcp_ports[@]}"; do
-        if is_valid_port "${port}"; then
-            sudo ufw allow "${port}/tcp"
-        elif [[ -n "${port}" ]]; then
-            msg "skipping invalid TCP port '${port}'" "warn"
-        fi
-    done
-
-    # shellcheck disable=SC2206
-    read -r -a udp_ports <<<"${ADDITIONAL_UDP_PORTS:-}" || true
-    for port in "${udp_ports[@]}"; do
-        if is_valid_port "${port}"; then
-            sudo ufw allow "${port}/udp"
-        elif [[ -n "${port}" ]]; then
-            msg "skipping invalid UDP port '${port}'" "warn"
-        fi
-    done
 
     # Try to enable ufw - may fail if kernel modules aren't loaded yet
     if ! sudo ufw --force enable 2>/dev/null; then
