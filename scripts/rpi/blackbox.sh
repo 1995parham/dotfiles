@@ -492,6 +492,10 @@ if [[ -f /sys/class/thermal/thermal_zone0/temp ]]; then
     echo -e "${YELLOW}▸ CPU Temp:${NC}  $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
 fi
 
+if [[ -f /proc/device-tree/model ]]; then
+    echo -e "${YELLOW}▸ Model:${NC}     $(cat /proc/device-tree/model | tr -d '\0')"
+fi
+
 # Power/throttling status via vcgencmd
 if command -v vcgencmd &>/dev/null; then
     THROTTLE_HEX=$(vcgencmd get_throttled 2>/dev/null | cut -d= -f2)
