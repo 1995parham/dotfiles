@@ -492,6 +492,30 @@ if [[ -f /sys/class/thermal/thermal_zone0/temp ]]; then
     echo -e "${YELLOW}▸ CPU Temp:${NC}  $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))°C"
 fi
 
+# Power/throttling status via vcgencmd
+if command -v vcgencmd &>/dev/null; then
+    THROTTLE_HEX=$(vcgencmd get_throttled 2>/dev/null | cut -d= -f2)
+    if [[ -n "${THROTTLE_HEX}" ]]; then
+        THROTTLE_DEC=$((THROTTLE_HEX))
+        POWER_STATUS=""
+        if ((THROTTLE_DEC == 0)); then
+            POWER_STATUS="${GREEN}OK${NC}"
+        else
+            # Bit flags (current state)
+            ((THROTTLE_DEC & 0x1))     && POWER_STATUS+="${RED}Under-voltage! ${NC}"
+            ((THROTTLE_DEC & 0x2))     && POWER_STATUS+="${RED}Freq capped! ${NC}"
+            ((THROTTLE_DEC & 0x4))     && POWER_STATUS+="${RED}Throttled! ${NC}"
+            ((THROTTLE_DEC & 0x8))     && POWER_STATUS+="${YELLOW}Soft temp limit ${NC}"
+            # Bit flags (occurred since boot)
+            ((THROTTLE_DEC & 0x10000)) && POWER_STATUS+="${YELLOW}[was under-voltage] ${NC}"
+            ((THROTTLE_DEC & 0x20000)) && POWER_STATUS+="${YELLOW}[was freq capped] ${NC}"
+            ((THROTTLE_DEC & 0x40000)) && POWER_STATUS+="${YELLOW}[was throttled] ${NC}"
+            ((THROTTLE_DEC & 0x80000)) && POWER_STATUS+="${YELLOW}[hit soft temp limit] ${NC}"
+        fi
+        echo -e "${YELLOW}▸ Power:${NC}     ${POWER_STATUS}"
+    fi
+fi
+
 FAILED=$(systemctl --failed --no-legend 2>/dev/null | wc -l)
 if [[ "${FAILED}" -gt 0 ]]; then
     echo -e "${RED}▸ ALERT:${NC}     ${FAILED} failed service(s)!"
