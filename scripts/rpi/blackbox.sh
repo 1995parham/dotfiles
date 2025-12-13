@@ -33,6 +33,9 @@ FAIL2BAN_BANTIME="${FAIL2BAN_BANTIME:-12h}"
 FAIL2BAN_FINDTIME="${FAIL2BAN_FINDTIME:-10m}"
 FAIL2BAN_MAXRETRY="${FAIL2BAN_MAXRETRY:-4}"
 WATCHDOG_TIMEOUT="${WATCHDOG_TIMEOUT:-15}"
+NETWORK_WATCHDOG_INTERVAL="${NETWORK_WATCHDOG_INTERVAL:-30}"
+NETWORK_WATCHDOG_FAILS="${NETWORK_WATCHDOG_FAILS:-3}"
+NETWORK_WATCHDOG_GATEWAY="${NETWORK_WATCHDOG_GATEWAY:-}"
 COCKPIT_PORT="${COCKPIT_PORT:-9090}"
 COCKPIT_ALLOWED_NETWORKS="${COCKPIT_ALLOWED_NETWORKS:-192.168.0.0/16}"
 
@@ -80,6 +83,7 @@ main() {
     configure_fail2ban
     configure_unattended_upgrades
     configure_watchdog
+    configure_network_watchdog
     configure_cockpit
     configure_ufw
     enable_services
@@ -88,7 +92,9 @@ main() {
     msg "Raspberry Pi blackbox hardening complete" "success"
     msg "SSH listening on ${SSH_PORT}/tcp for: ${SSH_ALLOWED_USERS}" "info"
     msg "Cockpit available at https://$(hostname):${COCKPIT_PORT} from ${COCKPIT_ALLOWED_NETWORKS}" "info"
-    msg "Watchdog enabled with ${WATCHDOG_TIMEOUT}s timeout, monitoring sshd" "info"
+    local watchdog_runtime="${WATCHDOG_TIMEOUT}"
+    [[ "${watchdog_runtime}" =~ ^[0-9]+$ ]] && watchdog_runtime="${watchdog_runtime}s"
+    msg "Watchdog enabled via systemd (RuntimeWatchdogSec=${watchdog_runtime})" "info"
 }
 
 is_valid_port() {
@@ -283,63 +289,135 @@ EOF
 }
 
 configure_watchdog() {
-    msg "configuring hardware watchdog for automatic recovery"
+    msg "configuring hardware watchdog via systemd"
 
-    # Enable bcm2835 watchdog module on Raspberry Pi
-    if ! grep -q "^bcm2835_wdt" /etc/modules 2>/dev/null; then
+    local boot_config=""
+    for candidate in /boot/firmware/config.txt /boot/config.txt; do
+        if [[ -f "${candidate}" ]]; then
+            boot_config="${candidate}"
+            break
+        fi
+    done
+
+    if [[ -n "${boot_config}" ]]; then
+        if ! sudo grep -qE '^dtparam=watchdog=on' "${boot_config}"; then
+            echo "dtparam=watchdog=on" | sudo tee -a "${boot_config}" >/dev/null
+        fi
+    elif ! grep -q "^bcm2835_wdt" /etc/modules 2>/dev/null; then
         echo "bcm2835_wdt" | sudo tee -a /etc/modules >/dev/null
     fi
 
-    # Load the module now
     if ! sudo modprobe bcm2835_wdt 2>/dev/null; then
         msg "bcm2835_wdt module not available (may not be a Raspberry Pi)" "warn"
     fi
 
-    local conf_file="/etc/watchdog.conf"
+    local conf_dir="/etc/systemd/system.conf.d"
+    local conf_file="${conf_dir}/90-watchdog.conf"
+    local runtime_watchdog="${WATCHDOG_TIMEOUT}"
+    [[ "${runtime_watchdog}" =~ ^[0-9]+$ ]] && runtime_watchdog="${runtime_watchdog}s"
 
-    sudo tee "${conf_file}" >/dev/null <<EOF
-# Hardware watchdog device
-watchdog-device = /dev/watchdog
-watchdog-timeout = ${WATCHDOG_TIMEOUT}
-
-# Reboot if system is unresponsive
-realtime = yes
-priority = 1
-
-# Check if system load is too high (5x number of CPUs for 1-min average)
-max-load-1 = 24
-
-# Check memory usage (pages)
-min-memory = 1
-
-# Check if critical processes are running
-pidfile = /run/sshd.pid
-
-# Check network connectivity (ping test)
-ping = 127.0.0.1
-
-# Log watchdog activity
-log-dir = /var/log/watchdog
-
-# Interval between checks (seconds)
-interval = 10
-
-# Retry count before action
-retry-timeout = 60
-
-# Actions on failure
-admin = root
-EOF
-
-    # Create log directory
-    sudo mkdir -p /var/log/watchdog
-
-    if ! sudo systemctl enable --now watchdog.service; then
-        msg "failed to enable watchdog service" "error"
+    if ! sudo mkdir -p "${conf_dir}"; then
+        msg "failed to create ${conf_dir}" "error"
         return 1
     fi
 
-    msg "watchdog configured with ${WATCHDOG_TIMEOUT}s timeout, monitoring sshd" "success"
+    sudo tee "${conf_file}" >/dev/null <<EOF
+[Manager]
+RuntimeWatchdogSec=${runtime_watchdog}
+ShutdownWatchdogSec=2min
+EOF
+
+    sudo systemctl disable --now watchdog.service wd_keepalive.service &>/dev/null || true
+
+    if ! sudo systemctl daemon-reexec; then
+        msg "failed to reload systemd to apply watchdog settings (reboot required)" "warn"
+    fi
+
+    local watchdog_current
+    watchdog_current=$(sudo systemctl show -p RuntimeWatchdogUSec --value 2>/dev/null || true)
+    if [[ -z "${watchdog_current}" || "${watchdog_current}" == "0" ]]; then
+        msg "systemd watchdog did not report as active; a reboot may be needed" "warn"
+    else
+        msg "systemd watchdog armed (RuntimeWatchdogSec=${runtime_watchdog})" "success"
+    fi
+}
+
+configure_network_watchdog() {
+    msg "configuring network reachability watchdog"
+
+    local interval="${NETWORK_WATCHDOG_INTERVAL}"
+    local max_fails="${NETWORK_WATCHDOG_FAILS}"
+    local gateway="${NETWORK_WATCHDOG_GATEWAY}"
+    local script_path="/usr/local/sbin/network-watchdog.sh"
+    local service_path="/etc/systemd/system/network-watchdog.service"
+
+    sudo tee "${script_path}" >/dev/null <<EOF
+#!/usr/bin/env bash
+set -euo pipefail
+
+interval="${interval}"
+max_fails="${max_fails}"
+preferred_gateway="${gateway}"
+
+log() { logger -t network-watchdog "\${*}"; }
+
+resolve_gateway() {
+    if [[ -n "\${preferred_gateway}" ]]; then
+        echo "\${preferred_gateway}"
+        return
+    fi
+    ip route | awk '/^default/ {print \$3; exit}'
+}
+
+fail_count=0
+while true; do
+    gw=\$(resolve_gateway)
+
+    if [[ -z "\${gw}" ]]; then
+        fail_count=\$((fail_count + 1))
+        log "no default gateway detected (attempt \${fail_count}/\${max_fails})"
+    elif ping -c1 -W1 "\${gw}" >/dev/null 2>&1; then
+        fail_count=0
+    else
+        fail_count=\$((fail_count + 1))
+        log "gateway \${gw} unreachable (attempt \${fail_count}/\${max_fails})"
+    fi
+
+    if (( fail_count >= max_fails )); then
+        log "network unreachable after \${fail_count} attempts; forcing reboot"
+        systemctl reboot --force || reboot -f
+        sleep 300
+    fi
+
+    sleep "\${interval}"
+done
+EOF
+
+    sudo chmod +x "${script_path}"
+
+    sudo tee "${service_path}" >/dev/null <<EOF
+[Unit]
+Description=Network reachability watchdog (reboot on gateway loss)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=${script_path}
+Restart=always
+RestartSec=10
+User=root
+AmbientCapabilities=CAP_NET_RAW CAP_SYS_BOOT
+CapabilityBoundingSet=CAP_NET_RAW CAP_SYS_BOOT
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    if ! sudo systemctl enable --now network-watchdog.service; then
+        msg "failed to enable network watchdog service" "warn"
+    fi
 }
 
 configure_wifi_country() {
