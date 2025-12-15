@@ -13,7 +13,7 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman fastfetch onefetch tokei countryfetch
+    require_pacman fastfetch onefetch tokei
 }
 
 main_apt() {
