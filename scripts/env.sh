@@ -162,7 +162,6 @@ main_pacman() {
         exfat-utils
         openbsd-netcat
         cpupower
-        reflector
         jwt-cli
         tokei
         glow
@@ -180,6 +179,12 @@ main_pacman() {
         taplo-cli
         bind
     )
+
+    # reflector is for Arch Linux mirror management; Manjaro uses pacman-mirrors instead
+    if ! grep -qi manjaro /etc/os-release 2>/dev/null; then
+        pacman_specific+=(reflector)
+    fi
+
     local yay_packages=(jcal cbonsai)
     local pacman_replace='(
         [yq]="go-yq"
