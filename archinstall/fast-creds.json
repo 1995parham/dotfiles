@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "sudo": true,
+      "username": "parham",
+      "enc_password": "$y$j9T$E5h/C48QzrYIEMaktBCTe.$K25InGB34FyNAbDZejn4roh0ctZLP6kt0TBbvmG4eWC"
+    }
+  ],
+  "root_enc_password": "$y$j9T$E5h/C48QzrYIEMaktBCTe.$K25InGB34FyNAbDZejn4roh0ctZLP6kt0TBbvmG4eWC"
+}

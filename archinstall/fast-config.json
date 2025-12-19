@@ -1,0 +1,52 @@
+{
+  "archinstall-language": "English",
+  "audio_config": {
+    "audio": "pipewire"
+  },
+  "bootloader_config": {
+    "bootloader": "Systemd-boot",
+    "uki": false,
+    "removable": false
+  },
+  "debug": false,
+  "hostname": "archlinux",
+  "kernels": [
+    "linux"
+  ],
+    "locale_config": {
+        "kb_layout": "us",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_US"
+    },
+    "mirror_config": {
+        "custom_servers": [
+            {
+                "url": "https://geo.mirror.pkgbuild.com/$repo/os/$arch"
+            },
+            {
+                "url": "https://mirror.rackspace.com/archlinux/$repo/os/$arch"
+            }
+        ]
+    },
+    "network_config": {
+        "type": "auto"
+  },
+  "no_pkg_lookups": false,
+  "ntp": true,
+  "offline": false,
+  "packages": [],
+  "parallel downloads": 10,
+    "profile_config": {
+        "profile": {
+            "main": "Minimal"
+        }
+  },
+  "post_install": [
+    "/home/parham/dotfiles/archinstall/post-install.sh"
+  ],
+  "script": "guided",
+  "silent": false,
+  "swap": true,
+  "timezone": "UTC",
+  "version": "2.8.6"
+}
