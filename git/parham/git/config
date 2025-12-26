@@ -62,3 +62,7 @@
 
 [push]
 	autoSetupRemote = true
+
+[filter "kubeconfig"]
+	clean = yq -I4 'del(.current-context) | .contexts[].context.namespace = \"default\"'
+	smudge = cat
