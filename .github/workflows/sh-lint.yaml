@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v6
             - name: Run the sh-checker
-              uses: luizm/action-sh-checker@v0.9.0
+              uses: luizm/action-sh-checker@v0.10.0
               env:
                   SHELLCHECK_OPTS: -x
               with:
