@@ -8,12 +8,11 @@ set -o pipefail
 # Sometimes the lost part of ourselves is faith, hope, a dream.
 # It is so easy to lose a piece of ourselves and it can happen in a thousand different ways.
 
-ip_country_url="https://api.ipquery.io/?format=json"
-# ip_country_url="https://api.ipapi.is"
+ip_country_url="http://ip-api.com/json/"
 
 fallback_ip_country_url="http://ifconfig.io/all.json"
 
-ip="$(curl -sL "$ip_country_url" --max-time 10 | jq -j '"\(.ip) - \(.location.country) (\(.isp.org))"' 2>/dev/null)"
+ip="$(curl -sL "$ip_country_url" --max-time 10 | jq -j '"\(.query) - \(.country) (\(.isp))\(if .proxy then " [VPN]" else "" end)"' 2>/dev/null)"
 if [ -n "$ip" ]; then
     echo "$ip" | tee /tmp/whereami.sh
 else
