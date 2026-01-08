@@ -45,8 +45,8 @@ show_result() {
 
 update_cache() {
     local ip="$1"
-    echo "$ip" > "$cache_file"
-    date +%s > "$timestamp_file"
+    echo "$ip" >"$cache_file"
+    date +%s >"$timestamp_file"
 }
 
 ip="$(curl -sL "$ip_country_url" --max-time 10 | jq -j '"\(.query) - \(.country) (\(.isp))\(if .proxy then " [VPN]" else "" end)\(if .hosting then " [Hosting]" else "" end)"' 2>/dev/null)"
