@@ -43,7 +43,7 @@ function clone() {
         if [[ "${repo}" == "${origin_url%.git}" ]]; then
             action git "${repo_name} ${F_DEBUG}${ALL_RESET}"
             running git "pulling ${repo_name}..."
-            if git pull --ff-only &>/dev/null; then
+            if git remote prune origin &>/dev/null && git pull --ff-only &>/dev/null; then
                 echo -ne "\r${CLEAR_LINE}"
                 action git "${repo_name} ${F_SUCCESS}󰄲${ALL_RESET}"
             else

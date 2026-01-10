@@ -1,17 +1,39 @@
 #!/usr/bin/env bash
 
-ip_country_url="https://api.ipquery.io/?format=json"
-# ip_country_url="https://api.ipapi.is"
+ip_country_url="https://ipapi.co/json/"
+
+# helper function to detect current country from IP
+function _get_current_country() {
+    local response http_code body country
+
+    response=$(curl -f -m 10 -s -w "\n%{http_code}" "$ip_country_url" 2>/dev/null)
+    http_code=$(echo "$response" | tail -1)
+    body=$(echo "$response" | sed '$d')
+
+    if [[ "$http_code" -ne 200 ]]; then
+        return 1
+    fi
+
+    country=$(echo "$body" | jq -r '.country_name' 2>/dev/null)
+    if [[ -z "$country" || "$country" == "null" ]]; then
+        return 1
+    fi
+
+    echo "$country"
+}
 
 # check being in the specific country
 function require_country() {
+    local country current_country
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s "$ip_country_url" | jq -r '.location.country' 2>/dev/null)"
-    if [[ -z "${current_country}" ]]; then
+
+    current_country="$(_get_current_country)"
+    if [[ $? -ne 0 || -z "${current_country}" ]]; then
         message "country" "󰈻 failed to detect current country" "error"
         return 1
     fi
-    if [[ "${current_country}" != "${country}" ]]; then
+
+    if [[ "${current_country,,}" != "${country,,}" ]]; then
         message "country" "󰈻 please be in ${country} instead of ${current_country}" "error"
         return 1
     fi
@@ -21,13 +43,16 @@ function require_country() {
 
 # check not being in the specific country
 function not_require_country() {
+    local country current_country
     country=${1:?"country is required"}
-    current_country="$(curl -m 10 -s "$ip_country_url" | jq -r '.location.country' 2>/dev/null)"
-    if [[ -z "${current_country}" ]]; then
+
+    current_country="$(_get_current_country)"
+    if [[ $? -ne 0 || -z "${current_country}" ]]; then
         message "country" "󰈻 failed to detect current country" "error"
         return 1
     fi
-    if [[ "${current_country}" == "${country}" ]]; then
+
+    if [[ "${current_country,,}" == "${country,,}" ]]; then
         message "country" "󰈻 please be in another country instead of ${country}" "error"
         return 1
     fi
