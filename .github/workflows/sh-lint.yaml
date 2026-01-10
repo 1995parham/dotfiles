@@ -7,16 +7,16 @@ jobs:
     bash-lint:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
             - name: Run the sh-checker
-              uses: luizm/action-sh-checker@v0.9.0
+              uses: luizm/action-sh-checker@v0.10.0
               with:
                   sh_checker_comment: false
 
     powershell-lint:
         runs-on: windows-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
             - name: Install PSScriptAnalyzer
               shell: pwsh
               run: Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
@@ -42,7 +42,7 @@ jobs:
     bash-unit:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
             - name: Test units
               run: |
                   failed=0
