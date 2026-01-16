@@ -48,6 +48,9 @@ main_brew() {
 
     msg 'GDAL is a translator library for raster and vector geospatial data formats'
     require_brew gdal
+
+    msg 'MySQL/MariaDB client library'
+    require_brew mysql-client
 }
 
 main_pacman() {
