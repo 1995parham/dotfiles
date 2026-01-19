@@ -37,7 +37,16 @@ windows:
                 - nvim
             focus: true
 
-    - window_name: infra 🏥
+    - window_name: infra - prod 🏥
+      layout: tiled
+      start_directory: ~/Documents/Git/aveehealth/aveehealth/infrastructure
+      panes:
+          - focus: true
+          - pane
+          - pane
+          - pane
+
+    - window_name: infra - dev 🏥
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/1995parham-goodies/aveehealth-database
       panes:
