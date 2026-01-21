@@ -14,11 +14,11 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman terraform opentofu
+    require_pacman terraform opentofu tflint
 }
 
 main_brew() {
-    require_brew terraform opentofu
+    require_brew terraform opentofu tflint
 }
 
 main_apt() {
