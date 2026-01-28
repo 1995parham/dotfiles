@@ -13,6 +13,8 @@ Push local git repositories to GitHub using gh CLI.
 
 OPTIONS:
     -o, --org NAME       GitHub organization or username (required)
+    -x, --prefix PREFIX  Add prefix to repository names (e.g., "work-" creates "work-reponame")
+    -a, --reauthor       Run 'git reauthor' to rewrite commits before pushing
     -p, --public         Create public repositories (default: private)
     -r, --recursive      Traverse directories and push all git repos found
     -d, --dry-run        Show what would be done without making changes
@@ -31,6 +33,12 @@ EXAMPLES:
 
     # Push specific directories as public repos
     $(basename "$0") -o myorg -p ./repo1 ./repo2
+
+    # Push with a prefix (creates "work-reponame" instead of "reponame")
+    $(basename "$0") -o myorg -x "work-" ./myrepo
+
+    # Reauthor commits before pushing
+    $(basename "$0") -o myorg -a ./myrepo
 
     # Dry run to see what would happen
     $(basename "$0") -o myorg -r -d ~/projects/
@@ -51,6 +59,8 @@ log_error() { echo -e "${RED}[ERROR]${NC} $*" >&2; }
 
 # Default values
 ORG_NAME=""
+PREFIX=""
+REAUTHOR=false
 VISIBILITY="private"
 RECURSIVE=false
 DRY_RUN=false
@@ -63,6 +73,14 @@ while [[ $# -gt 0 ]]; do
     -o | --org)
         ORG_NAME="$2"
         shift 2
+        ;;
+    -x | --prefix)
+        PREFIX="$2"
+        shift 2
+        ;;
+    -a | --reauthor)
+        REAUTHOR=true
+        shift
         ;;
     -p | --public)
         VISIBILITY="public"
@@ -122,7 +140,7 @@ fi
 push_repo() {
     local dir="$1"
     local repo_name
-    repo_name=$(basename "$(cd "$dir" && pwd)")
+    repo_name="${PREFIX}$(basename "$(cd "$dir" && pwd)")"
 
     log_info "Processing: $repo_name"
 
@@ -132,6 +150,19 @@ push_repo() {
     fi
 
     cd "$dir"
+
+    # Reauthor commits if requested
+    if [[ "$REAUTHOR" == true ]]; then
+        if [[ "$DRY_RUN" == true ]]; then
+            log_info "[DRY-RUN] Would run 'git reauthor' to rewrite commits"
+        else
+            log_info "Rewriting commits with 'git reauthor'..."
+            if ! git reauthor; then
+                log_error "Failed to reauthor commits in $repo_name"
+                return 1
+            fi
+        fi
+    fi
 
     # Check if repo already exists on GitHub
     if gh repo view "$ORG_NAME/$repo_name" &>/dev/null; then
@@ -157,6 +188,13 @@ push_repo() {
         git remote add origin "https://github.com/$ORG_NAME/$repo_name.git"
         git push -u origin --all
         git push origin --tags
+
+        # Disable actions if requested
+        if [[ "$NO_ACTIONS" == true ]]; then
+            log_info "Disabling GitHub Actions..."
+            gh repo edit "$ORG_NAME/$repo_name" --enable-actions=false
+        fi
+
         log_success "Pushed to existing repository: https://github.com/$ORG_NAME/$repo_name"
     else
         if [[ "$DRY_RUN" == true ]]; then
@@ -201,6 +239,8 @@ process_directory() {
 
 # Main execution
 log_info "Target organization: $ORG_NAME"
+[[ -n "$PREFIX" ]] && log_info "Repository prefix: $PREFIX"
+[[ "$REAUTHOR" == true ]] && log_info "Reauthor: enabled"
 log_info "Visibility: $VISIBILITY"
 [[ "$DRY_RUN" == true ]] && log_warn "DRY RUN MODE - No changes will be made"
 echo ""
