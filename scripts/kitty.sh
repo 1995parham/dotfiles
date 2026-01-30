@@ -14,7 +14,7 @@ usage() {
 }
 
 main_apt() {
-    sudo apt install kitty
+    require_apt kitty fonts-jetbrains-mono
 }
 
 main_pacman() {
