@@ -63,7 +63,12 @@ function not_require_country() {
 # connectivity check for the given host using icmp.
 function require_host() {
     host=${1:?"host is required"}
-    ping -q -c 1 "${host}" || (message "host" "󰈂 please make sure you have access to ${host}" 'error' && return 1)
+    if ping -q -c 1 "${host}" >/dev/null 2>&1; then
+        message "host" "✅ ${host} is reachable"
+    else
+        message "host" "󰈂 please make sure you have access to ${host}" 'error'
+        return 1
+    fi
 }
 
 # remove packages using pacman
