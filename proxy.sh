@@ -21,6 +21,12 @@ proxy_start() {
         return 1
     elif [ $# -eq 1 ]; then
         url="$1"
+        # validate URL format (must be http:// or https:// followed by host)
+        if ! [[ "$url" =~ ^https?://[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?(:[0-9]+)?(/.*)?$ ]]; then
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}invalid URL format: $url${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}URL must start with http:// or https://${ALL_RESET}"
+            return 1
+        fi
     else
         url="http://127.0.0.1:2081"
 
