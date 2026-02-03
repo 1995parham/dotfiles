@@ -26,9 +26,34 @@ windows:
                 - nvim
             focus: true
 
+    - window_name: bitbarg-applications 🏢
+      layout: tiled
+      start_directory: ~/Documents/Git/bitbarg/
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
     - window_name: hatchup-infrastructure 🏢
       layout: tiled
       start_directory: ~/Documents/Git/parham/raha-io/hatchup-infrastructure
+      before_script: "pipx run uv sync --all-groups -U"
+      shell_command_before:
+          - "[ -d '.venv' ] && source .venv/bin/activate && reset"
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: hatchup-applications 🏢
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/production
       before_script: "pipx run uv sync --all-groups -U"
       shell_command_before:
           - "[ -d '.venv' ] && source .venv/bin/activate && reset"
