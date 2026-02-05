@@ -169,19 +169,11 @@ repeat_offset = 2
 threshold = 0
 
 [custom.uname]
-command = '''
-CACHE_FILE="/tmp/starship_uname_cache"
-CACHE_MAX_AGE=86400  # 24 hours in seconds
-if [ -f "$CACHE_FILE" ] && [ $(($(date +%s) - $(stat -c %Y "$CACHE_FILE" 2>/dev/null || stat -f %m "$CACHE_FILE" 2>/dev/null))) -lt $CACHE_MAX_AGE ]; then
-  cat "$CACHE_FILE"
-else
-  uname -rs | tee "$CACHE_FILE"
-fi
-'''
+command = 'uname -rs'
 when = true
 style = 'fg:#ff0080'
 symbol = '  '
-description = 'kernel version (cached 24h)'
+description = 'kernel version'
 
 [env_var.NVIM]
 style = 'fg:#32cd32'
