@@ -1,0 +1,30 @@
+{
+    "name": "neon",
+    "dark": {
+        "primary": "#45ff2f",
+        "secondary": "#b299e5",
+        "accent": "#ffae1a",
+        "error": "#ff5032",
+        "warning": "#ffa532",
+        "success": "#39ff14",
+        "info": "#00bfff",
+        "muted": "#808080",
+        "background": "#1f1f1f",
+        "foreground": "#e8e8e8",
+        "border": "#505050",
+        "activeBorder": "#c600a8",
+        "input": "#2c2c2c",
+        "inputText": "#e8e8e8",
+        "selection": "#3a3a3a",
+        "cursor": "#90ee90",
+        "diffAdd": "#a0d770",
+        "diffRemove": "#ff9999",
+        "diffChange": "#ffae1a",
+        "assistant": "#00bfff",
+        "user": "#45ff2f",
+        "tool": "#b299e5",
+        "toolResult": "#7cfc00",
+        "headerBackground": "#1f1f1f",
+        "headerForeground": "#76ff03"
+    }
+}
