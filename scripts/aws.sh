@@ -14,8 +14,7 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman aws-vault
-    require_aur cw-cloudwatch aws-cli-v2
+    require_pacman aws-vault aws-cli-v2
 }
 
 main_brew() {
