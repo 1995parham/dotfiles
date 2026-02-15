@@ -24,7 +24,6 @@ main() {
         "okd-client-bin"
         "gosimac-bin"
         "gosimac"
-        "actionlint-bin"
         "jcal"
         "gotz"
         "mprocs"
