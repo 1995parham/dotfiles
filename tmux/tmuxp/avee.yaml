@@ -54,3 +54,12 @@ windows:
           - pane
           - pane
           - pane
+
+    - window_name: avicennacloud ☠️
+      layout: tiled
+      start_directory: ~/Documents/Git/aveehealth/aveetools/root/avicennacloud
+      panes:
+          - focus: true
+          - pane
+          - pane
+          - pane
