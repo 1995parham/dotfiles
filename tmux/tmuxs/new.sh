@@ -11,31 +11,19 @@ tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=./scripts/lib/message.sh
 source "$tmuxs_root/../../scripts/lib/main.sh"
 
-# initialize commands array for virtual environment activation
-commands=()
+# setup commands run once in pane 0 (e.g. dependency install)
+setup_commands=()
+# activate commands run in all panes (e.g. venv activation)
+activate_commands=()
 
 # window name suffix emoji
 window_emoji="📁"
 
 # fzf color scheme
-fzf_colors="fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec"
+fzf_colors="fg:#fab387,fg+:#a6e3a1,bg+:#313244,hl:#fab387,hl+:#f9e2af,info:#a6e3a1,prompt:#fab387,pointer:#a6e3a1,marker:#fab387,spinner:#a6e3a1,header:#fab387,separator:#585b70,border:#a6e3a1"
 
 project=$(
-    if command -v bfs &>/dev/null; then
-        bfs ~/Documents/Git -name .git -prune -o \
-            -type d -exec test -d {}/.git \; -print -prune
-    else
-        # fall back to fd and drop any repository nested under a parent repository
-        fd -t directory -t file -IH '^\.git$' ~/Documents/Git -x dirname |
-            sort |
-            awk '{
-                keep=1
-                for (r in roots) {
-                    if (index($0, r "/") == 1) { keep=0; break }
-                }
-                if (keep) { roots[$0]=1; print }
-            }'
-    fi |
+    fd -H -t d '^\.git$' ~/Documents/Git --max-depth 4 -x dirname |
         fzf --color="$fzf_colors" \
             --preview="onefetch {}; tokei {}"
 )
@@ -90,55 +78,37 @@ if ! cd "$project"; then
     exit 1
 fi
 
-if command -v onefetch &>/dev/null; then
-    onefetch || true
-    read -n 1 -s -r -p "press any key to continue"
-    echo
-fi
-
-if command -v tokei &>/dev/null; then
-    tokei || true
-    read -n 1 -s -r -p "press any key to continue"
-    echo
-fi
-
-# install python requirements using Pipenv, Poetry, uv or requirements.txt
+# detect python environment and defer dependency installation to run inside the pane.
 # pipenv automatically uses pyenv for python version management.
 if [ -f Pipfile ]; then
     pipenv=""
 
     if command -v pipx &>/dev/null; then
-        message 'tmux' 'pipx is installed and we are using it to run pipenv' 'warn' && sleep 5
+        message 'tmux' 'pipx is installed and we are using it to run pipenv' 'warn'
         pipenv="pipx run pipenv"
     elif command -v pipenv &>/dev/null; then
         pipenv="pipenv"
     fi
 
     if [ -n "$pipenv" ]; then
-        message 'tmux' "setup project base on pipenv ($pipenv)" 'warn' && sleep 5
-        bash -c "$pipenv sync --dev" || message 'tmux' 'pipenv requirement installation failed' 'error'
-
-        venv_path="$($pipenv --venv)"
-
-        commands=("source $venv_path/bin/activate" "${commands[@]}")
+        message 'tmux' "setup project based on pipenv ($pipenv)" 'warn'
+        setup_commands+=("$pipenv sync --dev")
+        activate_commands+=("source \$($pipenv --venv)/bin/activate")
     fi
 elif [ -f poetry.lock ]; then
     poetry=""
 
     if command -v pipx &>/dev/null; then
-        message 'tmux' 'pipx is installed and we are using it to run poetry' 'warn' && sleep 5
+        message 'tmux' 'pipx is installed and we are using it to run poetry' 'warn'
         poetry="pipx run poetry"
     elif command -v poetry &>/dev/null; then
         poetry="poetry"
     fi
 
     if [ -n "$poetry" ]; then
-        message 'tmux' "setup project base on poetry ($poetry)" 'warn' && sleep 5
-        bash -c "$poetry install --verbose" || message 'tmux' 'poetry requirement installation failed' 'error'
-
-        venv_path="$($poetry env info --path)"
-
-        commands=("source $venv_path/bin/activate" "${commands[@]}")
+        message 'tmux' "setup project based on poetry ($poetry)" 'warn'
+        setup_commands+=("$poetry install --verbose")
+        activate_commands+=("source \$($poetry env info --path)/bin/activate")
     fi
 # install python requirements using requirements.txt
 # and using pyenv manually to install required python version.
@@ -148,63 +118,64 @@ elif [ -f requirements.txt ]; then
             pyenv install
             pyenv exec python -mvenv .venv
         elif command -v python3 &>/dev/null; then
-            # macos still have python3 instead of python because this operating system is
-            # garbage.
             python3 -mvenv .venv
         else
             python -mvenv .venv
         fi
     fi
     if [ -d '.venv' ]; then
-        commands+=('source .venv/bin/activate')
-
-        # shellcheck disable=1091
-        source '.venv/bin/activate' && pip install -r requirements.txt && deactivate
+        setup_commands+=('source .venv/bin/activate && pip install -r requirements.txt')
+        activate_commands+=('source .venv/bin/activate')
     fi
 # detect uv based on having uv.lock in the project root.
 elif [ -f uv.lock ]; then
     uv=""
 
     if command -v pipx &>/dev/null; then
-        message 'tmux' 'pipx is installed and we are using it to run uv' 'warn' && sleep 5
+        message 'tmux' 'pipx is installed and we are using it to run uv' 'warn'
         uv="pipx run uv"
     elif command -v uv &>/dev/null; then
         uv="uv"
     fi
 
     if [ -n "$uv" ]; then
-        message 'tmux' "setup project base on uv ($uv)" 'warn' && sleep 5
-        bash -c "$uv sync" || message 'tmux' 'uv sync failed' 'error'
-
-        commands+=('source .venv/bin/activate')
+        message 'tmux' "setup project based on uv ($uv)" 'warn'
+        setup_commands+=("$uv sync")
+        activate_commands+=('source .venv/bin/activate')
     fi
 fi
 
-prefix=0
-max_retries=100
-if tmux has-session -t "$current_session:=$name $window_emoji" &>/dev/null; then
-    name="${org_name}/${name}"
+base_name="$name"
+if tmux has-session -t "$current_session:=$base_name $window_emoji" &>/dev/null; then
+    base_name="${org_name}/${name}"
 fi
-while tmux has-session -t "$current_session:=$name $window_emoji" &>/dev/null; do
-    name="${name}_${prefix}"
+prefix=0
+while tmux has-session -t "$current_session:=$base_name $window_emoji" &>/dev/null; do
+    base_name="${org_name}/${name}_${prefix}"
     prefix=$((prefix + 1))
-    if [ "$prefix" -ge "$max_retries" ]; then
-        message 'tmux' "failed to find unique window name after $max_retries attempts" 'error'
+    if [ "$prefix" -ge 100 ]; then
+        message 'tmux' "failed to find unique window name after 100 attempts" 'error'
         exit 1
     fi
 done
+name="$base_name"
 
 name="${name} ${window_emoji}"
 
-tmux new-window -t "$current_session" -c "$project" -n "$name"
-tmux split-window -t "$current_session:$name" -c "$project"
-tmux select-pane -t "$current_session:$name.0"
-tmux split-window -h -t "$current_session:$name" -c "$project"
+tmux new-window -t "$current_session" -c "$project" -n "$name" \; \
+    split-window -t "$current_session:$name" -c "$project" \; \
+    select-pane -t "$current_session:$name.0" \; \
+    split-window -h -t "$current_session:$name" -c "$project"
 
-# using send command to run the pre-configured commands on all panes
-num_panes=3
+# run setup commands (dependency install) only in pane 0
+for command in "${setup_commands[@]}"; do
+    tmux send-keys -t "$current_session:$name.0" "$command" Enter
+done
+
+# run activate commands (venv activation) in all panes
+num_panes=$(tmux list-panes -t "$current_session:$name" -F '#{pane_index}' | wc -l | tr -d ' ')
 for i in $(seq 0 $((num_panes - 1))); do
-    for command in "${commands[@]}"; do
+    for command in "${activate_commands[@]}"; do
         tmux send-keys -t "$current_session:$name.$i" "$command" Enter
     done
 done
