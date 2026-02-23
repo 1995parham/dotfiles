@@ -20,7 +20,7 @@ activate_commands=()
 window_emoji="📁"
 
 # fzf color scheme
-fzf_colors="fg:#fab387,fg+:#a6e3a1,bg+:#313244,hl:#fab387,hl+:#f9e2af,info:#a6e3a1,prompt:#fab387,pointer:#a6e3a1,marker:#fab387,spinner:#a6e3a1,header:#fab387,separator:#585b70,border:#a6e3a1"
+fzf_colors="fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec"
 
 project=$(
     fd -H -t d '^\.git$' ~/Documents/Git --max-depth 4 -x dirname |
