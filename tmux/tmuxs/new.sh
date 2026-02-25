@@ -23,7 +23,7 @@ window_emoji="📁"
 fzf_colors="fg:#ffa500,hl:#a9a9a9,prompt:#adff2f,separator:#ffe983,info:#ffe2ec"
 
 project=$(
-    fd -H -t d '^\.git$' ~/Documents/Git --max-depth 4 -x dirname |
+    fd -H -t d '^\.git$' ~/Documents/Git -x dirname |
         fzf --color="$fzf_colors" \
             --preview="onefetch {}; tokei {}"
 )
