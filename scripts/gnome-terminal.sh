@@ -3,6 +3,7 @@
 usage() {
     echo -n 'catppuccin mocha theme for gnome terminal'
 
+    # shellcheck disable=1004,2016,2028
     echo '
   __ _ _ __   ___  _ __ ___   ___
  / _` | `_ \ / _ \| `_ ` _ \ / _ \
