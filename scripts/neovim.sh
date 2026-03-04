@@ -29,7 +29,7 @@ main_pkg() {
 
 main_apt() {
     require_snap nvim --edge --classic
-    require_apt python3-pynvim
+    require_apt python3-pynvim tree-sitter-cli
 }
 
 main_pacman() {
@@ -41,7 +41,7 @@ main_pacman() {
         # rm -rf ~/.cache/yay/neovim-git || true
         require_aur neovim-git
     fi
-    require_pacman libvterm python-pynvim luarocks stylua
+    require_pacman libvterm python-pynvim luarocks stylua tree-sitter-cli
 
     if [[ "$(command -v pipx)" ]]; then
         require_pip 'nvim-remote'
@@ -56,7 +56,7 @@ main_brew() {
         brew list --version neovim | grep HEAD || brew uninstall --ignore-dependencies neovim
         require_brew_head neovim
     fi
-    require_brew luarocks gcc@11 stylua
+    require_brew luarocks gcc@11 stylua tree-sitter-cli
 
     if [[ "$(command -v pipx)" ]]; then
         require_pip 'nvim-remote'
