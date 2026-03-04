@@ -73,6 +73,7 @@ main_apt() {
     _install_font_from_github "ryanoasis/nerd-fonts" "JetBrainsMono" "JetBrainsMono.zip"
     _install_font_from_github "ryanoasis/nerd-fonts" "FiraCode" "FiraCode.zip"
     _install_font_from_github "ryanoasis/nerd-fonts" "Meslo" "Meslo.zip"
+    # shellcheck disable=2016
     _install_font_from_github "rastikerdar/vazirmatn" "Vazirmatn" 'Vazirmatn-${version}.zip'
 
     configfile fontconfig
