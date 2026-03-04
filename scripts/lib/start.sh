@@ -23,10 +23,11 @@ _end() {
 
 _usage() {
     echo ""
-    echo "usage: ${program_name} [-y] [-h] script [script options]"
-    echo "  -h   display help"
-    echo "  -d   as dependency (internal usage)"
-    echo "  -y   yes to all"
+    echo "usage: ${program_name} [-y] [-h] [--allow-root] script [script options]"
+    echo "  -h            display help"
+    echo "  -d            as dependency (internal usage)"
+    echo "  -y            yes to all"
+    echo "  --allow-root  allow running as root user"
     echo ""
     echo " ${program_name} new for creating a new script"
     echo " ${program_name} list for see available scripts"
@@ -38,6 +39,28 @@ _parse_options() {
     show_help=false
     yes_to_all=0
     as_dependency=false
+    allow_root=false
+
+    # Handle long options before getopts
+    local args=()
+    local long_opts_count=0
+    for arg in "$@"; do
+        case ${arg} in
+        --allow-root)
+            allow_root=true
+            long_opts_count=$((long_opts_count + 1))
+            ;;
+        *)
+            args+=("${arg}")
+            ;;
+        esac
+    done
+
+    # Reset positional parameters to remaining args
+    set -- "${args[@]+"${args[@]}"}"
+
+    # Reset OPTIND for getopts
+    OPTIND=1
 
     while getopts 'dhy' argv; do
         case ${argv} in
@@ -55,6 +78,9 @@ _parse_options() {
             ;;
         esac
     done
+
+    # Adjust OPTIND to account for removed long options
+    OPTIND=$((OPTIND + long_opts_count))
 }
 
 _resolve_script_name() {
@@ -151,8 +177,9 @@ _main() {
     fi
 
     # handles root user
-    if [[ ${EUID} -eq 0 ]]; then
+    if [[ ${EUID} -eq 0 ]] && [[ ${allow_root} = false ]]; then
         message "pre" "it must run without the root permissions with a regular user." "error"
+        message "pre" "use --allow-root to override this check." "notice"
         return 1
     fi
 
@@ -226,7 +253,11 @@ _additionals() {
                 options="${options}y"
             fi
 
-            "${main_root}/start.sh" "${options}" "${additional[@]}"
+            if [[ "${allow_root}" = true ]]; then
+                "${main_root}/start.sh" --allow-root "${options}" "${additional[@]}"
+            else
+                "${main_root}/start.sh" "${options}" "${additional[@]}"
+            fi
         fi
     done
 }
@@ -251,7 +282,11 @@ _dependencies() {
 
         for dependency in "${dependencies[@]}"; do
             read -ra dependency <<<"${dependency}"
-            "${main_root}/start.sh" "${options}" "${dependency[@]}"
+            if [[ "${allow_root}" = true ]]; then
+                "${main_root}/start.sh" --allow-root "${options}" "${dependency[@]}"
+            else
+                "${main_root}/start.sh" "${options}" "${dependency[@]}"
+            fi
         done
     fi
 }
