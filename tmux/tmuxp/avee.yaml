@@ -26,17 +26,6 @@ windows:
                 - nvim
             focus: true
 
-    - window_name: hygeia 🥼
-      layout: tiled
-      start_directory: ~/Documents/Git/aveehealth/aveehealth/hygeia
-      panes:
-          - pane
-          - pane
-          - pane
-          - shell_command:
-                - nvim
-            focus: true
-
     - window_name: infra - prod 🏥
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/infrastructure
