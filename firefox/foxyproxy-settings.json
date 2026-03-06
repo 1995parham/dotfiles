@@ -1,121 +1,187 @@
 {
-    "mode": "pattern",
-    "sync": false,
-    "autoBackup": false,
-    "passthrough": "",
-    "theme": "moonlight",
-    "container": {},
-    "commands": {
-        "setProxy": "",
-        "setTabProxy": "",
-        "includeHost": "",
-        "excludeHost": ""
-    },
-    "data": [
+  "mode": "pattern",
+  "sync": false,
+  "autoBackup": false,
+  "passthrough": "",
+  "theme": "moonlight",
+  "container": {},
+  "commands": {
+    "setProxy": "",
+    "setTabProxy": "",
+    "includeHost": "",
+    "excludeHost": ""
+  },
+  "data": [
+    {
+      "active": false,
+      "title": "home",
+      "type": "socks5",
+      "hostname": "127.0.0.1",
+      "port": "1080",
+      "username": "",
+      "password": "",
+      "cc": "IR",
+      "city": "Tehran",
+      "color": "#a783dc",
+      "pac": "",
+      "pacString": "",
+      "proxyDNS": true,
+      "include": [
         {
-            "active": true,
-            "title": "home",
-            "type": "socks5",
-            "hostname": "127.0.0.1",
-            "port": "1080",
-            "username": "",
-            "password": "",
-            "cc": "IR",
-            "city": "Tehran",
-            "color": "#a783dc",
-            "pac": "",
-            "pacString": "",
-            "proxyDNS": true,
-            "include": [
-                {
-                    "type": "wildcard",
-                    "title": "Nobitex",
-                    "pattern": "*ntx.ir",
-                    "active": true
-                },
-                {
-                    "type": "wildcard",
-                    "title": "Bitbarg",
-                    "pattern": "*bitbarg.dev",
-                    "active": true
-                }
-            ],
-            "exclude": [],
-            "tabProxy": []
+          "type": "wildcard",
+          "title": "Nobitex",
+          "pattern": "*ntx.ir",
+          "active": true
         },
         {
-            "active": true,
-            "title": "DIRECT",
-            "type": "direct",
-            "hostname": "DIRECT",
-            "port": "",
-            "username": "",
-            "password": "",
-            "cc": "",
-            "city": "",
-            "color": "#a7a1a2",
-            "pac": "",
-            "pacString": "",
-            "proxyDNS": true,
-            "include": [
-                {
-                    "type": "wildcard",
-                    "title": "Iranian Websites",
-                    "pattern": "*.ir",
-                    "active": true
-                },
-                {
-                    "type": "regex",
-                    "title": "10.*.*.*",
-                    "pattern": "^(http|ws)s?://10(\\.\\d+){3}/",
-                    "active": true
-                },
-                {
-                    "type": "regex",
-                    "title": "127.*.*.*",
-                    "pattern": "^(http|ws)s?://127(\\.\\d+){3}/",
-                    "active": true
-                },
-                {
-                    "type": "regex",
-                    "title": "172.16.*.*",
-                    "pattern": "^(http|ws)s?://172\\.16(\\.\\d+){2}/",
-                    "active": true
-                },
-                {
-                    "type": "regex",
-                    "title": "192.168.*.*",
-                    "pattern": "^(http|ws)s?://192\\.168(\\.\\d+){2}/",
-                    "active": true
-                }
-            ],
-            "exclude": [],
-            "tabProxy": []
+          "type": "wildcard",
+          "title": "Bitbarg",
+          "pattern": "*bitbarg.dev",
+          "active": true
         },
         {
-            "active": true,
-            "title": "local",
-            "type": "socks5",
-            "hostname": "127.0.0.1",
-            "port": "2081",
-            "username": "",
-            "password": "",
-            "cc": "EU",
-            "city": "",
-            "color": "#f88439",
-            "pac": "",
-            "pacString": "",
-            "proxyDNS": true,
-            "include": [
-                {
-                    "type": "wildcard",
-                    "title": "All",
-                    "pattern": "*",
-                    "active": true
-                }
-            ],
-            "exclude": [],
-            "tabProxy": []
+          "type": "wildcard",
+          "title": "Bitbarg",
+          "pattern": "*bitbarg.app",
+          "active": true
+        },
+        {
+          "type": "wildcard",
+          "title": "Snapp",
+          "pattern": "*snapp.cab",
+          "active": true
+        },
+        {
+          "type": "wildcard",
+          "title": "Nobitex",
+          "pattern": "*nxbo.ir",
+          "active": true
+        },
+        {
+          "type": "wildcard",
+          "title": "Nobitex",
+          "pattern": "*novyan.ir",
+          "active": true
+        },
+        {
+          "type": "wildcard",
+          "title": "Nobitex",
+          "pattern": "*nobitex.net",
+          "active": true
         }
-    ]
+      ],
+      "exclude": [],
+      "tabProxy": []
+    },
+    {
+      "active": true,
+      "title": "DIRECT",
+      "type": "direct",
+      "hostname": "DIRECT",
+      "port": "",
+      "username": "",
+      "password": "",
+      "cc": "",
+      "city": "",
+      "color": "#a7a1a2",
+      "pac": "",
+      "pacString": "",
+      "proxyDNS": true,
+      "include": [
+        {
+          "type": "wildcard",
+          "title": "Iranian Websites",
+          "pattern": "*.ir",
+          "active": true
+        },
+        {
+          "type": "regex",
+          "title": "10.*.*.*",
+          "pattern": "^(http|ws)s?://10(\\.\\d+){3}/",
+          "active": true
+        },
+        {
+          "type": "regex",
+          "title": "127.*.*.*",
+          "pattern": "^(http|ws)s?://127(\\.\\d+){3}/",
+          "active": true
+        },
+        {
+          "type": "regex",
+          "title": "172.16.*.*",
+          "pattern": "^(http|ws)s?://172\\.16(\\.\\d+){2}/",
+          "active": true
+        },
+        {
+          "type": "regex",
+          "title": "192.168.*.*",
+          "pattern": "^(http|ws)s?://192\\.168(\\.\\d+){2}/",
+          "active": true
+        }
+      ],
+      "exclude": [],
+      "tabProxy": []
+    },
+    {
+      "active": false,
+      "title": "local",
+      "type": "socks5",
+      "hostname": "127.0.0.1",
+      "port": "2081",
+      "username": "",
+      "password": "",
+      "cc": "EU",
+      "city": "",
+      "color": "#f88439",
+      "pac": "",
+      "pacString": "",
+      "proxyDNS": true,
+      "include": [
+        {
+          "type": "wildcard",
+          "title": "All",
+          "pattern": "*",
+          "active": true
+        }
+      ],
+      "exclude": [],
+      "tabProxy": []
+    },
+    {
+      "active": false,
+      "title": "Starlink",
+      "type": "http",
+      "hostname": "2.189.161.124",
+      "port": "8081",
+      "username": "",
+      "password": "",
+      "cc": "BG",
+      "city": "",
+      "color": "#000000",
+      "pac": "",
+      "pacString": "",
+      "proxyDNS": true,
+      "include": [],
+      "exclude": [],
+      "tabProxy": []
+    },
+    {
+      "active": true,
+      "title": "Panahi",
+      "type": "socks5",
+      "hostname": "127.0.0.1",
+      "port": "1080",
+      "username": "",
+      "password": "",
+      "cc": "IR",
+      "city": "Tehran",
+      "color": "#000000",
+      "pac": "",
+      "pacString": "",
+      "proxyDNS": true,
+      "include": [],
+      "exclude": [],
+      "tabProxy": []
+    }
+  ]
 }
