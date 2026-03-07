@@ -29,7 +29,8 @@ main_pkg() {
 
 main_apt() {
     require_snap nvim --edge --classic
-    require_apt python3-pynvim python3-venv tree-sitter-cli
+    require_apt python3-pynvim python3-venv
+    require_github_release "tree-sitter/tree-sitter" "tree-sitter" 'tree-sitter-linux-x64' "gz"
 }
 
 main_pacman() {
