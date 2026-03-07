@@ -170,6 +170,9 @@ _github_release_extract() {
         _github_release_extract_deb "${archive_file}" "${extract_dir}"
         return $?
         ;;
+    gz)
+        gunzip -c "${archive_file}" >"${extract_dir}/${binary_name}"
+        ;;
     "")
         # No extraction needed, just rename the file
         mv "${archive_file}" "${extract_dir}/${binary_name}"
