@@ -16,6 +16,14 @@ if ! source "$(dirname "$source")/message.sh" 2>/dev/null; then
     fi
 fi
 
+# When this file is sourced (e.g. by start.sh), automatically override sudo
+# to preserve environment if proxy env vars are already set.
+# This handles the case where proxy_start was run in an interactive shell
+# and start.sh is a new process that inherits the env vars but not functions.
+if [ -n "${http_proxy:-}" ] || [ -n "${https_proxy:-}" ]; then
+    sudo() { command sudo -E "$@"; }
+fi
+
 proxy_start() {
     if [ $# -gt 1 ]; then
         return 1
@@ -55,7 +63,9 @@ proxy_start() {
     export http_proxy="$url"
     export https_proxy="$url"
     export all_proxy="$url"
-    alias sudo='sudo -E'
+    # Use a function instead of an alias so it works in scripts
+    # (aliases don't expand in non-interactive shells).
+    sudo() { command sudo -E "$@"; }
 
     echo
     curl --max-time 10 https://ipconfig.io/country || proxy_stop
@@ -64,7 +74,7 @@ proxy_start() {
 
 proxy_stop() {
     unset {http,https,all}_proxy || true
-    unalias sudo 2>/dev/null || true
+    unset -f sudo 2>/dev/null || true
 
     echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}all proxy script configurations are removed${ALL_RESET}"
 }
