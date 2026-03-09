@@ -187,8 +187,8 @@ function require_pacman() {
     done
 
     if [[ ${#to_install_pkg[@]} -ne 0 ]]; then
-        action "require" " pacman -Sy ${to_install_pkg[*]}"
-        sudo pacman -Sy --noconfirm "${to_install_pkg[@]}"
+        action "require" " pacman -S ${to_install_pkg[*]}"
+        sudo pacman -S --noconfirm --needed "${to_install_pkg[@]}"
     fi
 }
 

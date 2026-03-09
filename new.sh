@@ -40,7 +40,7 @@ main() {
     else
         read -r -p "name: " name
         if [[ "${name}" =~ [[:space:]]+ ]]; then
-            msg "${name} cotains one or more spaces" "error"
+            msg "${name} contains one or more spaces" "error"
             return 1
         fi
     fi
@@ -60,7 +60,7 @@ main() {
     fi
     touch "${root}/scripts/${name}.sh"
 
-    read -r -p 'dscription: ' description
+    read -r -p 'description: ' description
 
     local root_env
     if yes_or_no 'do you need root? '; then
