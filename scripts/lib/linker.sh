@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 root="${root:?"root must be set"}"
-yes_to_all=${yes_to_all:-false}
+yes_to_all=${yes_to_all:-0}
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 

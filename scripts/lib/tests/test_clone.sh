@@ -71,6 +71,54 @@ test_clone_with_different_origin() {
     return 0
 }
 
+test_clone_repo_name_https() {
+    local repo="https://github.com/1995parham/dotfiles"
+    local repo_name
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
+
+    assert_equals "${repo_name}" "1995parham/dotfiles"
+}
+
+test_clone_repo_name_ssh() {
+    local repo="git@github.com:1995parham/dotfiles"
+    local repo_name
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
+
+    assert_equals "${repo_name}" "1995parham/dotfiles"
+}
+
+test_clone_repo_name_https_dot_git() {
+    local repo="https://github.com/1995parham/dotfiles.git"
+    local repo_name
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
+
+    assert_equals "${repo_name}" "1995parham/dotfiles.git"
+}
+
+test_clone_repo_name_https_query_string() {
+    local repo="https://github.com/1995parham/dotfiles?token=abc123"
+    local repo_name
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
+
+    assert_equals "${repo_name}" "1995parham/dotfiles"
+}
+
+test_clone_repo_name_gitlab() {
+    local repo="https://gitlab.com/owner/project"
+    local repo_name
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
+
+    assert_equals "${repo_name}" "owner/project"
+}
+
+test_clone_repo_name_basename() {
+    local repo="https://github.com/1995parham/dotfiles"
+    local repo_name
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
+
+    assert_equals "$(basename "${repo_name}")" "dotfiles"
+}
+
 test_clone_progress_regex() {
     # Test the regex pattern matches git's progress output format
     local test_lines=(

@@ -19,8 +19,7 @@ function clone() {
         mkdir -p "${path}"
     fi
 
-    repo_name="$(rg -o '\w([:/]\w+[^?]+)' -r '$1' <<<"${repo}")"
-    repo_name=${repo_name:1}
+    repo_name="$(sed -E 's|^.+[:/]([^/:]+/[^/?]+).*|\1|' <<<"${repo}")"
 
     if [[ "${dir}" = "" ]]; then
         dir="$(basename "${repo_name}")"
