@@ -12,6 +12,8 @@ ip_country_url="http://ip-api.com/json/?fields=status,query,country,isp,proxy,ho
 
 fallback_ip_country_url="http://ifconfig.io/all.json"
 
+iran_access_ip_url="https://ipnumberia.com/"
+
 cache_file="/tmp/whereami.sh"
 timestamp_file="/tmp/whereami.timestamp"
 
@@ -59,10 +61,16 @@ else
         update_cache "$ip"
         show_result "$ip"
     else
-        if [ -f "$cache_file" ]; then
-            show_result "$(cat "$cache_file")"
+        ip="$(curl -sL "$iran_access_ip_url" --max-time 10 | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -1 2>/dev/null)"
+        if [ -n "$ip" ]; then
+            update_cache "$ip - Iran Access (fucked up)"
+            show_result "$ip - Iran Access (fucked up)"
         else
-            echo "💩"
+            if [ -f "$cache_file" ]; then
+                show_result "$(cat "$cache_file")"
+            else
+                echo "💩"
+            fi
         fi
     fi
 fi
