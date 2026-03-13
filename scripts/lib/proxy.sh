@@ -67,6 +67,11 @@ proxy_start() {
     # (aliases don't expand in non-interactive shells).
     sudo() { command sudo -E "$@"; }
 
+    # On Arch Linux, pass proxy env vars to yay's sudo calls
+    if command -v yay >/dev/null 2>&1; then
+        alias yay='yay --sudoflags "-E"'
+    fi
+
     echo
     curl --max-time 10 https://ipconfig.io/country || proxy_stop
     echo
@@ -75,6 +80,7 @@ proxy_start() {
 proxy_stop() {
     unset {http,https,all}_proxy || true
     unset -f sudo 2>/dev/null || true
+    unalias yay 2>/dev/null || true
 
     echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}all proxy script configurations are removed${ALL_RESET}"
 }
