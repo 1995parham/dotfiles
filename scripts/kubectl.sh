@@ -26,7 +26,8 @@ main_apt() {
     require_github_release "ahmetb/kubectx" "kubectx" "kubectx_v\${version#v}_linux_x86_64" "tar.gz"
     require_github_release "ahmetb/kubectx" "kubens" "kubens_v\${version#v}_linux_x86_64" "tar.gz"
     require_github_release "derailed/k9s" "k9s" "k9s_Linux_amd64" "tar.gz"
-    require_github_release "kubernetes-sigs/krew" "kubectl-krew" "krew-linux_amd64" "tar.gz"
+    require_github_release "kubernetes-sigs/krew" "krew-linux_amd64" "krew-linux_amd64" "tar.gz"
+    ln -sf "$HOME/.local/bin/krew-linux_amd64" "$HOME/.local/bin/kubectl-krew"
     require_github_release "bitnami-labs/sealed-secrets" "kubeseal" "kubeseal-\${version#v}-linux-amd64" "tar.gz"
     require_github_release "fluxcd/flux2" "flux" "flux_\${version#v}_linux_amd64" "tar.gz"
 }
