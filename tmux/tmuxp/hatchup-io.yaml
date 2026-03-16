@@ -1,0 +1,97 @@
+---
+session_name: Hatchup IO
+windows:
+    - window_name: scratch 📝
+      layout: tiled
+      start_directory: ~/Downloads
+      focus: true
+      panes:
+          - shell_command:
+                - chafa $DOTFILES_ROOT/companies/hatchup-io.png --size 80 --clear -f symbols | less
+          - focus: true
+          - pane
+          - pane
+
+    - window_name: production 🚀
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/production
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: production 📝
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/production
+      panes:
+          - pane
+          - pane
+          - pane
+          - pane
+
+    - window_name: production 📝
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/production
+      panes:
+          - pane
+          - pane
+          - pane
+          - pane
+
+    - window_name: phronexia 🧠
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/phronexia
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: pathwise 🧭
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/pathwise_backend
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: yface 🎭
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/yface-backend
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: katavex 🔧
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/katavex-backend
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
+
+    - window_name: launchpad 🏗️
+      layout: tiled
+      start_directory: ~/Documents/Git/hatchup/hatchup-io/launchpad-backend-project
+      panes:
+          - pane
+          - pane
+          - pane
+          - shell_command:
+                - nvim
+            focus: true
