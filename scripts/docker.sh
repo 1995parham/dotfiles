@@ -43,8 +43,50 @@ setup_docker_user() {
     sudo usermod -aG docker "$USER"
 }
 
+install_docker_official_apt() {
+    msg 'installing docker from official docker repository'
+
+    require_apt ca-certificates curl
+
+    local keyring_dir="/etc/apt/keyrings"
+    local keyring_file="${keyring_dir}/docker.asc"
+
+    if [ ! -f "$keyring_file" ]; then
+        msg 'adding docker official GPG key'
+        sudo install -m 0755 -d "$keyring_dir"
+        if ! sudo curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o "$keyring_file"; then
+            msg 'failed to download docker GPG key' 'error'
+            return 1
+        fi
+        sudo chmod a+r "$keyring_file"
+    fi
+
+    local arch
+    arch=$(dpkg --print-architecture)
+
+    local codename
+    codename=$(. /etc/os-release && echo "$VERSION_CODENAME")
+
+    local repo_entry="deb [arch=${arch} signed-by=${keyring_file}] https://download.docker.com/linux/ubuntu ${codename} stable"
+
+    if ! grep -qF "download.docker.com" /etc/apt/sources.list.d/docker.list 2>/dev/null; then
+        msg 'adding docker repository to apt sources'
+        echo "$repo_entry" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+        sudo apt-get update -qq
+    fi
+
+    require_apt docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+}
+
 main_apt() {
-    require_apt docker.io docker-compose
+    if yes_or_no 'docker' 'install from official docker repository (docker-ce)?'; then
+        install_docker_official_apt || return 1
+    else
+        require_apt docker.io docker-compose
+    fi
+
+    configure_docker_daemon || return 1
+    setup_docker_user
 }
 
 main_xbps() {
