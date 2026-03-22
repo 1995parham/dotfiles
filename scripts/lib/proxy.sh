@@ -33,6 +33,13 @@ proxy_start() {
         if ! [[ "$url" =~ ^(https?|socks(4a?|5h?)?)://[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?(:[0-9]+)?(/.*)?$ ]]; then
             echo -e "${F_ERROR}[proxy] ${F_NOTICE}invalid URL format: $url${ALL_RESET}"
             echo -e "${F_ERROR}[proxy] ${F_NOTICE}URL must start with http://, https://, or socks[4|4a|5|5h]://${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}supported protocols:${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}  http://     HTTP proxy${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}  https://    HTTP proxy over TLS${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}  socks4://   SOCKS4 (no DNS, no auth)${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}  socks4a://  SOCKS4a (proxy resolves DNS)${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}  socks5://   SOCKS5 (client resolves DNS locally, then sends IP)${ALL_RESET}"
+            echo -e "${F_ERROR}[proxy] ${F_NOTICE}  socks5h://  SOCKS5 (proxy resolves DNS remotely, prevents DNS leaks)${ALL_RESET}"
             return 1
         fi
     else
