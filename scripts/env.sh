@@ -100,6 +100,14 @@ main_apt() {
 
     msg "install ${apt_packages[*]} with apt"
     require_apt "${apt_packages[@]}"
+
+    # fd-find installs as fdfind on Debian/Ubuntu, create symlink so 'fd' works
+    if command -v fdfind &>/dev/null && ! command -v fd &>/dev/null; then
+        local fd_link="${HOME}/.local/bin/fd"
+        mkdir -p "${HOME}/.local/bin"
+        ln -sf "$(command -v fdfind)" "$fd_link"
+        msg "created symlink ${fd_link} -> fdfind" "success"
+    fi
 }
 
 main_xbps() {

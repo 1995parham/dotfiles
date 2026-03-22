@@ -20,6 +20,8 @@ main_apt() {
     if ! require_apt "fastfetch"; then
         require_github_release "fastfetch-cli/fastfetch" "fastfetch" "fastfetch-linux-amd64-polyfilled" "deb"
     fi
+
+    require_github_release "o2sh/onefetch" "onefetch" "onefetch_amd64" "deb"
 }
 
 main_xbps() {
