@@ -46,6 +46,14 @@ _github_release_extract_tar_xz() {
     tar -xJf "${archive_file}" -C "${extract_dir}"
 }
 
+# Extract tar.bz2 archive
+_github_release_extract_tar_bz2() {
+    local archive_file=$1
+    local extract_dir=$2
+
+    tar -xjf "${archive_file}" -C "${extract_dir}"
+}
+
 # Extract zip archive
 _github_release_extract_zip() {
     local archive_file=$1
@@ -159,6 +167,9 @@ _github_release_extract() {
     tar.xz)
         _github_release_extract_tar_xz "${archive_file}" "${extract_dir}"
         ;;
+    tar.bz2)
+        _github_release_extract_tar_bz2 "${archive_file}" "${extract_dir}"
+        ;;
     zip)
         _github_release_extract_zip "${archive_file}" "${extract_dir}"
         ;;
@@ -192,13 +203,20 @@ _github_release_install_binary() {
     local binary_name=$2
     local install_dir=$3
 
-    if [[ ! -f "${temp_dir}/${binary_name}" ]]; then
+    local binary_path="${temp_dir}/${binary_name}"
+
+    # If not found at top level, search subdirectories
+    if [[ ! -f "${binary_path}" ]]; then
+        binary_path=$(find "${temp_dir}" -name "${binary_name}" -type f | head -n 1)
+    fi
+
+    if [[ -z "${binary_path}" || ! -f "${binary_path}" ]]; then
         message "github-release" "Binary ${binary_name} not found in archive" "error"
         return 1
     fi
 
-    chmod +x "${temp_dir}/${binary_name}"
-    mv "${temp_dir}/${binary_name}" "${install_dir}/"
+    chmod +x "${binary_path}"
+    mv "${binary_path}" "${install_dir}/"
 
     return 0
 }
