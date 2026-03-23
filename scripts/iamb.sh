@@ -22,5 +22,5 @@ main_brew() {
 }
 
 main() {
-    return 0
+    configfile "iamb"
 }

@@ -1,0 +1,26 @@
+default_profile = "snapp"
+
+[profiles.snapp]
+user_id = "@parham.alvani:matrix.snapp.cab"
+
+[profiles.novyan]
+user_id = "@p.alvani:matrix.novyan.ir"
+
+[settings]
+log_level = "warn"
+reaction_display = true
+read_receipt_display = true
+read_receipt_send = true
+typing_notice_display = true
+typing_notice_send = true
+username_display = "displayname"
+user_gutter_width = 30
+
+[settings.sort]
+rooms = ["favorite", "lowpriority", "unread", "name"]
+
+[layout]
+style = "restore"
+
+[macros.insert]
+"jj" = "<Esc>"
