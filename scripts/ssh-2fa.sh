@@ -13,8 +13,10 @@ usage() {
   '
 }
 
+export dependencies=("qr")
+
 main_pacman() {
-    require_pacman qrencode libpam-google-authenticator
+    require_pacman libpam-google-authenticator
 
     echo "
 PasswordAuthentication no
