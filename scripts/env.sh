@@ -45,6 +45,7 @@ packages=(
     fd
     jless
     yq
+    just
 )
 
 # Apply package name replacements for a specific package manager
@@ -180,7 +181,6 @@ main_pacman() {
         bandwhich
         lsof
         vhs
-        just
         bat-extras
         tcpdump
         powertop
@@ -230,7 +230,6 @@ main_brew() {
         fontconfig
         glab
         gh
-        just
         bat-extras
         wakatime-cli
         jcal
