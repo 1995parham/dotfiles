@@ -14,10 +14,24 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
+main_brew() {
+    require_brew zig
+}
+
 main_pacman() {
     require_pacman zig
 }
 
-main_brew() {
-    require_brew zig
+main_apt() {
+    require_snap zig --classic --beta
+}
+
+main() {
+    msg 'verify zig installation'
+    zig version
+
+    msg 'install zls (zig language server) via mason'
+    require_mason zls
 }
