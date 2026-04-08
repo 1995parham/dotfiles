@@ -5,9 +5,9 @@ windows:
       layout: tiled
       panes:
           - start_directory: ~/Documents/Git/snapp/snappcloud/helm
+          - start_directory: ~/Documents/Git/snapp/snappcloud/helm
           - start_directory: ~/Documents/Git/snapp/platform/nats/ignite-baly
           - start_directory: ~/Documents/Git/snapp/platform/nats/ignite
-          - start_directory: ~/Documents/Git/snapp/platform/genai/ignite
 
     - window_name: scratch 📝
       layout: tiled
