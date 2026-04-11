@@ -3,7 +3,6 @@
 k3s_channel="${K3S_CHANNEL:-stable}"
 k3s_config_dir="/etc/rancher/k3s"
 k3s_config_file="${k3s_config_dir}/config.yaml"
-k3s_cluster_name="homelab"
 k3s_data_dir="/var/lib/rancher/k3s"
 k3s_node_ip=""
 k3s_flannel_iface=""
@@ -11,6 +10,8 @@ k3s_cluster_cidr="10.73.0.0/16"
 k3s_service_cidr="10.78.0.0/16"
 k3s_kubeconfig_local="${HOME}/.kube/k3s.yaml"
 k3s_copy_kubeconfig=true
+k3s_secrets_encryption=true
+k3s_harden=false
 declare -a k3s_disable_components=("traefik")
 declare -a k3s_tls_sans=()
 
@@ -26,7 +27,6 @@ usage() {
 
 Arguments:
   --channel CHANNEL           k3s release channel (default: $K3S_CHANNEL or stable)
-  --cluster-name NAME         Logical cluster name (default: homelab)
   --data-dir PATH             Override /var/lib/rancher/k3s
   --node-ip IP                Force the node IP when multiple addresses exist
   --flannel-iface IFACE       Interface name flannel should bind to
@@ -36,6 +36,8 @@ Arguments:
   --service-cidr CIDR         Service CIDR (default: 10.78.0.0/16)
   --kubeconfig PATH           Where to copy the kubeconfig (default: ~/.kube/k3s.yaml)
   --skip-kubeconfig           Do not copy kubeconfig to \$HOME
+  --no-secrets-encryption     Disable at-rest secrets encryption (enabled by default)
+  --harden                    Enable CIS hardening (protect-kernel-defaults + audit log)
 
 Example:
   start.sh k3s --node-ip 192.168.40.10 --flannel-iface eno1 --tls-san cluster.lab.local
@@ -75,10 +77,6 @@ pre_main() {
             k3s_channel="${2:-}"
             shift 2
             ;;
-        --cluster-name)
-            k3s_cluster_name="${2:-}"
-            shift 2
-            ;;
         --data-dir)
             k3s_data_dir="${2:-}"
             shift 2
@@ -116,6 +114,14 @@ pre_main() {
             ;;
         --skip-kubeconfig)
             k3s_copy_kubeconfig=false
+            shift
+            ;;
+        --no-secrets-encryption)
+            k3s_secrets_encryption=false
+            shift
+            ;;
+        --harden)
+            k3s_harden=true
             shift
             ;;
         *)
@@ -164,9 +170,13 @@ preflight_checks() {
 }
 
 ensure_config_dir() {
+    # 0755 so unprivileged users can traverse the dir when running `k3s kubectl`
+    # or other helpers — sensitive files inside (config.yaml, k3s.yaml) are 0600.
     if [[ ! -d "${k3s_config_dir}" ]]; then
         msg "create ${k3s_config_dir}"
-        sudo install -d -m 0750 -o root -g root "${k3s_config_dir}"
+        sudo install -d -m 0755 -o root -g root "${k3s_config_dir}"
+    else
+        sudo chmod 0755 "${k3s_config_dir}"
     fi
 }
 
@@ -175,11 +185,14 @@ write_config_file() {
     tmp=$(mktemp)
 
     {
-        echo "write-kubeconfig-mode: \"0600\""
-        echo "cluster-name: \"${k3s_cluster_name}\""
+        echo "write-kubeconfig-mode: \"0644\""
         echo "data-dir: \"${k3s_data_dir}\""
         echo "cluster-cidr: \"${k3s_cluster_cidr}\""
         echo "service-cidr: \"${k3s_service_cidr}\""
+
+        if [[ "${k3s_secrets_encryption}" = true ]]; then
+            echo "secrets-encryption: true"
+        fi
 
         if [[ -n "${k3s_node_ip}" ]]; then
             echo "node-ip: \"${k3s_node_ip}\""
@@ -201,23 +214,41 @@ write_config_file() {
                 echo "  - ${san}"
             done
         fi
+
+        if [[ "${k3s_harden}" = true ]]; then
+            echo "protect-kernel-defaults: true"
+            echo "kube-apiserver-arg:"
+            echo "  - \"audit-log-path=/var/lib/rancher/k3s/server/logs/audit.log\""
+            echo "  - \"audit-log-maxage=30\""
+            echo "  - \"audit-log-maxbackup=10\""
+            echo "  - \"audit-log-maxsize=100\""
+        fi
     } >"${tmp}"
 
-    sudo install -o root -g root -m 0600 "${tmp}" "${k3s_config_file}"
+    # 0644 so unprivileged `k3s ...` invocations can read the server config.
+    # No secrets live here — tokens are under /var/lib/rancher/k3s/server/.
+    sudo install -o root -g root -m 0644 "${tmp}" "${k3s_config_file}"
     rm -f "${tmp}"
     msg "wrote configuration to ${k3s_config_file}"
 }
 
 install_k3s() {
+    # INSTALL_K3S_SKIP_START avoids the installer auto-starting before we
+    # validate the kernel/runtime prerequisites with `k3s check-config`.
     local exec_cmd="server --config ${k3s_config_file}"
     msg "installing k3s (${k3s_channel} channel)"
-    if ! curl -sfL https://get.k3s.io | sudo env INSTALL_K3S_CHANNEL="${k3s_channel}" INSTALL_K3S_EXEC="${exec_cmd}" sh -; then
+    if ! curl -sfL https://get.k3s.io | sudo env \
+        INSTALL_K3S_CHANNEL="${k3s_channel}" \
+        INSTALL_K3S_EXEC="${exec_cmd}" \
+        INSTALL_K3S_SKIP_START=true \
+        INSTALL_K3S_SKIP_ENABLE=true \
+        sh -; then
         msg "k3s installer failed" "error"
         return 1
     fi
 
     if ! sudo k3s check-config; then
-        msg "k3s check-config failed" "warn"
+        msg "k3s check-config reported issues" "warn"
     fi
 
     if ! sudo systemctl enable --now k3s.service; then
@@ -256,8 +287,7 @@ copy_kubeconfig() {
 
     local dest="${k3s_kubeconfig_local}"
     mkdir -p "$(dirname "${dest}")"
-    sudo cp "${src}" "${dest}"
-    sudo chown "${USER}:${USER}" "${dest}"
+    sudo install -o "${USER}" -g "${USER}" -m 0600 "${src}" "${dest}"
     msg "kubeconfig copied to ${dest}"
 }
 
@@ -270,6 +300,12 @@ print_summary() {
 }
 
 main() {
+    msg "================================================================" "warn"
+    msg "THIS CLUSTER IS FOR TESTING ONLY" "warn"
+    msg "kubeconfig is written world-readable (0644) — every local user" "warn"
+    msg "on this host gets cluster-admin. Do NOT use in production." "warn"
+    msg "================================================================" "warn"
+
     if ! preflight_checks; then
         return 1
     fi
