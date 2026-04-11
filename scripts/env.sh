@@ -46,6 +46,7 @@ packages=(
     jless
     yq
     just
+    ncat
 )
 
 # Apply package name replacements for a specific package manager
@@ -84,6 +85,7 @@ main_apt() {
         ["watch"]="procps"
         ["fd"]="fd-find"
         ["jless"]="-"
+        ["ncat"]="ncat"
     )'
 
     if ! sudo apt update -yq; then
@@ -117,6 +119,7 @@ main_xbps() {
         [lolcat]="lolcat-c"
         [tmuxp]="python3-tmuxp"
         ["actionlint"]="-"
+        ["ncat"]="nmap"
     )'
 
     local xbps_common=()
@@ -141,6 +144,7 @@ main_pkg() {
         ["mtr"]="-"
         ["pre-commit"]="-"
         ["actionlint"]="-"
+        ["ncat"]="nmap-ncat"
     )'
 
     local pkg_common=()
@@ -196,6 +200,7 @@ main_pacman() {
     local yay_packages=(jcal cbonsai)
     local pacman_replace='(
         [yq]="go-yq"
+        [ncat]="nmap"
     )'
 
     local pacman_common=()
@@ -245,7 +250,9 @@ main_brew() {
         maccy
         pearcleaner
     )
-    local brew_replace='()'
+    local brew_replace='(
+        [ncat]="nmap"
+    )'
 
     local brew_common=()
     apply_package_replacements brew_common "$brew_replace" "${packages[@]}"
