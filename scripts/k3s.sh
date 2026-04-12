@@ -12,6 +12,8 @@ k3s_kubeconfig_local="${HOME}/.kube/k3s.yaml"
 k3s_copy_kubeconfig=true
 k3s_secrets_encryption=true
 k3s_harden=false
+k3s_proxy=""
+k3s_env_file="/etc/systemd/system/k3s.service.env"
 declare -a k3s_disable_components=("traefik")
 declare -a k3s_tls_sans=()
 
@@ -38,6 +40,7 @@ Arguments:
   --skip-kubeconfig           Do not copy kubeconfig to \$HOME
   --no-secrets-encryption     Disable at-rest secrets encryption (enabled by default)
   --harden                    Enable CIS hardening (protect-kernel-defaults + audit log)
+  --proxy URL                 HTTP proxy for containerd image pulls (e.g. http://127.0.0.1:2081)
 
 Example:
   start.sh k3s --node-ip 192.168.40.10 --flannel-iface eno1 --tls-san cluster.lab.local
@@ -123,6 +126,10 @@ pre_main() {
         --harden)
             k3s_harden=true
             shift
+            ;;
+        --proxy)
+            k3s_proxy="${2:-}"
+            shift 2
             ;;
         *)
             msg "unknown option: $1" "error"
@@ -232,6 +239,27 @@ write_config_file() {
     msg "wrote configuration to ${k3s_config_file}"
 }
 
+write_env_file() {
+    if [[ -z "${k3s_proxy}" ]]; then
+        return
+    fi
+
+    local no_proxy="127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,${k3s_cluster_cidr},${k3s_service_cidr}"
+
+    local tmp
+    tmp=$(mktemp)
+
+    {
+        echo "CONTAINERD_HTTP_PROXY=${k3s_proxy}"
+        echo "CONTAINERD_HTTPS_PROXY=${k3s_proxy}"
+        echo "CONTAINERD_NO_PROXY=${no_proxy}"
+    } >"${tmp}"
+
+    sudo install -o root -g root -m 0600 "${tmp}" "${k3s_env_file}"
+    rm -f "${tmp}"
+    msg "wrote proxy configuration to ${k3s_env_file}"
+}
+
 install_k3s() {
     # INSTALL_K3S_SKIP_START avoids the installer auto-starting before we
     # validate the kernel/runtime prerequisites with `k3s check-config`.
@@ -306,6 +334,7 @@ main() {
 
     ensure_config_dir
     write_config_file
+    write_env_file
 
     if ! install_k3s; then
         msg "k3s installation failed" "error"
