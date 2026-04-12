@@ -185,7 +185,7 @@ write_config_file() {
     tmp=$(mktemp)
 
     {
-        echo "write-kubeconfig-mode: \"0644\""
+        echo "write-kubeconfig-mode: \"0600\""
         echo "data-dir: \"${k3s_data_dir}\""
         echo "cluster-cidr: \"${k3s_cluster_cidr}\""
         echo "service-cidr: \"${k3s_service_cidr}\""
@@ -300,12 +300,6 @@ print_summary() {
 }
 
 main() {
-    msg "================================================================" "warn"
-    msg "THIS CLUSTER IS FOR TESTING ONLY" "warn"
-    msg "kubeconfig is written world-readable (0644) — every local user" "warn"
-    msg "on this host gets cluster-admin. Do NOT use in production." "warn"
-    msg "================================================================" "warn"
-
     if ! preflight_checks; then
         return 1
     fi

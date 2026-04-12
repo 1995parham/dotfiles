@@ -13,6 +13,10 @@ export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
 
 export AWS_VAULT_BACKEND=file
 
+if [ -f "$HOME/.kube/k3s.yaml" ]; then
+	export KUBECONFIG="$HOME/.kube/k3s.yaml"
+fi
+
 # }}}
 
 # home-made paths {{{
