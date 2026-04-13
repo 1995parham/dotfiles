@@ -52,7 +52,7 @@ main() {
     helm repo update
 
     msg 'required kubectl plugins (using krew)'
-    kubectl krew install kuttl cnpg
+    kubectl krew install kuttl cnpg cert-manager
 
     msg 'required helm plugins (using helm plugin manager)'
     if helm plugin list | grep -q "diff"; then
