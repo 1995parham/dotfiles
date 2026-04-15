@@ -17,7 +17,7 @@ main_pacman() {
 }
 
 main_apt() {
-    return 1
+    require_apt obs-studio
 }
 
 main_brew() {
