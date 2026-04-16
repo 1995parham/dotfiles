@@ -52,6 +52,7 @@ windows:
           - pane
           - pane
           - pane
+          - pane
 
     - window_name: joghd 🦉
       layout: tiled
