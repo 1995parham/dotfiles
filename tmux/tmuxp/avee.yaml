@@ -33,7 +33,7 @@ windows:
           - focus: true
           - pane
           - pane
-          - pane
+          - start_directory: ~/Documents/Git/aveehealth/aveehealth/metrics
 
     - window_name: infra - dev 🏥
       layout: tiled
