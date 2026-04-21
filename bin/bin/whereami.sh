@@ -19,9 +19,9 @@ timestamp_file="/tmp/whereami.timestamp"
 
 name_ip() {
     case "$1" in
-        188.121.146.46) echo "home sweet home" ;;
-        89.45.59.128) echo "topol on his way" ;;
-        *) echo "" ;;
+    188.121.146.46) echo "home sweet home" ;;
+    89.45.59.128) echo "topol on his way" ;;
+    *) echo "" ;;
     esac
 }
 
