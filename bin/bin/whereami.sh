@@ -17,6 +17,14 @@ iran_access_ip_url="https://ipnumberia.com/"
 cache_file="/tmp/whereami.sh"
 timestamp_file="/tmp/whereami.timestamp"
 
+name_ip() {
+    case "$1" in
+        188.121.146.46) echo "home sweet home" ;;
+        89.45.59.128) echo "topol on his way" ;;
+        *) echo "" ;;
+    esac
+}
+
 relative_time() {
     local timestamp="$1"
     local now
@@ -63,8 +71,10 @@ else
     else
         ip="$(curl -sL "$iran_access_ip_url" --max-time 10 | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -1 2>/dev/null)"
         if [ -n "$ip" ]; then
-            update_cache "$ip - Iran Access (fucked up)"
-            show_result "$ip - Iran Access (fucked up)"
+            name="$(name_ip "$ip")"
+            label="${name:-fucked up}"
+            update_cache "$ip - Iran Access ($label)"
+            show_result "$ip - Iran Access ($label)"
         else
             if [ -f "$cache_file" ]; then
                 show_result "$(cat "$cache_file")"
