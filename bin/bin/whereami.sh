@@ -6,7 +6,7 @@
 
 : "${DOTFILES_ROOT:=$HOME/dotfiles}"
 
-# shellcheck source=../../scripts/lib/whereami.sh
+# shellcheck source=SCRIPTDIR/../../scripts/lib/whereami.sh
 source "${DOTFILES_ROOT}/scripts/lib/whereami.sh"
 
 whereami

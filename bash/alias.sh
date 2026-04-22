@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT=${DOTFILES_ROOT:?"dotfiles root must be set for using aliases"}
 
-# shellcheck source=./scripts/lib/main.sh
+# shellcheck source=SCRIPTDIR/../scripts/lib/main.sh
 source "$DOTFILES_ROOT/scripts/lib/main.sh"
 
 if [ -d "$HOME/.config/aliases" ]; then

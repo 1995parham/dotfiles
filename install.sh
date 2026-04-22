@@ -11,11 +11,11 @@ usage() {
 # global variable that points to dotfiles root directory
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=scripts/lib/message.sh
+# shellcheck source=SCRIPTDIR/scripts/lib/message.sh
 source "$root/scripts/lib/message.sh"
-# shellcheck source=scripts/lib/linker.sh
+# shellcheck source=SCRIPTDIR/scripts/lib/linker.sh
 source "$root/scripts/lib/linker.sh"
-# shellcheck source=scripts/lib/header.sh
+# shellcheck source=SCRIPTDIR/scripts/lib/header.sh
 source "$root/scripts/lib/header.sh"
 
 message "pre" "home directory found at $HOME"

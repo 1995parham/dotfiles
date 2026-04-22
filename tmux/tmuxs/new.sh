@@ -8,7 +8,7 @@ mono_repositories=()
 # a global variable that points to tmuxs root directory.
 tmuxs_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=./scripts/lib/message.sh
+# shellcheck source=SCRIPTDIR/../../scripts/lib/main.sh
 source "$tmuxs_root/../../scripts/lib/main.sh"
 
 # setup commands run once in pane 0 (e.g. dependency install)

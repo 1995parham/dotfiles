@@ -9,9 +9,9 @@ fi
 # global variable that points to `dotfiles/archinstall` root directory
 current_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=scripts/lib/message.sh
+# shellcheck source=SCRIPTDIR/../scripts/lib/message.sh
 source "$current_dir/../scripts/lib/message.sh"
-# shellcheck source=scripts/lib/require.sh
+# shellcheck source=SCRIPTDIR/../scripts/lib/require.sh
 source "$current_dir/../scripts/lib/require.sh"
 
 # configure makepkg to use tlsv1.3 because we are in iran
