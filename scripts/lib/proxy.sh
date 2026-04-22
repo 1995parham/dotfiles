@@ -16,6 +16,13 @@ if ! source "$(dirname "$source")/message.sh" 2>/dev/null; then
     fi
 fi
 
+if ! source "$(dirname "$source")/whereami.sh" 2>/dev/null; then
+    if [ -n "$DOTFILES_ROOT" ]; then
+        # shellcheck source=whereami.sh
+        source "$DOTFILES_ROOT/scripts/lib/whereami.sh"
+    fi
+fi
+
 # When this file is sourced (e.g. by start.sh), automatically override sudo
 # to preserve environment if proxy env vars are already set.
 # This handles the case where proxy_start was run in an interactive shell
@@ -65,7 +72,7 @@ proxy_start() {
     fi
 
     echo
-    curl --max-time 10 https://ipconfig.io/country || echo "💩"
+    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}before: $(whereami)${ALL_RESET}"
 
     export http_proxy="$url"
     export https_proxy="$url"
@@ -80,7 +87,12 @@ proxy_start() {
     fi
 
     echo
-    curl --max-time 10 https://ipconfig.io/country || proxy_stop
+    if ! result="$(whereami)"; then
+        echo -e "${F_ERROR}[proxy] ${F_NOTICE}after: $result${ALL_RESET}"
+        proxy_stop
+    else
+        echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}after: $result${ALL_RESET}"
+    fi
     echo
 }
 
@@ -90,4 +102,5 @@ proxy_stop() {
     unalias yay 2>/dev/null || true
 
     echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}all proxy script configurations are removed${ALL_RESET}"
+    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}now: $(whereami)${ALL_RESET}"
 }

@@ -11,6 +11,8 @@ dotfile_lib_root="$(cd "$(dirname "${source}")" && pwd)"
 
 # shellcheck source=message.sh
 source "${dotfile_lib_root}/message.sh"
+# shellcheck source=whereami.sh
+source "${dotfile_lib_root}/whereami.sh"
 # shellcheck source=proxy.sh
 source "${dotfile_lib_root}/proxy.sh"
 if [[ -n "${root}" ]]; then
