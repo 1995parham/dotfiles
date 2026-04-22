@@ -72,7 +72,7 @@ proxy_start() {
     fi
 
     echo
-    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}before: $(whereami)${ALL_RESET}"
+    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}before:${ALL_RESET} $(whereami)"
 
     export http_proxy="$url"
     export https_proxy="$url"
@@ -88,10 +88,10 @@ proxy_start() {
 
     echo
     if ! result="$(whereami)"; then
-        echo -e "${F_ERROR}[proxy] ${F_NOTICE}after: $result${ALL_RESET}"
+        echo -e "${F_ERROR}[proxy] ${F_NOTICE}after:${ALL_RESET} $result"
         proxy_stop
     else
-        echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}after: $result${ALL_RESET}"
+        echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}after:${ALL_RESET} $result"
     fi
     echo
 }
@@ -102,5 +102,4 @@ proxy_stop() {
     unalias yay 2>/dev/null || true
 
     echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}all proxy script configurations are removed${ALL_RESET}"
-    echo -e "${F_SUCCESS}[proxy] ${F_NOTICE}now: $(whereami)${ALL_RESET}"
 }
