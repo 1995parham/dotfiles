@@ -88,14 +88,7 @@ go_install_packages() {
     require_go github.com/golangci/golangci-lint/v2/cmd/golangci-lint
     require_go golang.org/x/tools/cmd/goimports
     require_go golang.org/x/tools/gopls
-    require_go golang.org/dl/gotip
-    require_go github.com/go-delve/delve/cmd/dlv
     require_go github.com/pressly/goose/v3/cmd/goose
-    # Wire dependency injection tool (commented - enable if needed)
-    # require_go github.com/google/wire/cmd/wire
-    require_go github.com/abice/go-enum
-    require_go github.com/swaggo/swag/cmd/swag
-    require_go golang.org/x/tools/cmd/gonew
 
     if command -v golangci-lint &>/dev/null; then
         msg "golangci-lint $(golangci-lint version)"
