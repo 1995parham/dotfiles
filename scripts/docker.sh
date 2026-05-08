@@ -85,6 +85,8 @@ main_apt() {
         require_apt docker.io docker-compose
     fi
 
+    require_github_release "google/go-containerregistry" "crane" "go-containerregistry_Linux_x86_64" "tar.gz"
+
     configure_docker_daemon || return 1
     setup_docker_user
 }
@@ -106,7 +108,7 @@ main_xbps() {
 
 main_brew() {
     require_brew_cask docker
-    require_brew lazydocker hadolint docker-completion dive
+    require_brew lazydocker hadolint docker-completion dive crane
 
     if [ -d "/Applications/Docker.app" ]; then
         msg "Launching Docker Desktop. You may need to grant permissions."
@@ -121,7 +123,7 @@ main_brew() {
 }
 
 main_pacman() {
-    require_pacman docker docker-compose dive docker-buildx crun
+    require_pacman docker docker-compose dive docker-buildx crun crane
     require_aur hadolint-bin lazydocker
 
     configure_docker_daemon || return 1
