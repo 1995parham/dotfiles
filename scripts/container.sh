@@ -15,9 +15,6 @@ usage() {
 
 root=${root:?"root must be set"}
 
-# CLI tooling is shared across engines and installed first.
-export dependencies=("container-cli")
-
 # Engines available per platform. The framework prompts per item.
 if [[ "${OSTYPE}" == "darwin"* ]]; then
     export additionals=("docker" "podman" "colima")
