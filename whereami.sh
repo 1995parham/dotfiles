@@ -10,7 +10,7 @@
 whereami() {
     local ip_country_url="http://ip-api.com/json/?fields=status,query,country,isp,proxy,hosting"
     local fallback_ip_country_url="http://ifconfig.io/all.json"
-    local iran_access_ip_url="https://ipnumberia.com/"
+    local iran_access_ip_url="https://ipmyp.ir/"
     local cache_file="/tmp/whereami.sh"
     local timestamp_file="/tmp/whereami.timestamp"
     local ip name label
