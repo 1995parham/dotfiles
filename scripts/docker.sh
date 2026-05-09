@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo "install docker, docker-compose, hadolint etc."
+    echo "install the docker engine (Docker Desktop on macOS, docker-ce/docker.io on Linux)"
 
     # shellcheck disable=1004,2016
     echo '
@@ -85,14 +85,12 @@ main_apt() {
         require_apt docker.io docker-compose
     fi
 
-    require_github_release "google/go-containerregistry" "crane" "go-containerregistry_Linux_x86_64" "tar.gz"
-
     configure_docker_daemon || return 1
     setup_docker_user
 }
 
 main_xbps() {
-    require_xbps docker docker-cli docker-compose crun
+    require_xbps docker crun
 
     configure_docker_daemon || return 1
     setup_docker_user
@@ -108,7 +106,6 @@ main_xbps() {
 
 main_brew() {
     require_brew_cask docker
-    require_brew lazydocker hadolint docker-completion dive crane
 
     if [ -d "/Applications/Docker.app" ]; then
         msg "Launching Docker Desktop. You may need to grant permissions."
@@ -123,8 +120,7 @@ main_brew() {
 }
 
 main_pacman() {
-    require_pacman docker docker-compose dive docker-buildx crun crane
-    require_aur hadolint-bin lazydocker
+    require_pacman docker docker-compose docker-buildx crun
 
     configure_docker_daemon || return 1
 
@@ -163,10 +159,6 @@ main() {
     done
 
     msg "$(docker version)"
-
-    if command -v hadolint &>/dev/null; then
-        msg "$(hadolint --version)"
-    fi
 }
 
 main_parham() {

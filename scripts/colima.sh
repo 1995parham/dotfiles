@@ -14,6 +14,9 @@ usage() {
 
 root=${root:?"root must be set"}
 
+# Colima needs the docker CLI; container-cli installs it (and shared tooling).
+export dependencies=("container-cli")
+
 pre_main() {
     msg 'Colima provides container runtimes (Docker, Containerd, Incus) on macOS'
     msg 'This script will install Colima and optionally configure it'
@@ -29,9 +32,6 @@ pre_main() {
 main_brew() {
     msg "Install Colima"
     require_brew colima
-
-    msg "Install Docker CLI (required for docker runtime)"
-    require_brew docker docker-compose docker-credential-helper docker-buildx
 }
 
 main_pacman() {
