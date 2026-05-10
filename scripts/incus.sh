@@ -22,7 +22,7 @@ setup_incus_user() {
 }
 
 initialize_incus() {
-    if sudo incus info >/dev/null 2>&1 && \
+    if sudo incus info >/dev/null 2>&1 &&
         sudo incus storage list --format csv 2>/dev/null | grep -q .; then
         msg 'incus already initialized' 'notice'
         return 0
