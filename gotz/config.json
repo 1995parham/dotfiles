@@ -12,6 +12,10 @@
         {
             "Name": "New York",
             "TZ": "America/New_York"
+        },
+        {
+            "Name": "London",
+            "TZ": "Europe/London"
         }
     ],
     "style": {
