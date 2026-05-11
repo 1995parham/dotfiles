@@ -1,0 +1,44 @@
+#cloud-config
+
+# Bootstrap an Ubuntu VM with the parham_alvani.dotfiles ansible collection
+# applied. The collection installs zsh/vim/tmux/git config and other tooling;
+# anything else (vault, etc.) is layered on later via additional playbooks.
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - ansible
+  - git
+
+users:
+  - name: parham
+    groups: sudo
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    shell: /bin/bash
+    lock_passwd: true
+
+write_files:
+  - path: /home/parham/playbook.yaml
+    owner: parham:parham
+    permissions: "0644"
+    content: |
+      ---
+      - name: Apply parham_alvani.dotfiles
+        hosts: localhost
+        connection: local
+        gather_facts: true
+        vars:
+          setup_dotfiles_home: /home/parham/dotfiles
+          setup_git_email: parham.alvani@gmail.com
+          setup_git_name: Parham Alvani
+          setup_github_keys_username: 1995parham
+          ansible_user: parham
+        tasks:
+          - name: Apply role
+            ansible.builtin.include_role:
+              name: parham_alvani.dotfiles.setup
+
+runcmd:
+  - su - parham -c 'ansible-galaxy collection install git+https://github.com/1995parham-me/ansible-role.git,main'
+  - su - parham -c 'ansible-playbook /home/parham/playbook.yaml 2>&1 | tee /home/parham/playbook.log'

@@ -165,15 +165,6 @@ main_brew() {
     require_brew podman podman-compose
 
     ensure_podman_machine
-
-    sudo tee /usr/local/bin/docker <<EOF
-#!/bin/sh
-[ -e /etc/containers/nodocker ] ||
-    echo "Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg." >&2
-    exec podman "\$@"
-EOF
-    sudo chmod +x /usr/local/bin/docker
-
 }
 
 main() {

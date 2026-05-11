@@ -1,5 +1,5 @@
 ---
-session_name: Raha IO
+session_name: Raha Cloud
 windows:
     - window_name: scratch 📝
       layout: tiled
@@ -14,7 +14,7 @@ windows:
 
     - window_name: bitbarg-infrastructure 🏢
       layout: tiled
-      start_directory: ~/Documents/Git/parham/raha-io/bitbarg-infrastructure
+      start_directory: ~/Documents/Git/parham/rahacloud/bitbarg-infrastructure
       before_script: "pipx run uv sync --all-groups -U"
       shell_command_before:
           - "[ -d '.venv' ] && source .venv/bin/activate && reset"
@@ -28,7 +28,7 @@ windows:
 
     - window_name: hatchup-infrastructure 🏢
       layout: tiled
-      start_directory: ~/Documents/Git/parham/raha-io/hatchup-infrastructure
+      start_directory: ~/Documents/Git/parham/rahacloud/hatchup-infrastructure
       before_script: "pipx run uv sync --all-groups -U"
       shell_command_before:
           - "[ -d '.venv' ] && source .venv/bin/activate && reset"
@@ -56,7 +56,7 @@ windows:
 
     - window_name: joghd 🦉
       layout: tiled
-      start_directory: ~/Documents/Git/parham/raha-io/joghd
+      start_directory: ~/Documents/Git/parham/rahacloud/joghd
       panes:
           - pane
           - pane
@@ -67,7 +67,7 @@ windows:
 
     - window_name: secrets 🔒
       layout: tiled
-      start_directory: ~/Documents/Git/parham/raha-io/secrets
+      start_directory: ~/Documents/Git/parham/rahacloud/secrets
       panes:
           - focus: true
           - pane
