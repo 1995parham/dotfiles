@@ -21,6 +21,10 @@ main_pacman() {
     proxy_stop
 }
 
+main_apt() {
+    require_snap google-cloud-cli --classic
+}
+
 main() {
     proxy_start
     gcloud auth list
