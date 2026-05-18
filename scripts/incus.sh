@@ -13,8 +13,6 @@ usage() {
   '
 }
 
-root=${root:?"root must be set"}
-
 setup_incus_user() {
     msg "manage incus as a non-root user"
     sudo groupadd -f incus-admin
@@ -38,32 +36,6 @@ initialize_incus() {
     fi
 }
 
-setup_parham_profile() {
-    local profile='parham'
-    local user_data="$root/incus/ansible.yaml"
-
-    if [ ! -f "$user_data" ]; then
-        msg "cloud-init user-data not found at $user_data" 'error'
-        return 1
-    fi
-
-    if ! sudo incus profile show "$profile" >/dev/null 2>&1; then
-        msg "creating incus profile '$profile'"
-        if ! sudo incus profile create "$profile" >/dev/null; then
-            msg "failed to create incus profile '$profile'" 'error'
-            return 1
-        fi
-    else
-        msg "incus profile '$profile' already exists, updating" 'notice'
-    fi
-
-    msg "loading $user_data into '$profile' profile"
-    if ! sudo cat "$user_data" | sudo incus profile set "$profile" cloud-init.user-data -; then
-        msg "failed to set cloud-init.user-data on '$profile'" 'error'
-        return 1
-    fi
-}
-
 main_pacman() {
     require_pacman incus qemu-base
 
@@ -74,7 +46,6 @@ main_pacman() {
 
     setup_incus_user
     initialize_incus || return 1
-    setup_parham_profile
 }
 
 main_apt() {
@@ -87,7 +58,6 @@ main_apt() {
 
     setup_incus_user
     initialize_incus || return 1
-    setup_parham_profile
 }
 
 main_brew() {
@@ -101,5 +71,5 @@ main() {
     fi
 
     msg 're-login (or "newgrp incus-admin") to pick up group membership' 'notice'
-    msg 'launch a VM with: incus launch images:ubuntu/26.04 dev --vm -p default -p parham' 'info'
+    msg 'VM templates and Terraform live in the kvm repo -- this script only installs the daemon' 'info'
 }
