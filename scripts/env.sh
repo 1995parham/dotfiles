@@ -180,15 +180,12 @@ main_pacman() {
         glow
         arch-wiki-lite
         arch-wiki-docs
-        pastel
         man-db
         bandwhich
         lsof
-        vhs
         bat-extras
         tcpdump
         powertop
-        taplo-cli
         bind
     )
 
@@ -239,7 +236,6 @@ main_brew() {
         wakatime-cli
         jcal
         mike-engel/jwt-cli/jwt-cli
-        taplo
         xdg-ninja
         watch
     )
