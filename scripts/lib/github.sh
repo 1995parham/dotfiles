@@ -266,6 +266,16 @@ require_github_release() {
     local release_name=${3:?'release name is required (e.g., clash-aarch64-apple-darwin)'}
     local archive_ext=${4:-""}
 
+    # Airgapped escape hatch: when OFFLINE=1 is set, hosts that cannot
+    # reach github.com (e.g. an Iran-only egress) can still run scripts
+    # that depend on require_github_release. We log a skip and return 0
+    # so the calling script's framework treats the dependency as
+    # "satisfied (best-effort)" rather than failing the run.
+    if [[ "${OFFLINE:-0}" == "1" ]]; then
+        running "require" " github-release ${repo} ${binary_name} (skipped: OFFLINE=1)"
+        return 0
+    fi
+
     local install_dir="${HOME}/.local/bin"
     mkdir -p "${install_dir}"
 
