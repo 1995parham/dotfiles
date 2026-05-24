@@ -70,6 +70,6 @@ Session.vim
 *~
 
 ### Claude Code
-.claude/settings.local.json
-CLAUDE.local.md
-.claude/.credentials.json
+**/.claude/settings.local.json
+**/CLAUDE.local.md
+**/.claude/.credentials.json
