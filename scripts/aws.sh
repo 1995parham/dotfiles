@@ -18,7 +18,7 @@ main_pacman() {
 }
 
 main_brew() {
-    require_brew aws-vault awscli lucagrulla/tap/cw aws-cdk
+    require_brew aws-vault awscli aws-cdk
 }
 
 main() {

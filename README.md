@@ -51,7 +51,6 @@ This repository provides configurations for 65+ tools and applications, organize
 ### Window Managers & Desktop
 
 - **Linux**: i3, awesome, hyprland, sway (Wayland)
-- **macOS**: AeroSpace (tiling window manager)
 - **Display Protocols**: X11, Wayland configurations
 
 ### Development Tools
@@ -229,7 +228,6 @@ Here are some popular setup commands you might want to run:
 # macOS specific
 ./start.sh brew         # Install Homebrew
 ./start.sh macos        # Apply macOS preferences
-./start.sh aerospace    # Install AeroSpace window manager
 
 # Linux specific
 ./start.sh i3           # Set up i3 window manager

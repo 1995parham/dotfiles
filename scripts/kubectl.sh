@@ -14,7 +14,7 @@ usage() {
 }
 
 main_brew() {
-    require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew fluxcd/tap/flux k9s kubeseal
+    require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew k9s kubeseal
 }
 
 main_apt() {
@@ -29,13 +29,12 @@ main_apt() {
     require_github_release "kubernetes-sigs/krew" "krew-linux_amd64" "krew-linux_amd64" "tar.gz"
     ln -sf "$HOME/.local/bin/krew-linux_amd64" "$HOME/.local/bin/kubectl-krew"
     require_github_release "bitnami-labs/sealed-secrets" "kubeseal" "kubeseal-\${version#v}-linux-amd64" "tar.gz"
-    require_github_release "fluxcd/flux2" "flux" "flux_\${version#v}_linux_amd64" "tar.gz"
 }
 
 main_pacman() {
     export allow_no_aur=true
 
-    require_pacman kubectl helm argocd kubectx stern k9s fluxcd krew kubeseal
+    require_pacman kubectl helm argocd kubectx stern k9s krew kubeseal
     require_aur okd-client-bin
 }
 
