@@ -136,6 +136,9 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     brew_path=$(brew --prefix)
 
+    # require explicit `brew trust` for non-official taps
+    export HOMEBREW_REQUIRE_TAP_TRUST=1
+
     # brew info coreutils
     # all commands have been installed with the prefix 'g'.
     # if you really need to use these commands with their normal names, you

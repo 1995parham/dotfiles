@@ -29,6 +29,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	elif [ -x /usr/local/bin/brew ]; then
 		eval "$(/usr/local/bin/brew shellenv)"
 	fi
+
+	# require explicit `brew trust` for non-official taps
+	export HOMEBREW_REQUIRE_TAP_TRUST=1
 fi
 
 # }}}
