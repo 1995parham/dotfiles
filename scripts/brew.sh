@@ -69,6 +69,11 @@ main_brew() {
     # provides brew in the current shell
     eval "$("$brew_path" shellenv)"
 
+    # macOS ships bash 3.2 (no associative arrays); install a modern bash so the
+    # other scripts (e.g. env.sh) work once a new shell picks brew up on the PATH.
+    msg "install a modern bash (macOS ships bash 3.2, too old for some scripts)"
+    require_brew bash
+
     msg "use binaries installed by brew before anything else in the PATH"
     copycat "macos" "osx/paths" "/etc/paths"
 }

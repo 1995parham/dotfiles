@@ -11,6 +11,24 @@ usage() {
   '
 }
 
+# this script uses associative arrays (declare -A) for the per-package-manager
+# replacement maps, which require bash 4+. macOS ships bash 3.2 by default, where
+# the compound assignment falls back to arithmetic subscripts and trips set -u
+# (e.g. "ncat: unbound variable").
+pre_main() {
+    if [ "${BASH_VERSINFO[0]:-0}" -lt 4 ]; then
+        msg "this script needs bash 4+, but it is running under bash ${BASH_VERSION}" "error"
+
+        if [ "$(uname -s)" = "Darwin" ]; then
+            msg "macOS ships an old bash; run './start.sh brew' first to install a modern bash, then open a new terminal and re-run './start.sh env'" "notice"
+        fi
+
+        return 1
+    fi
+
+    return 0
+}
+
 export dependencies=("fetch" "zsh" "bash")
 
 # Common packages across all package managers
