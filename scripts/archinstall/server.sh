@@ -29,6 +29,7 @@ SSH_ALLOWED_SUBNET="${SSH_ALLOWED_SUBNET:-192.168.0.0/16}"
 FAIL2BAN_BANTIME="${FAIL2BAN_BANTIME:-12h}"
 FAIL2BAN_FINDTIME="${FAIL2BAN_FINDTIME:-10m}"
 FAIL2BAN_MAXRETRY="${FAIL2BAN_MAXRETRY:-4}"
+FAIL2BAN_IGNOREIP="${FAIL2BAN_IGNOREIP:-127.0.0.1/8 ::1 ${SSH_ALLOWED_SUBNET}}"
 
 main_pacman() {
     msg "installing security and monitoring packages"
@@ -280,6 +281,7 @@ configure_fail2ban() {
 [sshd]
 enabled = true
 backend = systemd
+ignoreip = ${FAIL2BAN_IGNOREIP}
 mode = aggressive
 port = ${SSH_PORT}
 maxretry = ${FAIL2BAN_MAXRETRY}
