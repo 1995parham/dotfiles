@@ -69,6 +69,26 @@ main_brew() {
     # provides brew in the current shell
     eval "$("$brew_path" shellenv)"
 
+    # HOMEBREW_REQUIRE_TAP_TRUST=1 (set in our shell env) makes brew refuse to
+    # load non-official taps until they are trusted, so pre-trust the ones these
+    # dotfiles actually install from. `brew trust` is idempotent and accepts
+    # taps that have not been tapped yet.
+    msg "trust the non-official brew taps used by these dotfiles"
+    local trusted_taps=(
+        1995parham/tap
+        hashicorp/tap
+        mike-engel/jwt-cli
+        nats-io/nats-tools
+        redpanda-data/tap
+        tilt-dev/tap
+    )
+    local tap
+    for tap in "${trusted_taps[@]}"; do
+        if ! brew trust --tap "$tap" >/dev/null 2>&1; then
+            msg "failed to trust tap $tap" 'error'
+        fi
+    done
+
     # macOS ships bash 3.2 (no associative arrays); install a modern bash so the
     # other scripts (e.g. env.sh) work once a new shell picks brew up on the PATH.
     msg "install a modern bash (macOS ships bash 3.2, too old for some scripts)"
