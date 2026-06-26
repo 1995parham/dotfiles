@@ -41,7 +41,7 @@ function _navi_smart_replace
 end
 
 if type -q navi
-  if test $fish_key_bindings = fish_default_key_bindings
+  if test "$fish_key_bindings" = fish_default_key_bindings
       bind \ch _navi_smart_replace
   else
       bind -M insert \ch _navi_smart_replace

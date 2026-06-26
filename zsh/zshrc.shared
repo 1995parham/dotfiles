@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-dotfiles_source="$(cd "$(dirname "$(readlink "${(%):-%x}")")/.." && pwd)"
+dotfiles_source="${${(%):-%x}:A:h:h}"
 export DOTFILES_ROOT="$dotfiles_source"
 
 # source bash profiles
@@ -117,7 +117,7 @@ function def() {
 
 alias grep="grep --color=auto"
 alias vi="vim"
-alias r="source $HOME/.zshenv && source $HOME/.zshrc"
+alias r="exec zsh"
 
 # set up navi
 
@@ -153,8 +153,10 @@ _navi_widget() {
    zle redisplay
 }
 
-zle -N _navi_widget
-bindkey '^h' _navi_widget
+if command -v navi >/dev/null 2>&1; then
+   zle -N _navi_widget
+   bindkey '^h' _navi_widget
+fi
 
 # change kubernetes context/namespace with ease
 
