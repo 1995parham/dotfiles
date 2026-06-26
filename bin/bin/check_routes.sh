@@ -21,14 +21,12 @@ TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 if [[ -t 1 ]]; then
     GREEN='\033[0;32m'
     RED='\033[0;31m'
-    YELLOW='\033[0;33m'
     CYAN='\033[0;36m'
     BOLD='\033[1m'
     RESET='\033[0m'
 else
     GREEN=''
     RED=''
-    YELLOW=''
     CYAN=''
     BOLD=''
     RESET=''
@@ -75,7 +73,6 @@ INTL_HOSTS=(
 )
 
 TCP_PORTS=(22 53 80 443 853 8080 8443)
-UDP_PORTS=(53 443 51820)
 
 # ─── Argument Parsing ────────────────────────────────────────────────────────
 
@@ -353,7 +350,11 @@ else
     fail=0
     for r in "${ALL_RESULTS[@]}"; do
         IFS='|' read -r _ _ _ _ status _ <<<"$r"
-        [[ "$status" == OK* ]] && ((ok++)) || ((fail++))
+        if [[ "$status" == OK* ]]; then
+            ((ok++))
+        else
+            ((fail++))
+        fi
     done
 
     echo -e "${BOLD}━━━ Summary ━━━${RESET}"
