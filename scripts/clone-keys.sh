@@ -41,7 +41,11 @@ main_brew() {
 }
 
 main() {
-    return 0
+    if [ "${1:-x}" == "--setup" ]; then
+        encrypt_token
+    else
+        decrypt_and_clone
+    fi
 }
 
 encrypt_token() {
@@ -119,12 +123,4 @@ decrypt_and_clone() {
 
     unset token
     unset passphrase
-}
-
-main_parham() {
-    if [ "${1:-x}" == "--setup" ]; then
-        encrypt_token
-    else
-        decrypt_and_clone
-    fi
 }
