@@ -54,6 +54,6 @@ main_elahe-dastan() {
     main_elahe
 }
 
-main_e-dastan() {
+main_ellie() {
     main_elahe
 }
