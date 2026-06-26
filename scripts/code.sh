@@ -17,7 +17,6 @@ root=${root:?"root must be set"}
 
 main_pacman() {
     require_aur visual-studio-code-insiders-bin visual-studio-code-bin
-    require_aur devcontainer-cli
 
     linker code "$root/code/code-flags.conf" "$HOME/.config/code-flags.conf"
 
