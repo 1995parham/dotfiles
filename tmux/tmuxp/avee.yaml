@@ -26,7 +26,7 @@ windows:
                 - nvim
             focus: true
 
-    - window_name: infra - prod 🏥
+    - window_name: infrastructure 🏥
       layout: tiled
       start_directory: ~/Documents/Git/aveehealth/aveehealth/infrastructure
       panes:
@@ -34,15 +34,6 @@ windows:
           - pane
           - pane
           - start_directory: ~/Documents/Git/aveehealth/aveehealth/metrics
-
-    - window_name: infra - dev 🏥
-      layout: tiled
-      start_directory: ~/Documents/Git/aveehealth/1995parham-goodies/aveehealth-database
-      panes:
-          - focus: true
-          - pane
-          - pane
-          - pane
 
     - window_name: avicennacloud ☠️
       layout: tiled
