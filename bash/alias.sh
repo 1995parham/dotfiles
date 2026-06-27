@@ -39,6 +39,7 @@ alias nw='watch -n 3 -t -d -b "curl -s https://myip.wtf/json"'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias imv="open"
+    alias ls="ls --color"
     alias mupdf="open"
     alias wl-copy=pbcopy
     alias wl-paste=pbpaste
@@ -49,26 +50,10 @@ fi
 
 alias grep="grep --color=auto"
 alias vi="vim"
-
-# prefer eza (a modern, colorful ls) when available; eza ships its own
-# colors so it does not need dircolors/LS_COLORS. fall back to GNU ls --color.
-if command -v eza >/dev/null 2>&1; then
-    alias ls="eza --group-directories-first"
-    alias l="eza -la --group-directories-first --git"
-    alias ls-la="eza -la --group-directories-first --git"
-    alias lt="eza --tree --level=2 --group-directories-first"
-    function ls-() {
-        local first_arg="-$1"
-        shift
-        eza "$first_arg" "$@"
-    }
-else
-    alias ls="ls --color"
-    alias l="ls -la --color"
-    alias ls-la="ls --color -la"
-    function ls-() {
-        local first_arg="-$1"
-        shift
-        command ls --color "$first_arg" "$@"
-    }
-fi
+alias ls-la="ls --color -la"
+alias l="ls -la --color"
+function ls-() {
+    local first_arg="-$1"
+    shift
+    command ls --color "$first_arg" "$@"
+}
