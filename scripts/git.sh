@@ -42,18 +42,6 @@ main_parham() {
     configfile "git" "" "git/parham"
 }
 
-main_elahe() {
-    configfile "git" "" "git/elahe"
-}
-
-main_raha() {
-    main_elahe
-}
-
-main_elahe-dastan() {
-    main_elahe
-}
-
-main_ellie() {
-    main_elahe
+main_elaheh() {
+    configfile "git" "" "git/elaheh"
 }
