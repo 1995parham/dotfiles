@@ -305,9 +305,17 @@ run() {
         main "$@"
     fi
 
-    if [[ -n "${USER+x}" ]] && declare -f "main_${USER}" >/dev/null; then
-        section_header " Attention on deck ${USER}"
-        "main_${USER}" "$@"
+    # user-specific phase.
+    #
+    # dispatch on ${PROFILE} when set, otherwise fall back to ${USER}. this lets
+    # a machine whose login name differs from the canonical profile (e.g. ellie,
+    # raha, elahe-dastan all map to "elahe") select its profile once via
+    # `export PROFILE=...` instead of every script carrying alias stubs like
+    # `main_ellie() { main_elahe; }`.
+    local profile="${PROFILE:-${USER:-}}"
+    if [[ -n "${profile}" ]] && declare -f "main_${profile}" >/dev/null; then
+        section_header " Attention on deck ${profile}"
+        "main_${profile}" "$@"
     fi
 }
 
