@@ -14,6 +14,9 @@ fish_add_path $HOME/.local/bin
 
 alias python="python3"
 
+# reload the shell (re-reads config.fish and conf.d/*)
+abbr -a r 'exec fish'
+
 set -x DOTFILES_ROOT $(realpath "$(dirname (realpath ~/.config/fish/config.fish ))/..")
 
 function _navi_smart_replace
