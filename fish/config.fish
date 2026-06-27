@@ -17,6 +17,15 @@ alias python="python3"
 # reload the shell (re-reads config.fish and conf.d/*)
 abbr -a r 'exec fish'
 
+# prefer eza (a modern, colorful ls) when available; eza ships its own
+# colors so it does not need dircolors (see conf.d/dircolors.fish).
+if type -q eza
+    alias ls 'eza --group-directories-first'
+    alias l 'eza -la --group-directories-first --git'
+    alias ls-la 'eza -la --group-directories-first --git'
+    alias lt 'eza --tree --level=2 --group-directories-first'
+end
+
 set -x DOTFILES_ROOT $(realpath "$(dirname (realpath ~/.config/fish/config.fish ))/..")
 
 function _navi_smart_replace

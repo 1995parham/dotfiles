@@ -15,11 +15,11 @@ usage() {
 }
 
 main_pacman() {
-    require_pacman fish
+    require_pacman fish eza
 }
 
 main_brew() {
-    require_brew fish
+    require_brew fish eza
 }
 
 main() {
