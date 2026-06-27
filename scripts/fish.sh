@@ -32,4 +32,5 @@ main() {
 
     configfile "fish" "config.fish"
     configfile "fish/conf.d" "greeting.fish"
+    configfile "fish/conf.d" "dircolors.fish"
 }
