@@ -1,7 +1,7 @@
 ---
 name: aur-updater
 description: |
-    Use this agent when the user wants to review their AUR package repos and bump them to the latest upstream release. It enumerates the package repos under `~/Documents/Git/aur`, compares each PKGBUILD's `pkgver` against upstream (GitHub releases/tags), and for every outdated package bumps `pkgver`, resets `pkgrel`, recomputes `sha256sums`/`b2sums` from the freshly downloaded artifact, regenerates `.SRCINFO`, commits, and pushes to the AUR. This is a GLOBAL agent — invoke it from any working directory; it always operates on `~/Documents/Git/aur`, not the current repo.
+    Use this agent when the user wants to review their AUR package repos and bump them to the latest upstream release. It enumerates the package repos under `~/Documents/Git/aur`, compares each PKGBUILD's `pkgver` against upstream (GitHub releases/tags), and for every outdated package bumps `pkgver`, resets `pkgrel`, recomputes `sha256sums`/`b2sums` from the freshly downloaded artifact, regenerates `.SRCINFO`, commits, and pushes to the AUR. This is a dotfiles-repo agent (defined under `~/dotfiles/.claude/agents`), so invoke it from within the dotfiles repo; regardless of the working directory it always operates on `~/Documents/Git/aur`, never on the current repo.
 
     <example>
     user: "review my arch packages and update them to the latest release"
@@ -40,7 +40,7 @@ Do not search elsewhere, do not create the directory, and do not fall back to th
 
 ## Working directory and paths
 
-You are a **global** agent and may be invoked from any working directory. The AUR tree is **not** the current directory. Always operate on absolute paths:
+You are defined in the **dotfiles repo** but your target is **not** the current directory — the AUR tree lives elsewhere. Always operate on absolute paths:
 
 - AUR root: `~/Documents/Git/aur` (i.e. `${HOME}/Documents/Git/aur`).
 - Each immediate subdirectory containing a `PKGBUILD` is one AUR package, and is its own independent git repo with an `origin` remote like `aur@aur.archlinux.org:<pkgname>`.
