@@ -57,7 +57,7 @@ This repository provides configurations for 65+ tools and applications, organize
 
 - **Version Control**: git, gh (GitHub CLI)
 - **Languages**: Node.js, Python, Go, Erlang, PHP, Java, C/C++
-- **Package Managers**: npm/nvm, mamba, brew
+- **Package Managers**: npm/nvm, pixi, brew
 - **Build Tools**: bazel, make
 - **Databases**: mongosh (MongoDB shell)
 
