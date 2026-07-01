@@ -160,6 +160,8 @@ detect_extensions = []
 detect_files = []
 style = 'fg:#00bfff'
 format = '[ \[ $symbol $version \($virtualenv\) \] ]($style)'
+# Show the project folder name instead of a generic ".venv"/"venv" (1.25+)
+generic_venv_names = ['.venv', 'venv', 'env', '.env']
 
 [conda]
 ignore_base = false
