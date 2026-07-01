@@ -84,7 +84,19 @@ up_to_date = '[](fg:#adff2f)'
 diverged = '[$ahead_count A](fg:#adff2f) [$behind_count B](fg:#ff2fad)'
 ahead = '[${count}A](fg:#adff2f)'
 behind = '[${count}B](fg:#adff2f)'
-format = '[$ahead_behind (\[$all_status\])]($style)'
+# staged (index) changes — green
+index_added = '[+${count}](fg:#adff2f)'
+index_modified = '[~${count}](fg:#adff2f)'
+index_deleted = '[-${count}](fg:#adff2f)'
+# unstaged (worktree) changes — amber
+worktree_added = '[+${count}](fg:#ffae1a)'
+worktree_modified = '[~${count}](fg:#ffae1a)'
+worktree_deleted = '[-${count}](fg:#ffae1a)'
+# other states
+conflicted = '[${count}=](fg:#ff2f2f)'
+untracked = '[${count}?](fg:#808080)'
+stashed = '[${count}*](fg:#7f7fff)'
+format = '[$ahead_behind (\[$conflicted$index_added$index_modified$index_deleted$worktree_added$worktree_modified$worktree_deleted$untracked$stashed\])]($style)'
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
