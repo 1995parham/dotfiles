@@ -2,7 +2,7 @@
 
 # expose hostname using OSI7 which helps terminals to use better
 # tab naming.
-printf "\033]7;file://$HOSTNAME\033\\"
+printf '\033]7;file://%s\033\\' "$HOSTNAME"
 
 dotfiles_source="$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)"
 export DOTFILES_ROOT="$dotfiles_source"
@@ -29,22 +29,30 @@ bind '"\e[B": history-search-forward'
 # bash history
 # https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=10000
-HISTCONTROL=ignoredups
-# by default, bash writes its history at the end of each session, overwriting the existing file with an updated version.
-# this means that if you are logged in with multiple bash sessions, only the last one to exit will have its history saved.
-# you can work around this by setting the histappend setting, which will append instead of overwriting the history.
-# this may be set already, but if it is not, you can enable this by adding this line:
+HISTSIZE=100000
+HISTFILESIZE=200000
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT='%F %T '
+# append instead of overwrite so concurrent sessions don't clobber each
+# other's history (PROMPT_COMMAND below reloads it live after starship).
 shopt -s histappend
+# extra interactive niceties; 2>/dev/null tolerates very old remote bash.
+shopt -s globstar checkwinsize cdspell dirspell 2>/dev/null
+# bash >= 5.3: surface most-recently-modified matches first in completion.
+[[ ${BASH_VERSINFO[0]} -gt 5 || (${BASH_VERSINFO[0]} -eq 5 && ${BASH_VERSINFO[1]} -ge 3) ]] \
+    && export GLOBSORT=-mtime
 
 # reload bash by sourcing bashrc
 alias r="source ~/.bashrc"
 
 # starship, the minimal, blazing-fast, and infinitely customizable prompt for any shell!
-if [ "$(command -v starship)" ]; then
+if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
+
+# append + reload history each prompt so concurrent sessions share it live;
+# append to (not overwrite) starship's own PROMPT_COMMAND.
+PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # using bash/zsh in neovim terminal mode.
 # neovim defines $NVIM in terminal mode and based on it
@@ -78,22 +86,22 @@ fi
 
 # dircolors for having colorful ls (specially required for osx)
 if [ -f "$HOME/.dircolors" ]; then
-    if [ "$(command -v dircolors)" ]; then
+    if command -v dircolors &>/dev/null; then
         eval "$(dircolors "$HOME/.dircolors")"
-    elif [ "$(command -v gdircolors)" ]; then
+    elif command -v gdircolors &>/dev/null; then
         eval "$(gdircolors "$HOME/.dircolors")"
     fi
 fi
 
 # pyenv, simple python version management
-if [ "$(command -v pyenv)" ] && [ -z "$VIRTUAL_ENV" ]; then
+if command -v pyenv &>/dev/null && [ -z "$VIRTUAL_ENV" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
+    eval "$(pyenv init - bash)"
 fi
 
 # k9s, kubernetes cli to manage your clusters in style!
-if [ "$(command -v k9s)" ]; then
+if command -v k9s &>/dev/null; then
     export K9S_CONFIG_DIR="$HOME/.config/k9s"
 fi
 
@@ -116,7 +124,10 @@ _navi_widget() {
         local output="$input"
         if [ -n "$replacement" ]; then
             output="${input}_NAVIEND"
-            output="${output//$find/$replacement}"
+            # quote the pattern so it is not read as a glob, and escape & in the
+            # replacement (patsub_replacement is on by default since bash 5.2, so
+            # a bare & would expand to the matched text and corrupt the snippet).
+            output="${output//"$find"/${replacement//&/\\&}}"
         fi
     fi
 
@@ -124,7 +135,7 @@ _navi_widget() {
     READLINE_POINT=${#READLINE_LINE}
 }
 
-if [ "$(command -v navi)" ]; then
+if command -v navi &>/dev/null; then
     bind -x '"\C-h": _navi_widget'
 fi
 
@@ -159,6 +170,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # configure node version manager
-if [ "$(command -v fnm)" ]; then
+if command -v fnm &>/dev/null; then
     eval "$(fnm env --use-on-cd --shell bash)"
 fi
