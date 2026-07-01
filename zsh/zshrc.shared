@@ -98,6 +98,13 @@ if [ -f "$HOME/.dircolors" ]; then
   fi
 fi
 
+# make zsh tab-completion menus honor the same palette as `ls`. completion
+# colors come from a separate zstyle that does NOT read $LS_COLORS on its own,
+# so feed it explicitly (splitting on ':') right after dircolors runs.
+if [[ -n "$LS_COLORS" ]]; then
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+fi
+
 # def for definition of a word
 # use a wrapper around sdcv to conveniently format its output
 # on osx it uses the prebuild mac dictionary.
