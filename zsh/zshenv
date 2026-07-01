@@ -38,35 +38,27 @@ fi
 
 # home-made paths {{{
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-	path+=("$HOME/bin")
-fi
-
-# set PATH so it includes user's local private bin if it exists
-if [ -d "$HOME/.local/bin" ]; then
-	path+=("$HOME/.local/bin")
-fi
-
-# set PATH so it includes cargo's bin if it exists
-if [ -d "$HOME/.cargo/bin" ]; then
-    path+=("$HOME/.cargo/bin")
-fi
-
-# set PATH so it includes pixi's global bin if it exists
-if [ -d "$HOME/.pixi/bin" ]; then
-    path+=("$HOME/.pixi/bin")
-fi
+# add well-known user bin dirs, but only when they exist.
+# the (N-/) glob qualifier keeps an entry only if it resolves to a real
+# directory, so no per-path `[ -d ... ]` guard is needed.
+path+=(
+	$HOME/bin(N-/)
+	$HOME/.local/bin(N-/)
+	$HOME/.cargo/bin(N-/)
+	$HOME/.pixi/bin(N-/)
+)
 
 
 # }}}
 
 # languages {{{
 
-# you may need to manually set your language environment
+# you may need to manually set your language environment.
+# avoid LC_ALL here: it hard-overrides every locale category and breaks on
+# hosts where en_US.UTF-8 isn't generated. LANG + LC_CTYPE is enough.
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 # }}}
 
@@ -78,8 +70,9 @@ export EDITOR
 SUDO_EDITOR="$(command -v nvim)"
 export SUDO_EDITOR
 
-TERM="xterm-256color"
-export TERM
+# let the terminal own $TERM (modern terminals/tmux advertise truecolor,
+# undercurl, etc.); only provide a fallback when it is genuinely unset.
+[[ -z "$TERM" ]] && export TERM=xterm-256color
 
 DISABLE_AUTO_TITLE='true'
 export DISABLE_AUTO_TITLE

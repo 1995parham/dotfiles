@@ -169,14 +169,25 @@ zle -N _call_kubectx
 bindkey '^t' _call_kubectx
 
 # history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt EXTENDED_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE \
+       HIST_REDUCE_BLANKS HIST_VERIFY SHARE_HISTORY
 
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-# search history with text already entered at the prompt in zsh
-bindkey "^[OA" history-beginning-search-backward-end
-bindkey "^[OB" history-beginning-search-forward-end
+# search history with the text already on the line, in both cursor modes.
+# terminfo gives the application-cursor sequences; the ^[[A/B lines cover
+# normal cursor mode where those bindings would otherwise silently fail.
+zmodload -i zsh/terminfo 2>/dev/null
+if [[ -n "${terminfo[kcuu1]}" ]]; then
+  bindkey "${terminfo[kcuu1]}" history-beginning-search-backward-end
+  bindkey "${terminfo[kcud1]}" history-beginning-search-forward-end
+fi
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 
 # vim-mode
@@ -188,7 +199,7 @@ bindkey -M vicmd v edit-command-line
 if command -v pyenv >/dev/null 2>&1 && [ -z "$VIRTUAL_ENV" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
+  eval "$(pyenv init - zsh)"
 fi
 
 # k9s, kubernetes cli to manage your clusters in style!
