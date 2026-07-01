@@ -209,3 +209,8 @@ disabled = false
 
 [character]
 vimcmd_symbol = '[](bold green)'
+
+# Claude Code statusline (1.25+): rendered by `starship statusline claude-code`.
+# Combines the usual repo context with Claude's own session modules.
+[profiles]
+claude-code = "$directory$git_branch$git_status$claude_model$claude_context$claude_cost"
