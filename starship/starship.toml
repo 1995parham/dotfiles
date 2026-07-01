@@ -49,11 +49,13 @@ truncate_to_repo = true
 truncation_symbol = ''
 home_symbol = "~"
 
-[directory.substitutions]
-"Documents/Git" = " 󰌢 "
-"Downloads" = "  "
-"Music" = "  "
-"Pictures" = "  "
+# New array syntax (1.25+): each `from` can opt into `regex = true`
+substitutions = [
+    { from = "Documents/Git", to = " 󰌢 " },
+    { from = "Downloads", to = "  " },
+    { from = "Music", to = "  " },
+    { from = "Pictures", to = "  " },
+]
 
 [c]
 symbol = " "
