@@ -53,6 +53,11 @@ if [ -d "$HOME/.cargo/bin" ]; then
     path+=("$HOME/.cargo/bin")
 fi
 
+# set PATH so it includes pixi's global bin if it exists
+if [ -d "$HOME/.pixi/bin" ]; then
+    path+=("$HOME/.pixi/bin")
+fi
+
 
 # }}}
 
