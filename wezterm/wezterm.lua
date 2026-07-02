@@ -28,6 +28,27 @@ config.colors = {
     selection_fg = "#ffffff",
     selection_bg = "#444444", -- tmux colour238 (current-window bg)
     split = "#ff9d9d", -- tmux pane-border-style fg
+    scrollbar_thumb = "#ff0087", -- tmux pane-scrollbars-style fg (colour198)
+    compose_cursor = "#d700ff", -- tmux message-style fg (colour165, command prompt)
+
+    -- copy mode's current-line highlight, mirrors tmux
+    -- copy-mode-current-line-number-style (fg=colour198, bold)
+    copy_mode_active_highlight_bg = { Color = "#ff0087" },
+    copy_mode_active_highlight_fg = { Color = "#262626" },
+    copy_mode_inactive_highlight_bg = { Color = "#3a3a3a" }, -- colour237
+    copy_mode_inactive_highlight_fg = { Color = "#bcbcbc" }, -- colour250
+
+    -- keyboard-overlay labels (QuickSelect / launcher / InputSelector),
+    -- same role as tmux's display-panes overlay: colour166 idle, colour33 for
+    -- the active/matched item
+    quick_select_label_bg = { Color = "#d75f00" },
+    quick_select_label_fg = { Color = "#262626" },
+    quick_select_match_bg = { Color = "#0087d7" },
+    quick_select_match_fg = { Color = "#ffffff" },
+    input_selector_label_bg = { Color = "#d75f00" },
+    input_selector_label_fg = { Color = "#262626" },
+    launcher_label_bg = { Color = "#d75f00" },
+    launcher_label_fg = { Color = "#262626" },
 
     ansi = {
         "#262626", -- black
@@ -52,6 +73,7 @@ config.colors = {
 
     tab_bar = {
         background = "#262626",
+        inactive_tab_edge = "#3a3a3a", -- colour237, retro tab bar only
         active_tab = { bg_color = "#444444", fg_color = "#5fd7ff", intensity = "Bold" },
         inactive_tab = { bg_color = "#262626", fg_color = "#af8787" }, -- colour138
         inactive_tab_hover = { bg_color = "#3a3a3a", fg_color = "#5fd7ff" },
@@ -170,13 +192,18 @@ end
 
 wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
     local title = tab_title(tab)
+    -- Orange window-name text, same as tmux's window-status-current-format /
+    -- window-status-format #W coloring (colour202 active, colour208 inactive)
     if tab.is_active then
         return {
-            { Foreground = { Color = "#5fd7ff" } },
+            { Foreground = { Color = "#ff5f00" } },
             { Text = " " .. title .. " " },
         }
     end
-    return title
+    return {
+        { Foreground = { Color = "#ff8700" } },
+        { Text = " " .. title .. " " },
+    }
 end)
 
 wezterm.on("update-right-status", function(window, pane)
