@@ -20,7 +20,7 @@ main_brew() {
         font-dejavu \
         font-fira-code-nerd-font \
         font-fira-code \
-        font-iosevka-nerd-font \
+        font-iosevka \
         font-roboto
 }
 
@@ -74,7 +74,10 @@ main_apt() {
     _install_font_from_github "ryanoasis/nerd-fonts" "JetBrainsMono" "JetBrainsMono.zip"
     _install_font_from_github "ryanoasis/nerd-fonts" "FiraCode" "FiraCode.zip"
     _install_font_from_github "ryanoasis/nerd-fonts" "Meslo" "Meslo.zip"
-    _install_font_from_github "ryanoasis/nerd-fonts" "Iosevka" "Iosevka.zip"
+    # upstream package (bundles Iosevka/Iosevka Term/Iosevka Fixed in one
+    # .ttc), much smaller than nerd-fonts' icon-patched Iosevka.zip
+    # shellcheck disable=2016
+    _install_font_from_github "be5invis/Iosevka" "Iosevka" 'PkgTTC-Iosevka-${version#v}.zip'
     # shellcheck disable=2016
     _install_font_from_github "rastikerdar/vazirmatn" "Vazirmatn" 'Vazirmatn-${version}.zip'
 
@@ -85,7 +88,7 @@ main_apt() {
 main_pacman() {
     require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts \
         otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-firacode-nerd ttf-fira-code \
-        ttf-iosevka-nerd
+        ttf-iosevka
     require_aur vazirmatn-fonts
 
     configfile fontconfig

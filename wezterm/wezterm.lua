@@ -318,11 +318,15 @@ wezterm.on("update-right-status", function(window, pane)
     window:set_right_status(wezterm.format(elements))
 end)
 
--- Iosevka is noticeably narrower than JetBrains Mono, which buys back
--- columns in the narrow toggle_term/navi splits; kept light and small per
--- preference rather than compensating size upward for the narrower glyphs.
-config.font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Light" })
+-- Iosevka Term is Iosevka's own build curated for terminal use; noticeably
+-- narrower than JetBrains Mono, which buys back columns in the narrow
+-- toggle_term/navi splits. Kept light and small per preference rather than
+-- compensating size upward for the narrower glyphs. Icon glyphs still come
+-- from WezTerm's bundled Nerd Font Symbols fallback, so no NF-patched build
+-- is needed here.
+config.font = wezterm.font("Iosevka Term", { weight = "Light" })
 config.font_size = 10
+config.cell_width = 0.9 -- tighten horizontal spacing between characters
 config.show_new_tab_button_in_tab_bar = false
 
 -- machine specific configuration based on the hostname
