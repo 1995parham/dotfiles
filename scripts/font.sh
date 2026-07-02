@@ -20,6 +20,7 @@ main_brew() {
         font-dejavu \
         font-fira-code-nerd-font \
         font-fira-code \
+        font-iosevka-nerd-font \
         font-roboto
 }
 
@@ -73,6 +74,7 @@ main_apt() {
     _install_font_from_github "ryanoasis/nerd-fonts" "JetBrainsMono" "JetBrainsMono.zip"
     _install_font_from_github "ryanoasis/nerd-fonts" "FiraCode" "FiraCode.zip"
     _install_font_from_github "ryanoasis/nerd-fonts" "Meslo" "Meslo.zip"
+    _install_font_from_github "ryanoasis/nerd-fonts" "Iosevka" "Iosevka.zip"
     # shellcheck disable=2016
     _install_font_from_github "rastikerdar/vazirmatn" "Vazirmatn" 'Vazirmatn-${version}.zip'
 
@@ -82,7 +84,8 @@ main_apt() {
 
 main_pacman() {
     require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts \
-        otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-firacode-nerd ttf-fira-code
+        otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-firacode-nerd ttf-fira-code \
+        ttf-iosevka-nerd
     require_aur vazirmatn-fonts
 
     configfile fontconfig

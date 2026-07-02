@@ -318,8 +318,11 @@ wezterm.on("update-right-status", function(window, pane)
     window:set_right_status(wezterm.format(elements))
 end)
 
--- config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light" })
-config.font_size = 11
+-- Iosevka is noticeably narrower than JetBrains Mono, which buys back
+-- columns in the narrow toggle_term/navi splits; kept light and small per
+-- preference rather than compensating size upward for the narrower glyphs.
+config.font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Light" })
+config.font_size = 10
 config.show_new_tab_button_in_tab_bar = false
 
 -- machine specific configuration based on the hostname
