@@ -16,7 +16,49 @@ local config = wezterm.config_builder()
 -- WezTerm bundles JetBrains Mono, Nerd Font Symbols and Noto Color Emoji fonts
 -- and uses those for the default font configuration.
 
-config.color_scheme = "Railscasts (dark) (terminal.sexy)"
+-- Custom scheme built from tmux/tmux/colors.conf + status-bar.conf so both
+-- terminals share one palette: dark gray base, neon pink for "active",
+-- electric cyan/blue for the current-window highlight.
+config.colors = {
+    foreground = "#d0d0d0",
+    background = "#262626", -- tmux colour235 (status bg)
+    cursor_bg = "#ff0087", -- tmux colour198 (pane-active-border-style)
+    cursor_fg = "#262626",
+    cursor_border = "#ff0087",
+    selection_fg = "#ffffff",
+    selection_bg = "#444444", -- tmux colour238 (current-window bg)
+    split = "#ff9d9d", -- tmux pane-border-style fg
+
+    ansi = {
+        "#262626", -- black
+        "#d70000", -- red      (colour160, bell/error)
+        "#87ff00", -- green    (colour118, status bar fg)
+        "#ffff00", -- yellow   (colour226, status date)
+        "#0087d7", -- blue     (colour33, display-panes-active)
+        "#ff0087", -- magenta  (colour198, active border/menu)
+        "#5fd7ff", -- cyan     (colour81, current window fg)
+        "#bcbcbc", -- white    (colour250)
+    },
+    brights = {
+        "#444444", -- bright black  (colour238)
+        "#ff5f00", -- bright red    (colour202)
+        "#afffd7", -- bright green  (colour158, mint)
+        "#ffaf87", -- bright yellow (colour216, salmon)
+        "#5fafff", -- bright blue
+        "#d700ff", -- bright magenta (colour165)
+        "#00ffd7", -- bright cyan    (colour50, turquoise)
+        "#ffffff", -- bright white
+    },
+
+    tab_bar = {
+        background = "#262626",
+        active_tab = { bg_color = "#444444", fg_color = "#5fd7ff", intensity = "Bold" },
+        inactive_tab = { bg_color = "#262626", fg_color = "#af8787" }, -- colour138
+        inactive_tab_hover = { bg_color = "#3a3a3a", fg_color = "#5fd7ff" },
+        new_tab = { bg_color = "#262626", fg_color = "#af8787" },
+        new_tab_hover = { bg_color = "#444444", fg_color = "#5fd7ff" },
+    },
+}
 
 config.prefer_to_spawn_tabs = true
 config.native_macos_fullscreen_mode = true
@@ -83,18 +125,20 @@ wezterm.on("navi", function(window, pane)
     end
 end)
 
+local toggle_pane_id = nil
+
 wezterm.on("toggle_term", function(window, pane)
     local terminal_pane = nil
 
-    if TOGGLE_PANE_ID then
+    if toggle_pane_id then
         local status, p = pcall(function()
-            return wezterm.mux.get_pane(TOGGLE_PANE_ID)
+            return wezterm.mux.get_pane(toggle_pane_id)
         end)
         if status then
             terminal_pane = p
         else
             terminal_pane = nil
-            TOGGLE_PANE_ID = nil
+            toggle_pane_id = nil
         end
     end
 
@@ -102,13 +146,13 @@ wezterm.on("toggle_term", function(window, pane)
 
     if terminal_pane and window:active_pane():pane_id() == terminal_pane:pane_id() then
         window:perform_action(wezterm.action.CloseCurrentPane({ confirm = true }), pane)
-        TOGGLE_PANE_ID = nil
+        toggle_pane_id = nil
     else
         if terminal_pane then
             terminal_pane:activate()
         else
             local new_pane = pane:split({ direction = "Bottom", size = 0.3 })
-            TOGGLE_PANE_ID = new_pane:pane_id()
+            toggle_pane_id = new_pane:pane_id()
         end
     end
 end)
@@ -128,7 +172,7 @@ wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _ma
     local title = tab_title(tab)
     if tab.is_active then
         return {
-            { Foreground = { Color = "orange" } },
+            { Foreground = { Color = "#5fd7ff" } },
             { Text = " " .. title .. " " },
         }
     end
@@ -139,17 +183,23 @@ wezterm.on("update-right-status", function(window, pane)
     -- Each element holds the text for a cell in a "powerline" style << fade
     local cells = {}
 
-    local _, jalali_date, _ = wezterm.run_child_process({ "bash", "-lc", "jdate +%D" })
-    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. jalali_date:gsub("[\n\r]", " "))
+    -- One login-shell spawn instead of four: jdate needs Homebrew on PATH
+    -- (hence -l), and the login-shell startup cost dominates over the
+    -- actual date/jdate calls, so batching them saves ~75% of the overhead.
+    local _, clocks_output, _ = wezterm.run_child_process({
+        "bash",
+        "-lc",
+        "jdate +%D; TZ='Asia/Tehran' date +%H:%M:%S-%Z; TZ='US/Pacific' date +%H:%M:%S-%Z; TZ='US/Eastern' date +%H:%M:%S-%Z",
+    })
+    local clock_lines = {}
+    for line in clocks_output:gmatch("[^\r\n]+") do
+        table.insert(clock_lines, line)
+    end
 
-    local _, tehran_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='Asia/Tehran' date +%H:%M:%S-%Z" })
-    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. tehran_clock:gsub("[\n\r]", " "))
-
-    local _, pst_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='US/Pacific' date +%H:%M:%S-%Z" })
-    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. pst_clock:gsub("[\n\r]", " "))
-
-    local _, est_clock, _ = wezterm.run_child_process({ "bash", "-lc", "TZ='US/Eastern' date +%H:%M:%S-%Z" })
-    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. est_clock:gsub("[\n\r]", " "))
+    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. (clock_lines[1] or ""))
+    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. (clock_lines[2] or ""))
+    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. (clock_lines[3] or ""))
+    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. (clock_lines[4] or ""))
 
     -- An entry for each battery (typically 0 or 1 battery)
     local function battery_icons(state, percentage)
@@ -262,6 +312,14 @@ config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 config.underline_thickness = "1.5pt"
 
+-- macOS traffic-light buttons folded into the fancy tab bar, no separate
+-- title strip
+config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+
+-- frosted-glass translucency; tune opacity/blur radius to taste
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 20
+
 -- cursor
 config.animation_fps = 120
 config.cursor_blink_ease_in = "EaseOut"
@@ -320,6 +378,17 @@ config.hyperlink_rules = {
         regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
         format = "mailto:$0",
     },
+}
+
+-- Extends the built-in QuickSelect patterns (URLs, paths, git hashes, IPs,
+-- numbers) bound to CTRL-SHIFT-Space by default.
+config.quick_select_patterns = {
+    -- UUIDs, e.g. request/trace ids in logs
+    "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+    -- file:line(:col) references from stack traces / compiler errors
+    "[\\w./-]+\\.\\w+:\\d+(:\\d+)?",
+    -- semver-ish version tags, e.g. v1.2.3 or 1.2.3-rc.1
+    "v?\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.]+)?",
 }
 
 return config
