@@ -286,7 +286,7 @@ wezterm.on("update-right-status", function(window, pane)
     -- background (not the dark tab strip color).
     local elements = {}
     for _, cell in ipairs(cells) do
-        table.insert(elements, { Background = { Color = "#444444" } })
+        table.insert(elements, { Background = { Color = "#5c5c5c" } })
         table.insert(elements, { Foreground = { Color = "#ff5f00" } })
         table.insert(elements, { Text = " " .. cell .. " " })
     end
