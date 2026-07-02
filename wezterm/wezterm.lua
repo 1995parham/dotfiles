@@ -192,27 +192,16 @@ end
 
 wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
     local title = tab_title(tab)
-    -- Orange window-name text, same as tmux's window-status-current-format /
-    -- window-status-format #W coloring (colour202 active, colour208 inactive).
-    -- The circle icon is colored separately (bright pink, matching the
-    -- cursor/active-border accent) and bolded+underlined only when active,
-    -- so the active tab has a strong, unambiguous marker beyond just a
-    -- background shade difference.
+    -- Selected tab: orange (icon + text). Unselected: gray.
     if tab.is_active then
         return {
-            { Foreground = { Color = "#ff0087" } },
-            { Attribute = { Intensity = "Bold" } },
-            { Text = " " .. wezterm.nerdfonts.fa_circle .. " " },
             { Foreground = { Color = "#ff5f00" } },
-            { Attribute = { Underline = "Single" } },
-            { Text = title .. " " },
+            { Text = " " .. wezterm.nerdfonts.fa_circle .. " " .. title .. " " },
         }
     end
     return {
         { Foreground = { Color = "#666666" } },
-        { Text = " " .. wezterm.nerdfonts.fa_circle .. " " },
-        { Foreground = { Color = "#ff8700" } },
-        { Text = title .. " " },
+        { Text = " " .. wezterm.nerdfonts.fa_circle .. " " .. title .. " " },
     }
 end)
 
@@ -293,36 +282,12 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- Color palette for the backgrounds of each cell
-    local colors = {
-        "#ffac14",
-        "#ffb327",
-        "#ffba3b",
-        "#ffc14e",
-        "#ffc862",
-        "#ffcf76",
-        "#ffd589",
-    }
-
-    -- The elements to be formatted
+    -- Same orange as the selected tab, for a consistent accent color
+    -- across the whole window chrome.
     local elements = {}
-    -- How many cells have been formatted
-    local num_cells = 0
-
-    -- Translate a cell into elements
-    local function push(text, is_last)
-        local cell_no = num_cells + 1
-        table.insert(elements, { Foreground = { Color = colors[cell_no] } })
-        table.insert(elements, { Text = " " .. text .. " " })
-        if not is_last then
-            table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
-        end
-        num_cells = num_cells + 1
-    end
-
-    while #cells > 0 do
-        local cell = table.remove(cells, 1)
-        push(cell, #cells == 0)
+    for _, cell in ipairs(cells) do
+        table.insert(elements, { Foreground = { Color = "#ff5f00" } })
+        table.insert(elements, { Text = " " .. cell .. " " })
     end
 
     window:set_right_status(wezterm.format(elements))
