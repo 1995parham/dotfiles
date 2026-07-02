@@ -326,7 +326,7 @@ end)
 -- is needed here.
 config.font = wezterm.font("Iosevka Term", { weight = "Light" })
 config.font_size = 10
-config.cell_width = 0.9 -- tighten horizontal spacing between characters
+config.cell_width = 1.1 -- widen horizontal spacing between characters
 config.show_new_tab_button_in_tab_bar = false
 
 -- machine specific configuration based on the hostname
