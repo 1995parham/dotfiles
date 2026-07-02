@@ -282,11 +282,10 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- Same orange foreground as the selected tab, on a plain gray bar
-    -- background (not the dark tab strip color).
+    -- Same orange foreground as the selected tab.
     local elements = {}
     for _, cell in ipairs(cells) do
-        table.insert(elements, { Background = { Color = "#5c5c5c" } })
+        table.insert(elements, { Background = { Color = "#262626" } })
         table.insert(elements, { Foreground = { Color = "#ff5f00" } })
         table.insert(elements, { Text = " " .. cell .. " " })
     end
