@@ -282,10 +282,11 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- Same orange as the selected tab, for a consistent accent color
-    -- across the whole window chrome.
+    -- Same orange foreground as the selected tab, and the same background
+    -- as the tab bar strip, for a consistent accent across the window chrome.
     local elements = {}
     for _, cell in ipairs(cells) do
+        table.insert(elements, { Background = { Color = "#262626" } })
         table.insert(elements, { Foreground = { Color = "#ff5f00" } })
         table.insert(elements, { Text = " " .. cell .. " " })
     end
