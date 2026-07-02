@@ -74,7 +74,7 @@ config.colors = {
     tab_bar = {
         background = "#262626",
         inactive_tab_edge = "#3a3a3a", -- colour237, retro tab bar only
-        active_tab = { bg_color = "#444444", fg_color = "#5fd7ff", intensity = "Bold" },
+        active_tab = { bg_color = "#5c5c5c", fg_color = "#5fd7ff", intensity = "Bold" },
         inactive_tab = { bg_color = "#262626", fg_color = "#af8787" }, -- colour138
         inactive_tab_hover = { bg_color = "#3a3a3a", fg_color = "#5fd7ff" },
         new_tab = { bg_color = "#262626", fg_color = "#af8787" },
@@ -184,25 +184,35 @@ local function tab_title(tab_info)
 
     -- if the tab title is explicitly set, take that
     if title and #title > 0 then
-        return wezterm.nerdfonts.fa_circle .. "   " .. title
+        return title
     end
 
-    return wezterm.nerdfonts.fa_circle .. "   " .. tab_info.active_pane.title
+    return tab_info.active_pane.title
 end
 
 wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
     local title = tab_title(tab)
     -- Orange window-name text, same as tmux's window-status-current-format /
-    -- window-status-format #W coloring (colour202 active, colour208 inactive)
+    -- window-status-format #W coloring (colour202 active, colour208 inactive).
+    -- The circle icon is colored separately (bright pink, matching the
+    -- cursor/active-border accent) and bolded+underlined only when active,
+    -- so the active tab has a strong, unambiguous marker beyond just a
+    -- background shade difference.
     if tab.is_active then
         return {
+            { Foreground = { Color = "#ff0087" } },
+            { Attribute = { Intensity = "Bold" } },
+            { Text = " " .. wezterm.nerdfonts.fa_circle .. " " },
             { Foreground = { Color = "#ff5f00" } },
-            { Text = " " .. title .. " " },
+            { Attribute = { Underline = "Single" } },
+            { Text = title .. " " },
         }
     end
     return {
+        { Foreground = { Color = "#666666" } },
+        { Text = " " .. wezterm.nerdfonts.fa_circle .. " " },
         { Foreground = { Color = "#ff8700" } },
-        { Text = " " .. title .. " " },
+        { Text = title .. " " },
     }
 end)
 
@@ -324,7 +334,7 @@ end)
 -- compensating size upward for the narrower glyphs. Icon glyphs still come
 -- from WezTerm's bundled Nerd Font Symbols fallback, so no NF-patched build
 -- is needed here.
-config.font = wezterm.font("Iosevka Term", { weight = "Light" })
+config.font = wezterm.font("Iosevka Term", { weight = "Medium" })
 config.font_size = 10
 config.cell_width = 1.1 -- widen horizontal spacing between characters
 config.show_new_tab_button_in_tab_bar = false
