@@ -3,6 +3,13 @@
 typeset -U path
 # }}}
 
+# zsh completion {{{
+# on debian/ubuntu the global /etc/zsh/zshrc runs its own compinit before
+# oh-my-zsh does; skip it so compinit only runs once (omz's). set in zshenv
+# because /etc/zshrc is sourced after ~/.zshenv but before ~/.zshrc.
+skip_global_compinit=1
+# }}}
+
 # python {{{
 
 export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
