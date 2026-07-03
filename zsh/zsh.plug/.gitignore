@@ -1,3 +1,6 @@
 plugins/*
 !plugins/proxy
 !plugins/alias
+!plugins/vi-mode
+!plugins/golang
+!plugins/rust
