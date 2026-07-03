@@ -50,9 +50,12 @@ if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
-# append + reload history each prompt so concurrent sessions share it live;
-# append to (not overwrite) starship's own PROMPT_COMMAND.
-PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+# append this session's new history each prompt so concurrent sessions can pick
+# it up (via their own `history -a` + the file); append to (not overwrite)
+# starship's own PROMPT_COMMAND. we intentionally drop the `history -n` reload:
+# with HISTSIZE=100000 it re-read the whole file before every command, adding
+# latency for negligible benefit.
+PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # using bash/zsh in neovim terminal mode.
 # neovim defines $NVIM in terminal mode and based on it
@@ -145,7 +148,9 @@ if [ -d "${KREW_ROOT:-$HOME/.krew}" ]; then
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew_path=$(brew --prefix)
+    # reuse $HOMEBREW_PREFIX (exported by `brew shellenv`) instead of forking
+    # the slow `brew` ruby wrapper on every startup; fall back if unset.
+    brew_path="${HOMEBREW_PREFIX:-$(brew --prefix)}"
 
     # require explicit `brew trust` for non-official taps
     export HOMEBREW_REQUIRE_TAP_TRUST=1
@@ -167,6 +172,21 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # using gnu sed instead of macos default sed
     alias sed=gsed
+
+    # bash-completion, loaded lazily on first <Tab> to keep startup fast.
+    # homebrew's bash-completion@2 eagerly sources ~116 compat-dir scripts
+    # (docker, gh, aws, gdal, ...) on every launch — ~0.6s. defer the whole
+    # thing to the first completion attempt: this stub default handler sources
+    # the real system, then returns 124 so readline retries completion, after
+    # which bash-completion's own dynamic loader takes over for the session.
+    if [ -r "$brew_path/etc/profile.d/bash_completion.sh" ]; then
+        _lazy_bash_completion() {
+            unset -f _lazy_bash_completion
+            . "$brew_path/etc/profile.d/bash_completion.sh"
+            return 124
+        }
+        complete -D -F _lazy_bash_completion -o bashdefault -o default
+    fi
 fi
 
 # configure node version manager
