@@ -21,6 +21,7 @@ main_brew() {
         font-fira-code-nerd-font \
         font-fira-code \
         font-iosevka \
+        font-maple-mono-nf \
         font-roboto
 }
 
@@ -80,6 +81,8 @@ main_apt() {
     _install_font_from_github "be5invis/Iosevka" "Iosevka" 'PkgTTC-Iosevka-${version#v}.zip'
     # shellcheck disable=2016
     _install_font_from_github "rastikerdar/vazirmatn" "Vazirmatn" 'Vazirmatn-${version}.zip'
+    # Nerd Font build (icons baked in); non-CN to keep the archive small
+    _install_font_from_github "subframe7536/maple-font" "MapleMono" "MapleMono-NF.zip"
 
     configfile fontconfig
     fc-cache -f
@@ -89,7 +92,7 @@ main_pacman() {
     require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts \
         otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-firacode-nerd ttf-fira-code \
         ttf-iosevka
-    require_aur vazirmatn-fonts
+    require_aur vazirmatn-fonts maplemono-nf
 
     configfile fontconfig
     fc-cache -f
