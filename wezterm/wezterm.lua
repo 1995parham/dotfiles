@@ -257,6 +257,8 @@ wezterm.on("update-right-status", function(window, pane)
     -- TZ-independent Unix epoch and os.date("!...") formats in UTC, so
     -- epoch + zone offset gives that zone's wall clock, seconds and all.
     local now = os.time()
+    -- Gregorian date, aligned to Tehran (the first clock / home zone).
+    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. os.date("!%a %d %b", now + 12600))
     local p_off, p_dst = us_offset(now, -8) -- US/Pacific
     local e_off, e_dst = us_offset(now, -5) -- US/Eastern
     local clocks = {
