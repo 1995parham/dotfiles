@@ -294,25 +294,12 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- One rounded capsule around the whole group: half-circle end-caps drawn in
-    -- the capsule fill against the tab-bar chrome, with naz orange text inside.
-    -- Fill uses colors.background so the pill matches the terminal content; the
-    -- caps must stay the tab-strip color (chrome) or they'd show a seam.
-    local chrome = "#262626" -- colors.tab_bar.background (the status strip)
-    local fill = "#323232" -- colors.background (matches terminal content)
-    local elements = {
-        { Background = { Color = chrome } },
-        { Foreground = { Color = fill } },
-        { Text = "\u{e0b6}" }, -- ple_left_half_circle_thick (rounded left cap)
-        { Background = { Color = fill } },
-        { Foreground = { Color = "#FD9720" } }, -- naz orange (matches selected tab)
+    -- Plain status text: naz orange (matches the selected tab) on the tab-bar
+    -- strip, no capsule.
+    window:set_right_status(wezterm.format({
+        { Foreground = { Color = "#FD9720" } },
         { Text = " " .. table.concat(cells, "   ") .. " " },
-        { Background = { Color = chrome } },
-        { Foreground = { Color = fill } },
-        { Text = "\u{e0b4}" }, -- ple_right_half_circle_thick (rounded right cap)
-    }
-
-    window:set_right_status(wezterm.format(elements))
+    }))
 end)
 
 -- Maple Mono NF: a warm, rounded face with ligatures (calt) and Nerd Font
