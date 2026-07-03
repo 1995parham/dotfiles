@@ -295,10 +295,11 @@ wezterm.on("update-right-status", function(window, pane)
     end
 
     -- One rounded capsule around the whole group: half-circle end-caps drawn in
-    -- the capsule fill against the darker tab-bar chrome, with naz orange text
-    -- inside. Tweak `fill` to taste (e.g. #575B61 for a brighter chip).
-    local chrome = "#262626" -- tab-bar background (see colors.tab_bar)
-    local fill = "#211F1C" -- naz darkblack, a subtle capsule against the chrome
+    -- the capsule fill against the tab-bar chrome, with naz orange text inside.
+    -- Fill uses colors.background so the pill matches the terminal content; the
+    -- caps must stay the tab-strip color (chrome) or they'd show a seam.
+    local chrome = "#262626" -- colors.tab_bar.background (the status strip)
+    local fill = "#323232" -- colors.background (matches terminal content)
     local elements = {
         { Background = { Color = chrome } },
         { Foreground = { Color = fill } },
