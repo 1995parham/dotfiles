@@ -194,16 +194,18 @@ end
 
 wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
     local title = tab_title(tab)
-    -- Selected tab: naz orange (Identifier). Unselected: naz warmgrey.
+    -- 1-based index (like tmux window numbers) so it lines up with tab
+    -- navigation. Selected tab: naz orange (Identifier). Unselected: warmgrey.
+    local index = tostring(tab.tab_index + 1)
     if tab.is_active then
         return {
             { Foreground = { Color = "#FD9720" } },
-            { Text = " " .. wezterm.nerdfonts.fa_circle .. " " .. title .. " " },
+            { Text = " " .. index .. " " .. title .. " " },
         }
     end
     return {
         { Foreground = { Color = "#907D57" } },
-        { Text = " " .. wezterm.nerdfonts.fa_circle .. " " .. title .. " " },
+        { Text = " " .. index .. " " .. title .. " " },
     }
 end)
 
