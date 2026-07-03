@@ -277,53 +277,21 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- An entry for each battery (typically 0 or 1 battery)
+    -- An entry for each battery (typically 0 or 1 battery). Pick the icon by
+    -- rounding up to the nearest 10% bucket: Material Design has
+    -- md_battery_10..md_battery_90 (plus md_battery for full) for the discharging
+    -- ramp and md_battery_charging_10..md_battery_charging_100 for charging.
     local function battery_icons(state, percentage)
+        local bucket = math.min(100, math.floor(percentage / 10) * 10 + 10)
+        local name
         if state == "Charging" then
-            if 0 <= percentage and percentage < 10 then
-                return wezterm.nerdfonts.md_battery_charging_10 .. " "
-            elseif 10 <= percentage and percentage < 20 then
-                return wezterm.nerdfonts.md_battery_charging_20 .. " "
-            elseif 20 <= percentage and percentage < 30 then
-                return wezterm.nerdfonts.md_battery_charging_30 .. " "
-            elseif 30 <= percentage and percentage < 40 then
-                return wezterm.nerdfonts.md_battery_charging_40 .. " "
-            elseif 40 <= percentage and percentage < 50 then
-                return wezterm.nerdfonts.md_battery_charging_50 .. " "
-            elseif 50 <= percentage and percentage < 60 then
-                return wezterm.nerdfonts.md_battery_charging_60 .. " "
-            elseif 60 <= percentage and percentage < 70 then
-                return wezterm.nerdfonts.md_battery_charging_70 .. " "
-            elseif 70 <= percentage and percentage < 80 then
-                return wezterm.nerdfonts.md_battery_charging_80 .. " "
-            elseif 80 <= percentage and percentage < 90 then
-                return wezterm.nerdfonts.md_battery_charging_90 .. " "
-            else
-                return wezterm.nerdfonts.md_battery_charging_100 .. " "
-            end
+            name = "md_battery_charging_" .. bucket
+        elseif bucket == 100 then
+            name = "md_battery"
         else
-            if 0 <= percentage and percentage < 10 then
-                return wezterm.nerdfonts.md_battery_10 .. " "
-            elseif 10 <= percentage and percentage < 20 then
-                return wezterm.nerdfonts.md_battery_20 .. " "
-            elseif 20 <= percentage and percentage < 30 then
-                return wezterm.nerdfonts.md_battery_30 .. " "
-            elseif 30 <= percentage and percentage < 40 then
-                return wezterm.nerdfonts.md_battery_40 .. " "
-            elseif 40 <= percentage and percentage < 50 then
-                return wezterm.nerdfonts.md_battery_50 .. " "
-            elseif 50 <= percentage and percentage < 60 then
-                return wezterm.nerdfonts.md_battery_60 .. " "
-            elseif 60 <= percentage and percentage < 70 then
-                return wezterm.nerdfonts.md_battery_70 .. " "
-            elseif 70 <= percentage and percentage < 80 then
-                return wezterm.nerdfonts.md_battery_80 .. " "
-            elseif 80 <= percentage and percentage < 90 then
-                return wezterm.nerdfonts.md_battery_90 .. " "
-            else
-                return wezterm.nerdfonts.md_battery .. " "
-            end
+            name = "md_battery_" .. bucket
         end
+        return wezterm.nerdfonts[name] .. " "
     end
     for _, b in ipairs(wezterm.battery_info()) do
         table.insert(
