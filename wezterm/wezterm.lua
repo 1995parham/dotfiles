@@ -219,7 +219,7 @@ wezterm.on("update-right-status", function(window, pane)
     local _, clocks_output, _ = wezterm.run_child_process({
         "bash",
         "-lc",
-        "jdate +%D; TZ='Asia/Tehran' date +%H:%M:%S-%Z; TZ='US/Pacific' date +%H:%M:%S-%Z; TZ='US/Eastern' date +%H:%M:%S-%Z",
+        "jdate +%D; TZ='Asia/Tehran' date +%H:%M-%Z; TZ='US/Pacific' date +%H:%M-%Z; TZ='US/Eastern' date +%H:%M-%Z",
     })
     local clock_lines = {}
     for line in clocks_output:gmatch("[^\r\n]+") do
@@ -363,7 +363,14 @@ config.visual_bell = {
 }
 
 config.automatically_reload_config = true
-config.status_update_interval = 1000
+-- Every status update spawns a child process (the jdate/date clocks below).
+-- Because WezTerm.app is a notarized/downloaded app, macOS provenance-tracks
+-- every child it spawns via Gatekeeper; on this machine that path errors
+-- (syspolicyd "failed to call driver: 0x3") and falls back to a network round
+-- trip per spawn, pinning syspolicyd ~80% (measured). At 1s that was the main
+-- source of chassis heat. 15s + minute-resolution clocks cuts it ~15x (~5%)
+-- while keeping the clocks accurate to within 15s.
+config.status_update_interval = 15000
 
 config.scrollback_lines = 20000
 
