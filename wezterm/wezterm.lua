@@ -209,68 +209,62 @@ wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _ma
     }
 end)
 
--- Clock cache, refreshed off the render path.
---
--- The right-status bar shows a Jalali date plus three ticking wall-clocks.
--- Spawning `jdate`/`date` inside the render callback (as this used to) put a
--- child process on the render path every tick; because WezTerm.app is
--- provenance-tracked by macOS Gatekeeper, each spawn pinned syspolicyd (see
--- status_update_interval below). Instead we spawn ONCE per minute in a
--- self-rescheduling background timer to capture the Jalali date (changes
--- daily) and each zone's current UTC offset + abbreviation (change only at DST
--- boundaries), then compute the ticking H:M:S purely in Lua at render time.
--- Net: one cheap spawn per minute instead of one per second.
-local clock_cache = {
-    jdate = "",
-    -- order mirrors the refresh command below: Tehran, Pacific, Eastern
-    zones = {
-        { offset = 0, abbr = "" },
-        { offset = 0, abbr = "" },
-        { offset = 0, abbr = "" },
-    },
-}
-
-local function refresh_clock_cache()
-    -- login shell (-l) so jdate resolves on the Homebrew PATH; %z is the
-    -- numeric offset used for the Lua math, %Z the label shown to the user.
-    local ok, stdout = wezterm.run_child_process({
-        "bash",
-        "-lc",
-        "jdate +%D; TZ='Asia/Tehran' date '+%z %Z'; TZ='US/Pacific' date '+%z %Z'; TZ='US/Eastern' date '+%z %Z'",
-    })
-    if ok then
-        local lines = {}
-        for line in stdout:gmatch("[^\r\n]+") do
-            table.insert(lines, line)
-        end
-        clock_cache.jdate = lines[1] or clock_cache.jdate
-        for i = 1, 3 do
-            local off, abbr = (lines[i + 1] or ""):match("([+-]%d%d%d%d)%s+(%S+)")
-            if off then
-                local sign = (off:sub(1, 1) == "-") and -1 or 1
-                clock_cache.zones[i] = {
-                    offset = sign * (tonumber(off:sub(2, 3)) * 3600 + tonumber(off:sub(4, 5)) * 60),
-                    abbr = abbr,
-                }
-            end
-        end
-    end
-    -- re-arm; a minute is well within DST-transition granularity
-    wezterm.time.call_after(60, refresh_clock_cache)
+-- Timezone math for the status-bar clocks, computed entirely in Lua so the
+-- render callback never spawns a child process. Spawning here used to pin
+-- syspolicyd: WezTerm.app is provenance-tracked by macOS Gatekeeper, so every
+-- child it spawns is assessed, and on this machine that path errors and does a
+-- network round trip per spawn (which heated the chassis). Tehran is a fixed
+-- +3:30 (Iran dropped DST); the two US zones follow the standard rule (2nd
+-- Sunday of March 02:00 -> 1st Sunday of November 02:00). Validated against the
+-- OS `date` across 2024-2028.
+local function div(a, b)
+    return math.floor(a / b)
 end
 
-refresh_clock_cache() -- prime the cache at startup
+-- Howard Hinnant's civil->days: days since 1970-01-01, timezone-independent.
+local function days_from_civil(y, m, d)
+    y = y - (m <= 2 and 1 or 0)
+    local era = div(y >= 0 and y or y - 399, 400)
+    local yoe = y - era * 400
+    local doy = div(153 * (m > 2 and m - 3 or m + 9) + 2, 5) + d - 1
+    local doe = yoe * 365 + div(yoe, 4) - div(yoe, 100) + doy
+    return era * 146097 + doe - 719468
+end
+
+-- epoch (UTC) of the nth Sunday of (y, month) at hour_utc:00 UTC
+local function nth_sunday_epoch(y, month, nth, hour_utc)
+    local first = days_from_civil(y, month, 1)
+    local wd = (first % 7 + 4) % 7 -- 0=Sun; 1970-01-01 was a Thursday (=4)
+    local first_sun = 1 + ((7 - wd) % 7)
+    return days_from_civil(y, month, first_sun + (nth - 1) * 7) * 86400 + hour_utc * 3600
+end
+
+-- US DST offset for a zone with standard offset std_h hours (e.g. -5 Eastern).
+-- Returns offset seconds and whether daylight time is in effect.
+local function us_offset(now, std_h)
+    local y = tonumber(os.date("!%Y", now))
+    local start = nth_sunday_epoch(y, 3, 2, 2 - std_h) -- 02:00 local standard
+    local finish = nth_sunday_epoch(y, 11, 1, 1 - std_h) -- 02:00 local daylight
+    local dst = now >= start and now < finish
+    return (std_h + (dst and 1 or 0)) * 3600, dst
+end
 
 wezterm.on("update-right-status", function(window, pane)
     -- Each element holds the text for a cell in a "powerline" style << fade
     local cells = {}
 
-    -- Ticking clocks computed in Lua from the cached offsets (no spawn here):
-    -- os.time() is the TZ-independent Unix epoch and os.date("!...") formats in
-    -- UTC, so epoch + zone offset yields that zone's wall clock, seconds and all.
+    -- Ticking clocks, computed in Lua (no spawn): os.time() is the
+    -- TZ-independent Unix epoch and os.date("!...") formats in UTC, so
+    -- epoch + zone offset gives that zone's wall clock, seconds and all.
     local now = os.time()
-    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. clock_cache.jdate)
-    for _, z in ipairs(clock_cache.zones) do
+    local p_off, p_dst = us_offset(now, -8) -- US/Pacific
+    local e_off, e_dst = us_offset(now, -5) -- US/Eastern
+    local clocks = {
+        { offset = 12600, abbr = "+0330" }, -- Asia/Tehran, fixed +3:30
+        { offset = p_off, abbr = p_dst and "PDT" or "PST" },
+        { offset = e_off, abbr = e_dst and "EDT" or "EST" },
+    }
+    for _, z in ipairs(clocks) do
         table.insert(
             cells,
             wezterm.nerdfonts.fa_clock_o .. "   " .. os.date("!%H:%M:%S", now + z.offset) .. "-" .. z.abbr
@@ -300,13 +294,22 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- Same naz orange foreground as the selected tab, on the darker chrome bg.
-    local elements = {}
-    for _, cell in ipairs(cells) do
-        table.insert(elements, { Background = { Color = "#262626" } })
-        table.insert(elements, { Foreground = { Color = "#FD9720" } })
-        table.insert(elements, { Text = " " .. cell .. " " })
-    end
+    -- One rounded capsule around the whole group: half-circle end-caps drawn in
+    -- the capsule fill against the darker tab-bar chrome, with naz orange text
+    -- inside. Tweak `fill` to taste (e.g. #575B61 for a brighter chip).
+    local chrome = "#262626" -- tab-bar background (see colors.tab_bar)
+    local fill = "#211F1C" -- naz darkblack, a subtle capsule against the chrome
+    local elements = {
+        { Background = { Color = chrome } },
+        { Foreground = { Color = fill } },
+        { Text = "\u{e0b6}" }, -- ple_left_half_circle_thick (rounded left cap)
+        { Background = { Color = fill } },
+        { Foreground = { Color = "#FD9720" } }, -- naz orange (matches selected tab)
+        { Text = " " .. table.concat(cells, "   ") .. " " },
+        { Background = { Color = chrome } },
+        { Foreground = { Color = fill } },
+        { Text = "\u{e0b4}" }, -- ple_right_half_circle_thick (rounded right cap)
+    }
 
     window:set_right_status(wezterm.format(elements))
 end)
@@ -377,11 +380,10 @@ config.visual_bell = {
 }
 
 config.automatically_reload_config = true
--- The render callback no longer spawns anything (it reads the clock cache and
--- computes seconds in Lua), so a 1s tick is cheap and never touches syspolicyd.
--- The only child process is the once-per-minute cache refresh above. This
--- restores smooth ticking seconds without the chassis heat that a per-second
--- spawn used to cause (macOS provenance-tracks every child WezTerm.app spawns).
+-- The render callback computes everything in Lua and spawns nothing at all, so
+-- a 1s tick is cheap and never touches syspolicyd: no child process means no
+-- macOS Gatekeeper provenance assessment, which is what used to pin syspolicyd
+-- and heat the chassis. Smooth ticking seconds, zero exec-errors.
 config.status_update_interval = 1000
 
 config.scrollback_lines = 20000
