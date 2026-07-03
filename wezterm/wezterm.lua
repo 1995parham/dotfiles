@@ -86,7 +86,7 @@ config.colors = {
 
 config.prefer_to_spawn_tabs = true
 config.native_macos_fullscreen_mode = true
-config.max_fps = 240
+config.max_fps = 120
 
 config.keys = {
     {
@@ -332,9 +332,12 @@ config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 
 -- cursor
-config.animation_fps = 120
-config.cursor_blink_ease_in = "EaseOut"
-config.cursor_blink_ease_out = "EaseOut"
+-- animation_fps = 1 + Constant easing makes the cursor blink a simple on/off
+-- toggle instead of a per-frame fade animation, so an idle terminal stops
+-- repainting continuously (was pinning ~15% CPU at animation_fps = 120).
+config.animation_fps = 1
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_rate = 650
 
