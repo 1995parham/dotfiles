@@ -294,9 +294,10 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- Plain status text: naz orange (matches the selected tab) on the tab-bar
-    -- strip, no capsule.
+    -- Plain status text: naz orange (matches the selected tab) over a flat
+    -- colors.background band, so the status matches the terminal content.
     window:set_right_status(wezterm.format({
+        { Background = { Color = "#323232" } }, -- colors.background
         { Foreground = { Color = "#FD9720" } },
         { Text = " " .. table.concat(cells, "   ") .. " " },
     }))
