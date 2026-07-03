@@ -16,69 +16,71 @@ local config = wezterm.config_builder()
 -- WezTerm bundles JetBrains Mono, Nerd Font Symbols and Noto Color Emoji fonts
 -- and uses those for the default font configuration.
 
--- Custom scheme built from tmux/tmux/colors.conf + status-bar.conf so both
--- terminals share one palette: dark gray base, neon pink for "active",
--- electric cyan/blue for the current-window highlight.
+-- Custom scheme aligned to naz.vim (1995parham/naz.vim), the Neovim/Vim
+-- colorscheme, so vim-inside-wezterm and CLI tools share one true-color
+-- palette. naz.vim is a Tomorrow-Night/Monokai hybrid: #323232 base (its
+-- Normal bg, matched here so the editor blends into the terminal), pink
+-- #F92772 accent, deep-sky-blue functions, aqua types. The tab/status chrome
+-- stays a shade darker (#262626) for separation, matching tmux's status bg.
 config.colors = {
-    foreground = "#d0d0d0",
-    background = "#262626", -- tmux colour235 (status bg)
-    cursor_bg = "#ff0087", -- tmux colour198 (pane-active-border-style)
-    cursor_fg = "#262626",
-    cursor_border = "#ff0087",
-    selection_fg = "#ffffff",
-    selection_bg = "#444444", -- tmux colour238 (current-window bg)
-    split = "#ff9d9d", -- tmux pane-border-style fg
-    scrollbar_thumb = "#ff0087", -- tmux pane-scrollbars-style fg (colour198)
-    compose_cursor = "#d700ff", -- tmux message-style fg (colour165, command prompt)
+    foreground = "#E8E8E3", -- naz Normal fg (s:white)
+    background = "#323232", -- naz Normal bg (s:black)
+    cursor_bg = "#F92772", -- naz pink (Statement accent)
+    cursor_fg = "#323232",
+    cursor_border = "#F92772",
+    selection_fg = "#E8E8E3",
+    selection_bg = "#575B61", -- naz lightgrey (Visual selection bg)
+    split = "#EF7C66", -- naz softred (echoes tmux's salmon pane border)
+    scrollbar_thumb = "#F92772", -- naz pink accent
+    compose_cursor = "#EE82EE", -- naz purple (Constant / command prompt)
 
-    -- copy mode's current-line highlight, mirrors tmux
-    -- copy-mode-current-line-number-style (fg=colour198, bold)
-    copy_mode_active_highlight_bg = { Color = "#ff0087" },
-    copy_mode_active_highlight_fg = { Color = "#262626" },
-    copy_mode_inactive_highlight_bg = { Color = "#3a3a3a" }, -- colour237
-    copy_mode_inactive_highlight_fg = { Color = "#bcbcbc" }, -- colour250
+    -- copy mode's current-line highlight uses the pink accent (mirrors naz
+    -- Statement / tmux copy-mode-current-line-number-style)
+    copy_mode_active_highlight_bg = { Color = "#F92772" },
+    copy_mode_active_highlight_fg = { Color = "#323232" },
+    copy_mode_inactive_highlight_bg = { Color = "#575B61" }, -- naz lightgrey
+    copy_mode_inactive_highlight_fg = { Color = "#E8E8E3" }, -- naz white
 
-    -- keyboard-overlay labels (QuickSelect / launcher / InputSelector),
-    -- same role as tmux's display-panes overlay: colour166 idle, colour33 for
-    -- the active/matched item
-    quick_select_label_bg = { Color = "#d75f00" },
-    quick_select_label_fg = { Color = "#262626" },
-    quick_select_match_bg = { Color = "#0087d7" },
-    quick_select_match_fg = { Color = "#ffffff" },
-    input_selector_label_bg = { Color = "#d75f00" },
-    input_selector_label_fg = { Color = "#262626" },
-    launcher_label_bg = { Color = "#d75f00" },
-    launcher_label_fg = { Color = "#262626" },
+    -- keyboard-overlay labels (QuickSelect / launcher / InputSelector):
+    -- naz orange (Identifier) idle, naz blue (Function) for the matched item
+    quick_select_label_bg = { Color = "#FD9720" },
+    quick_select_label_fg = { Color = "#323232" },
+    quick_select_match_bg = { Color = "#00BFFF" },
+    quick_select_match_fg = { Color = "#E8E8E3" },
+    input_selector_label_bg = { Color = "#FD9720" },
+    input_selector_label_fg = { Color = "#323232" },
+    launcher_label_bg = { Color = "#FD9720" },
+    launcher_label_fg = { Color = "#323232" },
 
     ansi = {
-        "#262626", -- black
-        "#d70000", -- red      (colour160, bell/error)
-        "#87ff00", -- green    (colour118, status bar fg)
-        "#ffff00", -- yellow   (colour226, status date)
-        "#0087d7", -- blue     (colour33, display-panes-active)
-        "#ff0087", -- magenta  (colour198, active border/menu)
-        "#5fd7ff", -- cyan     (colour81, current window fg)
-        "#bcbcbc", -- white    (colour250)
+        "#211F1C", -- black    (naz darkblack)
+        "#E73C50", -- red      (naz red)
+        "#8AD000", -- green    (naz green)
+        "#E6DB74", -- yellow   (naz yellow)
+        "#00BFFF", -- blue     (naz blue, Function)
+        "#F92772", -- magenta  (naz pink, Statement)
+        "#66D9EF", -- cyan     (naz aqua, Type/Keyword)
+        "#E8E8E3", -- white    (naz white, Normal fg)
     },
     brights = {
-        "#444444", -- bright black  (colour238)
-        "#ff5f00", -- bright red    (colour202)
-        "#afffd7", -- bright green  (colour158, mint)
-        "#ffaf87", -- bright yellow (colour216, salmon)
-        "#5fafff", -- bright blue
-        "#d700ff", -- bright magenta (colour165)
-        "#00ffd7", -- bright cyan    (colour50, turquoise)
-        "#ffffff", -- bright white
+        "#575B61", -- bright black  (naz lightgrey)
+        "#FF6347", -- bright red    (naz tomato, Number)
+        "#7FFF00", -- bright green  (naz chartreuse, String)
+        "#FD9720", -- bright yellow (naz orange, Identifier)
+        "#198CFF", -- bright blue   (naz vividblue)
+        "#EE82EE", -- bright magenta (naz purple, Constant)
+        "#00CED1", -- bright cyan    (naz darkturquoise)
+        "#FFFFFF", -- bright white
     },
 
     tab_bar = {
-        background = "#262626",
-        inactive_tab_edge = "#3a3a3a", -- colour237, retro tab bar only
-        active_tab = { bg_color = "#5c5c5c", fg_color = "#5fd7ff", intensity = "Bold" },
-        inactive_tab = { bg_color = "#262626", fg_color = "#af8787" }, -- colour138
-        inactive_tab_hover = { bg_color = "#3a3a3a", fg_color = "#5fd7ff" },
-        new_tab = { bg_color = "#262626", fg_color = "#af8787" },
-        new_tab_hover = { bg_color = "#444444", fg_color = "#5fd7ff" },
+        background = "#262626", -- darker chrome, distinct from the #323232 content bg
+        inactive_tab_edge = "#211F1C", -- naz darkblack, retro tab bar only
+        active_tab = { bg_color = "#575B61", fg_color = "#66D9EF", intensity = "Bold" }, -- naz lightgrey / aqua
+        inactive_tab = { bg_color = "#262626", fg_color = "#907D57" }, -- naz warmgrey (StatusLineNC)
+        inactive_tab_hover = { bg_color = "#323232", fg_color = "#66D9EF" },
+        new_tab = { bg_color = "#262626", fg_color = "#907D57" },
+        new_tab_hover = { bg_color = "#575B61", fg_color = "#66D9EF" },
     },
 }
 
@@ -192,15 +194,15 @@ end
 
 wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _max_width)
     local title = tab_title(tab)
-    -- Selected tab: orange (icon + text). Unselected: gray.
+    -- Selected tab: naz orange (Identifier). Unselected: naz warmgrey.
     if tab.is_active then
         return {
-            { Foreground = { Color = "#ff5f00" } },
+            { Foreground = { Color = "#FD9720" } },
             { Text = " " .. wezterm.nerdfonts.fa_circle .. " " .. title .. " " },
         }
     end
     return {
-        { Foreground = { Color = "#666666" } },
+        { Foreground = { Color = "#907D57" } },
         { Text = " " .. wezterm.nerdfonts.fa_circle .. " " .. title .. " " },
     }
 end)
@@ -282,11 +284,11 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
-    -- Same orange foreground as the selected tab.
+    -- Same naz orange foreground as the selected tab, on the darker chrome bg.
     local elements = {}
     for _, cell in ipairs(cells) do
         table.insert(elements, { Background = { Color = "#262626" } })
-        table.insert(elements, { Foreground = { Color = "#ff5f00" } })
+        table.insert(elements, { Foreground = { Color = "#FD9720" } })
         table.insert(elements, { Text = " " .. cell .. " " })
     end
 
