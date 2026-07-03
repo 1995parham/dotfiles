@@ -45,14 +45,14 @@ main_brew() {
 
     if ! grep -q -F "if type brew &>/dev/null; then" "$HOME/.zshrc"; then
         msg 'adding brew completions to .zshrc'
+        # only extend FPATH here; do NOT run compinit. zshrc.shared loads
+        # oh-my-zsh right after, which runs compinit once against this FPATH.
+        # calling compinit here too doubled compdump/compaudit on every launch.
         if ! tee -a "$HOME/.zshrc" >/dev/null <<'EOL'; then
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
   FPATH=$HOMEBREW_PREFIX/share/zsh-completions:$FPATH
   FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi
 EOL
             msg 'failed to append brew completions to .zshrc' 'error'

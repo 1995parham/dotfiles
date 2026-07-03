@@ -42,20 +42,11 @@ main_apt() {
 }
 
 main_brew() {
+    # bash-completion@2 is loaded lazily (on first <Tab>) from bashrc.shared's
+    # darwin block, so we only need the package here — do NOT append an eager
+    # `source .../bash_completion.sh` to .bashrc; that re-adds ~0.6s of startup
+    # by sourcing the whole compat dir on every launch.
     require_brew bash bash-completion@2
-
-    local brew_prefix
-    brew_prefix="$(brew --prefix)"
-    local completion_path="$brew_prefix/etc/profile.d/bash_completion.sh"
-
-    msg "adding bash-completion to .bashrc"
-    if ! grep -q "bash_completion.sh" "$HOME/.bashrc"; then
-        local completion_line="[[ -r \"$completion_path\" ]] && . \"$completion_path\""
-        if ! echo "$completion_line" | tee -a "$HOME/.bashrc" >/dev/null; then
-            msg 'failed to append bash-completion to .bashrc' 'error'
-            return 1
-        fi
-    fi
 }
 
 main() {
