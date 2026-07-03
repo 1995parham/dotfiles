@@ -209,27 +209,73 @@ wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, _hover, _ma
     }
 end)
 
+-- Clock cache, refreshed off the render path.
+--
+-- The right-status bar shows a Jalali date plus three ticking wall-clocks.
+-- Spawning `jdate`/`date` inside the render callback (as this used to) put a
+-- child process on the render path every tick; because WezTerm.app is
+-- provenance-tracked by macOS Gatekeeper, each spawn pinned syspolicyd (see
+-- status_update_interval below). Instead we spawn ONCE per minute in a
+-- self-rescheduling background timer to capture the Jalali date (changes
+-- daily) and each zone's current UTC offset + abbreviation (change only at DST
+-- boundaries), then compute the ticking H:M:S purely in Lua at render time.
+-- Net: one cheap spawn per minute instead of one per second.
+local clock_cache = {
+    jdate = "",
+    -- order mirrors the refresh command below: Tehran, Pacific, Eastern
+    zones = {
+        { offset = 0, abbr = "" },
+        { offset = 0, abbr = "" },
+        { offset = 0, abbr = "" },
+    },
+}
+
+local function refresh_clock_cache()
+    -- login shell (-l) so jdate resolves on the Homebrew PATH; %z is the
+    -- numeric offset used for the Lua math, %Z the label shown to the user.
+    local ok, stdout = wezterm.run_child_process({
+        "bash",
+        "-lc",
+        "jdate +%D; TZ='Asia/Tehran' date '+%z %Z'; TZ='US/Pacific' date '+%z %Z'; TZ='US/Eastern' date '+%z %Z'",
+    })
+    if ok then
+        local lines = {}
+        for line in stdout:gmatch("[^\r\n]+") do
+            table.insert(lines, line)
+        end
+        clock_cache.jdate = lines[1] or clock_cache.jdate
+        for i = 1, 3 do
+            local off, abbr = (lines[i + 1] or ""):match("([+-]%d%d%d%d)%s+(%S+)")
+            if off then
+                local sign = (off:sub(1, 1) == "-") and -1 or 1
+                clock_cache.zones[i] = {
+                    offset = sign * (tonumber(off:sub(2, 3)) * 3600 + tonumber(off:sub(4, 5)) * 60),
+                    abbr = abbr,
+                }
+            end
+        end
+    end
+    -- re-arm; a minute is well within DST-transition granularity
+    wezterm.time.call_after(60, refresh_clock_cache)
+end
+
+refresh_clock_cache() -- prime the cache at startup
+
 wezterm.on("update-right-status", function(window, pane)
     -- Each element holds the text for a cell in a "powerline" style << fade
     local cells = {}
 
-    -- One login-shell spawn instead of four: jdate needs Homebrew on PATH
-    -- (hence -l), and the login-shell startup cost dominates over the
-    -- actual date/jdate calls, so batching them saves ~75% of the overhead.
-    local _, clocks_output, _ = wezterm.run_child_process({
-        "bash",
-        "-lc",
-        "jdate +%D; TZ='Asia/Tehran' date +%H:%M-%Z; TZ='US/Pacific' date +%H:%M-%Z; TZ='US/Eastern' date +%H:%M-%Z",
-    })
-    local clock_lines = {}
-    for line in clocks_output:gmatch("[^\r\n]+") do
-        table.insert(clock_lines, line)
+    -- Ticking clocks computed in Lua from the cached offsets (no spawn here):
+    -- os.time() is the TZ-independent Unix epoch and os.date("!...") formats in
+    -- UTC, so epoch + zone offset yields that zone's wall clock, seconds and all.
+    local now = os.time()
+    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. clock_cache.jdate)
+    for _, z in ipairs(clock_cache.zones) do
+        table.insert(
+            cells,
+            wezterm.nerdfonts.fa_clock_o .. "   " .. os.date("!%H:%M:%S", now + z.offset) .. "-" .. z.abbr
+        )
     end
-
-    table.insert(cells, wezterm.nerdfonts.fa_calendar .. "   " .. (clock_lines[1] or ""))
-    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. (clock_lines[2] or ""))
-    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. (clock_lines[3] or ""))
-    table.insert(cells, wezterm.nerdfonts.fa_clock_o .. "   " .. (clock_lines[4] or ""))
 
     -- An entry for each battery (typically 0 or 1 battery)
     local function battery_icons(state, percentage)
@@ -363,14 +409,12 @@ config.visual_bell = {
 }
 
 config.automatically_reload_config = true
--- Every status update spawns a child process (the jdate/date clocks below).
--- Because WezTerm.app is a notarized/downloaded app, macOS provenance-tracks
--- every child it spawns via Gatekeeper; on this machine that path errors
--- (syspolicyd "failed to call driver: 0x3") and falls back to a network round
--- trip per spawn, pinning syspolicyd ~80% (measured). At 1s that was the main
--- source of chassis heat. 15s + minute-resolution clocks cuts it ~15x (~5%)
--- while keeping the clocks accurate to within 15s.
-config.status_update_interval = 15000
+-- The render callback no longer spawns anything (it reads the clock cache and
+-- computes seconds in Lua), so a 1s tick is cheap and never touches syspolicyd.
+-- The only child process is the once-per-minute cache refresh above. This
+-- restores smooth ticking seconds without the chassis heat that a per-second
+-- spawn used to cause (macOS provenance-tracks every child WezTerm.app spawns).
+config.status_update_interval = 1000
 
 config.scrollback_lines = 20000
 
