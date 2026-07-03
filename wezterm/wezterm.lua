@@ -86,7 +86,7 @@ config.colors = {
 
 config.prefer_to_spawn_tabs = true
 config.native_macos_fullscreen_mode = true
-config.max_fps = 120
+config.max_fps = 60
 
 config.keys = {
     {
