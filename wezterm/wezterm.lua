@@ -296,6 +296,11 @@ wezterm.on("update-right-status", function(window, pane)
         )
     end
 
+    -- We don't use the left status. Clear it explicitly: WezTerm retains the
+    -- last set value, so without this an old value (e.g. from a previous config
+    -- that showed cwd/process) would stay frozen on screen until restart.
+    window:set_left_status("")
+
     -- Plain status text: naz orange (matches the selected tab) over a flat
     -- colors.background band, so the status matches the terminal content.
     window:set_right_status(wezterm.format({
