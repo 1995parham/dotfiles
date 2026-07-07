@@ -166,10 +166,8 @@ wezterm.on("toggle_term", function(window, pane)
         end
     end
 
-    wezterm.log_info(terminal_pane)
-
     if terminal_pane and window:active_pane():pane_id() == terminal_pane:pane_id() then
-        window:perform_action(wezterm.action.CloseCurrentPane({ confirm = true }), pane)
+        window:perform_action(wezterm.action.CloseCurrentPane({ confirm = false }), pane)
         toggle_pane_id = nil
     else
         if terminal_pane then
@@ -384,42 +382,18 @@ config.status_update_interval = 1000
 
 config.scrollback_lines = 20000
 
-config.hyperlink_rules = {
-    -- Matches: a URL in parens: (URL)
-    {
-        regex = "\\((\\w+://\\S+)\\)",
+-- Seed from WezTerm's built-in rules (plain URLs, mailto, etc.) so upstream
+-- improvements carry through, then append the extras below.
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- Bracket-wrapped URLs: (URL), [URL], {URL}, <URL> -> link just the inner URL.
+for _, brackets in ipairs({ { "\\(", "\\)" }, { "\\[", "\\]" }, { "\\{", "\\}" }, { "<", ">" } }) do
+    table.insert(config.hyperlink_rules, {
+        regex = brackets[1] .. "(\\w+://\\S+)" .. brackets[2],
         format = "$1",
         highlight = 1,
-    },
-    -- Matches: a URL in brackets: [URL]
-    {
-        regex = "\\[(\\w+://\\S+)\\]",
-        format = "$1",
-        highlight = 1,
-    },
-    -- Matches: a URL in curly braces: {URL}
-    {
-        regex = "\\{(\\w+://\\S+)\\}",
-        format = "$1",
-        highlight = 1,
-    },
-    -- Matches: a URL in angle brackets: <URL>
-    {
-        regex = "<(\\w+://\\S+)>",
-        format = "$1",
-        highlight = 1,
-    },
-    -- Then handle URLs not wrapped in brackets
-    {
-        regex = "\\b\\w+://\\S+[)/a-zA-Z0-9-]+",
-        format = "$0",
-    },
-    -- implicit mailto link
-    {
-        regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
-        format = "mailto:$0",
-    },
-}
+    })
+end
 
 -- Extends the built-in QuickSelect patterns (URLs, paths, git hashes, IPs,
 -- numbers) bound to CTRL-SHIFT-Space by default.
