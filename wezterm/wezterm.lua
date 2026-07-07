@@ -320,8 +320,8 @@ end)
 -- here to keep Maple Mono's ligatures working.
 config.font = wezterm.font("Maple Mono NF", {
     weight = "Medium",
-    harfbuzz_features = { "kern", "liga", "clig", "calt", "cv04=1" },
 })
+config.harfbuzz_features = { "kern", "liga", "clig", "calt", "cv04=1" }
 config.font_size = 10
 config.cell_width = 1.0
 config.show_new_tab_button_in_tab_bar = false
