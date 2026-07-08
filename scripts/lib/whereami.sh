@@ -15,21 +15,21 @@ whereami() {
     local timestamp_file="/tmp/whereami.timestamp"
     local ip name label
 
-    ip="$(curl -sL "$ip_country_url" --max-time 10 2>/dev/null | jq -j '"\(.query) - \(.country) (\(.isp))\(if .proxy then " [VPN]" else "" end)\(if .hosting then " [Hosting]" else "" end)"' 2>/dev/null)"
+    ip="$(curl -sL "$ip_country_url" --max-time 10 2>/dev/null | jq -j '"\(.query) - \(.country) (\(.isp))\(if .proxy then " [VPN]" else "" end)\(if .hosting then " [Hosting]" else "" end)"' 2>/dev/null)" || ip=""
     if [ -n "$ip" ]; then
         _whereami_update_cache "$ip" "$cache_file" "$timestamp_file"
         _whereami_show_result "$ip" "$timestamp_file"
         return 0
     fi
 
-    ip="$(curl -sL "$fallback_ip_country_url" --max-time 10 2>/dev/null | jq -j '"Fallback: \(.ip) - \(.country_code)"' 2>/dev/null)"
+    ip="$(curl -sL "$fallback_ip_country_url" --max-time 10 2>/dev/null | jq -j '"Fallback: \(.ip) - \(.country_code)"' 2>/dev/null)" || ip=""
     if [ -n "$ip" ]; then
         _whereami_update_cache "$ip" "$cache_file" "$timestamp_file"
         _whereami_show_result "$ip" "$timestamp_file"
         return 0
     fi
 
-    ip="$(curl -sL "$iran_access_ip_url" --max-time 10 2>/dev/null | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -1)"
+    ip="$(curl -sL "$iran_access_ip_url" --max-time 10 2>/dev/null | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -1)" || ip=""
     if [ -n "$ip" ]; then
         name="$(_whereami_name_ip "$ip")"
         label="${name:-fucked up}"

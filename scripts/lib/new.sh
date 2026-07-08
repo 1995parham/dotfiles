@@ -46,8 +46,7 @@ main() {
     fi
 
     local host
-    host="$(hostname)"
-    host="${host%.*}"
+    host="$(_host_short)"
     if yes_or_no "do you want to be ${host} specific? "; then
         root="${root}/hosts/${host}"
     fi
