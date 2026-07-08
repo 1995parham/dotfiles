@@ -22,8 +22,8 @@ main_brew() {
 }
 
 main_apt() {
-    require_apt terraform
-
+    # terraform is not packaged in the default apt repositories, so on
+    # Debian/Ubuntu we install OpenTofu only.
     # OpenTofu requires adding the repository
     if ! command -v tofu &>/dev/null; then
         msg "Installing OpenTofu from official repository" "info"
