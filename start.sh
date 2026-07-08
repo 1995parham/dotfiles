@@ -106,7 +106,7 @@ _resolve_script_paths() {
     local script=$1
     local paths=()
     local host
-    host="${HOSTNAME%%.*}"
+    host="$(_host_short)"
 
     # General script in scripts/
     if [[ -f "${main_root}/scripts/${script}.sh" ]]; then
@@ -132,12 +132,14 @@ _execute_scripts() {
     local script_args=()
     [[ $# -gt 0 ]] && script_args=("$@")
 
+    local host
+    host="$(_host_short)"
+
     local script_paths
     read -ra script_paths <<<"$(_resolve_script_paths "${script}")"
 
     if [[ ${#script_paths[@]} -eq 0 ]]; then
         message "pre" "404 script not found" "notice"
-        local host="${HOSTNAME%%.*}"
         message "pre" "404 script not found for ${host}" "notice"
         _usage
         return 1
@@ -146,8 +148,7 @@ _execute_scripts() {
     for script_path_entry in "${script_paths[@]}"; do
         IFS=':' read -r script_file script_root <<<"${script_path_entry}"
 
-        if [[ "${script_file}" == *"/hosts/"* ]] || [[ "${script_file}" == *"/${HOSTNAME%%.*}/"* ]]; then
-            local host="${HOSTNAME%%.*}"
+        if [[ "${script_file}" == *"/hosts/"* ]] || [[ "${script_file}" == *"/${host}/"* ]]; then
             message "pre" "run script for specific host: ${host}" "notice"
         fi
 

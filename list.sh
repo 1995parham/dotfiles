@@ -50,8 +50,7 @@ main() {
     echo
 
     local host
-    host="$(hostname)"
-    host="${host%.*}"
+    host="$(_host_short)"
 
     if [[ ! -d "${root}/${host}/scripts" ]]; then
         return 0

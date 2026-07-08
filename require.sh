@@ -27,8 +27,7 @@ function require_country() {
     local country current_country
     country=${1:?"country is required"}
 
-    current_country="$(_get_current_country)"
-    if [[ $? -ne 0 || -z "${current_country}" ]]; then
+    if ! current_country="$(_get_current_country)" || [[ -z "${current_country}" ]]; then
         message "country" "󰈻 failed to detect current country" "error"
         return 1
     fi
@@ -46,8 +45,7 @@ function not_require_country() {
     local country current_country
     country=${1:?"country is required"}
 
-    current_country="$(_get_current_country)"
-    if [[ $? -ne 0 || -z "${current_country}" ]]; then
+    if ! current_country="$(_get_current_country)" || [[ -z "${current_country}" ]]; then
         message "country" "󰈻 failed to detect current country" "error"
         return 1
     fi

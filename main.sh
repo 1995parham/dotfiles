@@ -29,3 +29,12 @@ source "${dotfile_lib_root}/run.sh"
 source "${dotfile_lib_root}/service.sh"
 # shellcheck source=github.sh
 source "${dotfile_lib_root}/github.sh"
+
+# short (first-label) hostname. shared by the dispatcher and the new/list
+# scripts so host-specific script resolution stays consistent: for a
+# multi-label name like "box.home.arpa" this yields "box" everywhere,
+# instead of start.sh trimming to "box" while new/list kept "box.home".
+_host_short() {
+    local host="${HOSTNAME:-$(hostname)}"
+    printf '%s' "${host%%.*}"
+}
