@@ -16,9 +16,7 @@ usage() {
 }
 
 main_pacman() {
-    proxy_start
     require_aur google-cloud-cli
-    proxy_stop
 }
 
 main_apt() {
@@ -26,8 +24,6 @@ main_apt() {
 }
 
 main() {
-    proxy_start
     gcloud auth list
     gcloud auth login
-    proxy_stop
 }
