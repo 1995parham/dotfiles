@@ -21,7 +21,7 @@ main_apt() {
 
     export BIN_DIR="$HOME/.local/bin"
     export FORCE="true"
-    curl -SS https://raw.githubusercontent.com/starship/starship/refs/heads/master/install/install.sh | sh
+    curl -sSf https://starship.rs/install.sh | sh
 }
 
 main_pkg() {
