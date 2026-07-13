@@ -15,6 +15,9 @@ usage() {
 
 main_brew() {
     require_brew kubernetes-cli helm stern argocd openshift-cli kubectx krew k9s kubeseal
+
+    # argo-rollouts kubectl plugin (not published to brew or krew)
+    require_github_release "argoproj/argo-rollouts" "kubectl-argo-rollouts" "kubectl-argo-rollouts-darwin-arm64"
 }
 
 main_apt() {
@@ -29,13 +32,17 @@ main_apt() {
     require_github_release "kubernetes-sigs/krew" "krew-linux_amd64" "krew-linux_amd64" "tar.gz"
     ln -sf "$HOME/.local/bin/krew-linux_amd64" "$HOME/.local/bin/kubectl-krew"
     require_github_release "bitnami-labs/sealed-secrets" "kubeseal" "kubeseal-\${version#v}-linux-amd64" "tar.gz"
+
+    # argo-rollouts kubectl plugin (not published to krew)
+    require_github_release "argoproj/argo-rollouts" "kubectl-argo-rollouts" "kubectl-argo-rollouts-linux-amd64"
 }
 
 main_pacman() {
     export allow_no_aur=true
 
     require_pacman kubectl helm argocd kubectx stern k9s krew kubeseal
-    require_aur okd-client-bin
+    # argo-rollouts kubectl plugin (not published to krew)
+    require_aur okd-client-bin kubectl-argo-rollouts-bin
 }
 
 main() {
