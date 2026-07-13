@@ -121,16 +121,52 @@ if [ -f "$HOME/.dircolors" ]; then
   fi
 fi
 
-# make zsh tab-completion menus honor the same palette as `ls`. completion
-# colors come from a separate zstyle that does NOT read $LS_COLORS on its own,
-# so feed it explicitly (splitting on ':') right after dircolors runs.
+# make zsh tab-completion menus honor the same palette as `ls`. the completion
+# list-colors zstyle does NOT read $LS_COLORS on its own, so feed it explicitly
+# (splitting on ':') right after dircolors runs, then append a `ma` spec last
+# so it wins over any ma= in the dircolors db: the highlighted item in menu
+# selection gets a bold grey background while each match keeps its own
+# file-type foreground color.
+zstyle ':completion:*' menu select
 if [[ -n "$LS_COLORS" ]]; then
-  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" 'ma=1;48;5;237'
+else
+  zstyle ':completion:*' list-colors 'ma=1;48;5;237'
 fi
+
+# color the annotations the completion system prints around the matches, and
+# group matches under their (colored) description headers so those headers do
+# real work. `format` is honored on every zsh; on 5.9+ the description text is
+# auto-enriched with the units/ranges/default values the completion system now
+# parses out, so this styling showcases that without any extra config.
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{yellow}%B%d%b%f'
+zstyle ':completion:*:messages'     format '%F{cyan}%d%f'
+zstyle ':completion:*:warnings'     format '%F{red}no matches for: %d%f'
+zstyle ':completion:*:corrections'  format '%F{green}%d %F{242}(errors: %e)%f'
 
 # cache completion results so expensive completers are fast on repeat use.
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "${ZSH_CACHE_DIR:-$HOME/.cache/oh-my-zsh}/completions"
+
+# --- version-gated modern zsh features --------------------------------------
+# guard newer-zsh niceties behind is-at-least (zsh's canonical version
+# comparator) so this shared config stays safe on the older zsh some hosts
+# ship. runs after oh-my-zsh, so these deliberately win over omz defaults.
+#
+# note: most zsh 5.9.1+ additions are runtime builtins/modules that need no
+# config and just work here (kill -q/-L, fc -s, zformat -F, PCRE2->PCRE2,
+# real-time signals, the _as_if completion helper). WATCHFMT's %F/%K color
+# escapes are the one config-expressible addition gated below.
+autoload -Uz is-at-least
+
+if is-at-least 5.9; then
+  # zsh 5.9 broke login watching into the default-enabled zsh/watch module and
+  # taught WATCHFMT %F/%K color escapes. notme = report every user but our own
+  # sessions, so `who` churn from other logins is visible without self-noise.
+  WATCH=notme
+  WATCHFMT='%F{cyan}%n%f %a %F{green}%l%f from %F{yellow}%M%f at %F{blue}%t%f.'
+fi
 
 # def for definition of a word
 # use a wrapper around sdcv to conveniently format its output
