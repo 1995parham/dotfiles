@@ -324,6 +324,19 @@ config.font_size = 10
 config.cell_width = 1.0
 config.show_new_tab_button_in_tab_bar = false
 
+-- Bidirectional text: reorder RTL runs (Farsi) per the Unicode bidi algorithm
+-- instead of painting them in logical order, i.e. backwards. Undocumented on
+-- the website -- the config page 404s -- but the fields are real and live in
+-- config/src/config.rs as bidi_enabled/bidi_direction. The older
+-- experimental_bidi spelling was removed without the docs following, which is
+-- why searching for it turns up only dead ends.
+-- AutoLeftToRight auto-detects each paragraph's base direction and falls back
+-- to LTR, so ASCII output is untouched and only Farsi runs get reordered.
+-- Note tmux reflows lines itself, so inside tmux this helps less than it does
+-- in a bare wezterm pane.
+config.bidi_enabled = true
+config.bidi_direction = "AutoLeftToRight"
+
 -- machine specific configuration based on the hostname
 local hostname = wezterm.hostname()
 
