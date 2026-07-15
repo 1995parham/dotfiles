@@ -238,6 +238,31 @@ zle -N _call_kubectx
 
 bindkey '^t' _call_kubectx
 
+# report the cwd to wezterm via OSC 7, so new panes/tabs/splits open where the
+# current one is. without it wezterm falls back to inspecting the process group
+# leader, which its docs call best-effort and which is unreliable on macos.
+# starship doesn't emit OSC 7 itself, so this is on us.
+if [[ -n "$WEZTERM_PANE" ]]; then
+  _wezterm_osc7() {
+    # the path is percent-encoded byte-by-byte. LC_ALL=C is what makes ${(s::)}
+    # split into bytes rather than characters, so multibyte (e.g. farsi) dir
+    # names encode to their utf-8 octets instead of codepoints. `local` here
+    # scopes it to the function, so the rest of the shell keeps its locale.
+    local LC_ALL=C
+    local encoded="" char
+    for char in ${(s::)PWD}; do
+      case "$char" in
+        ([A-Za-z0-9/_.~-]) encoded+="$char" ;;
+        (*) encoded+="%${(l:2::0:)$(([##16] ##$char ))}" ;;
+      esac
+    done
+    # every step above is a builtin: no forks, so this stays off the hot path.
+    printf '\033]7;file://%s%s\033\\' "$HOST" "$encoded"
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd _wezterm_osc7
+fi
+
 # history
 HISTSIZE=100000
 SAVEHIST=100000
