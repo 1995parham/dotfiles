@@ -15,3 +15,19 @@ jobs:
               with:
                   sh_checker_comment: false
                   sh_checker_exclude: "scripts/lib/ start.sh"
+
+    stylua:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+            # rules live in .stylua.toml; stylua itself comes from
+            # scripts/neovim.sh locally. version is deliberately unpinned to
+            # track the rolling brew/pacman builds that format the files here,
+            # since a pinned checker would drift from them and fail on style
+            # the local tool considers correct.
+            - name: Run stylua
+              uses: JohnnyMorganz/stylua-action@v5
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  version: latest
+                  args: --check .

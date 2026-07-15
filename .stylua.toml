@@ -1,0 +1,15 @@
+# Formatting rules for the repo's lua (currently wezterm/wezterm.lua).
+# stylua itself is installed by scripts/neovim.sh, and CI checks it in
+# .github/workflows/sh-lint.yaml.
+#
+# These values describe the style the lua was already written in, so adopting
+# the formatter stays a no-op rather than a reflow: 4-space indent (never tabs)
+# and double quotes. column_width is stylua's default 120, which fits the
+# longest existing code line (113); the only wider lines are the ascii banner,
+# and stylua never reflows comments.
+column_width = 120
+line_endings = "Unix"
+indent_type = "Spaces"
+indent_width = 4
+quote_style = "AutoPreferDouble"
+call_parentheses = "Always"
