@@ -18,8 +18,8 @@ jobs:
                   test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
             - name: validate installation of requirements on both shell
               run: |
-                  bash -c hash vim batcat bmon
-                  zsh -c hash vim batcat bmon
+                  bash -c 'hash vim batcat bmon'
+                  zsh -c 'hash vim batcat bmon'
 
     basic-osx:
         runs-on: macos-latest
@@ -38,5 +38,5 @@ jobs:
                   test "$(readlink -f ~/.zshrc.shared)" = "$(pwd)/zsh/zshrc.shared"
             - name: validate installation of requirements on both shell
               run: |
-                  bash -c hash vim batcat bmon
-                  zsh -c hash vim batcat bmon
+                  bash -c 'hash vim bat'
+                  zsh -c 'hash vim bat'

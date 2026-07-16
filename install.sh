@@ -4,9 +4,12 @@ set -eu
 program_name=$0
 
 usage() {
-    echo "usage: $program_name [-h]"
+    echo "usage: $program_name [-y] [-h]"
+    echo "  -y   yes to all prompts"
     echo "  -h   display help"
 }
+
+yes_to_all=0
 
 # global variable that points to dotfiles root directory
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -22,14 +25,22 @@ message "pre" "home directory found at $HOME"
 
 message "pre" "dotfiles found at $root"
 
-while getopts "h" argv; do
+while getopts "yh" argv; do
     case $argv in
-    *)
+    y)
+        yes_to_all=1
+        ;;
+    h)
         usage
         exit
         ;;
+    *)
+        usage
+        exit 1
+        ;;
     esac
 done
+export yes_to_all
 
 requirements=(bash zsh tmux vim)
 
