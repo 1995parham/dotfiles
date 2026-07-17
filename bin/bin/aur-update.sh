@@ -4,7 +4,9 @@
 # For every package repo under $AUR_DIR (default: ~/Documents/Git/aur) this script:
 #   1. reads the current pkgver from the PKGBUILD,
 #   2. resolves the upstream GitHub repo (from url= or the github.com source URL),
-#   3. asks GitHub for the latest *stable* release tag,
+#   3. asks GitHub for the latest release tag — the latest *stable* one normally, or,
+#      when the package is pinned to a pre-release channel (ec/rc/alpha/beta), the
+#      newest tag *on that same channel*,
 #   4. and for outdated packages: bumps pkgver, resets pkgrel=1, recomputes the
 #      checksum arrays with updpkgsums, regenerates .SRCINFO, commits, and pushes.
 #
@@ -19,9 +21,9 @@
 # Notes:
 #   * VCS packages (-git, or pkgver like r123.abcdef) are skipped — makepkg versions
 #     those from the checkout, not from a release.
-#   * The latest-release query excludes pre-releases, so packages intentionally pinned
-#     to a pre-release/engineering-candidate channel (e.g. okd-client-bin) will read as
-#     current rather than being switched to a different channel.
+#   * Packages pinned to a pre-release/engineering-candidate channel (e.g.
+#     okd-client-bin on 5.0.0_okd_scos.ec.N) stay on that channel: the newest tag on
+#     the same line is chosen, never the latest stable (which may be a lower line).
 #
 # Requires: gh (authenticated), vercmp, updpkgsums, makepkg, git, jq.
 
@@ -117,9 +119,41 @@ github_slug() {
     return 1
 }
 
-# Latest stable release tag for a repo; falls back to the highest semver tag.
+# Does this pkgver sit on a pre-release channel (ec / rc / alpha / beta / pre / dev)?
+is_prerelease_pkgver() {
+    [[ ${1,,} =~ (^|[._-])(ec|rc|alpha|beta|pre|dev)([._-]|$) ]]
+}
+
+# The channel base: pkgver with a trailing .N / _N counter stripped.
+#   5.0.0_okd_scos.ec.4 -> 5.0.0_okd_scos.ec
+channel_base() {
+    printf '%s\n' "${1%[._]*}"
+}
+
+# Newest release tag for a repo.
+#   * Pre-release channel (cur pkgver is ec/rc/…): the highest tag on the *same*
+#     channel line, so we never drift onto a lower stable line. Pre-releases are
+#     included, and releases/latest (stable-only) is deliberately not consulted.
+#   * Otherwise: latest stable release, falling back to the highest semver tag.
 latest_tag() {
-    local slug=$1 tag
+    local slug=$1 cur=$2 tag
+
+    if is_prerelease_pkgver "$cur"; then
+        local base best_tag='' best_pv='' t pv
+        base=$(channel_base "$cur")
+        while IFS= read -r t; do
+            [[ -n $t ]] || continue
+            pv=$(tag_to_pkgver "$t")
+            # Same channel line only (e.g. 5.0.0_okd_scos.ec.*).
+            [[ $pv == "$base".* ]] || continue
+            if [[ -z $best_pv ]] || [[ $(vercmp "$pv" "$best_pv") -gt 0 ]]; then
+                best_pv=$pv best_tag=$t
+            fi
+        done < <(gh api "repos/$slug/releases?per_page=100" --jq '.[].tag_name' 2>/dev/null || true)
+        [[ -n $best_tag ]] && printf '%s\n' "$best_tag"
+        return 0
+    fi
+
     if tag=$(gh api "repos/$slug/releases/latest" --jq '.tag_name' 2>/dev/null) && [[ -n $tag ]]; then
         printf '%s\n' "$tag"
         return 0
@@ -191,7 +225,7 @@ for dir in "$aur_dir"/*/; do
         continue
     fi
 
-    tag=$(latest_tag "$slug" || true)
+    tag=$(latest_tag "$slug" "$pkgver" || true)
     if [[ -z $tag ]]; then
         warn "$pkgname — no upstream release/tag found for $slug"
         failed+=("$pkgname")
@@ -227,11 +261,18 @@ for dir in "$aur_dir"/*/; do
 
         makepkg --printsrcinfo >.SRCINFO
 
-        git add -A
+        # Only ever commit the two managed files. updpkgsums downloads the source
+        # artifact into this dir, so `git add -A` would stage the tarball/binary and
+        # push it to the AUR — add the files explicitly instead.
+        git add PKGBUILD .SRCINFO
         git commit -q -m "upgpkg: $pkgname $new_pkgver-1" || {
             err "$pkgname — nothing to commit / commit failed"
+            git checkout -- PKGBUILD .SRCINFO 2>/dev/null || true
             exit 3
         }
+
+        # Scrub the downloaded artifact and any build leftovers so the tree is clean.
+        git clean -qfdx 2>/dev/null || true
     ) || {
         failed+=("$pkgname")
         continue
