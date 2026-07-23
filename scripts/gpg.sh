@@ -26,7 +26,7 @@ main_pacman() {
     fi
 
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
-        (printf "pinentry-program %s" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
+        (printf "pinentry-program %s\n" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
 }
 
 main_apt() {
@@ -34,20 +34,14 @@ main_apt() {
 }
 
 main_brew() {
-    require_brew_cask gpg-suite@nightly
-    require_brew pinentry-mac
+    require_brew pinentry-mac gpg
 
     pinentry_program="$(brew --prefix)/bin/pinentry-mac"
 
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
-        (printf "pinentry-program %s" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
+        (printf "pinentry-program %s\n" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
 
     pkill gpg-agent
-
-    msg 'set gpg suite to be auto started'
-    osascript -e 'tell application "System Events" to ¬' \
-        -e 'make new login item with properties ¬' \
-        -e '{name:"GPG Keychain", path:"/Applications/GPG Keychain.app", hidden:true}'
 }
 
 main() {
