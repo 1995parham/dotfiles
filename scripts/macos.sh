@@ -88,13 +88,61 @@ main_brew() {
     # Disable Ctrl+Space (Input Source switching) to avoid conflicts with tmux
     # Key 60 = "Select the previous input source" (Ctrl+Space)
     # Key 61 = "Select next source in Input menu" (Ctrl+Option+Space)
-    /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c "Set AppleSymbolicHotKeys:60:enabled false" 2>/dev/null || true
-    /usr/libexec/PlistBuddy ~/Library/Preferences/com.apple.symbolichotkeys.plist -c "Set AppleSymbolicHotKeys:61:enabled false" 2>/dev/null || true
+    #
+    # These must go through `defaults` like every other hotkey above. Editing
+    # the plist with PlistBuddy writes the file behind cfprefsd's back, which
+    # caches the domain in memory: the edit can be silently discarded when
+    # cfprefsd next flushes, and it never reaches the live hotkey registration.
+    # Only relevant with 2+ input sources installed -- with a single layout
+    # macOS never grabs Ctrl+Space at all.
+    #
+    # A live grab here is easy to identify: pressing Ctrl+Space visibly switches
+    # the keyboard layout. If the key vanishes with no layout change, something
+    # else is eating it -- see the Maccy block below.
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "<dict><key>enabled</key><false/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>262144</integer></array></dict></dict>"
+    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "<dict><key>enabled</key><false/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>786432</integer></array></dict></dict>"
 
     # Apply keyboard shortcut changes immediately
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
     ok 'Keyboard shortcuts configured and activated'
+    msg 'Input-source shortcuts need a logout to fully release Ctrl+Space' 'notice'
+
+    # Maccy binds a global hotkey to "toggle preview", and as of 2.7.0 it is
+    # Ctrl+Space -- which swallows the tmux prefix system wide. Toggling the
+    # preview does nothing unless Maccy's popup is already open, so the key just
+    # disappears with no visible effect in any application. Move it to
+    # Option+Space, matching Maccy's other Option bindings (Option+P pin,
+    # Option+Delete delete).
+    #
+    # Carbon encoding: keyCode 49 = Space; modifiers Cmd=256, Shift=512,
+    # Option=2048, Control=4096, summed. Cross-check any decode against
+    # KeyboardShortcuts_popup, which should read Cmd+Shift+C (Maccy's default).
+    #
+    # Maccy is sandboxed, so its prefs live in the container rather than
+    # ~/Library/Preferences. A plain `defaults write org.p0deje.Maccy` targets a
+    # domain the app never reads and silently does nothing. Maccy also rewrites
+    # the file from memory on exit, so it has to be quit before writing.
+    maccy_prefs="$HOME/Library/Containers/org.p0deje.Maccy/Data/Library/Preferences/org.p0deje.Maccy"
+
+    if [ -f "${maccy_prefs}.plist" ]; then
+        maccy_was_running=false
+        if pgrep -x Maccy >/dev/null; then
+            maccy_was_running=true
+            osascript -e 'quit app "Maccy"' >/dev/null 2>&1 || true
+            sleep 1
+        fi
+
+        defaults write "$maccy_prefs" KeyboardShortcuts_togglePreview -string '{"carbonKeyCode":49,"carbonModifiers":2048}'
+
+        if [ "$maccy_was_running" = true ]; then
+            open -a Maccy >/dev/null 2>&1 || true
+        fi
+
+        ok 'Maccy toggle-preview moved off Ctrl+Space'
+    else
+        msg 'Maccy prefs not found; if Ctrl+Space dies, check its "Toggle preview" shortcut' 'notice'
+    fi
 
     section_header "Spotlight Configuration" 60 "="
 
