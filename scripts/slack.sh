@@ -12,6 +12,8 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 main_pacman() {
     require_aur slack-desktop
 }
@@ -25,7 +27,10 @@ main_brew() {
 }
 
 main() {
-    return 0
+    # Slack keeps themes server-side, so this can only be pasted, not linked.
+    # Preferences -> Themes -> Create a custom theme, or paste the line into
+    # any message box and hit the Apply button Slack renders for it.
+    message "slack" "Orange on black theme: $(cat "${root}/slack/theme.txt")" "notice"
 }
 
 main_parham() {
