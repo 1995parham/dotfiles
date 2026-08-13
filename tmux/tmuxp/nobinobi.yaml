@@ -61,6 +61,15 @@ windows:
           - pane
           - pane
 
+    - window_name: production ₿
+      layout: tiled
+      start_directory: ~/Documents/Git/nobitex/code/blockchain/production
+      panes:
+          - pane
+          - pane
+          - pane
+          - pane
+
     - window_name: nobitex 🧳
       layout: tiled
       start_directory: ~/Documents/Git/nobitex/code/nobitex/nobitex
