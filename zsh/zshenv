@@ -20,9 +20,15 @@ export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
 
 export AWS_VAULT_BACKEND=file
 
-if [ -f "$HOME/.kube/k3s.yaml" ]; then
-	export KUBECONFIG="$HOME/.kube/k3s.yaml"
-fi
+# kubectl merges a colon-separated KUBECONFIG list, so the local k3s cluster
+# coexists with the external ones instead of shadowing them. ~/.kube/config
+# stays first: `kubectl config`/kubectx write current-context to the first file.
+typeset -a _kubeconfigs
+for _kc in "$HOME/.kube/config" "$HOME/.kube/k3s.yaml"; do
+	[ -f "$_kc" ] && _kubeconfigs+=("$_kc")
+done
+(( $#_kubeconfigs )) && export KUBECONFIG="${(j.:.)_kubeconfigs}"
+unset _kc _kubeconfigs
 
 # }}}
 
