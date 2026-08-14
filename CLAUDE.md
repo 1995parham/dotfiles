@@ -1,13 +1,48 @@
 # Dotfiles Scripts Architecture
 
-This document provides comprehensive documentation of the scripts structure and library functions for easier maintenance and script creation.
+This document provides comprehensive documentation of the repository layout, the scripts structure, and the library functions, for easier maintenance and script creation.
+
+## Repository Layout
+
+The repository is organized as one directory per tool/module, plus the machinery that installs them.
+
+```
+dotfiles/
+├── start.sh               # symlink -> scripts/lib/start.sh (script dispatcher)
+├── start.ps1              # symlink -> scripts/lib/start.ps1 (Windows dispatcher)
+├── install.sh             # standalone linker for the "always on" dotfiles
+├── scripts/               # setup scripts, one per module (see below)
+├── hosts/<host>/          # host-specific overrides (scripts + configs)
+├── bin/bin/               # personal scripts, linked to ~/bin by install.sh
+├── secrets/               # encrypted material (e.g. github-token-keys.enc)
+├── companies/             # logos/assets used by prompts and configs
+├── conf/                  # small configs without their own directory (htop, aria2, ...)
+├── <module>/              # one directory per tool: zsh, git, tmux, kitty, starship, ...
+├── .github/workflows/     # CI: install.yaml + sh-lint.yaml
+├── .editorconfig          # 4-space indentation everywhere
+├── .stylua.toml           # lua formatting rules (checked in CI)
+└── .markdownlint.json     # markdown lint rules
+```
+
+Two entry points exist and they do different things:
+
+- `./install.sh [-y]` - links only the base set (`conf`, `tmux`, `wakatime`, `vim`, `bin`) and
+  requires `bash`, `zsh`, `tmux`, `vim` to already be present. Sources `message.sh`,
+  `linker.sh`, and `header.sh` directly, without the phase engine.
+- `./start.sh <script>` - the real dispatcher, runs one module script through the full
+  phase engine described below.
+
+`scripts/lib/` is **vendored from an upstream repository**
+([1995parham/dotfiles.lib](https://github.com/1995parham/dotfiles.lib)) via `git subtree`.
+Prefer fixing library bugs upstream; local edits there have to survive the next subtree merge.
+This is also why CI excludes `scripts/lib/` and `start.sh` from the shell linter.
 
 ## Directory Structure
 
 ```
 scripts/
-├── lib/                    # Shared library functions
-│   ├── main.sh            # Main aggregator (sources all libs)
+├── lib/                    # Shared library functions (git subtree, see above)
+│   ├── main.sh            # Main aggregator (sources all libs) + _host_short
 │   ├── message.sh         # Messaging and UI utilities
 │   ├── require.sh         # Package installation functions
 │   ├── linker.sh          # Symlink and file management
@@ -15,43 +50,73 @@ scripts/
 │   ├── clone.sh           # Git repository cloning
 │   ├── service.sh         # Cross-platform service management
 │   ├── proxy.sh           # Proxy configuration
+│   ├── whereami.sh        # Public IP / country detection (with cache)
 │   ├── run.sh             # Command execution utilities
 │   ├── start.sh           # Main script execution engine
-│   └── header.sh          # ASCII art header
+│   ├── header.sh          # ASCII art header
+│   ├── new.sh             # `./start.sh new`    - script template generator
+│   ├── list.sh            # `./start.sh list`   - list available scripts
+│   ├── update.sh          # `./start.sh update` - update installed packages
+│   ├── unit.sh            # Tiny test harness (assert_equals, assert_retval)
+│   ├── tests/             # Unit tests for the library itself
+│   └── *.ps1              # PowerShell mirrors (main, message, require, linker, ...)
 ├── *.sh                   # Individual setup scripts
-└── [Additional PowerShell scripts for Windows support]
+└── *.ps1                  # PowerShell equivalents for Windows support
 ```
 
 ## Script Execution Flow
 
 Scripts are executed via `start.sh`:
 ```bash
-./start.sh [-y] [-h] [-d] <script-name> [script-options]
+./start.sh [-y] [-h] [-d] [--allow-root] <script-name> [script-options]
 ```
 
 ### Flags
 - `-y`: Yes to all prompts (sets `yes_to_all=1`)
-- `-h`: Display help (sets `show_help=true`)
-- `-d`: As dependency (internal use, sets `as_dependency=true`)
+- `-h`: Display help (sets `show_help=true`), prints `_usage` + the script's `usage`
+- `-d`: As dependency (internal use, sets `as_dependency=true`, skips the ASCII header)
+- `--allow-root`: Permit running as root; without it `start.sh` refuses when `EUID` is 0
+
+### Built-in Subcommands
+
+These names are resolved to `scripts/lib/` instead of `scripts/`:
+
+```bash
+./start.sh new [name]   # generate a new script from the template
+./start.sh list         # list available scripts (general + host-specific)
+./start.sh update       # update packages via the platform package manager
+```
+
+Running `./start.sh` with no script prints usage and falls back to `list`.
 
 ### Execution Phases
 
-Each script goes through these phases (defined in `start.sh`):
+Each script goes through these phases (defined in `start.sh`'s `run`):
 
 1. **Pre Main** (`pre_main` function) - Setup and validation
 2. **Install** (`install` function) - Platform-specific installation
 3. **Main** (`main` function) - Post-installation configuration
-4. **User-specific** (`main_${USER}` function) - User-specific customization
+4. **User-specific** (`main_${profile}` function) - Per-user customization
+
+The profile in phase 4 is `${PROFILE:-${USER}}`. Setting `export PROFILE=elahe` lets a
+machine whose login name differs from the canonical profile (e.g. `ellie`, `raha`) reuse the
+same `main_elahe` function instead of adding alias stubs to every script.
+
+`pre_main`, `main`, and `main_${profile}` all receive the script's extra arguments; `install`
+does not.
 
 ### Platform Detection
 
-The `install` function automatically detects the platform and calls the appropriate function:
+The `install` function detects the platform, in this order, and calls the matching function.
+If the matching function is missing, the run aborts with an error.
 
-- **macOS**: `main_brew` (using Homebrew)
-- **Android/Termux**: `main_pkg` (using pkg)
-- **Debian/Ubuntu**: `main_apt` (using apt)
-- **Arch Linux**: `main_pacman` (using pacman/yay)
-- **Void Linux**: `main_xbps` (using xbps)
+- **macOS** (`$OSTYPE` = `darwin*`): `main_brew` (using Homebrew)
+- **Android/Termux** (`$OSTYPE` = `linux-android`): `main_pkg` (using pkg)
+- **Debian/Ubuntu** (`apt` present): `main_apt` (using apt)
+- **Arch Linux** (`pacman` present): `main_pacman` (using pacman/yay)
+- **Void Linux** (`xbps-install` present): `main_xbps` (using xbps)
+
+Note that `apt` is probed **before** `pacman`, so a machine with both would take the apt path.
 
 ## Required Global Variables
 
@@ -96,6 +161,10 @@ main_pkg() {
     require_pkg package1 package2
 }
 
+main_xbps() {
+    require_xbps package1 package2
+}
+
 # Optional: Post-installation configuration
 main() {
     # Configuration, file setup, etc.
@@ -104,10 +173,18 @@ main() {
 
 # Optional: User-specific configuration
 main_parham() {
-    # User-specific setup (replace 'parham' with actual username)
+    # User-specific setup (replace 'parham' with the username or $PROFILE)
     return 0
 }
 ```
+
+Only define the platform functions you actually support — see `scripts/dotnet.sh`, which
+implements `main_pacman`/`main_apt`/`main_brew` and simply omits the rest. A missing function
+produces a clear "main_X not found, there is nothing to do" message.
+
+Helper functions private to a script are conventionally prefixed with the module name
+(`dotnet_configure`, `require_dotnet_tool`) to avoid colliding with the library or with a
+host-specific script sourced into the same shell.
 
 ## Library Functions Reference
 
@@ -155,6 +232,11 @@ progress_bar <current> <total> [width] [prefix]
 colorize <color> <text>
 # Print colored text
 # Example: colorize "$F_SUCCESS" "Done!"
+
+spinner [message] <pid>
+# Show a spinner while the given background pid is alive (Linux only, reads /proc)
+# Note the argument order: message first, pid second
+# Example: long_task & spinner "Working" $!
 ```
 
 #### Color Variables
@@ -250,9 +332,11 @@ require_mason <packages...>
 #### GitHub Releases
 ```bash
 require_github_release <repo> <binary_name> <release_name> [archive_ext]
-# Install from GitHub releases
-# Supports: tar.gz, tar.xz, zip, dmg (macOS), deb (Linux), or raw binary
-# Tracks versions and supports upgrades
+# Install from GitHub releases into ~/.local/bin
+# Supports: tar.gz, tar.xz, tar.bz2, zip, dmg (macOS), deb (Linux), or raw binary
+# Tracks installed versions and re-installs only on upgrade
+# <binary_name> is eval'd, so it may reference ${version} resolved at runtime
+# Honors OFFLINE=1: logs a skip and returns 0 for hosts that cannot reach github.com
 # Example: require_github_release "user/repo" "binary" "binary-linux-amd64" "tar.gz"
 ```
 
@@ -272,6 +356,21 @@ require_host <hostname>
 require_hosts_record <address> <hostname>
 # Add entry to /etc/hosts
 # Example: require_hosts_record "127.0.0.1" "myapp.local"
+
+require_systemd_kernel_parameter <[+|-]parameter>
+# Add/remove a kernel parameter in every /boot/loader/entries/*.conf (systemd-boot)
+# Prefix with '-' to remove, '+' or nothing to add
+# Example: require_systemd_kernel_parameter "+nvidia_drm.modeset=1"
+# Example: require_systemd_kernel_parameter "-quiet"
+```
+
+### Location Detection (whereami.sh)
+
+```bash
+whereami
+# Print public IP + country/ISP, with VPN/hosting markers
+# Falls back through ip-api.com -> ifconfig.io -> ipmyp.ir -> /tmp/whereami.sh cache
+# Returns: 0 live source, 1 stale cache only, 2 nothing available
 ```
 
 ### File & Symlink Management (linker.sh)
@@ -287,10 +386,12 @@ linker <module> <src_path> <dst_path>
 
 dotfile <module> [file] [is_hidden]
 # Link to home directory
-# is_hidden: true (default) adds dot prefix
-# If file not specified, uses module name
-# Example: dotfile "bashrc"          # Links $root/bashrc/bashrc to ~/.bashrc
+# is_hidden: true (default) adds dot prefix to the destination name
+# Destination name is the file when given, otherwise the module name
 # Example: dotfile "git" "gitconfig"  # Links $root/git/gitconfig to ~/.gitconfig
+# Example: dotfile "vim" "vimrc"      # Links $root/vim/vimrc to ~/.vimrc
+# Example: dotfile "bin" "bin" false  # Links $root/bin/bin to ~/bin (no dot prefix)
+# Note: omitting <file> links the module DIRECTORY ($root/<module>/) to ~/.<module>
 
 configfile <module> [src_file] [src_dir]
 # Link to ~/.config directory
@@ -378,6 +479,9 @@ proxy_stop
 run_verbose <command...>
 # Execute command and add to shell history
 # Example: run_verbose docker build -t myapp .
+
+run_editor_before
+# NOT IMPLEMENTED, always returns 1. Do not use.
 ```
 
 ## Script Dependencies & Additionals
@@ -385,12 +489,16 @@ run_verbose <command...>
 Scripts can declare dependencies and optional additions:
 
 ```bash
-# Dependencies (will be installed first)
+# Dependencies: prompted once as a group, installed before `run`
 export dependencies=("git" "node")
 
-# Optional additional packages (user will be prompted)
+# Optional additional packages: prompted individually, installed after `run`
 export additionals=("python" "go" "java")
 ```
+
+Both are installed by re-invoking `${main_root}/start.sh` with `-d` (and `-y` when
+`yes_to_all` is set), so each one gets its own full phase run. An entry may carry arguments
+(`"nvim --headless"`); it is word-split before being passed along.
 
 ## Helper Functions in Scripts
 
@@ -484,13 +592,20 @@ main_pacman() {
 ## Environment Variables
 
 ### Set by Framework
-- `$root`: Path to dotfiles root (or host-specific root)
+- `$root`: Path to dotfiles root — reassigned per script, so a host-specific script sees
+  `${main_root}/hosts/<host>` instead of the repo root
 - `$main_root`: Always points to main dotfiles root
 - `$yes_to_all`: 0 or 1, set by `-y` flag
 - `$show_help`: true or false, set by `-h` flag
 - `$as_dependency`: true or false, set by `-d` flag
-- `$USER`: Current username
-- `$HOSTNAME`: System hostname
+- `$allow_root`: true or false, set by `--allow-root`
+- `$script`: Name of the script currently running (used by the `msg` helper)
+- `$USER` / `$PROFILE`: Profile selection for the `main_<profile>` phase
+- `$HOSTNAME`: System hostname (trimmed to its first label for script resolution)
+
+### Read by Library Functions
+- `$allow_no_aur`: when true, `require_aur` succeeds instead of failing when `yay` is absent
+- `$OFFLINE`: when `1`, `require_github_release` skips the download and returns 0
 
 ### XDG Variables
 - `$XDG_CONFIG_HOME`: Defaults to `$HOME/.config`
@@ -515,9 +630,13 @@ Use the built-in template generator:
 ./start.sh new <script-name>
 ```
 
-This creates a new script with the standard template structure.
+It prompts for the name (if omitted), whether the script is host-specific, a description,
+whether it needs `$root`, and the user for the `main_<user>` stub — then writes a skeleton
+with `figlet` ASCII art in `usage` and every platform function stubbed out returning `1`
+(i.e. "this platform is not supported yet"). Delete the stubs you do not implement rather
+than leaving them returning `1`, since a stub that returns `1` aborts the run under `set -e`.
 
-## Testing Scripts
+## Testing & Linting
 
 Run scripts individually:
 ```bash
@@ -526,6 +645,33 @@ Run scripts individually:
 ./start.sh -h <script-name>      # Help mode
 ```
 
+Library unit tests live in `scripts/lib/tests/` and use the tiny harness in
+`scripts/lib/unit.sh`. Each test file sources `unit.sh` at the *bottom*; sourcing triggers the
+runner, which discovers every function named `test_*` via `declare -F` and reports a summary.
+
+```bash
+./scripts/lib/tests/test_linker.sh   # run one test file (30 tests, exits non-zero on failure)
+```
+
+These tests are **not** wired into CI — run them by hand after touching `scripts/lib/`.
+`test_colors.sh` is a color-palette demo rather than a real test file (it defines no `test_*`
+functions, so it reports "All 0 tests passed").
+
+Available assertions:
+```bash
+assert_equals <value> <expected>
+assert_retval <command...> <expected-exit-code>
+```
+
+CI (`.github/workflows/`):
+- `sh-lint.yaml` — `luizm/action-sh-checker` (shellcheck with `SHELLCHECK_OPTS: -x`, plus
+  shfmt), excluding `scripts/lib/` and `start.sh`; and `stylua --check .` for Lua files.
+- `install.yaml` — runs `./start.sh -y env` and `./install.sh -y` on ubuntu-latest and
+  macos-latest, then verifies symlinks and that the required binaries are on `PATH`.
+
+Style: 4-space indent everywhere (`.editorconfig`), `#!/usr/bin/env bash` shebang, and code
+must be shellcheck-clean with `-x` since scripts rely on sourced library files.
+
 ## Host-Specific Scripts
 
 Scripts can have host-specific versions:
@@ -533,7 +679,22 @@ Scripts can have host-specific versions:
 hosts/<hostname>/scripts/<script-name>.sh
 ```
 
-Both general and host-specific versions will run when executed.
+Resolution details (`_resolve_script_paths` in `scripts/lib/start.sh`):
+
+- The hostname is trimmed to its first label by `_host_short`, so `box.home.arpa` resolves
+  as `box`.
+- Up to three paths are collected and **all matching ones run, in this order**:
+  1. `scripts/<name>.sh` (general)
+  2. `hosts/<host>/scripts/<name>.sh` (host-specific)
+  3. `<host>/scripts/<name>.sh` (legacy layout, kept as a fallback)
+- `$root` is set to the owning root for each — the repo root for the general script,
+  `hosts/<host>` for the host-specific one — so `dotfile`/`configfile` calls in a host script
+  resolve against the host directory.
+- `./start.sh new` asks whether the new script should be host-specific and creates it under
+  `hosts/<host>/scripts/` if so.
+
+Because both scripts are sourced into the same shell, a host-specific script can override or
+extend functions defined by the general one.
 
 ## Debugging
 
@@ -544,8 +705,19 @@ Both general and host-specific versions will run when executed.
 
 ## Notes
 
-- All library functions are available after sourcing `main.sh`
-- Scripts execute in a subshell via `source`
+- All library functions are available after sourcing `main.sh`. `linker.sh` is only sourced
+  when `$root` is set, so linking helpers are unavailable outside a script run.
+- Scripts are `source`d into `start.sh`'s own shell, not a subshell — functions and variables
+  they define persist, which is what lets the host-specific script build on the general one
+  (and why a stray `exit` in a script kills the whole run).
+- Sourcing errors are swallowed (`2>/dev/null`) and reported as "failed to source"; if a
+  script mysteriously does nothing, source it by hand to see the real error.
 - Return codes matter: 0 for success, non-zero for failure
+- `start.sh` runs under `set -euo pipefail`, so an unguarded failing command aborts the run.
+  Append `|| true` where a non-zero exit is acceptable.
 - The framework handles Ctrl+C gracefully with a cleanup trap
 - Package managers check if packages are already installed before attempting installation
+  (`brew list --versions`, `pacman -Qi`, `xbps-query`, ...), and batch the missing ones into a
+  single install command
+- `require_aur` additionally re-runs `yay` for already-installed `*-git` packages to pull in
+  upstream commits
