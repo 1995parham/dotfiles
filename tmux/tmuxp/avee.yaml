@@ -37,7 +37,7 @@ windows:
 
     - window_name: avicennacloud ☠️
       layout: tiled
-      start_directory: ~/Documents/Git/aveehealth/aveetools/root/avicennacloud
+      start_directory: ~/Documents/Git/aveehealth/aveehealth/avicennacloud
       panes:
           - focus: true
           - pane
