@@ -25,14 +25,14 @@ local config = wezterm.config_builder()
 config.colors = {
     foreground = "#E8E8E3", -- naz Normal fg (s:white)
     background = "#323232", -- naz Normal bg (s:black)
-    cursor_bg = "#F92772",  -- naz pink (Statement accent)
+    cursor_bg = "#F92772", -- naz pink (Statement accent)
     cursor_fg = "#323232",
     cursor_border = "#F92772",
     selection_fg = "#E8E8E3",
-    selection_bg = "#575B61",    -- naz lightgrey (Visual selection bg)
-    split = "#EF7C66",           -- naz softred (echoes tmux's salmon pane border)
+    selection_bg = "#575B61", -- naz lightgrey (Visual selection bg)
+    split = "#EF7C66", -- naz softred (echoes tmux's salmon pane border)
     scrollbar_thumb = "#F92772", -- naz pink accent
-    compose_cursor = "#EE82EE",  -- naz purple (Constant / command prompt)
+    compose_cursor = "#EE82EE", -- naz purple (Constant / command prompt)
 
     -- copy mode's current-line highlight uses the pink accent (mirrors naz
     -- Statement / tmux copy-mode-current-line-number-style)
@@ -74,10 +74,10 @@ config.colors = {
     },
 
     tab_bar = {
-        background = "#262626",                                                          -- darker chrome, distinct from the #323232 content bg
-        inactive_tab_edge = "#211F1C",                                                   -- naz darkblack, retro tab bar only
+        background = "#262626", -- darker chrome, distinct from the #323232 content bg
+        inactive_tab_edge = "#211F1C", -- naz darkblack, retro tab bar only
         active_tab = { bg_color = "#575B61", fg_color = "#66D9EF", intensity = "Bold" }, -- naz lightgrey / aqua
-        inactive_tab = { bg_color = "#262626", fg_color = "#907D57" },                   -- naz warmgrey (StatusLineNC)
+        inactive_tab = { bg_color = "#262626", fg_color = "#907D57" }, -- naz warmgrey (StatusLineNC)
         inactive_tab_hover = { bg_color = "#323232", fg_color = "#66D9EF" },
         new_tab = { bg_color = "#262626", fg_color = "#907D57" },
         new_tab_hover = { bg_color = "#575B61", fg_color = "#66D9EF" },
@@ -241,7 +241,7 @@ end
 -- Returns offset seconds and whether daylight time is in effect.
 local function us_offset(now, std_h)
     local y = tonumber(os.date("!%Y", now))
-    local start = nth_sunday_epoch(y, 3, 2, 2 - std_h)   -- 02:00 local standard
+    local start = nth_sunday_epoch(y, 3, 2, 2 - std_h) -- 02:00 local standard
     local finish = nth_sunday_epoch(y, 11, 1, 1 - std_h) -- 02:00 local daylight
     local dst = now >= start and now < finish
     return (std_h + (dst and 1 or 0)) * 3600, dst
@@ -376,10 +376,10 @@ wezterm.on("update-right-status", function(window, pane)
     table.insert(
         cells,
         wezterm.nerdfonts.fa_calendar
-        .. "   "
-        .. os.date("!%a %d %b", tehran)
-        .. "  ·  "
-        .. string.format("%d %s %d", jd, jalali_months[jm], jy)
+            .. "   "
+            .. os.date("!%a %d %b", tehran)
+            .. "  ·  "
+            .. string.format("%d %s %d", jd, jalali_months[jm], jy)
     )
     local p_off, p_dst = us_offset(now, -8) -- US/Pacific
     local e_off, e_dst = us_offset(now, -5) -- US/Eastern
