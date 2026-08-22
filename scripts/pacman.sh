@@ -13,6 +13,10 @@ usage() {
 }
 
 main_pacman() {
+    # keeps the running kernel's modules around after a kernel upgrade, so
+    # modprobe still works until the next reboot.
+    require_pacman kernel-modules-hook
+
     copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
     copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
 }
