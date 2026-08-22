@@ -59,9 +59,9 @@ windows:
       panes:
           - shell_command:
                 - git status -sb
-          - start_directory: ~/Documents/Git/nobitex/gerrit/production/ansible
-          - start_directory: ~/Documents/Git/nobitex/gerrit/production/terraform
-          - start_directory: ~/Documents/Git/nobitex/gerrit/production/charts
+          - pane
+          - pane
+          - pane
 
     # code/blockchain/production: signer, asset-flow, hot-wallet, payment-gateway
     - window_name: blockchain ₿
@@ -70,9 +70,9 @@ windows:
       panes:
           - shell_command:
                 - git status -sb
-          - start_directory: ~/Documents/Git/nobitex/code/blockchain/production/charts
-          - start_directory: ~/Documents/Git/nobitex/code/blockchain/production/apps
-          - start_directory: ~/Documents/Git/nobitex/code/blockchain/production/vaults
+          - pane
+          - pane
+          - pane
 
     - window_name: nobitex 🧳
       layout: tiled
