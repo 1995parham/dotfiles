@@ -26,10 +26,11 @@ windows:
     - window_name: scratch 📝
       layout: tiled
       start_directory: ~/Downloads
+      focus: true
       panes:
           - shell_command:
                 - chafa $DOTFILES_ROOT/companies/nobitex.png --size 80 --clear -f symbols | less
-          - pane
+          - focus: true
           - pane
           - pane
 
@@ -37,8 +38,7 @@ windows:
       layout: tiled
       start_directory: ~/Downloads
       panes:
-          - shell_command:
-                - chafa $DOTFILES_ROOT/companies/nobitex.png --size 80 --clear -f symbols | less
+          - pane
           - pane
           - pane
           - pane
@@ -52,29 +52,44 @@ windows:
           - start_directory: ~/Documents/Git/parham/keys/vpn/nobitex
           - start_directory: ~/Downloads
 
+    # gerrit/production: ansible + terraform (vault) + the SRE charts
     - window_name: production 🚀
       layout: tiled
       start_directory: ~/Documents/Git/nobitex/gerrit/production
       panes:
-          - pane
-          - pane
-          - pane
-          - pane
+          - shell_command:
+                - git status -sb
+          - start_directory: ~/Documents/Git/nobitex/gerrit/production/ansible
+          - start_directory: ~/Documents/Git/nobitex/gerrit/production/terraform
+          - start_directory: ~/Documents/Git/nobitex/gerrit/production/charts
 
-    - window_name: production ₿
+    # code/blockchain/production: signer, asset-flow, hot-wallet, payment-gateway
+    - window_name: blockchain ₿
       layout: tiled
       start_directory: ~/Documents/Git/nobitex/code/blockchain/production
       panes:
-          - pane
-          - pane
-          - pane
-          - pane
+          - shell_command:
+                - git status -sb
+          - start_directory: ~/Documents/Git/nobitex/code/blockchain/production/charts
+          - start_directory: ~/Documents/Git/nobitex/code/blockchain/production/apps
+          - start_directory: ~/Documents/Git/nobitex/code/blockchain/production/vaults
 
     - window_name: nobitex 🧳
       layout: tiled
       start_directory: ~/Documents/Git/nobitex/code/nobitex/nobitex
       panes:
+          - shell_command:
+                - git status -sb
           - pane
+          - pane
+          - pane
+
+    - window_name: front-next 🎨
+      layout: tiled
+      start_directory: ~/Documents/Git/nobitex/code/nobitex/front-next
+      panes:
+          - shell_command:
+                - git status -sb
           - pane
           - pane
           - pane
