@@ -8,9 +8,12 @@ usage() {
     echo "a dedicated 'Hotel' network location, so the 'Automatic' location stays intact."
     echo
     echo "options:"
-    echo "  --ip <address>     address to pin (default: the current DHCP lease)"
-    echo "  --name <location>  name of the network location (default: Hotel)"
-    echo "  --off              switch back to the 'Automatic' location"
+    echo "  --ip <address>       address to pin (default: the current DHCP lease)"
+    echo "  --name <location>    name of the network location (default: Hotel)"
+    echo "  --login <user>:<pass> keep a UniFi hotspot portal (RADIUS) session alive"
+    echo "                       with a launchd agent that logs in again when it lapses"
+    echo "  --controller <host>  the UniFi controller behind the portal (default: 192.168.1.1)"
+    echo "  --off                switch back to 'Automatic' and remove the login agent"
 
     # shellcheck disable=1004,2016
     echo '
@@ -22,10 +25,15 @@ usage() {
   '
 }
 
+root=${root:?"root must be set"}
+
 hotel_location="Hotel"
 hotel_service="Wi-Fi"
 hotel_ip=""
 hotel_off=false
+hotel_login=""
+hotel_controller="192.168.1.1"
+hotel_login_label="me.1995parham.hotel-login"
 
 pre_main() {
     while [ $# -gt 0 ]; do
@@ -36,6 +44,18 @@ pre_main() {
             ;;
         --name)
             hotel_location="${2:?"--name needs a location name"}"
+            shift 2
+            ;;
+        --login)
+            hotel_login="${2:?"--login needs <user>:<pass>"}"
+            if [[ "$hotel_login" != *:* ]]; then
+                msg "--login needs <user>:<pass>" "error"
+                return 1
+            fi
+            shift 2
+            ;;
+        --controller)
+            hotel_controller="${2:?"--controller needs a host"}"
             shift 2
             ;;
         --off)
@@ -65,6 +85,51 @@ hotel_restore() {
     ok "hotel" "switched back to the 'Automatic' location"
 }
 
+hotel_login_agent() {
+    echo "$HOME/Library/LaunchAgents/${hotel_login_label}.plist"
+}
+
+# store the portal credentials and run hotel/hotel-login.sh from launchd every minute
+hotel_login_install() {
+    local conf agent
+    conf="${XDG_CONFIG_HOME:-$HOME/.config}/hotel"
+    agent=$(hotel_login_agent)
+
+    mkdir -p "$conf" "$HOME/Library/LaunchAgents" "$HOME/Library/Logs"
+
+    action "hotel" "storing the portal credentials in $conf/credentials"
+    (
+        umask 077
+        printf 'username=%s\npassword=%s\ncontroller=%s\n' \
+            "${hotel_login%%:*}" "${hotel_login#*:}" "$hotel_controller" >"$conf/credentials"
+    )
+
+    action "hotel" "installing the launchd agent $hotel_login_label"
+    sed -e "s|@ROOT@|$root|g" -e "s|@HOME@|$HOME|g" \
+        "$root/hotel/${hotel_login_label}.plist" >"$agent"
+
+    launchctl bootout "gui/$UID/$hotel_login_label" 2>/dev/null || true
+    if ! launchctl bootstrap "gui/$UID" "$agent"; then
+        msg "failed to load $agent" "error"
+        return 1
+    fi
+
+    ok "hotel" "the portal login runs every minute, log: ~/Library/Logs/hotel-login.log"
+}
+
+hotel_login_remove() {
+    local agent
+    agent=$(hotel_login_agent)
+
+    if [ ! -f "$agent" ]; then
+        return 0
+    fi
+
+    action "hotel" "removing the launchd agent $hotel_login_label"
+    launchctl bootout "gui/$UID/$hotel_login_label" 2>/dev/null || true
+    rm -f "$agent"
+}
+
 main_brew() {
     if ! networksetup -listallnetworkservices | grep -qx "$hotel_service"; then
         msg "network service '$hotel_service' not found" "error"
@@ -72,8 +137,13 @@ main_brew() {
     fi
 
     if [ "$hotel_off" = true ]; then
+        hotel_login_remove
         hotel_restore
         return
+    fi
+
+    if [ -n "$hotel_login" ]; then
+        hotel_login_install
     fi
 
     local device
