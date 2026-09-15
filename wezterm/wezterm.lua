@@ -482,13 +482,6 @@ config.underline_thickness = "1.5pt"
 -- title strip
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 
--- frosted-glass translucency; tune opacity/blur radius to taste
--- blur radius kept low (8): a larger radius makes the macOS compositor
--- re-blur the whole window backdrop every repaint, which dominates GPU/CPU
--- cost when translucent. 8 keeps a subtle frost without the per-frame tax.
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 8
-
 -- cursor
 -- animation_fps = 1 + Constant easing makes the cursor blink a simple on/off
 -- toggle instead of a per-frame fade animation, so an idle terminal stops
