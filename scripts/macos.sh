@@ -278,6 +278,24 @@ main_brew() {
     # Group windows by application
     defaults write com.apple.dock expose-group-apps -bool true
 
+    # Keep Spaces in a fixed order.
+    #
+    # The default is to rearrange them by most-recent use, which makes the
+    # Cmd+H/Cmd+L bindings above ("move left/right a space") non-deterministic:
+    # the same keystroke lands somewhere different depending on what was
+    # focused last.
+    #
+    # Worth knowing even with this set: macOS promotes every tiled-window group
+    # into its own space alongside the real desktops, and those groups are
+    # created and destroyed as windows get tiled. Cmd+H/Cmd+L walk through them
+    # too, so a machine with one desktop and several tile groups still feels
+    # like the shortcuts are misbehaving. Check `defaults read com.apple.spaces`
+    # and look for entries with `type = 4` / a TileLayoutManager; un-tile them
+    # from Mission Control, or turn off the tiling gestures with
+    # `defaults write com.apple.WindowManager EnableTilingByEdgeDrag -bool false`
+    # (plus EnableTopTilingByEdgeDrag and EnableTilingOptionAccelerator).
+    defaults write com.apple.dock mru-spaces -bool false
+
     # Battery
     # show in menu bar & show in control center = 3, true
     # show in menu bar & don't show in control center = 6, true
