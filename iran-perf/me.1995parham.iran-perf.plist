@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>me.1995parham.iran-perf</string>
+  <!-- --auto, not --full: latency on every tick, throughput only once its
+       cached sample has aged out (IRAN_PERF_FULL_INTERVAL, default hourly).
+       A throughput sample is several seconds of real download, so sampling it
+       every five minutes would push hundreds of MB a day through the tunnel
+       just to keep a status bar current. -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/parham/bin/iran-perf.sh</string>
+    <string>--auto</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>300</integer>
+  <!-- Take a sample at load too, so the badge is populated immediately after a
+       login rather than showing nothing for the first five minutes. -->
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/opt/homebrew/var/log/iran-perf.log</string>
+  <key>StandardErrorPath</key>
+  <string>/opt/homebrew/var/log/iran-perf.log</string>
+</dict>
+</plist>
