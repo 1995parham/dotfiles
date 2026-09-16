@@ -48,9 +48,12 @@ probe() {
         curl -sS -k -o /dev/null --connect-timeout 2 --max-time 3 "$1" >/dev/null 2>&1
 }
 
-probe https://192.168.78.50/ & p_home=$!
-probe https://www.digikala.com/ & p_iran=$!
-probe https://1.1.1.1/ & p_world=$!
+probe https://192.168.78.50/ &
+p_home=$!
+probe https://www.digikala.com/ &
+p_iran=$!
+probe https://1.1.1.1/ &
+p_world=$!
 
 # wait in the main shell: inside $(...) the jobs would not be our children
 if wait "$p_home"; then home="🟢"; else home="🔴"; fi
@@ -65,9 +68,9 @@ if [[ -r "$cache_dir/current" ]]; then
     # mbits_ts, not the line's own timestamp: most ticks are latency-only and
     # carry the previous throughput figure forward, so ageing it by when the
     # LINE was written would always look fresh.
-    IFS=$'\t' read -r _ts _tun _tls _ttfb mbits mbits_ts < "$cache_dir/current" || true
+    IFS=$'\t' read -r _ts _tun _tls _ttfb mbits mbits_ts <"$cache_dir/current" || true
     if [[ -n "${mbits:-}" && "$mbits" != "-" ]]; then
-        age=$(( $(date +%s) - ${mbits_ts:-0} ))
+        age=$(($(date +%s) - ${mbits_ts:-0}))
         # A number with no indication of its age invites reading a half-hour-old
         # sample as current.
         if ((age < 1800)); then

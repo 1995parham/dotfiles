@@ -78,7 +78,7 @@ fi
 tls_ms="-"
 ttfb_ms="-"
 if timings="$("${clean_env[@]}" curl -o /dev/null -s --max-time 15 \
-        -w '%{time_appconnect} %{time_starttransfer}' "$latency_url" 2>/dev/null)"; then
+    -w '%{time_appconnect} %{time_starttransfer}' "$latency_url" 2>/dev/null)"; then
     tls_ms="$(awk '{printf "%.0f", $1*1000}' <<<"$timings")"
     ttfb_ms="$(awk '{printf "%.0f", $2*1000}' <<<"$timings")"
 fi
@@ -94,15 +94,15 @@ fi
 # --auto: take a throughput sample only when the cached one has aged out.
 want_full=false
 case "${1:-}" in
-    --full) want_full=true ;;
-    --auto)
-        full_every="${IRAN_PERF_FULL_INTERVAL:-3600}"
-        last_full=0
-        if [[ -r "$history" ]]; then
-            last_full="$(awk -F'\t' '$5 != "-" && $5 != "" {t=$1} END{print t+0}' "$history")"
-        fi
-        (( $(date +%s) - last_full >= full_every )) && want_full=true
-        ;;
+--full) want_full=true ;;
+--auto)
+    full_every="${IRAN_PERF_FULL_INTERVAL:-3600}"
+    last_full=0
+    if [[ -r "$history" ]]; then
+        last_full="$(awk -F'\t' '$5 != "-" && $5 != "" {t=$1} END{print t+0}' "$history")"
+    fi
+    (($(date +%s) - last_full >= full_every)) && want_full=true
+    ;;
 esac
 
 mbits="-"
@@ -133,7 +133,7 @@ if [[ "$want_full" == true ]]; then
 fi
 
 now="$(date +%s)"
-printf '%s\t%s\t%s\t%s\t%s\n' "$now" "$tunnel" "$tls_ms" "$ttfb_ms" "$mbits" >> "$history"
+printf '%s\t%s\t%s\t%s\t%s\n' "$now" "$tunnel" "$tls_ms" "$ttfb_ms" "$mbits" >>"$history"
 
 # The badge needs a throughput figure on every tick, but most ticks are latency
 # only. Writing "-" into current on those would blank the number between hourly
@@ -146,11 +146,11 @@ if [[ "$mbits" == "-" ]]; then
         awk -F'\t' '$5 != "-" && $5 != "" {t=$1; v=$5} END{if (v=="") {print 0, "-"} else {print t, v}}' "$history"
     )
 fi
-printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$now" "$tunnel" "$tls_ms" "$ttfb_ms" "$mbits_shown" "$mbits_ts" > "$current"
+printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$now" "$tunnel" "$tls_ms" "$ttfb_ms" "$mbits_shown" "$mbits_ts" >"$current"
 
 # Keep history bounded -- roughly a month at one sample every five minutes.
-if [[ -f "$history" ]] && (($(wc -l < "$history") > 10000)); then
-    tail -8000 "$history" > "$history.tmp" && mv "$history.tmp" "$history"
+if [[ -f "$history" ]] && (($(wc -l <"$history") > 10000)); then
+    tail -8000 "$history" >"$history.tmp" && mv "$history.tmp" "$history"
 fi
 
 printf 'tunnel=%s tls=%sms ttfb=%sms throughput=%s Mbit/s\n' \
