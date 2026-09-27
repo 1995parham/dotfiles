@@ -70,7 +70,7 @@ encrypt_token() {
 }
 
 decrypt_and_clone() {
-    local repo_url="github.com/parham-alvani/keys"
+    local repo_url="parham-alvani@github.com/parham-alvani/keys"
     local clone_path="$HOME/Documents/Git/parham/keys"
     local encrypted_token_file="${root}/secrets/github-token-keys.enc"
 
