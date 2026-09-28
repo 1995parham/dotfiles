@@ -17,20 +17,41 @@ hostname=""
 name=""
 to_change=true
 
+# names are per profile, each entry is "<hostname>:<pretty name>"
+hostname_choices() {
+    case "${PROFILE:-${USER}}" in
+    elahe | elaheh)
+        printf '%s\n' \
+            "simorgh:Simorgh" \
+            "rakhsh:Rakhsh" \
+            "arash:Arash" \
+            "zal:Zal" \
+            "rostam:Rostam" \
+            "kaveh:Kaveh"
+        ;;
+    *)
+        printf '%s\n' \
+            "millennium-falcon:Millennium Falcon" \
+            "pegasus:Pegasus" \
+            "x-wing:X Wing" \
+            "tie-fighter:Tie Fighter" \
+            "death-star:Death Star" \
+            "galactica:Galactica" \
+            "sandcrawler:Sandcrawler" \
+            "tantive-iv:Tantive IV" \
+            "cab-46613390:Snapp system name"
+        ;;
+    esac
+}
+
 pre_main() {
     PS3="select hostname to change into from $HOSTNAME:"
 
-    hostnames=(
-        "millennium-falcon:Millennium Falcon"
-        "pegasus:Pegasus"
-        "x-wing:X Wing"
-        "tie-fighter:Tie Fighter"
-        "death-star:Death Star"
-        "galactica:Galactica"
-        "sandcrawler:Sandcrawler"
-        "tantive-iv:Tantive IV"
-        "cab-46613390:Snapp system name"
-    )
+    local hostnames=()
+    local entry
+    while IFS= read -r entry; do
+        hostnames+=("$entry")
+    done < <(hostname_choices)
 
     select _hostname in "${hostnames[@]}"; do
         hostname=${_hostname%%:*}
@@ -39,6 +60,11 @@ pre_main() {
         break
     done
 
+    if [ -z "$hostname" ]; then
+        msg "no hostname selected" "error"
+        return 1
+    fi
+
     if [ "$HOSTNAME" = "$hostname" ]; then
         msg "already has the hostname $hostname"
         to_change=false
@@ -46,7 +72,7 @@ pre_main() {
 }
 
 main_pacman() {
-    if [ "$to_change" ]; then
+    if [ "$to_change" = true ]; then
         msg "using systemd to change hostname to $hostname"
         sudo hostnamectl hostname "$hostname"
     fi
@@ -55,7 +81,7 @@ main_pacman() {
 }
 
 main_apt() {
-    if [ "$to_change" ]; then
+    if [ "$to_change" = true ]; then
         msg "using systemd to change hostname to $hostname"
         sudo hostnamectl hostname "$hostname"
     fi
@@ -64,7 +90,7 @@ main_apt() {
 }
 
 main_brew() {
-    if [ "$to_change" ]; then
+    if [ "$to_change" = true ]; then
         msg "using scutil to change hostname to $hostname"
         sudo scutil --set ComputerName "$name"
         sudo scutil --set HostName "$hostname"
