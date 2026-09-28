@@ -39,3 +39,21 @@ main_parham() {
 
     gopass clone --check-keys=false git@github.com:parham-alvani/passwords || true
 }
+
+main_elaheh() {
+    msg "hello elaheh, clone the shared password repository"
+
+    # same store as parham: elaheh's key is one of the three recipients in
+    # its .gpg-id, so there is no separate repository to clone.
+    gopass clone --check-keys=false git@github.com:parham-alvani/passwords || true
+
+    # gopass seeds the store's git identity from $USER and leaves the email
+    # empty, so it then refuses its own commits with "Git Email not set".
+    # core.autosync and core.autopush are on, so every saved secret commits
+    # and pushes through this identity -- it has to be right.
+    store="${HOME}/.local/share/gopass/stores/root"
+    if [[ -d "${store}/.git" ]]; then
+        git -C "${store}" config user.name "Elaheh Dastan"
+        git -C "${store}" config user.email "elahe.dstn@gmail.com"
+    fi
+}
