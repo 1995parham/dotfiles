@@ -22,6 +22,15 @@
 [user]
   name = Elaheh Dastan
   email = elahe.dstn@gmail.com
+  # ed25519, expires 2028-06-24. installed by keys' `./start.sh gpg
+  # elahe-dstn-gmail`, which is also what marks it ultimately trusted.
+  signingkey = 3580D30F96EAAB15952CF5FA74E0FBE3F736B62D
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
 
 [fetch]
   parallel = 0
