@@ -89,7 +89,14 @@ function yes_or_no() {
     shift
 
     while true; do
-        read -r -p "$(echo -e "${F_HIGHLIGHT}[${module}] ${F_NOTICE}$*${F_RESET} [${F_SUCCESS}y${F_RESET}/${F_ERROR}n${F_RESET}]: ")" yn
+        # a failing read means EOF: stdin is /dev/null, a pipe that closed, or
+        # there is no tty at all. nothing is ever going to answer, and the
+        # default case below would spin on it forever, so decline instead.
+        if ! read -r -p "$(echo -e "${F_HIGHLIGHT}[${module}] ${F_NOTICE}$*${F_RESET} [${F_SUCCESS}y${F_RESET}/${F_ERROR}n${F_RESET}]: ")" yn; then
+            echo -e "${F_WARNING}Aborted [${module}]: no input available, use -y to answer yes${F_RESET}" >&2
+            return 1
+        fi
+
         case ${yn} in
         [Yy]*) return 0 ;;
         [Nn]*)
