@@ -46,6 +46,13 @@ main_brew() {
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
         (printf "pinentry-program %s\n" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
 
+    # pinentry-mac reads this GPG Suite domain for its keychain settings, but
+    # brew's standalone build ships without GPG Suite, so the domain does not
+    # exist and reading it errors with
+    #   Error: Domain 'org.gpgtools.common' not found.
+    # writing the preference creates the domain and settles the question.
+    defaults write org.gpgtools.common DisableKeychain -bool YES
+
     # exits 1 when no agent is running, which is not a failure here.
     pkill gpg-agent || true
 }
