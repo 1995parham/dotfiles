@@ -36,12 +36,18 @@ main_apt() {
 main_brew() {
     require_brew pinentry-mac gpg
 
+    # gpg itself creates ~/.gnupg lazily, so on a fresh mac the append below
+    # fails to open the file and takes the whole run down under `set -e`.
+    mkdir -p "$HOME/.gnupg"
+    chmod 0700 "$HOME/.gnupg"
+
     pinentry_program="$(brew --prefix)/bin/pinentry-mac"
 
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
         (printf "pinentry-program %s\n" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
 
-    pkill gpg-agent
+    # exits 1 when no agent is running, which is not a failure here.
+    pkill gpg-agent || true
 }
 
 main() {
