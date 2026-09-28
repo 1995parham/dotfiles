@@ -42,6 +42,9 @@
 [url "git@github.com:elahe-dastan/"]
   insteadOf = https://github.com/elahe-dastan/
 
+[url "git@github.com:1995parham/"]
+  insteadOf = https://github.com/1995parham/
+
 # [url "git@github.com:"]
 #	insteadOf = https://github.com/
 
