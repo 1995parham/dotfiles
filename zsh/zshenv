@@ -18,7 +18,10 @@ export VIRTUALENV_SYSTEM_SITE_PACKAGES=true
 
 # podman, helm, everything that is related to clouds. {{{
 
-export AWS_VAULT_BACKEND=file
+export AWS_VAULT_BACKEND=pass
+export AWS_VAULT_PASS_CMD=gopass
+export AWS_VAULT_PASS_PREFIX=aws-vault
+export AWS_VAULT_PASS_PASSWORD_STORE_DIR="$HOME/.local/share/gopass/stores/root"
 
 # kubectl merges a colon-separated KUBECONFIG list, so the local k3s cluster
 # coexists with the external ones instead of shadowing them. ~/.kube/config
