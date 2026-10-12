@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo "bitwarden command-line client (bw)"
+    echo "bitwarden cli (bw), used only to share secrets with bitwarden send"
     # shellcheck disable=1004,2016
     echo '
  _     _ _                         _
@@ -30,7 +30,8 @@ main_apt() {
 main() {
     if command -v bw &>/dev/null; then
         msg "bw $(bw --version 2>/dev/null) installed successfully" "success"
-        msg "log in once with 'bw login', then 'export BW_SESSION=\$(bw unlock --raw)' per shell"
+        msg "log in once with 'bw login', then 'export BW_SESSION=\$(bw unlock --raw)'"
+        msg "share a secret: bw send -n <name> --deleteInDays 7 '<text>'"
     fi
 
     return 0
