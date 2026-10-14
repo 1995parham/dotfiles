@@ -7,6 +7,13 @@ export DOTFILES_ROOT="$dotfiles_source"
 test -f /etc/profile && emulate sh -c 'source /etc/profile'
 test -f "$HOME/.profile" && emulate sh -c 'source $HOME/.profile'
 
+# macos sets the open-files limit to ~2^31. gnupg 2.5 calls fstat() on every
+# possible fd when gpg-agent starts, so it hangs and never creates its socket.
+# cap it before anything here can spawn gpg-agent. only lower it, never raise.
+if [[ "$OSTYPE" == "darwin"* ]] && [[ "$(ulimit -n)" == unlimited || "$(ulimit -n)" -gt 10240 ]]; then
+  ulimit -n 10240
+fi
+
 # path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
