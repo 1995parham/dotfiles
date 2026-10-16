@@ -6,7 +6,7 @@
 -- ╚███╔███╔╝███████╗███████╗   ██║   ███████╗██║  ██║██║ ╚═╝ ██║
 --  ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
 -- A GPU-accelerated cross-platform terminal emulator
--- https://wezfurlong.org/wezterm/
+-- https://wezterm.org/
 --
 
 local wezterm = require("wezterm")
@@ -74,7 +74,9 @@ config.colors = {
     },
 
     tab_bar = {
-        background = "#262626", -- darker chrome, distinct from the #323232 content bg
+        -- retro tab bar only: the fancy tab bar (the default, and the one
+        -- INTEGRATED_BUTTONS draws) takes its strip colour from window_frame
+        background = "#262626",
         inactive_tab_edge = "#211F1C", -- naz darkblack, retro tab bar only
         active_tab = { bg_color = "#575B61", fg_color = "#66D9EF", intensity = "Bold" }, -- naz lightgrey / aqua
         inactive_tab = { bg_color = "#262626", fg_color = "#907D57" }, -- naz warmgrey (StatusLineNC)
@@ -137,7 +139,7 @@ config.keys = {
 }
 
 wezterm.on("navi", function(window, pane)
-    if wezterm.target_triple == "aarch64-apple-darwin" or wezterm.target_triple == "x86_64-apple-darwin" then
+    if wezterm.target_triple:find("darwin") then
         window:perform_action(
             wezterm.action.SplitPane({
                 direction = "Down",
@@ -359,7 +361,9 @@ local function to_jalali(gy, gm, gd)
     return jy, 7 + jdiv(k, 30), jmod(k, 30) + 1
 end
 
-wezterm.on("update-right-status", function(window, pane)
+-- update-status replaces the deprecated update-right-status event; it fires on
+-- the same status_update_interval tick and owns both the left and right status.
+wezterm.on("update-status", function(window, _pane)
     -- Each element holds the text for a cell in a "powerline" style << fade
     local cells = {}
 
@@ -409,12 +413,12 @@ wezterm.on("update-right-status", function(window, pane)
         else
             name = "md_battery_" .. bucket
         end
-        return wezterm.nerdfonts[name] .. " "
+        return wezterm.nerdfonts[name]
     end
     for _, b in ipairs(wezterm.battery_info()) do
         table.insert(
             cells,
-            string.format("%s %.0f%% ", battery_icons(b.state, b.state_of_charge * 100), b.state_of_charge * 100)
+            string.format("%s %.0f%%", battery_icons(b.state, b.state_of_charge * 100), b.state_of_charge * 100)
         )
     end
 
@@ -461,19 +465,6 @@ config.show_new_tab_button_in_tab_bar = false
 config.bidi_enabled = true
 config.bidi_direction = "AutoLeftToRight"
 
--- machine specific configuration based on the hostname
-local hostname = wezterm.hostname()
-
-local machines = {
-    ["millennium-falcon"] = function() end,
-    ["tantive-iv"] = function() end,
-}
-
-local machine_config = machines[hostname]
-if machine_config then
-    machine_config()
-end
-
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 config.underline_thickness = "1.5pt"
@@ -512,18 +503,15 @@ config.status_update_interval = 1000
 
 config.scrollback_lines = 20000
 
--- Seed from WezTerm's built-in rules (plain URLs, mailto, etc.) so upstream
--- improvements carry through, then append the extras below.
+-- Seed from WezTerm's built-in rules so upstream improvements carry through.
+-- The defaults already cover plain URLs, mailto and (URL), [URL], <URL>; only
+-- the brace-wrapped {URL} form is missing, so add just that one.
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
-
--- Bracket-wrapped URLs: (URL), [URL], {URL}, <URL> -> link just the inner URL.
-for _, brackets in ipairs({ { "\\(", "\\)" }, { "\\[", "\\]" }, { "\\{", "\\}" }, { "<", ">" } }) do
-    table.insert(config.hyperlink_rules, {
-        regex = brackets[1] .. "(\\w+://\\S+)" .. brackets[2],
-        format = "$1",
-        highlight = 1,
-    })
-end
+table.insert(config.hyperlink_rules, {
+    regex = "\\{(\\w+://\\S+)\\}",
+    format = "$1",
+    highlight = 1,
+})
 
 -- Extends the built-in QuickSelect patterns (URLs, paths, git hashes, IPs,
 -- numbers) bound to CTRL-SHIFT-Space by default.
