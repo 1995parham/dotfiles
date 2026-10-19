@@ -15,6 +15,13 @@ usage() {
 
 root=${root:?"root must be set"}
 
+# keep a passphrase cached for 14h, so a long unattended job (e.g. a timed
+# aws-vault run from an agent with no tty for pinentry) outlives one unlock.
+cache_ttl() {
+    grep -q "^default-cache-ttl" "$HOME/.gnupg/gpg-agent.conf" 2>/dev/null ||
+        (printf "default-cache-ttl 50400\nmax-cache-ttl 50400\n" >>"$HOME/.gnupg/gpg-agent.conf")
+}
+
 main_pacman() {
     require_pacman gnupg rng-tools
     mkdir -p "$HOME/.gnupg"
@@ -27,6 +34,7 @@ main_pacman() {
 
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
         (printf "pinentry-program %s\n" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
+    cache_ttl
 }
 
 main_apt() {
@@ -45,6 +53,7 @@ main_brew() {
 
     grep -i "pinentry-program $pinentry_program" "$HOME/.gnupg/gpg-agent.conf" &>/dev/null ||
         (printf "pinentry-program %s\n" "$pinentry_program" >>"$HOME/.gnupg/gpg-agent.conf")
+    cache_ttl
 
     # pinentry-mac reads this GPG Suite domain for its keychain settings, but
     # brew's standalone build ships without GPG Suite, so the domain does not
