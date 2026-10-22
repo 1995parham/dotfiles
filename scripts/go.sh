@@ -52,7 +52,10 @@ main() {
 
     go_env GOPATH "$HOME/.cache/go"
     go_env GOBIN "$HOME/.local/bin"
-    go_env GOPROXY https://proxy.golang.org,direct
+    # "|" falls back to direct on any proxy error, "," only on 404/410. the proxy
+    # answers 403 to Iranian addresses for some module zips (seen on simorgh with
+    # MirrexOne/unqueryvet, a golangci-lint dependency), which "," treats as fatal.
+    go_env GOPROXY "https://proxy.golang.org|direct"
     # go_env GOPROXY "https://goproxy.io,goproxy.cn,direct" # Chinese mirrors
     # go_env GOSUMDB "sum.golang.org"                       # Use official Go checksum database
 
