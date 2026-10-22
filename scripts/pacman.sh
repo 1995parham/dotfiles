@@ -17,6 +17,13 @@ main_pacman() {
     # modprobe still works until the next reboot.
     require_pacman kernel-modules-hook
 
+    # CachyOS ships its own pacman.conf (cachyos-* repositories) and makepkg.conf
+    # (x86-64-v3 flags), ours would drop its repositories and enable arch testing.
+    if grep -qi '^ID=cachyos' /etc/os-release 2>/dev/null; then
+        msg 'cachyos manages pacman.conf and makepkg.conf itself, keep them' 'notice'
+        return 0
+    fi
+
     copycat "pacman" "pacman/pacman.conf" /etc/pacman.conf
     copycat "pacman" "pacman/makepkg.conf" /etc/makepkg.conf
 }

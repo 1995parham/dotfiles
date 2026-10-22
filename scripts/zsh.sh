@@ -76,6 +76,17 @@ EOL
 }
 
 main() {
+    # CachyOS seeds ~/.zshrc with its own oh-my-zsh + powerlevel10k setup, which
+    # collides with ours (aliases such as sudo and man break our functions).
+    local cachyos_zshrc='source /usr/share/cachyos-zsh-config/cachyos-config.zsh'
+    if grep -q -F -x "${cachyos_zshrc}" "$HOME/.zshrc"; then
+        msg 'remove cachyos zsh configuration from .zshrc'
+        if ! sed -i "\|^${cachyos_zshrc}\$|d" "$HOME/.zshrc"; then
+            msg 'failed to remove cachyos zsh configuration from .zshrc' 'error'
+            return 1
+        fi
+    fi
+
     dotfile "zsh" "zshrc.shared"
     dotfile "zsh" "zshenv"
     dotfile "zsh" "zsh.plug"

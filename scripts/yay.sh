@@ -15,6 +15,13 @@ usage() {
 }
 
 main_pacman() {
+    # CachyOS (and chaotic-aur) ship yay as a binary package, use it when a
+    # configured repository has it instead of building from the aur.
+    if pacman -Si "yay" >/dev/null 2>&1; then
+        require_pacman yay
+        return 0
+    fi
+
     if ! pacman -Qi "yay" >/dev/null 2>&1; then
         action "require" "makepkg -si yay from aur source"
         git clone --branch yay --single-branch https://github.com/archlinux/aur.git "$HOME/yay" 2>/dev/null || true
