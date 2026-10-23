@@ -27,6 +27,8 @@ check_firefox_running() {
     fi
 }
 
+# advisory only: returns 1 when the profile is not signed in, which is every
+# fresh machine, so callers must not let it abort the setup under set -e.
 check_firefox_login() {
     local firefox_dir="$1"
     local profile_path="$2"
@@ -210,7 +212,7 @@ setup_firefox_profiles() {
             copycat 'firefox' "firefox/foxyproxy-settings.json" "$main_profile_dir/foxyproxy-settings.json" 'false'
         fi
 
-        check_firefox_login "$firefox_dir" "$main_profile_path" "main"
+        check_firefox_login "$firefox_dir" "$main_profile_path" "main" || true
     fi
 
     # Configure personal profile
@@ -223,7 +225,7 @@ setup_firefox_profiles() {
             copycat 'firefox' "firefox/foxyproxy-settings.json" "$personal_profile_dir/foxyproxy-settings.json" 'false'
         fi
 
-        check_firefox_login "$firefox_dir" "$personal_profile_path" "personal"
+        check_firefox_login "$firefox_dir" "$personal_profile_path" "personal" || true
     fi
 
     ok 'firefox' 'Firefox profiles setup completed!'
