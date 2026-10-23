@@ -1,0 +1,23 @@
+# dunst (wayland/dunst/dunstrc) on noctalia's notification daemon.
+# https://docs.noctalia.dev/noctalia/services/notifications/
+[notification]
+position = "top_right"
+# dunst's frame_color
+border_color = "#333333"
+filter_order = [ "telegram", "timeout" ]
+
+    # dunst keeps telegram until it is closed: no forced timeout here, it goes
+    # by what telegram asks for
+    [notification.filter.telegram]
+    enabled = true
+    match = "telegram"
+
+    # urgency_low and urgency_normal time out after 10 seconds, critical stays
+    [notification.filter.timeout]
+    enabled = true
+    allowed_urgencies = [ "low", "normal" ]
+    override_duration = 10000
+
+# volume and brightness popups, dunst's "volume" stack
+[osd]
+position = "top_center"

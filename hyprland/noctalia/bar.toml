@@ -1,0 +1,252 @@
+# waybar (wayland/waybar) on noctalia: its top, bottom and left bars with the
+# same modules, in the cachyos look. https://docs.noctalia.dev/noctalia/bar/
+# custom modules run through the tordex/stdout plugin (plugins.toml), whose
+# scripts are in ./scripts.
+
+[bar]
+order = [ "top", "bottom", "clock" ]
+
+# config.d/top.json, plus noctalia's launcher, notifications and session buttons
+[bar.top]
+position = "top"
+center = [ "active_window" ]
+concave_edge_corners = true
+end = [ "lock_keys", "disk", "media", "volume", "network", "bluetooth", "group:system", "brightness", "keyboard_layout", "battery", "clock", "tray", "notifications", "session" ]
+margin_edge = 0
+margin_ends = 0
+radius_bottom_left = 12
+radius_bottom_right = 12
+radius_top_left = 0
+radius_top_right = 0
+scale = 1.10
+start = [ "launcher", "workspaces", "submap" ]
+thickness = 35
+
+    # cpu, memory and temperature side by side, as waybar has them
+    [[bar.top.capsule_group]]
+    border = ""
+    fill = "on_secondary"
+    id = "system"
+    members = [ "cpu", "cpu_freq", "memory", "temperature" ]
+    opacity = 1.0
+    padding = 6.0
+
+# config.d/bottom.json: dates, the calendar, the couple counters and the
+# addresses of our vpn interfaces
+[bar.bottom]
+position = "bottom"
+center = [ "relationship", "birthday" ]
+end = [ "ip_speedify", "ip_xvpn", "ip_nobitex" ]
+margin_edge = 5
+margin_ends = 5
+radius = 5
+scale = 1.10
+start = [ "date", "jdate", "khal", "ip_alvani", "ip_home" ]
+thickness = 33
+
+# config.d/left.json: a vertical clock on the HDMI-A-1 monitor only
+[bar.clock]
+position = "left"
+enabled = false
+center = [ "clock_irst" ]
+thickness = 50
+
+    [bar.clock.monitor.hdmi]
+    match = "HDMI-A-1"
+    enabled = true
+
+################
+#### TOP BAR ###
+################
+
+[widget.launcher]
+color = "secondary"
+
+[widget.workspaces]
+active_pill_size = 2.5
+capsule = true
+capsule_fill = "on_primary"
+inactive_pill_size = 1.0
+pill_scale = 0.80
+# sway's workspace names (hypr/config/variables.lua)
+show_labels = true
+label_source = "name"
+max_label_chars = 8
+
+# waybar's sway/mode and hyprland/submap
+[widget.submap]
+type = "k4n4t4/hypr-submap:hypr-submap"
+hide_when_default = true
+
+[widget.active_window]
+title_scroll = "on_hover"
+
+# keyboard-state
+[widget.lock_keys]
+show_caps_lock = true
+show_num_lock = true
+
+# disk: "{path}: {used} / {total}"
+[widget.disk]
+type = "sysmon"
+stat = "disk_used"
+path = "/"
+visualization = "none"
+
+[widget.media]
+hide_when_no_media = true
+title_scroll = "on_hover"
+
+# pulseaudio
+[widget.volume]
+color = "secondary"
+show_label = true
+
+# network#eth and network#wifi
+[widget.network]
+color = "secondary"
+
+[widget.bluetooth]
+show_label = true
+
+# cpu: "{usage}% {avg_frequency}GHz"
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+
+[widget.cpu_freq]
+type = "sysmon"
+stat = "cpu_freq"
+visualization = "none"
+
+# memory: "{percentage}%"
+[widget.memory]
+type = "sysmon"
+stat = "ram_pct"
+
+[widget.temperature]
+type = "sysmon"
+stat = "cpu_temp"
+
+# backlight
+[widget.brightness]
+show_label = true
+
+# sway/language
+[widget.keyboard_layout]
+display = "short"
+
+# battery: "{capacity}% ({power})"
+[widget.battery]
+show_label = true
+
+# clock: "{:%H:%M %Z}", the long form on hover
+[widget.clock]
+color = "secondary"
+format = "{:%H:%M %Z}"
+tooltip_format = "{:%A, %B %d, %Y (%R) %Z}"
+
+[widget.tray]
+capsule = true
+capsule_fill = "on_secondary"
+
+[widget.notifications]
+color = "secondary"
+
+[widget.session]
+color = "error"
+
+###################
+#### BOTTOM BAR ###
+###################
+
+# custom/date
+[widget.date]
+type = "clock"
+format = "{:%d %B %Y}"
+
+# custom/jdate, jdate comes with the env script
+[widget.jdate]
+type = "tordex/stdout:bar"
+cmd = "jdate +'%d %B %Y'"
+interval = 1
+interval_units = "3600"
+ok_glyph = "calendar"
+hide_on_error = true
+
+# custom/khal: today's first event, the week in the tooltip
+[widget.khal]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/khal.sh"
+interval = 5
+interval_units = "60"
+json = true
+hide_on_error = true
+
+# custom/love#relationship and #birthday (#departure has no case in
+# couple.sh, so it printed nothing)
+[widget.relationship]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/couple.sh relationship"
+interval = 1
+interval_units = "3600"
+ok_glyph = "heart"
+
+[widget.birthday]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/couple.sh birthday"
+interval = 1
+interval_units = "3600"
+ok_glyph = "cake"
+
+# network#alvani, #home, #speedify, #xvpn and #easynet: hidden while the
+# interface is down
+[widget.ip_alvani]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/ifaddr.sh alvani"
+interval = 10
+interval_units = "1"
+ok_glyph = "lock"
+hide_on_error = true
+
+[widget.ip_home]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/ifaddr.sh home"
+interval = 10
+interval_units = "1"
+ok_glyph = "home"
+hide_on_error = true
+
+[widget.ip_speedify]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/ifaddr.sh -n connectify0"
+interval = 10
+interval_units = "1"
+ok_glyph = "world"
+hide_on_error = true
+
+[widget.ip_xvpn]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/ifaddr.sh -n 'xvpn-*'"
+interval = 10
+interval_units = "1"
+ok_glyph = "world"
+hide_on_error = true
+
+[widget.ip_nobitex]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/ifaddr.sh -n nobitex"
+interval = 10
+interval_units = "1"
+ok_glyph = "world"
+hide_on_error = true
+
+#################
+#### LEFT BAR ###
+#################
+
+# clock: "{:%H:%M}\nIRST"
+[widget.clock_irst]
+type = "clock"
+timezone = "Asia/Tehran"
+vertical_format = "{:%H\n%M}\nIRST"

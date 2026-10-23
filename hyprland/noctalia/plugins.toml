@@ -1,0 +1,6 @@
+# community plugins (https://github.com/noctalia-dev/community-plugins),
+# noctalia fetches them from its built-in community source:
+#   tordex/stdout       a command's output on the bar, waybar's custom modules
+#   k4n4t4/hypr-submap  the active hyprland submap, waybar's sway/mode (needs socat)
+[plugins]
+enabled = [ "tordex/stdout", "k4n4t4/hypr-submap" ]

@@ -1,0 +1,40 @@
+# rofi (wayland/rofi/config.rasi) on noctalia's launcher: applications are
+# built in, rofi's other modes are dmenu entries reached with /<prefix>.
+# https://docs.noctalia.dev/noctalia/launcher/
+
+# ssh: the hosts of ~/.ssh/config and its includes, in a terminal
+# titled after the host
+[shell.launcher.dmenu.entry.ssh]
+label = "SSH"
+prefix = "ssh"
+glyph = "server"
+global = false
+command = "~/.config/noctalia/scripts/ssh-hosts.sh"
+exec = "alacritty --title '{selection}' -e zsh -c \"ssh '{selection}'\""
+
+# run: any command
+[shell.launcher.dmenu.entry.run]
+label = "Run"
+prefix = "run"
+glyph = "terminal"
+global = false
+freeform = true
+exec = "{query}"
+
+# tmuxp: load a tmuxp layout
+[shell.launcher.dmenu.entry.tmuxp]
+label = "tmuxp"
+prefix = "tmuxp"
+glyph = "layout-grid"
+global = false
+command = "~/.config/noctalia/scripts/tmuxp.sh"
+exec = "~/.config/noctalia/scripts/tmuxp.sh '{selection}'"
+
+# tmuxs: attach to a running tmux session
+[shell.launcher.dmenu.entry.tmuxs]
+label = "tmux sessions"
+prefix = "tmuxs"
+glyph = "terminal-2"
+global = false
+command = "~/.config/noctalia/scripts/tmuxs.sh"
+exec = "~/.config/noctalia/scripts/tmuxs.sh '{selection}'"

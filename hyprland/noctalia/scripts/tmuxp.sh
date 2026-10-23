@@ -1,0 +1,1 @@
+../../../wayland/rofi/tmuxp.sh

@@ -1,0 +1,19 @@
+# swaybg and swaylock on noctalia. sway's bg.sh picks a random image from
+# ~/Pictures/GoSiMac for each output and keeps changing it every few seconds;
+# here it changes every 10 minutes, since the theme colors follow the
+# wallpaper (config.toml) and would otherwise repaint the shell constantly.
+# https://docs.noctalia.dev/noctalia/desktop/wallpaper/
+[wallpaper]
+directory = "~/Pictures/GoSiMac"
+fill_mode = "crop"
+
+    [wallpaper.automation]
+    enabled = true
+    interval_seconds = 600
+    order = "random"
+
+# sway/swaylock/config: image=~/Pictures/GoSiMac/lock.jpg.
+# swayidle's before-sleep lock is lock_before_suspend, on by default.
+[lockscreen]
+wallpaper = "~/Pictures/GoSiMac/lock.jpg"
+lock_before_suspend = true

@@ -26,8 +26,8 @@ main_pacman() {
         require_aur noctalia-shell
     fi
 
-    msg 'tools the key bindings call'
-    require_pacman alacritty grim jq xdg-user-dirs libnotify pavucontrol brightnessctl bat
+    msg 'tools the key bindings and the bar widgets call (socat for the hypr-submap plugin)'
+    require_pacman alacritty grim jq xdg-user-dirs libnotify pavucontrol brightnessctl bat socat
 }
 
 main_xbps() {
@@ -52,4 +52,5 @@ main() {
     configfile uwsm "" hyprland
 
     msg 'hyprland reloads its configuration on change, run hyprctl configerrors to check it'
+    msg 'noctalia fetches the community plugins of noctalia/plugins.toml itself, restart it once they are in'
 }

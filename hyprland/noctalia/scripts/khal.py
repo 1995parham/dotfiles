@@ -1,0 +1,1 @@
+../../../wayland/waybar/scripts/khal.py

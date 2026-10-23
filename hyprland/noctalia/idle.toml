@@ -1,0 +1,23 @@
+# sway/services/swayidle.service on noctalia: dim and lock after 5 minutes,
+# screens off after 10, the brightness comes back on activity. locking before
+# sleep is [lockscreen] lock_before_suspend (wallpaper.toml).
+# https://docs.noctalia.dev/noctalia/services/idle/
+[idle]
+behavior_order = [ "dim", "lock", "screen-off" ]
+
+    [idle.behavior.dim]
+    timeout = 300
+    action = "command"
+    command = "brightnessctl -s s 2%"
+    resume_command = "brightnessctl -r"
+    enabled = true
+
+    [idle.behavior.lock]
+    timeout = 300
+    action = "lock"
+    enabled = true
+
+    [idle.behavior.screen-off]
+    timeout = 600
+    action = "screen_off"
+    enabled = true

@@ -1,27 +1,14 @@
+# cachyos-hypr-noctalia's shell settings. the rest of our sway setup lives
+# next to it, noctalia reads every *.toml here:
+#   bar.toml           waybar
+#   notifications.toml dunst
+#   launcher.toml      rofi
+#   wallpaper.toml     swaybg and swaylock
+#   idle.toml          swayidle
+#   plugins.toml       the community plugins bar.toml uses
+
 [accessibility]
 ui_scale = 1.20
-
-[bar.default]
-center = [ "workspaces", "spacer_1", "active_window" ]
-concave_edge_corners = true
-end = [ "media", "spacer_1", "tray", "notifications", "network", "volume", "session" ]
-margin_edge = 0
-margin_ends = 0
-radius_bottom_left = 12
-radius_bottom_right = 12
-radius_top_left = 0
-radius_top_right = 0
-scale = 1.10
-start = [ "launcher", "clock", "spacer_1", "group:g1" ]
-thickness = 35
-
-    [[bar.default.capsule_group]]
-    border = ""
-    fill = "on_secondary"
-    id = "g1"
-    members = [ "temp", "sysmon_2", "sysmon_3" ]
-    opacity = 1.0
-    padding = 6.0
 
 [shell]
 clipboard_image_action_command = "swash --stdin --name \"swash-$(date +'%Y-%m-%d_%H:%M:%S').png\""
@@ -88,70 +75,3 @@ wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "alacritty" ]
-
-[widget.clock]
-color = "secondary"
-format = "{:%H:%M %A %m/%d/%y}"
-
-[widget.launcher]
-color = "secondary"
-
-[widget.media]
-hide_when_no_media = true
-title_scroll = "on_hover"
-
-[widget.network]
-color = "secondary"
-
-[widget.notifications]
-color = "secondary"
-
-[widget.session]
-color = "error"
-
-[widget.spacer_1]
-type = "spacer"
-
-[widget.temp]
-show_value = false
-
-[widget.sysmon_2]
-glyph = "gpu-usage"
-show_value = false
-stat = "gpu_temp"
-type = "sysmon"
-
-[widget.sysmon_3]
-glyph = "cpu-2"
-stat = "ram_used"
-type = "sysmon"
-
-[widget.tray]
-capsule = true
-capsule_fill = "on_secondary"
-
-[widget.volume]
-color = "secondary"
-
-[widget.workspaces]
-active_pill_size = 2.5
-capsule = true
-capsule_fill = "on_primary"
-inactive_pill_size = 1.0
-pill_scale = 0.80
-# sway names its workspaces (hypr/config/variables.lua), show them
-show_labels = true
-
-# sway/services/swayidle.service: lock after 5 minutes, screens off after 10
-[idle]
-behavior_order = [ "lock", "screen-off" ]
-
-    [idle.behavior.lock]
-    timeout = 300
-    action = "lock"
-    enabled = true
-
-    [idle.behavior.screen-off]
-    timeout = 600
-    action = "screen_off"
-    enabled = true
