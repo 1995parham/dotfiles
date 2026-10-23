@@ -155,7 +155,6 @@ setup_firefox_profiles() {
     running 'firefox' 'Creating Firefox profiles with correct InstallHash'
 
     local main_profile_path="main.default"
-    local personal_profile_path="personal.default"
 
     # Check if profiles already exist
     if grep -q "Name=main" "$profiles_ini" 2>/dev/null; then
@@ -164,14 +163,6 @@ setup_firefox_profiles() {
         running 'firefox' "Creating 'main' profile"
         "$firefox_bin" -CreateProfile "main $firefox_dir/$main_profile_path" -headless >/dev/null 2>&1
         ok 'firefox' "'main' profile created"
-    fi
-
-    if grep -q "Name=personal" "$profiles_ini" 2>/dev/null; then
-        msg 'firefox' "Profile 'personal' already exists, skipping creation"
-    else
-        running 'firefox' "Creating 'personal' profile"
-        "$firefox_bin" -CreateProfile "personal $firefox_dir/$personal_profile_path" -headless >/dev/null 2>&1
-        ok 'firefox' "'personal' profile created"
     fi
 
     # Set 'main' as the default profile for this Firefox installation
@@ -215,19 +206,6 @@ setup_firefox_profiles() {
         check_firefox_login "$firefox_dir" "$main_profile_path" "main" || true
     fi
 
-    # Configure personal profile
-    local personal_profile_dir="$firefox_dir/$personal_profile_path"
-    if [[ -d "$personal_profile_dir" ]]; then
-        running 'firefox' "Configuring personal profile"
-        copycat 'firefox' "firefox/personal.default.user.js" "$personal_profile_dir/user.js" 'false'
-
-        if [[ -f "$root_firefox/foxyproxy-settings.json" ]]; then
-            copycat 'firefox' "firefox/foxyproxy-settings.json" "$personal_profile_dir/foxyproxy-settings.json" 'false'
-        fi
-
-        check_firefox_login "$firefox_dir" "$personal_profile_path" "personal" || true
-    fi
-
     ok 'firefox' 'Firefox profiles setup completed!'
     msg 'Launch Firefox and sign in to sync your settings'
 
@@ -257,10 +235,9 @@ setup_foxyproxy_instructions() {
 }
 
 main_parham() {
-    msg 'Firefox profiles:'
+    msg 'Firefox profile:'
     echo
-    msg 'Profile 1 (main - default): parham.alvani@gmail.com'
-    msg 'Profile 2 (personal): 1995parham@gmail.com'
+    msg 'Profile main (default): alvaniparham@protonmail.com'
     echo
     msg 'To switch profiles: firefox -P <profile-name>'
     msg 'To open profile manager: firefox -ProfileManager'

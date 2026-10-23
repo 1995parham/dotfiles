@@ -1,6 +1,6 @@
 // Main Profile Configuration
 user_pref("browser.startup.homepage", "about:home");
-user_pref("services.sync.username", "parham.alvani@gmail.com");
+user_pref("services.sync.username", "alvaniparham@protonmail.com");
 user_pref("identity.fxaccounts.account.device.name", "Main Profile");
 user_pref("browser.ml.chat.provider", "https://gemini.google.com");
 user_pref("browser.translations.neverTranslateLanguages", "fa");
