@@ -1,19 +1,19 @@
 -- monitors: https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- list outputs with `hyprctl monitors`, add per machine rules in hosts/<hostname>.lua
 hl.monitor({
-    output   = MONITOR1,
-    mode     = "preferred",
+    output = MONITOR1,
+    mode = "preferred",
     position = "auto",
-    scale    = "auto",
+    scale = "auto",
 })
 
 -- kanshi's profiles (sway/kanshi/config), checked whenever a monitor comes or goes.
 -- the laptop panel, hosts can extend it (x-wing turns on vrr) and call apply_monitor_profiles()
 LAPTOP = {
-    output   = "eDP-1",
-    mode     = "preferred",
+    output = "eDP-1",
+    mode = "preferred",
     position = "auto",
-    scale    = "auto",
+    scale = "auto",
 }
 
 -- at the nobitex desks the external monitor replaces the laptop panel

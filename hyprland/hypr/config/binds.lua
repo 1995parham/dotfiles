@@ -86,7 +86,10 @@ hl.bind(mod .. " + minus", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(LAUNCH .. TERMINAL))
 hl.bind(mod .. " + SHIFT + Return", hl.dsp.exec_cmd(LAUNCH .. TERMPAD))
 -- this configuration at a glance, to find a key binding
-hl.bind(mod .. " + F1", hl.dsp.exec_cmd(LAUNCH .. TERMPAD .. " --command bat " .. os.getenv("HOME") .. "/.config/hypr/config/binds.lua"))
+hl.bind(
+    mod .. " + F1",
+    hl.dsp.exec_cmd(LAUNCH .. TERMPAD .. " --command bat " .. os.getenv("HOME") .. "/.config/hypr/config/binds.lua")
+)
 hl.bind(mod .. " + D", hl.dsp.exec_cmd(NOCTALIA .. "panel-toggle launcher"))
 hl.bind(mod .. " + period", hl.dsp.exec_cmd(NOCTALIA .. "panel-toggle launcher /emo"))
 hl.bind(mod .. " + CONTROL + M", hl.dsp.exec_cmd(LAUNCH .. "pavucontrol"))
@@ -136,9 +139,12 @@ hl.bind("XF86TouchpadToggle", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hyp
 -- and noctalia's region capture
 local shot = "$(xdg-user-dir PICTURES)/$(date +'%s_grim.png')"
 hl.bind("Print", hl.dsp.exec_cmd("grim " .. shot))
-hl.bind(mod .. " + Print", hl.dsp.exec_cmd(
-    "hyprctl activewindow -j | jq -j '\"\\(.at[0]),\\(.at[1]) \\(.size[0])x\\(.size[1])\"' | grim -g - " .. shot
-))
+hl.bind(
+    mod .. " + Print",
+    hl.dsp.exec_cmd(
+        "hyprctl activewindow -j | jq -j '\"\\(.at[0]),\\(.at[1]) \\(.size[0])x\\(.size[1])\"' | grim -g - " .. shot
+    )
+)
 hl.bind("SHIFT + Print", hl.dsp.exec_cmd(NOCTALIA .. "screenshot-region"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -n"))
 

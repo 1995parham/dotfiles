@@ -1,16 +1,16 @@
 -- default applications, the same ones sway uses
-TERMINAL     = "alacritty"
+TERMINAL = "alacritty"
 -- termpad is a floating terminal in the middle of the screen (see apps.lua)
-TERMPAD      = TERMINAL .. " --class __termpad"
+TERMPAD = TERMINAL .. " --class __termpad"
 FILE_MANAGER = "dolphin"
-BROWSER      = "firefox"
+BROWSER = "firefox"
 
 -- run applications as systemd units under uwsm, as cachyos does
-LAUNCH   = "uwsm app -- "
+LAUNCH = "uwsm app -- "
 NOCTALIA = "noctalia msg "
 
 -- monitors, empty means any (override them in hosts/<hostname>.lua)
-MONITOR1        = ""
+MONITOR1 = ""
 PRIMARY_MONITOR = MONITOR1
 
 -- sway workspace names (sway/sway/config: $ws1..$ws9 and $wsf)
@@ -30,5 +30,5 @@ WORKSPACE_FOCUS = "name:focus"
 -- gaps, kept here so the gaps submap can change them at runtime.
 -- sway has inner 14 between windows and outer -2, hyprland applies gaps_in on
 -- each side of a window and gaps_out from the screen edge.
-GAPS_IN  = 7
+GAPS_IN = 7
 GAPS_OUT = 12

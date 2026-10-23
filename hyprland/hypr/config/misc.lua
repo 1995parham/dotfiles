@@ -21,6 +21,6 @@ hl.config({
         -- non_shader_cm = 0,
     },
     xwayland = {
-        force_zero_scaling = true
+        force_zero_scaling = true,
     },
 })
