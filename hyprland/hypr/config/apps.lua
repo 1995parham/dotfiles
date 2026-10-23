@@ -15,6 +15,7 @@ hl.window_rule({ match = { class = "^([Ss]lack)$" }, workspace = "7 silent", flo
 hl.window_rule({ match = { class = "^(obsidian)$" }, workspace = "3 silent" })
 hl.window_rule({ match = { class = "^([Cc]ode|[Cc]ode - Insiders|code-insiders)$" }, workspace = "2 silent" })
 hl.window_rule({ match = { class = "^(google-chrome.*)$" }, workspace = "4 silent" })
+hl.window_rule({ match = { class = "^(org\\.pulseaudio\\.pavucontrol|pavucontrol)$" }, float = true })
 hl.window_rule({ match = { class = "^(GalaxyBudsClient)$" }, float = true, size = size(0.6, 0.7), opacity = "0.9", border_size = 0 })
 hl.window_rule({ match = { class = "^(30nama)$" }, idle_inhibit = "focus" })
 hl.window_rule({ match = { title = "^(Sniffnet)$" }, float = true })

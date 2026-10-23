@@ -64,6 +64,15 @@ hl.bind(mod .. " + W", hl.dsp.group.toggle())
 
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
+-- sway's focus mode_toggle: between the floating and the tiled windows
+hl.bind(mod .. " + CONTROL + space", function()
+    local active = hl.get_active_window()
+    if active and active.floating then
+        hl.dispatch(hl.dsp.window.cycle_next({ tiled = true }))
+    else
+        hl.dispatch(hl.dsp.window.cycle_next({ floating = true }))
+    end
+end)
 -- sway's sticky toggle
 hl.bind(mod .. " + SHIFT + S", hl.dsp.window.pin({ action = "toggle" }))
 
@@ -117,6 +126,8 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(NOCTALIA .. "media toggle"), { locked =
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(NOCTALIA .. "media toggle"), { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd(NOCTALIA .. "media next"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(NOCTALIA .. "media previous"), { locked = true })
+-- the touchpad button of the keyboard
+hl.bind("XF86TouchpadToggle", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/touchpad-toggle.sh"))
 
 -------------------
 ---- UTILITIES ----
