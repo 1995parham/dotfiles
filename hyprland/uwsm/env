@@ -1,0 +1,15 @@
+# session environment for hyprland under uwsm (from cachyos-hypr-noctalia)
+export BROWSER=firefox
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME="qt6ct"
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+export HYPRCURSOR_THEME="Bibata-Modern-Ice"
+export HYPRCURSOR_SIZE=24
+export XCURSOR_THEME="Bibata-Modern-Ice"
+export XCURSOR_SIZE=24
+
+# If you have an NVIDIA GPU uncommment the following lines
+# export GBM_BACKEND=nvidia-drm # force GBM as a backend
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia # force GBM as a backend
+# export LIBVA_DRIVER_NAME=nvidia # Hardware acceleration on NVIDIA GPUs
+# export __GL_GSYNC_ALLOWED=1 # Controls if G-Sync capable monitors should use Variable Refresh Rate (VRR)
