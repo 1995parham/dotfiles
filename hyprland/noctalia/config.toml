@@ -73,5 +73,9 @@ mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
+    # no kitty or alacritty: their configs are ours (scripts/kitty.sh,
+    # scripts/alacritty.sh link them from here), and noctalia's templates edit
+    # the config file in place -- they rewrote both inside this repo, and left
+    # alacritty.toml unparsable.
     [theme.templates]
-    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "alacritty" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "qt" ]
