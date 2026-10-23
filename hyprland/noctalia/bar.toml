@@ -11,7 +11,7 @@ order = [ "top", "bottom", "clock" ]
 position = "top"
 center = [ "active_window" ]
 concave_edge_corners = true
-end = [ "lock_keys", "disk", "media", "volume", "network", "bluetooth", "group:system", "brightness", "keyboard_layout", "battery", "clock", "tray", "notifications", "session" ]
+end = [ "lock_keys", "disk", "media", "volume", "roam", "network", "bluetooth", "group:system", "brightness", "keyboard_layout", "battery", "clock", "tray", "notifications", "session" ]
 margin_edge = 0
 margin_ends = 0
 radius_bottom_left = 12
@@ -96,6 +96,16 @@ visualization = "none"
 [widget.media]
 hide_when_no_media = true
 title_scroll = "on_hover"
+
+# the roaming sing-box tunnel (keys hosts/simorgh/roam): the German flag while
+# a request gets through it, a red cross when it does not, hidden when stopped
+[widget.roam]
+type = "tordex/stdout:bar"
+cmd = "~/.config/noctalia/scripts/roam.sh"
+interval = 30
+interval_units = "1"
+json = true
+hide_on_error = true
 
 # pulseaudio
 [widget.volume]
