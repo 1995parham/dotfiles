@@ -71,7 +71,9 @@ gpu_poll_seconds = 2
 [theme]
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
+# vibrant, not the default m3-tonal-spot: tonal-spot greys the accents and
+# surfaces out, vibrant keeps the wallpaper's own saturated colors
+wallpaper_scheme = "vibrant"
 
     # no kitty or alacritty: their configs are ours (scripts/kitty.sh,
     # scripts/alacritty.sh link them from here), and noctalia's templates edit
