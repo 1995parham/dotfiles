@@ -1,7 +1,7 @@
 # swaybg and swaylock on noctalia. sway's bg.sh picks a random image from
 # ~/Pictures/GoSiMac for each output and keeps changing it every few seconds;
 # here it is Barcelona (full-resolution Commons Featured/Quality images,
-# fetched by hyprland/wallpapers/barcelona.sh) and changes every 10
+# fetched by wallpapers/barcelona.sh) and changes every 10
 # minutes, since the theme colors follow the wallpaper (config.toml) and would
 # otherwise repaint the shell constantly.
 # https://docs.noctalia.dev/noctalia/desktop/wallpaper/

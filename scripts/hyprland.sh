@@ -55,7 +55,7 @@ main() {
     # lock.jpg; the pictures are ~110 MB of Commons originals, so they are
     # fetched rather than kept here.
     if [[ ! -f "$HOME/Pictures/Barcelona/lock.jpg" ]]; then
-        bash "${root}/hyprland/wallpapers/barcelona.sh"
+        bash "${root}/wallpapers/barcelona.sh"
     fi
 
     msg 'hyprland reloads its configuration on change, run hyprctl configerrors to check it'

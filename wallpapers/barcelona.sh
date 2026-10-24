@@ -4,7 +4,7 @@
 # one a Commons Featured or Quality image, plus CREDITS.txt with each file's
 # author and license (CC BY / CC BY-SA / GFDL, which ask for attribution).
 # lock.jpg is the lock screen, the rest rotate as wallpaper (dotfiles
-# hyprland/noctalia/wallpaper.toml).
+# hyprland/noctalia/wallpaper.toml on Linux, scripts/wallpaper.sh on macOS).
 #
 # Usage: barcelona.sh [dest]
 set -euo pipefail
