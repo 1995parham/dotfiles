@@ -7,7 +7,7 @@
 order = [ "top", "bottom", "clock" ]
 
 # config.d/top.json, plus noctalia's launcher, notifications and session buttons.
-# a floating, translucent island: widgets sit in pills grouped by what they
+# a transparent bar: widgets sit in pills over the wallpaper, grouped by what they
 # are about (capsule groups below), instead of one long run of text.
 [bar.top]
 position = "top"
@@ -16,7 +16,8 @@ center = []
 # ran into it
 start = [ "launcher", "workspaces", "submap", "active_window" ]
 end = [ "group:status", "group:audio", "group:net", "group:system", "group:power", "group:clock", "tray", "notifications", "session" ]
-background_opacity = 0.85
+background_opacity = 0.0
+shadow = false
 concave_edge_corners = false
 margin_edge = 6
 margin_ends = 8
@@ -29,7 +30,7 @@ widget_spacing = 8
     id = "status"
     members = [ "lock_keys", "disk" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 10
 
@@ -37,7 +38,7 @@ widget_spacing = 8
     id = "audio"
     members = [ "media", "volume" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 10
 
@@ -45,7 +46,7 @@ widget_spacing = 8
     id = "net"
     members = [ "roam", "network", "bluetooth" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 10
 
@@ -54,7 +55,7 @@ widget_spacing = 8
     id = "system"
     members = [ "cpu", "cpu_freq", "memory", "temperature" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 10
 
@@ -62,7 +63,7 @@ widget_spacing = 8
     id = "power"
     members = [ "brightness", "keyboard_layout", "battery" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 10
 
@@ -74,13 +75,14 @@ widget_spacing = 8
     padding = 12.0
 
 # config.d/bottom.json: dates, the calendar, the couple counters and the
-# addresses of our vpn interfaces, in the same island style as the top bar
+# addresses of our vpn interfaces, transparent like the top bar
 [bar.bottom]
 position = "bottom"
 center = [ "group:couple" ]
 end = [ "group:vpn" ]
 start = [ "group:dates", "group:tunnels" ]
-background_opacity = 0.85
+background_opacity = 0.0
+shadow = false
 margin_edge = 6
 margin_ends = 8
 radius = 14
@@ -92,7 +94,7 @@ widget_spacing = 8
     id = "dates"
     members = [ "date", "jdate", "khal" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 14
 
@@ -100,7 +102,7 @@ widget_spacing = 8
     id = "tunnels"
     members = [ "ip_alvani", "ip_home" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 14
 
@@ -108,7 +110,7 @@ widget_spacing = 8
     id = "couple"
     members = [ "relationship", "birthday" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 14
 
@@ -116,7 +118,7 @@ widget_spacing = 8
     id = "vpn"
     members = [ "ip_speedify", "ip_xvpn", "ip_nobitex" ]
     fill = "surface_variant"
-    opacity = 0.8
+    opacity = 0.9
     padding = 10.0
     widget_spacing = 14
 
