@@ -17,3 +17,21 @@ hl.config({
         },
     },
 })
+
+-- main-1 and main-2 open tabbed, like sway's workspace_layout tabbed: the
+-- first tiled window becomes a group and every later one joins it.
+-- group.auto_group only joins the focused group, so a window sent there from
+-- another workspace would start its own group without this.
+local tabbed = { ["main-1"] = true, ["main-2"] = true }
+hl.on("window.open", function(w)
+    if w.floating or w.group or not w.workspace or not tabbed[w.workspace.name] then
+        return
+    end
+    for _, other in ipairs(hl.get_workspace_windows(w.workspace.name)) do
+        if other ~= w and other.group and not other.floating then
+            other.group:add(w)
+            return
+        end
+    end
+    hl.dispatch(hl.dsp.group.toggle({ window = "address:" .. w.address }))
+end)
