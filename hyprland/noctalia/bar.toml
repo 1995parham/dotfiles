@@ -154,6 +154,12 @@ capsule_foreground = "#ffa500"
 capsule_opacity = 0.9
 
 [widget.workspaces]
+# orange like the rest: the focused one bright, others with windows darker,
+# empty ones dim
+focused_color = "#ffa500"
+occupied_color = "#b36b00"
+empty_color = "#5c3d00"
+change_color_on_hover = false
 active_pill_size = 2.5
 capsule = true
 capsule_fill = "#111111"
