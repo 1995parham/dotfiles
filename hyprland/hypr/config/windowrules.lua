@@ -98,10 +98,17 @@ hl.window_rule({
     },
 })
 
--- the browser opens on www (WORKSPACES in variables.lua)
+-- apps that open on their own workspace, by its name in WORKSPACES
+-- (variables.lua)
+local homes = {
+    ["^(firefox)$"] = "www",
+    ["^(org\\.telegram\\.desktop)$"] = "social-1",
+}
 for i, name in ipairs(WORKSPACES) do
-    if name == "www" then
-        hl.window_rule({ match = { class = "^(firefox)$" }, workspace = tostring(i) })
+    for class, home in pairs(homes) do
+        if name == home then
+            hl.window_rule({ match = { class = class }, workspace = tostring(i) })
+        end
     end
 end
 
