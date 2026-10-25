@@ -19,7 +19,21 @@ hl.config({
             border_locked_active = RED,
             border_locked_inactive = GRAY,
         },
+        -- tabs you can read: filled pills, the active one orange with dark
+        -- text (hyprland's are 14 px with 8 pt text by default)
         groupbar = {
+            height = 24,
+            font_size = 12,
+            font_weight_active = "bold",
+            gradients = true,
+            gradient_rounding = 8,
+            gradient_round_only_edges = false,
+            indicator_height = 0,
+            gaps_in = 4,
+            gaps_out = 4,
+            keep_upper_gap = true,
+            text_color = GRAY,
+            text_color_inactive = LIGHT,
             col = {
                 active = ORANGE,
                 inactive = GRAY,

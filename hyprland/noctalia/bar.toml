@@ -6,49 +6,119 @@
 [bar]
 order = [ "top", "bottom", "clock" ]
 
-# config.d/top.json, plus noctalia's launcher, notifications and session buttons
+# config.d/top.json, plus noctalia's launcher, notifications and session buttons.
+# a floating, translucent island: widgets sit in pills grouped by what they
+# are about (capsule groups below), instead of one long run of text.
 [bar.top]
 position = "top"
-concave_edge_corners = true
-end = [ "lock_keys", "disk", "media", "volume", "roam", "network", "bluetooth", "group:system", "brightness", "keyboard_layout", "battery", "clock", "tray", "notifications", "session" ]
-margin_edge = 0
-margin_ends = 0
-radius_bottom_left = 12
-radius_bottom_right = 12
-radius_top_left = 0
-radius_top_right = 0
-scale = 1.10
-# the window title sits after the workspaces: centred, the wide end section
-# ran into it. center must stay, empty: left out, noctalia puts its clock there
 center = []
+# the window title sits after the workspaces: centred, the wide end section
+# ran into it
 start = [ "launcher", "workspaces", "submap", "active_window" ]
-thickness = 35
-# twice noctalia's 6, the end section read as one run of text
-widget_spacing = 12
+end = [ "group:status", "group:audio", "group:net", "group:system", "group:power", "group:clock", "tray", "notifications", "session" ]
+background_opacity = 0.85
+concave_edge_corners = false
+margin_edge = 6
+margin_ends = 8
+radius = 14
+scale = 1.10
+thickness = 40
+widget_spacing = 8
 
-    # cpu, memory and temperature side by side, as waybar has them
     [[bar.top.capsule_group]]
-    border = ""
-    fill = "on_secondary"
-    id = "system"
-    members = [ "cpu", "cpu_freq", "memory", "temperature" ]
-    opacity = 1.0
+    id = "status"
+    members = [ "lock_keys", "disk" ]
+    fill = "surface_variant"
+    opacity = 0.8
     padding = 10.0
     widget_spacing = 10
 
+    [[bar.top.capsule_group]]
+    id = "audio"
+    members = [ "media", "volume" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 10
+
+    [[bar.top.capsule_group]]
+    id = "net"
+    members = [ "roam", "network", "bluetooth" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 10
+
+    # cpu, memory and temperature side by side, as waybar has them
+    [[bar.top.capsule_group]]
+    id = "system"
+    members = [ "cpu", "cpu_freq", "memory", "temperature" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 10
+
+    [[bar.top.capsule_group]]
+    id = "power"
+    members = [ "brightness", "keyboard_layout", "battery" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 10
+
+    [[bar.top.capsule_group]]
+    id = "clock"
+    members = [ "clock" ]
+    fill = "primary"
+    foreground = "on_primary"
+    padding = 12.0
+
 # config.d/bottom.json: dates, the calendar, the couple counters and the
-# addresses of our vpn interfaces
+# addresses of our vpn interfaces, in the same island style as the top bar
 [bar.bottom]
 position = "bottom"
-center = [ "relationship", "birthday" ]
-end = [ "ip_speedify", "ip_xvpn", "ip_nobitex" ]
-margin_edge = 5
-margin_ends = 5
-radius = 5
+center = [ "group:couple" ]
+end = [ "group:vpn" ]
+start = [ "group:dates", "group:tunnels" ]
+background_opacity = 0.85
+margin_edge = 6
+margin_ends = 8
+radius = 14
 scale = 1.10
-start = [ "date", "jdate", "khal", "ip_alvani", "ip_home" ]
-thickness = 33
-widget_spacing = 16
+thickness = 36
+widget_spacing = 8
+
+    [[bar.bottom.capsule_group]]
+    id = "dates"
+    members = [ "date", "jdate", "khal" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 14
+
+    [[bar.bottom.capsule_group]]
+    id = "tunnels"
+    members = [ "ip_alvani", "ip_home" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 14
+
+    [[bar.bottom.capsule_group]]
+    id = "couple"
+    members = [ "relationship", "birthday" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 14
+
+    [[bar.bottom.capsule_group]]
+    id = "vpn"
+    members = [ "ip_speedify", "ip_xvpn", "ip_nobitex" ]
+    fill = "surface_variant"
+    opacity = 0.8
+    padding = 10.0
+    widget_spacing = 14
 
 # config.d/left.json: a vertical clock on the HDMI-A-1 monitor only
 [bar.clock]
@@ -159,13 +229,12 @@ show_label = true
 
 # clock: "{:%H:%M %Z}", the long form on hover
 [widget.clock]
-color = "secondary"
 format = "{:%H:%M %Z}"
 tooltip_format = "{:%A, %B %d, %Y (%R) %Z}"
 
 [widget.tray]
 capsule = true
-capsule_fill = "on_secondary"
+capsule_fill = "surface_variant"
 
 [widget.notifications]
 color = "secondary"
