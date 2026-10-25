@@ -32,11 +32,10 @@ hl.bind(mod .. " + N", border(2))
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize())
 
--- focus, vim keys and arrows
-hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
+-- focus, vim keys and arrows. h and l walk the workspaces instead (below),
+-- so left and right are on the arrows only.
 hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. " + Left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + Down", hl.dsp.focus({ direction = "down" }))
 hl.bind(mod .. " + Up", hl.dsp.focus({ direction = "up" }))
@@ -61,6 +60,9 @@ hl.bind(mod .. " + Q", hl.dsp.layout("togglesplit"))
 hl.bind(mod .. " + E", hl.dsp.layout("togglesplit"))
 -- sway's tabbed layout is a hyprland group
 hl.bind(mod .. " + W", hl.dsp.group.toggle())
+-- and alt h / l move between its tabs
+hl.bind("ALT + H", hl.dsp.group.prev())
+hl.bind("ALT + L", hl.dsp.group.next())
 
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
@@ -167,7 +169,9 @@ hl.bind(mod .. " + SHIFT + " .. grave, hl.dsp.window.move({ workspace = WORKSPAC
 hl.bind(mod .. " + B", hl.dsp.focus({ workspace = "previous" }))
 hl.bind(mod .. " + SHIFT + B", hl.dsp.window.move({ workspace = "previous", follow = true }))
 
--- next / previous existing workspace, also on the mouse side buttons
+-- next / previous existing workspace, on h and l, and on the mouse side buttons
+hl.bind(mod .. " + H", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mod .. " + L", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mod .. " + CONTROL + Right", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mod .. " + CONTROL + Left", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("mouse:276", hl.dsp.focus({ workspace = "e+1" }))

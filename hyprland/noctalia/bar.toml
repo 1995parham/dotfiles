@@ -9,7 +9,6 @@ order = [ "top", "bottom", "clock" ]
 # config.d/top.json, plus noctalia's launcher, notifications and session buttons
 [bar.top]
 position = "top"
-center = [ "active_window" ]
 concave_edge_corners = true
 end = [ "lock_keys", "disk", "media", "volume", "roam", "network", "bluetooth", "group:system", "brightness", "keyboard_layout", "battery", "clock", "tray", "notifications", "session" ]
 margin_edge = 0
@@ -19,8 +18,12 @@ radius_bottom_right = 12
 radius_top_left = 0
 radius_top_right = 0
 scale = 1.10
-start = [ "launcher", "workspaces", "submap" ]
+# the window title sits after the workspaces: centred, the wide end section
+# ran into it
+start = [ "launcher", "workspaces", "submap", "active_window" ]
 thickness = 35
+# twice noctalia's 6, the end section read as one run of text
+widget_spacing = 12
 
     # cpu, memory and temperature side by side, as waybar has them
     [[bar.top.capsule_group]]
@@ -29,7 +32,8 @@ thickness = 35
     id = "system"
     members = [ "cpu", "cpu_freq", "memory", "temperature" ]
     opacity = 1.0
-    padding = 6.0
+    padding = 10.0
+    widget_spacing = 10
 
 # config.d/bottom.json: dates, the calendar, the couple counters and the
 # addresses of our vpn interfaces
@@ -43,6 +47,7 @@ radius = 5
 scale = 1.10
 start = [ "date", "jdate", "khal", "ip_alvani", "ip_home" ]
 thickness = 33
+widget_spacing = 16
 
 # config.d/left.json: a vertical clock on the HDMI-A-1 monitor only
 [bar.clock]
@@ -80,6 +85,7 @@ hide_when_default = true
 
 [widget.active_window]
 title_scroll = "on_hover"
+max_length = 360
 
 # keyboard-state
 [widget.lock_keys]

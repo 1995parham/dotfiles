@@ -98,6 +98,13 @@ hl.window_rule({
     },
 })
 
+-- the browser opens on www (WORKSPACES in variables.lua)
+for i, name in ipairs(WORKSPACES) do
+    if name == "www" then
+        hl.window_rule({ match = { class = "^(firefox)$" }, workspace = tostring(i) })
+    end
+end
+
 -- Opacity Overrides
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
 
