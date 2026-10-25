@@ -138,6 +138,9 @@ thickness = 50
 ################
 
 [widget.launcher]
+capsule = true
+capsule_fill = "surface_variant"
+capsule_opacity = 0.9
 color = "secondary"
 
 [widget.workspaces]
@@ -157,6 +160,9 @@ type = "k4n4t4/hypr-submap:hypr-submap"
 hide_when_default = true
 
 [widget.active_window]
+capsule = true
+capsule_fill = "surface_variant"
+capsule_opacity = 0.9
 title_scroll = "on_hover"
 max_length = 360
 
@@ -237,11 +243,18 @@ tooltip_format = "{:%A, %B %d, %Y (%R) %Z}"
 [widget.tray]
 capsule = true
 capsule_fill = "surface_variant"
+capsule_opacity = 0.9
 
 [widget.notifications]
+capsule = true
+capsule_fill = "surface_variant"
+capsule_opacity = 0.9
 color = "secondary"
 
 [widget.session]
+capsule = true
+capsule_fill = "surface_variant"
+capsule_opacity = 0.9
 color = "error"
 
 ###################
