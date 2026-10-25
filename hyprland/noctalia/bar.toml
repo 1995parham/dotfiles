@@ -19,7 +19,8 @@ radius_top_left = 0
 radius_top_right = 0
 scale = 1.10
 # the window title sits after the workspaces: centred, the wide end section
-# ran into it
+# ran into it. center must stay, empty: left out, noctalia puts its clock there
+center = []
 start = [ "launcher", "workspaces", "submap", "active_window" ]
 thickness = 35
 # twice noctalia's 6, the end section read as one run of text
