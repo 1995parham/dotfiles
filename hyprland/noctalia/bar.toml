@@ -244,9 +244,9 @@ display = "short"
 [widget.battery]
 show_label = true
 
-# clock: "{:%H:%M %Z}", the long form on hover
+# clock: the local time as "{:%H:%M} Tehran", the long form on hover
 [widget.clock]
-format = "{:%H:%M %Z}"
+format = "{:%H:%M} Tehran"
 tooltip_format = "{:%A, %B %d, %Y (%R) %Z}"
 
 # the time in Madrid beside it
