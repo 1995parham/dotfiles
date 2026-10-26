@@ -16,10 +16,13 @@ usage() {
 
 main_pacman() {
     require_pacman obsidian
+    # daftar-cli reads the same vault from a shell: https://github.com/parham-alvani/notes-linux
+    require_aur daftar-cli-bin
 }
 
 main_brew() {
     require_brew_cask obsidian
+    require_brew parham-alvani/tap/daftar-cli
 }
 
 main_apt() {
