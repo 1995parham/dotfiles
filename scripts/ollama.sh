@@ -19,6 +19,15 @@ pre_main() {
 main_pacman() {
     require_pacman ollama
 
+    # plain ollama runs on the cpu only, the gpu needs its backend beside it.
+    # vulkan covers intel (arc) and amd alike.
+    gpus=$(lspci 2>/dev/null | grep -i -e vga -e 3d -e display)
+    if grep -q -i nvidia <<<"$gpus"; then
+        require_pacman ollama-cuda
+    elif grep -q -i -e intel -e amd <<<"$gpus"; then
+        require_pacman ollama-vulkan
+    fi
+
     sudo systemctl enable --now ollama.service
 }
 
