@@ -19,7 +19,12 @@ main_brew() {
 }
 
 main_pacman() {
-    require_aur opencode-ai-bin
+    # arch ships opencode in extra now, the aur package is for older mirrors
+    if pacman -Si opencode >/dev/null 2>&1; then
+        require_pacman opencode
+    else
+        require_aur opencode-ai-bin
+    fi
 }
 
 main_apt() {
