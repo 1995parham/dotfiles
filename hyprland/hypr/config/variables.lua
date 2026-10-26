@@ -17,7 +17,7 @@ PRIMARY_MONITOR = MONITOR1
 WORKSPACES = {
     "main-1",
     "main-2",
-    "code",
+    "notes",
     "www",
     "vm",
     "apps-1",
