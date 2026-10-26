@@ -11,6 +11,6 @@ hl.on("hyprland.start", function()
         "command -v google-chrome-stable >/dev/null && " .. LAUNCH .. "google-chrome-stable",
         { workspace = "4 silent" }
     )
-    hl.exec_cmd("command -v obsidian >/dev/null && " .. LAUNCH .. "obsidian", { workspace = "3 silent" })
+    hl.exec_cmd("command -v daftar >/dev/null && " .. LAUNCH .. "daftar", { workspace = "3 silent" })
     hl.dispatch(hl.dsp.focus({ workspace = WORKSPACE_FOCUS }))
 end)

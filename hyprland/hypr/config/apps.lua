@@ -29,7 +29,7 @@ hl.window_rule({
     size = size(0.6, 0.7),
     move = { "monitor_w*0.4", "monitor_h*0.1" },
 })
-hl.window_rule({ match = { class = "^(obsidian)$" }, workspace = "3 silent" })
+hl.window_rule({ match = { class = "^(me\\.parham1995\\.notes)$" }, workspace = "3 silent" })
 hl.window_rule({ match = { class = "^([Cc]ode|[Cc]ode - Insiders|code-insiders)$" }, workspace = "2 silent" })
 hl.window_rule({ match = { class = "^(google-chrome.*)$" }, workspace = "4 silent" })
 hl.window_rule({ match = { class = "^(org\\.pulseaudio\\.pavucontrol|pavucontrol)$" }, float = true })
