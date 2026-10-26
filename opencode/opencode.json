@@ -1,4 +1,18 @@
 {
     "$schema": "https://opencode.ai/config.json",
-    "theme": "neon"
+    "theme": "neon",
+    "provider": {
+        "ollama": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "Ollama (local)",
+            "options": {
+                "baseURL": "http://localhost:11434/v1"
+            },
+            "models": {
+                "qwen3:8b": {
+                    "name": "Qwen3 8B"
+                }
+            }
+        }
+    }
 }

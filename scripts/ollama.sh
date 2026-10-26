@@ -28,7 +28,10 @@ main_pacman() {
         require_pacman ollama-vulkan
     fi
 
-    sudo systemctl enable --now ollama.service
+    copycat "ollama" "ollama/context.conf" /etc/systemd/system/ollama.service.d/
+    sudo systemctl daemon-reload
+    sudo systemctl enable ollama.service
+    sudo systemctl restart ollama.service
 }
 
 main_xbps() {
