@@ -200,7 +200,7 @@ main_brew() {
     fi
     if [[ "$USER" == "parham" ]]; then
         add_to_dock_if_exists "/Applications/Google Chrome.app"
-        add_to_dock_if_exists "/Applications/Obsidian.app"
+        add_to_dock_if_exists "/Applications/Daftar.app"
     else
         add_to_dock_if_exists "/Applications/Google Chrome.app"
     fi

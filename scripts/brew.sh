@@ -79,6 +79,7 @@ main_brew() {
         hashicorp/tap
         mike-engel/jwt-cli
         nats-io/nats-tools
+        parham-alvani/tap
         redpanda-data/tap
         tilt-dev/tap
     )
