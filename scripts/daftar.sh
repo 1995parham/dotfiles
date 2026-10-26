@@ -14,10 +14,15 @@ usage() {
   '
 }
 
-# a desktop session runs now or the machine boots into one; a server gets daftar-cli alone.
+# a desktop session runs now or a compositor is installed; a server gets daftar-cli alone.
+# graphical.target says nothing: arch boots into it with no desktop at all.
 has_desktop() {
     [[ -n "${WAYLAND_DISPLAY:-}" || -n "${DISPLAY:-}" ]] && return 0
-    [[ "$(systemctl get-default 2>/dev/null)" == "graphical.target" ]]
+    local compositor
+    for compositor in Hyprland sway niri gnome-shell plasmashell Xorg; do
+        command -v "${compositor}" &>/dev/null && return 0
+    done
+    return 1
 }
 
 main_pacman() {
