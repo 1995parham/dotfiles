@@ -99,6 +99,14 @@ hl.bind(mod .. " + F5", hl.dsp.exec_cmd(LAUNCH .. TERMPAD .. " --command ncmpcpp
 hl.bind(mod .. " + CONTROL + R", hl.dsp.exec_cmd("obs --scene normal --startrecording --minimize-to-tray"))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(LAUNCH .. TERMPAD .. " --command btop"))
 
+-- local ai, offline (voice/ in dotfiles, ./start.sh voice and ./start.sh ollama):
+-- t talks (dictation into the focused window, again to stop), shift+t reads the
+-- selection aloud (again to stop), i asks the local model
+local voice = os.getenv("HOME") .. "/.local/bin/voice"
+hl.bind(mod .. " + T", hl.dsp.exec_cmd(voice .. " dictate"))
+hl.bind(mod .. " + SHIFT + T", hl.dsp.exec_cmd(voice .. " speak"))
+hl.bind(mod .. " + I", hl.dsp.exec_cmd(LAUNCH .. TERMPAD .. " --command ollama run qwen3:8b --think=false"))
+
 -- noctalia panels
 hl.bind(mod .. " + Z", hl.dsp.exec_cmd(NOCTALIA .. "settings-toggle"))
 hl.bind(mod .. " + X", hl.dsp.exec_cmd(NOCTALIA .. "panel-toggle control-center"))
@@ -126,6 +134,9 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd(NOCTALIA .. "volume-mute"), { locked = 
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(NOCTALIA .. "mic-mute"), { locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(NOCTALIA .. "brightness-up"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(NOCTALIA .. "brightness-down"), { locked = true, repeating = true })
+-- power profiles: power-saver -> balanced -> performance, the bar's power
+-- group shows the current one (click or scroll it to switch too)
+hl.bind(mod .. " + SHIFT + P", hl.dsp.exec_cmd(NOCTALIA .. "power-cycle"))
 -- media over mpris, so any player works (mpd needs mpd-mpris)
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(NOCTALIA .. "media toggle"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(NOCTALIA .. "media toggle"), { locked = true })

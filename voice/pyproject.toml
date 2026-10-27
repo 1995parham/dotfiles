@@ -1,0 +1,21 @@
+[project]
+name = "voice"
+version = "0.1.0"
+description = "offline dictation (whisper on the npu) and read-aloud (piper)"
+requires-python = ">=3.10"
+dependencies = [
+    "openvino-genai>=2026.4",
+    "piper-tts>=1.8",
+    "huggingface-hub",
+    "numpy",
+]
+
+[project.scripts]
+voice = "voice:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["voice"]
