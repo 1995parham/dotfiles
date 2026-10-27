@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# download kiwix archives (.zim) and add them to the library kiwix-serve and
+# kiwix-desktop read. download.kiwix.org is foreign: in iran, run it with a
+# tunnel up. downloads resume, and an archive already present is skipped.
+#
+#   kiwix-fetch                         the small set in offline-docs/zims.txt
+#   kiwix-fetch wikipedia_fa_all_maxi   by name, without the date
+set -euo pipefail
+
+dir="${XDG_DATA_HOME:-$HOME/.local/share}/kiwix"
+list="$(dirname "$(readlink -f "$0")")/../../offline-docs/zims.txt"
+mirror="https://download.kiwix.org/zim"
+
+if [[ $# -eq 0 ]]; then
+    mapfile -t names < <(sed -e 's/#.*//' -e 's/[[:space:]]//g' -e '/^$/d' "$list")
+else
+    names=("$@")
+fi
+
+# the directory a name lives in on the mirror
+section() {
+    case "$1" in
+    wikipedia_*) echo wikipedia ;;
+    devdocs_*) echo devdocs ;;
+    *stackexchange.com_* | stackoverflow.com_* | serverfault.com_* | superuser.com_* | askubuntu.com_*) echo stack_exchange ;;
+    *) echo other ;;
+    esac
+}
+
+mkdir -p "$dir"
+declare -A listing
+for name in "${names[@]}"; do
+    sec="$(section "$name")"
+    [[ -n "${listing[$sec]:-}" ]] || listing[$sec]="$(curl -fsSL "$mirror/$sec/")"
+    file="$(grep -oE "\"${name//./\\.}_[0-9]{4}-[0-9]{2}\.zim\"" <<<"${listing[$sec]}" | tr -d '"' | sort | tail -1)"
+    if [[ -z "$file" ]]; then
+        echo "kiwix-fetch: no archive called $name in $mirror/$sec/" >&2
+        continue
+    fi
+
+    if [[ -f "$dir/$file" ]]; then
+        echo "kiwix-fetch: $file is here already"
+    else
+        echo "kiwix-fetch: $file"
+        curl -fL -C - --retry 5 -o "$dir/$file.part" "$mirror/$sec/$file"
+        mv "$dir/$file.part" "$dir/$file"
+        # an older dump of the same archive goes
+        find "$dir" -maxdepth 1 -name "${name}_*.zim" ! -name "$file" -print -delete
+    fi
+done
+
+# the library is rebuilt from what is on disk, so a deleted archive drops out
+rm -f "$dir/library.xml"
+for zim in "$dir"/*.zim; do
+    [[ -e "$zim" ]] && kiwix-manage "$dir/library.xml" add "$zim"
+done
+
+systemctl --user enable --now kiwix-serve.service 2>/dev/null || true
+echo "kiwix-fetch: http://127.0.0.1:8090"

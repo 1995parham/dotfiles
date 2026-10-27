@@ -1,0 +1,13 @@
+# every archive kiwix-fetch downloaded, in the browser at http://127.0.0.1:8090
+# (search across all of them from the front page). --monitorLibrary picks up
+# new archives without a restart.
+[Unit]
+Description=kiwix-serve, offline wikipedia, stack exchange and devdocs
+ConditionPathExists=%h/.local/share/kiwix/library.xml
+
+[Service]
+ExecStart=/usr/bin/kiwix-serve --address=127.0.0.1 --port=8090 --monitorLibrary --library %h/.local/share/kiwix/library.xml
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

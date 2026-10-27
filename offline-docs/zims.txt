@@ -1,0 +1,33 @@
+# archives kiwix-fetch downloads with no arguments: small, always worth having.
+# sizes as of 2026-10; kiwix-fetch takes the newest dump of each.
+archlinux_en_all_maxi           # 37 MB, the arch wiki
+devdocs_en_go                   # 1.6 MB
+devdocs_en_python               # 4.2 MB
+devdocs_en_rust                 # 5.9 MB
+devdocs_en_bash                 # 0.6 MB
+devdocs_en_c                    # 1.3 MB
+devdocs_en_cpp                  # 7.7 MB
+devdocs_en_javascript           # 2.5 MB
+devdocs_en_typescript           # 1.0 MB
+devdocs_en_html                 # 1.6 MB
+devdocs_en_css                  # 2.6 MB
+devdocs_en_docker               # 1.7 MB
+devdocs_en_kubernetes           # 0.6 MB
+devdocs_en_nginx                # 0.8 MB
+devdocs_en_git                  # 1.5 MB
+devdocs_en_ansible              # 27 MB
+devdocs_en_postgresql           # 2.5 MB
+devdocs_en_redis                # 0.9 MB
+devdocs_en_lua                  # 0.4 MB
+
+# the big ones, by name: kiwix-fetch wikipedia_fa_all_maxi ...
+#   wikipedia_en_all_mini       # 13 GB, introductions only
+#   wikipedia_en_all_nopic      # 49 GB, every article, no pictures
+#   wikipedia_en_all_maxi       # 119 GB
+#   wikipedia_fa_all_nopic      # 5.9 GB
+#   wikipedia_fa_all_maxi       # 13 GB
+#   unix.stackexchange.com_en_all   # 1.2 GB
+#   serverfault.com_en_all      # 1.5 GB
+#   superuser.com_en_all        # 3.7 GB
+#   askubuntu.com_en_all        # 2.6 GB
+#   stackoverflow.com_en_all    # 107 GB

@@ -1,0 +1,9 @@
+# tealdeer (tldr): pages are cached locally, refreshed monthly when there is
+# a way out (the archive is on github)
+[updates]
+auto_update = true
+auto_update_interval_hours = 720
+
+[display]
+use_pager = false
+compact = false
