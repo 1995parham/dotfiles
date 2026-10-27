@@ -98,20 +98,6 @@ hl.window_rule({
     },
 })
 
--- apps that open on their own workspace, by its name in WORKSPACES
--- (variables.lua)
-local homes = {
-    ["^(firefox)$"] = "www",
-    ["^(org\\.telegram\\.desktop)$"] = "social-1",
-}
-for i, name in ipairs(WORKSPACES) do
-    for class, home in pairs(homes) do
-        if name == home then
-            hl.window_rule({ match = { class = class }, workspace = tostring(i) })
-        end
-    end
-end
-
 -- Opacity Overrides
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
 
