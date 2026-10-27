@@ -41,8 +41,21 @@ main() {
 
     mkdir -p "${theme_dir}" || true
 
-    linker "opencode" "$root/opencode/opencode.json" "${config_dir}/opencode.json"
+    # opencode reads one global config, so where ollama runs the shared file
+    # is written out with the local model as the default, or opencode starts
+    # on its own cloud model. rm first: writing through the link would change
+    # the shared file.
+    if command -v ollama >/dev/null 2>&1; then
+        rm -f "${config_dir}/opencode.json"
+        jq '. + {model: "ollama/qwen3:8b"}' "$root/opencode/opencode.json" >"${config_dir}/opencode.json"
+        action "opencode" "opencode.json written with ollama/qwen3:8b as the default model"
+    else
+        linker "opencode" "$root/opencode/opencode.json" "${config_dir}/opencode.json"
+    fi
     linker "opencode" "$root/opencode/themes/neon.json" "${theme_dir}/neon.json"
+
+    # the background service keeps the config it started with
+    opencode reload >/dev/null 2>&1 || true
 
     msg "opencode configured with neon theme" "success"
 }
