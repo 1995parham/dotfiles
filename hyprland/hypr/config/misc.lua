@@ -7,9 +7,11 @@ hl.config({
         no_donation_nag = true,
     },
     misc = {
-        col = {
-            splash = CACHYLGREEN,
-        },
+        -- noctalia draws the wallpaper, hyprland's own never shows
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+        -- resizing with the keyboard (resize submap) animates like the mouse
+        animate_manual_resizes = true,
         middle_click_paste = false,
         enable_swallow = true,
         swallow_regex = "(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)",

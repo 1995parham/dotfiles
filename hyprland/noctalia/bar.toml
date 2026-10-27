@@ -15,7 +15,7 @@ center = []
 # the window title sits after the workspaces: centred, the wide end section
 # ran into it
 start = [ "launcher", "workspaces", "submap", "active_window" ]
-end = [ "group:status", "group:audio", "group:net", "group:system", "group:power", "group:clock", "tray", "notifications", "session" ]
+end = [ "group:status", "group:audio", "group:system", "group:power", "group:clock", "tray", "notifications", "session" ]
 background_opacity = 0.0
 shadow = false
 concave_edge_corners = false
@@ -44,15 +44,6 @@ widget_spacing = 8
     padding = 10.0
     widget_spacing = 10
 
-    [[bar.top.capsule_group]]
-    id = "net"
-    members = [ "roam", "network", "bluetooth" ]
-    fill = "#111111"
-    foreground = "#ffa500"
-    opacity = 0.9
-    padding = 10.0
-    widget_spacing = 10
-
     # cpu, memory and temperature side by side, as waybar has them
     [[bar.top.capsule_group]]
     id = "system"
@@ -65,7 +56,7 @@ widget_spacing = 8
 
     [[bar.top.capsule_group]]
     id = "power"
-    members = [ "brightness", "keyboard_layout", "battery" ]
+    members = [ "power_profile", "brightness", "keyboard_layout", "battery" ]
     fill = "#111111"
     foreground = "#ffa500"
     opacity = 0.9
@@ -81,11 +72,12 @@ widget_spacing = 8
     padding = 12.0
 
 # config.d/bottom.json: dates, the calendar, the couple counters and the
-# addresses of our vpn interfaces, transparent like the top bar
+# addresses of our vpn interfaces, transparent like the top bar. the network
+# (roam tunnel, wi-fi, bluetooth) sits in the bottom right corner.
 [bar.bottom]
 position = "bottom"
 center = [ "group:couple" ]
-end = [ "group:vpn" ]
+end = [ "group:vpn", "group:net" ]
 start = [ "group:dates", "group:tunnels" ]
 background_opacity = 0.0
 shadow = false
@@ -131,6 +123,15 @@ widget_spacing = 8
     opacity = 0.9
     padding = 10.0
     widget_spacing = 14
+
+    [[bar.bottom.capsule_group]]
+    id = "net"
+    members = [ "roam", "network", "bluetooth" ]
+    fill = "#111111"
+    foreground = "#ffa500"
+    opacity = 0.9
+    padding = 10.0
+    widget_spacing = 10
 
 # config.d/left.json: a vertical clock on the HDMI-A-1 monitor only
 [bar.clock]
@@ -237,6 +238,11 @@ stat = "ram_pct"
 [widget.temperature]
 type = "sysmon"
 stat = "cpu_temp"
+
+# power-profiles-daemon: power-saver, balanced or performance. click or scroll
+# up for the next, right click or scroll down for the previous; Super+Shift+P
+# cycles too
+[widget.power_profile]
 
 # backlight
 [widget.brightness]

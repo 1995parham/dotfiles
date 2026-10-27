@@ -14,6 +14,8 @@ hl.config({
     cursor = {
         -- sway's seat seat0 hide_cursor 3000
         inactive_timeout = 3,
+        -- and typing hides it at once, moving it brings it back
+        hide_on_key_press = true,
     },
 })
 
