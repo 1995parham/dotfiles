@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Application
+Name=Caffeine
+GenericName=Keep the Screen Awake
+Comment=Keeps the screen from dimming and locking, or lets it again (noctalia's caffeine)
+Exec=caffeine toggle
+Icon=preferences-desktop-screensaver
+Terminal=false
+Categories=Utility;
+Keywords=awake;idle;inhibit;lock;sleep;coffee;
+Actions=on;off;hour;
+
+[Desktop Action on]
+Name=Keep Awake
+Exec=caffeine on
+
+[Desktop Action off]
+Name=Let It Sleep
+Exec=caffeine off
+
+[Desktop Action hour]
+Name=Keep Awake for an Hour
+Exec=caffeine 60

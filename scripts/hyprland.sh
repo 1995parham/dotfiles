@@ -51,6 +51,10 @@ main() {
     configfile noctalia "" hyprland
     configfile uwsm "" hyprland
 
+    # caffeine (~/bin/caffeine, from bin/) in the launcher: keeps the screen awake
+    mkdir -p "$HOME/.local/share/applications"
+    linker hyprland "${root}/hyprland/applications/caffeine.desktop" "$HOME/.local/share/applications/caffeine.desktop"
+
     # noctalia/wallpaper.toml rotates ~/Pictures/Barcelona and locks on its
     # lock.jpg; the pictures are ~110 MB of Commons originals, so they are
     # fetched rather than kept here.

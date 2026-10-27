@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# caffeine: keeps the screen awake, with noctalia's idle inhibitor (the
+# coffee cup in its control center), from a terminal, a key or the launcher.
+#
+#   caffeine            on when it is off, off when it is on
+#   caffeine on | off   turns it on or off
+#   caffeine status     prints on or off
+#   caffeine 30         on for 30 minutes, then off
+
+set -euo pipefail
+
+usage() {
+    echo "usage: caffeine [on | off | toggle | status | <minutes>]"
+}
+
+# noctalia holds a logind idle lock while caffeine is on: who noctalia,
+# what idle, why Caffeine.
+is_on() {
+    systemd-inhibit --list --no-pager 2>/dev/null | awk '$1 == "noctalia" && $6 == "idle" && $7 == "Caffeine" { found = 1 } END { exit !found }'
+}
+
+tell() {
+    echo "$1"
+    notify-send --app-name Caffeine --icon preferences-desktop-screensaver --expire-time 3000 "Caffeine" "$1" 2>/dev/null || true
+}
+
+on() {
+    noctalia msg caffeine-enable >/dev/null
+    tell "${1:-on: the screen stays awake}"
+}
+
+off() {
+    noctalia msg caffeine-disable >/dev/null
+    tell "off: the screen dims and locks as usual"
+}
+
+case "${1:-toggle}" in
+on) on ;;
+off) off ;;
+toggle) if is_on; then off; else on; fi ;;
+status) if is_on; then echo on; else echo off; fi ;;
+-h | --help) usage ;;
+*)
+    if [[ "$1" =~ ^[0-9]+$ ]] && ((10#$1 > 0)); then
+        minutes=$((10#$1))
+        unit=minutes
+        ((minutes == 1)) && unit=minute
+        on "on for ${minutes} ${unit}"
+        # off after the minutes, unless someone turned it off meanwhile
+        setsid -f bash -c "sleep $((minutes * 60)); \"$0\" status | grep -q on && \"$0\" off" >/dev/null 2>&1
+    else
+        usage >&2
+        exit 2
+    fi
+    ;;
+esac
