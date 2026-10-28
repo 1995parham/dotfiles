@@ -27,7 +27,12 @@ hl.window_rule({ match = { class = "^(__termpad)$" }, float = true, center = tru
 hl.window_rule({ match = { class = "^(firefox)$" }, workspace = home("www") })
 hl.window_rule({ match = { class = "^(google-chrome.*)$" }, workspace = home("www", true) })
 hl.window_rule({ match = { class = "^([Cc]ode|[Cc]ode - Insiders|code-insiders)$" }, workspace = home("main-2", true) })
-hl.window_rule({ match = { class = "^(me\\.parham1995\\.notes)$" }, workspace = home("notes", true) })
+-- daftar stays opaque, focused or not
+hl.window_rule({
+    match = { class = "^(me\\.parham1995\\.notes)$" },
+    workspace = home("notes", true),
+    opacity = "1.0 override",
+})
 hl.window_rule({ match = { class = "^([Vv]irt-manager)$" }, workspace = home("vm", true) })
 
 -- chat: telegram, element (matrix) and slack on social-1, discord on social-2
