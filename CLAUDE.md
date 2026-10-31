@@ -399,6 +399,9 @@ configfile <module> [src_file] [src_dir]
 # If src_file omitted: links entire directory
 # Example: configfile "nvim"                    # Links $root/nvim to ~/.config/nvim
 # Example: configfile "nvim" "init.lua"         # Links $root/nvim/init.lua to ~/.config/nvim/init.lua
+# Link the whole directory when the app writes its config atomically (a temp file renamed over it):
+# that replaces a link to the file with a plain file, and the change never reaches the dotfiles.
+# Example: configfile "daftar"                  # daftar writes config.toml atomically
 
 configrootfile <module> <src_file> [src_dir]
 # Link file to ~/.config root (not in subdirectory)
