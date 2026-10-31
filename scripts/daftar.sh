@@ -43,7 +43,9 @@ main_brew() {
 }
 
 main() {
-    return 0
+    # config.toml, init.lua and the home picture, for the mac and the linux app and daftar-cli alike.
+    # the whole folder is linked: the apps write config.toml atomically, which replaces a linked file.
+    configfile daftar
 }
 
 main_parham() {

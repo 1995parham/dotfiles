@@ -1,0 +1,2 @@
+# what the app keeps for itself when XDG_CONFIG_HOME is set
+/state/

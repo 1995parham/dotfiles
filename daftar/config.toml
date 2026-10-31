@@ -1,0 +1,55 @@
+# Daftar for macOS. These are all of the app's settings; the app reads
+# this file again whenever it changes, and writes back only the value
+# that a change in its Settings window touches.
+
+# The folder of the Obsidian vault.
+vault = "~/org"
+
+[appearance]
+# "system", "light" (Daftar's Daylight palette) or "dark" (naz).
+theme = "system"
+text_size = 14
+# The font of notes, in the reader and the editor: a font family, or
+# "New York" and "SF Pro" for Apple's own. Persian always uses Vazirmatn.
+font = "SF Pro"
+# Code, the editor's markup, and the terminal.
+code_font = "SF Mono"
+# Count the tasks due today and overdue on the Dock icon.
+dock_badge = true
+
+[editor]
+# Particles where the cursor goes, as Neovide's vfx_mode: "none",
+# "railgun", "torpedo", "pixiedust", "sonicboom" or "ripple".
+cursor_effect = "railgun"
+# Edit with your own Neovim: it owns the buffer and the file, and the
+# editor shows it. Needs `nvim` (brew install neovim).
+vim_mode = true
+# Empty finds nvim in /opt/homebrew/bin, /usr/local/bin or /usr/bin.
+nvim = ""
+# "user" loads your init.lua (with g:daftar set); "clean" loads none.
+nvim_config = "~/.config/daftar/init.lua"
+
+[git]
+# Minutes between commit-pull-push runs; 0 is off. Keep it off while
+# Obsidian's git plugin syncs the same folder.
+sync_interval = 0
+# Pull when the app starts.
+pull_on_launch = true
+
+[notifications]
+meetings = true
+# Minutes before a meeting.
+meeting_lead = 5
+digest = true
+# The morning digest of the tasks due, as HH:MM.
+digest_time = "09:00"
+
+[terminal]
+# Empty is the login shell in $SHELL.
+shell = ""
+font_size = 13
+
+
+[home]
+# The picture of the home page, which a pane with no note shows.
+image = "~/.config/daftar/home.webp"
