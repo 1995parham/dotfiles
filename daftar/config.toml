@@ -53,3 +53,11 @@ font_size = 13
 [home]
 # The picture of the home page, which a pane with no note shows.
 image = "~/.config/daftar/home.webp"
+
+[export]
+# `daftar-cli export`, which the app's Export as PDF runs: an SVG or PNG at
+# the head of every PDF. A note in a folder that holds a logo.svg or
+# logo.png (a company's) has that logo too, on the other side.
+logo = "~/.config/daftar/1995parham-logo.svg"
+# The words at the foot of every page, beside the page count.
+footer = "Parham Alvani · parham.alvani@gmail.com"
