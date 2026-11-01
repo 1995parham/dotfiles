@@ -19,6 +19,9 @@ option_as_alt = "OnlyLeft"
 history = 50000
 multiplier = 3
 
+# emoji fall back to Noto Color Emoji through fontconfig (fontconfig/conf.d/
+# 57-add-emoji-support.conf) on Linux and Apple Color Emoji on macOS; alacritty
+# has no fallback-font option of its own
 [font]
 builtin_box_drawing = true
 size = 9

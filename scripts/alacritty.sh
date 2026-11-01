@@ -15,6 +15,11 @@ usage() {
 
 root=${root:?"root must be set"}
 
+# JetBrainsMono Nerd Font and color emoji: alacritty has no fallback-font
+# option, so emoji come from fontconfig (Noto Color Emoji, linked by font.sh)
+# on Linux and from Apple Color Emoji through CoreText on macOS
+export dependencies=("font")
+
 main_brew() {
     require_brew_cask alacritty
 }
