@@ -12,7 +12,7 @@ shape = "Beam"
 
 [font]
 builtin_box_drawing = true
-size = 10
+size = 9
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
