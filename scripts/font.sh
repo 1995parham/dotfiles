@@ -92,7 +92,7 @@ main_pacman() {
     require_pacman noto-fonts-emoji ttf-roboto ttf-jetbrains-mono ttf-font-awesome ttf-dejavu noto-fonts \
         otf-font-awesome ttf-liberation ttf-jetbrains-mono-nerd ttf-meslo-nerd ttf-firacode-nerd ttf-fira-code \
         ttc-iosevka
-    require_aur vazirmatn-fonts maplemono-nf
+    require_aur vazirmatn-fonts maplemono-nf otf-bitstream-charter
 
     configfile fontconfig
     fc-cache -f
