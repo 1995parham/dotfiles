@@ -30,8 +30,10 @@ main_pacman() {
 main() {
     configfile alacritty
 
-    mkdir -p "$HOME/.config/alacritty"
-    if [ ! -d "$HOME/.config/alacritty/themes" ]; then
-        git clone https://github.com/alacritty/alacritty-theme "$HOME/.config/alacritty/themes"
+    # the naz palette is inlined in alacritty.toml, so the alacritty-theme
+    # clone that older runs left inside the linked folder is no longer used
+    if [ -d "$root/alacritty/themes/.git" ]; then
+        message alacritty 'remove the unused alacritty-theme clone' notice
+        rm -rf "$root/alacritty/themes"
     fi
 }
