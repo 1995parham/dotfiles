@@ -54,6 +54,9 @@
   path = ~/.config/git/alias.cfg
   path = ~/.config/git-private/secret.cfg
 
+[includeIf "gitdir:~/org/"]
+  path = ~/.config/git/org.cfg
+
 [push]
 	autoSetupRemote = true
 
