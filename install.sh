@@ -81,8 +81,9 @@ install-tmux() {
     configfile "tmuxs" "" "tmux"
     configfile "tmuxp" "" "tmux"
 
-    if [ -f "$root/tmux/tmuxp/$HOSTNAME.yaml" ]; then
-        ln -sf "$HOSTNAME.yaml" "$root/tmux/tmuxp/main.yaml"
+    local host="${HOSTNAME%%.*}"
+    if [ -f "$root/tmux/tmuxp/$host.yaml" ]; then
+        ln -sf "$host.yaml" "$root/tmux/tmuxp/main.yaml"
     else
         ln -sf "_default.yaml" "$root/tmux/tmuxp/main.yaml"
     fi
