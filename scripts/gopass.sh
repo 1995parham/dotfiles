@@ -34,19 +34,21 @@ gopass-upstall() {
     msg "$(gopass version)"
 }
 
-main_parham() {
-    msg "hello parham, clone your password repository"
+main() {
+    # parham always gets the store; everyone else is asked first.
+    if [[ "${PROFILE:-${USER}}" != "parham" ]] &&
+        ! yes_or_no "gopass" "clone the password repository?"; then
+        msg "skipping the password repository" "notice"
+        return 0
+    fi
 
+    msg "clone the password repository"
+    # one shared store: every user's key is a recipient in its .gpg-id,
+    # so there is no separate repository to clone.
     gopass clone --check-keys=false git@github.com:parham-alvani/passwords || true
 }
 
 main_elaheh() {
-    msg "hello elaheh, clone the shared password repository"
-
-    # same store as parham: elaheh's key is one of the three recipients in
-    # its .gpg-id, so there is no separate repository to clone.
-    gopass clone --check-keys=false git@github.com:parham-alvani/passwords || true
-
     # gopass seeds the store's git identity from $USER and leaves the email
     # empty, so it then refuses its own commits with "Git Email not set".
     # core.autosync and core.autopush are on, so every saved secret commits
