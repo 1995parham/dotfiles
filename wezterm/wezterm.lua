@@ -439,7 +439,9 @@ end)
 -- Maple Mono NF: a warm, rounded face with ligatures (calt) and Nerd Font
 -- glyphs baked in, so tab/status icons render natively instead of via
 -- WezTerm's bundled fallback. Wider than Iosevka Term, so cell_width drops
--- back to 1.0 (no horizontal padding needed). Kept light/small per preference.
+-- back to 1.0 (no horizontal padding needed). Size raised from 9.5 to 10.5
+-- for eye comfort: the display runs at "More Space" (2056x1329), which
+-- shrinks every font by about 16%.
 -- cv04: alternate `l` with a left bottom bar (Consolas-style foot) so it's
 -- unmistakable next to `1`/`I`. Setting harfbuzz_features replaces WezTerm's
 -- defaults, so the ligature features (calt/liga/clig) and kern are re-listed
@@ -448,7 +450,7 @@ config.font = wezterm.font("Maple Mono NF", {
     weight = "Medium",
 })
 config.harfbuzz_features = { "kern", "liga", "clig", "calt", "cv04=1" }
-config.font_size = 9.5
+config.font_size = 10.5
 config.cell_width = 1.0
 config.show_new_tab_button_in_tab_bar = false
 
