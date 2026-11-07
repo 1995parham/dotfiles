@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo -n "alacritty terminal with jetbrains mono font and configuration"
+    echo -n "alacritty terminal with maple mono font and configuration"
     # shellcheck disable=2016
     echo '
        _                 _ _   _
@@ -15,7 +15,7 @@ usage() {
 
 root=${root:?"root must be set"}
 
-# JetBrainsMono Nerd Font and color emoji: alacritty has no fallback-font
+# Maple Mono NF (as in wezterm) and color emoji: alacritty has no fallback-font
 # option, so emoji come from fontconfig (Noto Color Emoji, linked by font.sh)
 # on Linux and from Apple Color Emoji through CoreText on macOS
 export dependencies=("font")

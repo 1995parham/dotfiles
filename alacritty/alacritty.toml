@@ -19,29 +19,33 @@ option_as_alt = "OnlyLeft"
 history = 50000
 multiplier = 3
 
+# Same face as wezterm/wezterm.lua: Maple Mono NF Medium at 10.5, with bold
+# and italics from the same family. Nerd Font glyphs are baked in, so prompt
+# and tmux icons render without a fallback. alacritty does no ligature shaping
+# and has no OpenType feature option, so wezterm's calt ligatures and the cv04
+# `l` are not available here.
 # emoji fall back to Noto Color Emoji through fontconfig (fontconfig/conf.d/
 # 57-add-emoji-support.conf) on Linux and Apple Color Emoji on macOS; alacritty
 # has no fallback-font option of its own
 [font]
 builtin_box_drawing = true
-size = 9
-offset = { x = 0, y = 1 }
+size = 10.5
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "ExtraLight"
+family = "Maple Mono NF"
+style = "Medium"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
-style = "SemiBold"
+family = "Maple Mono NF"
+style = "Bold"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
-style = "ExtraLight Italic"
+family = "Maple Mono NF"
+style = "Medium Italic"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
-style = "SemiBold Italic"
+family = "Maple Mono NF"
+style = "Bold Italic"
 
 [cursor]
 unfocused_hollow = true
