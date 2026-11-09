@@ -1,0 +1,5 @@
+# Homebrew formulas that the macOS host needs to run the Arch Linux ARM VM.
+# scripts/create.sh and ../scripts/lima.sh install the missing ones.
+lima
+# The Arch Linux ARM image does not boot with the vz driver, so the VM uses QEMU.
+qemu

@@ -208,8 +208,9 @@ main_pacman() {
     )
 
     # reflector is for Arch Linux mirror management; Manjaro uses pacman-mirrors
-    # and CachyOS uses cachyos-rate-mirrors instead
-    if ! grep -qiE 'manjaro|cachyos' /etc/os-release 2>/dev/null; then
+    # and CachyOS uses cachyos-rate-mirrors instead. Arch Linux ARM has its own
+    # mirrors and does not package reflector.
+    if ! grep -qiE 'manjaro|cachyos|archarm' /etc/os-release 2>/dev/null; then
         pacman_specific+=(reflector)
     fi
 

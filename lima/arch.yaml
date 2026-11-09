@@ -1,0 +1,56 @@
+# Arch Linux ARM (aarch64) on Lima, for Apple Silicon Macs.
+# Read CLAUDE.md in this directory before you change this file.
+#
+# Usage: limactl start --tty=false --name=arch lima/arch.yaml
+minimumLimaVersion: 2.0.0
+
+base:
+  - template:archlinux
+
+# The aarch64 image of the archlinux template does not boot with vz (empty
+# serial log, the firmware finds no bootloader). QEMU with hvf boots it, and the
+# CPU speed is close to native.
+vmType: qemu
+cpus: 4
+memory: 4GiB
+
+provision:
+  # This script runs as root on each boot. Keep every step idempotent.
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+
+      # 1. Network. The image matches the interface by "Name=eth0". After the
+      #    systemd upgrade the interface name is enp0s*, so the match fails and
+      #    the VM has no network after a reboot. Match by MAC address only.
+      iface=$(ip -o route show default | awk '{print $5; exit}')
+      mac=$(cat "/sys/class/net/${iface}/address")
+      cat >/etc/systemd/network/20-lima.network <<EOF
+      [Match]
+      MACAddress=${mac}
+
+      [Network]
+      DHCP=ipv4
+      DNS=192.168.5.3
+      EOF
+
+      # 2. Mirrors. os.archlinuxarm.org redirects to a random regional mirror,
+      #    and many of them give 502. Put the mirrors that work first.
+      cat >/etc/pacman.d/mirrorlist <<'EOF'
+      Server = http://dk.mirror.archlinuxarm.org/$arch/$repo
+      Server = http://hu.mirror.archlinuxarm.org/$arch/$repo
+      Server = http://fr.mirror.archlinuxarm.org/$arch/$repo
+      Server = http://os.archlinuxarm.org/$arch/$repo
+      EOF
+
+      # 3. Parallel downloads. With 5 parallel downloads, small .sig downloads
+      #    hang through a tunnel and pacman stops. 2 is reliable.
+      sed -i -E 's/^#?ParallelDownloads.*/ParallelDownloads = 2/' /etc/pacman.conf
+
+      # 4. /boot is a 200 MB FAT partition. The current kernel package with all
+      #    device trees does not fit. The VM boots with UEFI from QEMU, so it does
+      #    not need the device trees, Image.gz, or the fallback initramfs.
+      sed -i -E 's|^#?NoExtract *=.*|NoExtract = boot/dtbs/* boot/Image.gz|' /etc/pacman.conf
+      sed -i -E "s/^PRESETS=.*/PRESETS=('default')/" /etc/mkinitcpio.d/linux-aarch64.preset
+      rm -rf /boot/dtbs /boot/Image.gz /boot/initramfs-linux-fallback.img
