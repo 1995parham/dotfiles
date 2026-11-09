@@ -56,10 +56,11 @@ main() {
     linker hyprland "${root}/hyprland/applications/caffeine.desktop" "$HOME/.local/share/applications/caffeine.desktop"
 
     # noctalia/wallpaper.toml rotates ~/Pictures/Barcelona and locks on its
-    # lock.jpg; the pictures are ~110 MB of Commons originals, so they are
-    # fetched rather than kept here.
+    # lock.jpg; the pictures are ~50 MB of Commons renditions, so they are
+    # fetched rather than kept here. Run wallpapers/barcelona.sh by hand to be
+    # asked for more of them.
     if [[ ! -f "$HOME/Pictures/Barcelona/lock.jpg" ]]; then
-        bash "${root}/wallpapers/barcelona.sh"
+        bash "${root}/wallpapers/barcelona.sh" --no-ask
     fi
 
     msg 'hyprland reloads its configuration on change, run hyprctl configerrors to check it'

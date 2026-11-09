@@ -56,10 +56,11 @@ main_brew() {
         return 0
     fi
 
-    # ~110 MB of Commons originals, so they are fetched rather than kept here.
+    # ~50 MB of Commons renditions, so they are fetched rather than kept here.
+    # Run wallpapers/barcelona.sh by hand to be asked for more of them.
     if [[ ! -f "$wallpaper_dir/lock.jpg" ]]; then
         action "wallpaper" "fetching the Barcelona wallpapers into $wallpaper_dir"
-        bash "${root}/wallpapers/barcelona.sh" "$wallpaper_dir"
+        bash "${root}/wallpapers/barcelona.sh" --no-ask "$wallpaper_dir"
     fi
 
     mkdir -p "$HOME/Library/LaunchAgents" "$HOME/Library/Logs"
