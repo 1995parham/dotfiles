@@ -3,9 +3,8 @@
 # LIVE reachability checks, so the badge reflects a tunnel that works rather
 # than one that merely left a marker file behind.
 #
-#   sing-box[38.7M] 🏠 🟢  🇮🇷 🟢  🌍 🟢
+#   sing-box 🏠 🟢  🇮🇷 🟢  🌍 🟢
 #     name  the tunnel actually carrying the house right now
-#     [..]  last throughput sample from iran-perf.sh, dimmed when stale
 #     🏠    the home LAN answers through the tunnel
 #     🇮🇷    an Iranian site answers (through the tunnel)
 #     🌍    a foreign site answers   (local uplink / Speedify)
@@ -24,8 +23,6 @@
 # variables: with all_proxy set, curl reports the PROXY's connectivity instead
 # of ours -- a confident wrong answer.
 set -u
-
-cache_dir="${IRAN_PERF_CACHE:-$HOME/.cache/iran-perf}"
 
 # --- which tunnel is up ----------------------------------------------------
 name=""
@@ -60,25 +57,4 @@ if wait "$p_home"; then home="🟢"; else home="🔴"; fi
 if wait "$p_iran"; then iran="🟢"; else iran="🔴"; fi
 if wait "$p_world"; then world="🟢"; else world="🔴"; fi
 
-# --- last throughput sample ------------------------------------------------
-# Read only; measuring here would put a multi-megabyte download behind every
-# status-bar refresh.
-speed=""
-if [[ -r "$cache_dir/current" ]]; then
-    # mbits_ts, not the line's own timestamp: most ticks are latency-only and
-    # carry the previous throughput figure forward, so ageing it by when the
-    # LINE was written would always look fresh.
-    IFS=$'\t' read -r _ts _tun _tls _ttfb mbits mbits_ts <"$cache_dir/current" || true
-    if [[ -n "${mbits:-}" && "$mbits" != "-" ]]; then
-        age=$(($(date +%s) - ${mbits_ts:-0}))
-        # A number with no indication of its age invites reading a half-hour-old
-        # sample as current.
-        if ((age < 1800)); then
-            speed="[${mbits}M]"
-        else
-            speed="[${mbits}M?]"
-        fi
-    fi
-fi
-
-printf '%s%s 🏠 %s  🇮🇷 %s  🌍 %s \n' "$name" "$speed" "$home" "$iran" "$world"
+printf '%s 🏠 %s  🇮🇷 %s  🌍 %s \n' "$name" "$home" "$iran" "$world"
