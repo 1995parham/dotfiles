@@ -15,9 +15,11 @@
 #   ghostty +show-config --default  every option with its default
 #   ghostty +list-keybinds          the bindings in effect
 #
-# Not portable from WezTerm, because Ghostty has no scripting and no status bar:
-#   - the right-status clocks, Jalali date and battery (tmux's status bar is
-#     the place for those)
+# Ghostty has no scripting and no status bar, so WezTerm's right status (the
+# Jalali date, the world clocks and the battery) moved to tmux's status-right:
+# see tmux/tmux/status-bar.conf, bin/bin/worldclock.sh and bin/bin/battery.sh.
+#
+# Not portable from WezTerm:
 #   - the navi split on cmd+n (cmd+n stays "new window")
 #   - bidi: upstream Ghostty paints right-to-left text in logical order, so
 #     Farsi reads backwards. WezTerm's bidi_enabled has no counterpart here.
@@ -63,6 +65,27 @@ cursor-style-blink = true
 #               time it is reached, so TERM=xterm-ghostty works there
 # sudo:         keep the terminfo entry visible under sudo
 shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo
+
+# ---------------------------------------------------------------------------
+# Bell and notifications
+# ---------------------------------------------------------------------------
+
+# attention: bounce the dock icon once when Ghostty is not focused
+# title:     put a bell on the tab title until the tab gets a key
+# border:    draw a border around the terminal until it gets a key (stands in
+#            for WezTerm's visual bell)
+# tmux rings the bell of a pane when a command that took 30 seconds or more
+# finishes (the pane-command-finished hook in tmux/tmux/tmux.conf), so these
+# are what "the long command is done" looks like.
+bell-features = attention,title,border
+
+# The same for a shell that Ghostty runs itself, with no tmux in between (the
+# quick terminal): a desktop notification when a command that took 30 seconds
+# or more finishes while its terminal is not focused. It needs the shell
+# integration, which is on by default. Since 1.3.
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
 
 # ---------------------------------------------------------------------------
 # Window
