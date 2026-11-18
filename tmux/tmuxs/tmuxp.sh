@@ -51,7 +51,32 @@ detect_terminal() {
         return
     fi
 
+    eval "$(tmux show-environment -s "GHOSTTY_RESOURCES_DIR")"
+    if [[ -n "${GHOSTTY_RESOURCES_DIR:+set}" ]]; then
+        echo "ghostty"
+        return
+    fi
+
     echo "unknown"
+}
+
+# Ghostty has no CLI for opening a tab; on macOS it is scripted with
+# AppleScript. Opens a tab in the front window that runs the given command
+# line and closes when it exits.
+ghostty_new_tab() {
+    osascript - "$1" <<'APPLESCRIPT'
+on run argv
+    tell application "Ghostty"
+        set cfg to new surface configuration
+        set command of cfg to item 1 of argv
+        if (count of windows) is 0 then
+            new window with configuration cfg
+        else
+            new tab in front window with configuration cfg
+        end if
+    end tell
+end run
+APPLESCRIPT
 }
 
 # using commands are better because tmux can be shared between different
@@ -72,6 +97,9 @@ if [[ "${OSTYPE}" == "darwin"* ]]; then
         eval "$(tmux show-environment -s "KITTY_LISTEN_ON")"
         echo "$cmd"
         kitty @ launch --type=tab -- "$bash_path" -ilc "$cmd"
+    elif [[ "$current_terminal" == "ghostty" ]]; then
+        echo "$cmd"
+        ghostty_new_tab "$(printf '%q -ilc %q' "$bash_path" "$cmd")"
     else
         # Fallback: run directly if no supported terminal emulator detected
         tmuxp load "$path" -y
