@@ -3,10 +3,10 @@
 # LIVE reachability checks, so the badge reflects a tunnel that works rather
 # than one that merely left a marker file behind.
 #
-#   sing-box 🏠 🟢  🇮🇷 🟢  🌍 🟢
+#   sing-box 🏠 🟢  IR 🟢  🌍 🟢
 #     name  the tunnel actually carrying the house right now
 #     🏠    the home LAN answers through the tunnel
-#     🇮🇷    an Iranian site answers (through the tunnel)
+#     IR    an Iranian site answers (through the tunnel)
 #     🌍    a foreign site answers   (local uplink / Speedify)
 #   🟢 = answered within the timeout, 🔴 = did not.
 #
@@ -57,4 +57,11 @@ if wait "$p_home"; then home="🟢"; else home="🔴"; fi
 if wait "$p_iran"; then iran="🟢"; else iran="🔴"; fi
 if wait "$p_world"; then world="🟢"; else world="🔴"; fi
 
-printf '%s 🏠 %s  🇮🇷 %s  🌍 %s \n' "$name" "$home" "$iran" "$world"
+# "IR", not the flag emoji. A flag is two regional-indicator codepoints, which
+# tmux counts as one two-cell character; a terminal that does not join the pair
+# draws two separate symbols, in up to four cells. This badge is right-aligned
+# on the bottom line of the screen, so two extra cells run past the last column
+# of the last row, the terminal wraps, and the whole screen scrolls up a line
+# on every status redraw. The other symbols are single codepoints that every
+# terminal draws two cells wide.
+printf '%s 🏠 %s  IR %s  🌍 %s \n' "$name" "$home" "$iran" "$world"
