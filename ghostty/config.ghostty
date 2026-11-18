@@ -1,0 +1,110 @@
+#
+#  ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗████████╗██╗   ██╗
+# ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+# ██║  ███╗███████║██║   ██║███████╗   ██║      ██║    ╚████╔╝
+# ██║   ██║██╔══██║██║   ██║╚════██║   ██║      ██║     ╚██╔╝
+# ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║      ██║      ██║
+#  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═╝
+# A fast, native terminal emulator
+# https://ghostty.org/
+#
+# Ported from wezterm/wezterm.lua, written against Ghostty 1.4.
+#
+#   ghostty +validate-config        check this file
+#   ghostty +explain-config <key>   documentation for one option
+#   ghostty +show-config --default  every option with its default
+#   ghostty +list-keybinds          the bindings in effect
+#
+# Not portable from WezTerm, because Ghostty has no scripting and no status bar:
+#   - the right-status clocks, Jalali date and battery (tmux's status bar is
+#     the place for those)
+#   - the navi split on cmd+n (cmd+n stays "new window")
+#   - bidi: upstream Ghostty paints right-to-left text in logical order, so
+#     Farsi reads backwards. WezTerm's bidi_enabled has no counterpart here.
+#   - custom hyperlink and quick-select patterns (`link` cannot be set yet)
+
+# ---------------------------------------------------------------------------
+# Colors
+# ---------------------------------------------------------------------------
+
+# themes/naz, next to this file: the naz.vim palette shared with WezTerm.
+theme = naz
+
+# ---------------------------------------------------------------------------
+# Font
+# ---------------------------------------------------------------------------
+
+# Maple Mono NF: a warm, rounded face with ligatures and Nerd Font glyphs baked
+# in (./start.sh font installs it). 10.5pt for eye comfort: the display runs at
+# "More Space" (2056x1329), which shrinks every font by about 16%.
+font-family = Maple Mono NF
+font-style = Medium
+font-size = 10.5
+
+# cv04: alternate `l` with a left bottom bar (Consolas-style foot) so it is
+# unmistakable next to `1`/`I`. calt keeps Maple Mono's ligatures on.
+font-feature = calt, cv04=1
+
+# ---------------------------------------------------------------------------
+# Cursor
+# ---------------------------------------------------------------------------
+
+cursor-style = block
+cursor-style-blink = true
+
+# ---------------------------------------------------------------------------
+# Shell integration
+# ---------------------------------------------------------------------------
+
+# no-cursor:    keep the block cursor at the prompt (integration would switch
+#               it to a bar)
+# ssh-env:      on remote hosts set TERM=xterm-256color and forward COLORTERM
+# ssh-terminfo: install the xterm-ghostty terminfo entry on a host the first
+#               time it is reached, so TERM=xterm-ghostty works there
+# sudo:         keep the terminfo entry visible under sudo
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo,sudo
+
+# ---------------------------------------------------------------------------
+# Window
+# ---------------------------------------------------------------------------
+
+# Tabs folded into the titlebar next to the traffic lights, no separate title
+# strip (WezTerm's INTEGRATED_BUTTONS). Applies to new windows only.
+macos-titlebar-style = tabs
+
+# Close a tab or window without asking (WezTerm's NeverPrompt).
+confirm-close-surface = false
+
+# Left Option is Alt (Meta) for the shell and tmux; right Option still composes
+# characters. This is WezTerm's default behaviour on macOS.
+macos-option-as-alt = left
+
+# ---------------------------------------------------------------------------
+# Scrollback
+# ---------------------------------------------------------------------------
+
+scrollback-limit-lines = 20000
+
+# ---------------------------------------------------------------------------
+# Quick terminal
+# ---------------------------------------------------------------------------
+
+# Stands in for WezTerm's cmd+s toggle pane: a terminal that slides up from the
+# bottom of the screen and hides again. It is a separate window, not a split
+# of the current tab, and it keeps its session while hidden.
+quick-terminal-position = bottom
+quick-terminal-size = 30%
+
+# ---------------------------------------------------------------------------
+# Keys
+# ---------------------------------------------------------------------------
+
+keybind = cmd+arrow_left=previous_tab
+keybind = cmd+arrow_right=next_tab
+keybind = ctrl+shift+arrow_left=previous_tab
+keybind = ctrl+shift+arrow_right=next_tab
+keybind = ctrl+shift+h=previous_tab
+keybind = ctrl+shift+l=next_tab
+
+keybind = cmd+alt+i=inspector:toggle
+keybind = cmd+s=toggle_quick_terminal

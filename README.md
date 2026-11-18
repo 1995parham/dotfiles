@@ -36,7 +36,7 @@ This repository provides configurations for 65+ tools and applications, organize
 ### Shells & Terminals
 
 - **Shells**: zsh (with oh-my-zsh), bash, fish
-- **Terminal Emulators**: alacritty, kitty, wezterm, iTerm2
+- **Terminal Emulators**: alacritty, kitty, wezterm, ghostty, iTerm2
 - **Prompt**: starship (with fallback to custom theme)
 - **Multiplexer**: tmux (with tmuxp for session management)
 

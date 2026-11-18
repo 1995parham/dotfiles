@@ -1,0 +1,55 @@
+# naz: the terminal palette of naz.vim (1995parham/naz.vim), the Neovim/Vim
+# colorscheme, so vim inside the terminal and CLI tools share one true-color
+# palette. Kept in step with config.colors in wezterm/wezterm.lua.
+#
+# naz.vim is a Tomorrow-Night/Monokai hybrid: #323232 base (its Normal bg),
+# pink #F92772 accent, deep-sky-blue functions, aqua types.
+
+# naz Normal bg / fg
+background = #323232
+foreground = #E8E8E3
+
+# naz pink (Statement accent)
+cursor-color = #F92772
+cursor-text = #323232
+
+# naz lightgrey (Visual selection bg)
+selection-background = #575B61
+selection-foreground = #E8E8E3
+
+# naz softred (echoes tmux's salmon pane border)
+split-divider-color = #EF7C66
+
+# black    (naz darkblack)
+palette = 0=#211F1C
+# red      (naz red)
+palette = 1=#E73C50
+# green    (naz green)
+palette = 2=#8AD000
+# yellow   (naz yellow)
+palette = 3=#E6DB74
+# blue     (naz blue, Function)
+palette = 4=#00BFFF
+# magenta  (naz pink, Statement)
+palette = 5=#F92772
+# cyan     (naz aqua, Type/Keyword)
+palette = 6=#66D9EF
+# white    (naz white, Normal fg)
+palette = 7=#E8E8E3
+
+# bright black   (naz lightgrey)
+palette = 8=#575B61
+# bright red     (naz tomato, Number)
+palette = 9=#FF6347
+# bright green   (naz chartreuse, String)
+palette = 10=#7FFF00
+# bright yellow  (naz orange, Identifier)
+palette = 11=#FD9720
+# bright blue    (naz vividblue)
+palette = 12=#198CFF
+# bright magenta (naz purple, Constant)
+palette = 13=#EE82EE
+# bright cyan    (naz darkturquoise)
+palette = 14=#00CED1
+# bright white
+palette = 15=#FFFFFF
