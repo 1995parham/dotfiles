@@ -24,8 +24,7 @@ main_pacman() {
 }
 
 main_brew() {
-    require_brew_cask openmtp android-platform-tools
-    # require_brew_cask openmtp
+    require_brew_cask android-platform-tools
 
     # if [ ! -f /usr/local/bin/heimdall ]; then
     #     msg 'installing heimdall to upgrade recovery.img on Galaxy Tab S6 Lite (Wi-Fi)'
