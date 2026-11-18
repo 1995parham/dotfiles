@@ -270,6 +270,32 @@ if [[ -n "$WEZTERM_PANE" ]]; then
   add-zsh-hook precmd _wezterm_osc7
 fi
 
+# mark prompts and commands for tmux with OSC 133 (A: prompt, C: command
+# started, D: command finished with its exit status). tmux 3.8 turns the marks
+# into the pane_command_* format variables and the pane-command-finished hook,
+# which the pane border and the "long command is done" bell in tmux.conf are
+# built on, and copy mode jumps between prompts with them. Ghostty's own shell
+# integration does the same, but only for the shell Ghostty itself starts, not
+# for the shells inside tmux; this works in any terminal and over ssh.
+if [[ -n "$TMUX" ]]; then
+  _tmux_osc133_precmd() {
+    local cmd_status=$?
+    # no D for an empty line: no command ran, so none finished.
+    if [[ -n "$_tmux_osc133_running" ]]; then
+      print -n "\e]133;D;${cmd_status}\a"
+      unset _tmux_osc133_running
+    fi
+    print -n '\e]133;A\a'
+  }
+  _tmux_osc133_preexec() {
+    _tmux_osc133_running=1
+    print -n '\e]133;C\a'
+  }
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd _tmux_osc133_precmd
+  add-zsh-hook preexec _tmux_osc133_preexec
+fi
+
 # history
 HISTSIZE=100000
 SAVEHIST=100000
