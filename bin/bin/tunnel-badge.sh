@@ -25,8 +25,13 @@
 set -u
 
 # --- which tunnel is up ----------------------------------------------------
+#
+# The pattern is anchored to the start of the command line. pgrep -f matches the
+# whole command line of every process, so an unanchored pattern also matched any
+# shell command that merely CONTAINED the text (an ssh that starts sing-box on
+# another host, an agent's command) and the badge came and went with it.
 name=""
-if pgrep -f "sing-box run -c .*tun.json" >/dev/null 2>&1; then
+if pgrep -f "^([^ ]*/)?sing-box run -c .*tun\.json" >/dev/null 2>&1; then
     name="sing-box"
 else
     for f in /var/run/wireguard/*.name; do
