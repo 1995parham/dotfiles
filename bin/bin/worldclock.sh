@@ -3,7 +3,7 @@
 # The date and world clocks of tmux's status-right. This is the right status
 # that wezterm.lua drew in Lua, moved here because Ghostty has no status bar:
 #
-#    Thu 19 Nov · 28 Aba 1405    03:11 +0330    15:41 PST    18:41 EST
+#    Thu 19 Nov · 28 Aba 1405    Tehran 03:11    Madrid 00:41    New York 18:41
 #
 # The date is Tehran's (the home zone), Gregorian and Jalali. No seconds: tmux
 # runs this once per status-interval, so they would only ever be stale.
@@ -16,7 +16,7 @@ calendar=$'\xef\x81\xb3'
 clock=$'\xef\x80\x97'
 
 main() {
-    local out jalali zone
+    local out jalali zone city
 
     out="${calendar}  $(TZ=Asia/Tehran date '+%a %d %b')"
 
@@ -28,8 +28,11 @@ main() {
         fi
     fi
 
-    for zone in Asia/Tehran America/Los_Angeles America/New_York; do
-        out+="   ${clock}  $(TZ="${zone}" date '+%H:%M %Z')"
+    # Each clock is a city name and the time there. The zone abbreviation
+    # is not shown: Tehran has none (date prints +0330).
+    for zone in Asia/Tehran Europe/Madrid America/New_York; do
+        city="${zone#*/}"
+        out+="   ${clock}  ${city//_/ } $(TZ="${zone}" date '+%H:%M')"
     done
 
     echo "${out}"
