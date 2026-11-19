@@ -54,6 +54,10 @@ font-feature = calt, cv04=1
 cursor-style = block
 cursor-style-blink = true
 
+# Hide the mouse pointer as soon as a key is typed, so it does not sit on top
+# of the text. It comes back when the mouse moves.
+mouse-hide-while-typing = true
+
 # ---------------------------------------------------------------------------
 # Shell integration
 # ---------------------------------------------------------------------------
