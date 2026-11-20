@@ -2,7 +2,9 @@
 #
 # Battery charge for tmux's status-right, with a Nerd Font icon that follows
 # the level (this replaces the battery cell of wezterm.lua's status bar).
-# Prints nothing on a machine without a battery.
+# Prints nothing on a machine without a battery. The colour follows the level,
+# as a tmux style (#[fg=...]): mint on AC, green from 50%, yellow from 20%, red
+# below that.
 
 set -eu
 
@@ -32,7 +34,7 @@ battery_icon() {
 }
 
 main() {
-    local percent="" charging=false line dir status
+    local percent="" charging=false line dir status colour
 
     if command -v pmset >/dev/null 2>&1; then
         line="$(pmset -g batt 2>/dev/null | grep -m1 'InternalBattery' || true)"
@@ -60,7 +62,17 @@ main() {
         return 0
     fi
 
-    echo "$(battery_icon "${percent}" "${charging}") ${percent}%"
+    if [[ "${charging}" == true ]]; then
+        colour='#9dffce'
+    elif ((percent >= 50)); then
+        colour='#d2fc9e'
+    elif ((percent >= 20)); then
+        colour='#ffd27f'
+    else
+        colour='#ff5c7a'
+    fi
+
+    echo "#[fg=${colour}]$(battery_icon "${percent}" "${charging}") ${percent}%"
 }
 
 main

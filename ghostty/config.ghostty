@@ -16,7 +16,7 @@
 #   ghostty +list-keybinds          the bindings in effect
 #
 # Ghostty has no scripting and no status bar, so WezTerm's right status (the
-# Jalali date, the world clocks and the battery) moved to tmux's status-right:
+# Jalali date, the world clocks and the battery) moved to tmux's status lines:
 # see tmux/tmux/status-bar.conf, bin/bin/worldclock.sh and bin/bin/battery.sh.
 #
 # Not portable from WezTerm:
