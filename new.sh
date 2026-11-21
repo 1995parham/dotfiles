@@ -71,51 +71,61 @@ main() {
 
     read -r -p 'user: ' -i "${USER}" -e user
 
+    # NOTE: bodies are indented with 4 spaces to match .editorconfig. The CI lint
+    # (.github/workflows/sh-lint.yaml) runs shfmt, which reads .editorconfig and
+    # rejects anything else — a 2-space template makes every generated script fail
+    # CI on its first push.
     cat >>"${root}/scripts/${name}.sh" <<EOF
 #!/usr/bin/env bash
 usage() {
-  echo "${description}"
+    echo "${description}"
 
-  # shellcheck disable=1004,2016
-  echo '
+    # shellcheck disable=1004,2016
+    echo '
 $(figlet "${name}" | tr "'" "|" | sed -e 's/[[:space:]]*$//')
-  '
+    '
 }
 
 ${root_env}
 
 pre_main() {
-  return 0
+    return 0
 }
 
 main_pacman() {
-  return 1
+    return 1
 }
 
 main_xbps() {
-  return 1
+    return 1
 }
 
 main_apt() {
-  return 1
+    return 1
 }
 
 main_pkg() {
-  return 1
+    return 1
 }
 
 main_brew() {
-  return 1
+    return 1
 }
 
 main() {
-  return 0
+    return 0
 }
 
 main_${user}() {
-  return 0
+    return 0
 }
 EOF
+
+    # An empty ${root_env} leaves a run of blank lines that shfmt collapses, which
+    # would fail CI on a freshly-generated script. Normalise here when shfmt exists.
+    if command -v shfmt >/dev/null 2>&1; then
+        shfmt -w "${root}/scripts/${name}.sh"
+    fi
 
     return 0
 }

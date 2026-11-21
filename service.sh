@@ -83,6 +83,29 @@ function service_restart() {
     esac
 }
 
+# Enable a service so that it starts at boot, and start it now
+# Arguments:
+#   $1: service_name - The name of the service to enable
+#   $2: service_manager - Optional. If not provided, will auto-detect
+# Returns: 0 on success, 1 on failure
+function service_enable() {
+    local service_name=$1
+    local service_manager=${2:-$(detect_service_manager)}
+
+    case "$service_manager" in
+    launchctl)
+        sudo launchctl enable "system/${service_name}" &&
+            sudo launchctl kickstart "system/${service_name}"
+        ;;
+    systemctl)
+        sudo systemctl enable --now "${service_name}"
+        ;;
+    *)
+        return 1
+        ;;
+    esac
+}
+
 # Get a human-readable name for the service manager
 # Arguments:
 #   $1: service_manager - Optional. If not provided, will auto-detect

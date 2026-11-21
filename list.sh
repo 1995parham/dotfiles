@@ -42,7 +42,7 @@ main() {
     local script
     for script in $(fd -e .sh -d 1 . "${root}/scripts" -x basename | sed -e "s/.sh$//" | sort); do
         # shellcheck disable=1090
-        description=$(source "${root}/scripts/${script}.sh" && usage | head -1)
+        description=$(source "${root}/scripts/${script}.sh" && usage | sed -n 1p)
         msg "${script}: ${description}"
     done
 
@@ -52,17 +52,22 @@ main() {
     local host
     host="$(_host_short)"
 
-    if [[ ! -d "${root}/${host}/scripts" ]]; then
-        return 0
-    fi
+    # same places _resolve_script_paths in start.sh looks: hosts/<host>/ then
+    # the legacy <host>/ layout. root is the owning directory, as at run time.
+    local host_root
+    for host_root in "${root}/hosts/${host}" "${root}/${host}"; do
+        if [[ ! -d "${host_root}/scripts" ]]; then
+            continue
+        fi
 
-    local script
-    for script in $(fd -e .sh -d 1 . "${root}/${host}/scripts" -x basename | sed -e "s/.sh$//" | sort); do
-        # shellcheck disable=1090
-        description=$(source "${root}/${host}/scripts/${script}.sh" && usage | head -1)
-        msg "${script}: ${description}"
+        local script
+        for script in $(fd -e .sh -d 1 . "${host_root}/scripts" -x basename | sed -e "s/.sh$//" | sort); do
+            # shellcheck disable=1090
+            description=$(root="${host_root}" && source "${host_root}/scripts/${script}.sh" && usage | sed -n 1p)
+            msg "${script}: ${description}"
+        done
+
+        echo
+        echo
     done
-
-    echo
-    echo
 }

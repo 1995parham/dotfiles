@@ -89,7 +89,14 @@ function yes_or_no() {
     shift
 
     while true; do
-        read -r -p "$(echo -e "${F_HIGHLIGHT}[${module}] ${F_NOTICE}$*${F_RESET} [${F_SUCCESS}y${F_RESET}/${F_ERROR}n${F_RESET}]: ")" yn
+        # a failing read means EOF: stdin is /dev/null, a pipe that closed, or
+        # there is no tty at all. nothing is ever going to answer, and the
+        # default case below would spin on it forever, so decline instead.
+        if ! read -r -p "$(echo -e "${F_HIGHLIGHT}[${module}] ${F_NOTICE}$*${F_RESET} [${F_SUCCESS}y${F_RESET}/${F_ERROR}n${F_RESET}]: ")" yn; then
+            echo -e "${F_WARNING}Aborted [${module}]: no input available, use -y to answer yes${F_RESET}" >&2
+            return 1
+        fi
+
         case ${yn} in
         [Yy]*) return 0 ;;
         [Nn]*)
@@ -182,9 +189,9 @@ function progress_bar() {
     local empty=$((width - filled))
 
     echo -e "\r${F_INFO}${prefix}: ${F_SUCCESS}"
-    printf "%*s" ${filled} | tr ' ' "${PROGRESS_FULL}"
+    printf "%*s" "${filled}" "" | tr ' ' "${PROGRESS_FULL}"
     echo -e "${F_GRAY}"
-    printf "%*s" ${empty} | tr ' ' "${PROGRESS_EMPTY}"
+    printf "%*s" "${empty}" "" | tr ' ' "${PROGRESS_EMPTY}"
     printf "${F_INFO} %d%% (%d/%d)${ALL_RESET}" "${percentage}" "${current}" "${total}"
 }
 
@@ -194,10 +201,10 @@ function spinner() {
     local delay=0.1
     local i=0
 
-    while [ -d "/proc/$pid" ]; do
+    while [ -d "/proc/${pid}" ]; do
         local char=${SPINNER_CHARS:$((i % ${#SPINNER_CHARS})):1}
         echo -e "\r${F_HIGHLIGHT}${char} ${message}${ALL_RESET}"
-        sleep $delay
+        sleep "${delay}"
         ((i++))
     done
     echo -e "\r${CLEAR_LINE}"
