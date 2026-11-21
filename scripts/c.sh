@@ -11,17 +11,20 @@ usage() {
   '
 }
 
+# clang ships clangd, clang-format and clang-tidy in one package on arch; debian splits them.
+# ninja is the build backend of both cmake and meson, and bear writes the compile_commands.json
+# that clangd reads for a project built with plain make.
+
 main_pacman() {
-    msg 'install clang and clangd'
-    require_pacman clang cmake valgrind meson bear
+    require_pacman clang lldb cmake ninja meson bear valgrind
 }
 
 main_brew() {
-    brew install clang-format
-    brew install cmake
+    # the command line tools of xcode already have clang, clangd and lldb. valgrind does not
+    # run on apple silicon.
+    require_brew clang-format cmake ninja meson bear
 }
 
 main_apt() {
-    sudo apt -y install clang clang-format
-    sudo apt -y install cmake
+    require_apt clang clangd clang-format clang-tidy lldb cmake ninja-build meson bear valgrind
 }

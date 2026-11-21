@@ -12,8 +12,12 @@ usage() {
   '
 }
 
+# three tools: shellcheck finds the bugs, shfmt formats (4 spaces, see .editorconfig), and
+# shellharden corrects the quoting that the first one only reports. ci runs shellcheck and shfmt
+# on this repository. neovim installs bash-language-server by itself (mason-packages.lua).
+
 main_pacman() {
-    require_pacman shfmt shellcheck
+    require_pacman shfmt shellcheck shellharden
 }
 
 main_brew() {
@@ -21,5 +25,5 @@ main_brew() {
 }
 
 main_apt() {
-    sudo apt install shellcheck
+    require_apt shfmt shellcheck
 }

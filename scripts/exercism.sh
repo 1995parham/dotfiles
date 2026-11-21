@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
-# In The Name Of God
-# ========================================
-# [] File Name : exercism.sh
-#
-# [] Creation Date : 30-07-2018
-#
-# [] Created By : Parham Alvani <parham.alvani@gmail.com>
-# =======================================
+
 usage() {
-    echo "exercism"
+    echo "exercism, the command line client of exercism.org"
     # shellcheck disable=1004
     echo '
                         _
@@ -20,14 +13,38 @@ usage() {
 }
 
 main_brew() {
-    brew install exercism
-}
-
-main_apt() {
-    msg "there is nothing that we can do"
-    return 1
+    require_brew exercism
 }
 
 main_pacman() {
-    yay -Syu --needed --noconfirm exercism-bin
+    require_aur exercism-bin
+}
+
+main_apt() {
+    # debian has no package, so the binary comes from the release into ~/.local/bin.
+    local arch
+    case "$(uname -m)" in
+    x86_64) arch=x86_64 ;;
+    aarch64 | arm64) arch=arm64 ;;
+    *)
+        msg "no exercism release for $(uname -m)" 'error'
+        return 1
+        ;;
+    esac
+
+    require_github_release "exercism/cli" "exercism" "exercism-\${version#v}-linux-${arch}" "tar.gz"
+}
+
+main() {
+    if ! command -v exercism &>/dev/null; then
+        msg 'exercism is not available in PATH' 'error'
+        return 1
+    fi
+
+    msg "$(exercism version)"
+
+    # the token is on https://exercism.org/settings/api_cli
+    if [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/exercism/user.json" ]]; then
+        msg 'run "exercism configure --token=<token>" once to log in' 'notice'
+    fi
 }

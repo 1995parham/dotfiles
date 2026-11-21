@@ -13,9 +13,14 @@ usage() {
   '
 }
 
+# pnpm is the package manager on every platform. it comes from the system package where one
+# exists, and from npm on debian. corepack is not used: node no longer ships it since v25.
+
 main_brew() {
     require_brew node pnpm
 
+    # husky runs git hooks with a bare PATH, so a hook started by a gui client on macos does
+    # not find the node of homebrew. husky sources this file first.
     msg 'creating husky configuration directory'
     if ! mkdir -p "$HOME/.config/husky"; then
         msg 'failed to create husky config directory' 'error'
@@ -29,29 +34,35 @@ main_brew() {
 }
 
 main_apt() {
-    msg "installing node from nodesource apt repository (https://github.com/nodesource/distributions)"
+    if ! grep -qsF "deb.nodesource.com" /etc/apt/sources.list.d/nodesource.sources /etc/apt/sources.list.d/nodesource.list; then
+        msg "adding the nodesource apt repository (https://github.com/nodesource/distributions)"
 
-    local node_version="${NODE_VERSION:-lts}"
-    local node_setup="/tmp/nodesource_setup.sh"
+        local node_version="${NODE_VERSION:-lts}"
+        local node_setup
+        node_setup=$(mktemp)
 
-    if ! curl -fsSL "https://deb.nodesource.com/setup_${node_version}.x" -o "$node_setup"; then
-        msg 'failed to download nodesource setup script' 'error'
-        return 1
-    fi
+        if ! curl -fsSL "https://deb.nodesource.com/setup_${node_version}.x" -o "$node_setup"; then
+            msg 'failed to download nodesource setup script' 'error'
+            rm -f "$node_setup"
+            return 1
+        fi
 
-    msg 'running nodesource setup script'
-    if ! sudo -E bash "$node_setup"; then
-        msg 'failed to run nodesource setup' 'error'
+        msg 'running nodesource setup script'
+        if ! sudo -E bash "$node_setup"; then
+            msg 'failed to run nodesource setup' 'error'
+            rm -f "$node_setup"
+            return 1
+        fi
         rm -f "$node_setup"
-        return 1
     fi
-    rm -f "$node_setup"
 
     msg 'installing nodejs'
-    if ! sudo apt-get install -y nodejs; then
+    if ! require_apt nodejs; then
         msg 'failed to install nodejs' 'error'
         return 1
     fi
+
+    require_npm pnpm
 }
 
 main_pkg() {
@@ -63,12 +74,17 @@ main_pacman() {
 }
 
 main() {
-    if command -v node &>/dev/null; then
-        msg "$(node -v)"
-    else
+    if ! command -v node &>/dev/null; then
         msg 'node is not available in PATH' 'error'
         return 1
     fi
 
-    require_mason typescript-language-server
+    msg "node $(node -v), npm $(npm -v)"
+    if command -v pnpm &>/dev/null; then
+        msg "pnpm $(pnpm -v)"
+    fi
+
+    if command -v nvim &>/dev/null; then
+        require_mason typescript-language-server
+    fi
 }

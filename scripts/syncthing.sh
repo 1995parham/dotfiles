@@ -12,18 +12,34 @@ usage() {
   '
 }
 
+# the system unit syncthing@<user> runs as that user from boot, with no login and no linger,
+# which is what a machine with no desktop needs.
+syncthing_enable() {
+    if ! sudo systemctl enable --now "syncthing@${USER}.service"; then
+        msg 'failed to enable syncthing' 'error'
+        return 1
+    fi
+}
+
 main_pacman() {
     require_pacman syncthing
+    syncthing_enable
+}
 
-    sudo systemctl enable "syncthing@$USER"
-    sudo systemctl start "syncthing@$USER"
+main_apt() {
+    require_apt syncthing
+    syncthing_enable
 }
 
 main_brew() {
-    brew install syncthing
-    brew services start syncthing
+    require_brew syncthing
+
+    if ! brew services start syncthing; then
+        msg 'failed to start syncthing' 'error'
+        return 1
+    fi
 }
 
 main() {
-    return 0
+    msg 'the web interface is at http://127.0.0.1:8384' 'notice'
 }
