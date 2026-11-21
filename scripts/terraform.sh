@@ -28,19 +28,15 @@ main_apt() {
     if ! command -v tofu &>/dev/null; then
         msg "Installing OpenTofu from official repository" "info"
 
-        # Install dependencies (apt has https built in since 1.5, so no apt-transport-https)
         require_apt ca-certificates curl gnupg
 
-        # Add OpenTofu GPG key
-        sudo install -m 0755 -d /etc/apt/keyrings
-        curl -fsSL https://get.opentofu.org/opentofu.gpg | sudo tee /etc/apt/keyrings/opentofu.gpg >/dev/null
-        sudo chmod a+r /etc/apt/keyrings/opentofu.gpg
+        # the key of the repository (packagecloud) signs its index, which is what apt verifies.
+        if ! require_apt_repo opentofu https://packages.opentofu.org/opentofu/tofu/gpgkey \
+            https://packages.opentofu.org/opentofu/tofu/any/ any; then
+            msg 'failed to add the OpenTofu repository' 'error'
+            return 1
+        fi
 
-        # Add repository
-        echo "deb [signed-by=/etc/apt/keyrings/opentofu.gpg] https://packages.opentofu.org/opentofu/tofu/any/ any main" |
-            sudo tee /etc/apt/sources.list.d/opentofu.list >/dev/null
-
-        sudo apt-get update
         require_apt tofu
     fi
 }

@@ -46,33 +46,17 @@ setup_docker_user() {
 install_docker_official_apt() {
     msg 'installing docker from official docker repository'
 
-    require_apt ca-certificates curl
+    require_apt ca-certificates curl gnupg
 
-    local keyring_dir="/etc/apt/keyrings"
-    local keyring_file="${keyring_dir}/docker.asc"
-
-    if [ ! -f "$keyring_file" ]; then
-        msg 'adding docker official GPG key'
-        sudo install -m 0755 -d "$keyring_dir"
-        if ! sudo curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o "$keyring_file"; then
-            msg 'failed to download docker GPG key' 'error'
-            return 1
-        fi
-        sudo chmod a+r "$keyring_file"
-    fi
-
-    local arch
-    arch=$(dpkg --print-architecture)
-
-    local codename
+    # docker has one repository for each distribution (ubuntu, debian) and each release of it.
+    local distro codename
+    distro=$(. /etc/os-release && echo "$ID")
     codename=$(. /etc/os-release && echo "$VERSION_CODENAME")
 
-    local repo_entry="deb [arch=${arch} signed-by=${keyring_file}] https://download.docker.com/linux/ubuntu ${codename} stable"
-
-    if ! grep -qF "download.docker.com" /etc/apt/sources.list.d/docker.list 2>/dev/null; then
-        msg 'adding docker repository to apt sources'
-        echo "$repo_entry" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
-        sudo apt-get update -qq
+    if ! require_apt_repo docker "https://download.docker.com/linux/${distro}/gpg" \
+        "https://download.docker.com/linux/${distro}" "$codename" stable; then
+        msg 'failed to add the docker repository' 'error'
+        return 1
     fi
 
     require_apt docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -125,7 +109,7 @@ main_pacman() {
     configure_docker_daemon || return 1
 
     msg 'docker service with systemd'
-    if ! sudo systemctl enable --now docker.service; then
+    if ! service_enable docker.service; then
         msg 'failed to enable docker service' 'error'
         return 1
     fi

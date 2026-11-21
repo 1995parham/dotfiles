@@ -21,6 +21,5 @@ main_pacman() {
 main() {
     copycat "bluez" "bluez/main.conf" "/etc/bluetooth/main.conf"
 
-    sudo systemctl enable bluetooth.service
-    sudo systemctl start bluetooth.service
+    service_enable bluetooth.service
 }

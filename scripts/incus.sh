@@ -39,7 +39,7 @@ initialize_incus() {
 main_pacman() {
     require_pacman incus qemu-base
 
-    if ! sudo systemctl enable --now incus.socket incus.service; then
+    if ! service_enable incus.socket || ! service_enable incus.service; then
         msg 'failed to enable incus service' 'error'
         return 1
     fi
@@ -51,7 +51,7 @@ main_pacman() {
 main_apt() {
     require_apt incus qemu-system
 
-    if ! sudo systemctl enable --now incus.socket incus.service; then
+    if ! service_enable incus.socket || ! service_enable incus.service; then
         msg 'failed to enable incus service' 'error'
         return 1
     fi

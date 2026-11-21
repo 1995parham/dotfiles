@@ -15,7 +15,7 @@ usage() {
 # the system unit syncthing@<user> runs as that user from boot, with no login and no linger,
 # which is what a machine with no desktop needs.
 syncthing_enable() {
-    if ! sudo systemctl enable --now "syncthing@${USER}.service"; then
+    if ! service_enable "syncthing@${USER}.service"; then
         msg 'failed to enable syncthing' 'error'
         return 1
     fi

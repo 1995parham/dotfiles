@@ -279,7 +279,7 @@ install_k3s() {
         msg "k3s check-config reported issues" "warn"
     fi
 
-    if ! sudo systemctl enable --now k3s.service; then
+    if ! service_enable k3s.service; then
         msg "failed to enable k3s service" "error"
         return 1
     fi

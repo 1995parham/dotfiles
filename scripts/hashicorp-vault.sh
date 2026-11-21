@@ -108,20 +108,14 @@ main_apt() {
     if ! command -v vault &>/dev/null; then
         msg "Installing Vault from HashiCorp repository" "info"
 
-        # Install dependencies (apt has https built in since 1.5, so no apt-transport-https)
-        require_apt ca-certificates curl gnupg
+        require_apt ca-certificates curl gnupg lsb-release
 
-        # Add HashiCorp GPG key
-        sudo install -m 0755 -d /etc/apt/keyrings
-        curl -fsSL https://apt.releases.hashicorp.com/gpg |
-            sudo gpg --dearmor -o /etc/apt/keyrings/hashicorp.gpg
-        sudo chmod a+r /etc/apt/keyrings/hashicorp.gpg
+        if ! require_apt_repo hashicorp https://apt.releases.hashicorp.com/gpg \
+            https://apt.releases.hashicorp.com "$(lsb_release -cs)"; then
+            msg 'failed to add the HashiCorp repository' 'error'
+            return 1
+        fi
 
-        # Add repository
-        echo "deb [signed-by=/etc/apt/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" |
-            sudo tee /etc/apt/sources.list.d/hashicorp.list >/dev/null
-
-        sudo apt-get update
         require_apt vault
     fi
 }

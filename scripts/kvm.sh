@@ -27,7 +27,7 @@ main_pacman() {
     sudo usermod -aG libvirt "$USER"
     sudo usermod -aG kvm "$USER"
 
-    sudo systemctl enable --now libvirtd.service
+    service_enable libvirtd.service
 
     if [ "$(command -v firewall-cmd)" ]; then
         sudo firewall-cmd --reload

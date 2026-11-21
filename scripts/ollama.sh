@@ -32,7 +32,8 @@ main_pacman() {
     sudo mkdir -p /etc/systemd/system/ollama.service.d
     copycat "ollama" "ollama/context.conf" /etc/systemd/system/ollama.service.d/
     sudo systemctl daemon-reload
-    sudo systemctl enable ollama.service
+    # enable starts it, and the restart makes a service that already ran read the new drop-in.
+    service_enable ollama.service
     sudo systemctl restart ollama.service
 }
 
