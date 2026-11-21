@@ -35,6 +35,12 @@ Two entry points exist and they do different things:
 `scripts/lib/` is **vendored from an upstream repository**
 ([1995parham/dotfiles.lib](https://github.com/1995parham/dotfiles.lib)) via `git subtree`.
 Prefer fixing library bugs upstream; local edits there have to survive the next subtree merge.
+
+To change the library: commit and push in a clone of the upstream repository, then bring it here
+with `git subtree pull --prefix scripts/lib git@github.com:1995parham/dotfiles.lib main --squash`.
+Push that merge with a plain `git push`. Do **not** run `git pull --rebase` while the subtree merge
+is unpushed: a rebase replays the squashed commit without its prefix and stops with a conflict
+(`git rebase --abort` gets out of it). If the remote has new commits, `git pull --no-rebase` first.
 This is also why CI excludes `scripts/lib/` and `start.sh` from the shell linter.
 
 ## Directory Structure
