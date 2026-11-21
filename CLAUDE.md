@@ -469,9 +469,17 @@ service_restart <service_name> [service_manager]
 # Restart a service
 # Example: service_restart "docker"
 
-service_enable <service_name> [service_manager]
-# Enable a service at boot and start it now (sudo systemctl enable --now)
+service_enable [--user] [--no-start] <service_name> [service_manager]
+# Enable a service at boot (or at login) and start it now
+# A system service runs through sudo; --user never does
+# --no-start: enable only, for a unit that starts with a session that does not run yet
 # Example: service_enable "docker.service"
+# Example: service_enable --user "mpd.service"
+# Example: service_enable --user --no-start "swayidle.service"
+
+# service_start, service_stop and service_restart take --user too:
+# a systemd user unit (systemctl --user) or a launchd agent in gui/<uid>
+# Example: service_restart --user "mpd.service"
 
 service_manager_name [service_manager]
 # Get human-readable service manager name

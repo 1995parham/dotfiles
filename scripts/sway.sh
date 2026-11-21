@@ -61,8 +61,9 @@ EOL
     configsystemd services bg.service sway
     configsystemd services swayidle.service sway
     configsystemd services sway-session.target sway
-    systemctl --user enable bg.service
-    systemctl --user enable kanshi.service
-    systemctl --user enable workspaces.service
-    systemctl --user enable swayidle.service
+    # enable only: these units start with the sway session, which does not run during setup.
+    local unit
+    for unit in bg kanshi workspaces swayidle; do
+        service_enable --user --no-start "${unit}.service"
+    done
 }

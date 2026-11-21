@@ -19,6 +19,5 @@ main_pacman() {
 
 main() {
     configfile mpd mpd.conf
-    systemctl --user enable mpd.service
-    systemctl --user start mpd.service
+    service_enable --user mpd.service
 }
