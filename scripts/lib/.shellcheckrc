@@ -1,1 +1,3 @@
 disable=SC2317,SC2329
+# SC2248: quote every variable, also one that holds a number now.
+enable=quote-safe-variables

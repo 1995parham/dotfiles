@@ -29,6 +29,8 @@ source "${dotfile_lib_root}/run.sh"
 source "${dotfile_lib_root}/service.sh"
 # shellcheck source=github.sh
 source "${dotfile_lib_root}/github.sh"
+# shellcheck source=claude.sh
+source "${dotfile_lib_root}/claude.sh"
 
 # short (first-label) hostname. shared by the dispatcher and the new/list
 # scripts so host-specific script resolution stays consistent: for a

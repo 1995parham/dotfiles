@@ -189,9 +189,9 @@ function progress_bar() {
     local empty=$((width - filled))
 
     echo -e "\r${F_INFO}${prefix}: ${F_SUCCESS}"
-    printf "%*s" ${filled} | tr ' ' "${PROGRESS_FULL}"
+    printf "%*s" "${filled}" "" | tr ' ' "${PROGRESS_FULL}"
     echo -e "${F_GRAY}"
-    printf "%*s" ${empty} | tr ' ' "${PROGRESS_EMPTY}"
+    printf "%*s" "${empty}" "" | tr ' ' "${PROGRESS_EMPTY}"
     printf "${F_INFO} %d%% (%d/%d)${ALL_RESET}" "${percentage}" "${current}" "${total}"
 }
 
@@ -201,10 +201,10 @@ function spinner() {
     local delay=0.1
     local i=0
 
-    while [ -d "/proc/$pid" ]; do
+    while [ -d "/proc/${pid}" ]; do
         local char=${SPINNER_CHARS:$((i % ${#SPINNER_CHARS})):1}
         echo -e "\r${F_HIGHLIGHT}${char} ${message}${ALL_RESET}"
-        sleep $delay
+        sleep "${delay}"
         ((i++))
     done
     echo -e "\r${CLEAR_LINE}"

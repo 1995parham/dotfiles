@@ -167,9 +167,80 @@ function require_apt() {
     done
 
     if [[ ${#to_install_pkg[@]} -ne 0 ]]; then
-        action "require" " apt install ${to_install_pkg[*]}"
-        sudo apt -qy install "${to_install_pkg[@]}"
+        # apt-get, not apt: apt says itself that its command line is not stable for scripts.
+        action "require" " apt-get install ${to_install_pkg[*]}"
+        sudo apt-get -qy install "${to_install_pkg[@]}"
     fi
+}
+
+# add a third-party apt repository that is signed with its own key.
+#
+# the key goes to /etc/apt/keyrings/<name>.gpg and the repository names it with signed-by, so
+# the key can sign this repository only. a key in /etc/apt/trusted.gpg.d (or apt-key) could
+# sign every repository of the machine.
+#
+# Arguments:
+#   $1: name - names the keyring and the .list file
+#   $2: key_url - where the signing key is, armored or binary
+#   $3: uri - the repository
+#   $4: suite - for example "$(lsb_release -cs)", "stable" or "any"
+#   $5...: components - defaults to "main"
+# Example: require_apt_repo hashicorp https://apt.releases.hashicorp.com/gpg \
+#              https://apt.releases.hashicorp.com "$(lsb_release -cs)"
+function require_apt_repo() {
+    local name=${1:?"repository name is required"}
+    local key_url=${2:?"key url is required"}
+    local uri=${3:?"repository uri is required"}
+    local suite=${4:?"suite is required"}
+    shift 4
+
+    local components="main"
+    if [[ $# -gt 0 ]]; then
+        components="$*"
+    fi
+
+    # the two directories can be set from outside so that the unit tests write to a sandbox.
+    local keyrings_dir=${APT_KEYRINGS_DIR:-/etc/apt/keyrings}
+    local sources_dir=${APT_SOURCES_DIR:-/etc/apt/sources.list.d}
+    local keyring="${keyrings_dir}/${name}.gpg"
+    local list="${sources_dir}/${name}.list"
+
+    local entry
+    entry="deb [arch=$(dpkg --print-architecture) signed-by=${keyring}] ${uri} ${suite} ${components}"
+
+    running "require" " apt repository ${name}"
+    if [[ -s "${keyring}" ]] && [[ "$(cat "${list}" 2>/dev/null)" == "${entry}" ]]; then
+        return 0
+    fi
+
+    action "require" " apt repository ${name}: ${uri} ${suite} ${components}"
+
+    local key
+    key=$(mktemp)
+    if ! curl -fsSL "${key_url}" -o "${key}"; then
+        message "require" "failed to download the key of ${name} from ${key_url}" "error"
+        rm -f "${key}"
+        return 1
+    fi
+
+    # signed-by with a .gpg file wants the binary form.
+    if grep -q "BEGIN PGP PUBLIC KEY BLOCK" "${key}"; then
+        if ! gpg --batch --yes --dearmor -o "${key}.gpg" "${key}"; then
+            message "require" "failed to read the key of ${name}" "error"
+            rm -f "${key}" "${key}.gpg"
+            return 1
+        fi
+        mv "${key}.gpg" "${key}"
+    fi
+
+    # mkdir, cp and chmod, not install(1): start.sh has a function with that name.
+    sudo mkdir -p -m 0755 "${keyrings_dir}"
+    sudo cp "${key}" "${keyring}"
+    sudo chmod 0644 "${keyring}"
+    rm -f "${key}"
+
+    echo "${entry}" | sudo tee "${list}" >/dev/null
+    sudo apt-get update -qq
 }
 
 # install packages using pacman
@@ -223,12 +294,14 @@ function require_aur() {
     for pkg in "$@"; do
         running "require" " arch users repository ${pkg}"
         if (! pacman -Q "${pkg}" &>/dev/null); then
-            action "require" " yay -Sy ${pkg}"
-            yay -Sy --sudoloop --noconfirm "${pkg}"
+            # -S and not -Sy: a sync of the databases with no upgrade is a partial upgrade,
+            # which arch does not support.
+            action "require" " yay -S ${pkg}"
+            yay -S --needed --sudoloop --noconfirm "${pkg}"
         elif [[ "${pkg}" =~ .*-git ]]; then
             if sudo -l; then
-                action "require" " yay -Sy ${pkg} to upgrade -git package"
-                yay -Sy --sudoloop --noconfirm "${pkg}" || true
+                action "require" " yay -S ${pkg} to upgrade -git package"
+                yay -S --sudoloop --noconfirm "${pkg}" || true
             fi
         fi
     done
