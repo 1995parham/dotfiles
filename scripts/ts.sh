@@ -27,6 +27,6 @@ main() {
     # sudo npm install -g typescript
     # msg "$(tsc --version)"
 
-    msg 'you can setup typescript in a project basis, so this script only installs ts-language-server'
-    require_mason typescript-language-server
+    msg 'you can setup typescript in a project basis, so this script only installs the language server'
+    require_mason vtsls
 }

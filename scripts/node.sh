@@ -85,6 +85,8 @@ main() {
     fi
 
     if command -v nvim &>/dev/null; then
-        require_mason typescript-language-server
+        # neovim installs vtsls by itself (mason-packages.lua); this makes it ready before the
+        # first start.
+        require_mason vtsls
     fi
 }
