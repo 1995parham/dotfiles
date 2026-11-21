@@ -29,22 +29,6 @@ main_pacman() {
     fi
 }
 
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     # editable, so a change in voice/voice.py is live without a reinstall
     action "voice" "pipx install --editable voice/"

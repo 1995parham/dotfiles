@@ -18,14 +18,6 @@ pre_main() {
     return 0
 }
 
-main_pacman() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
 main_brew() {
     url=$(curl --silent "https://api.github.com/repos/abbasnaqdi/nekoray-macos/releases/latest" |
         grep '"browser_download_url":' |

@@ -24,14 +24,6 @@ main_pacman() {
     sudo mkinitcpio -P
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     return 0
 }

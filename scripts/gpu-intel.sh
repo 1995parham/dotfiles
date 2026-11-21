@@ -20,14 +20,6 @@ main_pacman() {
     require_systemd_kernel_parameter +i915.enable_psr=0
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     vainfo
     vdpauinfo

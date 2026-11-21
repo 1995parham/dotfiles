@@ -23,20 +23,8 @@ main_pacman() {
     service_enable fwupd-refresh.timer
 }
 
-main_xbps() {
-    return 1
-}
-
 main_apt() {
     require_apt fwupd
-}
-
-main_pkg() {
-    return 1
-}
-
-main_brew() {
-    return 1
 }
 
 main() {

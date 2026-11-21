@@ -18,14 +18,6 @@ main_pacman() {
     require_pacman scons
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     return 0
 }

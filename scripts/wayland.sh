@@ -15,14 +15,6 @@ __      ____ _ _   _| | __ _ _ __   __| |
 
 root=${root:?"root must be set"}
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main_pacman() {
     require_pacman llvm
 

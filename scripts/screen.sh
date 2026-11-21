@@ -14,21 +14,11 @@ usage() {
   '
 }
 
-main_apt() {
-    msg "there is nothing that we can do"
-    return 1
-}
-
 main_pacman() {
     require_pacman screen
 
     sudo usermod -aG uucp "$USER"
     newgrp uucp
-}
-
-main_brew() {
-    msg "there is nothing that we can do"
-    return 1
 }
 
 main() {

@@ -20,18 +20,6 @@ main_pacman() {
     require_aur bazelisk
 }
 
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
-}
-
 main_brew() {
     msg "$BAZELISK_INFO"
     require_brew bazelisk

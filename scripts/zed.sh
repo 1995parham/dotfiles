@@ -20,18 +20,6 @@ main_pacman() {
     required_pacman zed
 }
 
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask zed
 }

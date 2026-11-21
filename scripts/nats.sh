@@ -19,10 +19,6 @@ main_pacman() {
     require_aur natscli-git
 }
 
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew nats-io/nats-tools/nats nats-io/nats-tools/nsc
 }

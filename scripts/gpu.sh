@@ -17,14 +17,6 @@ main_pacman() {
     require_pacman libva-utils vdpauinfo nvtop
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     return 0
 }

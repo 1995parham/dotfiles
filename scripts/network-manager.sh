@@ -31,22 +31,6 @@ main_pacman() {
     service_enable systemd-resolved.service
 }
 
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     return 0
 }

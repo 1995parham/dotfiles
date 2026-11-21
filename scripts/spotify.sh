@@ -21,10 +21,6 @@ main_pacman() {
     require_aur spotify
 }
 
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask spotify
 }

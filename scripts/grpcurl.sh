@@ -22,10 +22,6 @@ main_pacman() {
     require_aur grpcurl-bin
 }
 
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew grpcurl
 }

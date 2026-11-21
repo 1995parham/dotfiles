@@ -17,14 +17,6 @@ pre_main() {
     return 0
 }
 
-main_pacman() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask httpie
 }

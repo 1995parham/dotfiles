@@ -16,11 +16,3 @@ main_pacman() {
     require_pacman sdcv
     require_aur stardict-oald
 }
-
-main_brew() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}

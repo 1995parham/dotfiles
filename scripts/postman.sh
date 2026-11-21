@@ -17,10 +17,6 @@ main_pacman() {
     require_aur postman-bin
 }
 
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask postman
 }

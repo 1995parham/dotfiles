@@ -26,14 +26,6 @@ main_pacman() {
     sudo systemctl restart docker
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     if yes_or_no "do you want to try a simple workload with gpu?"; then
         docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi

@@ -23,10 +23,6 @@ main_pacman() {
     require_pacman neovide
 }
 
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask neovide
 }

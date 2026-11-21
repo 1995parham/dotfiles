@@ -28,22 +28,6 @@ main_pacman() {
     require_pacman make gcc pkgconf pixman libdrm pango libinput wayland libxkbcommon lua
 }
 
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     local commit pin src
     commit="$(hyprctl version -j | jq -r .commit)"

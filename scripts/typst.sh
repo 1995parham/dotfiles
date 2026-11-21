@@ -21,11 +21,3 @@ main_brew() {
     require_brew typst typstyle tinymist
     require_brew_cask font-fontawesome
 }
-
-main_apt() {
-    return 1
-}
-
-main_xbps() {
-    return 1
-}

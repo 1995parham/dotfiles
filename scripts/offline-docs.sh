@@ -21,16 +21,8 @@ main_pacman() {
     require_pacman kiwix-desktop kiwix-tools arch-wiki-docs arch-wiki-lite tealdeer
 }
 
-main_xbps() {
-    return 1
-}
-
 main_apt() {
     require_apt kiwix kiwix-tools tealdeer
-}
-
-main_pkg() {
-    return 1
 }
 
 main_brew() {

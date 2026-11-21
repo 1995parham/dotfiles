@@ -18,10 +18,6 @@ main_pacman() {
     require_aur slack-desktop
 }
 
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask slack
 }

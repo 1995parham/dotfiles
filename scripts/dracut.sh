@@ -32,14 +32,6 @@ main_pacman() {
     find '/usr/lib/modules/' -name pkgbase | cut -c2- | sudo /usr/local/bin/dracut-install.sh
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main() {
     return 0
 }

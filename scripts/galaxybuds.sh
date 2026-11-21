@@ -22,14 +22,6 @@ main_pacman() {
     require_aur galaxybudsclient-bin
 }
 
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
 main_brew() {
     require_brew_cask galaxybudsclient
 }

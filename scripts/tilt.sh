@@ -16,22 +16,6 @@ pre_main() {
     return 0
 }
 
-main_pacman() {
-    return 1
-}
-
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
-}
-
 main_brew() {
     msg 'tilt requires a kubernetes cluster which means you need to have a tool to run local kubernetes cluster.'
     require_brew tilt-dev/tap/tilt

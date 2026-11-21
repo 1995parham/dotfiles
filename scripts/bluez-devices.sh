@@ -19,14 +19,6 @@ main_pacman() {
     return 0
 }
 
-main_apt() {
-    return 1
-}
-
-main_brew() {
-    return 1
-}
-
 main_parham() {
     if ! command -v bluetoothctl &>/dev/null; then
         msg 'bluetoothctl not available - please install bluez' 'error'
