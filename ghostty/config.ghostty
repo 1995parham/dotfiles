@@ -18,6 +18,8 @@
 # Ghostty has no scripting and no status bar, so WezTerm's right status (the
 # Jalali date, the world clocks and the battery) moved to tmux's status lines:
 # see tmux/tmux/status-bar.conf, bin/bin/worldclock.sh and bin/bin/battery.sh.
+# The VPN badges are there too, Snapp's among them (bin/bin/snapp-vpn-badge.sh,
+# wired in tmux/tmux/platform-macos.conf); the command palette below drives it.
 #
 # Not portable from WezTerm:
 #   - the navi split on cmd+n (cmd+n stays "new window")
@@ -46,6 +48,11 @@ font-size = 10.5
 # cv04: alternate `l` with a left bottom bar (Consolas-style foot) so it is
 # unmistakable next to `1`/`I`. calt keeps Maple Mono's ligatures on.
 font-feature = calt, cv04=1
+
+# Blend the text in linear space with a correction step: the same weight as
+# `native`, without the dark fringe around coloured text on a coloured
+# background (naz's pink and green on #323232 show it most). Since 1.1.
+alpha-blending = linear-corrected
 
 # ---------------------------------------------------------------------------
 # Cursor
@@ -99,6 +106,17 @@ notify-on-command-finish-after = 30s
 # strip (WezTerm's INTEGRATED_BUTTONS). Applies to new windows only.
 macos-titlebar-style = tabs
 
+# A little air between the text and the window edge, and the leftover pixels
+# (the window is rarely an exact number of cells) shared out on all sides
+# instead of piling up on the right and bottom.
+window-padding-x = 6
+window-padding-y = 4
+window-padding-balance = true
+
+# Bring back the windows, tabs, splits and their directories after a normal
+# quit too, not only after a crash (the macOS default).
+window-save-state = always
+
 # Close a tab or window without asking (WezTerm's NeverPrompt).
 confirm-close-surface = false
 
@@ -121,6 +139,21 @@ scrollback-limit-lines = 20000
 # of the current tab, and it keeps its session while hidden.
 quick-terminal-position = bottom
 quick-terminal-size = 30%
+# Open it on the screen under the mouse, not the one macOS calls main.
+quick-terminal-screen = mouse
+
+# ---------------------------------------------------------------------------
+# Command palette (cmd+shift+p)
+# ---------------------------------------------------------------------------
+
+# Snapp DC VPN: the snapp-vpn shell function from the keys repo
+# (bash/aliases/snapp.sh), typed into the focused terminal and run. Use them at
+# a shell prompt; in an editor they arrive as plain keystrokes. The tmux status
+# line shows the result: "🚕 🟢" once gitlab.snapp.ir answers, "🚕 🟡"
+# while ISE posture still holds the tunnel in quarantine.
+command-palette-entry = title:"Snapp VPN: Connect",description:"Connect the Snapp DC VPN and wait for ISE posture.",action:"text:snapp-vpn connect\\r"
+command-palette-entry = title:"Snapp VPN: Disconnect",description:"Disconnect the Snapp DC VPN.",action:"text:snapp-vpn disconnect\\r"
+command-palette-entry = title:"Snapp VPN: Status",description:"Show the tunnel state and whether gitlab.snapp.ir answers.",action:"text:snapp-vpn status\\r"
 
 # ---------------------------------------------------------------------------
 # Keys
