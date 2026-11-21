@@ -108,8 +108,8 @@ main_apt() {
     if ! command -v vault &>/dev/null; then
         msg "Installing Vault from HashiCorp repository" "info"
 
-        # Install dependencies
-        sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+        # Install dependencies (apt has https built in since 1.5, so no apt-transport-https)
+        require_apt ca-certificates curl gnupg
 
         # Add HashiCorp GPG key
         sudo install -m 0755 -d /etc/apt/keyrings
@@ -122,7 +122,7 @@ main_apt() {
             sudo tee /etc/apt/sources.list.d/hashicorp.list >/dev/null
 
         sudo apt-get update
-        sudo apt-get install -y vault
+        require_apt vault
     fi
 }
 

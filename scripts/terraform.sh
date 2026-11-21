@@ -28,8 +28,8 @@ main_apt() {
     if ! command -v tofu &>/dev/null; then
         msg "Installing OpenTofu from official repository" "info"
 
-        # Install dependencies
-        sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+        # Install dependencies (apt has https built in since 1.5, so no apt-transport-https)
+        require_apt ca-certificates curl gnupg
 
         # Add OpenTofu GPG key
         sudo install -m 0755 -d /etc/apt/keyrings
@@ -41,7 +41,7 @@ main_apt() {
             sudo tee /etc/apt/sources.list.d/opentofu.list >/dev/null
 
         sudo apt-get update
-        sudo apt-get install -y tofu
+        require_apt tofu
     fi
 }
 

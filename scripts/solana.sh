@@ -14,24 +14,8 @@ usage() {
 
 export dependencies=("rust")
 
-pre_main() {
-    return 0
-}
-
 main_pacman() {
     require_aur solana
-}
-
-main_xbps() {
-    return 1
-}
-
-main_apt() {
-    return 1
-}
-
-main_pkg() {
-    return 1
 }
 
 main_brew() {
@@ -39,10 +23,13 @@ main_brew() {
 }
 
 main() {
-    msg 'Install Anchor framework using Anchor Version Manager (AVM)'
-    cargo install --git https://github.com/coral-xyz/anchor avm --force
-}
+    # no package has avm, so cargo builds it. without the check (and with --force) each run
+    # compiled it again.
+    if command -v avm &>/dev/null; then
+        msg "avm is already installed: $(avm --version)"
+        return 0
+    fi
 
-main_parham() {
-    return 0
+    msg 'Install Anchor framework using Anchor Version Manager (AVM)'
+    cargo install --git https://github.com/coral-xyz/anchor avm
 }
