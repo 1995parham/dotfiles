@@ -106,13 +106,6 @@ notify-on-command-finish-after = 30s
 # strip (WezTerm's INTEGRATED_BUTTONS). Applies to new windows only.
 macos-titlebar-style = tabs
 
-# A little air between the text and the window edge, and the leftover pixels
-# (the window is rarely an exact number of cells) shared out on all sides
-# instead of piling up on the right and bottom.
-window-padding-x = 6
-window-padding-y = 4
-window-padding-balance = true
-
 # Bring back the windows, tabs, splits and their directories after a normal
 # quit too, not only after a crash (the macOS default).
 window-save-state = always
