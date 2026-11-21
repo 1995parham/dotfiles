@@ -4,7 +4,8 @@
 # Sometimes the lost part of ourselves is faith, hope, a dream.
 # It is so easy to lose a piece of ourselves and it can happen in a thousand different ways.
 
-# whereami prints the current public IP along with country/ISP info.
+# whereami prints the current public IP along with country/ISP info and a
+# cleanness score (100 = clean) scraped from Scamalytics.
 # Returns 0 when a live source responded, 1 when only stale cache was available,
 # 2 when no source and no cache could produce any output.
 whereami() {
@@ -13,10 +14,12 @@ whereami() {
     local iran_access_ip_url="https://ipmyp.ir/"
     local cache_file="/tmp/whereami.sh"
     local timestamp_file="/tmp/whereami.timestamp"
-    local ip name label
+    local ip name label score
 
     ip="$(curl -sL "$ip_country_url" --max-time 10 2>/dev/null | jq -j '"\(.query) - \(.country) (\(.isp))\(if .proxy then " [VPN]" else "" end)\(if .hosting then " [Hosting]" else "" end)"' 2>/dev/null)" || ip=""
     if [ -n "$ip" ]; then
+        score="$(_whereami_clean_score "$ip")"
+        ip="${ip}${score:+ [$score]}"
         _whereami_update_cache "$ip" "$cache_file" "$timestamp_file"
         _whereami_show_result "$ip" "$timestamp_file"
         return 0
@@ -24,6 +27,8 @@ whereami() {
 
     ip="$(curl -sL "$fallback_ip_country_url" --max-time 10 2>/dev/null | jq -j '"Fallback: \(.ip) - \(.country_code)"' 2>/dev/null)" || ip=""
     if [ -n "$ip" ]; then
+        score="$(_whereami_clean_score "$ip")"
+        ip="${ip}${score:+ [$score]}"
         _whereami_update_cache "$ip" "$cache_file" "$timestamp_file"
         _whereami_show_result "$ip" "$timestamp_file"
         return 0
@@ -45,6 +50,32 @@ whereami() {
 
     echo "💩"
     return 2
+}
+
+# _whereami_clean_score prints "clean N/100" for the first IPv4 address found in
+# its argument, or nothing when the score cannot be fetched. N is 100 minus the
+# Scamalytics fraud score (100 = clean). Results are cached per IP for 6 hours so
+# frequent callers (the tmux status bar) do not hammer Scamalytics.
+_whereami_clean_score() {
+    local addr fraud cache ttl=21600
+    addr="$(grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' <<<"$1" | head -1)"
+    [ -n "$addr" ] || return 0
+
+    cache="/tmp/whereami.score.${addr}"
+    if [ -f "$cache" ] && [ $(($(date +%s) - $(date -r "$cache" +%s))) -lt $ttl ]; then
+        cat "$cache"
+        return 0
+    fi
+
+    fraud="$(curl -sL --max-time 8 -A "Mozilla/5.0" "https://scamalytics.com/ip/${addr}" 2>/dev/null |
+        grep -oE 'Fraud Score: *[0-9]+' | head -1 | grep -oE '[0-9]+$')" || fraud=""
+    if [ -z "$fraud" ]; then
+        # Serve a stale score rather than nothing when the lookup fails.
+        [ -f "$cache" ] && cat "$cache"
+        return 0
+    fi
+
+    echo "clean $((100 - fraud))/100" | tee "$cache"
 }
 
 _whereami_name_ip() {
