@@ -667,13 +667,13 @@ assert_retval <command...> <expected-exit-code>
 ```
 
 CI (`.github/workflows/`):
-- `sh-lint.yaml` — `luizm/action-sh-checker` (shellcheck with `SHELLCHECK_OPTS: -x`, plus
+- `sh-lint.yaml` — `luizm/action-sh-checker` (shellcheck with `SHELLCHECK_OPTS: -x -o quote-safe-variables`, plus
   shfmt), excluding `scripts/lib/` and `start.sh`; and `stylua --check .` for Lua files.
 - `install.yaml` — runs `./start.sh -y env` and `./install.sh -y` on ubuntu-latest and
   macos-latest, then verifies symlinks and that the required binaries are on `PATH`.
 
 Style: 4-space indent everywhere (`.editorconfig`), `#!/usr/bin/env bash` shebang, and code
-must be shellcheck-clean with `-x` since scripts rely on sourced library files.
+must be shellcheck-clean with `-x -o quote-safe-variables` since scripts rely on sourced library files.
 
 ## Host-Specific Scripts
 

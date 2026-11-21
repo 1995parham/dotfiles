@@ -37,7 +37,7 @@ to_birthday() {
 
     local diff=$((to - now))
 
-    if [ $diff -lt 0 ]; then
+    if [ "$diff" -lt 0 ]; then
         to=$(date -d "12 oct $next_year 19:20:00" "+%s")
         diff=$((to - now))
     fi

@@ -11,7 +11,9 @@ jobs:
             - name: Run the sh-checker
               uses: luizm/action-sh-checker@v0.10.0
               env:
-                  SHELLCHECK_OPTS: -x
+                  # quote-safe-variables (SC2248) asks for quotes on every variable, also one that
+                  # holds a number now.
+                  SHELLCHECK_OPTS: -x -o quote-safe-variables
               with:
                   sh_checker_comment: false
                   sh_checker_exclude: "scripts/lib/ start.sh"

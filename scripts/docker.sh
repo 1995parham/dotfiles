@@ -149,7 +149,7 @@ main() {
     local timeout=60
     local elapsed=0
     until sg 'docker' -c 'docker info' &>/dev/null; do
-        if [ $elapsed -ge $timeout ]; then
+        if [ "$elapsed" -ge "$timeout" ]; then
             msg "Docker daemon did not start within ${timeout} seconds" "error"
             return 1
         fi
