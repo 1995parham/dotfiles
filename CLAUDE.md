@@ -51,6 +51,7 @@ scripts/
 │   ├── service.sh         # Cross-platform service management
 │   ├── proxy.sh           # Proxy configuration
 │   ├── whereami.sh        # Public IP / country detection (with cache)
+│   ├── claude.sh          # Names of Claude Code's per-project directories
 │   ├── run.sh             # Command execution utilities
 │   ├── start.sh           # Main script execution engine
 │   ├── header.sh          # ASCII art header
@@ -289,7 +290,7 @@ not_require_pacman <packages...>
 # Example: not_require_pacman package-to-remove
 
 require_aur <packages...>
-# Install AUR packages via yay
+# Install AUR packages via yay (yay -S, never -Sy: no partial sync)
 # Respects allow_no_aur flag
 # Auto-upgrades -git packages
 # Example: require_aur yay neovim-git
@@ -298,8 +299,17 @@ require_aur <packages...>
 #### APT (Debian/Ubuntu)
 ```bash
 require_apt <packages...>
-# Install apt packages
+# Install apt packages (apt-get, skips what dpkg already has)
 # Example: require_apt build-essential
+
+require_apt_repo <name> <key_url> <uri> <suite> [components...]
+# Add a third-party apt repository signed with its own key, then apt-get update
+# - Key goes to /etc/apt/keyrings/<name>.gpg (an armored key is dearmored)
+# - Entry goes to /etc/apt/sources.list.d/<name>.list with signed-by
+# - Does nothing when the key and the same entry are already there
+# components defaults to "main"
+# Example: require_apt_repo hashicorp https://apt.releases.hashicorp.com/gpg \
+#              https://apt.releases.hashicorp.com "$(lsb_release -cs)"
 ```
 
 #### Other Package Managers
@@ -458,6 +468,10 @@ service_stop <service_name> [service_manager]
 service_restart <service_name> [service_manager]
 # Restart a service
 # Example: service_restart "docker"
+
+service_enable <service_name> [service_manager]
+# Enable a service at boot and start it now (sudo systemctl enable --now)
+# Example: service_enable "docker.service"
 
 service_manager_name [service_manager]
 # Get human-readable service manager name
@@ -656,7 +670,9 @@ runner, which discovers every function named `test_*` via `declare -F` and repor
 ./scripts/lib/tests/test_linker.sh   # run one test file (30 tests, exits non-zero on failure)
 ```
 
-These tests are **not** wired into CI — run them by hand after touching `scripts/lib/`.
+These tests are **not** wired into the CI of this repository — run them by hand after touching
+`scripts/lib/`. The upstream repository runs them, and lints the library with the same
+`quote-safe-variables` check (set in its `.shellcheckrc`).
 `test_colors.sh` is a color-palette demo rather than a real test file (it defines no `test_*`
 functions, so it reports "All 0 tests passed").
 
