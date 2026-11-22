@@ -121,7 +121,7 @@ _whereami_clean_score() {
     [ -n "$addr" ] || return 0
 
     cache="/tmp/whereami.score.${addr}"
-    if [ -f "$cache" ] && [ $(($(date +%s) - $(date -r "$cache" +%s))) -lt $ttl ]; then
+    if [ -f "$cache" ] && [ $(($(date +%s) - $(date -r "$cache" +%s))) -lt "$ttl" ]; then
         cat "$cache"
         return 0
     fi
