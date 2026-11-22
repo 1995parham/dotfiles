@@ -9,4 +9,4 @@
 # shellcheck source=SCRIPTDIR/../../scripts/lib/whereami.sh
 source "${DOTFILES_ROOT}/scripts/lib/whereami.sh"
 
-whereami
+whereami "$@"

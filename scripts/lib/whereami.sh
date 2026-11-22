@@ -6,9 +6,68 @@
 
 # whereami prints the current public IP along with country/ISP info and a
 # cleanness score (100 = clean) scraped from Scamalytics.
+# With -v/--verbose it also prints the country each geo-IP service reports.
 # Returns 0 when a live source responded, 1 when only stale cache was available,
 # 2 when no source and no cache could produce any output.
 whereami() {
+    local verbose=0 rc=0
+    case "${1:-}" in
+    -v | --verbose) verbose=1 ;;
+    esac
+
+    _whereami_summary || rc=$?
+    if [ "$verbose" = 1 ]; then
+        _whereami_verbose
+    fi
+    return "$rc"
+}
+
+# _whereami_verbose queries several geo-IP services in parallel and prints the
+# country code each one reports, so mismatches between providers stand out.
+_whereami_verbose() {
+    local dir name
+    dir="$(mktemp -d)" || return 0
+
+    # Each probe prints a bare country code; anything else is shown as "-".
+    _whereami_probe "$dir" ip-api "http://ip-api.com/json/?fields=countryCode" '.countryCode'
+    _whereami_probe "$dir" ipinfo "https://ipinfo.io/json" '.country'
+    _whereami_probe "$dir" ipwho.is "https://ipwho.is/" '.country_code'
+    _whereami_probe "$dir" geojs "https://get.geojs.io/v1/ip/country.json" '.country'
+    _whereami_probe "$dir" country.is "https://api.country.is" '.country'
+    _whereami_probe "$dir" ifconfig.io "https://ifconfig.io/country_code" ''
+    _whereami_probe "$dir" cloudflare "https://www.cloudflare.com/cdn-cgi/trace" 'loc'
+    _whereami_probe "$dir" chatgpt.com "https://chatgpt.com/cdn-cgi/trace" 'loc'
+    _whereami_probe "$dir" claude.ai "https://claude.ai/cdn-cgi/trace" 'loc'
+    _whereami_probe "$dir" netflix "https://api.fast.com/netflix/speedtest/v2?https=true&token=YXNkZmFzZGxmbnNkYWZoYXNkZmhrYWxm&urlCount=1" '.client.location.country'
+    wait
+
+    for name in ip-api ipinfo ipwho.is geojs country.is ifconfig.io cloudflare chatgpt.com claude.ai netflix; do
+        printf '  %-12s %s\n' "$name" "$(cat "$dir/$name" 2>/dev/null || echo -)"
+    done
+    rm -rf "$dir"
+}
+
+# _whereami_probe <dir> <name> <url> <selector> fetches one service in the
+# background and writes its country code to <dir>/<name>. <selector> is a jq
+# path for JSON replies, a key for Cloudflare "key=value" traces (no leading
+# dot), or empty for plain-text replies.
+_whereami_probe() {
+    local dir="$1" name="$2" url="$3" sel="$4"
+    (
+        local out
+        case "$sel" in
+        '') out="$(curl -sL --max-time 8 "$url" 2>/dev/null)" ;;
+        .*) out="$(curl -sL --max-time 8 "$url" 2>/dev/null | jq -r "$sel // empty" 2>/dev/null)" ;;
+        *) out="$(curl -sL --max-time 8 "$url" 2>/dev/null | sed -n "s/^${sel}=//p")" ;;
+        esac
+        # Only accept a two-letter code (rejects challenge pages and errors).
+        if [[ "$out" =~ ^[A-Za-z]{2}$ ]]; then
+            echo "$out" | tr "[:lower:]" "[:upper:]" >"$dir/$name"
+        fi
+    ) &
+}
+
+_whereami_summary() {
     local ip_country_url="http://ip-api.com/json/?fields=status,query,country,isp,proxy,hosting"
     local fallback_ip_country_url="http://ifconfig.io/all.json"
     local iran_access_ip_url="https://ipmyp.ir/"
