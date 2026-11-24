@@ -5,6 +5,7 @@ stable_folders=(
     "$HOME/Downloads/Telegram Desktop"
     "$HOME/Downloads/xandikos"
     "$HOME/Downloads/handy"
+    "$HOME/Downloads/upkeep"
 )
 
 for folder in "${stable_folders[@]}"; do
