@@ -4,7 +4,7 @@
 # the right status that wezterm.lua drew in Lua, moved here because Ghostty has
 # no status bar:
 #
-#    Thu 19 Nov · 28 Aba 1405    Tehran 03:11    Madrid 00:41    New York 18:41
+#    Thu 19 Nov 2026 · 28 Aba 1405    Tehran 03:11    Madrid 00:41    New York 18:41
 #
 # The date is Madrid's (the home zone), Gregorian and Jalali. No seconds: tmux
 # runs this once per status-interval, so they would only ever be stale.
@@ -28,7 +28,7 @@ clock_colours=('#ff7fd3' '#ffd27f' '#66d9ef')
 main() {
     local out jalali zone city i=0
 
-    out="#[fg=${date_colour}]${calendar}  $(TZ=Europe/Madrid date '+%a %d %b')"
+    out="#[fg=${date_colour}]${calendar}  $(TZ=Europe/Madrid date '+%a %d %b %Y')"
 
     # jdate comes with jcal, which not every machine has.
     if command -v jdate >/dev/null 2>&1; then
