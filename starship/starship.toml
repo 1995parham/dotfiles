@@ -211,6 +211,11 @@ disabled = false
 vimcmd_symbol = '[](bold green)'
 
 # Claude Code statusline (1.25+): rendered by `starship statusline claude-code`.
-# Combines the usual repo context with Claude's own session modules.
+# Combines the usual repo context with Claude's own session modules. No
+# claude_cost: on a subscription its dollar value is only an API estimate.
 [profiles]
-claude-code = "$directory$git_branch$git_status$claude_model$claude_context$claude_cost"
+claude-code = "$directory$git_branch$git_status$claude_model$claude_context"
+
+# The effort level (1.27+) follows the model name; the group hides without one.
+[claude_model]
+format = '[$symbol$model( \($effort\))]($style) '
